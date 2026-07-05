@@ -1,0 +1,13 @@
+---
+import Base from '../../layouts/Base.astro';
+const kind = Astro.url.pathname.includes('battery') ? 'battery' : Astro.url.pathname.includes('accessory') ? 'budget' : 'storage';
+const title = kind === 'battery' ? 'Battery life estimator' : kind === 'budget' ? 'Accessory budget calculator' : 'Steam Deck storage planner';
+---
+<Base title={`${title} — Handheld Settings Lab`} description="A free calculator for handheld gaming planning.">
+<section class="section"><div class="wrap article"><span class="eyebrow">Calculator</span><h1>{title}</h1><p class="muted">Fast estimates for portable PC gaming. Numbers are planning estimates, not manufacturer claims.</p><div class="card calc">
+{kind === 'storage' && <><label>Total storage GB</label><input id="a" type="number" value="512"/><label>Average game size GB</label><input id="b" type="number" value="35"/><label>Reserve space GB</label><input id="c" type="number" value="60"/></>}
+{kind === 'battery' && <><label>Battery watt-hours</label><input id="a" type="number" value="50"/><label>Estimated system draw watts</label><input id="b" type="number" value="15"/><label>Safety buffer %</label><input id="c" type="number" value="10"/></>}
+{kind === 'budget' && <><label>MicroSD / SSD budget</label><input id="a" type="number" value="80"/><label>Dock / charger budget</label><input id="b" type="number" value="70"/><label>Case / controller budget</label><input id="c" type="number" value="90"/></>}
+<div class="result"><strong id="out">Calculating…</strong><p class="muted" id="hint"></p></div></div></div></section>
+<script is:inline define:vars={{kind}}>(()=>{const $=id=>document.getElementById(id);function calc(){const a=+$('a').value||0,b=+$('b').value||0,c=+$('c').value||0;let out='',hint='';if(kind==='storage'){const fit=Math.max(0,Math.floor((a-c)/Math.max(1,b)));out=`About ${fit} games fit`;hint=`Assumes ${c}GB reserved for shader cache, saves, OS overhead, and updates.`}else if(kind==='battery'){const hrs=(a*(1-c/100))/Math.max(1,b);out=`About ${hrs.toFixed(1)} hours`;hint='Lower refresh rate, brightness, and TDP can move this estimate a lot.'}else{out=`Estimated kit total: $${(a+b+c).toFixed(0)}`;hint='Start with storage and a good charger before buying cosmetic accessories.'}$('out').textContent=out;$('hint').textContent=hint}['a','b','c'].forEach(id=>$(id).addEventListener('input',calc));calc()})();</script>
+</Base>

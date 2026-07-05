@@ -1,0 +1,11 @@
+# Handheld Settings Lab
+
+Handheld Settings Lab publishes handheld PC game settings, calculators, and gear guides.
+
+Core sections:
+- /steam-deck-settings/
+- /rog-ally-settings/
+- /calculators/
+- /guides/
+
+Editorial guardrails: do not fabricate benchmark data, test claims, affiliate relationships, or official affiliations.

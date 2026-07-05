@@ -1,0 +1,8 @@
+---
+import Base from '../../layouts/Base.astro';
+import { games } from '../../data/games';
+const platform = Astro.url.pathname.includes('rog-ally') ? 'ROG Ally' : 'Steam Deck';
+---
+<Base title={`${platform} settings hub — Handheld Settings Lab`} description={`Baseline ${platform} game settings, FPS targets, storage notes, and handheld play tips.`}>
+<section class="section"><div class="wrap"><span class="eyebrow">{platform} hub</span><h1 style="font-size:clamp(2.6rem,6vw,5.4rem);line-height:1;letter-spacing:-.06em">{platform} game settings</h1><p class="muted">Start with a stable baseline, then tune for battery, frame pacing, and visual quality.</p><table class="table"><thead><tr><th>Game</th><th>Target</th><th>Storage</th><th>Preset</th></tr></thead><tbody>{games.map(game => <tr><td><a href={`/${platform === 'ROG Ally' ? 'rog-ally-settings' : 'steam-deck-settings'}/${game.slug}/`}><strong>{game.title}</strong></a></td><td>{platform === 'ROG Ally' ? game.allyFps : game.deckFps}</td><td>{game.storage}GB</td><td>{game.preset}</td></tr>)}</tbody></table></div></section>
+</Base>

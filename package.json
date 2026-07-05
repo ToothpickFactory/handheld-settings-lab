@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "check": "astro check && node scripts/site-audit.mjs",
+    "preview": "astro preview",
+    "hydrate:data": "node scripts/hydrate-data.mjs",
+    "new:posts": "node scripts/generate-daily-posts.mjs"
+  },
+  "dependencies": {
+    "@astrojs/check": "latest",
+    "astro": "latest",
+    "typescript": "latest"
+  }
+}

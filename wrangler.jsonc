@@ -1,0 +1,8 @@
+{
+  "name": "handheld-settings-lab",
+  "compatibility_date": "2026-07-05",
+  "pages_build_output_dir": "dist",
+  "kv_namespaces": [
+    { "binding": "NEWSLETTER_LEADS", "id": "54df0e070b7b4c589263138305eb79ae" }
+  ]
+}
