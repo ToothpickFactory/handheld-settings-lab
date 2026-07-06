@@ -1,0 +1,74 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const sourceLinks = [
+  { label: 'Valve Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' },
+  { label: 'ASUS ROG Ally X specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/' },
+  { label: 'Lenovo Legion Go PSREF specifications', url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1' },
+  { label: 'USB-IF USB Charger / USB Power Delivery overview', url: 'https://www.usb.org/usb-charger-pd' }
+];
+
+const searchLinks = [
+  { label: '65W USB-C PD power banks', href: 'https://www.amazon.com/s?k=65w+usb+c+pd+power+bank' },
+  { label: '100W USB-C PD power banks', href: 'https://www.amazon.com/s?k=100w+usb+c+pd+power+bank' },
+  { label: 'USB-C PD cables with wattage display', href: 'https://www.amazon.com/s?k=usb+c+pd+cable+100w' }
+];
+---
+<Base title="USB-C power bank wattage for Steam Deck, ROG Ally, and Legion Go — Handheld Settings Lab" description="A spec-informed guide to choosing USB-C PD power banks for handheld gaming PCs without fake battery-test claims.">
+  <article class="wrap article">
+    <span class="eyebrow">Accessory guide</span>
+    <h1>USB-C power bank wattage for handheld gaming PCs</h1>
+    <p class="muted">A power bank can keep a Steam Deck, ROG Ally, or Legion Go alive on travel days, but the label matters. This is baseline/spec-informed buying guidance, not a lab-tested runtime ranking.</p>
+    <p class="affiliate-note">Disclosure: shopping links are generic searches marked sponsored/nofollow. We have not added an affiliate tag or claimed hands-on testing for any specific battery pack.</p>
+
+    <div class="grid cols2">
+      <div class="card">
+        <span class="chip">Quick pick</span>
+        <h2>Buy 65W USB-C PD as the floor</h2>
+        <p>For current handheld PCs, a 65W USB-C Power Delivery output is the safest default. It covers common bundled adapter classes, leaves headroom for play-and-charge, and avoids underpowered 18W/30W phone banks.</p>
+      </div>
+      <div class="card">
+        <span class="chip">Travel pick</span>
+        <h2>Consider 20,000–27,000 mAh for flights</h2>
+        <p>Capacity labels are approximate and conversion losses are real, so treat big packs as session extenders rather than guaranteed all-day power. Check airline limits before flying with very large batteries.</p>
+      </div>
+    </div>
+
+    <h2>Device baseline</h2>
+    <div class="grid cols3">
+      <div class="card"><span class="chip">Steam Deck</span><h3>45W class</h3><p>Valve lists a PD3.0 USB-C power supply at 45W.</p></div>
+      <div class="card"><span class="chip">ROG Ally X</span><h3>65W class</h3><p>ASUS lists a Type-C 65W AC adapter and an 80Wh battery for the Ally X.</p></div>
+      <div class="card"><span class="chip">Legion Go</span><h3>Check PSREF</h3><p>Lenovo PSREF is the source of truth for current Legion Go configuration and adapter specs.</p></div>
+    </div>
+
+    <h2>What wattage should you buy?</h2>
+    <ul>
+      <li><strong>45W USB-C PD:</strong> workable for Steam Deck-class charging, but less flexible if you later move to a higher-draw Windows handheld.</li>
+      <li><strong>65W USB-C PD:</strong> best default for handheld gaming. It matches the common handheld charger class and keeps accessory buying simple.</li>
+      <li><strong>100W USB-C PD:</strong> useful if the same pack also charges a laptop, dock, tablet, or multiple devices, but not required just to run a Steam Deck.</li>
+      <li><strong>Under 45W:</strong> fine for phones and earbuds, but do not buy it as your main handheld gaming bank.</li>
+    </ul>
+
+    <div class="callout">Cable check: the power bank, USB-C cable, and handheld all need to negotiate the required USB Power Delivery profile. A weak cable can make a good battery look broken.</div>
+
+    <h2>Shopping checklist</h2>
+    <ul>
+      <li>Look for an explicit <strong>USB-C PD output</strong>, not only total shared output across all ports.</li>
+      <li>Confirm the high-watt port still provides enough power when a phone or earbuds are plugged in at the same time.</li>
+      <li>Prefer packs that show wattage or at least clear per-port output labeling.</li>
+      <li>For travel, balance capacity against weight; giant packs make sense for flights, not quick couch sessions.</li>
+      <li>Keep the original handheld charger in your bag for hotel or desk charging when possible.</li>
+    </ul>
+
+    <h2>Search links</h2>
+    <div class="grid cols3">
+      {searchLinks.map(link => <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored"><span class="chip">Sponsored search</span><h3>{link.label}</h3><p class="muted">Compare specs, warranty, airline notes, and recent reviews before buying.</p></a>)}
+    </div>
+
+    <h2>Sources checked</h2>
+    <p>These sources were checked for device/spec context during this update:</p>
+    <ul>
+      {sourceLinks.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+  </article>
+</Base>
