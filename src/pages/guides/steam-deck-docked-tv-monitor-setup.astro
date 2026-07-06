@@ -1,0 +1,89 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const sourceLinks = [
+  { label: 'Valve Steam Deck tech specs', href: 'https://www.steamdeck.com/en/tech' },
+  { label: 'Official Steam Deck Docking Station page', href: 'https://store.steampowered.com/steamdeckdock' },
+  { label: 'USB-IF USB Power Delivery overview', href: 'https://www.usb.org/usb-charger-pd' },
+];
+
+const shoppingLinks = [
+  { label: 'USB-C dock with HDMI/DisplayPort and Ethernet', href: 'https://www.amazon.com/s?k=steam+deck+usb+c+dock+hdmi+displayport+ethernet' },
+  { label: '65W USB-C PD charger', href: 'https://www.amazon.com/s?k=65w+usb+c+pd+charger+steam+deck' },
+  { label: '10-foot HDMI 2.0 or 2.1 cable', href: 'https://www.amazon.com/s?k=10+foot+hdmi+2.1+cable' },
+  { label: 'Bluetooth controller for Steam Deck docked play', href: 'https://www.amazon.com/s?k=bluetooth+controller+steam+deck' },
+];
+---
+<Base title="Steam Deck docked setup guide for TV and monitor play — Handheld Settings Lab" description="A practical Steam Deck docked setup guide for TV and monitor play: dock specs, USB-C power, resolution targets, controller setup, Ethernet, and accessory shopping links.">
+  <article class="wrap article">
+    <span class="eyebrow">Accessory guide</span>
+    <h1>Steam Deck docked setup guide for TV and monitor play</h1>
+    <p class="muted">Build a reliable couch or desk setup without treating the Steam Deck like a full-size gaming PC. This is baseline/spec-informed guidance from public official sources, not a claim that we bench-tested every dock, cable, display, or controller combination.</p>
+    <p class="affiliate-note">Disclosure: shopping links are broad Amazon searches marked sponsored/nofollow. We may earn from qualifying purchases after affiliate tracking is connected. No manufacturer sponsored this guide.</p>
+
+    <section class="card" style="margin:28px 0">
+      <h2>Quick answer</h2>
+      <p>For most players, use a USB-C dock with HDMI or DisplayPort, pass-through USB-C Power Delivery, at least one USB-A port for receivers, and Ethernet if the Deck lives near a router. Keep the Deck's official 45W charger as the minimum baseline; choose a reputable 65W USB-C PD charger if you want extra headroom for dock peripherals and travel charging.</p>
+      <div class="grid cols3" style="margin-top:18px">
+        <div class="stat"><strong>45W</strong><span>Official Steam Deck charger class</span></div>
+        <div class="stat"><strong>1080p</strong><span>Practical default TV target for heavier games</span></div>
+        <div class="stat"><strong>Ethernet</strong><span>Best upgrade for downloads and streaming stability</span></div>
+      </div>
+    </section>
+
+    <h2>What the official sources confirm</h2>
+    <ul>
+      <li>Valve lists USB-C charging, DisplayPort output over USB-C, and microSD expansion in the Steam Deck technical specifications.</li>
+      <li>The official Docking Station product page lists HDMI, DisplayPort, USB, USB-C power input, and Gigabit Ethernet on the dock.</li>
+      <li>USB Power Delivery is the relevant charging standard to look for when buying a third-party charger or power bank.</li>
+    </ul>
+
+    <h2>Recommended docked settings by display</h2>
+    <div class="grid cols2">
+      <div class="card">
+        <span class="chip">Living room TV</span>
+        <h3>Use 1080p as the sane default</h3>
+        <p>A 4K TV can make menus look sharp, but many modern games are happier when the Deck renders at 720p–1080p and lets the TV upscale. Start at 1080p/60 for lightweight games, then drop game resolution or cap frame rate for demanding titles.</p>
+      </div>
+      <div class="card">
+        <span class="chip">Desktop monitor</span>
+        <h3>Match the game's weight, not the panel's maximum</h3>
+        <p>For indies, strategy games, and older PC titles, 1080p can feel great. For large open-world or AAA games, keep handheld-style settings and use the monitor as a bigger screen rather than chasing native high-resolution output.</p>
+      </div>
+    </div>
+
+    <h2>Docked setup checklist</h2>
+    <ol>
+      <li><strong>Connect power first.</strong> Plug a 45W-or-higher USB-C PD charger into the dock's power input before connecting the Deck.</li>
+      <li><strong>Use one video path.</strong> Prefer HDMI for TVs and DisplayPort for monitors when both are available. Avoid stacking adapters unless necessary.</li>
+      <li><strong>Set a realistic external resolution.</strong> If performance feels uneven, test 1920×1080 before changing every in-game setting.</li>
+      <li><strong>Pair controllers before the couch test.</strong> Update and pair Bluetooth controllers close to the Deck, then verify the Steam overlay and suspend/resume behavior.</li>
+      <li><strong>Use Ethernet for big downloads.</strong> A dock with Gigabit Ethernet is especially useful for shader updates, large installs, and game streaming.</li>
+    </ol>
+
+    <h2>Accessory shopping shortlist</h2>
+    <p>These are search links, not hands-on product awards. Prefer products with clear USB-C PD pass-through wattage, return policies, and recent reviews from actual Steam Deck or handheld PC buyers.</p>
+    <div class="grid cols2">
+      {shoppingLinks.map((item) => (
+        <a class="card gear-card" href={item.href} target="_blank" rel="nofollow sponsored">
+          <span class="chip">Sponsored search</span>
+          <h3>{item.label}</h3>
+          <p class="muted">Open a broad Amazon search and compare current listings, specs, and buyer feedback.</p>
+        </a>
+      ))}
+    </div>
+
+    <h2>Common mistakes to avoid</h2>
+    <ul>
+      <li><strong>Buying only for 4K branding.</strong> The Deck can output to high-resolution displays, but game performance still depends on the handheld hardware and in-game settings.</li>
+      <li><strong>Using an underpowered charger.</strong> Phone chargers often work for phones but may not keep up with a docked gaming session plus peripherals.</li>
+      <li><strong>Ignoring cable length.</strong> Couch setups often need a longer HDMI cable and a controller charging plan, not just the dock itself.</li>
+      <li><strong>Assuming every USB-C hub is gaming-safe.</strong> Look for USB-C PD pass-through, display output compatibility, ventilation, and a simple return path.</li>
+    </ul>
+
+    <h2>Sources checked</h2>
+    <ul>
+      {sourceLinks.map((source) => <li><a href={source.href} target="_blank" rel="nofollow">{source.label}</a></li>)}
+    </ul>
+  </article>
+</Base>
