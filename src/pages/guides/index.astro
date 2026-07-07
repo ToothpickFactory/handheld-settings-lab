@@ -1,4 +1,66 @@
 ---
 import Base from '../../layouts/Base.astro';
+
+const guides = [
+  {
+    href: '/guides/rog-ally-x-2280-ssd-upgrade-checklist/',
+    title: 'ROG Ally X 2280 SSD upgrade checklist',
+    description: 'Spec-informed 2280 NVMe buying, recovery prep, microSD fallback, tools, and safe shopping links for Ally X owners.'
+  },
+  {
+    href: '/guides/rog-ally-armoury-crate-power-profiles/',
+    title: 'ROG Ally Armoury Crate power profiles: what to set first',
+    description: 'Set Operating Mode, resolution, frame caps, charger expectations, and travel accessories before tuning individual games.'
+  },
+  {
+    href: '/guides/steam-deck-docked-tv-monitor-setup/',
+    title: 'Steam Deck docked setup guide for TV and monitor play',
+    description: 'Choose a dock, charger, display target, controller setup, and Ethernet plan for couch or desk play.'
+  },
+  {
+    href: '/guides/usb-c-power-bank-wattage-handheld-gaming/',
+    title: 'USB-C power bank wattage for handheld gaming PCs',
+    description: 'Choose 45W, 65W, or 100W USB-C PD packs for Steam Deck, ROG Ally, and Legion Go travel setups.'
+  },
+  {
+    href: '/guides/microsd-vs-ssd-handheld-pc/',
+    title: 'microSD vs SSD for handheld gaming PCs',
+    description: 'Decide when removable storage is enough and when an internal NVMe upgrade makes more sense.'
+  },
+  {
+    href: '/guides/best-handheld-gaming-accessories/',
+    title: 'Best handheld gaming accessories to buy first',
+    description: 'Storage, power banks, docks, and cases — with affiliate-safe shopping links.'
+  },
+  {
+    href: '/guides/steam-deck-storage-planner-how-much-space/',
+    title: 'Steam Deck storage planner: how much space do you need?',
+    description: 'Decide between 256GB, 512GB, 1TB, microSD, and SSD upgrades without overbuying.'
+  },
+  {
+    href: '/guides/best-microsd-cards-for-handheld-gaming/',
+    title: 'Best microSD cards for handheld gaming',
+    description: 'What to buy first and when an SSD upgrade makes more sense.'
+  },
+  {
+    href: '/guides/steam-deck-40fps-explained/',
+    title: 'Steam Deck 40 FPS explained',
+    description: 'Why 40 FPS often feels better than 30 without the battery cost of 60.'
+  }
+];
 ---
-<Base title="Handheld gaming guides — Handheld Settings Lab" description="Practical guides for handheld PC settings, storage, battery, accessories, and gaming gear."><section class="section"><div class="wrap"><h1 style="font-size:clamp(2.8rem,6vw,5rem);line-height:1">Guides</h1><div class="grid cols2"><a class="card" href="/guides/rog-ally-armoury-crate-power-profiles/"><h3>ROG Ally Armoury Crate power profiles: what to set first</h3><p class="muted">Set Operating Mode, resolution, frame caps, charger expectations, and travel accessories before tuning individual games.</p></a><a class="card" href="/guides/steam-deck-docked-tv-monitor-setup/"><h3>Steam Deck docked setup guide for TV and monitor play</h3><p class="muted">Choose a dock, charger, display target, controller setup, and Ethernet plan for couch or desk play.</p></a><a class="card" href="/guides/usb-c-power-bank-wattage-handheld-gaming/"><h3>USB-C power bank wattage for handheld gaming PCs</h3><p class="muted">Choose 45W, 65W, or 100W USB-C PD packs for Steam Deck, ROG Ally, and Legion Go travel setups.</p></a><a class="card" href="/guides/microsd-vs-ssd-handheld-pc/"><h3>microSD vs SSD for handheld gaming PCs</h3><p class="muted">Decide when removable storage is enough and when an internal NVMe upgrade makes more sense.</p></a><a class="card" href="/guides/best-handheld-gaming-accessories/"><h3>Best handheld gaming accessories to buy first</h3><p class="muted">Storage, power banks, docks, and cases — with affiliate-safe shopping links.</p></a><a class="card" href="/guides/steam-deck-storage-planner-how-much-space/"><h3>Steam Deck storage planner: how much space do you need?</h3><p class="muted">Decide between 256GB, 512GB, 1TB, microSD, and SSD upgrades without overbuying.</p></a><a class="card" href="/guides/best-microsd-cards-for-handheld-gaming/"><h3>Best microSD cards for handheld gaming</h3><p class="muted">What to buy first and when an SSD upgrade makes more sense.</p></a><a class="card" href="/guides/steam-deck-40fps-explained/"><h3>Why 40 FPS feels so good on handhelds</h3><p class="muted">A plain-English frame pacing guide.</p></a></div></div></section></Base>
+<Base title="Handheld gaming guides — Handheld Settings Lab" description="Practical guides for handheld PC settings, storage, battery, accessories, and gaming gear.">
+  <section class="section">
+    <div class="wrap">
+      <h1 style="font-size:clamp(2.8rem,6vw,5rem);line-height:1">Guides</h1>
+      <div class="grid cols2">
+        {guides.map((guide) => (
+          <a class="card" href={guide.href}>
+            <h3>{guide.title}</h3>
+            <p class="muted">{guide.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>
