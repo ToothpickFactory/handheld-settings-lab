@@ -1,0 +1,124 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const sourceLinks = [
+  { label: 'ASUS ROG Ally Series FAQ / Armoury Crate SE', href: 'https://www.asus.com/support/faq/1050046/' },
+  { label: 'ROG Ally (2023) official specifications', href: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-2023/spec/' },
+  { label: 'ROG Ally X (2024) official specifications', href: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/' },
+  { label: 'ASUS ROG gaming handheld overview', href: 'https://www.asus.com/us/site/gaming/rog/gaming-handheld/rog-ally.html' },
+];
+
+const shoppingLinks = [
+  { label: '65W USB-C PD charger for ROG Ally', href: 'https://www.amazon.com/s?k=65w+usb+c+pd+charger+rog+ally' },
+  { label: 'ROG Ally dock with USB-C PD pass-through', href: 'https://www.amazon.com/s?k=rog+ally+dock+usb+c+pd+65w' },
+  { label: 'USB-C cable rated for 100W PD', href: 'https://www.amazon.com/s?k=100w+usb+c+cable+rog+ally' },
+  { label: 'ROG Ally carrying case with charger storage', href: 'https://www.amazon.com/s?k=rog+ally+case+charger+storage' },
+];
+---
+<Base title="ROG Ally Armoury Crate power profiles guide — Handheld Settings Lab" description="A practical ROG Ally and ROG Ally X guide to Armoury Crate SE operating modes, Command Center toggles, charger expectations, and travel accessories.">
+  <article class="wrap article">
+    <span class="eyebrow">ROG Ally guide</span>
+    <h1>ROG Ally Armoury Crate power profiles: what to set first</h1>
+    <p class="muted">The ROG Ally family lives or dies by quick power choices: Operating Mode, frame limiter, resolution, refresh rate, and whether the handheld is on battery or a USB-C charger. This is official-source/spec-informed setup guidance, not a claim that we personally benchmarked every game or accessory.</p>
+    <p class="affiliate-note">Disclosure: shopping links are broad Amazon searches marked sponsored/nofollow. We do not have an affiliate tag connected here, and no accessory maker sponsored this guide.</p>
+
+    <section class="card" style="margin:28px 0">
+      <h2>Quick answer</h2>
+      <p>Use Armoury Crate SE and Command Center as your first stop before changing dozens of in-game settings. Start lighter games in Silent or Performance, use Turbo only when you need it, and keep a clear charger plan: ASUS lists 65W USB-C adapter support for current ROG Ally models, while the Ally X moves to a larger 80Wh battery in the official specifications.</p>
+      <div class="grid cols3" style="margin-top:18px">
+        <div class="stat"><strong>Silent</strong><span>Best first try for indies, 2D games, and low-noise sessions</span></div>
+        <div class="stat"><strong>Performance</strong><span>Balanced default for many handheld PC games</span></div>
+        <div class="stat"><strong>Turbo</strong><span>Use selectively for heavier games or docked power</span></div>
+      </div>
+    </section>
+
+    <h2>What ASUS sources confirm</h2>
+    <ul>
+      <li>ASUS documents Armoury Crate SE, Command Center, and Operating Mode controls in the ROG Ally support FAQ.</li>
+      <li>The official ROG Ally specification pages list USB-C charging and 65W adapter context for the handheld line.</li>
+      <li>The ROG Ally X specification page lists an 80Wh battery, making battery expectations different from the original Ally even when the tuning workflow is similar.</li>
+    </ul>
+
+    <h2>Set these before tuning a game</h2>
+    <div class="grid cols2">
+      <div class="card">
+        <span class="chip">1. Operating Mode</span>
+        <h3>Pick the lowest mode that still feels stable</h3>
+        <p>Start in Performance for unknown games, then move down to Silent for lighter titles or up to Turbo for demanding scenes. Lower power means less fan noise and less heat; higher power should be reserved for games that actually benefit from it.</p>
+      </div>
+      <div class="card">
+        <span class="chip">2. Resolution</span>
+        <h3>720p or 900p is often the better handheld target</h3>
+        <p>The display can be sharp, but handheld battery life usually improves when the game renders at a modest resolution and uses upscaling or simpler settings. Try resolution before turning every visual option to low.</p>
+      </div>
+      <div class="card">
+        <span class="chip">3. Frame limit</span>
+        <h3>Cap frames for consistency</h3>
+        <p>A realistic 30, 40, 45, or 60 FPS cap can feel better than an uncapped game bouncing between highs and lows. Use a cap that the game can hold in busy areas, not just in menus.</p>
+      </div>
+      <div class="card">
+        <span class="chip">4. Charger state</span>
+        <h3>Separate battery profiles from plugged-in profiles</h3>
+        <p>Do not judge battery settings while plugged into a dock or charger. Test your travel profile on battery, then keep a more aggressive plugged-in profile for desk or couch play.</p>
+      </div>
+    </div>
+
+    <h2>Baseline profile recipes</h2>
+    <div class="grid cols3">
+      <div class="card">
+        <span class="chip">Indie / 2D / card games</span>
+        <h3>Quiet battery profile</h3>
+        <ul>
+          <li>Start with Silent or the lowest comfortable custom mode.</li>
+          <li>Use 720p–1080p depending on the game UI.</li>
+          <li>Cap at 45 or 60 FPS only if the game holds it cleanly.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="chip">Action / RPG default</span>
+        <h3>Balanced handheld profile</h3>
+        <ul>
+          <li>Start with Performance.</li>
+          <li>Try 720p or 900p with upscaling if available.</li>
+          <li>Use a 30 or 40 FPS cap for steadier battery play.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="chip">Docked / heavy games</span>
+        <h3>Plugged-in profile</h3>
+        <ul>
+          <li>Use Turbo only with an appropriate USB-C PD charger.</li>
+          <li>Keep 1080p as the practical TV/monitor starting point.</li>
+          <li>Watch heat, fan noise, and cable/charger stability.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout">Rule of thumb: if the frame-time graph looks messy, reduce the target before raising wattage. Smooth lower FPS usually feels better on a handheld than a hot, loud, inconsistent uncapped profile.</div>
+
+    <h2>Accessory checklist for stable profiles</h2>
+    <p>Accessories can make power profiles more reliable, but only if the specs are clear. These are search links, not hands-on product awards.</p>
+    <div class="grid cols2">
+      {shoppingLinks.map((item) => (
+        <a class="card gear-card" href={item.href} target="_blank" rel="nofollow sponsored">
+          <span class="chip">Sponsored search</span>
+          <h3>{item.label}</h3>
+          <p class="muted">Compare current listings for USB-C PD rating, cable rating, warranty, and recent ROG Ally buyer feedback.</p>
+        </a>
+      ))}
+    </div>
+
+    <h2>Common mistakes to avoid</h2>
+    <ul>
+      <li><strong>Leaving every game uncapped.</strong> A cap helps battery life and smoothness when the game cannot hold the display's maximum refresh target.</li>
+      <li><strong>Testing only in the opening area.</strong> Busy cities, combat, weather, and late-game effects can need a lower target than the tutorial.</li>
+      <li><strong>Assuming any USB-C charger is enough.</strong> Look for explicit USB-C Power Delivery output and a cable that supports the wattage you expect.</li>
+      <li><strong>Using Turbo as the default travel mode.</strong> It is useful, but it is not the first answer for battery life, heat, or fan noise.</li>
+    </ul>
+
+    <h2>Sources checked</h2>
+    <ul>
+      {sourceLinks.map((source) => <li><a href={source.href} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+  </article>
+</Base>
