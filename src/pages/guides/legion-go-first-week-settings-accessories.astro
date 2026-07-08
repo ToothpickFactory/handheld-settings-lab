@@ -1,0 +1,96 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const sourceLinks = [
+  { label: 'Lenovo Legion Go product page', url: 'https://www.lenovo.com/us/en/p/handheld/legion-go/len106g0001' },
+  { label: 'Lenovo Legion Go PSREF specifications', url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1' },
+  { label: 'USB-IF USB Power Delivery overview', url: 'https://www.usb.org/usb-charger-pd' }
+];
+
+const shoppingLinks = [
+  { label: '65W USB-C PD chargers', href: 'https://www.amazon.com/s?k=65w+usb+c+pd+charger' },
+  { label: 'Legion Go carrying cases', href: 'https://www.amazon.com/s?k=lenovo+legion+go+case' },
+  { label: 'Legion Go screen protectors', href: 'https://www.amazon.com/s?k=lenovo+legion+go+screen+protector' },
+  { label: '1TB microSD cards for handheld gaming', href: 'https://www.amazon.com/s?k=1tb+microSD+card+handheld+gaming' }
+];
+
+const firstWeek = [
+  'Update Windows, Legion Space, AMD graphics components, and firmware before judging performance.',
+  'Create two baseline profiles: a quieter battery profile for indie/older games and a plugged-in profile for heavy games.',
+  'Use the built-in kickstand to keep vents clear when downloading, docking, or installing a large library.',
+  'Install only a few large games at first, then use the storage planner to decide whether microSD expansion or an internal SSD upgrade makes sense.',
+  'Test controller mapping, sleep/resume behavior, and cloud saves before a trip.'
+];
+
+const profileCards = [
+  { name: 'Travel / battery', target: 'Lower power, capped FPS', details: 'Use this for deckbuilders, RPGs, emulation front ends you own, and lighter indies. Start conservative, then raise power only if frame pacing feels uneven.' },
+  { name: 'Balanced handheld', target: 'Comfortable heat/noise', details: 'Use this for most 3D games. Prefer stable frame caps and medium settings over chasing peak FPS on battery.' },
+  { name: 'Plugged-in / docked', target: 'Adapter attached', details: 'Use the official charger or a clearly labeled USB-C PD charger. A weak phone charger can drain slowly while the game says it is charging.' }
+];
+---
+<Base title="Legion Go first-week settings and accessories checklist — Handheld Settings Lab" description="A source-informed first-week setup guide for Lenovo Legion Go owners: updates, power profiles, storage, USB-C charging, and accessory buying order.">
+  <article class="wrap article">
+    <span class="eyebrow">Legion Go setup guide</span>
+    <h1>Legion Go first-week settings and accessories checklist</h1>
+    <p class="muted">Use this as a practical first-week baseline for a new Lenovo Legion Go. It is source/spec-informed guidance, not a lab benchmark run, and it avoids made-up FPS or battery claims.</p>
+    <p class="affiliate-note">Disclosure: shopping links are generic Amazon searches marked sponsored/nofollow. Handheld Settings Lab has not added an affiliate tag or claimed hands-on testing for the products behind those searches.</p>
+
+    <div class="callout">Quick answer: update first, build two power profiles, protect the screen before travel, then delay big storage purchases until you know which games you actually keep installed.</div>
+
+    <h2>First-week setup order</h2>
+    <div class="grid cols2">
+      {firstWeek.map((item, index) => (
+        <div class="card">
+          <span class="chip">Step {index + 1}</span>
+          <p>{item}</p>
+        </div>
+      ))}
+    </div>
+
+    <h2>Power profiles to create first</h2>
+    <p>Legion Go tuning is easier when you stop treating every game as a separate science project. Create a small set of profiles, then adjust per-game only when needed.</p>
+    <div class="grid cols3">
+      {profileCards.map((profile) => (
+        <div class="card">
+          <span class="chip">{profile.name}</span>
+          <h3>{profile.target}</h3>
+          <p>{profile.details}</p>
+        </div>
+      ))}
+    </div>
+
+    <h2>Accessory buying order</h2>
+    <ol>
+      <li><strong>Screen protector and case first:</strong> the Legion Go is a travel device with removable controllers and a large display, so protect it before commuting or flying.</li>
+      <li><strong>USB-C PD charger or power bank second:</strong> match the handheld with a clearly labeled USB-C Power Delivery charger. Buy for wattage per USB-C port, not only total charger wattage.</li>
+      <li><strong>Storage after your first installs:</strong> use microSD for flexible library overflow, but consider internal SSD work only if you are comfortable with the process and need faster local storage.</li>
+      <li><strong>Dock later:</strong> wait until you know whether you mostly play handheld, tabletop with the kickstand, or at a TV/monitor.</li>
+    </ol>
+
+    <h2>Settings checklist before a trip</h2>
+    <ul>
+      <li>Open each travel game once while online so launchers, shaders, and first-run prompts are handled.</li>
+      <li>Confirm cloud saves and offline mode behavior for the stores you use.</li>
+      <li>Set a stable frame cap before boarding; stable pacing usually matters more than peak FPS on battery.</li>
+      <li>Pack the original charger or a known-good USB-C PD charger plus a cable rated for the wattage you expect.</li>
+      <li>Keep at least 10–15% storage headroom for updates, shader caches, captures, and Windows maintenance.</li>
+    </ul>
+
+    <h2>Sponsored search links</h2>
+    <div class="grid cols2">
+      {shoppingLinks.map((link) => (
+        <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored">
+          <span class="chip">Sponsored search</span>
+          <h3>{link.label}</h3>
+          <p class="muted">Compare current specs, warranty terms, fit notes, and recent owner reviews before buying.</p>
+        </a>
+      ))}
+    </div>
+
+    <h2>Sources checked</h2>
+    <p>These public sources were checked for product/spec context during this update:</p>
+    <ul>
+      {sourceLinks.map((source) => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+  </article>
+</Base>
