@@ -1,0 +1,105 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base title="Handheld PC SSD form factor guide: 2230 vs 2242 vs 2280 — Handheld Settings Lab" description="Spec-informed buying guide for Steam Deck, ROG Ally, ROG Ally X, Legion Go, and handheld PC SSD form factors, recovery prep, microSD fallback, and safe shopping links.">
+  <article class="wrap article">
+    <span class="eyebrow">Storage guide</span>
+    <h1>Handheld PC SSD form factor guide: 2230 vs 2242 vs 2280</h1>
+    <p class="muted">A source-informed checklist for buying the right internal SSD shape before you open a Steam Deck, ROG Ally, ROG Ally X, Legion Go, or similar handheld PC. This is not benchmark testing: it is a compatibility, recovery, and shopping-risk guide built from official specs and common handheld storage constraints.</p>
+    <p class="affiliate-note">Disclosure: shopping links are marked sponsored/nofollow. We do not claim hands-on testing for any specific SSD, enclosure, adapter, or tool kit unless a future review says so directly.</p>
+
+    <div class="callout">
+      <strong>Fast answer:</strong> do not shop by capacity alone. Match the <strong>M.2 length</strong> your handheld was designed for, then plan OS recovery/cloning before opening the shell. A 2TB drive that is the wrong physical size is a bad buy even if the PCIe/NVMe wording looks right.
+    </div>
+
+    <h2>Common handheld SSD sizes</h2>
+    <div class="grid cols2">
+      <section class="card">
+        <span class="chip">M.2 2230</span>
+        <h3>Short drive, common in compact handhelds</h3>
+        <p>2230 means 22mm wide and 30mm long. It is the size many Steam Deck owners associate with internal upgrades. It usually costs more per terabyte than 2280 because the board is shorter.</p>
+        <ul>
+          <li>Best fit when the device specifically calls for 2230.</li>
+          <li>Check single-sided fit, power behavior, seller quality, and warranty.</li>
+          <li>Use microSD for overflow if you do not want to open the device.</li>
+        </ul>
+      </section>
+      <section class="card">
+        <span class="chip">M.2 2242</span>
+        <h3>Mid-length drive, less universal</h3>
+        <p>2242 means 42mm long. Some handhelds and compact PCs use this middle size, but selection can be thinner than mainstream desktop 2280 drives. Confirm the exact support page for your model before buying.</p>
+        <ul>
+          <li>Do not assume a 2230 or 2280 listing is a safe substitute.</li>
+          <li>Avoid extension/adaptor hacks unless you understand fit, shielding, and thermal risk.</li>
+          <li>Keep a return window in case model revisions differ.</li>
+        </ul>
+      </section>
+      <section class="card">
+        <span class="chip">M.2 2280</span>
+        <h3>Desktop-length drive, easier to source</h3>
+        <p>2280 means 80mm long. It is the most common consumer NVMe format, which helps price and capacity, but it only belongs in handhelds designed for it. ASUS lists the ROG Ally X with a PCIe 4.0 NVMe M.2 SSD (2280).</p>
+        <ul>
+          <li>Good capacity value when officially supported.</li>
+          <li>Favor efficient, reliable drives over headline desktop benchmark numbers.</li>
+          <li>Check whether heatsinks, thick labels, or double-sided components affect fit.</li>
+        </ul>
+      </section>
+      <section class="card">
+        <span class="chip">microSD fallback</span>
+        <h3>Still useful after an SSD upgrade</h3>
+        <p>microSD is slower than internal NVMe, but it is removable, low-risk, and useful for indies, older PC games, media, screenshots, installers, and legal ROM libraries. It also buys time while you plan a proper recovery workflow.</p>
+        <ul>
+          <li>Use A2/V30/U3 cards as a starting point for game-library use.</li>
+          <li>Do not treat microSD as a magic fix for every huge modern game.</li>
+          <li>Keep critical saves backed up elsewhere.</li>
+        </ul>
+      </section>
+    </div>
+
+    <h2>Device-by-device buying rule</h2>
+    <table>
+      <thead><tr><th>Device family</th><th>Storage rule</th><th>Before buying</th></tr></thead>
+      <tbody>
+        <tr><td>Steam Deck / Steam Deck OLED</td><td>Use Valve's official tech specs as the source of truth; internal NVMe plus high-speed microSD support are listed publicly.</td><td>Confirm your exact model and warranty comfort level; a microSD card is often the safer first expansion.</td></tr>
+        <tr><td>ROG Ally X</td><td>ASUS publicly lists a 1TB PCIe 4.0 NVMe M.2 SSD (2280) and UHS-II microSD card reader.</td><td>Plan clone/recovery, have tools ready, and use mainstream 2280 NVMe shopping filters.</td></tr>
+        <tr><td>Original ROG Ally / other Ally models</td><td>Do not copy Ally X buying advice blindly; check the specific ASUS spec page for your model.</td><td>Search the exact SKU and support page before buying 2230/2280 storage.</td></tr>
+        <tr><td>Legion Go</td><td>Use Lenovo PSREF/support docs for the exact generation and SKU before buying.</td><td>Confirm M.2 length, screw position, and recovery media path; do not rely on a marketplace listing alone.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Pre-open recovery checklist</h2>
+    <ol>
+      <li><strong>Write down the exact model:</strong> handheld names are reused across generations, special editions, and storage tiers.</li>
+      <li><strong>Decide clone vs clean recovery:</strong> cloning needs an enclosure; clean recovery needs manufacturer recovery media, Windows setup, drivers, launcher logins, and patience.</li>
+      <li><strong>Back up non-cloud data:</strong> screenshots, mod folders, emulator directories where legal, offline saves, documents, and launcher-specific files.</li>
+      <li><strong>Check BitLocker/device encryption:</strong> make sure you can unlock or recover Windows if encryption is enabled.</li>
+      <li><strong>Use the right tools:</strong> precision screwdriver kit, pry tool if recommended by a real repair guide, screw tray, clean desk, and no rushing.</li>
+      <li><strong>Keep the original SSD:</strong> do not wipe or sell it until the new drive has survived several boot cycles, updates, and game launches.</li>
+    </ol>
+
+    <h2>Affiliate-safe shopping starting points</h2>
+    <p>These are search links, not product endorsements or hands-on picks:</p>
+    <p>
+      <a class="btn ghost" href="https://www.amazon.com/s?k=2230+NVMe+SSD+Steam+Deck" target="_blank" rel="nofollow sponsored">Search 2230 NVMe SSDs</a>
+      <a class="btn ghost" href="https://www.amazon.com/s?k=2242+NVMe+SSD+handheld+PC" target="_blank" rel="nofollow sponsored">Search 2242 NVMe SSDs</a>
+      <a class="btn ghost" href="https://www.amazon.com/s?k=2280+NVMe+SSD+ROG+Ally+X" target="_blank" rel="nofollow sponsored">Search 2280 NVMe SSDs</a>
+      <a class="btn ghost" href="https://www.amazon.com/s?k=USB-C+NVMe+SSD+enclosure" target="_blank" rel="nofollow sponsored">Search USB-C NVMe enclosures</a>
+    </p>
+
+    <h2>What not to claim from an SSD upgrade</h2>
+    <ul>
+      <li>Do not expect a guaranteed FPS increase. Storage can affect install speed, patching, transfers, and some load behavior, but this page does not claim measured frame-rate gains.</li>
+      <li>Do not assume a hotter/faster desktop drive is better in a handheld shell.</li>
+      <li>Do not rely on marketplace compatibility text when the manufacturer spec page says something different.</li>
+      <li>Do not buy a drive with an attached heatsink unless the handheld's service guidance explicitly supports that thickness.</li>
+    </ul>
+
+    <h2>Source notes</h2>
+    <ul>
+      <li><a href="https://www.steamdeck.com/en/tech" target="_blank" rel="nofollow">Valve Steam Deck technical specifications</a> — checked for public storage and microSD language.</li>
+      <li><a href="https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/" target="_blank" rel="nofollow">ASUS ROG Ally X official specifications</a> — checked for 1TB PCIe 4.0 NVMe M.2 SSD (2280) and UHS-II microSD reader wording.</li>
+      <li><a href="https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1" target="_blank" rel="nofollow">Lenovo PSREF: Legion Go 8APU1</a> — official model-reference starting point for Legion Go storage checks.</li>
+      <li><a href="https://www.sdcard.org/developers/sd-standard-overview/application-performance-class/" target="_blank" rel="nofollow">SD Association Application Performance Class overview</a> — context for A1/A2 microSD card labels.</li>
+    </ul>
+  </article>
+</Base>
