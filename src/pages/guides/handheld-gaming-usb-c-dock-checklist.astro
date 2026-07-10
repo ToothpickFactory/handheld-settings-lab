@@ -1,0 +1,94 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const sourceLinks = [
+  { label: 'Valve Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' },
+  { label: 'ASUS ROG Ally X official specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/' },
+  { label: 'Lenovo Legion Go PSREF specifications', url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1' },
+  { label: 'USB-IF USB Charger / USB Power Delivery overview', url: 'https://www.usb.org/usb-charger-pd' },
+  { label: 'HDMI Licensing overview', url: 'https://www.hdmi.org/spec/index' }
+];
+
+const dockChecks = [
+  {
+    label: 'Power pass-through',
+    headline: '65W+ USB-C PD input is the safe floor',
+    body: 'Steam Deck can live with less than many Windows handhelds, but a dock that accepts 65W or more gives room for the handheld plus HDMI, Ethernet, USB receivers, and storage.'
+  },
+  {
+    label: 'Display output',
+    headline: 'Match the screen you actually use',
+    body: 'For a couch TV, prioritize stable 1080p or 4K output over marketing language. For a desk monitor, check refresh-rate support and whether the dock lists HDMI or DisplayPort modes clearly.'
+  },
+  {
+    label: 'Cable geometry',
+    headline: 'Short top-port cables matter',
+    body: 'Handhelds with top USB-C ports need a dock cable that reaches without twisting the port. Avoid stiff short cables that put side-load on the connector.'
+  }
+];
+
+const shoppingLinks = [
+  { label: '65W USB-C PD handheld docks', href: 'https://www.amazon.com/s?k=65w+usb+c+steam+deck+dock' },
+  { label: '100W USB-C PD docks with Ethernet', href: 'https://www.amazon.com/s?k=100w+usb+c+dock+ethernet+hdmi' },
+  { label: 'USB-C 100W E-marker cables', href: 'https://www.amazon.com/s?k=usb+c+100w+e-marker+cable' }
+];
+---
+<Base title="USB-C dock checklist for Steam Deck, ROG Ally, and Legion Go — Handheld Settings Lab" description="A spec-informed USB-C dock buying checklist for Steam Deck, ROG Ally, ROG Ally X, Legion Go, couch TVs, monitors, Ethernet, chargers, and cables.">
+  <article class="wrap article">
+    <span class="eyebrow">Accessory guide</span>
+    <h1>USB-C dock checklist for handheld gaming PCs</h1>
+    <p class="muted">A dock can turn a Steam Deck, ROG Ally, ROG Ally X, or Legion Go into a couch console or compact desktop, but the wrong one creates charging warnings, flaky HDMI, tight cables, or random USB disconnects. This is baseline/spec/community-source-informed guidance, not a hands-on dock benchmark.</p>
+    <p class="affiliate-note">Disclosure: shopping links are generic Amazon searches marked sponsored/nofollow. Handheld Settings Lab has not added an affiliate tag, has not tested every listed dock, and does not claim endorsement from Valve, ASUS, Lenovo, USB-IF, or HDMI Licensing Administrator.</p>
+
+    <div class="grid cols3">
+      {dockChecks.map(check => (
+        <div class="card">
+          <span class="chip">{check.label}</span>
+          <h2>{check.headline}</h2>
+          <p>{check.body}</p>
+        </div>
+      ))}
+    </div>
+
+    <h2>The short answer</h2>
+    <p>For a first handheld gaming dock, buy around a <strong>65W-or-higher USB-C Power Delivery dock</strong> with HDMI, at least two USB-A ports, and Ethernet if you play downloads-heavy or multiplayer games. Pair it with a charger that can feed the dock and the handheld at the same time.</p>
+    <p>If the dock is meant to replace a desktop hub or serve a high-refresh monitor, step up to a clearer spec sheet: explicit USB-C PD pass-through, the display mode you need, Ethernet speed, and whether the included cable is removable.</p>
+
+    <h2>What the product page must say</h2>
+    <ul>
+      <li><strong>USB-C PD pass-through wattage:</strong> the dock should list input/pass-through, not only “fast charging.”</li>
+      <li><strong>Display mode:</strong> look for explicit HDMI or DisplayPort output targets, such as 1080p/60, 4K/60, or the monitor mode you plan to use.</li>
+      <li><strong>Ethernet:</strong> Gigabit Ethernet is useful for large game downloads, cloud saves, streaming boxes, and multiplayer sessions near a router.</li>
+      <li><strong>USB layout:</strong> count real ports for a controller dongle, keyboard/mouse receiver, external drive, capture card, or headset adapter.</li>
+      <li><strong>Host cable fit:</strong> check photos/reviews for Steam Deck, ROG Ally, and Legion Go compatibility, especially if the dock has a fixed cradle or very short cable.</li>
+    </ul>
+
+    <div class="callout">Do not assume a laptop USB-C hub is a good gaming dock. Many office hubs are fine for keyboards and presentations but vague about pass-through power, heat, or sustained display use while a handheld is under load.</div>
+
+    <h2>Device-specific notes</h2>
+    <div class="grid cols3">
+      <div class="card"><span class="chip">Steam Deck</span><h3>Easy dock target</h3><p>Valve’s official tech specs list USB-C with DisplayPort Alternate Mode and a 45W USB-C PD power supply, so a 65W dock/charger kit is a practical headroom pick for most Deck setups.</p></div>
+      <div class="card"><span class="chip">ROG Ally / Ally X</span><h3>Prioritize 65W+ power</h3><p>Windows handhelds can draw more aggressively in performance profiles. Treat 65W USB-C PD as the baseline for docked play, and avoid docks that hide the real pass-through number.</p></div>
+      <div class="card"><span class="chip">Legion Go</span><h3>Mind the big screen</h3><p>The Legion Go is often paired with larger displays or tabletop play. Check Lenovo PSREF/product specs and dock reviews for cable reach, port placement, and display behavior.</p></div>
+    </div>
+
+    <h2>Buy in this order</h2>
+    <ol>
+      <li><strong>Use the stock charger first</strong> if it meets the dock’s input requirement; upgrade only when the dock or handheld warns about low power.</li>
+      <li><strong>Choose the dock by screen target</strong>: TV/couch, desk monitor, or travel bag. One dock rarely excels at all three.</li>
+      <li><strong>Add Ethernet when the dock stays home</strong>; skip it for the smallest travel hub if Wi-Fi is reliable where you play.</li>
+      <li><strong>Check the cable before blaming the dock</strong>. A weak or charge-only cable can cause display or power negotiation problems.</li>
+    </ol>
+
+    <h2>Affiliate-safe shopping searches</h2>
+    <div class="grid cols3">
+      {shoppingLinks.map(link => <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored"><span class="chip">Sponsored search</span><h3>{link.label}</h3><p class="muted">Compare pass-through wattage, display mode, Ethernet, cable reach, warranty, and recent buyer notes before purchasing.</p></a>)}
+    </div>
+
+    <h2>Sources checked</h2>
+    <p>Public source checks used for this publishable asset:</p>
+    <ul>
+      {sourceLinks.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+  </article>
+</Base>
