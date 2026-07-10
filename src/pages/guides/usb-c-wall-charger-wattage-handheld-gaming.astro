@@ -1,0 +1,88 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const sourceLinks = [
+  { label: 'Valve Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' },
+  { label: 'ASUS ROG Ally X official product page/spec context', url: 'https://www.asus.com/us/site/gaming/rog/gaming-handheld/rog-ally-x/' },
+  { label: 'Lenovo Legion Go PSREF specifications', url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1' },
+  { label: 'USB-IF USB Charger / USB Power Delivery overview', url: 'https://www.usb.org/usb-charger-pd' }
+];
+
+const chargerTiers = [
+  {
+    watts: '45W USB-C PD',
+    verdict: 'Steam Deck floor',
+    detail: 'Good as a Deck-focused spare charger, especially if you only need the handheld and no dock or laptop sharing.'
+  },
+  {
+    watts: '65W USB-C PD',
+    verdict: 'Best default',
+    detail: 'The safest first wall-charger target for mixed Steam Deck, ROG Ally, Ally X, Legion Go, phone, and travel use.'
+  },
+  {
+    watts: '100W+ USB-C PD',
+    verdict: 'Desk/travel hub pick',
+    detail: 'Worth considering when the same brick also powers a laptop, USB-C dock, tablet, or multiple ports at once.'
+  }
+];
+
+const shoppingLinks = [
+  { label: '65W USB-C PD wall chargers', href: 'https://www.amazon.com/s?k=65w+usb+c+pd+wall+charger' },
+  { label: '100W USB-C PD wall chargers', href: 'https://www.amazon.com/s?k=100w+usb+c+pd+wall+charger' },
+  { label: '100W USB-C PD cables', href: 'https://www.amazon.com/s?k=100w+usb+c+pd+cable' }
+];
+---
+<Base title="USB-C wall charger wattage for Steam Deck, ROG Ally, and Legion Go — Handheld Settings Lab" description="Spec-informed wall charger guidance for handheld gaming PCs: 45W vs 65W vs 100W USB-C PD, cable checks, docked setup notes, and affiliate-safe shopping links.">
+  <article class="wrap article">
+    <span class="eyebrow">Accessory guide</span>
+    <h1>USB-C wall charger wattage for handheld gaming PCs</h1>
+    <p class="muted">A good wall charger is less exciting than a new SSD, but it solves one of the most common handheld PC travel problems: the device charges slowly, discharges while docked, or complains about a weak adapter. This guide is baseline/spec/community-source-informed guidance — not a lab-tested charger ranking.</p>
+    <p class="affiliate-note">Disclosure: shopping links are generic Amazon searches marked sponsored/nofollow. Handheld Settings Lab has not added an affiliate tag, has not tested every listed product, and does not claim official endorsement from Valve, ASUS, Lenovo, or USB-IF.</p>
+
+    <div class="grid cols3">
+      {chargerTiers.map(tier => (
+        <div class="card">
+          <span class="chip">{tier.verdict}</span>
+          <h2>{tier.watts}</h2>
+          <p>{tier.detail}</p>
+        </div>
+      ))}
+    </div>
+
+    <h2>The short answer</h2>
+    <p>Buy a <strong>65W USB-C Power Delivery wall charger</strong> as the default spare for handheld gaming PCs. It gives Steam Deck owners headroom beyond a 45W-class charger and keeps the same brick useful for ROG Ally, ROG Ally X, Legion Go, USB-C docks, and future accessories.</p>
+    <p>If you already carry a USB-C laptop, a <strong>100W multi-port charger</strong> can be the cleaner travel buy — but only when the product page clearly lists per-port output. Some chargers advertise a high total wattage that drops sharply when two or three ports are active.</p>
+
+    <h2>What to check before buying</h2>
+    <ul>
+      <li><strong>USB-C PD output:</strong> look for explicit USB Power Delivery support, not only Quick Charge or a vague “fast charging” label.</li>
+      <li><strong>Per-port wattage:</strong> a 100W total charger may provide 65W on one USB-C port, then split power when another device is connected.</li>
+      <li><strong>Cable rating:</strong> match the charger with a cable rated for the wattage you expect. A weak or charge-only cable can make the charger look defective.</li>
+      <li><strong>Docked play:</strong> if a dock, HDMI output, controller dongle, or external drive is attached, extra headroom is useful.</li>
+      <li><strong>Heat and size:</strong> tiny high-watt chargers are convenient, but read recent reviews for heat, coil whine, and port-fit complaints before buying.</li>
+    </ul>
+
+    <div class="callout">Do not use a phone charger as your main handheld PC charger. It may work for slow standby charging, but under-45W adapters are poor fits for play-and-charge sessions.</div>
+
+    <h2>Device context</h2>
+    <div class="grid cols3">
+      <div class="card"><span class="chip">Steam Deck</span><h3>45W-class baseline</h3><p>Valve’s official technical specifications list a USB-C PD3.0 power supply at 45W, so a 45W PD charger can make sense as a Deck-only spare.</p></div>
+      <div class="card"><span class="chip">ROG Ally / Ally X</span><h3>65W-class default</h3><p>ASUS handheld owners should treat 65W USB-C PD as the safer starting point, especially for Turbo-style profiles, docks, and mixed travel kits.</p></div>
+      <div class="card"><span class="chip">Legion Go</span><h3>Use the official spec sheet</h3><p>Lenovo PSREF/product specs are the source of truth for the exact adapter and USB-C behavior on your Legion Go configuration.</p></div>
+    </div>
+
+    <h2>When 100W is worth it</h2>
+    <p>A 100W charger is not automatically faster for every handheld. The handheld negotiates what it can use. The reason to buy higher wattage is flexibility: charging a laptop, using a dock, carrying one brick for the whole bag, or keeping 65W available on one port while a phone is plugged into another.</p>
+
+    <h2>Affiliate-safe shopping searches</h2>
+    <div class="grid cols3">
+      {shoppingLinks.map(link => <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored"><span class="chip">Sponsored search</span><h3>{link.label}</h3><p class="muted">Compare USB-C PD profiles, per-port output, warranty, cable rating, and recent buyer notes before purchasing.</p></a>)}
+    </div>
+
+    <h2>Sources checked</h2>
+    <p>Public source checks used for this publishable asset:</p>
+    <ul>
+      {sourceLinks.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+  </article>
+</Base>
