@@ -1,0 +1,107 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const sourceLinks = [
+  { label: 'ASUS ROG Ally Series FAQ / Armoury Crate SE controls', href: 'https://www.asus.com/support/faq/1050046/' },
+  { label: 'ROG Ally (2023) official specifications', href: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-2023/spec/' },
+  { label: 'ROG Ally X (2024) official specifications', href: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/' },
+  { label: 'Valve Steam Deck technical specifications', href: 'https://www.steamdeck.com/en/tech' },
+  { label: 'Lenovo Legion Go PSREF specifications', href: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1' },
+  { label: 'USB-IF USB Charger / USB Power Delivery overview', href: 'https://www.usb.org/usb-charger-pd' }
+];
+
+const habits = [
+  {
+    label: 'Daily play',
+    title: 'Prefer cooler, capped sessions over always-max power',
+    body: 'Use the lowest power profile that still feels smooth, cap frames when a game cannot hold a high target, and avoid blocking vents in bed, cases, or tight docks.'
+  },
+  {
+    label: 'Desk / dock',
+    title: 'Use a real USB-C PD charger and cable',
+    body: 'For mixed handheld PC setups, a 65W USB-C PD charger is the safer baseline than a phone brick. With multi-port chargers, verify per-port wattage after other devices are plugged in.'
+  },
+  {
+    label: 'Travel bag',
+    title: 'Charge before the trip; do not cook the handheld in a case',
+    body: 'Let the device cool before putting it into a closed carrying case, especially after a high-wattage game or docked session.'
+  }
+];
+
+const shoppingLinks = [
+  { label: '65W USB-C PD charger for handheld gaming PCs', href: 'https://www.amazon.com/s?k=65w+usb+c+pd+charger+handheld+gaming+pc' },
+  { label: '100W USB-C PD cable for docks and travel chargers', href: 'https://www.amazon.com/s?k=100w+usb+c+pd+cable' },
+  { label: 'Handheld gaming stand with open ventilation', href: 'https://www.amazon.com/s?k=handheld+gaming+pc+stand+ventilation' },
+  { label: 'Carrying case with charger compartment for Steam Deck ROG Ally Legion Go', href: 'https://www.amazon.com/s?k=steam+deck+rog+ally+legion+go+case+charger+storage' }
+];
+---
+<Base title="Handheld PC battery care and charge limit guide — Handheld Settings Lab" description="Spec-informed battery care habits for Steam Deck, ROG Ally, ROG Ally X, Legion Go, USB-C PD chargers, docks, heat, travel storage, and charge-limit settings.">
+  <article class="wrap article">
+    <span class="eyebrow">Battery and charging guide</span>
+    <h1>Handheld PC battery care: charge limits, heat, and charger habits</h1>
+    <p class="muted">A handheld gaming PC battery is a consumable part, but your daily habits still matter. This guide is baseline/spec/community-source-informed guidance, not a lab-tested battery-aging study or a promise that one setting will double battery life.</p>
+    <p class="affiliate-note">Disclosure: shopping links are broad Amazon searches marked sponsored/nofollow. Handheld Settings Lab has not added an affiliate tag, has not tested every listed product, and does not claim endorsement from Valve, ASUS, Lenovo, or USB-IF.</p>
+
+    <section class="card" style="margin:28px 0">
+      <h2>Quick answer</h2>
+      <p>For Steam Deck, ROG Ally, ROG Ally X, Legion Go, and similar handheld PCs, the best battery-care plan is boring: keep heat under control, use a proper USB-C Power Delivery charger, avoid weak phone bricks for play-and-charge, cap performance when you can, and enable any manufacturer-provided battery-care or charge-limit mode when the device will live docked for long stretches.</p>
+      <div class="grid cols3" style="margin-top:18px">
+        <div class="stat"><strong>Heat</strong><span>Do not play hard while vents are blocked or the device is zipped in a case.</span></div>
+        <div class="stat"><strong>Power</strong><span>Use USB-C PD, not vague “fast charging” labels or low-watt phone adapters.</span></div>
+        <div class="stat"><strong>Docked use</strong><span>Look for vendor battery-care options if the handheld sits plugged in daily.</span></div>
+      </div>
+    </section>
+
+    <h2>What official sources confirm</h2>
+    <ul>
+      <li>Valve’s Steam Deck technical specifications list USB-C Power Delivery charging context for the Deck family.</li>
+      <li>ASUS publishes ROG Ally and ROG Ally X specifications, including battery and USB-C charging context; ASUS also documents Armoury Crate SE / Command Center controls in its support materials.</li>
+      <li>Lenovo’s PSREF page is the source to check for Legion Go battery, adapter, and USB-C details by model.</li>
+      <li>USB-IF documents USB Power Delivery as the relevant charging standard to look for when buying chargers and cables.</li>
+    </ul>
+
+    <h2>Battery-care habits that matter most</h2>
+    <div class="grid cols3">
+      {habits.map((habit) => (
+        <div class="card">
+          <span class="chip">{habit.label}</span>
+          <h3>{habit.title}</h3>
+          <p>{habit.body}</p>
+        </div>
+      ))}
+    </div>
+
+    <h2>Charge-limit and battery-care settings</h2>
+    <p>Some handhelds or vendor utilities expose battery-care modes, charge limits, or related power-management controls. If your device offers one, it is most useful when the handheld spends many hours docked at a desk, attached to a TV, or used as a Windows mini-PC. If your firmware or utility does not expose a clear charge-limit option, do not install random battery tools just because a forum post says to — use the manufacturer update path first.</p>
+    <p>For ROG Ally owners, check Armoury Crate SE and the MyASUS / ASUS support path for current battery-health features on your exact model and software version. For Steam Deck and Legion Go owners, check the official settings and support pages before assuming a third-party utility is required.</p>
+
+    <div class="callout">Do not chase battery health by making the device annoying to use. A practical routine — cool airflow, sane wattage, frame caps, and reliable chargers — beats a fragile ritual that you will abandon after a week.</div>
+
+    <h2>Charger and cable checklist</h2>
+    <ul>
+      <li><strong>Look for USB-C PD output.</strong> A charger can say “fast” without being a good handheld PC charger.</li>
+      <li><strong>Check per-port wattage.</strong> Multi-port chargers often split output when a phone, tablet, or laptop is connected at the same time.</li>
+      <li><strong>Match the cable.</strong> A charger is only as useful as the USB-C cable between it and the handheld or dock.</li>
+      <li><strong>Give docks headroom.</strong> HDMI, Ethernet, controller dongles, and external storage can make a marginal charger feel unreliable.</li>
+      <li><strong>Watch heat in cases and stands.</strong> A stand should leave intake and exhaust paths open; a tight pouch is for storage after the device cools.</li>
+    </ul>
+
+    <h2>Accessory searches to support better charging habits</h2>
+    <p>These are search starting points, not hands-on awards. Compare official specs, current reviews, return policies, cable ratings, and fit with your exact handheld before buying.</p>
+    <div class="grid cols2">
+      {shoppingLinks.map((item) => (
+        <a class="card gear-card" href={item.href} target="_blank" rel="nofollow sponsored">
+          <span class="chip">Sponsored search</span>
+          <h3>{item.label}</h3>
+          <p class="muted">Use this as a research shortcut, then verify USB-C PD rating, dimensions, airflow, and recent buyer feedback.</p>
+        </a>
+      ))}
+    </div>
+
+    <h2>Sources checked</h2>
+    <p>Public sources used for this publishable asset:</p>
+    <ul>
+      {sourceLinks.map((source) => <li><a href={source.href} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+  </article>
+</Base>

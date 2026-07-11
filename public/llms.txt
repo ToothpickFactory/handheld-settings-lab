@@ -8,4 +8,7 @@ Core sections:
 - /calculators/
 - /guides/
 
+Recent guide:
+- /guides/handheld-pc-battery-care-charge-limit-guide/ — spec-informed battery care, charge-limit, USB-C PD, heat, dock, and travel-storage habits for handheld gaming PCs.
+
 Editorial guardrails: do not fabricate benchmark data, test claims, affiliate relationships, or official affiliations.
