@@ -1,0 +1,80 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const sourceLinks = [
+  { label: 'TSA: Power banks in carry-on bags', url: 'https://www.tsa.gov/travel/security-screening/whatcanibring/items/power-banks' },
+  { label: 'Valve Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' },
+  { label: 'ASUS ROG Ally X specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/' },
+  { label: 'Lenovo Legion Go PSREF specifications', url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1' },
+  { label: 'USB-IF USB Charger / USB Power Delivery overview', url: 'https://www.usb.org/usb-charger-pd' }
+];
+
+const searchLinks = [
+  { label: 'Hard shell handheld gaming case', href: 'https://www.amazon.com/s?k=hard+shell+handheld+gaming+case' },
+  { label: '65W USB-C PD travel charger', href: 'https://www.amazon.com/s?k=65w+usb+c+pd+travel+charger' },
+  { label: '100W USB-C PD cable', href: 'https://www.amazon.com/s?k=100w+usb+c+pd+cable' },
+  { label: 'USB-C right angle adapter for handheld', href: 'https://www.amazon.com/s?k=usb+c+right+angle+adapter+handheld+gaming' }
+];
+---
+<Base title="Handheld gaming travel kit checklist for Steam Deck, ROG Ally, and Legion Go — Handheld Settings Lab" description="A spec-informed travel case, charger, cable, and power-bank checklist for handheld gaming PCs without fake hands-on claims.">
+  <article class="wrap article">
+    <span class="eyebrow">Accessory guide</span>
+    <h1>Handheld gaming travel kit checklist</h1>
+    <p class="muted">A practical packing list for Steam Deck, ROG Ally, ROG Ally X, Legion Go, and similar handheld PCs. This is baseline/spec/community-source-informed guidance, not a hands-on durability ranking of specific bags or chargers.</p>
+    <p class="affiliate-note">Disclosure: shopping links are generic Amazon searches marked sponsored/nofollow. We have not added an affiliate tag or claimed hands-on testing for any listed product category.</p>
+
+    <div class="grid cols2">
+      <div class="card">
+        <span class="chip">Pack first</span>
+        <h2>Protect sticks, triggers, and vents</h2>
+        <p>Choose a case that keeps pressure off analog sticks and shoulder buttons, leaves no loose metal parts near the screen, and does not trap heat if you close it right after a session.</p>
+      </div>
+      <div class="card">
+        <span class="chip">Power first</span>
+        <h2>Build around USB-C PD</h2>
+        <p>For a mixed handheld kit, a 65W USB-C PD charger and a properly rated cable are the simplest baseline. Add a larger 100W charger only if you also charge a laptop or dock.</p>
+      </div>
+    </div>
+
+    <h2>The compact travel kit</h2>
+    <div class="grid cols3">
+      <div class="card"><span class="chip">Case</span><h3>Shell + stick clearance</h3><p>Prioritize a firm shell, molded stick space, zipper clearance, and a pocket layout that cannot press a plug into the display.</p></div>
+      <div class="card"><span class="chip">Charging</span><h3>65W PD charger</h3><p>Steam Deck is commonly a 45W-class device, while Windows handheld kits often expect 65W-class charging. A 65W PD travel brick keeps the bag simple.</p></div>
+      <div class="card"><span class="chip">Cable</span><h3>Known-good USB-C</h3><p>Use a cable with an explicit wattage rating. Mystery C-to-C cables are a common reason a good charger behaves like a slow phone charger.</p></div>
+      <div class="card"><span class="chip">Storage</span><h3>microSD wallet</h3><p>Keep spare cards in a small case, not loose in the travel pouch. Label cards by library or device if you swap often.</p></div>
+      <div class="card"><span class="chip">Audio</span><h3>Low-bulk earbuds</h3><p>Wired USB-C or 3.5mm earbuds avoid Bluetooth pairing problems on planes and save a little battery management stress.</p></div>
+      <div class="card"><span class="chip">Cleaning</span><h3>Cloth, not liquid</h3><p>A microfiber cloth and a small dust blower are safer default travel tools than loose cleaning liquids inside the same pouch as electronics.</p></div>
+    </div>
+
+    <h2>Flight and power-bank notes</h2>
+    <p>TSA states that power banks should go in carry-on bags, not checked bags. Airline and battery-size rules can vary, so check your carrier before packing a large high-capacity bank. Treat a power bank as a session extender rather than a guaranteed all-day battery claim.</p>
+    <div class="callout">Do not pack a swollen, damaged, or unusually hot battery pack. Replace questionable packs before travel instead of hoping a case will contain the problem.</div>
+
+    <h2>Device-specific fit checks</h2>
+    <ul>
+      <li><strong>Steam Deck:</strong> confirm the case fits your exact model and any grip shell; OLED/LCD accessory fit is usually close, but not every molded insert leaves the same room.</li>
+      <li><strong>ROG Ally / Ally X:</strong> check whether the case is made for the thicker Ally X body before trusting a tight original Ally listing.</li>
+      <li><strong>Legion Go:</strong> verify width and controller clearance. It is larger than many Deck/Ally-focused cases, and generic “handheld PC” listings can be too narrow.</li>
+      <li><strong>Docked travel:</strong> if you pack a dock, keep HDMI, Ethernet, and charger cable strain away from the handheld's USB-C port.</li>
+    </ul>
+
+    <h2>What to skip at first</h2>
+    <ul>
+      <li>Large accessory bags that make the handheld harder to actually carry.</li>
+      <li>Unlabeled USB-C cables or power banks that only list total output across multiple ports.</li>
+      <li>Kickstands or grips that block vents, intake areas, or the charging port.</li>
+      <li>Very cheap screen protectors with poor edge fit if you are not ready to redo the install.</li>
+    </ul>
+
+    <h2>Search links</h2>
+    <div class="grid cols2">
+      {searchLinks.map(link => <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored"><span class="chip">Sponsored search</span><h3>{link.label}</h3><p class="muted">Compare dimensions, return policy, recent reviews, and device compatibility before buying.</p></a>)}
+    </div>
+
+    <h2>Sources checked</h2>
+    <p>These public sources were checked for transport, device, and USB-C PD context during this update:</p>
+    <ul>
+      {sourceLinks.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+  </article>
+</Base>
