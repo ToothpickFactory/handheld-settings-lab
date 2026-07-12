@@ -1,0 +1,84 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const sourceLinks = [
+  { label: 'ASUS ROG Ally X support downloads', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/helpdesk_download/' },
+  { label: 'ASUS ROG Ally performance guide', url: 'https://rog.asus.com/articles/guides/how-to-boost-gaming-performance-on-the-rog-ally/' },
+  { label: 'Microsoft Windows Update FAQ', url: 'https://support.microsoft.com/en-us/windows/windows-update-faq-8a903416-6f45-0718-f5c7-375e92dddeb2' }
+];
+
+const shoppingLinks = [
+  { label: '65W USB-C PD charger for ROG Ally', href: 'https://www.amazon.com/s?k=65w+usb+c+pd+charger+rog+ally' },
+  { label: 'ROG Ally USB-C dock with PD passthrough', href: 'https://www.amazon.com/s?k=rog+ally+usb+c+dock+pd+passthrough' },
+  { label: 'ROG Ally travel case', href: 'https://www.amazon.com/s?k=rog+ally+travel+case' },
+  { label: 'ROG Ally microSD card A2 U3', href: 'https://www.amazon.com/s?k=rog+ally+microsd+a2+u3' }
+];
+---
+<Base title="ROG Ally update checklist before changing game settings — Handheld Settings Lab" description="A source-informed ROG Ally and Ally X update order for BIOS, Armoury Crate SE, Windows Update, graphics drivers, power profiles, chargers, docks, and game tuning.">
+  <article class="wrap article">
+    <span class="eyebrow">ROG Ally setup</span>
+    <h1>ROG Ally update checklist before changing game settings</h1>
+    <p class="muted">Before chasing per-game FPS tweaks, put the handheld on a known-good software and power baseline. This is public-source-informed setup guidance, not a claim that we personally benchmarked every BIOS, driver, or Armoury Crate SE build.</p>
+    <p class="affiliate-note">Disclosure: shopping links are generic Amazon searches marked sponsored/nofollow. No affiliate tag or hands-on product ranking is claimed here.</p>
+
+    <div class="callout"><strong>Best use:</strong> run this once when you unbox an ROG Ally or Ally X, then repeat the short version after major game patches, Windows updates, or Armoury Crate SE changes.</div>
+
+    <h2>The safe update order</h2>
+    <div class="grid cols2">
+      <div class="card">
+        <span class="chip">1</span>
+        <h3>Charge and plug in first</h3>
+        <p>Start updates on AC power with a stable USB-C PD charger. Avoid firmware or BIOS updates on a low battery, questionable cable, or loose dock connection.</p>
+      </div>
+      <div class="card">
+        <span class="chip">2</span>
+        <h3>Run Windows Update</h3>
+        <p>Install pending Windows updates, restart when asked, then check one more time. This reduces confusion when a driver problem is actually an unfinished OS update.</p>
+      </div>
+      <div class="card">
+        <span class="chip">3</span>
+        <h3>Use ASUS support channels</h3>
+        <p>Check ASUS support downloads and the built-in update tools for BIOS, Armoury Crate SE, hotfixes, and AMD graphics packages intended for your exact model.</p>
+      </div>
+      <div class="card">
+        <span class="chip">4</span>
+        <h3>Reboot, then set power profiles</h3>
+        <p>After updates settle, configure Silent, Performance, Turbo, or a manual profile. Tune games only after the profile and charger behavior are predictable.</p>
+      </div>
+    </div>
+
+    <h2>Baseline settings before per-game tuning</h2>
+    <ul>
+      <li><strong>Resolution:</strong> start with the native 1080p/120Hz panel available, but do not be afraid to use 900p or 720p for demanding games if frame pacing matters more than sharpness.</li>
+      <li><strong>Frame cap:</strong> choose a cap before lowering every visual option. A stable 40, 45, or 60 FPS target often feels better than uncapped spikes.</li>
+      <li><strong>Operating mode:</strong> use Performance as the travel baseline, Silent for light games, and Turbo mainly when plugged in or when fan noise and battery drain are acceptable.</li>
+      <li><strong>Control mode:</strong> verify the game is using Gamepad/Desktop mode correctly before assuming a game setting is broken.</li>
+      <li><strong>Storage:</strong> keep shader-heavy or open-world games on internal SSD when possible. Use microSD for lighter games, indies, or overflow libraries.</li>
+    </ul>
+
+    <h2>Accessory checks that affect update and tuning reliability</h2>
+    <p>Unstable charging can make tuning look inconsistent. Keep the first kit simple: a known 65W-class USB-C PD charger, a cable with explicit wattage support, and a dock that can pass through enough power while driving HDMI or Ethernet.</p>
+    <div class="grid cols2">
+      {shoppingLinks.map(link => <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored"><span class="chip">Sponsored search</span><h3>{link.label}</h3><p class="muted">Compare exact model fit, wattage, return policy, recent reviews, and port clearance before buying.</p></a>)}
+    </div>
+
+    <h2>Quick troubleshooting loop</h2>
+    <ol>
+      <li>Confirm the game, Windows, Armoury Crate SE, and ASUS updates are complete.</li>
+      <li>Restart the handheld after driver or firmware updates; do not judge performance during first-launch shader work.</li>
+      <li>Switch to a known profile such as Performance on battery or Turbo while plugged in.</li>
+      <li>Test one change at a time: resolution, FSR/RSR, frame cap, then visual preset.</li>
+      <li>Write down the profile that feels stable before experimenting further.</li>
+    </ol>
+
+    <h2>What not to claim from this checklist</h2>
+    <p>This page does not publish invented benchmark charts, universal wattage guarantees, or third-party driver recommendations. Treat it as a maintenance baseline before using the site’s individual game settings pages and battery/storage calculators.</p>
+    <p><a class="btn" href="/rog-ally-settings/">Open ROG Ally game settings</a> <a class="btn ghost" href="/calculators/battery-estimator/">Estimate battery</a></p>
+
+    <h2>Sources checked</h2>
+    <p>Public sources checked for this update:</p>
+    <ul>
+      {sourceLinks.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+  </article>
+</Base>

@@ -9,6 +9,6 @@ Core sections:
 - /guides/
 
 Recent guide:
-- /guides/handheld-pc-battery-care-charge-limit-guide/ — spec-informed battery care, charge-limit, USB-C PD, heat, dock, and travel-storage habits for handheld gaming PCs.
+- /guides/rog-ally-update-checklist-before-game-settings/ — source-informed ROG Ally update order for Windows, ASUS support downloads, Armoury Crate SE, power profiles, chargers, docks, and per-game tuning.
 
 Editorial guardrails: do not fabricate benchmark data, test claims, affiliate relationships, or official affiliations.
