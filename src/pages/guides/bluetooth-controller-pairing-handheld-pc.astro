@@ -1,0 +1,103 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const sourceLinks = [
+  { label: 'Valve Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' },
+  { label: 'Microsoft: Connect an Xbox Wireless Controller to a Windows device', url: 'https://support.xbox.com/en-US/help/hardware-network/controller/connect-xbox-wireless-controller-to-pc' },
+  { label: 'PlayStation: Pair a DualSense wireless controller with Bluetooth', url: 'https://www.playstation.com/en-us/support/hardware/pair-dualsense-controller-bluetooth/' },
+  { label: 'PlayStation: DualSense wireless controller support', url: 'https://www.playstation.com/en-us/support/hardware/dualsense-controller-support/' }
+];
+
+const controllerCards = [
+  {
+    name: 'Xbox Wireless Controller',
+    bestFor: 'Windows handhelds and docked couch play',
+    setup: 'Use Bluetooth pairing for quick travel play, or a USB-C cable/dongle path when you want fewer wireless variables at a desk or TV.',
+    caveat: 'Firmware updates and Windows Bluetooth behavior can matter more than raw controller choice.'
+  },
+  {
+    name: 'DualSense',
+    bestFor: 'Steam Input profiles and PlayStation-style layouts',
+    setup: 'Hold the create button plus PS button until the light bar blinks, then pair from the handheld Bluetooth menu.',
+    caveat: 'Advanced haptics/adaptive trigger behavior depends on game, platform, and connection mode; do not assume every PC game supports it.'
+  },
+  {
+    name: 'Wired USB-C controller',
+    bestFor: 'Docked play, troubleshooting, and low-battery sessions',
+    setup: 'Keep one known-good USB-C cable or dock USB-A cable in the bag so you can bypass Bluetooth during travel.',
+    caveat: 'Charge-only cables are common. Use a data-capable cable if the controller is not detected.'
+  }
+];
+
+const checklist = [
+  'Update the controller firmware from the official console or vendor app path before blaming the handheld.',
+  'Forget old pairings on the controller and handheld if it keeps reconnecting to another device.',
+  'Pair while the handheld is undocked first, then test docked range from the couch or desk.',
+  'Keep 2.4GHz USB dongles, hubs, and external drives away from the controller when possible; crowded docks can make wireless symptoms harder to isolate.',
+  'Map buttons in Steam Input or Armoury Crate only after the controller is stable at the operating-system level.',
+  'Pack one data-capable USB-C cable as the fallback for flights, hotels, and multiplayer nights.'
+];
+
+const shoppingLinks = [
+  { label: 'Xbox Wireless Controller searches', href: 'https://www.amazon.com/s?k=xbox+wireless+controller+usb+c' },
+  { label: 'DualSense controller searches', href: 'https://www.amazon.com/s?k=dualsense+wireless+controller' },
+  { label: 'USB-C data cable searches', href: 'https://www.amazon.com/s?k=usb+c+data+cable+controller' },
+  { label: 'Bluetooth adapter searches for docked PCs', href: 'https://www.amazon.com/s?k=bluetooth+adapter+pc+controller' }
+];
+---
+<Base title="Bluetooth controller pairing checklist for Steam Deck, ROG Ally, and handheld PCs — Handheld Settings Lab" description="Source-informed Bluetooth controller setup and troubleshooting checklist for Steam Deck, ROG Ally, Legion Go, docked handheld PCs, Xbox controllers, DualSense, and USB-C fallback cables.">
+  <article class="wrap article">
+    <span class="eyebrow">Accessory guide</span>
+    <h1>Bluetooth controller pairing checklist for handheld gaming PCs</h1>
+    <p class="muted">A controller that pairs at home but fails on a trip can ruin the whole docked-handheld setup. This is baseline/spec/community-source-informed guidance for Steam Deck, ROG Ally, Legion Go, and similar handheld PCs — not a lab-tested controller latency ranking.</p>
+    <p class="affiliate-note">Disclosure: shopping links are generic Amazon searches marked sponsored/nofollow. Handheld Settings Lab has not added an affiliate tag, has not tested every listed product, and does not claim official endorsement from Valve, Microsoft, Sony, ASUS, Lenovo, or controller makers.</p>
+
+    <div class="grid cols3">
+      {controllerCards.map(card => (
+        <div class="card">
+          <span class="chip">{card.bestFor}</span>
+          <h2>{card.name}</h2>
+          <p>{card.setup}</p>
+          <p class="muted">{card.caveat}</p>
+        </div>
+      ))}
+    </div>
+
+    <h2>The short answer</h2>
+    <p>For most handheld PC owners, the safest controller kit is simple: one modern Bluetooth controller you already like, one data-capable USB-C cable, and a dock layout that does not bury the handheld behind a TV or metal stand. Pair wirelessly for couch play, but keep the cable ready for firmware updates, tournaments, hotel-room troubleshooting, and low-battery sessions.</p>
+
+    <h2>Pairing order that avoids repeat failures</h2>
+    <ol>
+      <li><strong>Update first.</strong> Run handheld OS/app updates and controller firmware updates before tuning game-specific profiles.</li>
+      <li><strong>Forget stale devices.</strong> Remove the controller from old consoles, PCs, and the handheld Bluetooth list if it jumps between devices.</li>
+      <li><strong>Pair close to the handheld.</strong> Start undocked and within a few feet, then move to the couch/TV distance after the first successful connection.</li>
+      <li><strong>Test sleep and wake.</strong> Put the handheld to sleep, wake it, and confirm the controller reconnects before packing for travel.</li>
+      <li><strong>Only then tune buttons.</strong> Use Steam Input, Armoury Crate, game remapping, or launcher settings after the connection is stable.</li>
+    </ol>
+
+    <div class="callout">If the controller is visible but inputs do not register in a game, test the operating-system menus and one known controller-friendly title before changing every in-game binding.</div>
+
+    <h2>Travel and docked-play checklist</h2>
+    <ul>
+      {checklist.map(item => <li>{item}</li>)}
+    </ul>
+
+    <h2>Device notes</h2>
+    <div class="grid cols3">
+      <div class="card"><span class="chip">Steam Deck</span><h3>Start with Steam Input</h3><p>Valve's Steam Deck spec page confirms Bluetooth support; pair the controller at the system level, then use Steam Input per-game layouts once the connection is reliable.</p></div>
+      <div class="card"><span class="chip">ROG Ally / Ally X</span><h3>Windows pairing rules apply</h3><p>Because Ally devices are Windows handhelds, Microsoft’s Xbox controller guidance is the cleanest first source for Xbox-style Bluetooth and cable troubleshooting.</p></div>
+      <div class="card"><span class="chip">Legion Go / docks</span><h3>Keep a wired fallback</h3><p>A USB-C or dock USB cable is the fastest way to separate controller problems from Bluetooth range, dock interference, low battery, or game remapping issues.</p></div>
+    </div>
+
+    <h2>Affiliate-safe shopping searches</h2>
+    <div class="grid cols2">
+      {shoppingLinks.map(link => <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored"><span class="chip">Sponsored search</span><h3>{link.label}</h3><p class="muted">Compare recent buyer notes, official firmware support, included cable type, return policy, and whether the listing is new, used, or renewed.</p></a>)}
+    </div>
+
+    <h2>Sources checked</h2>
+    <p>Public source checks used for this publishable asset:</p>
+    <ul>
+      {sourceLinks.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+  </article>
+</Base>
