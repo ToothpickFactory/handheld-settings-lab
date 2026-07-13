@@ -1,0 +1,75 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const sourceLinks = [
+  { label: 'USB-IF USB Charger / USB Power Delivery overview', url: 'https://www.usb.org/usb-charger-pd' },
+  { label: 'Valve Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' },
+  { label: 'ASUS ROG Ally X specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/' },
+  { label: 'Lenovo Legion Go PSREF specifications', url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1' }
+];
+
+const searchLinks = [
+  { label: '100W USB-C to USB-C cable', href: 'https://www.amazon.com/s?k=100w+usb+c+to+usb+c+cable' },
+  { label: '240W USB-C EPR cable', href: 'https://www.amazon.com/s?k=240w+usb+c+epr+cable' },
+  { label: 'Short USB-C PD cable for travel charger', href: 'https://www.amazon.com/s?k=short+usb+c+pd+cable+100w' },
+  { label: 'Right angle USB-C cable for handheld gaming', href: 'https://www.amazon.com/s?k=right+angle+usb+c+cable+100w+handheld+gaming' }
+];
+---
+<Base title="USB-C cable wattage guide for Steam Deck, ROG Ally, and Legion Go — Handheld Settings Lab" description="Spec-informed USB-C cable checklist for handheld gaming PCs: 60W vs 100W vs 240W labels, charger pairing, dock use, travel length, and red flags.">
+  <article class="wrap article">
+    <span class="eyebrow">Accessory guide</span>
+    <h1>USB-C cable wattage guide for handheld gaming PCs</h1>
+    <p class="muted">A cable can make a good charger look broken. This guide is baseline/spec/community-source-informed guidance for Steam Deck, ROG Ally, ROG Ally X, Legion Go, docks, and travel kits — not a hands-on electrical test of specific cable listings.</p>
+    <p class="affiliate-note">Disclosure: shopping links are generic Amazon searches marked sponsored/nofollow. We have not added an affiliate tag or claimed hands-on testing for any listed cable.</p>
+
+    <div class="grid cols2">
+      <div class="card">
+        <span class="chip">Fast answer</span>
+        <h2>Buy clearly labeled 100W USB-C first</h2>
+        <p>For most handheld gaming kits, a known-good 100W USB-C to USB-C cable is the simplest default. It covers common 45W-class and 65W-class handheld charging setups while leaving room for docks and multi-port chargers.</p>
+      </div>
+      <div class="card">
+        <span class="chip">Do not guess</span>
+        <h2>The cable label matters</h2>
+        <p>If a cable listing only says “fast charge” without a wattage rating, skip it for a handheld PC bag. Use cables that explicitly state USB-C PD wattage and buy from a seller with easy returns.</p>
+      </div>
+    </div>
+
+    <h2>60W vs 100W vs 240W: what to choose</h2>
+    <div class="grid cols3">
+      <div class="card"><span class="chip">60W</span><h3>Fine for light kits</h3><p>A 60W-rated cable can be enough for a Steam Deck-style travel charger, but it leaves less margin when you later add a dock, laptop, or higher-watt Windows handheld charger.</p></div>
+      <div class="card"><span class="chip">100W</span><h3>Best default</h3><p>100W is the practical one-cable recommendation for mixed handheld bags: Steam Deck, ROG Ally-family devices, Legion Go, USB-C PD wall chargers, and many compact docks.</p></div>
+      <div class="card"><span class="chip">240W</span><h3>Useful, not required</h3><p>240W EPR cables are reasonable if you also carry a laptop or want future headroom. They are not automatically better for handheld play if the charger and device negotiate lower power.</p></div>
+    </div>
+
+    <h2>Cable checks before you blame the charger</h2>
+    <ul>
+      <li><strong>Match the whole chain:</strong> device, charger, cable, dock, and port all need to support the power level you expect.</li>
+      <li><strong>Prefer C-to-C for handheld charging:</strong> USB-A to USB-C cables are often not the right default for handheld PC power draw.</li>
+      <li><strong>Keep one known-good cable at home:</strong> when a dock or power bank acts strange, test with the cable that has already worked from the wall charger.</li>
+      <li><strong>Watch length:</strong> long cables are convenient on a couch, but short 3–6 ft cables are easier to pack and less likely to become the mystery variable in a travel setup.</li>
+      <li><strong>Check data needs separately:</strong> a charging cable may not be the best cable for high-speed external SSD transfers or display-out dock troubleshooting.</li>
+    </ul>
+
+    <div class="callout">If your handheld shows slow charging, drains while docked, or refuses turbo/performance mode on wall power, test a clearly rated USB-C PD cable before replacing the charger or dock.</div>
+
+    <h2>Handheld-specific notes</h2>
+    <ul>
+      <li><strong>Steam Deck / Steam Deck OLED:</strong> build the kit around a reliable USB-C PD wall charger and a labeled cable rather than a random phone cable.</li>
+      <li><strong>ROG Ally / ROG Ally X:</strong> a 100W cable is a safer default for charger, dock, and travel use than relying on unlabeled spares.</li>
+      <li><strong>Legion Go:</strong> if you use docked display output or a multi-port charger, keep cable rating and port selection documented in the bag.</li>
+      <li><strong>Power banks:</strong> the bank's USB-C output rating is only useful if the cable can carry the negotiated wattage.</li>
+    </ul>
+
+    <h2>Shopping search links</h2>
+    <div class="grid cols2">
+      {searchLinks.map(link => <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored"><span class="chip">Sponsored search</span><h3>{link.label}</h3><p class="muted">Compare wattage label, connector shape, cable length, warranty, return policy, and recent reviews before buying.</p></a>)}
+    </div>
+
+    <h2>Sources checked</h2>
+    <p>These public sources were checked for USB-C PD and device-spec context during this update. This page does not claim lab-measured cable performance.</p>
+    <ul>
+      {sourceLinks.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+  </article>
+</Base>
