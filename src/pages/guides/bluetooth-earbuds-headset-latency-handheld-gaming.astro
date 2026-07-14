@@ -1,0 +1,75 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const sourceLinks = [
+  { label: 'Valve Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' },
+  { label: 'ASUS ROG Ally X specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/' },
+  { label: 'Lenovo Legion Go PSREF specifications', url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1' },
+  { label: 'Bluetooth SIG — LE Audio overview', url: 'https://www.bluetooth.com/learn-about-bluetooth/feature-enhancements/le-audio/' }
+];
+
+const searchLinks = [
+  { label: 'Low latency gaming earbuds with USB-C dongle', href: 'https://www.amazon.com/s?k=low+latency+gaming+earbuds+usb+c+dongle' },
+  { label: '2.4GHz wireless gaming earbuds USB-C', href: 'https://www.amazon.com/s?k=2.4ghz+wireless+gaming+earbuds+usb+c' },
+  { label: 'Compact wired USB-C gaming earbuds', href: 'https://www.amazon.com/s?k=usb+c+gaming+earbuds+low+latency' },
+  { label: 'Bluetooth gaming headset low latency mode', href: 'https://www.amazon.com/s?k=bluetooth+gaming+headset+low+latency+mode' }
+];
+---
+<Base title="Bluetooth earbuds and headset latency guide for handheld gaming PCs — Handheld Settings Lab" description="Source-informed checklist for choosing Bluetooth, 2.4GHz dongle, or wired earbuds/headsets for Steam Deck, ROG Ally, Legion Go, docked play, travel, latency, mic use, and charging.">
+  <article class="wrap article">
+    <span class="eyebrow">Accessory guide</span>
+    <h1>Bluetooth earbuds and headset latency guide for handheld gaming PCs</h1>
+    <p class="muted">This is baseline/spec/community-source-informed guidance for Steam Deck, ROG Ally, ROG Ally X, Legion Go, and similar handheld PCs. It is not a lab latency, microphone, ANC, battery, or RF-interference test of specific headset listings.</p>
+    <p class="affiliate-note">Disclosure: shopping links are generic Amazon searches marked sponsored/nofollow. We have not added an affiliate tag or claimed hands-on testing for any listed headset, earbud, or dongle.</p>
+
+    <div class="grid cols2">
+      <div class="card">
+        <span class="chip">Fast answer</span>
+        <h2>For action games, prefer 2.4GHz or wired</h2>
+        <p>Bluetooth is convenient for travel, menus, RPGs, and casual sessions. If timing matters — shooters, rhythm games, parries, or docked couch play — a USB-C 2.4GHz dongle headset or wired earbuds are the safer default.</p>
+      </div>
+      <div class="card">
+        <span class="chip">Convenience pick</span>
+        <h2>Bluetooth is still useful</h2>
+        <p>Keep Bluetooth earbuds in the bag for flights, hotel play, and quiet handheld sessions. Just do not assume a “gaming mode” label makes every device/codec/game combination feel instant.</p>
+      </div>
+    </div>
+
+    <h2>Choose by what you play</h2>
+    <div class="grid cols3">
+      <div class="card"><span class="chip">Turn-based / cozy</span><h3>Bluetooth is usually fine</h3><p>For strategy, farming, visual novels, launchers, and cloud saves, comfort and battery life matter more than the last few milliseconds of audio delay.</p></div>
+      <div class="card"><span class="chip">Action / rhythm</span><h3>Use dongle or wired</h3><p>For shooters, fighting games, rhythm timing, and parry-heavy action games, avoid making Bluetooth latency another variable while tuning frame caps and input feel.</p></div>
+      <div class="card"><span class="chip">Docked play</span><h3>Check the whole setup</h3><p>A dock, TV processing mode, controller, headset, and charger can all add friction. Use game mode on the display and test the exact couch setup before a long session.</p></div>
+    </div>
+
+    <h2>Bluetooth buying checks</h2>
+    <ul>
+      <li><strong>Do not buy by codec buzzwords alone:</strong> handheld support, OS support, the earbud firmware, and the game matter. Treat codec claims as compatibility clues, not proof of measured latency.</li>
+      <li><strong>Look for a USB-C 2.4GHz dongle if latency matters:</strong> many gaming earbuds/headsets include a small receiver that bypasses normal Bluetooth pairing. Make sure it physically clears the handheld shell, grip case, or dock.</li>
+      <li><strong>Keep a wired fallback:</strong> a short USB-C or 3.5mm audio option is useful when Bluetooth pairing fails, a battery dies, or a game has obvious audio delay.</li>
+      <li><strong>Check microphone expectations:</strong> Bluetooth mic mode can reduce audio quality on some setups. If voice chat is important, test Discord/Steam voice/Windows input before a trip.</li>
+      <li><strong>Watch charging cases:</strong> compact earbuds are great for a sling bag, but a dead charging case turns them into dead weight. Add the case to your travel charging rotation.</li>
+    </ul>
+
+    <div class="callout">If a game suddenly feels “off,” test with speakers or wired earbuds before changing graphics settings. Audio delay can feel like input lag even when FPS is stable.</div>
+
+    <h2>Device notes</h2>
+    <ul>
+      <li><strong>Steam Deck / Steam Deck OLED:</strong> use Bluetooth for convenience, but keep one low-latency fallback for timing-sensitive games. The official tech-spec page lists Bluetooth support; it does not certify a specific third-party headset latency result.</li>
+      <li><strong>ROG Ally / ROG Ally X:</strong> Windows makes USB-C dongles and headset utilities more common, but also adds more places to pick the wrong input/output device. Save a quick audio preset after pairing.</li>
+      <li><strong>Legion Go:</strong> the detachable-controller and kickstand style makes tabletop play likely. A dongle that blocks the USB-C port or fights your stand angle may be more annoying than a slightly larger headset.</li>
+      <li><strong>Flights and hotels:</strong> Bluetooth convenience wins for quiet single-player play. For competitive or rhythm sessions, pack the wired/dongle option even if you rarely need it.</li>
+    </ul>
+
+    <h2>Shopping search links</h2>
+    <div class="grid cols2">
+      {searchLinks.map(link => <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored"><span class="chip">Sponsored search</span><h3>{link.label}</h3><p class="muted">Compare connection mode, dongle shape, return policy, microphone notes, charging case size, recent reviews, and whether the seller documents handheld/PC compatibility.</p></a>)}
+    </div>
+
+    <h2>Sources checked</h2>
+    <p>These public sources were checked for handheld Bluetooth/spec context and Bluetooth LE Audio background during this update. This page does not claim measured latency or endorsement from any device maker.</p>
+    <ul>
+      {sourceLinks.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+  </article>
+</Base>
