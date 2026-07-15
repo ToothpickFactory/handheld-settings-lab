@@ -1,0 +1,90 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const sourceLinks = [
+  { label: 'Valve Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' },
+  { label: 'ASUS ROG Ally X official specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/' },
+  { label: 'ASUS ROG Ally display/VRR overview', url: 'https://www.asus.com/us/site/gaming/rog/gaming-handheld/rog-ally.html' },
+  { label: 'AMD FreeSync technology overview', url: 'https://www.amd.com/en/products/graphics/technologies/freesync.html' }
+];
+
+const shoppingLinks = [
+  { label: 'USB-C portable monitor with FreeSync', href: 'https://www.amazon.com/s?k=usb+c+portable+monitor+freesync' },
+  { label: '144Hz portable gaming monitor USB-C', href: 'https://www.amazon.com/s?k=144hz+portable+gaming+monitor+usb+c' },
+  { label: 'USB-C monitor cable DisplayPort alt mode', href: 'https://www.amazon.com/s?k=usb+c+displayport+alt+mode+cable' },
+  { label: '65W USB-C charger for monitor and handheld dock', href: 'https://www.amazon.com/s?k=65w+usb+c+pd+charger+gaming+handheld' }
+];
+---
+<Base title="Portable monitor and VRR checklist for handheld gaming PCs — Handheld Settings Lab" description="Spec-informed portable monitor buying checklist for Steam Deck, ROG Ally, ROG Ally X, Legion Go, USB-C display output, FreeSync/VRR, chargers, docks, and travel play.">
+  <article class="wrap article">
+    <span class="eyebrow">Display accessory guide</span>
+    <h1>Portable monitor and VRR checklist for handheld gaming PCs</h1>
+    <p class="muted">A second screen can make a Steam Deck, ROG Ally, ROG Ally X, Legion Go, or other handheld PC feel like a tiny console. This is baseline/spec/community-source-informed buying guidance, not a hands-on lab test of specific portable monitor listings.</p>
+    <p class="affiliate-note">Disclosure: shopping links are generic Amazon searches marked sponsored/nofollow. No affiliate tag is attached, and this page does not claim hands-on testing or endorsement of any monitor.</p>
+
+    <div class="grid cols2">
+      <div class="card">
+        <span class="chip">Fast answer</span>
+        <h2>Pick the connection first</h2>
+        <p>If you want the simplest portable desk setup, start with a USB-C portable monitor that explicitly supports video input over USB-C / DisplayPort Alt Mode. Then verify power: some monitors need their own charger instead of relying on the handheld.</p>
+      </div>
+      <div class="card">
+        <span class="chip">VRR reality check</span>
+        <h2>FreeSync only helps when the whole chain supports it</h2>
+        <p>ROG Ally-family devices advertise FreeSync/VRR support on their built-in display, and AMD describes FreeSync as variable-refresh technology. For an external monitor, the handheld, cable/dock, monitor input, and OS/game settings all have to cooperate.</p>
+      </div>
+    </div>
+
+    <h2>What to check before buying a portable monitor</h2>
+    <ul>
+      <li><strong>USB-C video input:</strong> look for explicit USB-C video / DisplayPort Alt Mode language, not just “USB-C power.” A charge-only USB-C port will not carry the handheld's display output.</li>
+      <li><strong>Power plan:</strong> decide whether the monitor has its own power brick, can run from a power bank, or expects pass-through power from a dock. A dimming or flickering display can be a power-chain problem, not a bad game setting.</li>
+      <li><strong>Refresh target:</strong> 60Hz is fine for many Steam Deck-style couch and travel setups. 120Hz/144Hz panels are useful for Windows handhelds and esports titles, but only if the game and device can realistically feed those frame rates.</li>
+      <li><strong>VRR/FreeSync labeling:</strong> do not assume every “gaming” portable monitor supports variable refresh. Check the spec sheet for FreeSync/Adaptive-Sync wording and confirm which input supports it.</li>
+      <li><strong>Cable included:</strong> the pack-in USB-C cable may be short or power-only on cheaper listings. Keep one known-good USB-C video cable or compact dock in the kit.</li>
+      <li><strong>Stand and case geometry:</strong> handheld PCs take desk space. A monitor with a stable kickstand or VESA-compatible case is easier to use than a thin screen that tips over when the cable pulls.</li>
+    </ul>
+
+    <div class="callout">Do not buy a portable monitor only because the listing says “4K” or “HDR.” For handheld gaming, stable USB-C video, readable 1080p/1200p scaling, power behavior, and return policy usually matter more than headline resolution.</div>
+
+    <h2>Handheld-specific setup notes</h2>
+    <div class="grid cols3">
+      <div class="card">
+        <span class="chip">Steam Deck</span>
+        <h3>Start with 60Hz and readable scaling</h3>
+        <p>Valve's tech specs list DisplayPort over USB-C for external display output. For travel play, first make sure the monitor wakes reliably, then tune resolution, scaling, and game frame caps.</p>
+      </div>
+      <div class="card">
+        <span class="chip">ROG Ally / Ally X</span>
+        <h3>Check FreeSync and charger behavior</h3>
+        <p>ASUS lists AMD FreeSync Premium / Variable Refresh Rate for ROG Ally X and USB-C DisplayPort / power delivery support. When docked or connected to a monitor, verify Armoury Crate mode, Windows display refresh, and the charger wattage before judging performance.</p>
+      </div>
+      <div class="card">
+        <span class="chip">Legion Go / Windows handhelds</span>
+        <h3>Use Windows display settings deliberately</h3>
+        <p>After connecting an external panel, check Windows resolution, refresh rate, scaling, orientation, and game window mode. A handheld can look “blurry” simply because Windows picked a mismatched scale or duplicate-display mode.</p>
+      </div>
+    </div>
+
+    <h2>VRR troubleshooting checklist</h2>
+    <ol>
+      <li>Confirm the portable monitor's exact input supports FreeSync/Adaptive-Sync; some displays only enable it on one port.</li>
+      <li>Use a known-good USB-C video cable or dock; swap the cable before replacing the monitor.</li>
+      <li>In Windows, open display settings and verify the selected refresh rate for the external display.</li>
+      <li>Check AMD Software / Armoury Crate / device control-center settings where available, but do not force options you do not understand.</li>
+      <li>Set the game to fullscreen or borderless mode as needed and test one known stable title before blaming a demanding game.</li>
+      <li>If the monitor flickers, test with its own wall power. Some portable displays brown out when the handheld is also trying to charge.</li>
+    </ol>
+
+    <h2>Good accessory pairings</h2>
+    <div class="grid cols2">
+      {shoppingLinks.map(link => <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored"><span class="chip">Sponsored search</span><h3>{link.label}</h3><p class="muted">Compare spec-sheet wording, seller return policy, included cable, power behavior, and recent owner photos before buying.</p></a>)}
+    </div>
+
+    <h2>Sources checked</h2>
+    <p>These public pages were checked for display output, VRR/FreeSync, refresh-rate, and device-spec context. The guide avoids model-specific benchmark claims because no portable monitor was physically tested in this run.</p>
+    <ul>
+      {sourceLinks.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+  </article>
+</Base>
