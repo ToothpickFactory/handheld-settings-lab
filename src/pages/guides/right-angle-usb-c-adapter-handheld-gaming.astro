@@ -1,0 +1,90 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const sourceLinks = [
+  { label: 'USB-IF USB Charger / USB Power Delivery overview', url: 'https://www.usb.org/usb-charger-pd' },
+  { label: 'Valve Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' },
+  { label: 'ASUS ROG Ally X specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/' },
+  { label: 'Lenovo Legion Go PSREF specifications', url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1' }
+];
+
+const shoppingLinks = [
+  { label: 'Right-angle 100W USB-C adapters', href: 'https://www.amazon.com/s?k=right+angle+usb+c+adapter+100w' },
+  { label: 'Right-angle 100W USB-C cables', href: 'https://www.amazon.com/s?k=right+angle+usb+c+cable+100w+handheld+gaming' },
+  { label: 'Short 100W USB-C cables for handheld docks', href: 'https://www.amazon.com/s?k=short+100w+usb+c+cable+dock' },
+  { label: 'USB-C extension cable 100W', href: 'https://www.amazon.com/s?k=usb+c+extension+cable+100w' }
+];
+---
+<Base title="Right-angle USB-C adapters for handheld gaming PCs — Handheld Settings Lab" description="Spec-informed checklist for using right-angle USB-C adapters, extension cables, docks, and charging cables with Steam Deck, ROG Ally, ROG Ally X, and Legion Go.">
+  <article class="wrap article">
+    <span class="eyebrow">Accessory guide</span>
+    <h1>Right-angle USB-C adapters for handheld gaming PCs: when they help and when to skip them</h1>
+    <p class="muted">Baseline/spec-informed guidance for Steam Deck, ROG Ally, ROG Ally X, Legion Go, docks, chargers, and travel bags. I did not run electrical or thermal lab tests for specific adapters; treat this as a compatibility and failure-risk checklist before you buy.</p>
+    <p class="affiliate-note">Disclosure: shopping links are generic Amazon searches marked sponsored/nofollow. There is no affiliate tag, hands-on endorsement, or claim that any listed adapter has been tested by Handheld Settings Lab.</p>
+
+    <div class="grid cols2">
+      <section class="card">
+        <span class="chip">Good use case</span>
+        <h2>Cleaner cable routing while playing plugged in</h2>
+        <p>A right-angle USB-C cable or adapter can keep the cable from sticking straight out of the top or side of a handheld. That can make couch charging, airplane tray-table play, and docked desk setups less awkward.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Risk case</span>
+        <h2>One more weak link in the power chain</h2>
+        <p>Every adapter adds another connector, another rating to verify, and another place for fit or power negotiation issues. If your handheld already charges reliably with a straight cable, do not add an adapter just for aesthetics.</p>
+      </section>
+    </div>
+
+    <h2>Fast buying rule</h2>
+    <div class="callout"><strong>Prefer a single rated right-angle USB-C cable over stacking adapters.</strong> If you must use an adapter, choose one that clearly states USB-C PD wattage, orientation, data/display support if needed, and a return policy.</div>
+
+    <h2>Adapter types and what to check</h2>
+    <table>
+      <thead><tr><th>Accessory</th><th>Best fit</th><th>Red flag</th></tr></thead>
+      <tbody>
+        <tr><td>Right-angle USB-C cable</td><td>Charging while handheld; simpler than adding a separate adapter.</td><td>Listing says “fast charge” but gives no USB-C PD wattage.</td></tr>
+        <tr><td>Right-angle USB-C adapter</td><td>Occasional cable routing fix with a known-good charger and cable.</td><td>Stacked with a dock, extension, hub, and mystery cable.</td></tr>
+        <tr><td>USB-C extension cable</td><td>Rare desk-routing situations where the short dock cable cannot reach.</td><td>Used for display-out, high-watt charging, or external SSDs without verified specs.</td></tr>
+        <tr><td>90-degree dock pigtail</td><td>Desk docks where the handheld port angle is awkward.</td><td>Connector presses against the shell, case, kickstand, or vent area.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Steam Deck, ROG Ally, and Legion Go notes</h2>
+    <ul>
+      <li><strong>Steam Deck / Steam Deck OLED:</strong> keep one known-good straight USB-C PD cable as your troubleshooting baseline. If an angle adapter causes slow charging or intermittent dock behavior, remove it first.</li>
+      <li><strong>ROG Ally / ROG Ally X:</strong> a 100W-rated cable or adapter gives more practical margin for charger and dock setups than an unlabeled phone accessory. Do not treat a right-angle adapter as a fix for an underpowered charger.</li>
+      <li><strong>Legion Go:</strong> because many setups involve kickstands, removable controllers, desk stands, or portable monitors, check whether the adapter angle pulls the cable into the stand path before traveling with it.</li>
+      <li><strong>Docks and displays:</strong> if you need video output, make sure the entire chain supports the display mode. Many charge-only accessories are not appropriate for dock troubleshooting.</li>
+    </ul>
+
+    <h2>Seven-point pre-buy checklist</h2>
+    <ol>
+      <li><strong>Wattage is printed in the listing:</strong> look for a clear USB-C PD rating such as 100W rather than vague “fast charging” copy.</li>
+      <li><strong>Direction matches your device:</strong> top-port, bottom-port, left-facing, and right-facing setups need different angles.</li>
+      <li><strong>Case clearance is real:</strong> thick protective cases and grips can block short adapters.</li>
+      <li><strong>No vent obstruction:</strong> cable routing should not cover exhaust/intake areas or force the handheld into a hot resting position.</li>
+      <li><strong>Data/display needs are separate:</strong> charging-only is fine for power, but not for external monitors, capture cards, or SSD transfers.</li>
+      <li><strong>Return window is easy:</strong> fit is physical; a good spec can still fail because of your case, dock, or stand.</li>
+      <li><strong>Troubleshooting stays simple:</strong> keep a known-good straight cable in the bag so you can remove the adapter from the chain when something misbehaves.</li>
+    </ol>
+
+    <h2>Accessory search links</h2>
+    <div class="grid cols2">
+      {shoppingLinks.map(link => <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored"><span class="chip">Sponsored search</span><h3>{link.label}</h3><p class="muted">Compare wattage rating, connector direction, data/display support, shell clearance, return policy, and recent owner photos before buying.</p></a>)}
+    </div>
+
+    <h2>When to skip the adapter entirely</h2>
+    <ul>
+      <li>Your charger, cable, and handheld already behave reliably and the cable is not in the way.</li>
+      <li>You are troubleshooting slow charging, dock disconnects, or external display flicker.</li>
+      <li>The adapter makes the cable press against a kickstand, grip case, table edge, or vent.</li>
+      <li>The product page does not state wattage or clearly says charge-only when you need data/display support.</li>
+    </ul>
+
+    <h2>Sources checked</h2>
+    <p>These public pages were checked live for USB-C PD and device-spec context before publishing this guide. The guide intentionally avoids untested claims about a specific adapter brand.</p>
+    <ul>
+      {sourceLinks.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+  </article>
+</Base>
