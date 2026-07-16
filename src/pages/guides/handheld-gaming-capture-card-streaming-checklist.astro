@@ -1,0 +1,96 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const sourceLinks = [
+  { label: 'Valve Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' },
+  { label: 'ASUS ROG Ally X official specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/' },
+  { label: 'Lenovo Legion Go PSREF specifications', url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1' },
+  { label: 'OBS Quick Start Guide', url: 'https://obsproject.com/kb/quick-start-guide' }
+];
+
+const setupPaths = [
+  {
+    title: 'Simple docked capture',
+    bestFor: 'Streaming one handheld from a desk',
+    detail: 'Handheld USB-C video output goes to a dock or adapter, HDMI feeds the capture card, and the capture card connects to the streaming PC over USB.'
+  },
+  {
+    title: 'Pass-through monitor setup',
+    bestFor: 'Playing with less display lag',
+    detail: 'Use a capture card with HDMI pass-through so the monitor/TV receives the signal directly while OBS records the USB feed.'
+  },
+  {
+    title: 'Camera-only handheld setup',
+    bestFor: 'No dock or capture card yet',
+    detail: 'A phone or camera aimed at the handheld is less clean, but it avoids buying the wrong HDMI gear before you know your streaming workflow.'
+  }
+];
+
+const shoppingLinks = [
+  { label: 'HDMI capture card with pass-through', href: 'https://www.amazon.com/s?k=hdmi+capture+card+passthrough' },
+  { label: 'USB-C dock with HDMI for handheld gaming PC', href: 'https://www.amazon.com/s?k=usb+c+dock+hdmi+steam+deck+rog+ally+legion+go' },
+  { label: 'Short HDMI cable for capture setup', href: 'https://www.amazon.com/s?k=short+hdmi+cable+capture+card' },
+  { label: 'USB-C PD charger for docked handheld streaming', href: 'https://www.amazon.com/s?k=65w+usb+c+pd+charger+gaming+handheld+dock' }
+];
+---
+<Base title="Capture card and streaming checklist for handheld gaming PCs — Handheld Settings Lab" description="Baseline capture-card setup guide for streaming Steam Deck, ROG Ally, Legion Go, and handheld PCs with USB-C docks, HDMI pass-through, OBS, power, audio, and affiliate-safe gear searches.">
+  <article class="wrap article">
+    <span class="eyebrow">Streaming accessory guide</span>
+    <h1>Capture card and streaming checklist for handheld gaming PCs</h1>
+    <p class="muted">Want to stream a Steam Deck, ROG Ally, ROG Ally X, Legion Go, or similar handheld without overbuying gear? Start with the video chain, power chain, and OBS basics before chasing expensive capture cards. This is baseline/spec/community-source-informed guidance, not hands-on testing of a specific capture-card model.</p>
+    <p class="affiliate-note">Disclosure: shopping links are generic Amazon searches marked sponsored/nofollow. No affiliate tag is attached. This page does not claim endorsement from Valve, ASUS, Lenovo, OBS, Amazon, or any capture-card maker.</p>
+
+    <div class="grid cols3">
+      {setupPaths.map(path => (
+        <div class="card">
+          <span class="chip">{path.bestFor}</span>
+          <h2>{path.title}</h2>
+          <p>{path.detail}</p>
+        </div>
+      ))}
+    </div>
+
+    <h2>The short answer</h2>
+    <p>For most handheld PC streamers, the least painful setup is a <strong>USB-C dock or adapter with HDMI output</strong>, an <strong>HDMI capture card with pass-through</strong>, a <strong>known-good HDMI cable</strong>, and a <strong>separate 65W-class USB-C PD charger</strong> for the handheld or dock. The capture card connects to the streaming computer; the handheld keeps charging through the dock.</p>
+    <p>If you only record clips occasionally, skip the premium capture card at first. A basic pass-through unit plus clean cabling can teach you whether your real problem is video output, audio routing, desk space, or OBS setup.</p>
+
+    <h2>What to verify before buying a capture card</h2>
+    <ul>
+      <li><strong>Handheld video output:</strong> confirm your device can output video over USB-C or through its official dock path. Valve, ASUS, and Lenovo specs are the source of truth for ports and display support.</li>
+      <li><strong>HDMI pass-through:</strong> pass-through lets you play on a monitor/TV while the stream PC records. Without it, you may end up playing from the OBS preview, which can feel delayed.</li>
+      <li><strong>Target resolution and frame rate:</strong> 1080p60 is a sensible first streaming target. Handhelds often render below that internally, and many viewers will not benefit from a complicated 4K capture chain.</li>
+      <li><strong>USB connection to the stream PC:</strong> check whether the capture card needs USB 3.x bandwidth, a driver, or UVC plug-and-play support. Avoid hubs until the card works directly.</li>
+      <li><strong>Power delivery:</strong> the dock, capture chain, and handheld should not all fight over one weak charger. If the handheld discharges while docked, solve power before changing game settings.</li>
+      <li><strong>Audio routing:</strong> decide whether game audio comes over HDMI, a headset/mic goes into the stream PC, or you need a mixer. Most beginner stream problems are audio problems.</li>
+    </ul>
+
+    <div class="callout">Do not assume a capture card improves handheld performance. It only captures the signal. If the game cannot hold the frame target on the handheld, the stream will still show those drops.</div>
+
+    <h2>Device notes</h2>
+    <div class="grid cols3">
+      <div class="card"><span class="chip">Steam Deck</span><h3>Use a docked display path first</h3><p>Valve's technical specs list external display output over USB-C. For a first stream, keep the Deck charging, set a conservative in-game frame cap, and make the dock/monitor path stable before adding overlays.</p></div>
+      <div class="card"><span class="chip">ROG Ally / Ally X</span><h3>Check Armoury Crate and Windows display settings</h3><p>ASUS handhelds are Windows PCs, so verify duplicate/extend mode, refresh rate, and power profile. A capture card cannot fix Windows choosing the wrong external display mode.</p></div>
+      <div class="card"><span class="chip">Legion Go</span><h3>Plan for desk geometry</h3><p>The Legion Go can act like a tiny desktop when docked. Leave room for the kickstand/controllers, a dock, HDMI run, charger, and microphone path before ordering a travel-size capture kit.</p></div>
+    </div>
+
+    <h2>OBS first-run checklist</h2>
+    <ol>
+      <li>Install OBS on the streaming computer and add the capture card as a video capture source.</li>
+      <li>Set a practical canvas/output target such as 1080p, then test a local recording before going live.</li>
+      <li>Confirm game audio appears in the OBS mixer, then add your microphone separately.</li>
+      <li>Record a 60-second sample and watch it back for audio sync, dropped frames, black screens, or washed-out color.</li>
+      <li>Only after the clean sample works, add camera, chat, alerts, and overlays.</li>
+    </ol>
+
+    <h2>Affiliate-safe shopping searches</h2>
+    <div class="grid cols2">
+      {shoppingLinks.map(link => <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored"><span class="chip">Sponsored search</span><h3>{link.label}</h3><p class="muted">Compare specs, return policy, recent owner photos, pass-through wording, cable length, and driver notes before purchasing.</p></a>)}
+    </div>
+
+    <h2>Sources checked</h2>
+    <p>Public source checks used for this guide. The page avoids model-specific latency, encoding, or image-quality claims because no capture card was physically tested in this run.</p>
+    <ul>
+      {sourceLinks.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+  </article>
+</Base>
