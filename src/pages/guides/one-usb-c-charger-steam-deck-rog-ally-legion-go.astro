@@ -1,0 +1,89 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const sourceLinks = [
+  { label: 'Valve Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' },
+  { label: 'ASUS ROG Ally X official specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/' },
+  { label: 'Lenovo Legion Go PSREF specifications', url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1' },
+  { label: 'USB-IF USB Charger / USB Power Delivery overview', url: 'https://www.usb.org/usb-charger-pd' }
+];
+
+const chargerChecks = [
+  {
+    label: 'Safe default',
+    headline: '65W USB-C PD covers the handheld baseline',
+    body: 'A single 65W-class USB-C Power Delivery charger is the practical floor for mixing Steam Deck, ROG Ally / Ally X, Legion Go, power banks, and simple docks.'
+  },
+  {
+    label: 'One-bag setup',
+    headline: '100W is for sharing or docking',
+    body: 'Step up when the same brick must feed a dock, phone, tablet, laptop, or two handheld accessories at once. The extra headroom is convenience, not a magic FPS upgrade.'
+  },
+  {
+    label: 'Do not miss',
+    headline: 'Cable rating matters as much as the brick',
+    body: 'A 100W charger with a weak cable can negotiate below expectations. Use a marked 5A / 100W-or-better USB-C cable when you depend on one charger for every device.'
+  }
+];
+
+const shoppingLinks = [
+  { label: '65W USB-C PD wall chargers', href: 'https://www.amazon.com/s?k=65w+usb+c+pd+charger' },
+  { label: '100W USB-C PD GaN chargers', href: 'https://www.amazon.com/s?k=100w+usb+c+gan+charger' },
+  { label: '100W USB-C E-marker cables', href: 'https://www.amazon.com/s?k=100w+usb+c+e-marker+cable' }
+];
+---
+<Base title="One USB-C charger for Steam Deck, ROG Ally, and Legion Go — Handheld Settings Lab" description="Spec-informed charger compatibility guide for using one USB-C PD charger across Steam Deck, ROG Ally, ROG Ally X, Legion Go, docks, and travel kits.">
+  <article class="wrap article">
+    <span class="eyebrow">Accessory guide</span>
+    <h1>Can one USB-C charger work for Steam Deck, ROG Ally, and Legion Go?</h1>
+    <p class="muted">Yes — if it is a real USB-C Power Delivery charger with enough wattage and the right cable. This guide is baseline/spec-informed guidance from public device documentation, not a hands-on charger benchmark or electrical test.</p>
+    <p class="affiliate-note">Disclosure: shopping links are generic Amazon searches marked sponsored/nofollow. No affiliate tag is used here, no charger brand has sponsored this page, and Handheld Settings Lab has not tested every product returned by these searches.</p>
+
+    <div class="grid cols3">
+      {chargerChecks.map(check => (
+        <div class="card">
+          <span class="chip">{check.label}</span>
+          <h2>{check.headline}</h2>
+          <p>{check.body}</p>
+        </div>
+      ))}
+    </div>
+
+    <h2>The short answer</h2>
+    <p>For most handheld PC owners, buy one <strong>65W USB-C PD charger</strong> as the minimum travel brick. It is a cleaner default than carrying several stock adapters, and it leaves room for handhelds that expect more than phone-charger power.</p>
+    <p>If you regularly charge a handheld through a dock, power a portable monitor, or share one brick with a laptop and phone, move to a <strong>100W USB-C PD / GaN charger</strong> with clearly labeled port output. Multi-port chargers often split power when more than one cable is connected, so read the per-port table before buying.</p>
+
+    <h2>Device baseline</h2>
+    <div class="grid cols3">
+      <div class="card"><span class="chip">Steam Deck</span><h3>45W-class stock target</h3><p>Valve’s public Steam Deck specs list a 45W USB-C PD power supply. A 65W charger is a sensible one-bag upgrade because it gives headroom for docks and future handhelds.</p></div>
+      <div class="card"><span class="chip">ROG Ally / Ally X</span><h3>Use 65W as the floor</h3><p>ASUS lists a 65W Type-C AC adapter for the ROG Ally X. If you want one charger for Ally plus accessories, avoid vague “fast charge” bricks that do not state USB-C PD output.</p></div>
+      <div class="card"><span class="chip">Legion Go</span><h3>Check PSREF and port labels</h3><p>Lenovo PSREF is the source of truth for model-specific power details. Treat 65W USB-C PD as the safe charger class when building a mixed handheld travel kit.</p></div>
+    </div>
+
+    <h2>Charger buying rules</h2>
+    <ul>
+      <li><strong>Look for USB-C PD, not only total watts.</strong> The product page should state USB-C Power Delivery output and the exact wattage available on each USB-C port.</li>
+      <li><strong>Prefer 65W minimum for a handheld-only bag.</strong> Lower-watt phone chargers may slowly charge while idle but are a poor default for gaming sessions.</li>
+      <li><strong>Choose 100W when one brick has multiple jobs.</strong> Docks, phones, tablets, laptops, power banks, and portable monitors can all eat into the available power budget.</li>
+      <li><strong>Pair it with a rated cable.</strong> Use a clearly labeled 100W/5A USB-C cable for 100W setups; do not assume the thin cable from earbuds or a phone is appropriate.</li>
+      <li><strong>Mind multi-port power splits.</strong> A charger advertised as 100W total may deliver 65W + 30W, 45W + 45W, or less when several ports are active.</li>
+    </ul>
+
+    <div class="callout">Troubleshooting tip: if a handheld says the charger is slow, test with the original cable or a known 100W-rated cable before replacing the brick. The cable, dock, or multi-port split may be the bottleneck.</div>
+
+    <h2>When to keep the stock charger</h2>
+    <p>Keep the original charger in your desk or travel bag even after buying a shared USB-C brick. It is useful for troubleshooting, warranty conversations, and separating “the handheld is fine” from “the dock/cable/third-party charger is misbehaving.”</p>
+    <p>For overnight hotel charging, a stock charger plus a separate phone brick can be simpler than one busy multi-port charger. For couch or docked play, a stronger single brick is usually cleaner.</p>
+
+    <h2>Affiliate-safe shopping searches</h2>
+    <div class="grid cols3">
+      {shoppingLinks.map(link => <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored"><span class="chip">Sponsored search</span><h3>{link.label}</h3><p class="muted">Compare USB-C PD output, per-port splits, cable rating, warranty, safety certifications, and recent buyer notes before purchasing.</p></a>)}
+    </div>
+
+    <h2>Sources checked</h2>
+    <p>Public source checks used for this publishable asset:</p>
+    <ul>
+      {sourceLinks.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+  </article>
+</Base>
