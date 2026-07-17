@@ -1,0 +1,93 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const sourceLinks = [
+  { label: 'Valve Steam Deck Dock overview', url: 'https://www.steamdeck.com/en/dock' },
+  { label: 'Valve Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' },
+  { label: 'ASUS ROG Ally X official specifications', url: 'https://rog.asus.com/us/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/' },
+  { label: 'Lenovo Legion Go PSREF specifications', url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1' },
+  { label: 'USB-IF USB Charger / USB Power Delivery overview', url: 'https://www.usb.org/usb-charger-pd' }
+];
+
+const checks = [
+  {
+    label: 'Best default',
+    headline: 'Dock with built-in Gigabit Ethernet',
+    body: 'Pick this when the handheld usually sits near a TV, desk monitor, router, or mesh node. One cable handles power, display, USB receivers, and wired network.'
+  },
+  {
+    label: 'Travel fallback',
+    headline: 'Tiny USB-C Ethernet adapter',
+    body: 'Useful for hotel rooms, dorm desks, or troubleshooting Wi-Fi, but it can block charging unless the adapter also has USB-C power pass-through.'
+  },
+  {
+    label: 'Avoid first',
+    headline: 'Mystery hubs with vague power specs',
+    body: 'If the listing does not name USB-C PD pass-through, display mode, or Ethernet speed, assume it is an office dongle rather than a gaming dock.'
+  }
+];
+
+const shoppingLinks = [
+  { label: 'Steam Deck dock Ethernet searches', href: 'https://www.amazon.com/s?k=steam+deck+dock+ethernet' },
+  { label: 'ROG Ally USB-C dock Ethernet searches', href: 'https://www.amazon.com/s?k=rog+ally+dock+ethernet' },
+  { label: 'USB-C Gigabit Ethernet adapter searches', href: 'https://www.amazon.com/s?k=usb+c+gigabit+ethernet+adapter+power+delivery' }
+];
+---
+<Base title="Ethernet adapter and dock checklist for handheld gaming PCs — Handheld Settings Lab" description="Source-informed Ethernet dock and USB-C adapter checklist for Steam Deck, ROG Ally, ROG Ally X, Legion Go, game downloads, cloud saves, streaming, and multiplayer.">
+  <article class="wrap article">
+    <span class="eyebrow">Accessory guide</span>
+    <h1>Ethernet adapter and dock checklist for handheld gaming PCs</h1>
+    <p class="muted">Wired Ethernet is not mandatory for Steam Deck, ROG Ally, ROG Ally X, or Legion Go, but it can make big downloads, cloud saves, remote play, streaming, and multiplayer troubleshooting much less annoying. This guide is baseline/spec/community-source-informed guidance — not a hands-on benchmark of any adapter.</p>
+    <p class="affiliate-note">Disclosure: shopping links are generic Amazon searches marked sponsored/nofollow. Handheld Settings Lab has not added an affiliate tag, has not tested every listed product, and does not claim endorsement from Valve, ASUS, Lenovo, USB-IF, or any accessory maker.</p>
+
+    <div class="grid cols3">
+      {checks.map(check => (
+        <div class="card">
+          <span class="chip">{check.label}</span>
+          <h2>{check.headline}</h2>
+          <p>{check.body}</p>
+        </div>
+      ))}
+    </div>
+
+    <h2>The short answer</h2>
+    <p>If you mostly play handheld on the couch or at a desk, buy a <strong>USB-C dock with Gigabit Ethernet and 65W-or-higher USB-C PD pass-through</strong>. If you only need wired networking occasionally, use a small USB-C Gigabit Ethernet adapter — but make sure it does not steal the only charging port during long sessions.</p>
+    <p>For Steam Deck, a dock is often the cleaner answer because it also handles HDMI/DisplayPort, charging, and controller dongles. For Windows handhelds, power headroom matters more: the dock should clearly list pass-through wattage instead of only saying “fast charging.”</p>
+
+    <h2>When Ethernet is worth carrying</h2>
+    <ul>
+      <li><strong>Huge installs and updates:</strong> game downloads, shader/cache updates, and launcher patches are the easiest reason to plug in.</li>
+      <li><strong>Remote play or game streaming:</strong> Ethernet can reduce one variable when diagnosing Steam Remote Play, Moonlight/Sunshine, Xbox streaming, or cloud-gaming stutter.</li>
+      <li><strong>Hotel, dorm, and crowded Wi-Fi:</strong> a travel adapter can rescue sessions where the access point is overloaded or captive portals are unreliable.</li>
+      <li><strong>Docked multiplayer:</strong> wired networking is useful when the handheld is already parked beside a TV, monitor, or router.</li>
+      <li><strong>Troubleshooting:</strong> if Wi-Fi speeds fall after driver updates or sleep/resume, an Ethernet adapter helps separate network issues from handheld settings.</li>
+    </ul>
+
+    <div class="callout">Do not buy an Ethernet adapter that blocks charging for your main docked setup. Handheld PCs can drain quickly under load, so network stability does not help if the USB-C port is occupied by a data-only dongle.</div>
+
+    <h2>What the listing should prove</h2>
+    <div class="grid cols3">
+      <div class="card"><span class="chip">Network</span><h3>Gigabit Ethernet named clearly</h3><p>Look for 10/100/1000Mbps or Gigabit Ethernet in the spec table. Avoid listings that only say “LAN port” without speed.</p></div>
+      <div class="card"><span class="chip">Power</span><h3>USB-C PD pass-through</h3><p>For a dock, favor 65W+ input/pass-through language. A tiny Ethernet-only adapter is fine for quick downloads, but not for long play-and-charge sessions.</p></div>
+      <div class="card"><span class="chip">Fit</span><h3>Cable reach and port angle</h3><p>Top-mounted handheld USB-C ports need a short cable that reaches without twisting. Cradle-style docks should physically fit protective cases if you use one.</p></div>
+    </div>
+
+    <h2>Device notes</h2>
+    <ul>
+      <li><strong>Steam Deck:</strong> Valve’s official Dock exists as a useful reference point: Ethernet, display output, USB ports, and power are all part of the same docked-use pattern.</li>
+      <li><strong>ROG Ally / Ally X:</strong> pair Ethernet with a charger/dock that can keep the handheld powered in performance modes. If the device warns about power, fix the charger and cable before blaming the network adapter.</li>
+      <li><strong>Legion Go:</strong> the larger screen makes tabletop and desk play common; check dock cable reach and whether the stand/case position keeps the Ethernet cable from tugging the hub.</li>
+    </ul>
+
+    <h2>Affiliate-safe shopping searches</h2>
+    <div class="grid cols3">
+      {shoppingLinks.map(link => <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored"><span class="chip">Sponsored search</span><h3>{link.label}</h3><p class="muted">Compare Gigabit Ethernet, USB-C PD pass-through, display output, cable reach, warranty, and recent buyer notes before purchasing.</p></a>)}
+    </div>
+
+    <h2>Sources checked</h2>
+    <p>Public source checks used for this publishable asset:</p>
+    <ul>
+      {sourceLinks.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+  </article>
+</Base>
