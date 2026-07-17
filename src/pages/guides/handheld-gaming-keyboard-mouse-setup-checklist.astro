@@ -1,0 +1,97 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const sourceLinks = [
+  { label: 'Valve Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' },
+  { label: 'ASUS ROG Ally X official specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/' },
+  { label: 'Lenovo Legion Go PSREF specifications', url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1' }
+];
+
+const setupModes = [
+  {
+    title: 'Tiny desk mode',
+    bestFor: 'Hotel desks, couch trays, quick MMO/admin sessions',
+    detail: 'Use a compact keyboard, travel mouse, USB-C dock or hub, and a charger strong enough to keep the handheld from draining while peripherals are attached.'
+  },
+  {
+    title: '2.4GHz dongle kit',
+    bestFor: 'Lower-latency input than Bluetooth in action games',
+    detail: 'A single USB-A or USB-C dongle can be simpler than juggling Bluetooth pairing, but it consumes a port and may need a hub when charging.'
+  },
+  {
+    title: 'Bluetooth fallback kit',
+    bestFor: 'Minimal packing and turn-based games',
+    detail: 'Bluetooth is convenient for menus, strategy games, typing passwords, and travel, but keep expectations modest for twitch shooters or rhythm games.'
+  }
+];
+
+const shoppingLinks = [
+  { label: 'Compact wireless keyboard for handheld gaming PC', href: 'https://www.amazon.com/s?k=compact+wireless+keyboard+steam+deck+rog+ally' },
+  { label: 'Travel mouse with 2.4GHz dongle and Bluetooth', href: 'https://www.amazon.com/s?k=travel+mouse+2.4ghz+bluetooth+usb+c' },
+  { label: 'USB-C hub with power delivery and USB-A ports', href: 'https://www.amazon.com/s?k=usb+c+hub+power+delivery+usb+a+steam+deck+rog+ally' },
+  { label: 'Lap desk or foldable keyboard tray for handheld gaming', href: 'https://www.amazon.com/s?k=lap+desk+foldable+keyboard+mouse+gaming' }
+];
+---
+<Base title="Keyboard and mouse setup checklist for handheld gaming PCs — Handheld Settings Lab" description="Source-informed keyboard and mouse setup guide for Steam Deck, ROG Ally, Legion Go, docks, Bluetooth, 2.4GHz dongles, travel desks, charging, and affiliate-safe accessory searches.">
+  <article class="wrap article">
+    <span class="eyebrow">Accessory setup guide</span>
+    <h1>Keyboard and mouse setup checklist for handheld gaming PCs</h1>
+    <p class="muted">A handheld PC can become a tiny desktop for strategy games, MMOs, launchers, mods, passwords, Discord, and quick admin work. This guide is baseline/spec/community-source-informed guidance, not hands-on testing of a specific keyboard, mouse, hub, or lap desk.</p>
+    <p class="affiliate-note">Disclosure: shopping links are generic Amazon searches marked sponsored/nofollow. No affiliate tag is attached. This page does not claim endorsement from Valve, ASUS, Lenovo, Amazon, or any accessory maker.</p>
+
+    <div class="grid cols3">
+      {setupModes.map(mode => (
+        <div class="card">
+          <span class="chip">{mode.bestFor}</span>
+          <h2>{mode.title}</h2>
+          <p>{mode.detail}</p>
+        </div>
+      ))}
+    </div>
+
+    <h2>The short answer</h2>
+    <p>For most Steam Deck, ROG Ally, ROG Ally X, Legion Go, and Windows handheld owners, the most reliable keyboard-and-mouse kit is a <strong>compact keyboard</strong>, a <strong>travel mouse with both Bluetooth and 2.4GHz modes</strong>, and a <strong>USB-C hub or dock with power delivery</strong>. Use Bluetooth when packing light; use a dongle or wired fallback when input feel matters.</p>
+    <p>Do not buy the keyboard first and solve ports later. A great mouse still feels bad if the handheld is discharging, the hub blocks the grip, or the dongle forces you to unplug the charger.</p>
+
+    <h2>What to verify before buying accessories</h2>
+    <ul>
+      <li><strong>Port budget:</strong> count charging, display out, USB dongles, wired audio, Ethernet, and storage before choosing a hub. One-port handheld setups run out of room quickly.</li>
+      <li><strong>Power delivery:</strong> if the handheld drains while the hub is attached, the keyboard and mouse setup is not travel-ready. Start from the official device power and USB-C specs.</li>
+      <li><strong>Wireless mode:</strong> Bluetooth is convenient, while 2.4GHz dongles are often the safer first try for faster games. Keep a wired path for troubleshooting pairing problems.</li>
+      <li><strong>Physical layout:</strong> tiny keyboards save bag space but can make number rows, function keys, arrows, and launcher shortcuts awkward. Match the keyboard to the games and admin tasks you actually do.</li>
+      <li><strong>Surface:</strong> a good mouse needs a stable tray, desk, or pad. A couch armrest setup looks clever until the sensor, wrist angle, or cable path ruins aiming.</li>
+      <li><strong>Dock clearance:</strong> verify that the hub cable does not fight the handheld case, kickstand, top USB-C port, fan exhaust, or controller grip.</li>
+    </ul>
+
+    <div class="callout">Good first kit: compact keyboard + dual-mode travel mouse + short USB-C hub with PD passthrough + one spare USB-C cable. Upgrade to a larger keyboard or dock only after you know the setup survives a real session.</div>
+
+    <h2>Device notes</h2>
+    <div class="grid cols3">
+      <div class="card"><span class="chip">Steam Deck / OLED</span><h3>Desktop mode rewards a real keyboard</h3><p>Valve's official specs list Bluetooth, Wi-Fi, USB-C with DisplayPort, and a 3.5mm audio jack. A keyboard and mouse are especially useful for Desktop Mode, launchers, passwords, mod managers, and browser setup.</p></div>
+      <div class="card"><span class="chip">ROG Ally / Ally X</span><h3>Windows makes peripherals powerful</h3><p>ASUS lists modern wireless and USB-C connectivity for current Ally hardware. Treat the Ally like a small Windows laptop: check Armoury Crate, display mode, input focus, and charger behavior before blaming the mouse.</p></div>
+      <div class="card"><span class="chip">Legion Go</span><h3>Kickstand desk mode is the advantage</h3><p>Lenovo's PSREF is the source of truth for regional specs. The Legion Go form factor makes desk-style keyboard and mouse play natural, but still plan cable angles, charger placement, and tray space.</p></div>
+    </div>
+
+    <h2>Game and app fit</h2>
+    <table class="table">
+      <thead><tr><th>Use case</th><th>Best input choice</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Strategy, city builders, CRPG inventory work</td><td>Bluetooth or 2.4GHz keyboard and mouse</td><td>Precision and shortcuts matter more than twitch latency.</td></tr>
+        <tr><td>Shooters and competitive games</td><td>2.4GHz dongle or wired mouse first</td><td>Remove Bluetooth latency and pairing as variables before tuning graphics.</td></tr>
+        <tr><td>Launchers, passwords, mod tools, browser work</td><td>Compact keyboard first</td><td>Typing quality matters more than RGB, macros, or a full-size board.</td></tr>
+        <tr><td>Travel desk / hotel setup</td><td>Small keyboard, travel mouse, PD hub</td><td>Port count, charger clearance, and packing shape usually decide the setup.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Affiliate-safe shopping searches</h2>
+    <div class="grid cols2">
+      {shoppingLinks.map(link => <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored"><span class="chip">Sponsored search</span><h3>{link.label}</h3><p class="muted">Compare dimensions, wireless modes, port layout, return policy, recent owner photos, and handheld-specific fit notes before purchasing.</p></a>)}
+    </div>
+
+    <h2>Sources checked</h2>
+    <p>Public source checks used for this guide. The page avoids model-specific latency, battery-drain, or durability claims because no accessory was physically tested in this run.</p>
+    <ul>
+      {sourceLinks.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+  </article>
+</Base>
