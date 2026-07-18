@@ -1,0 +1,111 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const sourceLinks = [
+  { label: 'Valve Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' },
+  { label: 'ASUS ROG Ally X official specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/' },
+  { label: 'Lenovo Legion Go PSREF specifications', url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1' },
+  { label: 'USB-IF USB Charger / USB Power Delivery overview', url: 'https://www.usb.org/usb-charger-pd' }
+];
+
+const fitChecks = [
+  {
+    label: 'Use case',
+    headline: 'Treat external SSDs as desk/dock storage first',
+    body: 'A tiny enclosure can be great for moving game captures, launchers, ROM libraries you own, or big installs at a desk. It is less ideal as dangling storage for couch or airplane play.'
+  },
+  {
+    label: 'Cable + port strain',
+    headline: 'The mechanical fit matters as much as speed',
+    body: 'A short, stiff cable can lever against a top USB-C port. Prefer a flexible C-to-C cable, a stable stand/dock, and a path that does not tug when you pick up the handheld.'
+  },
+  {
+    label: 'Power + heat',
+    headline: 'NVMe enclosures get warm under sustained writes',
+    body: 'Metal shells and thermal pads help, but heat is still part of external NVMe life. Avoid burying the enclosure under a blanket, case flap, or hot exhaust path.'
+  }
+];
+
+const shoppingLinks = [
+  { label: 'USB-C NVMe SSD enclosure for handheld PC', href: 'https://www.amazon.com/s?k=usb+c+nvme+ssd+enclosure+handheld+gaming' },
+  { label: 'Short flexible USB-C 10Gbps cable', href: 'https://www.amazon.com/s?k=short+flexible+usb+c+10gbps+cable' },
+  { label: '2230 NVMe SSD enclosure', href: 'https://www.amazon.com/s?k=2230+nvme+ssd+enclosure' },
+  { label: 'Handheld stand with cable clearance', href: 'https://www.amazon.com/s?k=steam+deck+rog+ally+stand+cable+clearance' }
+];
+---
+<Base title="External SSD enclosure checklist for handheld gaming PCs — Handheld Settings Lab" description="A spec-informed external SSD and USB-C NVMe enclosure checklist for Steam Deck, ROG Ally, ROG Ally X, Legion Go, docked installs, backups, cables, heat, and storage planning.">
+  <article class="wrap article">
+    <span class="eyebrow">Storage + accessory guide</span>
+    <h1>External SSD enclosure checklist for handheld gaming PCs</h1>
+    <p class="muted">External USB-C SSDs can be useful for Steam Deck, ROG Ally, ROG Ally X, Legion Go, and other handheld PCs, but they are not a magic replacement for internal storage. This is baseline/spec/community-source-informed guidance, not a hands-on benchmark of any one enclosure or drive.</p>
+    <p class="affiliate-note">Disclosure: shopping links are generic Amazon searches marked sponsored/nofollow. Handheld Settings Lab has not added an affiliate tag, has not tested every listed product, and does not claim endorsement from Valve, ASUS, Lenovo, USB-IF, or any accessory maker.</p>
+
+    <div class="grid cols3">
+      {fitChecks.map(check => (
+        <div class="card">
+          <span class="chip">{check.label}</span>
+          <h2>{check.headline}</h2>
+          <p>{check.body}</p>
+        </div>
+      ))}
+    </div>
+
+    <h2>The short answer</h2>
+    <p>Buy an external SSD enclosure only when you have a clear job for it: docked library overflow, moving captures between a handheld and desktop, staging large game installs, or keeping a portable backup. If your goal is everyday handheld play, an internal SSD upgrade or microSD card is usually cleaner because nothing hangs from the USB-C port.</p>
+    <p>For most handheld PC owners, the practical checklist is: <strong>USB-C enclosure, known-good data cable, thermal shell/pad, safe cable routing, and a power plan</strong>. Speed claims matter less than whether the drive stays connected, stays cool enough, and does not fight your charger, dock, or case.</p>
+
+    <h2>When an external SSD makes sense</h2>
+    <ul>
+      <li><strong>Docked game library overflow:</strong> keep bulky games on an external drive used at a desk or TV, while travel games stay internal.</li>
+      <li><strong>Capture and creator workflow:</strong> move screenshots, OBS recordings, emulator saves you legally own, or mod backups between machines.</li>
+      <li><strong>Temporary migration:</strong> stage files before an internal SSD upgrade so you are not juggling downloads on hotel or dorm Wi-Fi.</li>
+      <li><strong>Shared utility drive:</strong> keep installers, recovery tools, and non-sensitive setup files in one portable kit.</li>
+    </ul>
+
+    <div class="callout">Avoid treating an external SSD as a dangling travel drive. A bump to the cable can interrupt a game, corrupt a transfer, or stress the handheld USB-C port. If you must play from it, set the handheld on a stand or dock first.</div>
+
+    <h2>What the enclosure listing should clearly state</h2>
+    <ul>
+      <li><strong>Drive size:</strong> confirm whether the enclosure supports 2230, 2242, 2280, or multiple lengths before buying an SSD.</li>
+      <li><strong>Connector type:</strong> most handheld-focused portable enclosures should be NVMe M.2, not a SATA-only M.2 shell unless you intentionally own a SATA drive.</li>
+      <li><strong>USB data mode:</strong> look for an explicit data speed rating and included cable details, not only “high speed.”</li>
+      <li><strong>Thermal design:</strong> favor a metal shell, thermal pad, and clear assembly photos. Sustained installs can heat small NVMe drives quickly.</li>
+      <li><strong>Tooling:</strong> check whether the shell is tool-free or includes the right screws, pegs, and pads for the SSD length you plan to use.</li>
+    </ul>
+
+    <h2>Device-specific notes</h2>
+    <div class="grid cols3">
+      <div class="card"><span class="chip">Steam Deck</span><h3>Great docked, awkward handheld</h3><p>Valve lists USB-C connectivity on the Steam Deck tech page, but a top-port external drive is still physically exposed. Treat it as a docked or tabletop storage option unless your cable routing is very secure.</p></div>
+      <div class="card"><span class="chip">ROG Ally / Ally X</span><h3>Mind charging and Windows paths</h3><p>Windows handhelds make external drives easy to mount, but high-performance play already stresses power and heat. Use a charger/dock plan that leaves the storage cable stable and does not block airflow.</p></div>
+      <div class="card"><span class="chip">Legion Go</span><h3>Use the stand advantage</h3><p>The Legion Go form factor works well with tabletop setups. Route the external SSD cable so the drive rests on the desk, not from the USB-C connector.</p></div>
+    </div>
+
+    <h2>Setup checklist before loading games</h2>
+    <ol>
+      <li><strong>Test the cable first</strong> with a large file copy. Many mystery USB-C cables charge but behave poorly for data.</li>
+      <li><strong>Format intentionally</strong> for the device ecosystem you use. Do not reformat a drive with important files just because an app prompts you.</li>
+      <li><strong>Copy one large game or folder first</strong> and play/test from a stable desk before moving a whole library.</li>
+      <li><strong>Watch heat during the first install</strong>. Warm is normal; painful-to-touch, disconnecting, or throttling behavior means the setup needs a different enclosure, cable path, or workload.</li>
+      <li><strong>Keep saves/cloud sync in mind</strong>. Confirm the game’s save behavior before bouncing between internal and external installs.</li>
+    </ol>
+
+    <h2>What to skip at first</h2>
+    <ul>
+      <li>Ultra-cheap enclosures with no clear chipset, thermal pad, or supported SSD length.</li>
+      <li>Very rigid right-angle adapters unless you have confirmed they do not lever against the handheld port.</li>
+      <li>Running the handheld inside a closed case while a hot external SSD sits in the same pocket.</li>
+      <li>Assuming external SSD speed fixes every loading issue; shader compilation, CPU limits, and game engine behavior still matter.</li>
+    </ul>
+
+    <h2>Affiliate-safe shopping searches</h2>
+    <div class="grid cols2">
+      {shoppingLinks.map(link => <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored"><span class="chip">Sponsored search</span><h3>{link.label}</h3><p class="muted">Compare supported SSD length, included cable, thermal design, return policy, warranty, and recent handheld-owner reviews before buying.</p></a>)}
+    </div>
+
+    <h2>Sources checked</h2>
+    <p>These public source URLs were checked for device USB-C/power context and general USB-C PD terminology while preparing this publishable asset:</p>
+    <ul>
+      {sourceLinks.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+  </article>
+</Base>
