@@ -1,0 +1,99 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const sourceLinks = [
+  { label: 'Valve Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' },
+  { label: 'ASUS ROG Ally X specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/' },
+  { label: 'Lenovo Legion Go PSREF specifications', url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1' },
+  { label: 'TSA lithium batteries travel guidance', url: 'https://www.tsa.gov/travel/security-screening/whatcanibring/items/lithium-batteries' }
+];
+
+const fitChecks = [
+  {
+    title: 'Measure the handheld, not just the screen size',
+    detail: 'Steam Deck, ROG Ally, and Legion Go cases are usually sold by model, but third-party travel bags often list only interior dimensions. Compare width, height, and thickness before trusting a generic “portable console” listing.'
+  },
+  {
+    title: 'Leave room for sticks and triggers',
+    detail: 'A tight shell can press analog sticks, triggers, or shoulder buttons in a backpack. Look for raised stick wells, a molded tray, or enough depth that the lid does not bow against controls.'
+  },
+  {
+    title: 'Separate the charger and hard accessories',
+    detail: 'A wall charger, USB-C dock, power bank, or metal adapter should not sit loose against the screen. Use a divider, pouch, or second pocket so pressure points do not transfer into the panel.'
+  }
+];
+
+const caseTypes = [
+  { label: 'Slim shell', bestFor: 'Daily bag carry', watch: 'Little room for charger, dock, or power bank.' },
+  { label: 'Travel case', bestFor: 'Flights and road trips', watch: 'Can get bulky fast; confirm it still fits your backpack.' },
+  { label: 'Accessory pouch', bestFor: 'Cables, dongles, earbuds', watch: 'Do not put hard accessories directly above the handheld screen.' }
+];
+
+const shoppingLinks = [
+  { label: 'Steam Deck carrying cases', href: 'https://www.amazon.com/s?k=steam+deck+carrying+case' },
+  { label: 'ROG Ally X carrying cases', href: 'https://www.amazon.com/s?k=rog+ally+x+carrying+case' },
+  { label: 'Legion Go carrying cases', href: 'https://www.amazon.com/s?k=legion+go+carrying+case' }
+];
+---
+<Base title="Handheld gaming carrying case size checklist — Handheld Settings Lab" description="Source-informed carrying case sizing checklist for Steam Deck, ROG Ally X, Legion Go, chargers, docks, power banks, screen protection, and travel bags.">
+  <article class="wrap article">
+    <span class="eyebrow">Accessory guide</span>
+    <h1>Handheld gaming carrying case size checklist</h1>
+    <p class="muted">A handheld case is not just a pouch. It decides whether the screen, sticks, triggers, charger, dock, and USB-C accessories survive daily bag carry. This guide is baseline/spec/community-source-informed guidance — not a hands-on durability ranking.</p>
+    <p class="affiliate-note">Disclosure: shopping links are generic Amazon searches marked sponsored/nofollow. Handheld Settings Lab has not added an affiliate tag, has not tested every case listed, and does not claim official endorsement from Valve, ASUS, Lenovo, TSA, or any marketplace seller.</p>
+
+    <div class="grid cols3">
+      {fitChecks.map(check => (
+        <div class="card">
+          <span class="chip">Fit check</span>
+          <h2>{check.title}</h2>
+          <p>{check.detail}</p>
+        </div>
+      ))}
+    </div>
+
+    <h2>The short answer</h2>
+    <p>Buy a case that is advertised for your exact handheld first. If you are using a generic organizer or camera-style sling, compare the official device dimensions against the bag’s usable interior space and leave extra depth for analog sticks, rear buttons, trigger height, grips, and a thin screen protector.</p>
+    <p>If your travel kit includes a USB-C charger, power bank, dock, HDMI adapter, 2.4GHz dongle, or wired earbuds, use a case with a protected accessory pocket instead of stuffing hard parts against the handheld shell.</p>
+
+    <h2>Device sizing context</h2>
+    <div class="grid cols3">
+      <div class="card"><span class="chip">Steam Deck</span><h3>Check around 298 × 117 × 49 mm</h3><p>Valve’s official technical page lists the Steam Deck size as 298mm × 117mm × 49mm. Use that as the baseline when judging generic cases.</p></div>
+      <div class="card"><span class="chip">ROG Ally / Ally X</span><h3>Model-specific fit matters</h3><p>Use ASUS specs for your exact Ally model and be careful with older Ally listings when shopping for Ally X, because grips and shell shape can affect tight molded cases.</p></div>
+      <div class="card"><span class="chip">Legion Go</span><h3>Large-body caution</h3><p>Lenovo’s PSREF/product specs are the source of truth for Legion Go dimensions. Its detachable-controller layout and larger screen make generic “fits handheld consoles” claims worth double-checking.</p></div>
+    </div>
+
+    <h2>Case style picker</h2>
+    <div class="grid cols3">
+      {caseTypes.map(type => (
+        <div class="card">
+          <span class="chip">{type.label}</span>
+          <h3>Best for: {type.bestFor}</h3>
+          <p><strong>Watch:</strong> {type.watch}</p>
+        </div>
+      ))}
+    </div>
+
+    <h2>Accessory pocket checklist</h2>
+    <ul>
+      <li><strong>Charger:</strong> keep the USB-C prongs and brick away from the display surface.</li>
+      <li><strong>Power bank:</strong> follow airline and carrier rules for lithium batteries; do not bury a hot or damaged battery in a packed case.</li>
+      <li><strong>USB-C adapters:</strong> use a pouch or elastic loop so right-angle adapters and HDMI dongles do not grind into the shell.</li>
+      <li><strong>microSD cards:</strong> use a small card holder rather than loose slots in a soft pocket.</li>
+      <li><strong>Screen cloth:</strong> keep one thin cloth in the case so grit is not wiped across the display with a shirt sleeve.</li>
+    </ul>
+
+    <div class="callout">Case listings often overpromise. Before buying, check recent buyer photos from owners of the same handheld, not only polished product renders.</div>
+
+    <h2>Affiliate-safe shopping searches</h2>
+    <div class="grid cols3">
+      {shoppingLinks.map(link => <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored"><span class="chip">Sponsored search</span><h3>{link.label}</h3><p class="muted">Compare official model fit, interior depth, stick protection, accessory separation, return policy, and recent buyer photos before purchasing.</p></a>)}
+    </div>
+
+    <h2>Sources checked</h2>
+    <p>Public source checks used for this publishable asset:</p>
+    <ul>
+      {sourceLinks.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+  </article>
+</Base>
