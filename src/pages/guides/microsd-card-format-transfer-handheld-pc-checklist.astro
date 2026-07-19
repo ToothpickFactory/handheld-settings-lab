@@ -1,0 +1,111 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const sourceLinks = [
+  { label: 'Valve Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' },
+  { label: 'Steam Support: microSD card and storage management context', url: 'https://help.steampowered.com/en/faqs/view/69E3-14AF-9764-4C28' },
+  { label: 'SD Association: Application Performance Class overview', url: 'https://www.sdcard.org/developers/sd-standard-overview/application-performance-class/' },
+  { label: 'SD Association: Speed Class overview', url: 'https://www.sdcard.org/developers/sd-standard-overview/speed-class/' }
+];
+
+const setupSteps = [
+  {
+    label: 'Before format',
+    title: 'Verify the card before trusting it',
+    body: 'If the card is new or suspiciously cheap, run a full-capacity write/read verification on a computer before loading your game library. Counterfeit flash can report a fake capacity and fail later.'
+  },
+  {
+    label: 'Format once',
+    title: 'Use the handheld you plan to play on',
+    body: 'Let Steam Deck, Windows, or the target launcher prepare the card when possible. That avoids format mismatches and creates the folders the device expects.'
+  },
+  {
+    label: 'Transfer safely',
+    title: 'Move one test game before the whole library',
+    body: 'Install or move one small game and one large game, launch both, reboot, then confirm the library remounts before moving hundreds of gigabytes.'
+  }
+];
+
+const shoppingLinks = [
+  { label: '512GB A2 microSDXC cards', href: 'https://www.amazon.com/s?k=512GB+A2+microSDXC+card+handheld+gaming' },
+  { label: '1TB A2 microSDXC cards', href: 'https://www.amazon.com/s?k=1TB+A2+microSDXC+card+Steam+Deck+ROG+Ally' },
+  { label: 'USB-C microSD card readers', href: 'https://www.amazon.com/s?k=USB-C+microSD+card+reader+UHS-I' }
+];
+---
+<Base title="microSD card formatting and transfer checklist for handheld PCs — Handheld Settings Lab" description="Source-informed microSD setup checklist for Steam Deck, ROG Ally, Legion Go, Windows handhelds, formatting, transfer safety, fake-card checks, and storage migration.">
+  <article class="wrap article">
+    <span class="eyebrow">Storage guide</span>
+    <h1>microSD card formatting and transfer checklist for handheld gaming PCs</h1>
+    <p class="muted">Use this before turning a new microSD card into your Steam Deck, ROG Ally, Legion Go, or Windows handheld game library. This is baseline/spec/community-source-informed guidance, not a fresh hands-on benchmark of a specific card or reader.</p>
+    <p class="affiliate-note">Disclosure: shopping links are broad Amazon searches marked sponsored/nofollow. No affiliate tag is attached, and this page does not claim that Handheld Settings Lab tested or endorses every listed card, reader, or brand.</p>
+
+    <div class="grid cols3">
+      {setupSteps.map(step => (
+        <section class="card">
+          <span class="chip">{step.label}</span>
+          <h2>{step.title}</h2>
+          <p>{step.body}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Fast answer</h2>
+    <p>For most handheld PC players, the safest microSD workflow is: buy from a trusted seller, verify the card capacity, format it on the handheld, move a small test game first, then migrate the rest of the library in batches. Do not fill a brand-new card with a full backlog before you know it mounts reliably after reboot.</p>
+
+    <div class="callout"><strong>Do not skip the test launch.</strong> A card can appear in storage settings but still be slow, counterfeit, misformatted, or flaky under a real game install. Test before trusting travel saves, mods, emulator files, or a whole vacation library to it.</div>
+
+    <h2>Steam Deck setup notes</h2>
+    <ul>
+      <li><strong>Use Game Mode storage tools first:</strong> if the card is for Steam games, format and manage it through the Steam Deck interface before trying desktop workarounds.</li>
+      <li><strong>Remember the device slot:</strong> Valve’s public specs list a UHS-I microSD slot. Paying extra for card speeds that require a different reader or bus mode may not help inside the Deck.</li>
+      <li><strong>Move libraries in batches:</strong> after formatting, install one small game and one larger game, launch both, restart the Deck, then continue with bulk transfers.</li>
+      <li><strong>Back up non-Steam files separately:</strong> screenshots, emulator folders where legal, modded saves, and desktop files may not be protected by Steam Cloud.</li>
+    </ul>
+
+    <h2>Windows handheld setup notes</h2>
+    <div class="grid cols2">
+      <section class="card">
+        <span class="chip">ROG Ally / Ally X</span>
+        <h3>Let Windows and the launcher see a stable card</h3>
+        <p>Format the card, assign a clear drive label, then point Steam, Xbox, Battle.net, Epic, or other launchers to the right library folder. Avoid unplugging during shader compilation, patching, or first launch.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Legion Go / Windows handhelds</span>
+        <h3>Keep the path consistent</h3>
+        <p>Windows launchers can dislike drive-letter changes. If a library disappears, check Disk Management and the launcher’s storage settings before deleting or reinstalling games.</p>
+      </section>
+    </div>
+
+    <h2>Arrival and counterfeit-card checklist</h2>
+    <ol>
+      <li>Buy from the card maker’s store, Amazon direct, a trusted retailer, or another seller with easy returns.</li>
+      <li>Inspect packaging, card printing, capacity label, and seller details before opening a big migration project.</li>
+      <li>Run a full-capacity verification tool where practical before relying on a high-capacity card.</li>
+      <li>Format the card on the target handheld, not on a random camera, phone, or old USB adapter.</li>
+      <li>Install or copy one game first, launch it, reboot, and confirm the library survives a cold start.</li>
+      <li>Move the rest of the library in batches so one failure does not waste a whole day of transfers.</li>
+    </ol>
+
+    <h2>When to reformat versus troubleshoot</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Try first</th><th>When to reformat or return</th></tr></thead>
+      <tbody>
+        <tr><td>Card not detected</td><td>Power cycle the handheld, reseat the card, and test the card in a known-good reader.</td><td>If multiple devices cannot see it, stop trusting the card and use the return window.</td></tr>
+        <tr><td>Library disappeared</td><td>Check storage settings, drive letter, mount status, and launcher library paths.</td><td>Reformat only after backups and after confirming the card itself is healthy.</td></tr>
+        <tr><td>Installs fail or corrupt</td><td>Test with a smaller game, verify free space, and run a full-capacity check.</td><td>Return the card if verification fails or capacity appears fake.</td></tr>
+        <tr><td>Slow loading</td><td>Compare one known game on internal storage and microSD, then check if the card is A1/A2/UHS-I from a real seller.</td><td>Buy an internal SSD instead if the game library is mostly huge modern PC installs.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Accessory-safe shopping searches</h2>
+    <div class="grid cols3">
+      {shoppingLinks.map(link => <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored"><span class="chip">Sponsored search</span><h3>{link.label}</h3><p class="muted">Compare seller quality, return policy, A2/V30/UHS markings, warranty, and recent owner photos before purchasing.</p></a>)}
+    </div>
+
+    <h2>Sources checked</h2>
+    <p>Public source checks used for this publishable asset. No benchmark numbers were invented; card-speed guidance is label/spec-informed.</p>
+    <ul>
+      {sourceLinks.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+  </article>
+</Base>
