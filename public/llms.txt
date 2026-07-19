@@ -9,6 +9,6 @@ Core sections:
 - /guides/
 
 Recent guide:
-- /guides/handheld-gaming-ethernet-adapter-dock-checklist/ — source-informed Ethernet dock and USB-C adapter checklist for Steam Deck, ROG Ally, Legion Go, downloads, streaming, and multiplayer troubleshooting.
+- /guides/handheld-gaming-hdmi-cable-adapter-checklist/ — source-informed HDMI cable and USB-C adapter checklist for Steam Deck, ROG Ally, Legion Go, TVs, monitors, docks, and PD pass-through.
 
 Editorial guardrails: do not fabricate benchmark data, test claims, affiliate relationships, or official affiliations.

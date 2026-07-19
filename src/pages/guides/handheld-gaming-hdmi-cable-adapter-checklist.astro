@@ -1,0 +1,86 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const sourceLinks = [
+  { label: 'Valve Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' },
+  { label: 'ASUS ROG Ally X official specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/' },
+  { label: 'Lenovo Legion Go PSREF specifications', url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1' },
+  { label: 'HDMI Technology specifications overview', url: 'https://www.hdmi.org/spec/index' },
+  { label: 'USB-IF USB Charger / USB Power Delivery overview', url: 'https://www.usb.org/usb-charger-pd' }
+];
+
+const checks = [
+  {
+    label: 'Display target',
+    headline: 'Buy for the TV or monitor you actually use',
+    body: 'A 1080p travel display, 4K living-room TV, and high-refresh desk monitor have different needs. Match the cable/adapter claims to your planned resolution and refresh rate instead of buying the loudest listing.'
+  },
+  {
+    label: 'USB-C mode',
+    headline: 'Look for explicit video output support',
+    body: 'Handhelds typically send video through USB-C DisplayPort Alternate Mode into a dock, hub, or USB-C-to-HDMI adapter. Avoid listings that only promise charging or generic “USB-C compatibility.”'
+  },
+  {
+    label: 'Power path',
+    headline: 'Do not strand the charging port',
+    body: 'A simple USB-C-to-HDMI dongle may use the only top USB-C port. For longer play sessions, prefer an adapter or dock with USB-C PD pass-through so the handheld can charge while outputting video.'
+  }
+];
+
+const shoppingLinks = [
+  { label: 'USB-C to HDMI adapters with PD pass-through', href: 'https://www.amazon.com/s?k=usb+c+to+hdmi+adapter+pd+pass+through' },
+  { label: 'HDMI 2.1 certified cables for gaming monitors', href: 'https://www.amazon.com/s?k=certified+hdmi+2.1+cable+gaming' },
+  { label: 'Short flexible HDMI cables for handheld docks', href: 'https://www.amazon.com/s?k=short+flexible+hdmi+cable+dock' }
+];
+---
+<Base title="HDMI cable and adapter checklist for handheld gaming PCs — Handheld Settings Lab" description="A source-informed HDMI cable and USB-C adapter checklist for Steam Deck, ROG Ally, ROG Ally X, Legion Go, TVs, monitors, docks, PD pass-through, and travel setups.">
+  <article class="wrap article">
+    <span class="eyebrow">Accessory guide</span>
+    <h1>HDMI cable and adapter checklist for handheld gaming PCs</h1>
+    <p class="muted">Connecting a Steam Deck, ROG Ally, ROG Ally X, or Legion Go to a TV or monitor is usually easy until the cable stack gets vague: no charge pass-through, unstable 4K output, cramped dock cables, or a monitor mode the adapter never supported. This is baseline/spec/community-source-informed guidance, not a hands-on benchmark of specific HDMI products.</p>
+    <p class="affiliate-note">Disclosure: shopping links are generic Amazon searches marked sponsored/nofollow. Handheld Settings Lab has not added an affiliate tag, has not tested every listed adapter or cable, and does not claim endorsement from Valve, ASUS, Lenovo, HDMI Licensing Administrator, USB-IF, or Amazon.</p>
+
+    <div class="grid cols3">
+      {checks.map(check => (
+        <div class="card">
+          <span class="chip">{check.label}</span>
+          <h2>{check.headline}</h2>
+          <p>{check.body}</p>
+        </div>
+      ))}
+    </div>
+
+    <h2>The short answer</h2>
+    <p>For most handheld gaming TV setups, start with a <strong>USB-C dock or adapter that explicitly lists HDMI output and USB-C PD pass-through</strong>, then pair it with an HDMI cable rated for the display mode you actually plan to use. A cable alone does not solve power, controller dongle, Ethernet, or capture-card needs.</p>
+    <p>If your goal is couch play at 1080p/60, almost any well-specified modern dock can be enough. If your goal is 4K output, VRR, capture, or a high-refresh monitor, slow down and check every link in the chain: handheld USB-C video support, dock/adapter mode, HDMI cable rating, monitor/TV input, and charger wattage.</p>
+
+    <h2>What to check before buying</h2>
+    <ul>
+      <li><strong>Resolution and refresh:</strong> the adapter or dock should state the exact HDMI mode you care about, such as 1080p/60, 4K/60, or the monitor target on your desk.</li>
+      <li><strong>PD pass-through:</strong> if the adapter occupies the handheld USB-C port, it should also let you feed power into the handheld for longer sessions.</li>
+      <li><strong>Cable rating:</strong> use a certified/high-bandwidth HDMI cable when chasing demanding TV or monitor modes; do not rely on an unmarked cable from an old box.</li>
+      <li><strong>Cable length and stiffness:</strong> short flexible HDMI runs reduce desk clutter and avoid tugging a small dock or right-angle handheld adapter off balance.</li>
+      <li><strong>Dock side ports:</strong> leave room for a controller receiver, keyboard/mouse dongle, Ethernet adapter, capture card, or headset DAC if this is more than a one-screen travel setup.</li>
+    </ul>
+
+    <div class="callout">If the display flashes, drops audio, or refuses the expected mode, test in this order: another HDMI input, a known-good cable, a lower resolution/refresh setting, then a different dock or adapter. Do not assume the handheld is the first failure point.</div>
+
+    <h2>Device-specific notes</h2>
+    <div class="grid cols3">
+      <div class="card"><span class="chip">Steam Deck</span><h3>Dock-first is usually cleaner</h3><p>Valve lists USB-C with DisplayPort Alternate Mode on Steam Deck. For TV use, a dock with HDMI and power input is usually easier than a tiny HDMI-only dongle that blocks charging.</p></div>
+      <div class="card"><span class="chip">ROG Ally / Ally X</span><h3>Watch power profiles</h3><p>Windows handheld sessions can be charger-sensitive when docked. Pair the HDMI adapter or dock with a USB-C PD charger that leaves enough overhead for the mode you plan to run.</p></div>
+      <div class="card"><span class="chip">Legion Go</span><h3>Plan for tabletop and monitor use</h3><p>The Legion Go often lands in tabletop or desk-monitor setups. Cable flexibility, dock placement, and display mode clarity matter as much as the headline HDMI version.</p></div>
+    </div>
+
+    <h2>Affiliate-safe shopping searches</h2>
+    <div class="grid cols3">
+      {shoppingLinks.map(link => <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored"><span class="chip">Sponsored search</span><h3>{link.label}</h3><p class="muted">Compare stated HDMI mode, PD pass-through wattage, cable length, warranty, and recent buyer notes before purchasing.</p></a>)}
+    </div>
+
+    <h2>Sources checked</h2>
+    <p>Public source checks used for this publishable asset:</p>
+    <ul>
+      {sourceLinks.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+  </article>
+</Base>
