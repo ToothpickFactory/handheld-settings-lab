@@ -1,0 +1,102 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const sourceLinks = [
+  { label: 'Steam Support: Offline Mode', url: 'https://help.steampowered.com/en/faqs/view/0E18-319B-E34B-B2C8' },
+  { label: 'Steam Support: Steam Cloud FAQ', url: 'https://help.steampowered.com/en/faqs/view/68F3-35AB-09A9-7678' },
+  { label: 'Xbox Support: Play games offline on Windows', url: 'https://support.xbox.com/en-US/help/games-apps/game-setup-and-play/play-games-offline-on-windows-10-using-offline-mode' },
+  { label: 'Microsoft Support: Free up drive space in Windows', url: 'https://support.microsoft.com/en-us/windows/free-up-drive-space-in-windows-85529ccb-c365-490d-b548-831022bc9b32' }
+];
+
+const readinessCards = [
+  {
+    label: 'Night before',
+    headline: 'Launch every trip game once while online',
+    body: 'Do first-run account checks, shader downloads, cloud-save sync, and launcher updates before you leave reliable Wi-Fi. Offline mode cannot fix a game that has never completed its first online launch.'
+  },
+  {
+    label: 'Before boarding',
+    headline: 'Switch modes while you can still troubleshoot',
+    body: 'Put Steam or the relevant launcher into offline mode before the network disappears. If a game refuses to start, you still have time to reconnect and resolve the prompt.'
+  },
+  {
+    label: 'Storage',
+    headline: 'Leave install and patch headroom',
+    body: 'Big game updates can strand a library if the handheld has almost no free space. Clear downloads, screenshots, and unused installs before travel instead of deleting games at the gate.'
+  }
+];
+
+const searchLinks = [
+  { label: 'Compact USB-C PD travel charger', href: 'https://www.amazon.com/s?k=compact+65w+usb+c+pd+travel+charger' },
+  { label: 'Handheld gaming case with charger storage', href: 'https://www.amazon.com/s?k=handheld+gaming+case+charger+storage' },
+  { label: 'microSD card case for travel', href: 'https://www.amazon.com/s?k=microsd+card+case+travel' },
+  { label: 'Short 100W USB-C cable', href: 'https://www.amazon.com/s?k=short+100w+usb+c+cable' }
+];
+---
+<Base title="Handheld PC offline mode flight checklist — Handheld Settings Lab" description="A source-informed offline-mode checklist for Steam Deck, ROG Ally, Legion Go, Steam, Xbox app, cloud saves, storage, and travel accessories before a flight.">
+  <article class="wrap article">
+    <span class="eyebrow">Travel setup guide</span>
+    <h1>Handheld PC offline mode checklist before a flight</h1>
+    <p class="muted">Use this before taking a Steam Deck, ROG Ally, Legion Go, or similar handheld PC away from reliable Wi-Fi. It is baseline/source-informed guidance from official support pages, not a hands-on airline Wi-Fi or battery benchmark.</p>
+    <p class="affiliate-note">Disclosure: shopping links are generic Amazon searches marked sponsored/nofollow. No affiliate tag is used, and Handheld Settings Lab has not tested every product returned by these searches.</p>
+
+    <div class="grid cols3">
+      {readinessCards.map(card => (
+        <div class="card">
+          <span class="chip">{card.label}</span>
+          <h2>{card.headline}</h2>
+          <p>{card.body}</p>
+        </div>
+      ))}
+    </div>
+
+    <h2>The quick offline-mode plan</h2>
+    <ol>
+      <li><strong>Pick your actual travel games.</strong> Do not trust a giant installed library. Choose three to six games you would really play with no network.</li>
+      <li><strong>Open each game while online.</strong> Let launchers, EULAs, shader work, save checks, and update prompts finish at home.</li>
+      <li><strong>Confirm cloud saves are settled.</strong> If a save has a conflict or still says it is syncing, solve that before you leave.</li>
+      <li><strong>Start offline mode while still on Wi-Fi.</strong> Test the game from a disconnected state, then reconnect only if you need to fix something.</li>
+      <li><strong>Charge and pack for the seat.</strong> Bring a compact USB-C PD charger/cable combo and a case layout that does not crush sticks, vents, or ports.</li>
+    </ol>
+
+    <h2>Steam Deck and Steam library checks</h2>
+    <p>Valve’s Steam Offline Mode support page is the official source for the Steam-side flow. The practical lesson for handheld owners is simple: prepare while online, then test offline deliberately. Do not discover a first-run login prompt after the plane door closes.</p>
+    <ul>
+      <li>Open Steam while online and let client updates complete.</li>
+      <li>Launch each trip game to its main menu at least once.</li>
+      <li>Check that Steam Cloud is not stuck on a conflict or pending sync for games where your save matters.</li>
+      <li>Move Steam into Offline Mode and relaunch the games you plan to play.</li>
+      <li>For titles with third-party launchers, test the exact same way; some games need extra account or launcher steps.</li>
+    </ul>
+
+    <h2>ROG Ally, Legion Go, and Windows handheld checks</h2>
+    <p>Windows handhelds add another layer because you may be using Steam, the Xbox app, Battle.net, Epic Games Store, GOG Galaxy, or a publisher launcher. Xbox Support documents offline play setup for Windows, and Microsoft’s storage guidance is relevant when a handheld SSD is near full.</p>
+    <div class="grid cols2">
+      <div class="card"><span class="chip">Launcher audit</span><h3>Test every store you rely on</h3><p>Open the exact launcher and game while online, then test again after disconnecting Wi-Fi. A game installed through one launcher does not prove another launcher is ready.</p></div>
+      <div class="card"><span class="chip">Windows storage</span><h3>Keep emergency free space</h3><p>Before a trip, remove unused downloads, old installers, and games you will not play. Low free space makes updates and shader caches more painful on a small SSD.</p></div>
+    </div>
+
+    <h2>What can still break offline?</h2>
+    <ul>
+      <li><strong>Always-online games:</strong> Some games require a live service connection regardless of handheld settings.</li>
+      <li><strong>Fresh installs:</strong> A newly installed game may still need a first-run setup, launcher login, or runtime package.</li>
+      <li><strong>Cloud-save conflicts:</strong> If two devices played the same game recently, resolve the conflict before travel.</li>
+      <li><strong>Unfinished updates:</strong> A half-downloaded patch can make a game unavailable until the update completes.</li>
+      <li><strong>DRM or account checks:</strong> Publisher launchers may impose their own rules. Test the individual game instead of assuming.</li>
+    </ul>
+
+    <div class="callout">Travel rule: if a game is important for the trip, prove it launches from a disconnected state before packing. A successful install is not the same as an offline-ready install.</div>
+
+    <h2>Accessory-safe packing notes</h2>
+    <p>Offline readiness is not only software. If you are flying, the practical kit is a protective case, a known-good USB-C PD charger, a rated USB-C cable, wired or reliable low-latency audio, and enough local storage for the games you already tested.</p>
+    <div class="grid cols2">
+      {searchLinks.map(link => <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored"><span class="chip">Sponsored search</span><h3>{link.label}</h3><p class="muted">Compare dimensions, wattage labels, return policy, and recent buyer notes before purchasing.</p></a>)}
+    </div>
+
+    <h2>Sources checked</h2>
+    <p>Public source checks used for this publishable asset:</p>
+    <ul>
+      {sourceLinks.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+  </article>
+</Base>
