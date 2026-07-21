@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 const kind = Astro.url.pathname.includes('battery') ? 'battery' : Astro.url.pathname.includes('accessory') ? 'budget' : 'storage';
-const title = kind === 'battery' ? 'Steam Deck and handheld battery life estimator' : kind === 'budget' ? 'Handheld gaming accessory budget calculator' : 'Steam Deck storage calculator and game library planner';
+const title = kind === 'battery' ? 'Steam Deck battery life calculator and handheld runtime estimator' : kind === 'budget' ? 'Handheld gaming accessory budget calculator' : 'Steam Deck storage calculator and game library planner';
 const description = kind === 'battery' ? 'Estimate Steam Deck, ROG Ally, Legion Go, and handheld gaming battery life from watt-hours, system draw, and a safety buffer.' : kind === 'budget' ? 'Plan a Steam Deck, ROG Ally, or Legion Go accessory budget for storage, docks, chargers, cases, controllers, and travel gear.' : 'Estimate how many games fit on Steam Deck and handheld PC storage after reserving space for updates, shader caches, saves, and overhead.';
 const path = kind === 'battery' ? 'battery-estimator' : kind === 'budget' ? 'accessory-budget' : 'storage-planner';
 const faq = kind === 'battery' ? [

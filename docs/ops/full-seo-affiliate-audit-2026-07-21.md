@@ -191,6 +191,39 @@ Action: create annual/device-specific accessory roundups using the central gear 
 11. Device-specific accessory roundups for Steam Deck OLED, ROG Ally X, and Legion Go.
 12. Add source-backed Legion Go game pages only after per-game research.
 
+## Competitive positioning and next product moat
+
+Live competitor research shows that Steam Deck HQ, ShareDeck, DeckuDB, ROG Ally Games, ROG Ally Life, Legion Go Life, SteamFPS, and CanIRun.gg already compete on device-specific settings libraries, community configurations, and measured/estimated performance. A generic settings blog will be difficult to defend.
+
+The strongest distinct position is:
+
+> **One game, every major handheld, with reproducible presets, battery/storage calculators, update history, and compatible gear.**
+
+The next product layer should therefore include:
+
+- Quality, balanced, performance, and battery presets on mature game pages.
+- Visible device/OS/driver/game-patch/test dates.
+- Clear measured-versus-estimated labels.
+- A Steam Deck/handheld FPS estimator only when its methodology can be transparent and source-backed.
+- A power-bank runtime calculator connecting watt-hours, conversion loss, game draw, and compatible products.
+- Device comparison pages and a docked-setup builder.
+- A visible update log rather than adding a year to titles without retesting.
+
+## Affiliate compliance and freshness rules
+
+- When a real Associates tag is configured, show Amazon's required statement: **“As an Amazon Associate I earn from qualifying purchases.”** The layout now renders this prominently when `PUBLIC_AMAZON_ASSOC_TAG` is present.
+- Keep plain-language disclosures near commercial recommendations, not only in the footer.
+- Continue using `rel="sponsored nofollow"`.
+- Do not hard-code Amazon prices or availability unless supplied through a compliant Amazon API and refreshed as required.
+- Do not copy Amazon product images manually; use permitted manufacturer media or Amazon-approved linking/API assets.
+- Use “spec-based shortlist” or “products researched” unless direct testing is documented.
+- Revalidate model compatibility, specifications, availability, and policies on high-earning pages.
+- Avoid unsupported cooling-fan or “FPS-boosting” accessory claims.
+
+## Performance audit limitation
+
+The PageSpeed Insights API returned HTTP 429 because its shared daily quota was exhausted, and no local Chromium binary was installed for a Lighthouse run. Performance scores and Core Web Vitals are therefore not fabricated. The Astro build remains mostly static with a single shared stylesheet and small inline scripts; a fresh Lighthouse/PageSpeed run should be added when quota or a browser runner is available.
+
 ## Remaining blockers / owner inputs
 
 1. **Amazon Associates tag required.** The site has 197 monetizable Amazon links and is ready to append a real tracking ID automatically, but no Associates tag was found. Set GitHub variable `PUBLIC_AMAZON_ASSOC_TAG` once the real tag is provided.
