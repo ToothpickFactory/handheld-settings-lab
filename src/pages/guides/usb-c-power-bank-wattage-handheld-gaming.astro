@@ -1,72 +1,183 @@
 ---
 import Base from '../../layouts/Base.astro';
 
+const canonicalUrl = 'https://handheldsettings.com/guides/usb-c-power-bank-wattage-handheld-gaming/';
+const title = 'Steam Deck power bank requirements and airline rules — Handheld Settings Lab';
+const description = 'Choose a Steam Deck power bank by USB-C PD wattage and watt-hours, then pack it correctly for U.S. flights using current FAA and TSA guidance.';
+
 const sourceLinks = [
-  { label: 'Valve Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' },
-  { label: 'ASUS ROG Ally X specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/' },
-  { label: 'Lenovo Legion Go PSREF specifications', url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1' },
-  { label: 'USB-IF USB Charger / USB Power Delivery overview', url: 'https://www.usb.org/usb-charger-pd' }
+  { label: 'Valve: Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' },
+  { label: 'FAA PackSafe: lithium batteries', url: 'https://www.faa.gov/hazmat/packsafe/lithium-batteries' },
+  { label: 'TSA: power banks', url: 'https://www.tsa.gov/travel/security-screening/whatcanibring/items/power-banks' },
+  { label: 'USB-IF: USB Power Delivery overview', url: 'https://www.usb.org/usb-charger-pd' }
 ];
 
-const searchLinks = [
-  { label: '65W USB-C PD power banks', href: 'https://www.amazon.com/s?k=65w+usb+c+pd+power+bank' },
-  { label: '100W USB-C PD power banks', href: 'https://www.amazon.com/s?k=100w+usb+c+pd+power+bank' },
-  { label: 'USB-C PD cables with wattage display', href: 'https://www.amazon.com/s?k=usb+c+pd+cable+100w' }
+const shoppingLinks = [
+  { label: '45W+ USB-C PD power banks under 100Wh', href: 'https://www.amazon.com/s?k=45w+usb+c+pd+power+bank+under+100wh', category: 'power-banks' },
+  { label: '65W USB-C PD power banks with Wh label', href: 'https://www.amazon.com/s?k=65w+usb+c+pd+power+bank+watt+hours', category: 'power-banks' },
+  { label: '100W USB-C PD cables', href: 'https://www.amazon.com/s?k=100w+usb+c+pd+cable', category: 'cables-adapters' }
+];
+
+const faqs = [
+  {
+    question: 'What wattage power bank does a Steam Deck need?',
+    answer: 'Valve lists a 45W USB-C PD 3.0 power supply. A power bank should therefore provide a dedicated USB-C Power Delivery output in the 45W class or higher. A 65W bank is a flexible choice, but the Steam Deck negotiates the power it supports rather than being forced to take the bank’s full rating.'
+  },
+  {
+    question: 'Can I bring a Steam Deck power bank on a plane?',
+    answer: 'Under current U.S. FAA and TSA guidance, power banks containing lithium-ion batteries belong in carry-on baggage, not checked baggage. Protect the terminals and remove the bank if a carry-on is checked at the gate. Always check the airline and destination-country rules as well.'
+  },
+  {
+    question: 'Is a 20,000 mAh power bank allowed on a plane?',
+    answer: 'Capacity must be judged by the battery’s watt-hour rating, not mAh alone. A typical 20,000 mAh pack using 3.6–3.7V cells is roughly 72–74Wh and therefore below the FAA’s 100Wh threshold, but the printed Wh rating on the product is the value to verify.'
+  },
+  {
+    question: 'Is a 27,000 mAh power bank under 100Wh?',
+    answer: 'It can be very close to the limit: 27Ah multiplied by 3.6V is 97.2Wh, while 27Ah multiplied by 3.7V is 99.9Wh. Do not infer eligibility from the marketing capacity. Use the manufacturer’s clearly printed watt-hour rating and leave behind a bank whose rating cannot be verified.'
+  },
+  {
+    question: 'Will a 65W power bank damage a Steam Deck?',
+    answer: 'A standards-compliant USB-C PD source and device negotiate a supported power profile. The 65W number is the bank’s available maximum, not power that is automatically pushed into the Deck. Cable quality and explicit USB-C PD support still matter.'
+  },
+  {
+    question: 'Why does Steam Deck show a slow charger warning with my power bank?',
+    answer: 'The bank may not offer the required USB-C PD profile on that port, its output may drop when another device is connected, the cable may be limited, or the pack may be low or hot. Test the dedicated high-output USB-C port with a known-good PD cable and no second device attached.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Steam Deck power bank requirements and airline rules',
+    description,
+    url: canonicalUrl,
+    datePublished: '2026-07-21',
+    dateModified: '2026-07-21',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Steam Deck', 'USB-C Power Delivery', 'power banks', 'air travel']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'Steam Deck power bank and airline guide', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
 ];
 ---
-<Base title="USB-C power bank wattage for Steam Deck, ROG Ally, and Legion Go — Handheld Settings Lab" description="A spec-informed guide to choosing USB-C PD power banks for handheld gaming PCs without fake battery-test claims.">
+<Base title={title} description={description} jsonLd={jsonLd}>
   <article class="wrap article">
-    <span class="eyebrow">Accessory guide</span>
-    <h1>USB-C power bank wattage for handheld gaming PCs</h1>
-    <p class="muted">A power bank can keep a Steam Deck, ROG Ally, or Legion Go alive on travel days, but the label matters. This is baseline/spec-informed buying guidance, not a lab-tested runtime ranking.</p>
-    <p class="affiliate-note">Disclosure: shopping links are generic searches marked sponsored/nofollow. We have not added an affiliate tag or claimed hands-on testing for any specific battery pack.</p>
+    <span class="eyebrow">Steam Deck power and flight guide</span>
+    <h1>Steam Deck power bank requirements and airline rules</h1>
+    <p class="muted">For a Steam Deck, output wattage determines whether the pack can properly power the handheld; watt-hours determine flight eligibility and approximate stored energy. This is official-source-informed buying and packing guidance, not a hands-on runtime test.</p>
+    <p class="affiliate-note">Disclosure: shopping links are broad Amazon searches marked sponsored/nofollow, not product endorsements. We have not claimed hands-on testing, and the site adds an Associates tag only when a real tag is configured.</p>
 
+    <div class="callout"><strong>Short answer:</strong> choose a clearly labeled USB-C PD power bank with at least 45W from one USB-C port and a printed rating no higher than 100Wh for the simplest U.S. air-travel case. Pack it in your carry-on, not your checked bag.</div>
+
+    <h2>The two numbers that matter</h2>
     <div class="grid cols2">
-      <div class="card">
-        <span class="chip">Quick pick</span>
-        <h2>Buy 65W USB-C PD as the floor</h2>
-        <p>For current handheld PCs, a 65W USB-C Power Delivery output is the safest default. It covers common bundled adapter classes, leaves headroom for play-and-charge, and avoids underpowered 18W/30W phone banks.</p>
-      </div>
-      <div class="card">
-        <span class="chip">Travel pick</span>
-        <h2>Consider 20,000–27,000 mAh for flights</h2>
-        <p>Capacity labels are approximate and conversion losses are real, so treat big packs as session extenders rather than guaranteed all-day power. Check airline limits before flying with very large batteries.</p>
-      </div>
+      <section class="card">
+        <span class="chip">Charging speed</span>
+        <h3>45W USB-C PD output</h3>
+        <p>Valve lists a PD 3.0 Type-C power supply at 45W. Match that class from one USB-C output. A bank advertising 65W total across three ports is not enough evidence if no single port delivers the needed PD output.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Flight capacity</span>
+        <h3>100Wh or less</h3>
+        <p>The FAA limits ordinary passenger lithium-ion batteries to 100 watt-hours per battery. With airline approval, up to two larger spare batteries in the 101–160Wh range may be carried. A power bank is treated as a spare battery.</p>
+      </section>
     </div>
 
-    <h2>Device baseline</h2>
+    <h2>45W, 65W, or 100W: which output should you buy?</h2>
+    <table>
+      <thead><tr><th>Bank output</th><th>Steam Deck use</th><th>Who it suits</th></tr></thead>
+      <tbody>
+        <tr><td>Under 45W</td><td>May charge slowly or lose battery while playing</td><td>Phone duty; not the preferred main Deck bank</td></tr>
+        <tr><td>45W USB-C PD</td><td>Matches Valve’s listed power-supply class</td><td>Deck-only travel with minimal extra headroom</td></tr>
+        <tr><td>65W USB-C PD</td><td>More available power than the Deck’s listed adapter class; the devices negotiate</td><td>A practical shared bank for a Deck and many other handhelds</td></tr>
+        <tr><td>100W USB-C PD</td><td>Not required solely for Steam Deck</td><td>One bank shared with a compatible laptop, dock, or higher-power device</td></tr>
+      </tbody>
+    </table>
+    <p>A higher advertised maximum does not make the Deck charge beyond its negotiated input. It can still be useful for other hardware, but output wattage and battery capacity are different specifications: a “100W” bank can still be under the 100Wh flight threshold.</p>
+
+    <h2>Airline checklist for a Steam Deck power bank</h2>
+    <ol>
+      <li><strong>Find the printed Wh rating.</strong> Photograph the label before travel. Do not rely on an online listing after you reach security.</li>
+      <li><strong>Keep it in carry-on baggage.</strong> TSA says power banks are allowed in carry-on bags and prohibited in checked bags.</li>
+      <li><strong>Remove it from a gate-checked bag.</strong> FAA guidance says spare lithium batteries and power banks must stay with the passenger in the cabin if a carry-on is checked planeside.</li>
+      <li><strong>Protect against short circuits.</strong> Keep the bank from loose metal objects and protect exposed terminals or connectors.</li>
+      <li><strong>Check the airline and route.</strong> The FAA/TSA rules cited here are U.S. guidance. Airlines and destination countries may impose additional restrictions or in-flight-use rules.</li>
+      <li><strong>Do not travel with damage.</strong> Leave behind a swollen, punctured, recalled, overheating, or otherwise defective battery.</li>
+    </ol>
+
+    <h2>Convert mAh to Wh without guessing</h2>
+    <p>Airline limits use watt-hours. When the manufacturer provides both milliamp-hours and the battery’s nominal voltage, the relationship is:</p>
+    <div class="callout"><strong>Wh = (mAh ÷ 1,000) × nominal battery voltage</strong></div>
+    <table>
+      <thead><tr><th>Advertised capacity</th><th>Example nominal voltage</th><th>Calculated energy</th><th>What to do</th></tr></thead>
+      <tbody>
+        <tr><td>20,000 mAh</td><td>3.6–3.7V</td><td>72–74Wh</td><td>Verify the bank’s printed Wh label</td></tr>
+        <tr><td>26,800 mAh</td><td>3.7V</td><td>99.16Wh</td><td>Very close to the limit; label clarity matters</td></tr>
+        <tr><td>27,000 mAh</td><td>3.6–3.7V</td><td>97.2–99.9Wh</td><td>Do not assume; use the manufacturer rating</td></tr>
+      </tbody>
+    </table>
+    <p>These are arithmetic examples, not capacity-test results. Cell arrangement, label conventions, and conversion losses complicate real delivered energy. The marked watt-hour rating is the relevant travel specification.</p>
+
+    <h2>What runtime should you expect?</h2>
+    <p>We do not publish a fixed “extra hours” claim because game draw, frame cap, brightness, wireless use, thermals, battery-pack conversion efficiency, and whether the Deck is charging while playing all change the result. Use the <a href="/calculators/battery-estimator/">battery estimator</a> to model a range rather than treating the bank’s label as energy delivered directly to the game.</p>
+    <ul>
+      <li>A lower-power game at a capped frame rate generally stretches both the internal battery and external pack further than a demanding game.</li>
+      <li>A 20,000 mAh label is not 20,000 mAh delivered at the Deck’s charging voltage.</li>
+      <li>Heat and high conversion load can reduce useful output.</li>
+      <li>Charging the internal battery and powering active gameplay are not the same workload.</li>
+    </ul>
+
+    <h2>Prevent slow-charger warnings</h2>
+    <ul>
+      <li>Use the bank’s explicitly labeled high-output USB-C PD port.</li>
+      <li>Use a cable rated for the intended power; replace an unmarked or intermittent cable before replacing the bank.</li>
+      <li>Disconnect a second device because multiport banks may redistribute output.</li>
+      <li>Check whether the bank reduces output at low state of charge or high temperature.</li>
+      <li>Test the setup before leaving home with the Deck under a real game load.</li>
+    </ul>
+
+    <h2>Spec-based shopping shortlist</h2>
     <div class="grid cols3">
-      <div class="card"><span class="chip">Steam Deck</span><h3>45W class</h3><p>Valve lists a PD3.0 USB-C power supply at 45W.</p></div>
-      <div class="card"><span class="chip">ROG Ally X</span><h3>65W class</h3><p>ASUS lists a Type-C 65W AC adapter and an 80Wh battery for the Ally X.</p></div>
-      <div class="card"><span class="chip">Legion Go</span><h3>Check PSREF</h3><p>Lenovo PSREF is the source of truth for current Legion Go configuration and adapter specs.</p></div>
+      {shoppingLinks.map(link => (
+        <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored" data-affiliate-link data-category={link.category}>
+          <span class="chip">Sponsored search</span>
+          <h3>{link.label}</h3>
+          <p class="muted">Compare the single-port PD output, printed Wh rating, recall status, warranty, size, and recent buyer reports before purchasing.</p>
+        </a>
+      ))}
     </div>
+    <p>For broader comparisons, visit the <a href="/gear/power-banks/">USB-C power bank gear guide</a>, check the <a href="/guides/usb-c-cable-wattage-handheld-gaming/">USB-C cable wattage guide</a>, or return to the <a href="/steam-deck-settings/">Steam Deck settings hub</a> to reduce game power demand.</p>
 
-    <h2>What wattage should you buy?</h2>
-    <ul>
-      <li><strong>45W USB-C PD:</strong> workable for Steam Deck-class charging, but less flexible if you later move to a higher-draw Windows handheld.</li>
-      <li><strong>65W USB-C PD:</strong> best default for handheld gaming. It matches the common handheld charger class and keeps accessory buying simple.</li>
-      <li><strong>100W USB-C PD:</strong> useful if the same pack also charges a laptop, dock, tablet, or multiple devices, but not required just to run a Steam Deck.</li>
-      <li><strong>Under 45W:</strong> fine for phones and earbuds, but do not buy it as your main handheld gaming bank.</li>
-    </ul>
-
-    <div class="callout">Cable check: the power bank, USB-C cable, and handheld all need to negotiate the required USB Power Delivery profile. A weak cable can make a good battery look broken.</div>
-
-    <h2>Shopping checklist</h2>
-    <ul>
-      <li>Look for an explicit <strong>USB-C PD output</strong>, not only total shared output across all ports.</li>
-      <li>Confirm the high-watt port still provides enough power when a phone or earbuds are plugged in at the same time.</li>
-      <li>Prefer packs that show wattage or at least clear per-port output labeling.</li>
-      <li>For travel, balance capacity against weight; giant packs make sense for flights, not quick couch sessions.</li>
-      <li>Keep the original handheld charger in your bag for hotel or desk charging when possible.</li>
-    </ul>
-
-    <h2>Search links</h2>
-    <div class="grid cols3">
-      {searchLinks.map(link => <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored"><span class="chip">Sponsored search</span><h3>{link.label}</h3><p class="muted">Compare specs, warranty, airline notes, and recent reviews before buying.</p></a>)}
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
     </div>
 
     <h2>Sources checked</h2>
-    <p>These sources were checked for device/spec context during this update:</p>
+    <p>Valve, FAA, TSA, and USB-IF public pages were checked on July 21, 2026. FAA and TSA establish the U.S. baggage rules; Valve establishes the Deck’s listed 45W USB-C PD power-supply class. Airline approval remains airline-specific, and travel rules can change.</p>
     <ul>
       {sourceLinks.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
     </ul>
