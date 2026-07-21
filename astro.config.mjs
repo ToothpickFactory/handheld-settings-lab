@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://handheld-settings-lab.pages.dev',
+  site: 'https://handheldsettings.com',
   output: 'static',
 });

@@ -1,0 +1,23 @@
+---
+import Base from '../../layouts/Base.astro';
+import { gearCategories, amazonSearchUrl } from '../../data/gear';
+export function getStaticPaths(){ return gearCategories.map(category => ({ params:{slug:category.slug}, props:{category} })); }
+const { category } = Astro.props;
+const canonical = `https://handheldsettings.com/gear/${category.slug}/`;
+const jsonLd = [
+  {
+    '@context':'https://schema.org','@type':'ItemList', name:category.title, url:canonical,
+    itemListElement: category.products.map((product, i) => ({ '@type':'ListItem', position:i+1, name:product.name, url:amazonSearchUrl(product.searchQuery) }))
+  },
+  {
+    '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[
+      {'@type':'ListItem',position:1,name:'Home',item:'https://handheldsettings.com/'},
+      {'@type':'ListItem',position:2,name:'Gear',item:'https://handheldsettings.com/gear/'},
+      {'@type':'ListItem',position:3,name:category.title,item:canonical}
+    ]
+  }
+];
+---
+<Base title={`${category.title} — Handheld Settings Lab`} description={category.description} jsonLd={jsonLd}>
+<article class="wrap article"><span class="eyebrow">Spec-based product shortlist</span><h1>{category.title}</h1><p class="lede muted">{category.description}</p><div class="affiliate-note"><strong>How this list works:</strong> We shortlist established product families and the compatibility questions that matter. We do not claim hands-on testing unless a page explicitly says so. Amazon links are sponsored search links and may earn us a commission.</div><h2>Buying checks before you order</h2><ul>{category.buyingChecks.map(check => <li>{check}</li>)}</ul><h2>Product families to compare</h2><div class="grid cols3">{category.products.map(product => <section class="card gear-card"><span class="chip">{product.bestFor}</span><h3>{product.name}</h3><p class="muted">Compare current seller, model, compatibility, warranty, and return terms before buying.</p><a class="btn" href={amazonSearchUrl(product.searchQuery)} target="_blank" rel="nofollow sponsored" data-affiliate-link data-product={product.name} data-category={category.slug}>Check on Amazon</a></section>)}</div><h2>Why compatibility matters</h2><p>Handheld accessories are not universally interchangeable. Port location, charging protocol, physical dimensions, display output, cable rating, and vent clearance can change between Steam Deck, Steam Deck OLED, ROG Ally, ROG Ally X, and Legion Go. Match the product to the exact model—not just the phrase “handheld gaming PC.”</p><h2>Related tools and guides</h2><p><a href="/calculators/accessory-budget/">Plan an accessory budget</a> · <a href="/calculators/storage-planner/">Estimate game storage</a> · <a href="/guides/">Browse setup checklists</a></p></article>
+</Base>

@@ -5,7 +5,9 @@ Handheld Settings Lab publishes handheld PC game settings, calculators, and gear
 Core sections:
 - /steam-deck-settings/
 - /rog-ally-settings/
+- /legion-go-settings/
 - /calculators/
+- /gear/
 - /guides/
 
 Recent guide:

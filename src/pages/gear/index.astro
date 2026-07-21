@@ -1,0 +1,13 @@
+---
+import Base from '../../layouts/Base.astro';
+import { gearCategories } from '../../data/gear';
+const jsonLd = {
+  '@context': 'https://schema.org', '@type': 'CollectionPage',
+  name: 'Handheld gaming gear and accessory guides',
+  url: 'https://handheldsettings.com/gear/',
+  mainEntity: { '@type': 'ItemList', itemListElement: gearCategories.map((item, i) => ({ '@type': 'ListItem', position: i + 1, name: item.title, url: `https://handheldsettings.com/gear/${item.slug}/` })) }
+};
+---
+<Base title="Best handheld gaming accessories and gear — Handheld Settings Lab" description="Spec-based shortlists for Steam Deck, ROG Ally, Legion Go, and handheld gaming accessories: microSD cards, SSDs, docks, chargers, power banks, cases, controllers, and more." jsonLd={jsonLd}>
+<section class="section"><div class="wrap"><span class="eyebrow">Gear lab</span><h1 style="font-size:clamp(2.6rem,6vw,5rem);line-height:1;letter-spacing:-.06em">Handheld gaming gear</h1><p class="lede">Product-family shortlists and buying checks for Steam Deck, ROG Ally, Legion Go, and other handheld PCs. These are spec-based research lists—not invented hands-on reviews.</p><div class="affiliate-note"><strong>Affiliate disclosure:</strong> Amazon links are marked sponsored. If our Associates tracking ID is active, we may earn from qualifying purchases at no extra cost to you. Prices and availability can change.</div><div class="grid cols3" style="margin-top:22px">{gearCategories.map(category => <a class="card gear-card" href={`/gear/${category.slug}/`}><span class="chip">{category.products.length} product families</span><h2>{category.title}</h2><p class="muted">{category.description}</p><span class="btn ghost">Open buying guide</span></a>)}</div></div></section>
+</Base>

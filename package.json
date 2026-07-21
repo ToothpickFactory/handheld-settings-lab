@@ -1,7 +1,7 @@
 {
   "scripts": {
     "dev": "astro dev",
-    "build": "astro check && astro build",
+    "build": "astro check && astro build && node scripts/generate-sitemap.mjs",
     "check": "astro check && node scripts/site-audit.mjs",
     "preview": "astro preview",
     "hydrate:data": "node scripts/hydrate-data.mjs",

@@ -1,7 +1,92 @@
 ---
 import '../styles.css';
-const { title='Handheld Settings Lab', description='Steam Deck, ROG Ally, and handheld PC settings, calculators, and gaming gear guides.' } = Astro.props;
+const {
+  title='Handheld Settings Lab',
+  description='Steam Deck, ROG Ally, Legion Go, and handheld PC settings, calculators, and gaming gear guides.',
+  image='/assets/og-handheld-settings-lab.svg',
+  jsonLd=[]
+} = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+const absoluteImage = new URL(image, Astro.site).toString();
 const ga4Id = import.meta.env.PUBLIC_GA4_ID;
+const amazonTag = import.meta.env.PUBLIC_AMAZON_ASSOC_TAG || '';
+const defaultSchema = [
+  {
+    '@context':'https://schema.org','@type':'WebSite',
+    name:'Handheld Settings Lab', url:'https://handheldsettings.com/',
+    description:'Game settings, calculators, and accessory buying guides for handheld gaming PCs.'
+  },
+  {
+    '@context':'https://schema.org','@type':'Organization',
+    name:'Handheld Settings Lab', url:'https://handheldsettings.com/',
+    logo:'https://handheldsettings.com/assets/logo-handheld-settings-lab.png'
+  }
+];
+const schemas = [...defaultSchema, ...(Array.isArray(jsonLd) ? jsonLd : [jsonLd])].filter(Boolean);
 ---
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>{title}</title><meta name="description" content={description}/><link rel="canonical" href={canonical}/><link rel="icon" type="image/png" href="/favicon-64.png"/><link rel="apple-touch-icon" href="/favicon-192.png"/><meta property="og:title" content={title}/><meta property="og:description" content={description}/><meta property="og:image" content="/assets/og-handheld-settings-lab.svg"/><meta name="twitter:card" content="summary_large_image"/>{ga4Id && <><script async src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`}></script><script is:inline define:vars={{ ga4Id }}>{`window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\ngtag('config', ga4Id, { send_page_view: true });`}</script></>}</head><body><header class="site-header"><div class="wrap nav"><a class="brand" href="/"><img class="logo" src="/assets/logo-handheld-settings-lab.png" alt="Handheld Settings Lab logo"/><span>Handheld Settings Lab</span></a><nav class="navlinks"><a href="/steam-deck-settings/">Steam Deck</a><a href="/rog-ally-settings/">ROG Ally</a><a href="/calculators/">Calculators</a><a href="/guides/">Guides</a><a class="btn ghost" href="#newsletter">Newsletter</a></nav></div></header><main><slot /></main><footer class="site-footer"><div class="wrap grid cols2"><div class="brand-strip"><img src="/assets/logo-handheld-settings-lab.png" alt=""/><div><strong>Handheld Settings Lab</strong><p>Game settings, calculators, gear guidance, and official-source editorial images for portable PC gaming. We do not use official platform logos; trademarks belong to their owners.</p></div></div><div><a href="/contact/">Contact</a> · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/llms.txt">llms.txt</a></div></div></footer><script is:inline>(()=>{document.querySelectorAll('[data-newsletter]').forEach(form=>{form.addEventListener('submit',async e=>{e.preventDefault();const status=form.querySelector('[data-status]');status.textContent='Saving...';try{const res=await fetch('/api/newsletter',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(Object.fromEntries(new FormData(form)))});const data=await res.json();status.textContent=res.ok?'You are on the lab list.':(data.error||'Signup failed.');}catch(err){status.textContent='Signup is temporarily unavailable.';}})})})();</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>{title}</title>
+  <meta name="description" content={description}/>
+  <link rel="canonical" href={canonical}/>
+  <link rel="icon" type="image/png" href="/favicon-64.png"/>
+  <link rel="apple-touch-icon" href="/favicon-192.png"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content={title}/>
+  <meta property="og:description" content={description}/>
+  <meta property="og:url" content={canonical}/>
+  <meta property="og:image" content={absoluteImage}/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  {schemas.map(schema => <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />)}
+  {ga4Id && <>
+    <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`}></script>
+    <script is:inline define:vars={{ ga4Id }}>{`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', ga4Id, { send_page_view: true });`}</script>
+  </>}
+</head>
+<body>
+<header class="site-header"><div class="wrap nav">
+  <a class="brand" href="/"><img class="logo" src="/assets/logo-handheld-settings-lab.png" alt="Handheld Settings Lab logo"/><span>Handheld Settings Lab</span></a>
+  <nav class="navlinks" aria-label="Main navigation"><a href="/steam-deck-settings/">Steam Deck</a><a href="/rog-ally-settings/">ROG Ally</a><a href="/legion-go-settings/">Legion Go</a><a href="/calculators/">Calculators</a><a href="/gear/">Gear</a><a href="/guides/">Guides</a><a class="btn ghost" href="#newsletter">Newsletter</a></nav>
+</div></header>
+<main><slot /></main>
+<footer class="site-footer"><div class="wrap grid cols2"><div class="brand-strip"><img src="/assets/logo-handheld-settings-lab.png" alt=""/><div><strong>Handheld Settings Lab</strong><p>Game settings, calculators, gear guidance, and official-source editorial images for portable PC gaming. We do not use official platform logos; trademarks belong to their owners.</p></div></div><div><a href="/contact/">Contact</a> · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/affiliate-disclosure/">Affiliate disclosure</a></div></div></footer>
+<script is:inline define:vars={{ amazonTag }}>
+(() => {
+  document.querySelectorAll('a[href*="amazon.com"]').forEach(link => {
+    link.setAttribute('rel', 'nofollow sponsored');
+    link.dataset.affiliateLink = 'true';
+    if (amazonTag) {
+      const url = new URL(link.href);
+      url.searchParams.set('tag', amazonTag);
+      link.href = url.toString();
+    }
+    link.addEventListener('click', () => {
+      if (typeof window.gtag === 'function') window.gtag('event', 'affiliate_click', {
+        link_url: link.href,
+        product_name: link.dataset.product || link.textContent.trim(),
+        product_category: link.dataset.category || 'handheld-gear'
+      });
+    });
+  });
+  document.querySelectorAll('[data-newsletter]').forEach(form => {
+    form.addEventListener('submit', async event => {
+      event.preventDefault();
+      const status = form.querySelector('[data-status]');
+      status.textContent = 'Saving...';
+      try {
+        const response = await fetch('/api/newsletter', { method:'POST', headers:{'content-type':'application/json'}, body:JSON.stringify(Object.fromEntries(new FormData(form))) });
+        const data = await response.json();
+        status.textContent = response.ok ? 'You are on the lab list.' : (data.error || 'Signup failed.');
+        if (response.ok && typeof window.gtag === 'function') window.gtag('event', 'generate_lead', { method:'newsletter' });
+      } catch (error) { status.textContent = 'Signup is temporarily unavailable.'; }
+    });
+  });
+})();
+</script>
+</body></html>

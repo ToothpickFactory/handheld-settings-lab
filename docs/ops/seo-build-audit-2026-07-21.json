@@ -1,0 +1,822 @@
+[
+  {
+    "path": "/affiliate-disclosure/",
+    "title": "Affiliate disclosure \u2014 Handheld Settings Lab",
+    "desc_len": 73,
+    "canonical": "https://handheldsettings.com/affiliate-disclosure/",
+    "h1": 1,
+    "words": 160,
+    "jsonld": 2,
+    "amazon": 0
+  },
+  {
+    "path": "/calculators/accessory-budget/",
+    "title": "Handheld gaming accessory budget calculator \u2014 Handheld Settings Lab",
+    "desc_len": 125,
+    "canonical": "https://handheldsettings.com/calculators/accessory-budget/",
+    "h1": 1,
+    "words": 282,
+    "jsonld": 4,
+    "amazon": 0
+  },
+  {
+    "path": "/calculators/battery-estimator/",
+    "title": "Steam Deck and handheld battery life estimator \u2014 Handheld Settings Lab",
+    "desc_len": 125,
+    "canonical": "https://handheldsettings.com/calculators/battery-estimator/",
+    "h1": 1,
+    "words": 277,
+    "jsonld": 4,
+    "amazon": 0
+  },
+  {
+    "path": "/calculators/",
+    "title": "Handheld gaming calculators \u2014 Handheld Settings Lab",
+    "desc_len": 93,
+    "canonical": "https://handheldsettings.com/calculators/",
+    "h1": 1,
+    "words": 92,
+    "jsonld": 2,
+    "amazon": 0
+  },
+  {
+    "path": "/calculators/storage-planner/",
+    "title": "Steam Deck storage calculator and game library planner \u2014 Handheld Settings Lab",
+    "desc_len": 136,
+    "canonical": "https://handheldsettings.com/calculators/storage-planner/",
+    "h1": 1,
+    "words": 293,
+    "jsonld": 4,
+    "amazon": 0
+  },
+  {
+    "path": "/contact/",
+    "title": "Contact \u2014 Handheld Settings Lab",
+    "desc_len": 30,
+    "canonical": "https://handheldsettings.com/contact/",
+    "h1": 1,
+    "words": 77,
+    "jsonld": 2,
+    "amazon": 0
+  },
+  {
+    "path": "/gear/cases/",
+    "title": "carrying cases for handheld gaming PCs \u2014 Handheld Settings Lab",
+    "desc_len": 95,
+    "canonical": "https://handheldsettings.com/gear/cases/",
+    "h1": 1,
+    "words": 284,
+    "jsonld": 4,
+    "amazon": 3
+  },
+  {
+    "path": "/gear/chargers/",
+    "title": "USB-C chargers for handheld gaming PCs \u2014 Handheld Settings Lab",
+    "desc_len": 82,
+    "canonical": "https://handheldsettings.com/gear/chargers/",
+    "h1": 1,
+    "words": 284,
+    "jsonld": 4,
+    "amazon": 3
+  },
+  {
+    "path": "/gear/controllers/",
+    "title": "controllers for docked handheld gaming \u2014 Handheld Settings Lab",
+    "desc_len": 70,
+    "canonical": "https://handheldsettings.com/gear/controllers/",
+    "h1": 1,
+    "words": 272,
+    "jsonld": 4,
+    "amazon": 3
+  },
+  {
+    "path": "/gear/docks/",
+    "title": "USB-C docks for handheld gaming PCs \u2014 Handheld Settings Lab",
+    "desc_len": 78,
+    "canonical": "https://handheldsettings.com/gear/docks/",
+    "h1": 1,
+    "words": 286,
+    "jsonld": 4,
+    "amazon": 3
+  },
+  {
+    "path": "/gear/headsets-earbuds/",
+    "title": "headsets and earbuds for handheld gaming \u2014 Handheld Settings Lab",
+    "desc_len": 79,
+    "canonical": "https://handheldsettings.com/gear/headsets-earbuds/",
+    "h1": 1,
+    "words": 277,
+    "jsonld": 4,
+    "amazon": 3
+  },
+  {
+    "path": "/gear/",
+    "title": "Best handheld gaming accessories and gear \u2014 Handheld Settings Lab",
+    "desc_len": 172,
+    "canonical": "https://handheldsettings.com/gear/",
+    "h1": 1,
+    "words": 414,
+    "jsonld": 3,
+    "amazon": 0
+  },
+  {
+    "path": "/gear/keyboards-mice/",
+    "title": "travel keyboards and mice for handheld PCs \u2014 Handheld Settings Lab",
+    "desc_len": 96,
+    "canonical": "https://handheldsettings.com/gear/keyboards-mice/",
+    "h1": 1,
+    "words": 281,
+    "jsonld": 4,
+    "amazon": 3
+  },
+  {
+    "path": "/gear/microsd-cards/",
+    "title": "microSD cards for handheld gaming \u2014 Handheld Settings Lab",
+    "desc_len": 115,
+    "canonical": "https://handheldsettings.com/gear/microsd-cards/",
+    "h1": 1,
+    "words": 292,
+    "jsonld": 4,
+    "amazon": 3
+  },
+  {
+    "path": "/gear/nvme-ssds/",
+    "title": "NVMe SSD upgrades for handheld gaming PCs \u2014 Handheld Settings Lab",
+    "desc_len": 78,
+    "canonical": "https://handheldsettings.com/gear/nvme-ssds/",
+    "h1": 1,
+    "words": 287,
+    "jsonld": 4,
+    "amazon": 3
+  },
+  {
+    "path": "/gear/portable-monitors/",
+    "title": "portable monitors for handheld gaming PCs \u2014 Handheld Settings Lab",
+    "desc_len": 84,
+    "canonical": "https://handheldsettings.com/gear/portable-monitors/",
+    "h1": 1,
+    "words": 278,
+    "jsonld": 4,
+    "amazon": 3
+  },
+  {
+    "path": "/gear/power-banks/",
+    "title": "USB-C power banks for handheld gaming \u2014 Handheld Settings Lab",
+    "desc_len": 100,
+    "canonical": "https://handheldsettings.com/gear/power-banks/",
+    "h1": 1,
+    "words": 282,
+    "jsonld": 4,
+    "amazon": 3
+  },
+  {
+    "path": "/gear/screen-protectors/",
+    "title": "screen protectors for handheld gaming PCs \u2014 Handheld Settings Lab",
+    "desc_len": 72,
+    "canonical": "https://handheldsettings.com/gear/screen-protectors/",
+    "h1": 1,
+    "words": 282,
+    "jsonld": 4,
+    "amazon": 3
+  },
+  {
+    "path": "/gear/usb-c-cables-adapters/",
+    "title": "USB-C cables and adapters for handheld gaming \u2014 Handheld Settings Lab",
+    "desc_len": 90,
+    "canonical": "https://handheldsettings.com/gear/usb-c-cables-adapters/",
+    "h1": 1,
+    "words": 287,
+    "jsonld": 4,
+    "amazon": 3
+  },
+  {
+    "path": "/guides/best-handheld-gaming-accessories/",
+    "title": "Best handheld gaming accessories to buy first \u2014 Handheld Settings Lab",
+    "desc_len": 96,
+    "canonical": "https://handheldsettings.com/guides/best-handheld-gaming-accessories/",
+    "h1": 1,
+    "words": 250,
+    "jsonld": 2,
+    "amazon": 4
+  },
+  {
+    "path": "/guides/best-microsd-cards-for-handheld-gaming/",
+    "title": "Best microSD cards for handheld gaming \u2014 Steam Deck, ROG Ally, Legion Go",
+    "desc_len": 179,
+    "canonical": "https://handheldsettings.com/guides/best-microsd-cards-for-handheld-gaming/",
+    "h1": 1,
+    "words": 838,
+    "jsonld": 2,
+    "amazon": 3
+  },
+  {
+    "path": "/guides/bluetooth-controller-pairing-handheld-pc/",
+    "title": "Bluetooth controller pairing checklist for Steam Deck, ROG Ally, and handheld PCs \u2014 Handheld Settings Lab",
+    "desc_len": 186,
+    "canonical": "https://handheldsettings.com/guides/bluetooth-controller-pairing-handheld-pc/",
+    "h1": 1,
+    "words": 827,
+    "jsonld": 2,
+    "amazon": 4
+  },
+  {
+    "path": "/guides/bluetooth-earbuds-headset-latency-handheld-gaming/",
+    "title": "Bluetooth earbuds and headset latency guide for handheld gaming PCs \u2014 Handheld Settings Lab",
+    "desc_len": 180,
+    "canonical": "https://handheldsettings.com/guides/bluetooth-earbuds-headset-latency-handheld-gaming/",
+    "h1": 1,
+    "words": 786,
+    "jsonld": 2,
+    "amazon": 4
+  },
+  {
+    "path": "/guides/external-ssd-enclosure-handheld-gaming-pc-checklist/",
+    "title": "External SSD enclosure checklist for handheld gaming PCs \u2014 Handheld Settings Lab",
+    "desc_len": 174,
+    "canonical": "https://handheldsettings.com/guides/external-ssd-enclosure-handheld-gaming-pc-checklist/",
+    "h1": 1,
+    "words": 1055,
+    "jsonld": 2,
+    "amazon": 4
+  },
+  {
+    "path": "/guides/handheld-gaming-capture-card-streaming-checklist/",
+    "title": "Capture card and streaming checklist for handheld gaming PCs \u2014 Handheld Settings Lab",
+    "desc_len": 187,
+    "canonical": "https://handheldsettings.com/guides/handheld-gaming-capture-card-streaming-checklist/",
+    "h1": 1,
+    "words": 903,
+    "jsonld": 2,
+    "amazon": 4
+  },
+  {
+    "path": "/guides/handheld-gaming-carrying-case-size-checklist/",
+    "title": "Handheld gaming carrying case size checklist \u2014 Handheld Settings Lab",
+    "desc_len": 151,
+    "canonical": "https://handheldsettings.com/guides/handheld-gaming-carrying-case-size-checklist/",
+    "h1": 1,
+    "words": 735,
+    "jsonld": 2,
+    "amazon": 3
+  },
+  {
+    "path": "/guides/handheld-gaming-ethernet-adapter-dock-checklist/",
+    "title": "Ethernet adapter and dock checklist for handheld gaming PCs \u2014 Handheld Settings Lab",
+    "desc_len": 163,
+    "canonical": "https://handheldsettings.com/guides/handheld-gaming-ethernet-adapter-dock-checklist/",
+    "h1": 1,
+    "words": 778,
+    "jsonld": 2,
+    "amazon": 3
+  },
+  {
+    "path": "/guides/handheld-gaming-hdmi-cable-adapter-checklist/",
+    "title": "HDMI cable and adapter checklist for handheld gaming PCs \u2014 Handheld Settings Lab",
+    "desc_len": 163,
+    "canonical": "https://handheldsettings.com/guides/handheld-gaming-hdmi-cable-adapter-checklist/",
+    "h1": 1,
+    "words": 790,
+    "jsonld": 2,
+    "amazon": 3
+  },
+  {
+    "path": "/guides/handheld-gaming-keyboard-mouse-setup-checklist/",
+    "title": "Keyboard and mouse setup checklist for handheld gaming PCs \u2014 Handheld Settings Lab",
+    "desc_len": 180,
+    "canonical": "https://handheldsettings.com/guides/handheld-gaming-keyboard-mouse-setup-checklist/",
+    "h1": 1,
+    "words": 909,
+    "jsonld": 2,
+    "amazon": 4
+  },
+  {
+    "path": "/guides/handheld-gaming-screen-protector-checklist/",
+    "title": "Handheld gaming screen protector checklist: Steam Deck, ROG Ally, Legion Go \u2014 Handheld Settings Lab",
+    "desc_len": 163,
+    "canonical": "https://handheldsettings.com/guides/handheld-gaming-screen-protector-checklist/",
+    "h1": 1,
+    "words": 715,
+    "jsonld": 2,
+    "amazon": 4
+  },
+  {
+    "path": "/guides/handheld-gaming-travel-kit-case-power-checklist/",
+    "title": "Handheld gaming travel kit checklist for Steam Deck, ROG Ally, and Legion Go \u2014 Handheld Settings Lab",
+    "desc_len": 123,
+    "canonical": "https://handheldsettings.com/guides/handheld-gaming-travel-kit-case-power-checklist/",
+    "h1": 1,
+    "words": 718,
+    "jsonld": 2,
+    "amazon": 4
+  },
+  {
+    "path": "/guides/handheld-gaming-usb-c-dock-checklist/",
+    "title": "USB-C dock checklist for Steam Deck, ROG Ally, and Legion Go \u2014 Handheld Settings Lab",
+    "desc_len": 145,
+    "canonical": "https://handheldsettings.com/guides/handheld-gaming-usb-c-dock-checklist/",
+    "h1": 1,
+    "words": 799,
+    "jsonld": 2,
+    "amazon": 3
+  },
+  {
+    "path": "/guides/handheld-pc-battery-care-charge-limit-guide/",
+    "title": "Handheld PC battery care and charge limit guide \u2014 Handheld Settings Lab",
+    "desc_len": 157,
+    "canonical": "https://handheldsettings.com/guides/handheld-pc-battery-care-charge-limit-guide/",
+    "h1": 1,
+    "words": 909,
+    "jsonld": 2,
+    "amazon": 4
+  },
+  {
+    "path": "/guides/handheld-pc-offline-mode-flight-checklist/",
+    "title": "Handheld PC offline mode flight checklist \u2014 Handheld Settings Lab",
+    "desc_len": 156,
+    "canonical": "https://handheldsettings.com/guides/handheld-pc-offline-mode-flight-checklist/",
+    "h1": 1,
+    "words": 866,
+    "jsonld": 2,
+    "amazon": 4
+  },
+  {
+    "path": "/guides/handheld-pc-ssd-form-factor-guide/",
+    "title": "Handheld PC SSD form factor guide: 2230 vs 2242 vs 2280 \u2014 Handheld Settings Lab",
+    "desc_len": 167,
+    "canonical": "https://handheldsettings.com/guides/handheld-pc-ssd-form-factor-guide/",
+    "h1": 1,
+    "words": 932,
+    "jsonld": 2,
+    "amazon": 4
+  },
+  {
+    "path": "/guides/",
+    "title": "Handheld gaming guides \u2014 Handheld Settings Lab",
+    "desc_len": 90,
+    "canonical": "https://handheldsettings.com/guides/",
+    "h1": 1,
+    "words": 899,
+    "jsonld": 2,
+    "amazon": 0
+  },
+  {
+    "path": "/guides/legion-go-first-week-settings-accessories/",
+    "title": "Legion Go first-week settings and accessories checklist \u2014 Handheld Settings Lab",
+    "desc_len": 147,
+    "canonical": "https://handheldsettings.com/guides/legion-go-first-week-settings-accessories/",
+    "h1": 1,
+    "words": 665,
+    "jsonld": 2,
+    "amazon": 4
+  },
+  {
+    "path": "/guides/microsd-card-format-transfer-handheld-pc-checklist/",
+    "title": "microSD card formatting and transfer checklist for handheld PCs \u2014 Handheld Settings Lab",
+    "desc_len": 165,
+    "canonical": "https://handheldsettings.com/guides/microsd-card-format-transfer-handheld-pc-checklist/",
+    "h1": 1,
+    "words": 880,
+    "jsonld": 2,
+    "amazon": 3
+  },
+  {
+    "path": "/guides/microsd-vs-ssd-handheld-pc/",
+    "title": "microSD vs SSD for handheld gaming PCs \u2014 Handheld Settings Lab",
+    "desc_len": 151,
+    "canonical": "https://handheldsettings.com/guides/microsd-vs-ssd-handheld-pc/",
+    "h1": 1,
+    "words": 572,
+    "jsonld": 2,
+    "amazon": 3
+  },
+  {
+    "path": "/guides/one-usb-c-charger-steam-deck-rog-ally-legion-go/",
+    "title": "One USB-C charger for Steam Deck, ROG Ally, and Legion Go \u2014 Handheld Settings Lab",
+    "desc_len": 148,
+    "canonical": "https://handheldsettings.com/guides/one-usb-c-charger-steam-deck-rog-ally-legion-go/",
+    "h1": 1,
+    "words": 817,
+    "jsonld": 2,
+    "amazon": 3
+  },
+  {
+    "path": "/guides/portable-monitor-vrr-handheld-gaming-pc-checklist/",
+    "title": "Portable monitor and VRR checklist for handheld gaming PCs \u2014 Handheld Settings Lab",
+    "desc_len": 166,
+    "canonical": "https://handheldsettings.com/guides/portable-monitor-vrr-handheld-gaming-pc-checklist/",
+    "h1": 1,
+    "words": 856,
+    "jsonld": 2,
+    "amazon": 4
+  },
+  {
+    "path": "/guides/right-angle-usb-c-adapter-handheld-gaming/",
+    "title": "Right-angle USB-C adapters for handheld gaming PCs \u2014 Handheld Settings Lab",
+    "desc_len": 160,
+    "canonical": "https://handheldsettings.com/guides/right-angle-usb-c-adapter-handheld-gaming/",
+    "h1": 1,
+    "words": 854,
+    "jsonld": 2,
+    "amazon": 4
+  },
+  {
+    "path": "/guides/rog-ally-armoury-crate-power-profiles/",
+    "title": "ROG Ally Armoury Crate power profiles guide \u2014 Handheld Settings Lab",
+    "desc_len": 148,
+    "canonical": "https://handheldsettings.com/guides/rog-ally-armoury-crate-power-profiles/",
+    "h1": 1,
+    "words": 860,
+    "jsonld": 2,
+    "amazon": 4
+  },
+  {
+    "path": "/guides/rog-ally-update-checklist-before-game-settings/",
+    "title": "ROG Ally update checklist before changing game settings \u2014 Handheld Settings Lab",
+    "desc_len": 162,
+    "canonical": "https://handheldsettings.com/guides/rog-ally-update-checklist-before-game-settings/",
+    "h1": 1,
+    "words": 671,
+    "jsonld": 2,
+    "amazon": 4
+  },
+  {
+    "path": "/guides/rog-ally-x-2280-ssd-upgrade-checklist/",
+    "title": "ROG Ally X 2280 SSD upgrade checklist \u2014 Handheld Settings Lab",
+    "desc_len": 165,
+    "canonical": "https://handheldsettings.com/guides/rog-ally-x-2280-ssd-upgrade-checklist/",
+    "h1": 1,
+    "words": 667,
+    "jsonld": 2,
+    "amazon": 3
+  },
+  {
+    "path": "/guides/steam-deck-40fps-explained/",
+    "title": "Why 40 FPS feels so good on handhelds \u2014 Handheld Settings Lab",
+    "desc_len": 74,
+    "canonical": "https://handheldsettings.com/guides/steam-deck-40fps-explained/",
+    "h1": 1,
+    "words": 166,
+    "jsonld": 2,
+    "amazon": 0
+  },
+  {
+    "path": "/guides/steam-deck-docked-tv-monitor-setup/",
+    "title": "Steam Deck docked setup guide for TV and monitor play \u2014 Handheld Settings Lab",
+    "desc_len": 169,
+    "canonical": "https://handheldsettings.com/guides/steam-deck-docked-tv-monitor-setup/",
+    "h1": 1,
+    "words": 708,
+    "jsonld": 2,
+    "amazon": 4
+  },
+  {
+    "path": "/guides/steam-deck-oled-first-week-accessories/",
+    "title": "Steam Deck OLED first-week accessories checklist \u2014 Handheld Settings Lab",
+    "desc_len": 166,
+    "canonical": "https://handheldsettings.com/guides/steam-deck-oled-first-week-accessories/",
+    "h1": 1,
+    "words": 790,
+    "jsonld": 2,
+    "amazon": 4
+  },
+  {
+    "path": "/guides/steam-deck-storage-planner-how-much-space/",
+    "title": "Steam Deck storage planner: how much space do you need? \u2014 Handheld Settings Lab",
+    "desc_len": 134,
+    "canonical": "https://handheldsettings.com/guides/steam-deck-storage-planner-how-much-space/",
+    "h1": 1,
+    "words": 677,
+    "jsonld": 2,
+    "amazon": 0
+  },
+  {
+    "path": "/guides/usb-c-cable-wattage-handheld-gaming/",
+    "title": "USB-C cable wattage guide for Steam Deck, ROG Ally, and Legion Go \u2014 Handheld Settings Lab",
+    "desc_len": 145,
+    "canonical": "https://handheldsettings.com/guides/usb-c-cable-wattage-handheld-gaming/",
+    "h1": 1,
+    "words": 711,
+    "jsonld": 2,
+    "amazon": 4
+  },
+  {
+    "path": "/guides/usb-c-power-bank-wattage-handheld-gaming/",
+    "title": "USB-C power bank wattage for Steam Deck, ROG Ally, and Legion Go \u2014 Handheld Settings Lab",
+    "desc_len": 112,
+    "canonical": "https://handheldsettings.com/guides/usb-c-power-bank-wattage-handheld-gaming/",
+    "h1": 1,
+    "words": 548,
+    "jsonld": 2,
+    "amazon": 3
+  },
+  {
+    "path": "/guides/usb-c-wall-charger-wattage-handheld-gaming/",
+    "title": "USB-C wall charger wattage for Steam Deck, ROG Ally, and Legion Go \u2014 Handheld Settings Lab",
+    "desc_len": 158,
+    "canonical": "https://handheldsettings.com/guides/usb-c-wall-charger-wattage-handheld-gaming/",
+    "h1": 1,
+    "words": 709,
+    "jsonld": 2,
+    "amazon": 3
+  },
+  {
+    "path": "/",
+    "title": "Handheld Settings Lab \u2014 Steam Deck & handheld PC settings",
+    "desc_len": 139,
+    "canonical": "https://handheldsettings.com/",
+    "h1": 1,
+    "words": 402,
+    "jsonld": 2,
+    "amazon": 4
+  },
+  {
+    "path": "/legion-go-settings/",
+    "title": "Lenovo Legion Go settings guide: FPS, resolution and power \u2014 Handheld Settings Lab",
+    "desc_len": 142,
+    "canonical": "https://handheldsettings.com/legion-go-settings/",
+    "h1": 1,
+    "words": 552,
+    "jsonld": 4,
+    "amazon": 0
+  },
+  {
+    "path": "/privacy/",
+    "title": "Privacy Policy \u2014 Handheld Settings Lab",
+    "desc_len": 41,
+    "canonical": "https://handheldsettings.com/privacy/",
+    "h1": 1,
+    "words": 83,
+    "jsonld": 2,
+    "amazon": 0
+  },
+  {
+    "path": "/rog-ally-settings/balatro/",
+    "title": "Balatro ROG Ally settings: FPS, battery and storage \u2014 Handheld Settings Lab",
+    "desc_len": 135,
+    "canonical": "https://handheldsettings.com/rog-ally-settings/balatro/",
+    "h1": 1,
+    "words": 496,
+    "jsonld": 5,
+    "amazon": 2
+  },
+  {
+    "path": "/rog-ally-settings/baldurs-gate-3/",
+    "title": "Baldur's Gate 3 ROG Ally settings: FPS, battery and storage \u2014 Handheld Settings Lab",
+    "desc_len": 145,
+    "canonical": "https://handheldsettings.com/rog-ally-settings/baldurs-gate-3/",
+    "h1": 1,
+    "words": 508,
+    "jsonld": 5,
+    "amazon": 2
+  },
+  {
+    "path": "/rog-ally-settings/clair-obscur-expedition-33/",
+    "title": "Clair Obscur: Expedition 33 ROG Ally settings: FPS, battery and storage \u2014 Handheld Settings Lab",
+    "desc_len": 156,
+    "canonical": "https://handheldsettings.com/rog-ally-settings/clair-obscur-expedition-33/",
+    "h1": 1,
+    "words": 543,
+    "jsonld": 5,
+    "amazon": 2
+  },
+  {
+    "path": "/rog-ally-settings/cyberpunk-2077/",
+    "title": "Cyberpunk 2077 ROG Ally settings: FPS, battery and storage \u2014 Handheld Settings Lab",
+    "desc_len": 146,
+    "canonical": "https://handheldsettings.com/rog-ally-settings/cyberpunk-2077/",
+    "h1": 1,
+    "words": 501,
+    "jsonld": 5,
+    "amazon": 2
+  },
+  {
+    "path": "/rog-ally-settings/diablo-iv/",
+    "title": "Diablo IV ROG Ally settings: FPS, battery and storage \u2014 Handheld Settings Lab",
+    "desc_len": 138,
+    "canonical": "https://handheldsettings.com/rog-ally-settings/diablo-iv/",
+    "h1": 1,
+    "words": 498,
+    "jsonld": 5,
+    "amazon": 2
+  },
+  {
+    "path": "/rog-ally-settings/elden-ring/",
+    "title": "Elden Ring ROG Ally settings: FPS, battery and storage \u2014 Handheld Settings Lab",
+    "desc_len": 139,
+    "canonical": "https://handheldsettings.com/rog-ally-settings/elden-ring/",
+    "h1": 1,
+    "words": 503,
+    "jsonld": 5,
+    "amazon": 2
+  },
+  {
+    "path": "/rog-ally-settings/hades-ii/",
+    "title": "Hades II ROG Ally settings: FPS, battery and storage \u2014 Handheld Settings Lab",
+    "desc_len": 138,
+    "canonical": "https://handheldsettings.com/rog-ally-settings/hades-ii/",
+    "h1": 1,
+    "words": 501,
+    "jsonld": 5,
+    "amazon": 2
+  },
+  {
+    "path": "/rog-ally-settings/",
+    "title": "ROG Ally game settings: FPS, battery and storage guides \u2014 Handheld Settings Lab",
+    "desc_len": 143,
+    "canonical": "https://handheldsettings.com/rog-ally-settings/",
+    "h1": 1,
+    "words": 360,
+    "jsonld": 3,
+    "amazon": 0
+  },
+  {
+    "path": "/rog-ally-settings/monster-hunter-wilds/",
+    "title": "Monster Hunter Wilds ROG Ally settings: FPS, battery and storage \u2014 Handheld Settings Lab",
+    "desc_len": 149,
+    "canonical": "https://handheldsettings.com/rog-ally-settings/monster-hunter-wilds/",
+    "h1": 1,
+    "words": 532,
+    "jsonld": 5,
+    "amazon": 2
+  },
+  {
+    "path": "/rog-ally-settings/no-mans-sky/",
+    "title": "No Man's Sky ROG Ally settings: FPS, battery and storage \u2014 Handheld Settings Lab",
+    "desc_len": 141,
+    "canonical": "https://handheldsettings.com/rog-ally-settings/no-mans-sky/",
+    "h1": 1,
+    "words": 502,
+    "jsonld": 5,
+    "amazon": 2
+  },
+  {
+    "path": "/rog-ally-settings/palworld/",
+    "title": "Palworld ROG Ally settings: FPS, battery and storage \u2014 Handheld Settings Lab",
+    "desc_len": 137,
+    "canonical": "https://handheldsettings.com/rog-ally-settings/palworld/",
+    "h1": 1,
+    "words": 496,
+    "jsonld": 5,
+    "amazon": 2
+  },
+  {
+    "path": "/rog-ally-settings/red-dead-redemption-2/",
+    "title": "Red Dead Redemption 2 ROG Ally settings: FPS, battery and storage \u2014 Handheld Settings Lab",
+    "desc_len": 151,
+    "canonical": "https://handheldsettings.com/rog-ally-settings/red-dead-redemption-2/",
+    "h1": 1,
+    "words": 507,
+    "jsonld": 5,
+    "amazon": 2
+  },
+  {
+    "path": "/rog-ally-settings/stardew-valley/",
+    "title": "Stardew Valley ROG Ally settings: FPS, battery and storage \u2014 Handheld Settings Lab",
+    "desc_len": 142,
+    "canonical": "https://handheldsettings.com/rog-ally-settings/stardew-valley/",
+    "h1": 1,
+    "words": 497,
+    "jsonld": 5,
+    "amazon": 2
+  },
+  {
+    "path": "/steam-deck-settings/balatro/",
+    "title": "Balatro Steam Deck settings: FPS, battery and storage \u2014 Handheld Settings Lab",
+    "desc_len": 137,
+    "canonical": "https://handheldsettings.com/steam-deck-settings/balatro/",
+    "h1": 1,
+    "words": 496,
+    "jsonld": 5,
+    "amazon": 2
+  },
+  {
+    "path": "/steam-deck-settings/baldurs-gate-3/",
+    "title": "Baldur's Gate 3 Steam Deck settings: FPS, battery and storage \u2014 Handheld Settings Lab",
+    "desc_len": 147,
+    "canonical": "https://handheldsettings.com/steam-deck-settings/baldurs-gate-3/",
+    "h1": 1,
+    "words": 508,
+    "jsonld": 5,
+    "amazon": 2
+  },
+  {
+    "path": "/steam-deck-settings/clair-obscur-expedition-33/",
+    "title": "Clair Obscur: Expedition 33 Steam Deck settings: FPS, battery and storage \u2014 Handheld Settings Lab",
+    "desc_len": 158,
+    "canonical": "https://handheldsettings.com/steam-deck-settings/clair-obscur-expedition-33/",
+    "h1": 1,
+    "words": 543,
+    "jsonld": 5,
+    "amazon": 2
+  },
+  {
+    "path": "/steam-deck-settings/cyberpunk-2077/",
+    "title": "Cyberpunk 2077 Steam Deck settings: FPS, battery and storage \u2014 Handheld Settings Lab",
+    "desc_len": 145,
+    "canonical": "https://handheldsettings.com/steam-deck-settings/cyberpunk-2077/",
+    "h1": 1,
+    "words": 501,
+    "jsonld": 5,
+    "amazon": 2
+  },
+  {
+    "path": "/steam-deck-settings/diablo-iv/",
+    "title": "Diablo IV Steam Deck settings: FPS, battery and storage \u2014 Handheld Settings Lab",
+    "desc_len": 140,
+    "canonical": "https://handheldsettings.com/steam-deck-settings/diablo-iv/",
+    "h1": 1,
+    "words": 498,
+    "jsonld": 5,
+    "amazon": 2
+  },
+  {
+    "path": "/steam-deck-settings/elden-ring/",
+    "title": "Elden Ring Steam Deck settings: FPS, battery and storage \u2014 Handheld Settings Lab",
+    "desc_len": 141,
+    "canonical": "https://handheldsettings.com/steam-deck-settings/elden-ring/",
+    "h1": 1,
+    "words": 503,
+    "jsonld": 5,
+    "amazon": 2
+  },
+  {
+    "path": "/steam-deck-settings/hades-ii/",
+    "title": "Hades II Steam Deck settings: FPS, battery and storage \u2014 Handheld Settings Lab",
+    "desc_len": 139,
+    "canonical": "https://handheldsettings.com/steam-deck-settings/hades-ii/",
+    "h1": 1,
+    "words": 501,
+    "jsonld": 5,
+    "amazon": 2
+  },
+  {
+    "path": "/steam-deck-settings/",
+    "title": "Steam Deck game settings: FPS, battery and storage guides \u2014 Handheld Settings Lab",
+    "desc_len": 145,
+    "canonical": "https://handheldsettings.com/steam-deck-settings/",
+    "h1": 1,
+    "words": 360,
+    "jsonld": 3,
+    "amazon": 0
+  },
+  {
+    "path": "/steam-deck-settings/monster-hunter-wilds/",
+    "title": "Monster Hunter Wilds Steam Deck settings: FPS, battery and storage \u2014 Handheld Settings Lab",
+    "desc_len": 151,
+    "canonical": "https://handheldsettings.com/steam-deck-settings/monster-hunter-wilds/",
+    "h1": 1,
+    "words": 532,
+    "jsonld": 5,
+    "amazon": 2
+  },
+  {
+    "path": "/steam-deck-settings/no-mans-sky/",
+    "title": "No Man's Sky Steam Deck settings: FPS, battery and storage \u2014 Handheld Settings Lab",
+    "desc_len": 143,
+    "canonical": "https://handheldsettings.com/steam-deck-settings/no-mans-sky/",
+    "h1": 1,
+    "words": 502,
+    "jsonld": 5,
+    "amazon": 2
+  },
+  {
+    "path": "/steam-deck-settings/palworld/",
+    "title": "Palworld Steam Deck settings: FPS, battery and storage \u2014 Handheld Settings Lab",
+    "desc_len": 139,
+    "canonical": "https://handheldsettings.com/steam-deck-settings/palworld/",
+    "h1": 1,
+    "words": 496,
+    "jsonld": 5,
+    "amazon": 2
+  },
+  {
+    "path": "/steam-deck-settings/red-dead-redemption-2/",
+    "title": "Red Dead Redemption 2 Steam Deck settings: FPS, battery and storage \u2014 Handheld Settings Lab",
+    "desc_len": 153,
+    "canonical": "https://handheldsettings.com/steam-deck-settings/red-dead-redemption-2/",
+    "h1": 1,
+    "words": 507,
+    "jsonld": 5,
+    "amazon": 2
+  },
+  {
+    "path": "/steam-deck-settings/stardew-valley/",
+    "title": "Stardew Valley Steam Deck settings: FPS, battery and storage \u2014 Handheld Settings Lab",
+    "desc_len": 144,
+    "canonical": "https://handheldsettings.com/steam-deck-settings/stardew-valley/",
+    "h1": 1,
+    "words": 497,
+    "jsonld": 5,
+    "amazon": 2
+  },
+  {
+    "path": "/terms/",
+    "title": "Terms \u2014 Handheld Settings Lab",
+    "desc_len": 32,
+    "canonical": "https://handheldsettings.com/terms/",
+    "h1": 1,
+    "words": 85,
+    "jsonld": 2,
+    "amazon": 0
+  }
+]
