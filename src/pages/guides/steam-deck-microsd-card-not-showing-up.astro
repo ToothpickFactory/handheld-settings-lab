@@ -1,0 +1,189 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/steam-deck-microsd-card-not-showing-up/';
+const title = 'Steam Deck microSD card not showing up: safe troubleshooting — Handheld Settings Lab';
+const description = 'Troubleshoot a Steam Deck microSD card that is missing, not detected, or absent from the Steam library without erasing it too early.';
+
+const sources = [
+  { label: 'Valve: Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' },
+  { label: 'Steam Support: Steam Deck basic use and troubleshooting', url: 'https://help.steampowered.com/en/faqs/view/69E3-14AF-9764-4C28' },
+  { label: 'Steam Support: SteamOS recovery and troubleshooting', url: 'https://help.steampowered.com/en/faqs/view/1B71-EDF2-EB6D-2BB3' }
+];
+
+const faqs = [
+  {
+    question: 'Why does my microSD card appear in Desktop Mode but not in my Steam library?',
+    answer: 'Detection and Steam-library availability are separate checks. If Desktop Mode can see the card, confirm it is mounted, then open Steam storage settings and add or repair the library location. Do not format a card that contains files until you have a backup.'
+  },
+  {
+    question: 'Should I format a microSD card that Steam Deck does not detect?',
+    answer: 'Not as the first step. Reseat the card after a full shutdown, check storage settings, and test the card in a known-good reader first. Formatting erases the card and will not repair counterfeit or failing flash.'
+  },
+  {
+    question: 'Can Steam Deck format a new microSD card?',
+    answer: 'Yes. For a blank card intended as a Steam game library, use SteamOS storage settings so the Deck prepares it for that purpose. Back up any existing files before starting because formatting is destructive.'
+  },
+  {
+    question: 'Does a missing card mean the Steam Deck slot is broken?',
+    answer: 'Not necessarily. The card, its formatting, mount state, library configuration, or the slot can each be responsible. Testing a second known-good card and testing the suspect card in another reader helps isolate the failure before repair or replacement.'
+  },
+  {
+    question: 'Can I remove a microSD card while the Steam Deck is running?',
+    answer: 'Avoid removing it while a game, download, update, or file transfer is using it. Safely unmount it in Desktop Mode or fully shut down the Deck before removal to reduce the risk of filesystem or library problems.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Steam Deck microSD card not showing up: safe troubleshooting',
+    description,
+    url: canonicalUrl,
+    datePublished: '2026-07-21',
+    dateModified: '2026-07-21',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Steam Deck', 'microSD card troubleshooting', 'SteamOS storage']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'Steam Deck microSD troubleshooting', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+
+const shoppingLinks = [
+  { label: 'USB-C microSD card readers', href: 'https://www.amazon.com/s?k=usb-c+microSD+card+reader+UHS-I', category: 'card-readers' },
+  { label: '512GB A2 microSDXC cards', href: 'https://www.amazon.com/s?k=512GB+A2+microSDXC+card+Steam+Deck', category: 'microsd-cards' },
+  { label: '1TB A2 microSDXC cards', href: 'https://www.amazon.com/s?k=1TB+A2+microSDXC+card+Steam+Deck', category: 'microsd-cards' }
+];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Steam Deck storage troubleshooting</span>
+    <h1>Steam Deck microSD card not showing up: troubleshoot it without erasing it too early</h1>
+    <p class="muted">A missing card does not immediately prove that the card or slot is dead. Work through the physical connection, SteamOS detection, mount state, and Steam library in that order. This is official-source-informed baseline guidance, not a hands-on diagnosis of your card.</p>
+
+    <div class="callout"><strong>Start with preservation, not formatting.</strong> If the card contains games, screenshots, saves, emulator files, or personal data, do not format it until you have tested whether another device can read and back it up.</div>
+
+    <h2>Fast answer: the safest five-minute check</h2>
+    <ol>
+      <li>Pause downloads and close any game that may be using the card.</li>
+      <li>Shut the Steam Deck down completely rather than only putting it to sleep.</li>
+      <li>Remove the card, inspect it for damage or debris, reinsert it fully, and power the Deck on.</li>
+      <li>Open <strong>Settings → Storage</strong> in Game Mode and check whether the card appears there.</li>
+      <li>If it is still missing, test the card in a known-good USB card reader or another computer before choosing Format.</li>
+    </ol>
+
+    <h2>First identify where the card disappears</h2>
+    <div class="grid cols3">
+      <section class="card">
+        <span class="chip">Level 1</span>
+        <h3>Not detected anywhere</h3>
+        <p>Neither SteamOS nor another computer can see it. Suspect the card, reader, physical contact, or slot before changing library settings.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Level 2</span>
+        <h3>Visible in Desktop Mode only</h3>
+        <p>The hardware may be readable, but the card may not be mounted or registered as a Steam library in Game Mode.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Level 3</span>
+        <h3>Visible in Storage, games absent</h3>
+        <p>The card is detected. Focus on the Steam library folder, moved-game records, and whether the expected files still exist.</p>
+      </section>
+    </div>
+
+    <h2>Ordered troubleshooting checklist</h2>
+    <h3>1. Fully shut down and reseat the card</h3>
+    <p>Sleep does not give you the same clean hardware restart as a full shutdown. Stop active transfers, power off, remove the card, and inspect its contacts and edges. Reinsert it without forcing the spring-loaded slot. Then boot and check Storage again.</p>
+
+    <h3>2. Separate a card problem from a slot problem</h3>
+    <p>Use a known-good card reader to check the suspect card on another computer. If possible, also try a different known-good microSD card in the Deck. This simple cross-test is more useful than repeatedly formatting the same card:</p>
+    <table>
+      <thead><tr><th>Test result</th><th>Likely direction</th><th>Next move</th></tr></thead>
+      <tbody>
+        <tr><td>Suspect card fails in every reader</td><td>Card failure, counterfeit capacity, or damaged filesystem</td><td>Attempt backup/recovery; replace the card if hardware checks fail</td></tr>
+        <tr><td>Suspect card works elsewhere</td><td>Mount, SteamOS, or Deck slot issue</td><td>Back it up, then continue with SteamOS checks</td></tr>
+        <tr><td>A second card works in the Deck</td><td>Original card or its filesystem</td><td>Preserve files before reformatting or replacing it</td></tr>
+        <tr><td>No known-good card works in the Deck</td><td>SteamOS state or physical slot</td><td>Update/restart, then contact Steam Support before invasive repair</td></tr>
+      </tbody>
+    </table>
+
+    <h3>3. Check Desktop Mode without modifying the card</h3>
+    <p>Switch to Desktop Mode and open the system’s storage or partition viewer. Look for the card by its approximate capacity. Seeing a device but no mounted volume suggests a filesystem or mount issue; seeing no device at all keeps the focus on the card, reader, or slot. Do not delete partitions while diagnosing.</p>
+
+    <h3>4. Back up anything readable</h3>
+    <p>If another computer or Desktop Mode can read the files, copy irreplaceable data off before repairs. Steam games can usually be downloaded again; screenshots, local saves without cloud sync, mods, and personal files may not be replaceable.</p>
+
+    <h3>5. Repair the Steam library path</h3>
+    <p>If SteamOS shows the card but the installed games are missing, open Steam storage settings and confirm the card is an available library location. Do not assume the files are gone merely because the library entry disappeared. Re-add the location or move one small game as a test before bulk transfers.</p>
+
+    <h3>6. Format only a blank or safely backed-up card</h3>
+    <p>For a new card that will stay with the Deck, let SteamOS prepare it through the built-in storage interface. Formatting erases existing contents. Afterward, install one small game, launch it, restart the Deck, and verify the library returns before moving a large collection.</p>
+
+    <h2>If Steam Deck says the format failed</h2>
+    <ul>
+      <li>Restart the Deck and install pending stable SteamOS updates before one clean retry.</li>
+      <li>Test the card’s full reported capacity on another computer when practical. Counterfeit flash may appear normal until writes exceed the real capacity.</li>
+      <li>Try a known-good card. If another card formats normally, the first card is the stronger suspect.</li>
+      <li>Stop after repeated failures. Endless format attempts can waste the return window and will not fix physically failing flash.</li>
+      <li>If multiple verified cards fail only in the Deck, use Valve’s Steam Support path rather than opening the device solely on a guess.</li>
+    </ul>
+
+    <h2>What not to do</h2>
+    <ul>
+      <li><strong>Do not choose Format as a detection test.</strong> It destroys the files you may still be able to recover.</li>
+      <li><strong>Do not remove the card during a download, update, or move.</strong> Wait for storage activity to finish and unmount or shut down first.</li>
+      <li><strong>Do not run copied terminal commands blindly.</strong> A mistaken device name can erase internal storage instead of the card.</li>
+      <li><strong>Do not trust capacity alone.</strong> A fake card can report 1TB while containing far less working flash.</li>
+      <li><strong>Do not pay for recovery before checking cloud saves.</strong> Confirm what is actually missing and whether Steam Cloud or another backup already has it.</li>
+    </ul>
+
+    <h2>Plan storage after the card is stable</h2>
+    <p>Once the card mounts reliably, use the <a href="/calculators/storage-planner/">handheld storage planner</a> before moving the whole backlog. Compare removable storage options in the <a href="/gear/microsd-cards/">microSD gear guide</a>, review the broader <a href="/guides/microsd-card-format-transfer-handheld-pc-checklist/">format and transfer checklist</a>, and return to the <a href="/steam-deck-settings/">Steam Deck settings hub</a> for game-specific tuning.</p>
+
+    <h2>Optional replacement and diagnostic gear</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches, not hands-on product endorsements. Links are marked sponsored/nofollow; the site appends an Associates tag only when a real tag is configured.</p>
+    <div class="grid cols3">
+      {shoppingLinks.map(link => (
+        <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored" data-affiliate-link data-category={link.category}>
+          <span class="chip">Sponsored search</span>
+          <h3>{link.label}</h3>
+          <p class="muted">Compare seller reputation, warranty, return policy, and recent buyer reports. A reader is useful for diagnosis; a new card should not be the first response to recoverable data.</p>
+        </a>
+      ))}
+    </div>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Sources checked</h2>
+    <p>Valve’s public hardware and support pages were checked on July 21, 2026. They establish the Deck’s microSD support and the official support/recovery paths. The diagnostic sequence above is conservative editorial guidance; no card benchmark or failure rate is claimed.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+  </article>
+</Base>
