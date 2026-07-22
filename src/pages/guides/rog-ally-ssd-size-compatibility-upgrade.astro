@@ -1,0 +1,202 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/rog-ally-ssd-size-compatibility-upgrade/';
+const title = 'ROG Ally SSD size and compatibility: 2230 vs 2280 — Handheld Settings Lab';
+const description = 'Match the correct M.2 NVMe SSD to the original ROG Ally or ROG Ally X, compare 2230 and 2280 sizes, and prepare recovery before an upgrade.';
+
+const sources = [
+  { label: 'ASUS: ROG Ally (2023) official specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-2023/spec/' },
+  { label: 'ASUS: ROG Ally X (2024) official specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/' },
+  { label: 'ASUS Support: Cloud Recovery in UEFI BIOS', url: 'https://www.asus.com/support/faq/1048106/' },
+  { label: 'Microsoft Support: find your BitLocker recovery key', url: 'https://support.microsoft.com/en-us/windows/find-your-bitlocker-recovery-key-6b71ad27-0b89-ea08-f143-056f5ab347d6' }
+];
+
+const faqs = [
+  {
+    question: 'What SSD size fits the original ROG Ally?',
+    answer: 'ASUS lists the 2023 ROG Ally with a PCIe 4.0 NVMe M.2 2230 SSD. Buy the short 30 mm 2230 form factor for a direct, specification-matched replacement; do not assume a longer 2242 or 2280 drive fits the original mounting point.'
+  },
+  {
+    question: 'What SSD size fits the ROG Ally X?',
+    answer: 'ASUS lists the 2024 ROG Ally X with a PCIe 4.0 NVMe M.2 2280 SSD. The 2280 designation means the drive is 22 mm wide and 80 mm long.'
+  },
+  {
+    question: 'Can I put a 2280 SSD in the original ROG Ally?',
+    answer: 'A 2280 drive is not the direct form-factor replacement ASUS specifies for the original 2023 Ally. Community adapter or shell-mod approaches are outside this baseline guide and can create fit, heat, cable-clearance, and support risks.'
+  },
+  {
+    question: 'Does an SSD upgrade improve FPS on ROG Ally?',
+    answer: 'Do not buy an SSD expecting a general frame-rate upgrade. More storage can improve library capacity and a healthy drive can affect transfers, installs, updates, and some loading behavior, but this guide makes no measured FPS claim.'
+  },
+  {
+    question: 'Should I clone the old ROG Ally SSD or use ASUS Cloud Recovery?',
+    answer: 'Cloning can preserve the existing setup when the source drive is healthy and the partitions copy correctly. Cloud Recovery provides a clean recovery route on supported devices but removes the need to preserve the old installation. Back up local files and verify credentials, cloud saves, and the BitLocker recovery key before either path.'
+  },
+  {
+    question: 'Can I install a 2TB or 4TB SSD in a ROG Ally?',
+    answer: 'Capacity alone is not the full compatibility check. Match the model’s required 2230 or 2280 form factor, M.2 NVMe interface, physical component profile, power and thermal behavior, and seller return policy. ASUS’s base specification confirms the factory drive, not every aftermarket capacity or model.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'ROG Ally SSD size and compatibility: 2230 vs 2280 upgrade guide',
+    description,
+    url: canonicalUrl,
+    datePublished: '2026-07-22',
+    dateModified: '2026-07-22',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['ROG Ally', 'ROG Ally X', 'M.2 NVMe SSD', 'SSD compatibility', 'ASUS Cloud Recovery']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'ROG Ally SSD compatibility', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+
+const shoppingLinks = [
+  { label: 'M.2 2230 NVMe SSDs for the original ROG Ally', href: 'https://www.amazon.com/s?k=m.2+2230+nvme+ssd+rog+ally', category: 'nvme-ssds' },
+  { label: 'M.2 2280 NVMe SSDs for the ROG Ally X', href: 'https://www.amazon.com/s?k=m.2+2280+nvme+ssd+rog+ally+x', category: 'nvme-ssds' },
+  { label: 'USB-C NVMe enclosures for cloning and reuse', href: 'https://www.amazon.com/s?k=usb+c+nvme+enclosure+2230+2280', category: 'cables-adapters' }
+];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">ROG Ally storage compatibility</span>
+    <h1>ROG Ally SSD size and compatibility: match 2230 or 2280 before you buy</h1>
+    <p class="muted">The original ROG Ally and ROG Ally X do not use the same factory SSD length. This official-spec-informed guide helps identify the direct replacement form factor, choose a recovery path, and avoid treating capacity or advertised speed as proof of compatibility. It is not a hands-on drive benchmark or disassembly manual.</p>
+
+    <div class="callout"><strong>Fast answer:</strong> ASUS lists the <strong>2023 ROG Ally with an M.2 2230 PCIe 4.0 NVMe SSD</strong> and the <strong>2024 ROG Ally X with an M.2 2280 PCIe 4.0 NVMe SSD</strong>. Confirm the model on the bottom label or in Windows before shopping.</div>
+
+    <h2>ROG Ally SSD compatibility table</h2>
+    <table>
+      <thead><tr><th>Handheld</th><th>Official factory storage specification</th><th>Direct replacement search</th><th>Do not assume</th></tr></thead>
+      <tbody>
+        <tr><td>ROG Ally (2023)</td><td>512GB PCIe 4.0 NVMe M.2 SSD (2230)</td><td>M.2 2230 NVMe</td><td>That a 2242 or 2280 drive fits the factory mount</td></tr>
+        <tr><td>ROG Ally X (2024)</td><td>1TB PCIe 4.0 NVMe M.2 SSD (2280)</td><td>M.2 2280 NVMe</td><td>That every desktop 2280 drive has suitable thermals or component clearance</td></tr>
+      </tbody>
+    </table>
+    <p><strong>2230 and 2280 describe physical dimensions:</strong> both are nominally 22 mm wide; 2230 is 30 mm long and 2280 is 80 mm long. They are not interchangeable merely because both listings say “M.2” or “PCIe 4.0.”</p>
+
+    <h2>Identify your Ally before opening it</h2>
+    <ol>
+      <li><strong>Read the device name and model label.</strong> Do not decide from color alone, a marketplace title, or the SSD currently installed in a used unit.</li>
+      <li><strong>Check Windows.</strong> Open Settings → System → About and Armoury Crate SE for the model identity, then compare it with ASUS’s support page for that exact machine.</li>
+      <li><strong>Record the current storage.</strong> In Settings → System → Storage, note total capacity and free space. This determines whether cleanup or a microSD card could solve the problem without opening the device.</li>
+      <li><strong>Check warranty and service options.</strong> Regional warranty terms and authorized-service options can differ. If uncertain, ask ASUS support about the exact serial/model before disassembly.</li>
+    </ol>
+
+    <h2>Six checks beyond 2230 vs 2280</h2>
+    <div class="grid cols2">
+      <section class="card">
+        <span class="chip">Required</span>
+        <h3>Interface and keying</h3>
+        <p>Look for an M.2 NVMe drive, not a similarly shaped M.2 SATA product. Match the official PCIe/NVMe storage type and the model-specific physical length.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Physical fit</span>
+        <h3>Component profile</h3>
+        <p>Heat spreaders, tall labels, double-sided component layouts, and added pads can change clearance. A bare laptop-style drive is a safer starting point than a desktop SSD with a fixed heatsink.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Handheld priority</span>
+        <h3>Power and heat</h3>
+        <p>Peak sequential speed is not the only buying criterion in a battery-powered enclosure. Favor a reputable, efficient drive with a real warranty and return path rather than chasing the highest desktop benchmark.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Capacity</span>
+        <h3>Usable space and recovery</h3>
+        <p>A marketed capacity will show less usable space after formatting, Windows, recovery data, launchers, shader caches, and updates. Use the <a href="/calculators/storage-planner/">storage planner</a> before choosing 1TB, 2TB, or more.</p>
+      </section>
+    </div>
+
+    <h2>Capacity: 1TB, 2TB, or 4TB?</h2>
+    <ul>
+      <li><strong>1TB:</strong> a modest target for a rotating library. On an Ally X that already ships with 1TB according to ASUS’s listed specification, replacing 1TB with another 1TB usually makes little sense unless the original drive failed.</li>
+      <li><strong>2TB:</strong> a practical capacity tier for several large games plus smaller titles, but install sizes and update headroom should drive the choice—not a generic game count.</li>
+      <li><strong>4TB:</strong> useful only for genuinely large libraries and workflows. Verify that the exact drive’s physical profile and thermal behavior suit the exact Ally model; a capacity listing is not a fit guarantee.</li>
+    </ul>
+    <p>No capacity here is presented as universally supported or performance-tested. ASUS’s public specification pages establish the factory form factor and interface; the SSD manufacturer and seller must establish the exact aftermarket drive specification.</p>
+
+    <h2>Choose a migration path before buying</h2>
+    <table>
+      <thead><tr><th>Path</th><th>Best when</th><th>Prepare first</th><th>Main risk</th></tr></thead>
+      <tbody>
+        <tr><td>ASUS Cloud Recovery</td><td>You want a clean factory-style recovery and the feature is available for the device</td><td>Stable power, internet, backed-up files, Microsoft/ASUS credentials, BitLocker key</td><td>Local data and the existing setup are not preserved automatically</td></tr>
+        <tr><td>Clone the old SSD</td><td>The old drive is healthy and you want to preserve apps and settings</td><td>Compatible NVMe enclosure, cloning software instructions, backups, partition-expansion plan</td><td>A bad source, interrupted copy, encryption issue, or partition error can produce an unbootable clone</td></tr>
+        <tr><td>Authorized service</td><td>You are not comfortable opening the shell or handling internal connectors</td><td>Exact model/serial, quote, data-backup policy, replacement-drive requirements</td><td>Cost and turnaround time</td></tr>
+      </tbody>
+    </table>
+    <p>ASUS’s Cloud Recovery instructions say the process can restore the operating system and warn that storage may be erased. Availability and screens can vary by model and BIOS. Treat Cloud Recovery as a recovery route, not as your only copy of irreplaceable files.</p>
+
+    <h2>Backup and BitLocker checklist</h2>
+    <ol>
+      <li>Sync cloud saves, then separately copy saves for games or emulators that do not use cloud sync.</li>
+      <li>Back up screenshots, recordings, mods, emulator data, documents, and authentication recovery codes.</li>
+      <li>Find and save the BitLocker recovery key using Microsoft’s official instructions. Do not store the only copy on the SSD you are replacing.</li>
+      <li>Record launcher logins and verify access to the email or authenticator needed for sign-in.</li>
+      <li>Update the BIOS and essential ASUS software while the original system is still bootable, following ASUS support guidance for the exact model.</li>
+      <li>Keep the original SSD untouched until the replacement has booted repeatedly and your files are verified.</li>
+    </ol>
+
+    <h2>Installation boundaries</h2>
+    <p>This page intentionally does not paraphrase a screw-by-screw teardown. Use the service or self-repair material ASUS provides for the exact model and region. Shut down fully, disconnect external power and accessories, work on a clean static-aware surface, track screw locations, and never force the shell or battery connector. If a connector, screw, or drive does not align as documented, stop.</p>
+    <div class="callout"><strong>Do not copy original ROG Ally mod advice to Ally X—or the reverse.</strong> The internal layouts and specified SSD lengths differ. Community 2280 adapters for the original Ally are modifications, not the same thing as the Ally X’s official 2280 configuration.</div>
+
+    <h2>After the first boot</h2>
+    <ul>
+      <li>Confirm Windows reports the expected drive and capacity, then complete all ASUS, Windows, Armoury Crate SE, graphics, and launcher updates.</li>
+      <li>Check Device Manager and Windows Update for unresolved devices before installing the whole game library.</li>
+      <li>Restore a small test set first. Launch a game, restart Windows, and confirm sleep/wake and charging behave normally.</li>
+      <li>Do not judge a new drive from a single synthetic result. This guide does not provide benchmark thresholds.</li>
+      <li>If the device cannot see the new SSD, power down and re-check exact model, interface, seating, mounting, and recovery preparation rather than repeatedly forcing boot attempts.</li>
+    </ul>
+
+    <h2>Spec-based shopping starting points</h2>
+    <p class="affiliate-note">Disclosure: these broad Amazon searches are marked sponsored/nofollow. They are not hands-on endorsements, prices, or promises of fit. The site appends an Associates tag only when a real tag is configured. Verify the exact SSD model against your exact Ally before purchase.</p>
+    <div class="grid cols3">
+      {shoppingLinks.map(link => (
+        <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored" data-affiliate-link data-category={link.category}>
+          <span class="chip">Sponsored search</span>
+          <h3>{link.label}</h3>
+          <p class="muted">Compare form factor, NVMe interface, component profile, warranty, seller, power/thermal reporting, and return policy.</p>
+        </a>
+      ))}
+    </div>
+    <p>See the central <a href="/gear/nvme-ssds/">NVMe SSD gear guide</a>, <a href="/guides/rog-ally-x-2280-ssd-upgrade-checklist/">Ally X 2280 checklist</a>, <a href="/guides/microsd-vs-ssd-handheld-pc/">microSD vs SSD guide</a>, and <a href="/rog-ally-settings/">ROG Ally game-settings hub</a> for the rest of the storage and tuning plan.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Sources checked</h2>
+    <p>Official ASUS specification pages were fetched on July 22, 2026 and list a 512GB PCIe 4.0 NVMe M.2 2230 SSD for the 2023 ROG Ally and a 1TB PCIe 4.0 NVMe M.2 2280 SSD for the 2024 ROG Ally X. ASUS Cloud Recovery and Microsoft BitLocker recovery-key guidance were also checked. The buying and preparation sequence is conservative editorial guidance; no drive was benchmarked, no aftermarket capacity was declared universally compatible, and autocomplete evidence is not represented as search volume.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+  </article>
+</Base>
