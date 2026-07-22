@@ -1,0 +1,188 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/steam-deck-dock-not-connecting-to-tv/';
+const title = 'Steam Deck dock not connecting to TV: no-signal fixes — Handheld Settings Lab';
+const description = 'Fix a Steam Deck dock with no TV signal using a safe connection reset, firmware check, HDMI isolation, display-mode checks, and replacement tests.';
+
+const sources = [
+  { label: 'Valve: official Steam Deck Docking Station specifications and FAQ', url: 'https://store.steampowered.com/steamdeckdock' },
+  { label: 'Valve: Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' },
+  { label: 'Steam Support: Steam Deck help portal', url: 'https://help.steampowered.com/en/wizard/HelpWithSteamDeck' },
+  { label: 'HDMI Licensing Administrator: HDMI specification overview', url: 'https://www.hdmi.org/spec/hdmi2_1' }
+];
+
+const faqs = [
+  {
+    question: 'Why does my Steam Deck dock say no signal on the TV?',
+    answer: 'The TV may be on the wrong input, the HDMI handshake may be stuck, the cable or port may be failing, the dock may lack stable power, or SteamOS may be using an unsupported display mode. Reset the connection with only power, HDMI, and the Deck attached before replacing hardware.'
+  },
+  {
+    question: 'How do I reset a Steam Deck dock connection?',
+    answer: 'Shut down the Deck, disconnect the Deck and dock power, unplug HDMI from both ends, and wait briefly. Reconnect the TV-side HDMI, dock power, and dock-side HDMI, select the correct TV input, then connect and boot the Deck. This rebuilds the connection without erasing settings or data.'
+  },
+  {
+    question: 'Does the official Steam Deck Docking Station need a firmware update?',
+    answer: 'Valve says the official Dock receives ongoing support and may offer a firmware update when the Deck is connected. Install stable SteamOS updates, connect the official Dock directly with power attached, and follow any displayed installation prompt. Third-party docks use their own support process.'
+  },
+  {
+    question: 'Can the Steam Deck Dock work without its charger?',
+    answer: 'Valve says the official Dock can function without a power supply, but its USB throughput is reduced. For display troubleshooting, attach a known-good USB-C PD supply so low or unstable power is not another variable.'
+  },
+  {
+    question: 'Should I use HDMI or DisplayPort with Steam Deck?',
+    answer: 'Either can work. Valve lists HDMI 2.0 and DisplayPort 1.4 on its official Dock. TVs commonly use HDMI, while monitors often offer DisplayPort. Test one direct video path at a time and avoid adapters while isolating a no-signal problem.'
+  },
+  {
+    question: 'Why does the Steam Deck show a picture in menus but lose it when a game starts?',
+    answer: 'The game may be switching to a resolution, refresh rate, HDR mode, or fullscreen setting the display chain does not accept reliably. Start with 1920×1080 at 60Hz, disable optional HDR or VRR temporarily, and set the game to a conservative resolution before re-enabling features one at a time.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Steam Deck dock not connecting to TV: no-signal troubleshooting',
+    description,
+    url: canonicalUrl,
+    datePublished: '2026-07-22',
+    dateModified: '2026-07-22',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Steam Deck', 'Steam Deck Docking Station', 'HDMI troubleshooting', 'external displays']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'Steam Deck dock TV troubleshooting', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+
+const shoppingLinks = [
+  { label: 'Certified HDMI cables for a direct TV connection', href: 'https://www.amazon.com/s?k=certified+hdmi+cable+steam+deck+dock', category: 'cables-adapters' },
+  { label: '45W and 65W USB-C PD chargers', href: 'https://www.amazon.com/s?k=usb+c+pd+charger+45w+65w+steam+deck+dock', category: 'chargers' },
+  { label: 'Steam Deck docks with HDMI and Ethernet', href: 'https://www.amazon.com/s?k=steam+deck+dock+hdmi+ethernet+usb+c+pd', category: 'docks' }
+];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Steam Deck TV troubleshooting</span>
+    <h1>Steam Deck dock not connecting to TV: fix a no-signal screen in the right order</h1>
+    <p class="muted">A blank TV does not prove the dock is dead. Isolate the TV input, cable, dock power, Steam Deck, and display mode one variable at a time. This is official-source-informed baseline guidance, not a hands-on diagnosis of your exact TV or dock.</p>
+
+    <div class="callout"><strong>Fastest safe fix:</strong> fully shut down the Deck, unplug dock power and HDMI at both ends, then reconnect only TV → HDMI cable → powered dock → Steam Deck. Select the TV input manually and boot the Deck after the simple chain is connected.</div>
+
+    <h2>Five-minute no-signal reset</h2>
+    <ol>
+      <li><strong>Prove the TV input.</strong> Select the exact HDMI port with the TV remote. Do not rely on automatic input switching.</li>
+      <li><strong>Shut the Deck down.</strong> Use a full shutdown rather than sleep so the USB-C and display path start cleanly.</li>
+      <li><strong>Remove every extra device.</strong> Disconnect Ethernet, USB storage, controllers, receivers, capture cards, HDMI switches, soundbars, and AV receivers.</li>
+      <li><strong>Unplug the whole display chain.</strong> Remove dock power, the Deck's USB-C connection, and HDMI at both ends. Wait about 30 seconds.</li>
+      <li><strong>Reconnect in a simple order.</strong> Connect HDMI directly from TV to dock, connect a known-good USB-C PD supply to the dock, select the TV input, then connect and boot the Deck.</li>
+    </ol>
+    <p>If the picture returns, add accessories one at a time. The first item that makes the signal disappear is the next part to investigate.</p>
+
+    <h2>Identify the failure before changing settings</h2>
+    <div class="grid cols3">
+      <section class="card">
+        <span class="chip">Deck screen stays on</span>
+        <h3>External display was not accepted</h3>
+        <p>Focus on input selection, HDMI cable, dock power, USB-C seating, and whether the TV reports any connected source.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Deck screen turns off</span>
+        <h3>Display was detected, picture failed</h3>
+        <p>The handshake may have started but the TV cannot show the selected mode. Reset the chain, then try a conservative 1080p/60Hz mode.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Menus work, game fails</span>
+        <h3>Game output mode is the suspect</h3>
+        <p>Use a lower game resolution and standard refresh rate. Temporarily remove HDR, VRR, scaling, and fullscreen-mode variables.</p>
+      </section>
+    </div>
+
+    <h2>Ordered troubleshooting checklist</h2>
+    <h3>1. Test another HDMI cable and TV port</h3>
+    <p>Move the same direct dock connection to another HDMI input, then try a known-good cable that already works with another source. Test one change at a time. A cable can work at one mode yet fail when bandwidth, length, connector wear, or an adapter changes the signal path.</p>
+
+    <h3>2. Remove receivers, switches, capture cards, and adapters</h3>
+    <p>Connect the dock directly to the TV. Every intermediate device adds another handshake and another supported-mode list. If direct HDMI works, reconnect the soundbar, receiver, switch, or capture card individually and check its input mode, firmware, and pass-through limits.</p>
+
+    <h3>3. Prove dock power</h3>
+    <p>Valve says its official Dock can operate without a power supply, but USB performance is reduced. During diagnosis, use the Deck's known-good official charger or a standards-compliant USB-C PD charger with enough output. Plug it into the dock's power-input port—not a peripheral USB port—and disconnect other charging loads.</p>
+
+    <h3>4. Check SteamOS and official Dock firmware</h3>
+    <p>Undock the Deck, connect it to Wi-Fi, and install pending stable SteamOS updates. For Valve's official Dock, reconnect it directly with power attached and follow any firmware prompt. Valve's Dock page says updates are delivered by connecting the Steam Deck and using the installation wizard. Do not apply unofficial firmware intended for a different dock.</p>
+
+    <h3>5. Fall back to a conservative display mode</h3>
+    <p>When the external display is visible in SteamOS, begin at <strong>1920×1080 and 60Hz</strong>. Temporarily disable HDR, VRR, and unusual refresh rates. Once the signal survives a restart and game launch, increase one option at a time. Valve lists much higher maximum outputs for the Deck and official Dock, but a supported maximum is not a promise that every cable, TV input, adapter, and game mode will negotiate it reliably.</p>
+
+    <h3>6. Cross-test the parts</h3>
+    <table>
+      <thead><tr><th>Cross-test</th><th>What the result tells you</th><th>Next action</th></tr></thead>
+      <tbody>
+        <tr><td>Same dock and cable on another TV/monitor</td><td>Separates the original TV/input from the dock chain</td><td>Review the original TV input format and firmware if the second display works</td></tr>
+        <tr><td>Known-good cable on the same TV port</td><td>Checks the easiest replaceable part</td><td>Retire the old cable if the signal becomes stable</td></tr>
+        <tr><td>Deck through another compatible dock</td><td>Tests whether the original dock is the common failure</td><td>Use the dock maker's support or return path if only one dock fails</td></tr>
+        <tr><td>Another HDMI source on the same TV input</td><td>Checks whether the TV port accepts a source at all</td><td>Move inputs or service the TV if no source works there</td></tr>
+        <tr><td>Official Dock over DisplayPort to a monitor</td><td>Separates HDMI-specific trouble from all external output</td><td>Focus on HDMI cable/input if DisplayPort is stable</td></tr>
+      </tbody>
+    </table>
+
+    <h2>If the picture appears but looks wrong</h2>
+    <ul>
+      <li><strong>Black screen after launching a game:</strong> set the game to 1280×720 or 1920×1080, use 60Hz, and avoid an unsupported exclusive-fullscreen mode.</li>
+      <li><strong>Intermittent flashes or sparkles:</strong> shorten or replace the HDMI cable, remove couplers, and test without a receiver or switch.</li>
+      <li><strong>Picture is cropped:</strong> disable TV overscan or choose the TV's “Just Scan,” “Screen Fit,” or PC-style aspect mode.</li>
+      <li><strong>Audio stays on the Deck:</strong> open SteamOS audio output and select the HDMI/display device after the picture is stable.</li>
+      <li><strong>4K feels slow:</strong> keep the desktop or TV link at a supported mode, but lower the game's render resolution. A 4K output capability does not make the Deck a native-4K game machine.</li>
+      <li><strong>Signal fails after resume:</strong> wake the TV and select its input first, then wake the Deck. If needed, disconnect and reconnect the Deck's USB-C lead rather than power-cycling repeatedly.</li>
+    </ul>
+
+    <h2>When to stop troubleshooting</h2>
+    <p>Contact Steam Support for an official Dock when it fails with a known-good Deck, charger, cable, and second display after stable updates. Use the manufacturer's support or return process for a third-party dock. Stop using any dock, charger, or cable that is unusually hot, physically damaged, loose at the connector, or producing an electrical smell.</p>
+
+    <h2>Replacement parts only after isolation</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on product endorsements. The site appends an Associates tag only when a real tag is configured. Start with a cable cross-test before buying a new dock.</p>
+    <div class="grid cols3">
+      {shoppingLinks.map(link => (
+        <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored" data-affiliate-link data-category={link.category}>
+          <span class="chip">Sponsored search</span>
+          <h3>{link.label}</h3>
+          <p class="muted">Compare stated port standards, USB-C PD input, warranty, return policy, and recent reports from owners using the same display type.</p>
+        </a>
+      ))}
+    </div>
+    <p>For setup planning, read the <a href="/guides/steam-deck-docked-tv-monitor-setup/">Steam Deck docked TV and monitor guide</a>, the <a href="/guides/handheld-gaming-hdmi-cable-adapter-checklist/">HDMI cable and adapter checklist</a>, and the <a href="/gear/docks/">dock comparison guide</a>. Use the <a href="/steam-deck-settings/">Steam Deck game-settings hub</a> to choose a realistic resolution and frame target for the game you plan to play.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Sources checked</h2>
+    <p>Valve's Docking Station, Steam Deck specification, and support pages plus the HDMI specification overview were checked on July 22, 2026. Valve confirms the official Dock's HDMI 2.0 and DisplayPort 1.4 outputs, ongoing firmware support, and reduced USB throughput without external power. The isolation sequence is conservative editorial troubleshooting; no failure rate or hands-on compatibility claim is made. Google autocomplete also returned the exact query and related no-signal variants; those suggestions are query evidence, not search-volume data.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+  </article>
+</Base>
