@@ -11,6 +11,6 @@ Core sections:
 - /guides/
 
 Recent guide:
-- /guides/handheld-gaming-hdmi-cable-adapter-checklist/ — source-informed HDMI cable and USB-C adapter checklist for Steam Deck, ROG Ally, Legion Go, TVs, monitors, docks, and PD pass-through.
+- /guides/rog-ally-x-accessories-buying-checklist/ — spec-based ROG Ally X buying order for 65W charging, power banks, docks, cases, screen protection, microSD cards, and travel.
 
 Editorial guardrails: do not fabricate benchmark data, test claims, affiliate relationships, or official affiliations.
