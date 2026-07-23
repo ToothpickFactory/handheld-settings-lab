@@ -1,0 +1,204 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/legion-go-accessories-buying-checklist/';
+const title = 'Legion Go accessories checklist: what to buy first — Handheld Settings Lab';
+const description = 'A spec-based Lenovo Legion Go accessories checklist for cases, 65W USB-C PD chargers, power banks, docks, microSD cards, SSDs, and screen protectors.';
+
+const sources = [
+  { label: 'Lenovo PSREF: Legion Go 8APU1 product specifications', url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1' },
+  { label: 'Lenovo PSREF: Legion Go 8APU1 specification PDF', url: 'https://psref.lenovo.com/syspool/Sys/PDF/Legion/Legion_Go_8APU1/Legion_Go_8APU1_Spec.pdf' },
+  { label: 'USB-IF: USB Power Delivery overview', url: 'https://www.usb.org/usb-charger-pd' },
+  { label: 'FAA PackSafe: portable electronic devices and spare batteries', url: 'https://www.faa.gov/hazmat/packsafe/lithium-batteries' }
+];
+
+const shoppingLinks = [
+  { label: 'Legion Go cases with controller clearance', href: 'https://www.amazon.com/s?k=lenovo+legion+go+case+charger+storage', category: 'cases' },
+  { label: 'Legion Go screen protectors', href: 'https://www.amazon.com/s?k=lenovo+legion+go+screen+protector', category: 'screen-protectors' },
+  { label: '65W USB-C PD chargers for Legion Go', href: 'https://www.amazon.com/s?k=65w+usb+c+pd+charger+legion+go', category: 'chargers' },
+  { label: '100W USB-C cables with e-marker', href: 'https://www.amazon.com/s?k=100w+usb+c+cable+e-marker', category: 'usb-c-cables-adapters' },
+  { label: '65W USB-C PD power banks', href: 'https://www.amazon.com/s?k=65w+usb+c+pd+power+bank+legion+go', category: 'power-banks' },
+  { label: 'Legion Go docks with HDMI and Ethernet', href: 'https://www.amazon.com/s?k=lenovo+legion+go+dock+hdmi+ethernet+100w+pd', category: 'docks' }
+];
+
+const faqs = [
+  {
+    question: 'What accessories should I buy first for the Lenovo Legion Go?',
+    answer: 'Buy an exact-fit case first if the Legion Go will travel. Add a screen protector only if you want that tradeoff, then a second 65W USB-C Power Delivery charger or power bank only when your routine needs one. Delay a dock and extra storage until you know how you actually use the handheld.'
+  },
+  {
+    question: 'What charger wattage does the original Legion Go need?',
+    answer: 'Lenovo lists a 65W USB-C AC adapter supporting Power Delivery 3.0 for the Legion Go 8APU1. A replacement should provide at least 65W from the single USB-C port connected to the handheld. Check multi-port power allocation because a charger’s total advertised wattage may be split.'
+  },
+  {
+    question: 'Can I use a 100W USB-C charger with Legion Go?',
+    answer: 'A reputable 100W USB-C Power Delivery charger can be useful for a dock or multi-device kit because USB PD negotiates power. It does not force 100W into the device or guarantee faster charging. Verify the output available on the chosen port and use a properly rated cable.'
+  },
+  {
+    question: 'What size case fits the original Legion Go?',
+    answer: 'Lenovo lists the gamepad with controllers at approximately 298.83 × 131 × 40.7 mm and under 854 g. Use a case explicitly made for the original Legion Go and check stick, trigger, controller-rail, kickstand, and charger clearance. Do not assume a Legion Go S or another handheld case fits.'
+  },
+  {
+    question: 'Does the Legion Go use a 2242 or 2230 SSD?',
+    answer: 'Lenovo’s Legion Go 8APU1 PSREF specifies one M.2 2242 PCIe 4.0 x4 NVMe slot. A common 2230 or 2280 SSD is not automatically a direct fit. Verify the exact device model and drive dimensions before opening the handheld; adapters and modifications are outside this checklist.'
+  },
+  {
+    question: 'Can a Legion Go power bank go on a plane?',
+    answer: 'For U.S. travel, FAA guidance says power banks and spare lithium batteries must stay in carry-on baggage. Ordinary spare lithium-ion batteries are limited to 100Wh; 101–160Wh batteries require airline approval and have additional limits. Check the printed Wh rating and current airline and destination rules.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Legion Go accessories checklist: what to buy first',
+    description,
+    url: canonicalUrl,
+    datePublished: '2026-07-23',
+    dateModified: '2026-07-23',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Lenovo Legion Go', 'handheld gaming accessories', 'USB-C Power Delivery', 'power banks', 'docks', 'microSD cards']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'Legion Go accessories checklist', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Lenovo Legion Go accessory guide</span>
+    <h1>Legion Go accessories checklist: buy for its size, ports, and play modes</h1>
+    <p class="muted">This is a published-spec comparison for the original Lenovo Legion Go 8APU1, not a hands-on accessory test. Lenovo’s PSREF is the source for dimensions, weight, 65W charging, two USB4 ports, 49.2Wh battery, microSD reader, 2242 SSD slot, kickstand, and detachable controllers. Confirm your exact Legion model and every accessory revision before buying.</p>
+    <p class="affiliate-note">Disclosure: the shopping cards are broad Amazon searches marked sponsored/nofollow. They are not product endorsements, current prices, or a promise that every result fits. Handheld Settings Lab appends an Associates tag only when a real tag is configured.</p>
+
+    <div class="callout"><strong>Fast answer:</strong> start with an exact-model travel case. Add a screen protector if its protection/finish tradeoff suits you, and a second 65W USB-C PD charging setup only when you need one. Wait on a dock, power bank, or storage upgrade until your real play routine identifies the problem.</div>
+
+    <h2>Legion Go accessory buying order</h2>
+    <table>
+      <thead><tr><th>Priority</th><th>Accessory</th><th>Buy it when</th><th>Specification to verify</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Carrying case</td><td>The handheld will leave home</td><td>Original Legion Go fit, stick/trigger clearance, accessory separation</td></tr>
+        <tr><td>2</td><td>Screen protector</td><td>You want scratch protection and accept a possible finish change</td><td>Exact 8.8-inch cut, edge fit, clear versus matte finish</td></tr>
+        <tr><td>3</td><td>Spare charger and cable</td><td>You need a second desk or travel kit</td><td>65W on one USB-C PD port and a suitably rated cable</td></tr>
+        <tr><td>4</td><td>Power bank</td><td>Outlet-free sessions exceed the internal battery</td><td>65W-class single-port PD output, printed Wh rating, flight rules</td></tr>
+        <tr><td>5</td><td>Dock or hub</td><td>You have a specific TV, monitor, Ethernet, or peripheral need</td><td>Physical fit, DisplayPort/HDMI target, PD pass-through, cable reach</td></tr>
+        <tr><td>6</td><td>microSD or SSD</td><td>Your active game library no longer fits</td><td>Reputable microSD source or exact M.2 2242 NVMe compatibility</td></tr>
+      </tbody>
+    </table>
+
+    <h2>1. Case: account for a wide, heavy handheld with detachable controls</h2>
+    <p>Lenovo lists the original Legion Go at approximately <strong>298.83 × 131 × 40.7 mm with controllers attached</strong> and under <strong>854 g</strong>. Those published dimensions make a generic “handheld PC” case a risky guess. Prefer a listing that names the original Legion Go, shows the shaped interior, and keeps pressure away from sticks, triggers, controller rails, and the rear kickstand.</p>
+    <ul>
+      <li><strong>Close it empty first:</strong> the lid should not push a stick off-center or hold a trigger down.</li>
+      <li><strong>Separate hard accessories:</strong> a 65W charger, dock, or power bank should not move against the display or controllers.</li>
+      <li><strong>Recheck after adding a grip:</strong> a molded case may stop fitting once a shell, stick cap, or cover remains attached.</li>
+      <li><strong>Do not run it inside the case:</strong> take the handheld out before gaming, updating, charging under load, or downloading a large library.</li>
+    </ul>
+
+    <h2>2. Screen protector: choose an exact cut and deliberate finish</h2>
+    <p>The PSREF specifies an <strong>8.8-inch, 2560 × 1600, 144Hz touch display</strong> with Gorilla Glass 5 and a glossy, anti-fingerprint surface. A protector is optional damage mitigation, not a display upgrade. A matte layer can reduce reflections but may change perceived sharpness and contrast; clear glass preserves more of the original look but can remain reflective.</p>
+    <ul>
+      <li>Match the original Legion Go—not a Legion Go S or a roughly similar screen diagonal.</li>
+      <li>Dry-fit the sheet and confirm that a protective shell will not lift its edges.</li>
+      <li>Use an alignment frame if available and install in a low-dust room.</li>
+      <li>Skip stacked films and replace a badly chipped protector rather than leaving a sharp edge exposed.</li>
+    </ul>
+
+    <h2>3. Charger and cable: verify 65W on the actual port</h2>
+    <p>Lenovo lists a <strong>65W USB-C adapter supporting PD 3.0</strong>. That is the useful baseline for a replacement: a USB-C Power Delivery charger that can supply at least 65W from the single port connected to the Legion Go. A “100W total” multi-port brick may provide less when a phone, tablet, or laptop is plugged into another port.</p>
+    <div class="grid cols2">
+      <section class="card">
+        <span class="chip">Straight replacement</span>
+        <h3>65W USB-C PD charger</h3>
+        <p>Use a reputable unit whose output table identifies a 65W-capable USB-C port. Pair it with a cable rated for the negotiated power rather than an unmarked phone cable.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Dock or shared kit</span>
+        <h3>Higher-capacity multi-port charger</h3>
+        <p>A 100W-class charger can leave room for dock overhead or another device, but only if its port allocation still gives the Legion Go enough power in that exact combination.</p>
+      </section>
+    </div>
+    <p>USB-IF describes USB Power Delivery as a negotiated system, so a higher charger rating does not force excess power into the handheld or promise faster charging. Check the <a href="/guides/one-usb-c-charger-steam-deck-rog-ally-legion-go/">one-charger compatibility guide</a>, <a href="/guides/usb-c-cable-wattage-handheld-gaming/">USB-C cable wattage guide</a>, and <a href="/gear/chargers/">charger gear checklist</a>.</p>
+
+    <h2>4. Power bank: separate output power from stored energy</h2>
+    <p>A suitable bank needs enough USB-C PD <strong>output watts</strong> for the Legion Go and enough <strong>watt-hours</strong> for the trip. These answer different questions. Lenovo lists a 49.2Wh internal battery, but that figure alone does not justify a promised number of extra gaming hours because workload, conversion losses, brightness, radios, frame rate, and power settings vary.</p>
+    <ol>
+      <li>Look for 65W-class output from one USB-C PD port, not only combined output across all ports.</li>
+      <li>Read the printed Wh rating on the battery body; do not infer flight eligibility from a marketplace mAh headline.</li>
+      <li>For U.S. flights, keep the bank in carry-on baggage. FAA guidance places ordinary spare lithium-ion batteries at 100Wh or less; 101–160Wh requires airline approval and carries additional limits.</li>
+      <li>Use the <a href="/calculators/battery-estimator/">battery estimator</a> only as a planning model, not a measured Legion Go benchmark.</li>
+    </ol>
+    <p>The <a href="/guides/usb-c-power-bank-wattage-handheld-gaming/">handheld power-bank requirements guide</a> explains Wh math, slow-charging symptoms, and airline checks in more detail.</p>
+
+    <h2>5. Dock or hub: use the built-in kickstand before buying another stand</h2>
+    <p>The Legion Go already has a kickstand and Lenovo lists <strong>two USB4 40Gbps ports</strong> supporting data, Power Delivery 3.0, and DisplayPort 1.4. That can make a simple tabletop setup possible without a dock. Buy a hub or dock only for ports you can name: HDMI/DisplayPort, Ethernet, USB peripherals, storage, or simultaneous charging.</p>
+    <ul>
+      <li><strong>Physical layout:</strong> confirm cradle width, rear vent and kickstand clearance, and whether the dock cable reaches the top or bottom USB-C port without strain.</li>
+      <li><strong>Display target:</strong> match the output and cable to the TV or monitor resolution, refresh rate, HDR, and VRR expectations. A port-version claim does not guarantee every complete chain works at every mode.</li>
+      <li><strong>Power budget:</strong> verify the dock’s PD input and host pass-through. Some power is used by the dock and attached devices.</li>
+      <li><strong>Ethernet:</strong> the PSREF lists no onboard Ethernet, so wired networking requires a dock or adapter.</li>
+    </ul>
+    <p>Use the <a href="/guides/handheld-gaming-usb-c-dock-checklist/">USB-C dock checklist</a>, <a href="/guides/portable-monitor-vrr-handheld-gaming-pc-checklist/">portable-monitor/VRR checklist</a>, and <a href="/gear/docks/">dock gear guide</a> before shopping.</p>
+
+    <h2>6. Storage: microSD is the non-invasive option; internal storage is 2242</h2>
+    <p>Lenovo specifies a microSD reader plus one <strong>M.2 2242 PCIe 4.0 x4 NVMe slot</strong>, with factory offerings listed up to 1TB in this PSREF. Use the <a href="/calculators/storage-planner/">storage planner</a> after installing the games you actually rotate through. Leave room for Windows, game updates, caches, captures, and temporary install space.</p>
+    <div class="grid cols2">
+      <section class="card">
+        <span class="chip">Choose microSD when</span>
+        <p>You want removable overflow without opening the device. Buy from a reputable seller, test the full reported capacity, and keep irreplaceable saves or personal files backed up elsewhere.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Consider an internal SSD when</span>
+        <p>Your active library truly needs more internal space and you are prepared for backup, encryption/recovery, disassembly, and exact 2242-drive compatibility checks. More capacity is not a general FPS upgrade.</p>
+      </section>
+    </div>
+    <p>Read the <a href="/guides/handheld-pc-ssd-form-factor-guide/">2230 vs 2242 vs 2280 SSD guide</a>, <a href="/guides/microsd-card-format-transfer-handheld-pc-checklist/">microSD format/transfer checklist</a>, and <a href="/gear/microsd-cards/">microSD gear guide</a>.</p>
+
+    <h2>Spec-based shopping starting points</h2>
+    <p>These broad searches are organized around the compatibility checks above. No product is labeled “best,” no live price or availability is asserted, and no hands-on test is implied.</p>
+    <div class="grid cols2">
+      {shoppingLinks.map(link => (
+        <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored" data-affiliate-link data-category={link.category}>
+          <span class="chip">Sponsored search</span>
+          <h3>{link.label}</h3>
+          <p class="muted">Compare exact model fit, single-port USB-C PD output, dimensions, warranty, seller, and return policy as applicable.</p>
+        </a>
+      ))}
+    </div>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Sources and comparison method</h2>
+    <p>These public sources were fetched on July 23, 2026. Lenovo’s January 22, 2025 Legion Go 8APU1 PSREF supplied the device dimensions, weight, display, kickstand/modes, battery capacity, charger, USB4 ports, microSD reader, Ethernet status, and M.2 2242 storage details. USB-IF supplied general Power Delivery context, and FAA supplied current U.S. spare-battery flight guidance. The buying order is conservative editorial guidance based on those specifications; no accessory was personally tested, and autocomplete evidence is not represented as search volume.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+
+    <div class="callout"><strong>Finish the setup:</strong> use the <a href="/legion-go-settings/">Legion Go settings hub</a> after updates, charging, and storage are stable. Tune games before buying accessories to chase an unmeasured performance gain.</div>
+  </article>
+</Base>
