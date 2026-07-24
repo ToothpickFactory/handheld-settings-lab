@@ -1,0 +1,202 @@
+---
+import Base from '../../layouts/Base.astro';
+import { games } from '../../data/games';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/steam-deck-battery-life-by-game/';
+const title = 'Steam Deck battery life by game: 13 planning ranges — Handheld Settings Lab';
+const description = 'Compare clearly labeled Steam Deck battery-life planning ranges for 13 games, then use frame caps, brightness, and system draw to tune runtime.';
+
+const tierFor = (battery: string) => {
+  const start = Number.parseFloat(battery);
+  if (start >= 5) return 'Long-session';
+  if (start >= 3) return 'Efficient';
+  if (start >= 2) return 'Moderate';
+  return 'Demanding';
+};
+const sortedGames = [...games].sort((a, b) => Number.parseFloat(b.battery) - Number.parseFloat(a.battery));
+const spotlightGames = sortedGames.slice(0, 4);
+
+const faqs = [
+  {
+    question: 'How long does a Steam Deck battery last by game?',
+    answer: 'It varies sharply with the game and setup. This page gives editorial planning ranges from about 1.5 hours for demanding games to 9 hours for very light games. They are not lab benchmarks. Steam Deck model, frame cap, brightness, wireless activity, game area, patches, battery health, and background work can move the result.'
+  },
+  {
+    question: 'Does Steam Deck OLED last longer than the LCD Steam Deck?',
+    answer: 'Valve lists a 50Wh battery and 3–12 hours of gameplay for the current Steam Deck OLED specification. Do not transfer an OLED estimate directly to an LCD model: battery capacity, display, chip efficiency, and usage conditions differ.'
+  },
+  {
+    question: 'Does lowering FPS improve Steam Deck battery life?',
+    answer: 'A lower stable frame cap can reduce workload when the game and device would otherwise render more frames, but the gain is not fixed. Test a repeatable game area and compare total system draw rather than assuming a particular number of extra minutes.'
+  },
+  {
+    question: 'Is TDP the same as total Steam Deck power draw?',
+    answer: 'No. A processor power target does not include every load. The display, memory, storage, fan, radios, speakers, and conversion losses also use energy. Use measured total system draw when entering watts in the battery estimator.'
+  },
+  {
+    question: 'Which Steam Deck games are good for a long flight?',
+    answer: 'In this planning set, Balatro and Stardew Valley are the longest-session candidates, with Hades II also in the efficient group. Test each game offline before departure because launcher authentication, updates, cloud saves, and suspend behavior can matter as much as battery runtime.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Steam Deck battery life by game: 13 planning ranges',
+    description,
+    url: canonicalUrl,
+    datePublished: '2026-07-24',
+    dateModified: '2026-07-24',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Steam Deck battery life', 'Steam Deck OLED', 'game settings', 'frame caps', 'battery runtime planning']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'Steam Deck battery life by game', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Steam Deck battery-life planning ranges by game',
+    numberOfItems: sortedGames.length,
+    itemListElement: sortedGames.map((game, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: `${game.title}: ${game.battery} planning range`,
+      url: `https://handheldsettings.com/steam-deck-settings/${game.slug}/`
+    }))
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={spotlightGames[0].image} jsonLd={jsonLd}>
+  <article class="wrap article battery-guide">
+    <span class="eyebrow">Steam Deck battery planner · 13 games</span>
+    <h1>Steam Deck battery life by game: practical planning ranges</h1>
+    <p class="lede muted">The same Steam Deck can run a light deckbuilder for much longer than a demanding open-world game. Use this comparison to plan a session, then tune and verify on your own Deck.</p>
+
+    <div class="estimate-warning">
+      <strong>Important: these are not personally measured benchmarks.</strong>
+      <p>The ranges are conservative editorial planning bands attached to our baseline game-setting pages. They describe relative workload and likely session length, not a promise for a particular Steam Deck. Valve’s official 50Wh and 3–12-hour figures below apply to its current OLED specification; LCD models and individual batteries differ.</p>
+    </div>
+
+    <div class="game-strip" aria-label="Games represented in the battery guide">
+      {spotlightGames.map(game => (
+        <a href={`/steam-deck-settings/${game.slug}/`}>
+          <img src={game.image} alt={game.imageAlt} loading="eager" />
+          <span>{game.title}</span>
+        </a>
+      ))}
+    </div>
+    <p class="media-credit">Official Steam store header art for the pictured games, saved locally for editorial identification. Artwork and trademarks belong to their respective owners; no endorsement is implied. Individual source links appear in the comparison.</p>
+
+    <h2>Steam Deck battery-life comparison by game</h2>
+    <p>Read every number as a <strong>planning range</strong>. Start near the low end when brightness is high, wireless activity is heavy, the battery is worn, or the game is in a demanding area. The upper end assumes the baseline frame cap is stable and unnecessary background work is limited.</p>
+
+    <div class="battery-table-wrap">
+      <table class="battery-table">
+        <thead>
+          <tr><th>Game</th><th>Planning range</th><th>Workload group</th><th>Baseline target</th><th>First battery move</th></tr>
+        </thead>
+        <tbody>
+          {sortedGames.map(game => (
+            <tr>
+              <td><a href={`/steam-deck-settings/${game.slug}/`}><strong>{game.title}</strong></a><br/><a class="source-link" href={game.sourceUrl} target="_blank" rel="nofollow noopener">Official Steam source</a></td>
+              <td><strong>{game.battery}</strong></td>
+              <td><span class={`battery-tier tier-${tierFor(game.battery).toLowerCase()}`}>{tierFor(game.battery)}</span></td>
+              <td>{game.deckFps}<br/><span class="muted">{game.tdp} baseline</span></td>
+              <td>{tierFor(game.battery) === 'Long-session' ? 'Lower refresh and brightness only if the trip needs it.' : tierFor(game.battery) === 'Efficient' ? 'Hold a stable cap before reducing power gradually.' : tierFor(game.battery) === 'Moderate' ? 'Cap frames, then lower shadows and volumetrics.' : 'Favor a stable 30 FPS target and lower expensive effects first.'}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <h2>What the four workload groups mean</h2>
+    <div class="grid cols2">
+      <section class="card"><span class="battery-tier tier-long-session">Long-session</span><h3>Simple rendering, long planning window</h3><p>Balatro and Stardew Valley are the best long-flight candidates in this set. High brightness, downloads, Bluetooth devices, and an aging battery still reduce the result.</p></section>
+      <section class="card"><span class="battery-tier tier-efficient">Efficient</span><h3>Strong handheld fit</h3><p>Hades II sits in this group. A stable cap can keep the device from doing unnecessary work without turning every visual option down.</p></section>
+      <section class="card"><span class="battery-tier tier-moderate">Moderate</span><h3>Plan around a few hours</h3><p>Elden Ring, Diablo IV, and No Man’s Sky illustrate the middle. Their range can shift with game area, online activity, frame target, and patch behavior.</p></section>
+      <section class="card"><span class="battery-tier tier-demanding">Demanding</span><h3>Outlet or power-bank territory</h3><p>Large modern games can keep the system busy. Start with stable frame pacing; do not buy a power bank to mask unstable settings or a background download.</p></section>
+    </div>
+
+    <h2>A repeatable way to check your own game</h2>
+    <ol>
+      <li><strong>Charge, update, then disconnect power.</strong> Finish downloads first and note the Steam Deck model, battery percentage, game version, and SteamOS version.</li>
+      <li><strong>Choose one representative area.</strong> A menu, cutscene, empty room, or opening tutorial is not a useful whole-game sample.</li>
+      <li><strong>Set brightness and radios deliberately.</strong> Keep brightness, Wi-Fi, Bluetooth, audio, and external accessories consistent between runs.</li>
+      <li><strong>Lock the target before reducing power.</strong> Apply the linked game baseline, set a stable frame cap, and only then reduce the power limit in small steps.</li>
+      <li><strong>Watch total system draw.</strong> Do not enter TDP alone in a runtime model. Display, memory, storage, fan, radios, and conversion losses also consume power.</li>
+      <li><strong>Record a range, not a perfect minute.</strong> Sample multiple demanding areas and leave a travel buffer rather than planning to arrive at zero percent.</li>
+    </ol>
+
+    <div class="callout"><strong>Model your own run:</strong> put the battery’s watt-hours, observed <em>total system draw</em>, and a safety margin into the <a href="/calculators/battery-estimator/">Steam Deck battery-life calculator</a>. The formula is a planning tool, not a replacement for an on-device test.</div>
+
+    <h2>Battery settings worth changing first</h2>
+    <div class="grid cols2">
+      <section class="card"><h3>1. Frame cap and refresh</h3><p>A stable 30 or 40 FPS target can avoid rendering work that the handheld screen or game does not need. Confirm pacing in demanding play, not only the average FPS counter.</p></section>
+      <section class="card"><h3>2. Display brightness</h3><p>The display uses power independently of the processor target. Lower brightness only to a comfortable, readable level; outdoor use may need more.</p></section>
+      <section class="card"><h3>3. Expensive graphics effects</h3><p>Lower shadows, volumetrics, reflections, crowd density, and view distance before making text and interfaces unreadably soft with aggressive upscaling.</p></section>
+      <section class="card"><h3>4. Background work</h3><p>Pause downloads, close unused launchers, and avoid interpreting update activity as normal game draw. Online play and voice chat can differ from offline use.</p></section>
+    </div>
+
+    <h2>Power-bank planning without runtime promises</h2>
+    <p>A power bank has two separate specifications: <strong>USB-C Power Delivery output</strong> and <strong>stored energy in watt-hours</strong>. Enough output keeps the Deck from discharging quickly under load; watt-hours determine the rough energy budget. Conversion loss and game draw prevent a simple “one full recharge equals X hours” promise.</p>
+    <p>Read the <a href="/guides/usb-c-power-bank-wattage-handheld-gaming/">Steam Deck power-bank wattage and airline guide</a> before buying. Then compare the <a href="/gear/power-banks/">spec-based power-bank shortlist</a> and <a href="/gear/usb-c-cables-adapters/">rated USB-C cable guidance</a>. Shopping links are marked sponsored/nofollow; no product on those pages is presented as a battery benchmark.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Valve’s official Steam Deck technical-specification page was fetched on July 24, 2026. It lists a 50Wh battery, 3–12 hours of gameplay, and a 45W PD 3.0 Type-C power supply for the current OLED specification. The game names, official art, and public product pages come from each publisher’s Steam listing linked in the table. We also checked the public Steam app-detail records for Elden Ring and Balatro as opposite ends of the workload set.</p>
+    <ul>
+      <li><a href="https://www.steamdeck.com/en/tech" target="_blank" rel="nofollow noopener">Valve: Steam Deck technical specifications</a></li>
+      <li><a href="https://store.steampowered.com/api/appdetails?appids=1245620" target="_blank" rel="nofollow noopener">Steam app details API: Elden Ring</a></li>
+      <li><a href="https://store.steampowered.com/api/appdetails?appids=2379780" target="_blank" rel="nofollow noopener">Steam app details API: Balatro</a></li>
+    </ul>
+    <p>The ranges themselves are editorial planning bands from Handheld Settings Lab’s existing game dataset, grouped by their lower bound for easier comparison. They are <strong>not</strong> Valve claims, publisher claims, measured review data, or search-volume claims. Follow the linked per-game page for its baseline and official image source, then replace the range with your own repeatable observation.</p>
+
+    <div class="callout"><strong>Choose the game next:</strong> open the <a href="/steam-deck-settings/">Steam Deck settings hub</a> for the complete baseline, or use the <a href="/guides/handheld-pc-offline-mode-flight-checklist/">offline flight checklist</a> before traveling.</div>
+  </article>
+</Base>
+
+<style>
+  .battery-guide { padding-top: 56px; padding-bottom: 72px; }
+  .estimate-warning { margin: 28px 0; padding: 20px 22px; border: 1px solid rgba(255,184,77,.45); border-left: 5px solid #ffb84d; border-radius: 14px; background: #15130e; }
+  .estimate-warning p { margin: 6px 0 0; color: #d6d0c2; }
+  .game-strip { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 12px; margin-top: 28px; }
+  .game-strip a { position: relative; overflow: hidden; min-height: 150px; border: 1px solid rgba(255,255,255,.12); border-radius: 14px; background: #10131b; }
+  .game-strip img { width: 100%; height: 100%; min-height: 150px; object-fit: cover; display: block; }
+  .game-strip span { position: absolute; left: 10px; bottom: 10px; padding: 5px 9px; border-radius: 8px; color: #fff; background: rgba(8,10,15,.9); font-size: .82rem; font-weight: 850; }
+  .media-credit { margin-top: 8px; color: #9aa6b8; font-size: .82rem; }
+  .battery-table-wrap { overflow-x: auto; margin: 22px 0 38px; border: 1px solid rgba(255,255,255,.12); border-radius: 16px; }
+  .battery-table { width: 100%; min-width: 850px; margin: 0; border-collapse: collapse; }
+  .battery-table th { color: #b8ff4d; background: #111722; text-align: left; }
+  .battery-table th, .battery-table td { padding: 14px 16px; border-bottom: 1px solid rgba(255,255,255,.09); vertical-align: top; }
+  .battery-table tbody tr:last-child td { border-bottom: 0; }
+  .battery-table tbody tr:hover { background: #10151d; }
+  .source-link { color: #9aa6b8; font-size: .78rem; text-decoration: underline; text-underline-offset: 2px; }
+  .battery-tier { display: inline-flex; padding: 4px 9px; border-radius: 999px; border: 1px solid currentColor; font-size: .75rem; font-weight: 900; letter-spacing: .03em; }
+  .tier-long-session { color: #b8ff4d; background: rgba(184,255,77,.07); }
+  .tier-efficient { color: #4de3ff; background: rgba(77,227,255,.07); }
+  .tier-moderate { color: #ffb84d; background: rgba(255,184,77,.07); }
+  .tier-demanding { color: #ff8297; background: rgba(255,84,112,.07); }
+  @media (max-width: 760px) { .game-strip { grid-template-columns: repeat(2,minmax(0,1fr)); } .game-strip a, .game-strip img { min-height: 120px; } }
+</style>
