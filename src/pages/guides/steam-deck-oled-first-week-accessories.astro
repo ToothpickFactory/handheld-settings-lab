@@ -1,79 +1,208 @@
 ---
 import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/steam-deck-oled-first-week-accessories/';
+const title = 'Steam Deck OLED accessories checklist: what to buy first — Handheld Settings Lab';
+const description = 'A spec-based Steam Deck OLED accessories checklist for cases, 45W USB-C PD chargers, power banks, docks, microSD cards, and screen protectors.';
+
+const sources = [
+  { label: 'Valve: Steam Deck OLED technical specifications', url: 'https://www.steamdeck.com/en/tech' },
+  { label: 'SD Association: Application Performance Class', url: 'https://www.sdcard.org/developers/sd-standard-overview/application-performance-class/' },
+  { label: 'USB-IF: USB Power Delivery overview', url: 'https://www.usb.org/usb-charger-pd' },
+  { label: 'FAA PackSafe: portable electronic devices and spare batteries', url: 'https://www.faa.gov/hazmat/packsafe/lithium-batteries' }
+];
+
+const shoppingLinks = [
+  { label: 'Steam Deck OLED cases with charger storage', href: 'https://www.amazon.com/s?k=steam+deck+oled+carrying+case+charger+storage', category: 'cases' },
+  { label: 'Steam Deck OLED screen protectors', href: 'https://www.amazon.com/s?k=steam+deck+oled+screen+protector', category: 'screen-protectors' },
+  { label: '45W USB-C PD chargers for Steam Deck', href: 'https://www.amazon.com/s?k=45w+usb+c+pd+charger+steam+deck', category: 'chargers' },
+  { label: '100W USB-C cables with e-marker', href: 'https://www.amazon.com/s?k=100w+usb+c+cable+e-marker', category: 'usb-c-cables-adapters' },
+  { label: '45W-or-higher USB-C PD power banks', href: 'https://www.amazon.com/s?k=45w+usb+c+pd+power+bank+steam+deck', category: 'power-banks' },
+  { label: 'Steam Deck docks with HDMI and Ethernet', href: 'https://www.amazon.com/s?k=steam+deck+dock+hdmi+ethernet+45w+pd', category: 'docks' }
+];
+
+const faqs = [
+  {
+    question: 'What accessories should I buy first for a Steam Deck OLED?',
+    answer: 'Start with an exact-fit case if the Deck will travel. Add a reputable microSD card only when the built-in storage is tight, and a second 45W USB-C Power Delivery charging setup only when you need one. Delay a dock, power bank, or controller until a real TV, desk, or trip requires it.'
+  },
+  {
+    question: 'What charger wattage does Steam Deck OLED need?',
+    answer: 'Valve lists a 45W USB-C PD 3.0 power supply for Steam Deck OLED. A replacement should support USB-C Power Delivery and make at least 45W available from the single port connected to the Deck. Check multi-port allocation because the charger’s total headline wattage may be divided.'
+  },
+  {
+    question: 'Can I use a 65W or 100W charger with Steam Deck OLED?',
+    answer: 'A reputable higher-capacity USB-C Power Delivery charger can be useful for a dock or shared travel kit. USB PD negotiates power, so the larger rating does not force that full amount into the Deck or promise faster charging. Verify the output on the chosen port and use a properly rated cable.'
+  },
+  {
+    question: 'What microSD card works with Steam Deck OLED?',
+    answer: 'Valve lists a UHS-I slot supporting SD, SDXC, and SDHC. Match capacity to your library, buy from a reputable seller, and test the card before trusting it. A2 is an application-performance class, not a guarantee of game load times or authenticity.'
+  },
+  {
+    question: 'Does Steam Deck OLED need a special dock?',
+    answer: 'It needs a USB-C dock or hub that matches the actual setup: enough USB-C PD pass-through, the correct HDMI or DisplayPort output, cable reach, stable physical support, and any required Ethernet or USB ports. Do not assume every cradle fits with a grip shell attached.'
+  },
+  {
+    question: 'Can a Steam Deck power bank go on a plane?',
+    answer: 'For U.S. travel, FAA guidance says power banks belong in carry-on baggage. Ordinary spare lithium-ion batteries are limited to 100Wh; larger 101–160Wh batteries require airline approval and have additional limits. Check the printed Wh rating plus current airline and destination rules.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Steam Deck OLED accessories checklist: what to buy first',
+    description,
+    url: canonicalUrl,
+    datePublished: '2026-07-22',
+    dateModified: '2026-07-24',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Steam Deck OLED', 'handheld gaming accessories', 'USB-C Power Delivery', 'microSD cards', 'power banks', 'docks']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'Steam Deck OLED accessories checklist', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
 ---
-<Base title="Steam Deck OLED first-week accessories checklist — Handheld Settings Lab" description="A source-informed Steam Deck OLED first-week accessory checklist for storage, chargers, docks, cases, screen protection, and what to skip until you know your library.">
+<Base title={title} description={description} jsonLd={jsonLd}>
   <article class="wrap article">
-    <span class="eyebrow">Accessory guide</span>
-    <h1>Steam Deck OLED first-week accessories checklist</h1>
-    <p class="muted">Baseline/spec-informed guidance for new Steam Deck OLED owners. I did not run fresh hands-on accessory tests for this page, so treat the picks as a buying order and spec checklist rather than measured benchmark recommendations.</p>
-    <p class="affiliate-note">Disclosure: shopping links are generic Amazon/search links marked sponsored/nofollow. Handheld Settings Lab does not claim hands-on testing or endorsement for any specific accessory on this page.</p>
+    <span class="eyebrow">Steam Deck OLED accessory guide</span>
+    <h1>Steam Deck OLED accessories checklist: buy for the problem you actually have</h1>
+    <p class="muted">This is a published-spec comparison, not a hands-on accessory test. Valve’s official specifications are the source for the 45W USB-C PD supply, 50Wh battery, UHS-I microSD slot, 7.4-inch display, dimensions, weight, and USB-C display support. Confirm the exact accessory revision and return policy before buying.</p>
+    <p class="affiliate-note">Disclosure: the shopping cards are broad Amazon searches marked sponsored/nofollow. They are not product endorsements, current prices, or a promise that every result fits. Handheld Settings Lab appends an Associates tag only when a real tag is configured.</p>
 
-    <div class="callout">
-      <strong>Fast answer:</strong> buy storage and charging basics first, then wait on docks, controller mounts, skins, keyboards, and travel cases until you know where you actually play. Valve lists Steam Deck with a UHS-I microSD slot and a 45W USB-C PD3.0 power supply, so those two specs should anchor the first shopping pass.
-    </div>
+    <div class="callout"><strong>Fast answer:</strong> buy an exact-fit travel case first if the Deck leaves home. Add microSD storage only after the internal drive gets tight, and a second 45W USB-C PD charger only if another room or travel bag needs one. Wait on a dock and power bank until a specific screen or trip justifies them.</div>
 
-    <h2>Buy in this order</h2>
+    <h2>Steam Deck OLED accessory buying order</h2>
+    <table>
+      <thead><tr><th>Priority</th><th>Accessory</th><th>Buy it when</th><th>Specification to verify</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Carrying case</td><td>The Deck will leave home or share a bag</td><td>Steam Deck fit, stick/trigger clearance, hard-accessory separation</td></tr>
+        <tr><td>2</td><td>microSD card</td><td>Your active library is pressing against internal capacity</td><td>UHS-I-compatible SDXC capacity, reputable seller, tested capacity</td></tr>
+        <tr><td>3</td><td>Spare charger and cable</td><td>You need a second desk or travel setup</td><td>45W on one USB-C PD port and a suitably rated cable</td></tr>
+        <tr><td>4</td><td>Screen protector</td><td>Your use creates a scratch or impact risk</td><td>Exact 7.4-inch OLED cut and deliberate clear/matte finish</td></tr>
+        <tr><td>5</td><td>Power bank</td><td>Outlet-free sessions exceed the internal battery</td><td>45W-class single-port PD output, printed Wh rating, flight rules</td></tr>
+        <tr><td>6</td><td>Dock or hub</td><td>You have a specific TV, monitor, Ethernet, or peripheral need</td><td>Display output, PD pass-through, cable reach, cradle and vent clearance</td></tr>
+      </tbody>
+    </table>
+
+    <h2>1. Case: protect controls and separate hard accessories</h2>
+    <p>Valve lists Steam Deck OLED at approximately <strong>298 × 117 × 49 mm</strong> and <strong>640 g</strong>. Those numbers can reject an obviously undersized generic bag, but a good case also needs space above the sticks and triggers. Prefer a listing that explicitly names Steam Deck OLED or demonstrates Deck fit with the interior shown.</p>
+    <ul>
+      <li><strong>Close it empty first:</strong> the lid should not push either stick off-center or hold a trigger down.</li>
+      <li><strong>Separate hard gear:</strong> keep a charger, dock, and power bank from moving against the display or controls.</li>
+      <li><strong>Recheck with a grip:</strong> molded interiors may stop fitting after a shell, stick cap, or grip remains attached.</li>
+      <li><strong>Remove the Deck to use it:</strong> never game, download, update, or charge under load inside a closed case.</li>
+    </ul>
+    <p>Use the <a href="/guides/handheld-gaming-carrying-case-size-checklist/">carrying-case fit checklist</a> and <a href="/gear/cases/">case gear guide</a> to compare dimensions and packing layouts.</p>
+
+    <h2>2. microSD: buy capacity only after planning the library</h2>
+    <p>Valve specifies a <strong>UHS-I microSD slot supporting SD, SDXC, and SDHC</strong>. The Deck can use microSD for an installed game library without opening the device, but a speed-class logo does not prove a card is genuine or promise a particular game’s load time. Buy from a reputable seller, test the full reported capacity, and keep irreplaceable saves or personal files backed up elsewhere.</p>
+    <ol>
+      <li>Use the <a href="/calculators/storage-planner/">storage planner</a> with the games you actually rotate through.</li>
+      <li>Leave room for SteamOS, shader caches, updates, captures, and temporary install space rather than filling every advertised gigabyte.</li>
+      <li>Treat A1/A2 as SD Association application-performance classes. They do not override the Deck’s UHS-I interface or establish measured game performance.</li>
+      <li>If a new card is missing, stop before repeated formatting and follow the <a href="/guides/steam-deck-microsd-card-not-showing-up/">Steam Deck microSD troubleshooting guide</a>.</li>
+    </ol>
+
+    <h2>3. Charger and cable: verify 45W on the port in use</h2>
+    <p>Valve lists a <strong>45W USB-C PD 3.0 Type-C power supply</strong>. That is the useful replacement baseline: USB-C Power Delivery support and at least 45W from the single port connected to the Deck. A multi-port brick advertised as “100W total” may allocate less when a phone or laptop is connected at the same time.</p>
     <div class="grid cols2">
       <section class="card">
-        <span class="chip">Week-one essentials</span>
-        <ul>
-          <li><strong>microSD card:</strong> useful overflow storage for indies, emulation files you legally own, screenshots, and games you rotate less often.</li>
-          <li><strong>USB-C PD charger or backup cable:</strong> match or exceed the Deck's 45W charger expectation from a reputable brand.</li>
-          <li><strong>Screen protection:</strong> consider a protector if the Deck travels in bags, backpacks, or shared spaces.</li>
-          <li><strong>Small cleaning kit:</strong> a microfiber cloth is boring, cheap, and more useful than most novelty accessories.</li>
-        </ul>
+        <span class="chip">Straight replacement</span>
+        <h3>45W USB-C PD charger</h3>
+        <p>Choose a reputable unit whose output table identifies a 45W-capable USB-C port. Pair it with a cable rated for the intended power rather than an unmarked phone cable.</p>
       </section>
       <section class="card">
-        <span class="chip">Wait until you know your habits</span>
-        <ul>
-          <li><strong>Dock:</strong> wait unless you already know you will play on a TV/monitor or need Ethernet.</li>
-          <li><strong>Keyboard and mouse:</strong> useful for desktop mode, launchers, and mods, but not mandatory for week one.</li>
-          <li><strong>Large power bank:</strong> helpful for flights and long trips; unnecessary if you mostly play near outlets.</li>
-          <li><strong>Grips, skins, and stands:</strong> comfort is personal, so avoid buying three versions before you learn the problem.</li>
-        </ul>
+        <span class="chip">Dock or shared travel kit</span>
+        <h3>65W-or-higher multi-port charger</h3>
+        <p>Extra capacity can cover dock overhead or another device, but only if the allocation table still leaves enough output for the Deck in that exact port combination.</p>
       </section>
     </div>
+    <p>USB-IF describes USB Power Delivery as negotiated power. A larger number on the charger does not force excess power into the Deck or guarantee faster charging. Check the <a href="/guides/usb-c-cable-wattage-handheld-gaming/">USB-C cable wattage guide</a> and <a href="/gear/chargers/">charger checklist</a>.</p>
 
-    <h2>Storage: choose a card for convenience, not magic frame-rate gains</h2>
-    <p>Valve's tech specs list the Steam Deck microSD slot as UHS-I with SD, SDXC, and SDHC support. For buying, that means a reputable card from a known seller matters more than chasing suspiciously cheap high-capacity listings. Look for clear capacity, return policy, and application-performance labeling such as A2 where available.</p>
-    <p>Keep your biggest, most patch-heavy games on internal storage when possible, then use microSD for smaller titles, travel backups, and games where load times bother you less. If you need to plan exact capacity, use the <a href="/calculators/storage-planner/">storage planner calculator</a> and leave 15%–20% free space.</p>
-
-    <h2>Power: shop around 45W USB-C PD or better</h2>
-    <p>Valve lists the included Steam Deck power supply as USB-C PD3.0, 45W. For replacement chargers and multi-port travel bricks, the practical checklist is simple: USB-C Power Delivery support, enough wattage on the port you will actually use, a trustworthy cable, and room for other devices if you charge a phone or earbuds at the same time.</p>
+    <h2>4. Screen protector: match the OLED display and choose a finish</h2>
+    <p>Valve lists a <strong>7.4-inch HDR OLED touch display</strong>. A protector is optional damage mitigation, not a display upgrade. Clear glass may preserve more of the original appearance but remain reflective; a matte or anti-glare layer may reduce reflections while changing perceived sharpness, contrast, and surface feel.</p>
     <ul>
-      <li><strong>Single-device charger:</strong> 45W USB-C PD is the spec-informed floor.</li>
-      <li><strong>Travel charger:</strong> 65W or higher can make sense if one brick also charges a phone, tablet, or laptop.</li>
-      <li><strong>Power bank:</strong> prioritize USB-C PD output and airline-friendly capacity over giant unknown-brand packs.</li>
+      <li>Match the 7.4-inch Steam Deck OLED cut rather than buying from the words “Steam Deck” alone.</li>
+      <li>Dry-fit it and confirm that any grip shell will not lift the edges.</li>
+      <li>Use an alignment frame if available and install in a low-dust room.</li>
+      <li>Do not stack films. Replace a deeply chipped protector rather than leaving a sharp edge exposed.</li>
     </ul>
 
-    <h2>Docked play: buy for your display, not for a spec sheet</h2>
-    <p>If the Deck will live on a TV or monitor, a dock can be worth buying early. If you mainly play handheld, wait. A practical dock checklist is: USB-C passthrough charging, HDMI or DisplayPort matching your screen, enough USB-A ports for controllers/dongles, and Ethernet if your Wi-Fi is unreliable.</p>
-    <p>For a deeper setup path, use the <a href="/guides/steam-deck-docked-tv-monitor-setup/">Steam Deck docked TV and monitor guide</a>.</p>
+    <h2>5. Power bank: output watts and watt-hours are different checks</h2>
+    <p>A power bank needs enough <strong>USB-C PD output power</strong> for the Deck and enough <strong>stored energy in watt-hours</strong> for the trip. Valve lists a 50Wh internal battery, but that does not justify promising a fixed number of extra gaming hours: workload, frame cap, brightness, radios, charging losses, and background activity all vary.</p>
+    <ol>
+      <li>Look for at least 45W from one USB-C PD port, not only combined output across all ports.</li>
+      <li>Read the printed Wh rating on the battery body; a marketplace mAh headline alone is not an airline check.</li>
+      <li>For U.S. flights, keep power banks in carry-on baggage. FAA guidance allows ordinary spare lithium-ion batteries up to 100Wh; 101–160Wh needs airline approval and carries additional limits.</li>
+      <li>Use the <a href="/calculators/battery-estimator/">battery estimator</a> as a planning model, not a measured Steam Deck OLED runtime test.</li>
+    </ol>
+    <p>Read the <a href="/guides/usb-c-power-bank-wattage-handheld-gaming/">Steam Deck power-bank requirements and airline guide</a> before packing.</p>
 
-    <h2>Accessory shopping starting points</h2>
-    <p>These are search links, not product endorsements or hands-on picks:</p>
-    <p>
-      <a class="btn ghost" href="https://www.amazon.com/s?k=steam+deck+oled+microSD+A2" target="_blank" rel="nofollow sponsored">Search Steam Deck microSD cards</a>
-      <a class="btn ghost" href="https://www.amazon.com/s?k=45w+usb+c+pd+charger+steam+deck" target="_blank" rel="nofollow sponsored">Search 45W USB-C PD chargers</a>
-      <a class="btn ghost" href="https://www.amazon.com/s?k=steam+deck+dock+ethernet+hdmi" target="_blank" rel="nofollow sponsored">Search Steam Deck docks</a>
-      <a class="btn ghost" href="https://www.amazon.com/s?k=steam+deck+oled+screen+protector" target="_blank" rel="nofollow sponsored">Search OLED screen protectors</a>
-    </p>
-
-    <h2>Skip these until later</h2>
+    <h2>6. Dock or hub: start with the display and ports you own</h2>
+    <p>Valve lists DisplayPort over USB-C on Steam Deck OLED. A dock adds physical support, charging pass-through, and ports, but it cannot guarantee that every TV, HDMI cable, display mode, charger, and peripheral combination will work. Buy for a named setup rather than the longest feature list.</p>
     <ul>
-      <li><strong>Multiple docks:</strong> buy one for a real room or display, not every possible setup.</li>
-      <li><strong>Ultra-cheap high-capacity cards:</strong> fake-capacity storage is a common way to lose time and data.</li>
-      <li><strong>Heavy battery packs for couch play:</strong> if you play near outlets, a good charger is simpler.</li>
-      <li><strong>Accessory bundles with unknown brands:</strong> bundles can be fine, but one bad cable or card can create harder-to-debug charging and storage problems.</li>
+      <li><strong>Display path:</strong> choose HDMI or DisplayPort for the actual screen, resolution, refresh target, HDR expectation, and cable path.</li>
+      <li><strong>Power budget:</strong> verify dock PD input and host pass-through. The dock and attached devices consume part of the incoming power.</li>
+      <li><strong>Physical fit:</strong> check cradle width, vent clearance, grip-shell fit, and whether the fixed host cable reaches without strain.</li>
+      <li><strong>Ports:</strong> pay for Ethernet, USB-A, card readers, or extra display outputs only when the desk or TV setup needs them.</li>
+    </ul>
+    <p>Use the <a href="/guides/steam-deck-docked-tv-monitor-setup/">Steam Deck docked setup guide</a>, <a href="/guides/steam-deck-dock-not-connecting-to-tv/">TV no-signal troubleshooting guide</a>, and <a href="/gear/docks/">dock gear checklist</a>.</p>
+
+    <h2>Spec-based shopping starting points</h2>
+    <p>These broad searches are organized around the compatibility checks above. No product is labeled “best,” no live price or availability is asserted, and no hands-on test is implied.</p>
+    <div class="grid cols2">
+      {shoppingLinks.map(link => (
+        <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored" data-affiliate-link data-category={link.category}>
+          <span class="chip">Sponsored search</span>
+          <h3>{link.label}</h3>
+          <p class="muted">Compare exact-model fit, single-port USB-C PD output, dimensions, warranty, seller, and return policy as applicable.</p>
+        </a>
+      ))}
+    </div>
+
+    <h2>Accessories to skip until they solve a real problem</h2>
+    <ul>
+      <li><strong>Cooling attachments with performance promises:</strong> this guide has no measured evidence that an external fan improves Steam Deck OLED frame rate.</li>
+      <li><strong>Rigid right-angle adapters:</strong> an adapter may clean up a cable path but can add leverage to the USB-C port.</li>
+      <li><strong>Large bundles:</strong> one weak charger, cable, or storage card can make troubleshooting harder than deliberate purchases.</li>
+      <li><strong>An SSD for frame rate:</strong> more capacity is not a general FPS upgrade, and internal storage replacement adds backup, recovery, and disassembly work.</li>
     </ul>
 
-    <h2>Source checks</h2>
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Sources and comparison method</h2>
+    <p>These public sources were fetched on July 24, 2026. Valve supplied the Steam Deck OLED dimensions, weight, display, battery, charger, USB-C display, and microSD details. The SD Association supplied A1/A2 terminology, USB-IF supplied general Power Delivery context, and FAA supplied current U.S. spare-battery flight guidance. The buying order is conservative editorial guidance based on those specifications; no accessory was personally tested, no compatibility is guaranteed from a search result, and autocomplete evidence is not represented as search volume.</p>
     <ul>
-      <li><a href="https://www.steamdeck.com/en/tech" target="_blank" rel="nofollow">Valve Steam Deck tech specs</a> — checked for microSD support, UHS-I wording, and the 45W USB-C PD3.0 power supply reference.</li>
-      <li><a href="https://www.sdcard.org/developers/sd-standard-overview/application-performance-class/" target="_blank" rel="nofollow">SD Association Application Performance Class overview</a> — context for app-style microSD card labels.</li>
-      <li><a href="https://www.usb.org/usb-charger-pd" target="_blank" rel="nofollow">USB-IF USB Charger / USB Power Delivery overview</a> — context for USB-C Power Delivery charger language.</li>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
     </ul>
 
-    <div class="callout">Next step: if you only buy one thing today, choose storage or charging based on your first pain point. Add docks and comfort accessories after a week of real play.</div>
+    <div class="callout"><strong>Finish the setup:</strong> visit the <a href="/steam-deck-settings/">Steam Deck game-settings hub</a> after storage and charging are stable. Tune one game at a time instead of buying accessories to chase an unmeasured performance gain.</div>
   </article>
 </Base>
