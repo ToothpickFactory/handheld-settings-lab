@@ -1,0 +1,199 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/steam-deck-vs-rog-ally-battery-life-comparison/';
+const title = 'Steam Deck vs ROG Ally battery life: a fair comparison method — Handheld Settings Lab';
+const description = 'Compare Steam Deck OLED, ROG Ally, and ROG Ally X battery life fairly using watt-hours, measured total system draw, matching frame caps, and a repeatable test plan.';
+
+const sourceLinks = [
+  { label: 'Valve: Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' },
+  { label: 'ASUS: ROG Ally (2023) technical specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-2023/spec/' },
+  { label: 'ASUS: ROG Ally X (2024) technical specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/' },
+  { label: 'Microsoft: caring for your battery in Windows', url: 'https://support.microsoft.com/en-us/windows/caring-for-your-battery-in-windows-2db3e37f-5e7d-488e-9086-ed15320519e4' }
+];
+
+const shoppingLinks = [
+  { label: 'USB-C power meters with a readable display', href: 'https://www.amazon.com/s?k=usb+c+power+meter+pd+readable+display', category: 'usb-c-cables-adapters' },
+  { label: '65W USB-C PD power banks under 100Wh', href: 'https://www.amazon.com/s?k=65w+usb+c+pd+power+bank+under+100wh', category: 'power-banks' },
+  { label: '100W USB-C PD cables with e-marker', href: 'https://www.amazon.com/s?k=100w+usb+c+pd+cable+e-marker', category: 'usb-c-cables-adapters' }
+];
+
+const faqs = [
+  {
+    question: 'Does Steam Deck or ROG Ally have better battery life?',
+    answer: 'There is no honest device-only answer without naming the exact model, game, frame cap, power mode, brightness, and test method. Steam Deck OLED has a listed 50Wh battery, the 2023 ROG Ally has 40Wh, and ROG Ally X has 80Wh. Capacity is only one input; total system draw determines how quickly that stored energy is used.'
+  },
+  {
+    question: 'Why is TDP not enough for a battery-life comparison?',
+    answer: 'TDP or an APU power target does not include the display, memory, storage, fans, radios, controller hardware, and power-conversion losses. Use measured total system draw when available, or clearly label calculator output as a planning estimate.'
+  },
+  {
+    question: 'How do I compare Steam Deck and ROG Ally at the same performance?',
+    answer: 'Use the same game version, scene or route, resolution strategy, frame-rate cap, graphics goal, brightness method, network state, and peripheral load. Confirm both devices actually hold the target frame rate before comparing runtime.'
+  },
+  {
+    question: 'Can I calculate battery life from watt-hours?',
+    answer: 'For a rough planning model, divide usable battery watt-hours by average total system draw in watts. Apply a conservative buffer for battery health and workload variation. Do not present the result as a measured benchmark unless you performed and documented the test.'
+  },
+  {
+    question: 'Does an 80Wh battery guarantee twice the runtime of a 40Wh battery?',
+    answer: 'Only if both systems average the same total power draw and have comparable usable capacity and conversion losses. ROG Ally X has twice the listed capacity of the 2023 Ally, but settings, display load, platform behavior, battery condition, and game demand can prevent runtime from scaling exactly two-to-one.'
+  },
+  {
+    question: 'Should I compare battery life at 30 FPS or 60 FPS?',
+    answer: 'Use the frame-rate target you can sustain on both devices and would actually play. A matched stable 30 or 40 FPS comparison is usually more useful than letting one device run uncapped. If 60 FPS is not stable on both, it is not a like-for-like 60 FPS battery test.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Steam Deck vs ROG Ally battery life: a fair comparison method',
+    description,
+    url: canonicalUrl,
+    datePublished: '2026-07-25',
+    dateModified: '2026-07-25',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Steam Deck OLED', 'ROG Ally', 'ROG Ally X', 'battery life', 'handheld gaming PCs']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'Steam Deck vs ROG Ally battery life', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Battery comparison methodology</span>
+    <h1>Steam Deck vs ROG Ally battery life: how to compare them fairly</h1>
+    <p class="muted">A useful comparison starts with the exact model and ends with the same playable target. This guide uses public manufacturer specifications and a transparent estimate method; it does not claim that we personally benchmarked these devices.</p>
+    <p class="affiliate-note">Disclosure: optional shopping links are broad Amazon searches marked sponsored/nofollow. They are not product endorsements, current-price claims, or evidence of hands-on testing. The site adds an Associates tag only when a real tag is configured.</p>
+
+    <div class="callout"><strong>Short answer:</strong> ROG Ally X has the largest listed battery at 80Wh, Steam Deck OLED lists 50Wh, and the 2023 ROG Ally lists 40Wh. That does not rank real game runtime by itself. Divide usable watt-hours by average <em>total system draw</em>, then compare at a matched frame-rate and image-quality target.</div>
+
+    <h2>Start with the exact model</h2>
+    <p>“Steam Deck vs ROG Ally” can hide major hardware differences. Valve’s current technical page lists a 50Wh battery for Steam Deck OLED. ASUS lists 40Wh for the 2023 ROG Ally and 80Wh for the 2024 ROG Ally X. A comparison that says only “Ally” may be mixing two battery capacities that differ by a factor of two.</p>
+    <table>
+      <thead><tr><th>Handheld</th><th>Official listed battery</th><th>Official listed adapter</th><th>What the specification proves</th></tr></thead>
+      <tbody>
+        <tr><td>Steam Deck OLED</td><td>50Wh</td><td>45W USB-C PD 3.0</td><td>Stored-energy capacity and supplied-power class, not your game runtime</td></tr>
+        <tr><td>ROG Ally (2023)</td><td>40Wh</td><td>65W USB-C</td><td>Stored-energy capacity and adapter output, not battery efficiency</td></tr>
+        <tr><td>ROG Ally X (2024)</td><td>80Wh</td><td>65W USB-C</td><td>A larger energy reservoir than either model above, not a universal hours claim</td></tr>
+      </tbody>
+    </table>
+    <p>The adapter rating is not the battery’s energy capacity and is not the device’s constant power draw. Watts describe a rate of power; watt-hours describe stored energy. Do not compare “45W Steam Deck” with “65W Ally” as though those charger labels were battery-consumption figures.</p>
+
+    <h2>The estimate that keeps assumptions visible</h2>
+    <div class="callout"><strong>Estimated runtime = battery Wh × usable-capacity factor ÷ average total system draw in watts</strong></div>
+    <p>Our <a href="/calculators/battery-estimator/">handheld battery-life calculator</a> applies this model with an adjustable safety buffer. It is a planning tool, not a benchmark. Total system draw should include the complete handheld, not only the processor’s configured power target.</p>
+    <table>
+      <thead><tr><th>Example input</th><th>40Wh device</th><th>50Wh device</th><th>80Wh device</th></tr></thead>
+      <tbody>
+        <tr><td>10W average draw, 10% buffer</td><td>3.6 hours</td><td>4.5 hours</td><td>7.2 hours</td></tr>
+        <tr><td>15W average draw, 10% buffer</td><td>2.4 hours</td><td>3.0 hours</td><td>4.8 hours</td></tr>
+        <tr><td>20W average draw, 10% buffer</td><td>1.8 hours</td><td>2.3 hours</td><td>3.6 hours</td></tr>
+      </tbody>
+    </table>
+    <p>These rows are arithmetic examples calculated from the labeled capacities, not observed game results. They deliberately hold draw constant to show what capacity changes in isolation. Real devices can draw different power while delivering the same frame rate, and reported battery percentage may not map perfectly to usable watt-hours.</p>
+
+    <h2>Why processor TDP is not total system draw</h2>
+    <p>An APU limit is useful for tuning, but it omits other consumers. The screen, memory, SSD, cooling fan, Wi-Fi and Bluetooth radios, speakers, controller lighting, USB accessories, and power-conversion losses all draw energy. Two handhelds set to the same nominal APU wattage can therefore have different whole-system consumption.</p>
+    <ul>
+      <li><strong>Use wall power only for setup checks.</strong> A charger-side meter includes charging losses and battery behavior; it does not automatically equal discharge power during unplugged play.</li>
+      <li><strong>Prefer an on-device battery discharge reading or documented test method.</strong> Record the tool, sampling interval, and whether the value is instantaneous or averaged.</li>
+      <li><strong>Do not subtract percentages casually.</strong> A ten-point battery drop over a short run magnifies rounding, gauge calibration, background activity, and temperature effects.</li>
+      <li><strong>Repeat the route.</strong> A quiet menu, crowded hub, cutscene, and combat encounter can have very different demand.</li>
+    </ul>
+
+    <h2>A repeatable Steam Deck vs ROG Ally test checklist</h2>
+    <ol>
+      <li><strong>Identify the hardware precisely.</strong> Record Steam Deck LCD/OLED or ROG Ally/Ally X, processor variant, battery-health reading, OS version, BIOS/firmware, and graphics-driver version.</li>
+      <li><strong>Update once, then freeze the test window.</strong> Use the same game build and note the date. Do not let one device download patches or shader data during a run.</li>
+      <li><strong>Choose a shared playable target.</strong> Match frame cap and frame-pacing goal first. Use the same internal resolution where practical, or document the upscaling method and output resolution.</li>
+      <li><strong>Match display conditions.</strong> Set brightness with a measured luminance target when possible. A percentage slider is not comparable across different panels.</li>
+      <li><strong>Match radios and peripherals.</strong> Keep Wi-Fi, Bluetooth, audio route, RGB/lighting, vibration, headphones, and attached USB devices consistent.</li>
+      <li><strong>Stabilize temperature.</strong> Begin from a similar room temperature and device state. Avoid comparing a cold first run with a heat-soaked second run.</li>
+      <li><strong>Use the same scene or route.</strong> A built-in benchmark is useful only if it represents play; otherwise use a repeatable save and timed route.</li>
+      <li><strong>Confirm target performance.</strong> A device missing the frame cap is not providing the same experience even if it runs longer.</li>
+      <li><strong>Run long enough and repeat.</strong> Short percentage-drop tests are noisy. Repeat runs and report the spread rather than selecting the best result.</li>
+      <li><strong>Label the result correctly.</strong> Separate directly measured runtime, calculated estimates, manufacturer claims, and community observations.</li>
+    </ol>
+
+    <h2>Three fair ways to frame the comparison</h2>
+    <div class="grid cols3">
+      <section class="card">
+        <span class="chip">Same experience</span>
+        <h3>Match FPS and image quality</h3>
+        <p>Best for a buyer asking which handheld lasts longer while delivering a comparable game experience. Verify both devices sustain the chosen target.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Same power target</span>
+        <h3>Match the APU setting</h3>
+        <p>Useful for platform behavior, but not a complete efficiency test because non-APU power and delivered performance can differ.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Best tuned result</span>
+        <h3>Optimize each device</h3>
+        <p>Useful for owners, provided every device meets a declared visual and performance floor. Publish every setting so another reader can reproduce it.</p>
+      </section>
+    </div>
+
+    <h2>Settings that often change the outcome</h2>
+    <p>Frame rate is one of the strongest levers because it changes how often the CPU and GPU must produce a frame. Start with a stable cap, then lower expensive settings such as shadows, volumetrics, reflections, crowd density, and ray tracing. Lower display brightness and disable unnecessary radios or lighting only after the game is stable.</p>
+    <ul>
+      <li>Use the <a href="/steam-deck-settings/">Steam Deck settings hub</a> and <a href="/rog-ally-settings/">ROG Ally settings hub</a> for game-specific starting points.</li>
+      <li>Read <a href="/guides/steam-deck-40fps-explained/">why a 40 FPS target can balance responsiveness and load</a> on compatible displays.</li>
+      <li>Use the <a href="/guides/steam-deck-battery-life-by-game/">Steam Deck battery-by-game planning ranges</a> as labeled baselines, not laboratory benchmarks.</li>
+      <li>Review <a href="/guides/rog-ally-armoury-crate-power-profiles/">ROG Ally Armoury Crate power profiles</a> before changing individual graphics settings.</li>
+    </ul>
+
+    <h2>Battery health and long-term comparisons</h2>
+    <p>A used device with reduced full-charge capacity should not be compared as though it still stores the manufacturer’s design capacity. Record both design capacity and current full-charge capacity when the operating system exposes them. Microsoft also recommends avoiding high temperatures and, when supported by the device, using smart-charging features rather than keeping a lithium-ion battery at full charge continuously.</p>
+    <p>Battery-health readings are estimates, not perfect laboratory measurements. If a result looks implausible, repeat the run after normal charge/discharge use and disclose the reported health instead of silently scaling the result to a new-device number.</p>
+
+    <h2>Optional measurement and travel gear</h2>
+    <p>You do not need to buy equipment to use the calculator. If you are building a documented test or travel kit, compare meter display range, USB-C PD compatibility, cable rating, single-port output, printed watt-hours, warranty, and return policy. A USB meter placed in a charging path measures that path; it does not directly turn a plugged-in run into an unplugged battery benchmark.</p>
+    <div class="grid cols3">
+      {shoppingLinks.map(link => (
+        <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored" data-affiliate-link data-category={link.category}>
+          <span class="chip">Sponsored search</span>
+          <h3>{link.label}</h3>
+          <p class="muted">Use the methodology above to decide whether the accessory solves a real measurement or travel need.</p>
+        </a>
+      ))}
+    </div>
+    <p>For broader spec-based comparisons, visit the <a href="/gear/power-banks/">power-bank gear guide</a>, <a href="/gear/chargers/">charger guide</a>, and <a href="/gear/usb-c-cables-adapters/">USB-C cable and adapter guide</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Sources and method</h2>
+    <p>Official Valve, ASUS, and Microsoft pages were checked on July 25, 2026. Manufacturer pages establish the cited battery and adapter specifications; they do not prove the arithmetic examples or a universal game runtime. The comparison workflow is an editorial methodology designed to keep model, performance, and power assumptions visible. No search-volume claim or hands-on benchmark claim is made.</p>
+    <ul>
+      {sourceLinks.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+  </article>
+</Base>
