@@ -1,78 +1,214 @@
 ---
 import Base from '../../layouts/Base.astro';
 
+const canonicalUrl = 'https://handheldsettings.com/guides/handheld-gaming-travel-kit-case-power-checklist/';
+const title = 'Handheld gaming travel kit checklist: case, power, flight prep — Handheld Settings Lab';
+const description = 'Pack a practical Steam Deck, ROG Ally, or Legion Go travel kit with device-fit case, USB-C PD power, airline-safe battery planning, and offline game prep.';
+
 const sourceLinks = [
-  { label: 'TSA: Power banks in carry-on bags', url: 'https://www.tsa.gov/travel/security-screening/whatcanibring/items/power-banks' },
-  { label: 'Valve Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' },
-  { label: 'ASUS ROG Ally X specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/' },
-  { label: 'Lenovo Legion Go PSREF specifications', url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1' },
-  { label: 'USB-IF USB Charger / USB Power Delivery overview', url: 'https://www.usb.org/usb-charger-pd' }
+  { label: 'Valve: Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' },
+  { label: 'ASUS: ROG Ally X technical specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/' },
+  { label: 'Lenovo PSREF: Legion Go 8APU1 specifications', url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1' },
+  { label: 'FAA PackSafe: lithium batteries', url: 'https://www.faa.gov/hazmat/packsafe/lithium-batteries' },
+  { label: 'TSA: power banks', url: 'https://www.tsa.gov/travel/security-screening/whatcanibring/items/power-banks' },
+  { label: 'USB-IF: USB Power Delivery overview', url: 'https://www.usb.org/usb-charger-pd' }
 ];
 
-const searchLinks = [
-  { label: 'Hard shell handheld gaming case', href: 'https://www.amazon.com/s?k=hard+shell+handheld+gaming+case' },
-  { label: '65W USB-C PD travel charger', href: 'https://www.amazon.com/s?k=65w+usb+c+pd+travel+charger' },
-  { label: '100W USB-C PD cable', href: 'https://www.amazon.com/s?k=100w+usb+c+pd+cable' },
-  { label: 'USB-C right angle adapter for handheld', href: 'https://www.amazon.com/s?k=usb+c+right+angle+adapter+handheld+gaming' }
+const shoppingLinks = [
+  { label: 'Steam Deck travel cases with accessory storage', href: 'https://www.amazon.com/s?k=steam+deck+travel+case+charger+storage', category: 'cases' },
+  { label: 'ROG Ally X exact-fit travel cases', href: 'https://www.amazon.com/s?k=rog+ally+x+travel+case+exact+fit', category: 'cases' },
+  { label: 'Legion Go travel cases with controller clearance', href: 'https://www.amazon.com/s?k=legion+go+travel+case+controller+clearance', category: 'cases' },
+  { label: '65W USB-C PD compact travel chargers', href: 'https://www.amazon.com/s?k=65w+usb+c+pd+compact+travel+charger', category: 'chargers' },
+  { label: '100W USB-C PD cables with e-marker', href: 'https://www.amazon.com/s?k=100w+usb+c+pd+cable+e-marker', category: 'usb-c-cables-adapters' },
+  { label: '65W USB-C PD power banks under 100Wh', href: 'https://www.amazon.com/s?k=65w+usb+c+pd+power+bank+under+100wh', category: 'power-banks' }
+];
+
+const faqs = [
+  {
+    question: 'What should be in a handheld gaming travel kit?',
+    answer: 'Start with the handheld in an exact-fit protective case, its known-good USB-C PD charger and rated cable, headphones, and only the storage or power bank the trip needs. Add a compact dock or controller only when the destination has a display and the extra bulk has a clear use.'
+  },
+  {
+    question: 'Can a Steam Deck, ROG Ally, or Legion Go go in checked luggage?',
+    answer: 'The safer practical choice is to keep the handheld and spare lithium batteries with you in carry-on baggage. FAA guidance says spare lithium batteries and power banks must be carry-on only. Airlines and destinations can impose additional rules, so check the carrier before departure.'
+  },
+  {
+    question: 'Can a handheld gaming power bank go on a plane?',
+    answer: 'Under current U.S. FAA and TSA guidance, a power bank belongs in carry-on baggage, not checked baggage. Ordinary lithium-ion spare batteries are limited to 100Wh; 101–160Wh units require airline approval and are subject to additional limits. Verify the printed watt-hour label rather than relying on mAh alone.'
+  },
+  {
+    question: 'Is a 65W charger enough for a handheld gaming PC travel kit?',
+    answer: 'It is a practical shared baseline for devices whose official adapter is 45W or 65W, including Steam Deck and ROG Ally X. Check the exact device specification, make sure one USB-C port supplies the required Power Delivery profile, and review multi-port power allocation before charging another device at the same time.'
+  },
+  {
+    question: 'How do I prepare Steam games for offline travel?',
+    answer: 'Install and fully update the games while online, launch each one at least once, confirm any third-party launcher or account requirement, allow cloud saves to finish syncing, and test the planned offline session before leaving. A game or launcher can require connectivity even when the handheld itself works offline.'
+  },
+  {
+    question: 'Should I pack a dock for a flight?',
+    answer: 'Usually not for in-seat play. Pack a dock only if the hotel or destination display is part of the plan, and bring the matching charger, display cable, controller, and a tested input-switching routine. A small stand is lighter when you only need the handheld screen.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Handheld gaming travel kit checklist: case, power, and flight prep',
+    description,
+    url: canonicalUrl,
+    datePublished: '2026-07-07',
+    dateModified: '2026-07-25',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Steam Deck travel accessories', 'ROG Ally travel accessories', 'Legion Go travel accessories', 'USB-C Power Delivery', 'air travel']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'Handheld gaming travel kit checklist', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
 ];
 ---
-<Base title="Handheld gaming travel kit checklist for Steam Deck, ROG Ally, and Legion Go — Handheld Settings Lab" description="A spec-informed travel case, charger, cable, and power-bank checklist for handheld gaming PCs without fake hands-on claims.">
+<Base title={title} description={description} jsonLd={jsonLd}>
   <article class="wrap article">
-    <span class="eyebrow">Accessory guide</span>
-    <h1>Handheld gaming travel kit checklist</h1>
-    <p class="muted">A practical packing list for Steam Deck, ROG Ally, ROG Ally X, Legion Go, and similar handheld PCs. This is baseline/spec/community-source-informed guidance, not a hands-on durability ranking of specific bags or chargers.</p>
-    <p class="affiliate-note">Disclosure: shopping links are generic Amazon searches marked sponsored/nofollow. We have not added an affiliate tag or claimed hands-on testing for any listed product category.</p>
+    <span class="eyebrow">Travel accessory guide</span>
+    <h1>Handheld gaming travel kit checklist: case, power, and flight prep</h1>
+    <p class="muted">A practical packing plan for Steam Deck, ROG Ally, ROG Ally X, Legion Go, and similar handheld PCs. This guide compares official specifications and public travel rules; it is not a hands-on durability test or a promise that every marketplace result fits.</p>
+    <p class="affiliate-note">Disclosure: shopping cards are broad Amazon searches marked sponsored/nofollow. They are not product endorsements or current-price claims. Handheld Settings Lab adds an Associates tag only when a real tag is configured.</p>
 
-    <div class="grid cols2">
-      <div class="card">
-        <span class="chip">Pack first</span>
-        <h2>Protect sticks, triggers, and vents</h2>
-        <p>Choose a case that keeps pressure off analog sticks and shoulder buttons, leaves no loose metal parts near the screen, and does not trap heat if you close it right after a session.</p>
-      </div>
-      <div class="card">
-        <span class="chip">Power first</span>
-        <h2>Build around USB-C PD</h2>
-        <p>For a mixed handheld kit, a 65W USB-C PD charger and a properly rated cable are the simplest baseline. Add a larger 100W charger only if you also charge a laptop or dock.</p>
-      </div>
-    </div>
+    <div class="callout"><strong>Pack in this order:</strong> protect the controls, bring the charger and cable already proven with your handheld, make games offline-ready, then add a clearly labeled carry-on power bank only when the trip actually needs extra runtime.</div>
 
     <h2>The compact travel kit</h2>
+    <table>
+      <thead><tr><th>Item</th><th>Why it earns space</th><th>Check before packing</th></tr></thead>
+      <tbody>
+        <tr><td>Exact-fit hard case</td><td>Protects the display, sticks, triggers, and shell</td><td>Close it without pressure on controls; separate hard accessories</td></tr>
+        <tr><td>Known-good USB-C PD charger</td><td>Restores the device at the destination</td><td>Single-port output matches the official device adapter class</td></tr>
+        <tr><td>Rated USB-C cable</td><td>Prevents an unknown cable from limiting a good charger</td><td>Correct wattage, useful length, no connector or jacket damage</td></tr>
+        <tr><td>Wired or low-latency audio</td><td>Keeps sound private without relying on cabin speakers</td><td>Pairing, dongle, charge state, and cable tested</td></tr>
+        <tr><td>Optional power bank</td><td>Extends outlet-free use</td><td>Required USB-C PD output, printed Wh label, carry-on rules</td></tr>
+        <tr><td>Optional microSD card</td><td>Adds installed-library space without internal work</td><td>Card is genuine, formatted, mounted, and games launch from it</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Match power to the handheld, not the biggest label</h2>
+    <p>Official power-supply specifications are the starting point. Valve lists a <strong>45W USB-C PD 3.0</strong> supply for Steam Deck OLED. ASUS lists a <strong>65W Type-C adapter</strong> for ROG Ally X. A shared 65W USB-C PD charger can therefore be a practical two-device travel baseline, but only when one port delivers the needed output and the cable is rated appropriately.</p>
     <div class="grid cols3">
-      <div class="card"><span class="chip">Case</span><h3>Shell + stick clearance</h3><p>Prioritize a firm shell, molded stick space, zipper clearance, and a pocket layout that cannot press a plug into the display.</p></div>
-      <div class="card"><span class="chip">Charging</span><h3>65W PD charger</h3><p>Steam Deck is commonly a 45W-class device, while Windows handheld kits often expect 65W-class charging. A 65W PD travel brick keeps the bag simple.</p></div>
-      <div class="card"><span class="chip">Cable</span><h3>Known-good USB-C</h3><p>Use a cable with an explicit wattage rating. Mystery C-to-C cables are a common reason a good charger behaves like a slow phone charger.</p></div>
-      <div class="card"><span class="chip">Storage</span><h3>microSD wallet</h3><p>Keep spare cards in a small case, not loose in the travel pouch. Label cards by library or device if you swap often.</p></div>
-      <div class="card"><span class="chip">Audio</span><h3>Low-bulk earbuds</h3><p>Wired USB-C or 3.5mm earbuds avoid Bluetooth pairing problems on planes and save a little battery management stress.</p></div>
-      <div class="card"><span class="chip">Cleaning</span><h3>Cloth, not liquid</h3><p>A microfiber cloth and a small dust blower are safer default travel tools than loose cleaning liquids inside the same pouch as electronics.</p></div>
+      <section class="card">
+        <span class="chip">Steam Deck</span>
+        <h3>45W-class USB-C PD</h3>
+        <p>Match Valve’s listed adapter class. More advertised capacity can help a shared kit, but it does not force faster charging into the Deck.</p>
+      </section>
+      <section class="card">
+        <span class="chip">ROG Ally X</span>
+        <h3>65W-class USB-C</h3>
+        <p>Match ASUS’s listed 65W adapter and verify the selected USB-C port’s output table, especially on multi-port travel bricks.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Legion Go</span>
+        <h3>Check exact model documentation</h3>
+        <p>Use Lenovo’s PSREF and the adapter supplied for the exact model/region rather than assuming that every “handheld charger” listing is equivalent.</p>
+      </section>
     </div>
+    <p>USB Power Delivery negotiates supported power between compatible equipment. Headline total wattage is not the same as per-port output: a 100W multi-port charger may redistribute power when a phone, tablet, or laptop is added. Read the allocation table, then test the final charger-and-cable combination under a normal game load before travel.</p>
 
-    <h2>Flight and power-bank notes</h2>
-    <p>TSA states that power banks should go in carry-on bags, not checked bags. Airline and battery-size rules can vary, so check your carrier before packing a large high-capacity bank. Treat a power bank as a session extender rather than a guaranteed all-day battery claim.</p>
-    <div class="callout">Do not pack a swollen, damaged, or unusually hot battery pack. Replace questionable packs before travel instead of hoping a case will contain the problem.</div>
+    <h2>Case fit: test it with the accessories you leave attached</h2>
+    <p>A product title saying “handheld gaming case” is not a fit measurement. Different handhelds vary in width, thickness, vent placement, control shape, and detachable-controller geometry. A grip shell, stick caps, or rigid USB-C adapter can also invalidate an otherwise compatible molded case.</p>
+    <ol>
+      <li><strong>Place the handheld in the empty case.</strong> Nothing should hold a trigger down or move a stick off-center.</li>
+      <li><strong>Close the lid gently.</strong> If closing resistance changes when the device is inside, stop and inspect rather than compressing it.</li>
+      <li><strong>Shake-test the accessory pocket without the handheld.</strong> A charger or power bank should not escape its compartment and strike the screen area.</li>
+      <li><strong>Check ventilation habits.</strong> Shut the device down or let it cool before closing it; never game, update, or charge under load inside a sealed case.</li>
+      <li><strong>Recheck after adding a grip.</strong> Exact-fit molded interiors often have less tolerance than soft-sided bags.</li>
+    </ol>
+    <p>Use the full <a href="/guides/handheld-gaming-carrying-case-size-checklist/">carrying-case size checklist</a> and <a href="/gear/cases/">case gear guide</a> before buying.</p>
 
-    <h2>Device-specific fit checks</h2>
+    <h2>Flight checklist for batteries and power banks</h2>
+    <p>For U.S. travel, the FAA treats a power bank as a spare lithium battery. TSA currently lists power banks as allowed in carry-on bags and prohibited in checked bags. Airline and destination-country rules may be stricter, and the final security decision remains with the relevant authority.</p>
+    <ol>
+      <li><strong>Read the printed watt-hour rating.</strong> Do not judge flight eligibility from mAh or USB output wattage alone.</li>
+      <li><strong>Keep power banks in carry-on baggage.</strong> If the bag is checked at the gate, remove spare batteries and keep them in the cabin.</li>
+      <li><strong>Stay at or below 100Wh for the simplest U.S. case.</strong> FAA guidance permits 101–160Wh spare batteries only with airline approval and additional quantity limits.</li>
+      <li><strong>Protect against short circuit.</strong> Keep ports and terminals away from keys, coins, and loose metal.</li>
+      <li><strong>Leave damaged batteries home.</strong> Do not travel with a swollen, punctured, recalled, overheating, or otherwise defective pack.</li>
+      <li><strong>Check the airline before departure.</strong> Capacity acceptance and in-flight charging/use policies can differ.</li>
+    </ol>
+    <p>The bank’s USB-C output wattage tells you whether it can power the handheld; watt-hours describe stored energy and matter for flight limits. Read the dedicated <a href="/guides/usb-c-power-bank-wattage-handheld-gaming/">Steam Deck power-bank and airline guide</a>, then use the <a href="/calculators/battery-estimator/">battery estimator</a> for a planning range instead of an invented runtime claim.</p>
+
+    <h2>Make the game library offline-ready before leaving</h2>
+    <p>A charged handheld is not automatically a playable offline handheld. Game updates, license checks, third-party launchers, account sign-ins, cloud-save conflicts, and missing downloadable content can block a session. Test the exact games and user account you plan to use.</p>
     <ul>
-      <li><strong>Steam Deck:</strong> confirm the case fits your exact model and any grip shell; OLED/LCD accessory fit is usually close, but not every molded insert leaves the same room.</li>
-      <li><strong>ROG Ally / Ally X:</strong> check whether the case is made for the thicker Ally X body before trusting a tight original Ally listing.</li>
-      <li><strong>Legion Go:</strong> verify width and controller clearance. It is larger than many Deck/Ally-focused cases, and generic “handheld PC” listings can be too narrow.</li>
-      <li><strong>Docked travel:</strong> if you pack a dock, keep HDMI, Ethernet, and charger cable strain away from the handheld's USB-C port.</li>
+      <li>Install operating-system, launcher, and game updates while connected to stable power and Wi-Fi.</li>
+      <li>Launch each planned game at least once, pass its sign-in screens, and load a save.</li>
+      <li>Wait for cloud saves to finish, then keep a local backup where the game and platform support one.</li>
+      <li>Disable Wi-Fi or use the platform’s offline mode at home and test a real 10-minute session.</li>
+      <li>Confirm Bluetooth audio/controllers reconnect after a restart, or pack a wired fallback.</li>
+      <li>Leave free storage for shader caches, save files, and last-minute updates rather than filling the drive to its limit.</li>
     </ul>
+    <p>For a launcher-by-launcher preparation sequence, use the <a href="/guides/handheld-pc-offline-mode-flight-checklist/">handheld PC offline-mode flight checklist</a>. Use the <a href="/calculators/storage-planner/">storage planner</a> before downloading a travel library.</p>
 
-    <h2>What to skip at first</h2>
-    <ul>
-      <li>Large accessory bags that make the handheld harder to actually carry.</li>
-      <li>Unlabeled USB-C cables or power banks that only list total output across multiple ports.</li>
-      <li>Kickstands or grips that block vents, intake areas, or the charging port.</li>
-      <li>Very cheap screen protectors with poor edge fit if you are not ready to redo the install.</li>
-    </ul>
-
-    <h2>Search links</h2>
+    <h2>Destination kit: only pack a dock when the screen is part of the plan</h2>
+    <p>A dock adds a display output, USB ports, Ethernet, and charging pass-through, but it also creates a chain of possible failure points. Pack it only when you know the destination screen, input type, resolution target, and available power.</p>
     <div class="grid cols2">
-      {searchLinks.map(link => <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored"><span class="chip">Sponsored search</span><h3>{link.label}</h3><p class="muted">Compare dimensions, return policy, recent reviews, and device compatibility before buying.</p></a>)}
+      <section class="card">
+        <span class="chip">In-seat kit</span>
+        <h3>Keep it self-contained</h3>
+        <p>Handheld, case, headphones, charger/cable, and an approved carry-on power bank when needed. A stand can help tray-table play, but it should not block an intake or exhaust.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Hotel/desk kit</span>
+        <h3>Bring the whole tested display chain</h3>
+        <p>Dock, adequate charger, host cable, HDMI/DisplayPort cable, controller, and any needed input adapter. Test it together before it enters the bag.</p>
+      </section>
+    </div>
+    <p>If the TV shows no signal, follow the <a href="/guides/steam-deck-dock-not-connecting-to-tv/">Steam Deck dock/TV troubleshooting guide</a>. For a broader setup, use the <a href="/guides/handheld-gaming-usb-c-dock-checklist/">USB-C dock checklist</a> and <a href="/gear/docks/">dock gear guide</a>.</p>
+
+    <h2>Device-specific travel checks</h2>
+    <ul>
+      <li><strong>Steam Deck LCD/OLED:</strong> verify case fit with the exact shell or grip, and match replacement charging to Valve’s listed 45W USB-C PD supply class. Start game tuning at the <a href="/steam-deck-settings/">Steam Deck settings hub</a>.</li>
+      <li><strong>ROG Ally / Ally X:</strong> do not assume a tight original-Ally molded case fits the thicker Ally X. ASUS lists an 80Wh battery and 65W adapter for Ally X; use the <a href="/rog-ally-settings/">ROG Ally settings hub</a> to prepare per-game profiles.</li>
+      <li><strong>Legion Go:</strong> account for the wider body and detachable controllers. Confirm controller clearance, charger space, and exact-model documentation through Lenovo PSREF. Visit the <a href="/legion-go-settings/">Legion Go settings hub</a>.</li>
+      <li><strong>microSD users:</strong> protect loose cards in a card wallet and launch at least one installed game from the card before travel. Troubleshoot first with the <a href="/guides/microsd-card-format-transfer-handheld-pc-checklist/">microSD format and transfer checklist</a>.</li>
+    </ul>
+
+    <h2>Spec-based shopping starting points</h2>
+    <p>These searches are grouped by the checks above. Compare exact-model fit, published single-port output, printed Wh rating, cable specification, seller, warranty, and return policy. No product is called “best,” and no hands-on test is implied.</p>
+    <div class="grid cols2">
+      {shoppingLinks.map(link => (
+        <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored" data-affiliate-link data-category={link.category}>
+          <span class="chip">Sponsored search</span>
+          <h3>{link.label}</h3>
+          <p class="muted">Use the page checklist to verify fit, power, capacity, and travel suitability before purchasing.</p>
+        </a>
+      ))}
     </div>
 
-    <h2>Sources checked</h2>
-    <p>These public sources were checked for transport, device, and USB-C PD context during this update:</p>
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Sources and method</h2>
+    <p>Official Valve, ASUS, Lenovo, FAA, TSA, and USB-IF pages were checked on July 25, 2026. Device makers establish their published hardware and adapter specifications; FAA and TSA establish the cited U.S. baggage guidance. The packing order is conservative editorial guidance based on those specifications, not a direct accessory test. No search-volume claim, measured runtime, dynamic price, or universal compatibility claim is made.</p>
     <ul>
       {sourceLinks.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
     </ul>
