@@ -1,0 +1,193 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/steam-deck-settings/path-of-exile-2/';
+const title = 'Path of Exile 2 Steam Deck settings: a stable 30 FPS baseline — Handheld Settings Lab';
+const description = 'Start Path of Exile 2 on Steam Deck with a conservative 30 FPS baseline, 800p display setup, upscaling order, 100GB storage planning, and troubleshooting steps.';
+const image = '/assets/games/path-of-exile-2-header.jpg';
+
+const sources = [
+  {
+    label: 'Steam: Path of Exile 2 store page, requirements, controller support, and official media',
+    url: 'https://store.steampowered.com/app/2694490/Path_of_Exile_2/'
+  },
+  {
+    label: 'Valve: Steam Deck technical specifications',
+    url: 'https://www.steamdeck.com/en/tech'
+  },
+  {
+    label: 'Steam Support: Steam Deck help portal',
+    url: 'https://help.steampowered.com/en/wizard/HelpWithSteamDeck'
+  }
+];
+
+const faqs = [
+  {
+    question: 'What FPS target should I use for Path of Exile 2 on Steam Deck?',
+    answer: 'Start with a 30 FPS cap. This is a conservative editorial baseline, not a guaranteed benchmark. Busy encounters, shader compilation, network conditions, game patches, and Proton updates can still cause dips.'
+  },
+  {
+    question: 'What are the best Path of Exile 2 Steam Deck settings to change first?',
+    answer: 'Set 1280×800 or 1280×720, cap at 30 FPS, begin from the Low preset, enable dynamic resolution if available, and use an upscaler in Quality mode before moving to Balanced. Keep shadows, lighting, global illumination, and water detail low until demanding fights are stable.'
+  },
+  {
+    question: 'How much storage does Path of Exile 2 need on Steam Deck?',
+    answer: 'The official Steam requirements list 100GB of available space and recommend solid-state storage. Leave additional free space for updates, shader caches, and SteamOS overhead rather than planning around exactly 100GB.'
+  },
+  {
+    question: 'Does Path of Exile 2 have controller support?',
+    answer: 'Yes. The Steam listing reports full controller support. If prompts or bindings behave incorrectly, confirm the controller layout in Steam Input before changing many in-game bindings at once.'
+  },
+  {
+    question: 'Why does Path of Exile 2 stutter on Steam Deck?',
+    answer: 'Possible causes include shader compilation, a demanding combat scene, an unstable frame target, nearly full storage, background downloads, heat, or a game or Proton update. Test the same demanding area after a restart and change one setting at a time.'
+  },
+  {
+    question: 'Is this a tested Path of Exile 2 benchmark?',
+    answer: 'No. This page is an official-spec and community-pattern-informed starting point. Handheld Settings Lab did not personally benchmark this build, so it does not promise a locked frame rate or battery runtime.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Path of Exile 2 Steam Deck settings: a stable 30 FPS baseline',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-07-26',
+    dateModified: '2026-07-26',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Path of Exile 2', 'Steam Deck', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Steam Deck settings', item: 'https://handheldsettings.com/steam-deck-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Path of Exile 2 settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Steam Deck settings · Baseline updated July 2026</span>
+    <h1>Path of Exile 2 Steam Deck settings: start with a stable 30 FPS target</h1>
+    <p class="lede muted">Path of Exile 2 is demanding and changes during Early Access. This conservative setup prioritizes readable image quality and steadier frame pacing over a high headline frame rate. It is official-spec and community-pattern-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Path of Exile 2 Steam store header artwork" width="460" height="215" />
+      <figcaption class="media-credit">Official Path of Exile 2 Steam store header image. Source: <a href="https://store.steampowered.com/app/2694490/Path_of_Exile_2/" target="_blank" rel="nofollow noopener">Grinding Gear Games' Steam store page</a>. Artwork and trademarks belong to their owners; use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Starting target</h3><div class="stat">30 FPS</div><p class="muted">Conservative baseline, not a guarantee</p></section>
+      <section class="card"><h3>Output</h3><div class="stat">800p</div><p class="muted">Try 720p if the HUD fits better</p></section>
+      <section class="card"><h3>Starting preset</h3><p><strong>Low + upscaling</strong></p><p class="muted">Raise settings only after combat is stable</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">100GB</div><p class="muted">Official requirement; keep extra free space</p></section>
+    </div>
+
+    <div class="callout"><strong>Use this as an order of operations:</strong> select the renderer, set resolution and a 30 FPS cap, start Low, turn on dynamic resolution if offered, then adjust upscaling. Do not change every option at once—you will lose the ability to identify what helped.</div>
+
+    <h2>Recommended Path of Exile 2 Steam Deck baseline</h2>
+    <table>
+      <thead><tr><th>Setting</th><th>Start here</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Display mode</td><td>Fullscreen</td><td>Keeps the first test simple and avoids desktop-window variables.</td></tr>
+        <tr><td>Resolution</td><td>1280×800</td><td>Matches the Deck display; try 1280×720 if the interface or scaling behaves better.</td></tr>
+        <tr><td>Frame-rate cap</td><td>30 FPS</td><td>A realistic first target for a demanding ARPG. Recheck in dense combat before treating it as stable.</td></tr>
+        <tr><td>Renderer</td><td>Vulkan first</td><td>Start with one renderer and keep it during tuning. If repeatable crashes or severe visual faults persist, test the other renderer after saving the baseline.</td></tr>
+        <tr><td>Preset</td><td>Low</td><td>Establishes performance headroom before selectively restoring clarity.</td></tr>
+        <tr><td>Upscaling</td><td>Quality, then Balanced</td><td>Use the least aggressive mode that holds the target. Move to Balanced only after testing busy scenes.</td></tr>
+        <tr><td>Dynamic resolution</td><td>On, 30 FPS target</td><td>Allows image resolution to respond to load. Disable it only if the changing sharpness is more distracting than occasional dips.</td></tr>
+        <tr><td>Textures</td><td>Medium</td><td>Preserves interface and surface clarity; lower this if memory-related hitching or instability appears.</td></tr>
+        <tr><td>Shadows / lighting / global illumination</td><td>Low</td><td>Keep expensive scene effects down until combat and towns meet the target.</td></tr>
+        <tr><td>Water and effects detail</td><td>Low</td><td>Reduces load during effect-heavy encounters. Raise only after repeatable tests.</td></tr>
+        <tr><td>Engine multithreading</td><td>On</td><td>Leave the engine's multithreaded path enabled unless a current official support note tells you otherwise.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Setting names can move or change during Early Access. If an option is absent in your build, skip it rather than copying an old configuration file.</p>
+
+    <h2>Tune it in the right sequence</h2>
+    <ol>
+      <li><strong>Update before tuning.</strong> Install the stable SteamOS client and game update, restart the Deck, and pause background downloads.</li>
+      <li><strong>Use the default Proton choice first.</strong> Do not force an old compatibility layer unless a current support note requires it. Steam lists Windows—not native Linux—on the store page, so compatibility behavior can change.</li>
+      <li><strong>Set 30 FPS in one place.</strong> Begin with the game's limiter. If pacing is uneven, compare the Steam Deck quick-access limiter, but avoid stacking multiple conflicting caps.</li>
+      <li><strong>Test a repeatable demanding scene.</strong> A quiet early area or menu is not enough. Revisit a busy fight, town, or effect-heavy encounter.</li>
+      <li><strong>Adjust upscaling before decorative effects.</strong> Quality is the clearer starting point; Balanced trades image detail for more headroom.</li>
+      <li><strong>Restore one visual option at a time.</strong> Textures are often more noticeable on the handheld screen than richer shadows or lighting.</li>
+    </ol>
+
+    <h2>What to do when performance drops</h2>
+    <div class="grid cols2">
+      <section class="card">
+        <span class="chip">Image gets very soft</span>
+        <h3>Dynamic resolution is working too hard</h3>
+        <p>Return to the Low preset, use a 30 FPS target, and compare Quality with Balanced upscaling. If the same fight still forces an unreadably soft image, keep the cap and lower expensive effects rather than chasing 40 FPS.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Hitches after an update</span>
+        <h3>Rebuild the baseline before troubleshooting deeply</h3>
+        <p>Restart, pause downloads, confirm free storage, and repeat the same scene. Shader work and changed game files can make the first run after an update less representative.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Crashes or visual faults</span>
+        <h3>Separate renderer trouble from settings trouble</h3>
+        <p>Return to defaults, keep the Deck on stable software, and test a different renderer only after recording the failing one. Remove custom launch options before adding new ones.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Controller prompts are wrong</span>
+        <h3>Check Steam Input before remapping the game</h3>
+        <p>Steam reports full controller support. Select an official or default controller layout, reconnect any external controller, and verify prompts before rebuilding every binding.</p>
+      </section>
+    </div>
+
+    <h2>Storage, battery, and accessory planning</h2>
+    <p>The official Steam requirements list <strong>100GB available space</strong> and recommend solid-state storage. Keep a meaningful buffer for patches and shader caches. If the internal drive is nearly full, use the <a href="/calculators/storage-planner/">storage planner</a> before moving or reinstalling the game. The <a href="/gear/nvme-ssds/">NVMe SSD guide</a> explains upgrade form factors, while the <a href="/gear/microsd-cards/">microSD guide</a> covers removable storage tradeoffs.</p>
+    <p>Because this page is not based on a controlled runtime test, it does not publish a made-up battery-life number. Use the <a href="/calculators/battery-estimator/">battery estimator</a> with a total system-draw reading from your own Deck session. For travel, compare the <a href="/guides/usb-c-power-bank-wattage-handheld-gaming/">Steam Deck power-bank requirements and airline guide</a>.</p>
+
+    <h2>Optional gear after the settings are stable</h2>
+    <p class="affiliate-note">Disclosure: the links below are broad Amazon searches marked sponsored/nofollow, not hands-on product endorsements. No price, availability, or performance claim is made. A real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+2230+nvme+ssd" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="nvme-ssds">
+        <span class="chip">Sponsored search</span><h3>Steam Deck 2230 NVMe SSDs</h3><p class="muted">Compare capacity, exact 2230 fit, warranty, cloning or recovery plan, and installation requirements.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+microsd+a2+u3" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microsd-cards">
+        <span class="chip">Sponsored search</span><h3>A2 / U3 microSD cards</h3><p class="muted">Useful for library overflow; buy from a traceable seller and verify capacity before a long download.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+power+bank+45w+usb+c+pd" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="power-banks">
+        <span class="chip">Sponsored search</span><h3>45W USB-C PD power banks</h3><p class="muted">Check USB-C PD output, watt-hours, cable rating, weight, and current airline limits before travel.</p>
+      </a>
+    </div>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on July 26, 2026. Steam's official listing supplies the 100GB storage requirement, SSD recommendation, Early Access status, full controller-support label, Windows platform listing, and game artwork. Valve supplies Steam Deck hardware specifications and official support routing. The settings table is a conservative editorial starting sequence informed by those requirements and recurring public community configuration patterns; Handheld Settings Lab did not personally benchmark this build. Google autocomplete returned “best steam deck settings for path of exile 2” and related graphics/optimized/OLED queries; those suggestions show query wording, not search volume.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+    <p>For other games, return to the <a href="/steam-deck-settings/">Steam Deck settings hub</a>. Compare storage and battery assumptions with the site's <a href="/calculators/">handheld calculators</a>, and choose accessories from the <a href="/gear/">spec-based gear library</a>.</p>
+  </article>
+</Base>
