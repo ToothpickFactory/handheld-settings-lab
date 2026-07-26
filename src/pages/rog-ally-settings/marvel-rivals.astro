@@ -1,0 +1,210 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/rog-ally-settings/marvel-rivals/';
+const title = 'Marvel Rivals ROG Ally settings: 30 and 45 FPS baselines — Handheld Settings Lab';
+const description = 'Tune Marvel Rivals on ROG Ally or Ally X with conservative 900p/30 FPS and 720p/45 FPS starting points, power-mode guidance, troubleshooting, and storage planning.';
+const image = '/assets/games/marvel-rivals-header.jpg';
+
+const sources = [
+  {
+    label: 'Steam: Marvel Rivals store page, system requirements, controller support, and official media',
+    url: 'https://store.steampowered.com/app/2767030/Marvel_Rivals/'
+  },
+  {
+    label: 'ASUS ROG: How to boost gaming performance on the ROG Ally',
+    url: 'https://rog.asus.com/articles/guides/how-to-boost-gaming-performance-on-the-rog-ally/'
+  },
+  {
+    label: 'ASUS ROG: ROG Ally (2023) technical specifications',
+    url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-2023/spec/'
+  },
+  {
+    label: 'Marvel Rivals: official support and news site',
+    url: 'https://www.marvelrivals.com/'
+  }
+];
+
+const faqs = [
+  {
+    question: 'What FPS target should I use for Marvel Rivals on ROG Ally?',
+    answer: 'Start at 30 FPS and 900p for the clearer, steadier baseline. If input response matters more, test 45 FPS at 720p with the Low preset. These are conservative editorial starting points, not measured guarantees; team fights, patches, drivers, thermals, and power mode can change performance.'
+  },
+  {
+    question: 'What are the best Marvel Rivals ROG Ally settings to change first?',
+    answer: 'Set the Ally operating mode, resolution, and frame cap first. Begin with Low, disable ray tracing, use a quality-oriented upscaler at 900p or Balanced at 720p, and keep shadows, effects, reflections, and global illumination low. Test a real team fight before raising visual settings.'
+  },
+  {
+    question: 'Should I use frame generation in Marvel Rivals on ROG Ally?',
+    answer: 'Establish a stable baseline with frame generation off first. Generated frames can improve displayed smoothness, but they do not replace a healthy base frame rate and may make input response feel less direct. Compare it only after the native or upscaled baseline is repeatable.'
+  },
+  {
+    question: 'How much storage does Marvel Rivals need?',
+    answer: 'The official Steam requirements list 70GB of available space and recommend installing on an SSD. Keep extra free space for updates, shader caches, and Windows overhead rather than planning around exactly 70GB.'
+  },
+  {
+    question: 'Does Marvel Rivals support the ROG Ally controls?',
+    answer: 'Steam lists full controller support. In Armoury Crate, use Gamepad control mode or Auto rather than Desktop mode. If prompts are wrong, restore a standard controller profile before remapping individual actions.'
+  },
+  {
+    question: 'Were these Marvel Rivals settings benchmarked by Handheld Settings Lab?',
+    answer: 'No. This is official-spec and public configuration-pattern-informed guidance. We did not personally benchmark the current game build on an Ally, so the page does not promise a locked frame rate or battery runtime.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Marvel Rivals ROG Ally settings: 30 and 45 FPS baselines',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-07-26',
+    dateModified: '2026-07-26',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Marvel Rivals', 'ROG Ally', 'ROG Ally X', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'ROG Ally settings', item: 'https://handheldsettings.com/rog-ally-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Marvel Rivals settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">ROG Ally settings · Baseline updated July 2026</span>
+    <h1>Marvel Rivals ROG Ally settings: start at 900p/30 or 720p/45</h1>
+    <p class="lede muted">Marvel Rivals can become much heavier in a full team fight than it looks in the practice range. These two conservative starting profiles cover a clearer 900p presentation and a more responsive 720p option for the ROG Ally and Ally X. They are official-spec and public configuration-pattern-informed—not personally tested benchmarks.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Marvel Rivals Steam store header artwork" width="460" height="215" />
+      <figcaption class="media-credit">Official Marvel Rivals Steam store header image. Source: <a href="https://store.steampowered.com/app/2767030/Marvel_Rivals/" target="_blank" rel="nofollow noopener">NetEase Games' Steam store page</a>. Artwork and trademarks belong to their owners; use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Clarity baseline</h3><div class="stat">900p / 30</div><p class="muted">Start here for steadier image quality</p></section>
+      <section class="card"><h3>Response baseline</h3><div class="stat">720p / 45</div><p class="muted">Test in a real 12-player fight</p></section>
+      <section class="card"><h3>Starting preset</h3><p><strong>Low + upscaling</strong></p><p class="muted">Raise textures only after pacing is stable</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">70GB</div><p class="muted">Official requirement; SSD recommended</p></section>
+    </div>
+
+    <div class="callout"><strong>Do not tune in the practice range alone.</strong> Pick one profile, play a full match, and judge the most effect-heavy team fight. A frame target that holds while standing still is not yet a useful multiplayer baseline.</div>
+
+    <h2>Choose one Marvel Rivals profile first</h2>
+    <table>
+      <thead><tr><th>Setting</th><th>Clarity baseline</th><th>Response baseline</th></tr></thead>
+      <tbody>
+        <tr><td>Ally operating mode</td><td>Performance or a comparable manual profile</td><td>Turbo while plugged in; Performance as a battery test</td></tr>
+        <tr><td>Display resolution</td><td>1600×900</td><td>1280×720</td></tr>
+        <tr><td>Frame-rate target</td><td>30 FPS</td><td>45 FPS</td></tr>
+        <tr><td>Graphics preset</td><td>Low</td><td>Low</td></tr>
+        <tr><td>Upscaling</td><td>Quality first; Balanced if needed</td><td>Balanced first; compare Performance only if needed</td></tr>
+        <tr><td>Frame generation</td><td>Off for baseline testing</td><td>Off for baseline testing</td></tr>
+        <tr><td>Ray tracing</td><td>Off</td><td>Off</td></tr>
+        <tr><td>Textures</td><td>Low, then test Medium</td><td>Low</td></tr>
+        <tr><td>Shadows / effects / reflections</td><td>Low</td><td>Low</td></tr>
+        <tr><td>Global illumination / model detail</td><td>Low</td><td>Low</td></tr>
+        <tr><td>Motion blur / VSync</td><td>Off / Off for first test</td><td>Off / Off for first test</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Setting labels and available upscalers can change with game updates. If your build does not show an option, skip it rather than editing configuration files from an older guide. The Ally X has more memory and a larger battery than the original Ally, but that does not make a specific frame rate guaranteed.</p>
+
+    <h2>How to tune without hiding the real bottleneck</h2>
+    <ol>
+      <li><strong>Update deliberately.</strong> Install the current game update, AMD graphics driver offered for your Ally, Armoury Crate SE update, and stable BIOS. Restart before comparing settings.</li>
+      <li><strong>Set the power mode before the game.</strong> Performance and Turbo are not interchangeable. Record whether you are plugged in so a later comparison uses the same power conditions.</li>
+      <li><strong>Choose one resolution and cap.</strong> Begin with 900p/30. Move to 720p/45 only if responsiveness matters more and a full match can hold near the target.</li>
+      <li><strong>Keep frame generation off.</strong> This exposes the underlying frame rate and input feel. It can be tested later, but it should not disguise a weak base profile.</li>
+      <li><strong>Lower scene effects before image clarity.</strong> Keep shadows, reflections, global illumination, and effects low. Test Medium textures separately only after stutter and frame pacing are acceptable.</li>
+      <li><strong>Repeat the same scenario.</strong> Compare at least two full matches. Hero effects, map, network conditions, compilation, and background tasks can make one match misleading.</li>
+    </ol>
+
+    <h2>ROG Ally setup checks outside the game</h2>
+    <div class="grid cols2">
+      <section class="card">
+        <span class="chip">Controls</span>
+        <h3>Use Gamepad mode</h3>
+        <p>Steam lists full controller support. Set Armoury Crate's control mode to Gamepad or Auto, then start from the default controller layout. Desktop mode can make stick, trigger, or button behavior appear broken.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Power</span>
+        <h3>Compare like with like</h3>
+        <p>Use the same operating mode and charger state for every test. Turbo behavior can differ on battery and AC power, while an under-rated charger or dock can keep the handheld from the expected plugged-in mode.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Memory</span>
+        <h3>Close background apps first</h3>
+        <p>The official requirements list 16GB system memory. On a handheld APU, Windows and graphics share available memory, so close browsers, launchers, overlays, and recorders before diagnosing hitching.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Display</span>
+        <h3>Use VRR as support, not a fix</h3>
+        <p>The Ally display supports variable refresh, which can make variation look smoother, but it cannot repair severe drops or input delay. Tune for a sustainable base frame rate first.</p>
+      </section>
+    </div>
+
+    <h2>Fix common Marvel Rivals problems on Ally</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Heavy drops during ultimate effects</td><td>Confirm Low effects, shadows, reflections, and global illumination</td><td>Move 900p from Quality to Balanced upscaling, or test the 720p/45 profile</td></tr>
+        <tr><td>Image looks smeared or unstable</td><td>Disable frame generation and dynamic resolution for the comparison</td><td>Return to 900p/30 with Quality upscaling and Low scene effects</td></tr>
+        <tr><td>Stutter after a game or driver update</td><td>Restart, pause downloads, and repeat a second full match</td><td>Verify game files and restore the default shader/cache path before trying unofficial tweaks</td></tr>
+        <tr><td>Wrong button prompts or mouse cursor</td><td>Set Armoury Crate to Gamepad or Auto</td><td>Restore the standard Steam controller layout and remove conflicting remaps</td></tr>
+        <tr><td>Turbo unavailable while docked</td><td>Check charger, dock input, and USB-C cable ratings</td><td>Connect the original compatible charger directly to isolate the dock or cable</td></tr>
+        <tr><td>Crashes or out-of-memory warnings</td><td>Close background apps and remove aggressive manual VRAM experiments</td><td>Restore defaults, verify files, and use official Marvel Rivals support if the fault repeats</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, battery, and dock planning</h2>
+    <p>Steam lists <strong>70GB of available storage</strong>, recommends an SSD, and requires broadband. Leave a buffer for seasonal updates, shader caches, and Windows temporary files. The <a href="/calculators/storage-planner/">storage planner</a> helps reserve update space, and the <a href="/guides/rog-ally-ssd-size-compatibility-upgrade/">ROG Ally SSD compatibility guide</a> explains the different fit considerations for original Ally and Ally X models.</p>
+    <p>No battery estimate appears here because we did not run a controlled power test. Enter a total system-draw reading from your own session in the <a href="/calculators/battery-estimator/">battery estimator</a>. For AC play, a dock must pass enough power for the selected operating mode; troubleshoot the direct charger first with the <a href="/guides/handheld-gaming-usb-c-dock-checklist/">USB-C dock checklist</a>.</p>
+
+    <h2>Optional gear after the baseline is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications and seller support; no price, availability, frame-rate, or compatibility promise is made. A real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+x+100w+usb+c+charger" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers">
+        <span class="chip">Sponsored search</span><h3>ROG Ally USB-C chargers</h3><p class="muted">Match USB-C PD wattage, cable rating, port sharing behavior, and your exact Ally model.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+dock+100w+vrr" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks">
+        <span class="chip">Sponsored search</span><h3>ROG Ally docks</h3><p class="muted">Compare power passthrough, HDMI or DisplayPort capabilities, Ethernet, and physical clearance.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+x+2280+nvme+ssd" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="nvme-ssds">
+        <span class="chip">Sponsored search</span><h3>Ally-compatible NVMe SSDs</h3><p class="muted">Confirm 2230 versus 2280 fit for the exact model, capacity, warranty, and recovery plan before buying.</p>
+      </a>
+    </div>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on July 26, 2026. Steam supplies the 70GB storage requirement, SSD recommendation, Windows and DirectX requirements, broadband requirement, full controller-support label, and official artwork. ASUS supplies the Ally hardware specifications and its first-party performance-tuning workflow. The profiles above are conservative editorial starting sequences informed by those official constraints and recurring public configuration patterns; Handheld Settings Lab did not personally benchmark the current build. Google autocomplete evidence saved in the site's July 2026 audit included “ROG Ally settings for Marvel Rivals”; that is query-language evidence, not search volume.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+    <p>For more games, return to the <a href="/rog-ally-settings/">ROG Ally settings hub</a>. Use the <a href="/calculators/">battery, storage, and accessory calculators</a> for your own device assumptions, or browse the <a href="/gear/">spec-based gear library</a>.</p>
+  </article>
+</Base>
