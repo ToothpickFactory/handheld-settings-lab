@@ -1,0 +1,198 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/steam-deck-settings/hogwarts-legacy/';
+const title = 'Hogwarts Legacy Steam Deck settings: stable 30 FPS baseline — Handheld Settings Lab';
+const description = 'Start Hogwarts Legacy on Steam Deck with a conservative 800p/30 FPS baseline, FSR 2 tuning order, 85GB storage planning, shader-stutter checks, and travel setup.';
+const image = '/assets/games/hogwarts-legacy-header.jpg';
+
+const sources = [
+  {
+    label: 'Steam: Hogwarts Legacy store page, PC requirements, controller support, and official media',
+    url: 'https://store.steampowered.com/app/990080/Hogwarts_Legacy/'
+  },
+  {
+    label: 'Steam: current Steam Deck compatibility report for app 990080',
+    url: 'https://store.steampowered.com/saleaction/ajaxgetdeckappcompatibilityreport?nAppID=990080'
+  },
+  {
+    label: 'Valve: Steam Deck technical specifications',
+    url: 'https://www.steamdeck.com/en/tech'
+  },
+  {
+    label: 'Warner Bros. Games: Hogwarts Legacy support and bug reports',
+    url: 'https://bugs.wbgames.com/games/hogwarts-legacy/bugs'
+  }
+];
+
+const faqs = [
+  {
+    question: 'What FPS target should I use for Hogwarts Legacy on Steam Deck?',
+    answer: 'Start with a 30 FPS cap. The current Steam Deck compatibility report says the default configuration is performant, but that does not promise a locked frame rate in every location. Hogsmeade, traversal, shader work, patches, and background downloads can still produce dips or stutter.'
+  },
+  {
+    question: 'What are the best Hogwarts Legacy Steam Deck settings to change first?',
+    answer: 'Use 1280×800, cap at 30 FPS, disable ray tracing, begin from Low, and select FSR 2 Quality. Keep shadows, fog, effects, foliage, and population low; test Medium textures and view distance only after a repeatable walk through a demanding area is stable.'
+  },
+  {
+    question: 'Should I use FSR 2 Quality or Balanced on Steam Deck?',
+    answer: 'Begin with FSR 2 Quality because it preserves more detail in faces, foliage, and fine geometry. Move to Balanced only if the same demanding route cannot stay near the 30 FPS target after expensive settings are already low.'
+  },
+  {
+    question: 'How much storage does Hogwarts Legacy need on Steam Deck?',
+    answer: 'The official Steam requirements list 85GB of available space and prefer an SSD. Leave additional room for updates, shader caches, and SteamOS overhead instead of filling the drive to exactly the listed requirement.'
+  },
+  {
+    question: 'Does Hogwarts Legacy need internet on Steam Deck?',
+    answer: 'Steam’s current Deck compatibility report warns that first-time setup requires an active internet connection. Complete installation, account and first-run steps, updates, and an offline launch test before relying on the game during a flight or other disconnected trip.'
+  },
+  {
+    question: 'Were these settings benchmarked by Handheld Settings Lab?',
+    answer: 'No. This is an official-spec and public configuration-pattern-informed baseline. Handheld Settings Lab did not personally benchmark the current game, SteamOS, or Proton build, so this page does not guarantee frame rate or battery runtime.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Hogwarts Legacy Steam Deck settings: stable 30 FPS baseline',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-07-27',
+    dateModified: '2026-07-27',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Hogwarts Legacy', 'Steam Deck', 'game settings', 'FSR 2', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Steam Deck settings', item: 'https://handheldsettings.com/steam-deck-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Hogwarts Legacy settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Steam Deck settings · Baseline updated July 2026</span>
+    <h1>Hogwarts Legacy Steam Deck settings: start with a stable 30 FPS target</h1>
+    <p class="lede muted">Hogwarts Legacy is currently listed as Steam Deck Verified, but its open world can still be uneven during traversal and in busier locations. This conservative 800p setup favors readable image quality and steadier frame pacing. It is official-spec and public configuration-pattern-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Hogwarts Legacy Steam store header artwork showing Hogwarts castle and a hippogriff" width="460" height="215" />
+      <figcaption class="media-credit">Official Hogwarts Legacy Steam store header image. Source: <a href="https://store.steampowered.com/app/990080/Hogwarts_Legacy/" target="_blank" rel="nofollow noopener">Warner Bros. Games' Steam store page</a>. Artwork and trademarks belong to their owners; use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Starting target</h3><div class="stat">30 FPS</div><p class="muted">Conservative baseline, not a guarantee</p></section>
+      <section class="card"><h3>Output</h3><div class="stat">800p</div><p class="muted">Native panel resolution</p></section>
+      <section class="card"><h3>Starting preset</h3><p><strong>Low + FSR 2 Quality</strong></p><p class="muted">Restore clarity only after traversal is stable</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">85GB</div><p class="muted">Official requirement; extra room advised</p></section>
+    </div>
+
+    <div class="callout"><strong>Judge the game while moving, not in a classroom or menu.</strong> Use one repeatable route through a busier outdoor area or Hogsmeade. A profile that looks stable while standing still has not yet passed a useful handheld test.</div>
+
+    <h2>Recommended Hogwarts Legacy Steam Deck baseline</h2>
+    <table>
+      <thead><tr><th>Setting</th><th>Start here</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Window mode</td><td>Windowed Fullscreen</td><td>Keeps resolution handling straightforward on the Deck display.</td></tr>
+        <tr><td>Resolution</td><td>1280×800</td><td>Matches the Steam Deck panel while retaining the 16:10 view where supported.</td></tr>
+        <tr><td>Frame-rate cap</td><td>30 FPS</td><td>Prioritizes steadier frame pacing over a higher target that may vary during traversal.</td></tr>
+        <tr><td>Upscale type / mode</td><td>AMD FSR 2 / Quality</td><td>Starts with the clearer upscaling mode. Try Balanced only after the demanding-route test.</td></tr>
+        <tr><td>VSync</td><td>Off for baseline test</td><td>Use one frame-limiting path first. Compare the Deck limiter if in-game pacing is uneven.</td></tr>
+        <tr><td>Ray tracing</td><td>Off</td><td>Do not spend the handheld performance budget on ray-traced effects.</td></tr>
+        <tr><td>Effects / material / fog</td><td>Low</td><td>Creates headroom for combat, weather, and busy outdoor scenes.</td></tr>
+        <tr><td>Shadow / sky / foliage quality</td><td>Low</td><td>Reduces expensive scene detail before sacrificing interface or texture clarity.</td></tr>
+        <tr><td>Population quality</td><td>Low</td><td>Helps prioritize steadier behavior in populated areas such as Hogsmeade.</td></tr>
+        <tr><td>Texture quality</td><td>Low, then test Medium</td><td>Raise this separately after the baseline is repeatable; lower it again if hitching worsens.</td></tr>
+        <tr><td>View distance</td><td>Low, then test Medium</td><td>Medium can improve distant detail, but traversal stability comes first.</td></tr>
+        <tr><td>Motion blur / depth of field</td><td>Personal preference</td><td>These affect presentation more than the core tuning order. Do not expect them to solve heavy dips.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Names and available options can change with updates. If the current build lacks a listed option, skip it rather than copying an old configuration file. Keep the game and SteamOS on stable releases before diagnosing a repeatable fault.</p>
+
+    <h2>Tune it in an order you can reproduce</h2>
+    <ol>
+      <li><strong>Finish first-time setup online.</strong> Steam’s Deck report explicitly warns that initial setup needs internet. Launch to the menu, finish account or license prompts, and allow updates to settle.</li>
+      <li><strong>Use Steam’s default compatibility choice.</strong> Do not force an old Proton version before testing the supported default path.</li>
+      <li><strong>Set 1280×800 and 30 FPS.</strong> Apply the Low preset, disable ray tracing, and begin with FSR 2 Quality.</li>
+      <li><strong>Walk one demanding route.</strong> Move through a populated or traversal-heavy area, turn the camera, enter combat, and repeat the same route after each change.</li>
+      <li><strong>Lower expensive scene settings first.</strong> Keep population, shadows, fog, foliage, sky, and effects low before making the image more aggressively upscaled.</li>
+      <li><strong>Restore one clarity setting at a time.</strong> Try Medium textures, then Medium view distance. Revert whichever change makes hitching or pacing less consistent.</li>
+    </ol>
+
+    <h2>Fix common Hogwarts Legacy problems on Steam Deck</h2>
+    <div class="grid cols2">
+      <section class="card">
+        <span class="chip">Stutter while exploring</span>
+        <h3>Repeat the same route before blaming one setting</h3>
+        <p>Pause downloads, restart after an update, confirm free storage, and walk the route twice. Compilation and newly encountered assets can make a first pass less representative. If stutter repeats in the same place, keep population, view distance, foliage, fog, and effects low.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Image looks too soft</span>
+        <h3>Return to FSR 2 Quality</h3>
+        <p>Keep the 30 FPS cap and Low scene settings, then compare Quality against Balanced on the same route. Do not raise sharpening until you have chosen the upscaling mode; excess sharpening can add halos without restoring missing detail.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Game will not start offline</span>
+        <h3>Complete setup before the trip</h3>
+        <p>Reconnect, finish the first launch and any account or license checks, update the game, then deliberately test another launch with Wi-Fi disabled. The current Steam Deck report flags first-time internet as a requirement.</p>
+      </section>
+      <section class="card">
+        <span class="chip">New crashes after an update</span>
+        <h3>Remove variables before adding tweaks</h3>
+        <p>Restart the Deck, verify game files, return graphics to the baseline, and remove custom launch options or forced compatibility versions. If the same fault remains, check the official Warner Bros. Games bug portal before using an unofficial workaround.</p>
+      </section>
+    </div>
+
+    <h2>Storage, battery, and travel planning</h2>
+    <p>Steam lists <strong>85GB of available storage</strong>, prefers an SSD, and lists 16GB of system memory in the Windows PC requirements. The Deck is a different hardware and software target, so those requirements are context—not proof of a specific handheld result. Keep extra space for patches and shader data. Use the <a href="/calculators/storage-planner/">storage planner</a>, and compare the <a href="/guides/microsd-vs-ssd-handheld-pc/">microSD versus SSD guide</a> before moving a large library.</p>
+    <p>This page does not invent a battery-life figure. Read total system draw from your own session and enter it in the <a href="/calculators/battery-estimator/">battery estimator</a>. Before flying, use the <a href="/guides/handheld-pc-offline-mode-flight-checklist/">offline-mode flight checklist</a> and the <a href="/guides/usb-c-power-bank-wattage-handheld-gaming/">Steam Deck power-bank and airline guide</a>.</p>
+
+    <h2>Optional gear after the game is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, seller support, and return terms. No price, compatibility, or performance promise is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+a2+u3+microsd+card" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microsd-cards">
+        <span class="chip">Sponsored search</span><h3>A2 / U3 microSD cards</h3><p class="muted">Compare capacity, seller traceability, warranty, and verification tools before downloading an 85GB-plus game library.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+45w+usb+c+pd+power+bank" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="power-banks">
+        <span class="chip">Sponsored search</span><h3>45W USB-C PD power banks</h3><p class="muted">Check dedicated-port PD output, printed watt-hours, cable rating, weight, and current airline rules.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+travel+case+charger+storage" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="cases">
+        <span class="chip">Sponsored search</span><h3>Steam Deck travel cases</h3><p class="muted">Confirm exact device fit, stick clearance, vent clearance, and whether charger storage presses against the handheld.</p>
+      </a>
+    </div>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on July 27, 2026. Steam supplies the 85GB storage requirement, SSD preference, full-controller-support label, official image, and current Deck compatibility report. That report resolves the game as Deck Verified and notes that first-time setup requires an active internet connection. Valve supplies the display and hardware context; Warner Bros. Games supplies the official support route. The table is a conservative editorial starting sequence informed by those constraints and recurring public configuration patterns. Handheld Settings Lab did not personally benchmark the current game, SteamOS, or Proton build. Google autocomplete evidence saved in the July 2026 audit includes “best steam deck settings for hogwarts legacy”; that is query-language evidence, not search volume.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+    <p>For other games, return to the <a href="/steam-deck-settings/">Steam Deck settings hub</a>. Compare your own assumptions with the <a href="/calculators/">battery, storage, and accessory calculators</a>, or browse the <a href="/gear/">spec-based gear library</a>.</p>
+  </article>
+</Base>

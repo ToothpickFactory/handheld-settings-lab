@@ -3,14 +3,24 @@ import Base from '../../layouts/Base.astro';
 import { games } from '../../data/games';
 const platform = Astro.url.pathname.includes('rog-ally') ? 'ROG Ally' : 'Steam Deck';
 const slug = platform === 'ROG Ally' ? 'rog-ally-settings' : 'steam-deck-settings';
-const additionalGames = platform === 'Steam Deck' ? [{
-  slug: 'path-of-exile-2',
-  title: 'Path of Exile 2',
-  deckFps: '30 FPS baseline',
-  allyFps: '',
-  storage: 100,
-  preset: 'Low + upscaling'
-}] : [];
+const additionalGames = platform === 'Steam Deck' ? [
+  {
+    slug: 'hogwarts-legacy',
+    title: 'Hogwarts Legacy',
+    deckFps: '30 FPS baseline',
+    allyFps: '',
+    storage: 85,
+    preset: 'Low + FSR 2 Quality'
+  },
+  {
+    slug: 'path-of-exile-2',
+    title: 'Path of Exile 2',
+    deckFps: '30 FPS baseline',
+    allyFps: '',
+    storage: 100,
+    preset: 'Low + upscaling'
+  }
+] : [];
 const listedGames = [...games, ...additionalGames];
 const jsonLd = {'@context':'https://schema.org','@type':'CollectionPage',name:`${platform} game settings`,url:`https://handheldsettings.com/${slug}/`,mainEntity:{'@type':'ItemList',itemListElement:listedGames.map((game,i)=>({'@type':'ListItem',position:i+1,name:`${game.title} ${platform} settings`,url:`https://handheldsettings.com/${slug}/${game.slug}/`}))}};
 ---
