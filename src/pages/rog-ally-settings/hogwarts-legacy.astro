@@ -1,0 +1,205 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/rog-ally-settings/hogwarts-legacy/';
+const title = 'Hogwarts Legacy ROG Ally settings: 900p/30 baseline — Handheld Settings Lab';
+const description = 'Start Hogwarts Legacy on ROG Ally or Ally X with a conservative 900p/30 FPS profile, a 720p fallback, repeatable Hogsmeade testing, and 85GB storage planning.';
+const image = '/assets/games/hogwarts-legacy-header.jpg';
+
+const sources = [
+  {
+    label: 'Steam: Hogwarts Legacy store page, PC requirements, controller support, and official media',
+    url: 'https://store.steampowered.com/app/990080/Hogwarts_Legacy/'
+  },
+  {
+    label: 'ASUS ROG: How to boost gaming performance on the ROG Ally',
+    url: 'https://rog.asus.com/articles/guides/how-to-boost-gaming-performance-on-the-rog-ally/'
+  },
+  {
+    label: 'ASUS ROG: ROG Ally (2023) technical specifications',
+    url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-2023/spec/'
+  },
+  {
+    label: 'ASUS ROG: ROG Ally X (2024) technical specifications',
+    url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/'
+  },
+  {
+    label: 'Warner Bros. Games: Hogwarts Legacy support and bug reports',
+    url: 'https://bugs.wbgames.com/games/hogwarts-legacy/bugs'
+  }
+];
+
+const faqs = [
+  {
+    question: 'What FPS target should I use for Hogwarts Legacy on ROG Ally?',
+    answer: 'Start with a 30 FPS cap at 1600×900 and Low settings. Hogwarts, Hogsmeade, traversal, effects, patches, drivers, and background work can load the system differently, so treat this as a conservative test baseline rather than a locked-frame-rate promise.'
+  },
+  {
+    question: 'What are the best Hogwarts Legacy ROG Ally settings to change first?',
+    answer: 'Set the Ally operating mode, 900p resolution, and 30 FPS cap first. Disable ray tracing, begin from Low, use a quality-oriented temporal upscaler, and keep population, shadows, fog, foliage, effects, and view distance low until a repeatable Hogsmeade or outdoor route is stable.'
+  },
+  {
+    question: 'Should I use 900p or 720p on ROG Ally?',
+    answer: 'Begin at 900p for a clearer image. If a demanding route remains uneven after expensive scene settings are low, compare 720p with the same 30 FPS cap before trying a higher target. Change only one variable at a time so you can see what actually helped.'
+  },
+  {
+    question: 'Does Hogwarts Legacy need an SSD on ROG Ally?',
+    answer: 'Steam lists 85GB of available space, says an SSD is preferred at minimum, and specifies an SSD for the recommended PC configuration. The Ally and Ally X include internal NVMe storage. Leave extra room for patches, shader data, and Windows temporary files rather than filling the drive to exactly 85GB.'
+  },
+  {
+    question: 'Does Hogwarts Legacy support the ROG Ally controls?',
+    answer: 'Steam lists full controller support. Set Armoury Crate SE to Gamepad or Auto control mode and begin with the default controller layout. If mouse prompts appear, check the control mode before remapping individual buttons.'
+  },
+  {
+    question: 'Were these settings benchmarked by Handheld Settings Lab?',
+    answer: 'No. This is an official-spec and public configuration-pattern-informed baseline. Handheld Settings Lab did not personally benchmark the current game, driver, BIOS, or Armoury Crate build on an Ally, so no frame-rate or battery-runtime result is guaranteed.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Hogwarts Legacy ROG Ally settings: 900p/30 FPS baseline',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-07-27',
+    dateModified: '2026-07-27',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Hogwarts Legacy', 'ROG Ally', 'ROG Ally X', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'ROG Ally settings', item: 'https://handheldsettings.com/rog-ally-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Hogwarts Legacy settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">ROG Ally settings · Baseline published July 2026</span>
+    <h1>Hogwarts Legacy ROG Ally settings: start at 900p and 30 FPS</h1>
+    <p class="lede muted">Hogwarts Legacy mixes quiet interiors with heavier traversal, population, foliage, and streaming loads. This conservative Ally and Ally X setup starts at 900p/30, then uses a 720p fallback to isolate performance pressure. It is official-spec and public configuration-pattern-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Hogwarts Legacy Steam store header artwork showing Hogwarts castle and a hippogriff" width="460" height="215" />
+      <figcaption class="media-credit">Official Hogwarts Legacy Steam store header image. Source: <a href="https://store.steampowered.com/app/990080/Hogwarts_Legacy/" target="_blank" rel="nofollow noopener">Warner Bros. Games' Steam store page</a>. Artwork and trademarks belong to their owners; use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Starting target</h3><div class="stat">900p / 30</div><p class="muted">Clarity-first conservative baseline</p></section>
+      <section class="card"><h3>Fallback test</h3><div class="stat">720p / 30</div><p class="muted">Use to isolate resolution pressure</p></section>
+      <section class="card"><h3>Starting preset</h3><p><strong>Low + upscaling</strong></p><p class="muted">Restore detail only after traversal is stable</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">85GB</div><p class="muted">Official requirement; extra room advised</p></section>
+    </div>
+
+    <div class="callout"><strong>Test while moving through a demanding area.</strong> A classroom, menu, or empty corridor is not a useful performance check. Walk the same outdoor or Hogsmeade route, turn the camera, enter combat, and repeat it after each change.</div>
+
+    <h2>Recommended Hogwarts Legacy ROG Ally baseline</h2>
+    <table>
+      <thead><tr><th>Setting</th><th>Start here</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Ally operating mode</td><td>Performance; compare Turbo while plugged in</td><td>Records the power condition before graphics tuning. Do not compare battery Performance against plugged-in Turbo as if they were the same test.</td></tr>
+        <tr><td>Display resolution</td><td>1600×900</td><td>Reduces rendering load from the panel's native 1080p while retaining more detail than 720p.</td></tr>
+        <tr><td>Frame-rate cap</td><td>30 FPS</td><td>Provides a conservative pacing target for traversal-heavy scenes.</td></tr>
+        <tr><td>Graphics preset</td><td>Low</td><td>Creates a known starting point before restoring individual clarity settings.</td></tr>
+        <tr><td>Upscale mode</td><td>Quality first</td><td>Use the current build's quality-oriented temporal upscaler. Try Balanced only after testing the same route.</td></tr>
+        <tr><td>Ray tracing</td><td>Off</td><td>Avoids spending the handheld performance budget on ray-traced effects.</td></tr>
+        <tr><td>Population / effects / material</td><td>Low</td><td>Preserves headroom for populated spaces, spell effects, and combat.</td></tr>
+        <tr><td>Shadow / fog / sky / foliage</td><td>Low</td><td>Reduces expensive scene detail during outdoor traversal.</td></tr>
+        <tr><td>View distance</td><td>Low, then test Medium</td><td>Raise separately only after the repeatable route is acceptably paced.</td></tr>
+        <tr><td>Texture quality</td><td>Low, then test Medium</td><td>Restore texture clarity independently; revert if hitching or memory pressure worsens.</td></tr>
+        <tr><td>VSync</td><td>Off for the first comparison</td><td>Uses one frame-limiting path while establishing the baseline. Compare in-game versus Armoury Crate limiting later.</td></tr>
+        <tr><td>Motion blur / depth of field</td><td>Personal preference</td><td>These change presentation but should not be treated as the primary fix for heavy dips.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Option names and available upscalers can change with patches. If the current build does not show a listed option, skip it rather than applying an old configuration-file tweak. Steam's minimum PC specification cites 720p/30 at Low as context, not proof that a particular Ally power mode will hold that result.</p>
+
+    <h2>Use a two-profile tuning sequence</h2>
+    <div class="grid cols2">
+      <section class="card">
+        <span class="chip">Profile A · clarity first</span>
+        <h3>900p / 30 FPS</h3>
+        <p>Start at 1600×900, Low, ray tracing off, and Quality upscaling. Use Performance mode for the first battery-aware pass or compare Turbo under a compatible direct charger. Keep population, effects, fog, foliage, shadows, and sky low while testing.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Profile B · diagnostic fallback</span>
+        <h3>720p / 30 FPS</h3>
+        <p>Keep the same power mode, preset, frame cap, and route, then lower only resolution to 1280×720. If repeated dips barely change, resolution was probably not the main bottleneck; investigate scene settings, background tasks, driver state, thermals, or a game-side issue.</p>
+      </section>
+    </div>
+
+    <h2>Tune it without losing track of the cause</h2>
+    <ol>
+      <li><strong>Update and restart deliberately.</strong> Install the stable game update, Ally graphics driver, Armoury Crate SE update, and BIOS offered for the exact model. Restart before comparing profiles.</li>
+      <li><strong>Record model, charger, and operating mode.</strong> The original Ally and Ally X differ in battery and memory configuration. Power conditions matter as much as the graphics table.</li>
+      <li><strong>Apply the 900p/30 Low baseline.</strong> Turn ray tracing off, use Quality upscaling, and leave expensive outdoor settings low.</li>
+      <li><strong>Repeat one real route.</strong> Walk through a populated or streaming-heavy area twice. A first pass after an update can be less representative than a repeat.</li>
+      <li><strong>Try 720p without changing anything else.</strong> This is a diagnostic comparison, not an automatic recommendation. Return to 900p if 720p does not materially improve your experience.</li>
+      <li><strong>Restore clarity one setting at a time.</strong> Test Medium textures, then Medium view distance. Revert the first change that makes hitching or frame pacing less consistent.</li>
+    </ol>
+
+    <h2>Fix common Hogwarts Legacy problems on Ally</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Stutter during traversal</td><td>Pause downloads, close launchers and browsers, confirm free storage, then repeat the route</td><td>Keep population, view distance, foliage, fog, and effects low; compare the second pass before changing more settings</td></tr>
+        <tr><td>Image looks too soft</td><td>Return to 900p and a Quality upscale mode</td><td>Keep scene settings low, then test Medium textures separately instead of adding excessive sharpening</td></tr>
+        <tr><td>Frame rate changes little at 720p</td><td>Confirm the same cap, operating mode, and route were used</td><td>Investigate scene or CPU pressure, background work, driver state, temperatures, and known game issues rather than lowering resolution again</td></tr>
+        <tr><td>Wrong button prompts or mouse input</td><td>Set Armoury Crate control mode to Gamepad or Auto</td><td>Restore the default controller profile and remove conflicting remaps</td></tr>
+        <tr><td>Turbo is unavailable while docked</td><td>Connect the compatible charger directly to the Ally</td><td>Isolate the dock and cable, then verify their input, output, and USB-C PD ratings</td></tr>
+        <tr><td>New crashes after an update</td><td>Restart, restore the baseline, and remove unofficial launch or configuration tweaks</td><td>Verify game files and check the official Warner Bros. Games bug portal for a matching current issue</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, battery, and dock planning</h2>
+    <p>Steam lists <strong>85GB of available space</strong>, 16GB of system memory, DirectX 12, and an SSD preference at minimum. Those Windows PC requirements provide context; they do not guarantee a handheld result. Keep additional room for updates, shader data, save backups, and Windows temporary files. Use the <a href="/calculators/storage-planner/">storage planner</a>, then check the <a href="/guides/rog-ally-ssd-size-compatibility-upgrade/">ROG Ally SSD size and compatibility guide</a> before opening the device.</p>
+    <p>This page does not invent a battery-life number. Read total system draw from your own repeatable session and enter it in the <a href="/calculators/battery-estimator/">battery estimator</a>. For docked play, verify the direct charger first, then use the <a href="/guides/handheld-gaming-usb-c-dock-checklist/">USB-C dock checklist</a> to isolate power and display issues.</p>
+
+    <h2>Optional gear after the game is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact model fit, electrical specifications, seller support, and return terms. No price, compatibility, performance, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+x+100w+usb+c+charger" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers">
+        <span class="chip">Sponsored search</span><h3>ROG Ally USB-C chargers</h3><p class="muted">Match USB-C PD wattage, cable rating, port-sharing behavior, and the exact Ally model.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+dock+100w+hdmi" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks">
+        <span class="chip">Sponsored search</span><h3>ROG Ally docks</h3><p class="muted">Compare power passthrough, HDMI or DisplayPort output, Ethernet, ports, and physical clearance.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+x+2280+nvme+ssd" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="nvme-ssds">
+        <span class="chip">Sponsored search</span><h3>Ally-compatible NVMe SSDs</h3><p class="muted">Confirm 2230 versus 2280 fit for the exact model, capacity, warranty, thermals, and recovery plan.</p>
+      </a>
+    </div>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on July 27, 2026. Steam supplies the 85GB storage requirement, SSD guidance, 16GB memory requirement, full-controller-support label, 720p/30 Low minimum-PC context, and official artwork. ASUS supplies the original Ally and Ally X specifications plus its first-party performance-tuning workflow. Warner Bros. Games supplies the official bug-report route. The profiles above are conservative editorial starting sequences informed by those official constraints and recurring public configuration patterns. Handheld Settings Lab did not personally benchmark the current game build. Google autocomplete evidence saved in the site's July 2026 audit includes “ROG Ally settings for Hogwarts Legacy”; that is query-language evidence, not search volume.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+    <p>For more games, return to the <a href="/rog-ally-settings/">ROG Ally settings hub</a>. Compare the <a href="/steam-deck-settings/hogwarts-legacy/">Steam Deck Hogwarts Legacy baseline</a>, use the <a href="/calculators/">battery, storage, and accessory calculators</a>, or browse the <a href="/gear/">spec-based gear library</a>.</p>
+  </article>
+</Base>
