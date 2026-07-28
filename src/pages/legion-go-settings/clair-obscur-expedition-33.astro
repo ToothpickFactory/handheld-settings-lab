@@ -1,0 +1,203 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/legion-go-settings/clair-obscur-expedition-33/';
+const title = 'Clair Obscur Expedition 33 Legion Go settings: 800p/30 baseline — Handheld Settings Lab';
+const description = 'Start Clair Obscur: Expedition 33 on Lenovo Legion Go with a cautious 800p/30 FPS baseline, low settings, a repeatable combat test, and 55GB SSD planning.';
+const image = '/assets/games/clair-obscur-expedition-33-header.jpg';
+
+const sources = [
+  {
+    label: 'Steam: Clair Obscur: Expedition 33 store page, PC requirements, controller support, and official media',
+    url: 'https://store.steampowered.com/app/1903340/Clair_Obscur_Expedition_33/'
+  },
+  {
+    label: 'Lenovo PSREF: original Legion Go 8APU1 specifications',
+    url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1'
+  },
+  {
+    label: 'Sandfall Interactive: official Clair Obscur: Expedition 33 site',
+    url: 'https://www.expedition33.com/'
+  },
+  {
+    label: 'Lenovo Support: drivers and software lookup',
+    url: 'https://pcsupport.lenovo.com/'
+  }
+];
+
+const faqs = [
+  {
+    question: 'What settings should I use for Expedition 33 on Legion Go?',
+    answer: 'Begin at 1280×800, Low, a 30 FPS cap, and the game’s current balanced temporal-upscaling option. Turn motion blur off for the first comparison. Treat this as a cautious baseline to test, not a benchmark guarantee, because Handheld Settings Lab has not personally tested the current game and driver build.'
+  },
+  {
+    question: 'Can Legion Go run Clair Obscur: Expedition 33 at 60 FPS?',
+    answer: 'Do not use 60 FPS as the initial target. Steam’s minimum PC requirements describe 1080p/30 Low on a discrete GTX 1060 6GB, RX 5600 XT 6GB, or Arc A380 6GB. The Legion Go uses integrated graphics with shared memory, so start at 800p/30 and judge demanding combat and traversal before attempting a higher cap.'
+  },
+  {
+    question: 'Should I use 800p or 1200p for Expedition 33 on Legion Go?',
+    answer: 'Start at 800p for the performance baseline. After combat and traversal are acceptably paced, test 1200p without changing the power mode or frame cap. Keep 1200p only if the clarity gain is worth any reduction in consistency; the native 1600p panel does not require every game to render at 1600p.'
+  },
+  {
+    question: 'How much storage does Clair Obscur: Expedition 33 need?',
+    answer: 'Steam currently lists 55GB of available storage and says an SSD is required. Leave additional free space for patches, shader data, saves, and Windows temporary files rather than filling the drive to exactly 55GB.'
+  },
+  {
+    question: 'Does Expedition 33 support the Legion Go controls?',
+    answer: 'Steam lists full controller support and recommends a gamepad. Start with Legion Space in gamepad mode and the default in-game layout. If keyboard or mouse prompts appear, confirm the controller mode before building a custom remap.'
+  },
+  {
+    question: 'Were these Legion Go settings personally benchmarked?',
+    answer: 'No. This is an official-spec and public configuration-pattern-informed starting point. No frame-rate, battery-life, or thermal result on this page is presented as a Handheld Settings Lab measurement.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Clair Obscur: Expedition 33 Legion Go settings: 800p/30 FPS baseline',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-07-28',
+    dateModified: '2026-07-28',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Clair Obscur: Expedition 33', 'Lenovo Legion Go', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Legion Go settings', item: 'https://handheldsettings.com/legion-go-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Clair Obscur: Expedition 33 settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Legion Go settings · Baseline published July 2026</span>
+    <h1>Clair Obscur: Expedition 33 Legion Go settings: start at 800p and 30 FPS</h1>
+    <p class="lede muted">Expedition 33 combines detailed environments, effects-heavy turn-based combat, and timing-sensitive parries. This cautious original Legion Go profile starts at 800p/30, then restores image quality one step at a time. It is official-spec and public configuration-pattern-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Clair Obscur Expedition 33 Steam header artwork showing the expedition party" width="460" height="215" />
+      <figcaption class="media-credit">Official Clair Obscur: Expedition 33 Steam store header image. Source: <a href="https://store.steampowered.com/app/1903340/Clair_Obscur_Expedition_33/" target="_blank" rel="nofollow noopener">Sandfall Interactive and Kepler Interactive's Steam store page</a>. Artwork and trademarks belong to their owners; use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Starting target</h3><div class="stat">800p / 30</div><p class="muted">Cautious baseline, not a guarantee</p></section>
+      <section class="card"><h3>Starting preset</h3><div class="stat">Low</div><p class="muted">Restore clarity after combat is stable</p></section>
+      <section class="card"><h3>Upscaling</h3><p><strong>Balanced first</strong></p><p class="muted">Compare Quality after the baseline passes</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">55GB</div><p class="muted">Official requirement; SSD required</p></section>
+    </div>
+
+    <div class="callout"><strong>Test parry timing, not only the opening view.</strong> Use one repeatable encounter with several enemies plus a traversal route. Watch frame pacing during attacks, particle effects, camera cuts, and parries before raising image quality.</div>
+
+    <h2>Recommended Expedition 33 Legion Go baseline</h2>
+    <table>
+      <thead><tr><th>Setting</th><th>Start here</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Legion Go power mode</td><td>Performance-class profile</td><td>Establishes a stable power condition before graphics tuning. Record whether the device is on battery or its compatible charger.</td></tr>
+        <tr><td>Display refresh rate</td><td>60Hz for the first test</td><td>Keeps the 30 FPS target easy to interpret. A higher panel refresh setting does not make the game render more frames.</td></tr>
+        <tr><td>In-game resolution</td><td>1280×800</td><td>Uses the panel’s 16:10 shape at a much lower render load than native 2560×1600.</td></tr>
+        <tr><td>Frame-rate cap</td><td>30 FPS</td><td>Sets a cautious pacing target for demanding scenes and timing-based combat.</td></tr>
+        <tr><td>Graphics preset</td><td>Low</td><td>Creates a known starting point before individual quality settings are restored.</td></tr>
+        <tr><td>Temporal upscaling</td><td>Balanced</td><td>Prioritizes headroom for the first pass. Compare Quality only after the same encounter is acceptably paced.</td></tr>
+        <tr><td>Shadows</td><td>Low</td><td>Reduces a common source of GPU pressure in complex scenes.</td></tr>
+        <tr><td>Global illumination</td><td>Low</td><td>Keeps the expensive lighting path conservative on integrated graphics.</td></tr>
+        <tr><td>Effects</td><td>Low</td><td>Preserves headroom during attacks and particle-heavy combat.</td></tr>
+        <tr><td>Post processing</td><td>Low</td><td>Provides a clean baseline before adding presentation effects.</td></tr>
+        <tr><td>Textures</td><td>Low, then test Medium</td><td>Raise this first for clarity, but revert if hitching or shared-memory pressure becomes worse.</td></tr>
+        <tr><td>Foliage</td><td>Low</td><td>Reduces scene complexity during outdoor traversal.</td></tr>
+        <tr><td>Motion blur</td><td>Off for baseline test</td><td>Makes motion and frame-pacing differences easier to judge; re-enable only by preference.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Setting names and available upscalers can change with patches. Use the closest current menu option and avoid copying old configuration-file edits. Steam’s 1080p/30 Low statement describes the listed minimum desktop PC hardware; it is context, not proof of a Legion Go result.</p>
+
+    <h2>Tune it in a repeatable order</h2>
+    <ol>
+      <li><strong>Update and restart first.</strong> Finish the stable Windows, Lenovo, graphics-driver, Legion Space, and game updates for the exact device before diagnosing a repeatable issue.</li>
+      <li><strong>Record the power condition.</strong> Note the Legion Go power profile, charger state, refresh rate, and whether background downloads are paused.</li>
+      <li><strong>Apply 800p/30 Low.</strong> Choose Balanced temporal upscaling, keep expensive lighting and effects low, and disable motion blur for the comparison.</li>
+      <li><strong>Repeat one combat encounter.</strong> Include parries, dodges, effects, and camera movement. Then walk the same environment route to expose traversal hitching.</li>
+      <li><strong>Improve image quality one setting at a time.</strong> Compare Quality upscaling first, then Medium textures. Revert the first change that makes pacing or controls feel less consistent.</li>
+      <li><strong>Test 1200p only as a separate profile.</strong> Keep the 30 FPS cap and power condition unchanged so resolution is the only major variable.</li>
+    </ol>
+
+    <h2>Two useful profiles to save</h2>
+    <div class="grid cols2">
+      <section class="card">
+        <span class="chip">Profile A · consistency</span>
+        <h3>800p / 30 FPS / Low</h3>
+        <p>Use Balanced upscaling, Low lighting, shadows, effects, post processing, textures, and foliage. This is the starting diagnostic profile for heavier combat and traversal, not a promise that every scene will hold 30 FPS.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Profile B · clarity test</span>
+        <h3>800p / 30 FPS / selective Medium</h3>
+        <p>Keep the same cap and power mode, compare Quality upscaling, then raise textures to Medium. Leave lighting, shadows, effects, and foliage Low until the repeated encounter remains acceptable.</p>
+      </section>
+    </div>
+
+    <h2>Fix common Expedition 33 problems on Legion Go</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Parries feel inconsistent</td><td>Confirm a 30 FPS cap is active and repeat the same enemy pattern</td><td>Close background tasks, use the consistency profile, and compare wired or built-in controls before changing difficulty</td></tr>
+        <tr><td>Combat dips during effects</td><td>Keep effects, global illumination, shadows, and post processing Low</td><td>Return to Balanced upscaling and verify the same power profile and charger state</td></tr>
+        <tr><td>Image looks too soft</td><td>Compare Quality upscaling at 800p without raising other settings</td><td>Test Medium textures separately; avoid excessive sharpening that creates halos</td></tr>
+        <tr><td>Hitching during traversal</td><td>Pause downloads, restart after updates, and verify free SSD space</td><td>Repeat the route twice before deciding whether the hitch is persistent</td></tr>
+        <tr><td>Keyboard prompts appear</td><td>Set Legion Space controls to gamepad mode</td><td>Restore the default gamepad layout and remove conflicting remaps</td></tr>
+        <tr><td>New crashes after a patch</td><td>Restart, verify game files, and restore the baseline</td><td>Remove unofficial config edits and check official support channels for a current known issue</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, battery, and dock planning</h2>
+    <p>Steam currently lists <strong>55GB of available space</strong>, DirectX 12, 8GB of minimum system memory, and an SSD requirement. Keep extra room for patches, shader data, saves, and Windows temporary files. Use the <a href="/calculators/storage-planner/">storage planner</a>, and read the <a href="/guides/handheld-pc-ssd-form-factor-guide/">handheld SSD form-factor guide</a> before buying internal storage.</p>
+    <p>This page does not invent a battery runtime. Read total system draw from your own repeatable session and enter it in the <a href="/calculators/battery-estimator/">battery estimator</a>. Lower brightness, disable unused radios, and test a lower power profile only after the 30 FPS baseline is stable. For desk or TV play, use the <a href="/guides/handheld-gaming-usb-c-dock-checklist/">USB-C dock checklist</a>.</p>
+
+    <h2>Optional gear after the game is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, model fit, seller support, and return terms. No price, compatibility, performance, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+65w+usb+c+pd+charger" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers">
+        <span class="chip">Sponsored search</span><h3>65W-class USB-C PD chargers</h3><p class="muted">Verify the exact single-port PD output, cable rating, port-sharing behavior, warranty, and device support.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+a2+u3+microsd+card" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microsd-cards">
+        <span class="chip">Sponsored search</span><h3>A2 / U3 microSD cards</h3><p class="muted">Compare capacity, seller traceability, warranty, and card-verification tools before moving a large library.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+travel+case+charger+storage" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="cases">
+        <span class="chip">Sponsored search</span><h3>Legion Go travel cases</h3><p class="muted">Confirm exact fit, controller and stick clearance, accessory separation, and whether the charger presses against the device.</p>
+      </a>
+    </div>
+    <p>Compare those categories in the <a href="/gear/">spec-based gear library</a> or use the <a href="/calculators/accessory-budget/">accessory budget calculator</a> before buying.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on July 28, 2026. Steam supplies the 55GB SSD requirement, minimum and recommended desktop-PC context, full-controller-support label, gamepad recommendation, release information, and official image. Lenovo PSREF supplies the original Legion Go hardware context. Sandfall Interactive supplies the official game site, and Lenovo Support supplies the device-support route. The profiles are conservative editorial starting sequences informed by those constraints and public configuration patterns. Handheld Settings Lab did not personally benchmark the current game, Windows, driver, or Legion Space build. Google autocomplete evidence saved in the July 2026 audit includes “Legion Go settings for Expedition 33”; that is query-language evidence, not search volume.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+    <p>For the device-wide workflow, return to the <a href="/legion-go-settings/">Legion Go settings hub</a>. Use the <a href="/calculators/">battery, storage, and accessory calculators</a>, or browse the <a href="/gear/">gear library</a>.</p>
+  </article>
+</Base>
