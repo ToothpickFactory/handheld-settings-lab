@@ -1,0 +1,209 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/legion-go-settings/arc-raiders/';
+const title = 'ARC Raiders Legion Go settings: 800p/30 FPS baseline — Handheld Settings Lab';
+const description = 'Start ARC Raiders on the original Lenovo Legion Go at 800p/30 FPS with a cautious Low preset, clear-visibility tuning, repeatable raid tests, and network troubleshooting.';
+const image = '/assets/games/arc-raiders-header.jpg';
+
+const sources = [
+  {
+    label: 'Steam: ARC Raiders store page, current PC requirements, controller support, release details, and official media',
+    url: 'https://store.steampowered.com/app/1808500/ARC_Raiders/'
+  },
+  {
+    label: 'Embark Studios: official ARC Raiders site',
+    url: 'https://arcraiders.com/'
+  },
+  {
+    label: 'Lenovo PSREF: original Legion Go 8APU1 specifications',
+    url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1'
+  },
+  {
+    label: 'Lenovo Support: drivers and software lookup',
+    url: 'https://pcsupport.lenovo.com/'
+  }
+];
+
+const faqs = [
+  {
+    question: 'What ARC Raiders settings should I use on the original Legion Go?',
+    answer: 'Start at 1280×800, a 30 FPS cap, the Low graphics preset, motion blur off, and the game’s quality-oriented upscaling option when available. Test one repeatable surface route and a real firefight before raising view distance or textures. This is an editorial baseline, not a personally measured guarantee.'
+  },
+  {
+    question: 'Can Legion Go run ARC Raiders at 60 FPS?',
+    answer: 'A 60 FPS experiment can require lower image quality, more aggressive upscaling, frame generation, or a higher power profile, and it may not remain stable during effects-heavy fights. Validate a 30 FPS baseline first, then compare a 40 FPS profile before treating 60 FPS as the target.'
+  },
+  {
+    question: 'Should I use 800p or 1200p for ARC Raiders on Legion Go?',
+    answer: 'Use 800p for the first performance baseline. ARC Raiders is an online extraction game where readable motion and stable frame pacing matter more than rendering at the panel’s maximum resolution. Test 1200p only as a separate clarity profile after the same route is stable.'
+  },
+  {
+    question: 'Should frame generation be enabled in ARC Raiders?',
+    answer: 'Leave frame generation off for the first test so the base frame rate and input response are easier to judge. Compare it later only after the native or upscaled baseline is stable, and reject it if artifacts or extra latency interfere with aiming and target tracking.'
+  },
+  {
+    question: 'Does ARC Raiders support a controller on PC?',
+    answer: 'Steam currently labels ARC Raiders with full controller support. Keep the Legion Go controls in gamepad mode, start from the default layout, and remove conflicting Steam Input or Legion Space remaps when prompts or aim controls behave incorrectly.'
+  },
+  {
+    question: 'Were these Legion Go settings personally benchmarked?',
+    answer: 'No. Handheld Settings Lab did not personally test the current ARC Raiders build, Windows version, graphics driver, or Legion Space release. The profile is an official-spec and public configuration-pattern-informed starting point; no frame rate, battery runtime, latency, or thermal result is presented as a measurement.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'ARC Raiders Legion Go settings: 800p/30 FPS baseline',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-07-29',
+    dateModified: '2026-07-29',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['ARC Raiders', 'Lenovo Legion Go', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Legion Go settings', item: 'https://handheldsettings.com/legion-go-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'ARC Raiders settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Legion Go settings · Baseline published July 2026</span>
+    <h1>ARC Raiders Legion Go settings: start at 800p and 30 FPS</h1>
+    <p class="lede muted">ARC Raiders combines wide outdoor views, changing weather, machines, other players, and effects-heavy firefights. This original Legion Go profile starts conservatively at 800p, 30 FPS, and the Low preset, then restores useful visibility settings one at a time. It is official-spec and public configuration-pattern-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official ARC Raiders logo in cream lettering beside red, yellow, green, and blue diagonal stripes on a dark background" width="460" height="215" />
+      <figcaption class="media-credit">Official ARC Raiders Steam store header image. Source: <a href="https://store.steampowered.com/app/1808500/ARC_Raiders/" target="_blank" rel="nofollow noopener">Embark Studios' Steam store page</a>. Artwork and trademarks belong to their owners; use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Starting target</h3><div class="stat">800p / 30</div><p class="muted">Baseline to validate, not a guarantee</p></section>
+      <section class="card"><h3>Starting preset</h3><p><strong>Low</strong></p><p class="muted">Restore visibility selectively</p></section>
+      <section class="card"><h3>Upscaling</h3><p><strong>Quality-oriented</strong></p><p class="muted">Use the current supported option</p></section>
+      <section class="card"><h3>Connection</h3><p><strong>Online required</strong></p><p class="muted">Separate network issues from FPS</p></section>
+    </div>
+
+    <div class="callout"><strong>Protect your inventory while testing:</strong> learn the route with a low-value loadout, then repeat the same surface section and one comparable fight. A raid with different weather, enemies, players, or network conditions is not a controlled graphics comparison.</div>
+
+    <h2>Recommended ARC Raiders Legion Go baseline</h2>
+    <table>
+      <thead><tr><th>Setting</th><th>Start here</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Legion Go power mode</td><td>Performance-class profile</td><td>Creates a repeatable first condition. Record whether the handheld is on battery or a compatible USB-C PD charger.</td></tr>
+        <tr><td>Display refresh rate</td><td>60Hz for baseline</td><td>Reduces variables while validating a 30 FPS cap; panel refresh does not create rendered frames.</td></tr>
+        <tr><td>Display mode</td><td>Fullscreen</td><td>Provides a clean first comparison and avoids an unintended Windows desktop resolution influencing the test.</td></tr>
+        <tr><td>In-game resolution</td><td>1280×800</td><td>Preserves the Legion Go panel’s 16:10 shape while greatly lowering render load versus 2560×1600.</td></tr>
+        <tr><td>Frame-rate cap</td><td>30 FPS</td><td>Sets a cautious base target for outdoor traversal and effects-heavy fights before attempting 40 or 60.</td></tr>
+        <tr><td>Graphics preset</td><td>Low</td><td>Establishes headroom first. Raise individual settings only after the repeatable route passes.</td></tr>
+        <tr><td>Resolution scaling / upscaling</td><td>Quality-oriented mode</td><td>Begins with the clearer supported option. Move one step toward performance only if the same test still misses the cap.</td></tr>
+        <tr><td>View distance</td><td>Medium after baseline passes</td><td>Distant silhouettes and terrain matter in an extraction game, so this is the first setting worth restoring.</td></tr>
+        <tr><td>Textures</td><td>Medium after baseline passes</td><td>Can improve surface readability, but should be tested for hitching and shared-memory pressure rather than assumed safe.</td></tr>
+        <tr><td>Shadows</td><td>Low</td><td>Preserves frame-time headroom across outdoor scenes and moving combat.</td></tr>
+        <tr><td>Effects / post-processing</td><td>Low</td><td>Limits spikes and visual clutter during explosions, smoke, weather, and machine attacks.</td></tr>
+        <tr><td>Motion blur</td><td>Off</td><td>Keeps camera motion and distant target tracking easier to judge during the test.</td></tr>
+        <tr><td>Frame generation</td><td>Off for baseline</td><td>Exposes the underlying frame rate and input feel before generated frames are compared.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Graphics labels and available upscalers can change with game patches and hardware detection. Use the closest current option, save screenshots before editing, and avoid copying a desktop-GPU preset blindly. Steam’s minimum requirements are context, not proof of a Legion Go result.</p>
+
+    <h2>Run a repeatable raid-side test</h2>
+    <ol>
+      <li><strong>Update and restart.</strong> Finish stable Windows, Lenovo, graphics-driver, Legion Space, Steam, and game updates before diagnosing repeatable problems.</li>
+      <li><strong>Record the test condition.</strong> Note the power profile, charger state, refresh rate, battery percentage, network type, and current game version.</li>
+      <li><strong>Use a low-value loadout.</strong> Settings testing should not turn normal iteration into an avoidable gear loss.</li>
+      <li><strong>Apply the baseline.</strong> Select 1280×800, 30 FPS, Low, quality-oriented upscaling, Low effects and shadows, motion blur off, and frame generation off.</li>
+      <li><strong>Repeat one route.</strong> Traverse the same open area, rotate the camera across the same skyline, and fight a similar machine type when possible.</li>
+      <li><strong>Separate render and network symptoms.</strong> A frame-time spike, packet loss, rubber-banding, and server delay need different fixes. Do not lower graphics to solve an unstable connection.</li>
+      <li><strong>Restore clarity deliberately.</strong> Raise view distance first, then textures. Make one change per run and roll it back if pacing or hitching becomes worse.</li>
+    </ol>
+
+    <h2>Three profiles worth comparing</h2>
+    <div class="grid cols3">
+      <section class="card">
+        <span class="chip">Stable baseline</span>
+        <h3>800p / 30 FPS</h3>
+        <p>Low preset, quality-oriented upscaling, Low effects and shadows, motion blur off, and frame generation off. Restore Medium view distance first after the test passes.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Response experiment</span>
+        <h3>800p / 40 FPS</h3>
+        <p>Keep Low expensive effects and compare a more performance-oriented upscaler only when needed. Reject the profile if fights produce persistent uneven pacing.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Clarity experiment</span>
+        <h3>1200p / 30 FPS</h3>
+        <p>Use the same power mode and route. Keep it only if distant shapes and interface detail improve enough to justify the added render load and possible upscaling softness.</p>
+      </section>
+    </div>
+
+    <h2>Fix common ARC Raiders problems on Legion Go</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Outdoor traversal drops below the cap</td><td>Confirm 800p, Low preset, and the same power profile</td><td>Use a more performance-oriented upscaling mode, then lower view distance and effects one step</td></tr>
+        <tr><td>Firefights feel uneven</td><td>Turn frame generation off and repeat the same machine encounter</td><td>Lower effects and shadows; compare a 30 FPS cap before raising device power</td></tr>
+        <tr><td>Distant players or machines look too soft</td><td>Return to quality-oriented upscaling and motion blur off</td><td>Raise view distance before textures, or test 1200p/30 as a separate profile</td></tr>
+        <tr><td>Rubber-banding or delayed interactions</td><td>Check the network path, server status, and background downloads</td><td>Compare Ethernet through a compatible dock or a stable nearby Wi-Fi connection; graphics changes will not repair packet loss</td></tr>
+        <tr><td>Controller prompts or aim controls are wrong</td><td>Set Legion Space controls to gamepad mode</td><td>Restore the default layout and remove conflicting Steam Input or Legion Space remaps</td></tr>
+        <tr><td>New crashes or corruption after an update</td><td>Restore the Low preset and remove unofficial config edits</td><td>Verify game files, restart, and check current Embark, Steam, and Lenovo support notices</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Network, battery, and storage planning</h2>
+    <p>Steam describes ARC Raiders as an online multiplayer extraction adventure and lists broadband internet in both minimum and recommended PC requirements. Download updates before a planned session, pause competing transfers, and use the <a href="/guides/handheld-gaming-ethernet-adapter-dock-checklist/">Ethernet adapter and dock checklist</a> when Wi-Fi makes diagnosis ambiguous. The Steam requirements checked for this page do not state a storage amount, so this guide does not invent one; inspect the current Steam install-size prompt and keep patch headroom in the <a href="/calculators/storage-planner/">storage planner</a>.</p>
+    <p>This page does not invent battery runtime. Read total system draw during your own repeatable route and enter it in the <a href="/calculators/battery-estimator/">battery estimator</a>. A stable 30 FPS profile can be a better travel starting point than spending extra power on a frame target that fails during fights.</p>
+
+    <h2>Optional gear after the settings are stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, model fit, seller support, and return terms. No price, compatibility, performance, or latency claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+65w+usb+c+pd+charger" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers">
+        <span class="chip">Sponsored search</span><h3>65W-class USB-C PD chargers</h3><p class="muted">Verify dedicated single-port PD output, the included cable rating, port-sharing behavior, warranty, and support for the exact Legion Go model.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+ethernet+usb+c+dock+65w" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks">
+        <span class="chip">Sponsored search</span><h3>USB-C docks with Ethernet</h3><p class="muted">Compare Gigabit Ethernet, USB-C PD passthrough, cable position, device clearance, display modes, and whether the charger is included.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+carrying+case+charger" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="cases">
+        <span class="chip">Sponsored search</span><h3>Exact-fit Legion Go cases</h3><p class="muted">Check clearance around the sticks and triggers, hard-shell protection, charger storage, dimensions, and fit for the original Legion Go.</p>
+      </a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a>, review the <a href="/guides/legion-go-accessories-buying-checklist/">Legion Go accessory checklist</a>, or plan the total setup with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on July 29, 2026. Steam supplies the October 30, 2025 release date, current minimum and recommended PC requirements, DirectX 12 and broadband requirements, multiplayer and cross-platform labels, full-controller-support label, developer/publisher identity, and official image. Embark Studios supplies the official game site; Lenovo PSREF and Support provide original Legion Go hardware and support context. The profiles are cautious editorial starting sequences informed by those constraints and public configuration patterns. Handheld Settings Lab did not personally benchmark the current game, Windows, graphics driver, network route, or Legion Space build. Google autocomplete evidence saved in the July 2026 audit includes “Legion Go settings for Arc Raiders”; that is query-language evidence, not search volume.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+    <p>For the device-wide workflow, return to the <a href="/legion-go-settings/">Legion Go settings hub</a>. Use the <a href="/calculators/">battery, storage, and accessory calculators</a>, or browse the <a href="/gear/">gear library</a>.</p>
+  </article>
+</Base>
