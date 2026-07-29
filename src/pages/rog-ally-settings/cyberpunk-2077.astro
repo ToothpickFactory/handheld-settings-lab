@@ -1,0 +1,214 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/rog-ally-settings/cyberpunk-2077/';
+const title = 'Cyberpunk 2077 ROG Ally settings: 900p/40 baseline — Handheld Settings Lab';
+const description = 'Tune Cyberpunk 2077 on ROG Ally or Ally X with a cautious 900p/40 FPS baseline, Steam Deck preset, FSR guidance, repeatable Night City testing, and 70GB SSD planning.';
+const image = '/assets/games/cyberpunk-2077-header.jpg';
+
+const sources = [
+  {
+    label: 'Steam: Cyberpunk 2077 store data, PC requirements, controller support, and official media',
+    url: 'https://store.steampowered.com/app/1091500/Cyberpunk_2077/'
+  },
+  {
+    label: 'ASUS ROG: How to boost gaming performance on the ROG Ally',
+    url: 'https://rog.asus.com/articles/guides/how-to-boost-gaming-performance-on-the-rog-ally/'
+  },
+  {
+    label: 'ASUS ROG: ROG Ally (2023) technical specifications',
+    url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-2023/spec/'
+  },
+  {
+    label: 'ASUS ROG: ROG Ally X (2024) technical specifications',
+    url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/'
+  },
+  {
+    label: 'CD PROJEKT RED: official Cyberpunk 2077 site',
+    url: 'https://www.cyberpunk.net/us/en/'
+  }
+];
+
+const faqs = [
+  {
+    question: 'What Cyberpunk 2077 settings should I use on ROG Ally?',
+    answer: 'Start at 1600×900, the Steam Deck preset, FSR in Quality mode, ray tracing off, and a 40 FPS cap. Use a consistent Performance-class operating mode, run the built-in benchmark, and then drive the same busy Night City route. This is a cautious editorial baseline, not a personally measured guarantee.'
+  },
+  {
+    question: 'Can ROG Ally run Cyberpunk 2077 at 60 FPS?',
+    answer: 'A 60 FPS experiment can require 720p, more aggressive upscaling, lower effects, a higher power profile, or frame generation, and it may still vary in crowded areas. Establish a stable 40 FPS baseline first, then test 60 as a separate profile rather than assuming it will hold throughout the game.'
+  },
+  {
+    question: 'Should I use 900p or 720p on ROG Ally?',
+    answer: 'Begin at 900p for a clearer image on the Ally display. If a repeatable busy route cannot approach the target after expensive settings are low, compare 720p with the same power mode and cap. If performance changes little, resolution was probably not the main pressure point.'
+  },
+  {
+    question: 'Should ray tracing be enabled on ROG Ally?',
+    answer: 'Leave ray tracing off for the baseline. It adds substantial rendering load, while the first priority on integrated graphics should be consistent frame pacing. Restore conventional reflections, lighting, and shadow detail selectively after the route test is stable.'
+  },
+  {
+    question: 'How much storage does Cyberpunk 2077 need?',
+    answer: 'Steam currently lists 70GB of available space and requires an SSD. Leave additional room for patches, shader data, saves, optional content, and Windows temporary files instead of planning around exactly 70GB.'
+  },
+  {
+    question: 'Were these ROG Ally settings personally benchmarked?',
+    answer: 'No. Handheld Settings Lab did not personally test the current game, driver, Windows, BIOS, or Armoury Crate build on an Ally or Ally X. The profile is an official-spec and public configuration-pattern-informed starting point, so no frame rate, battery runtime, or thermal result is presented as a measurement.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Cyberpunk 2077 ROG Ally settings: 900p/40 FPS baseline',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-07-29',
+    dateModified: '2026-07-29',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Cyberpunk 2077', 'ROG Ally', 'ROG Ally X', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'ROG Ally settings', item: 'https://handheldsettings.com/rog-ally-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Cyberpunk 2077 settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">ROG Ally settings · Baseline published July 2026</span>
+    <h1>Cyberpunk 2077 ROG Ally settings: start at 900p and 40 FPS</h1>
+    <p class="lede muted">Cyberpunk 2077 includes a useful benchmark, but traffic, crowds, combat, and fast driving make Night City the real test. This Ally and Ally X workflow starts at 900p, the Steam Deck preset, and a 40 FPS cap before restoring detail one setting at a time. It is official-spec and public configuration-pattern-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Cyberpunk 2077 Steam header artwork showing V against a yellow Night City background" width="460" height="215" />
+      <figcaption class="media-credit">Official Cyberpunk 2077 Steam store header image, saved locally from <a href="https://store.steampowered.com/app/1091500/Cyberpunk_2077/" target="_blank" rel="nofollow noopener">CD PROJEKT RED's Steam store page</a>. Artwork and trademarks belong to their owners; use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Starting target</h3><div class="stat">900p / 40</div><p class="muted">Baseline to test, not a guarantee</p></section>
+      <section class="card"><h3>Fallback test</h3><div class="stat">720p / 40</div><p class="muted">Use to isolate resolution pressure</p></section>
+      <section class="card"><h3>Starting preset</h3><p><strong>Steam Deck</strong></p><p class="muted">Then tune the largest costs</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">70GB</div><p class="muted">Official requirement; SSD required</p></section>
+    </div>
+
+    <div class="callout"><strong>Run two tests:</strong> save the built-in benchmark result, then drive the same busy route and repeat one combat encounter. A profile that looks stable only in the benchmark is not fully validated.</div>
+
+    <h2>Recommended Cyberpunk 2077 ROG Ally baseline</h2>
+    <table>
+      <thead><tr><th>Setting</th><th>Start here</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Ally operating mode</td><td>Performance; compare Turbo while plugged in</td><td>Records the power condition before graphics tuning. Do not compare battery Performance against plugged-in Turbo as though they were the same test.</td></tr>
+        <tr><td>Display resolution</td><td>1600×900</td><td>Reduces render load from the panel's native 1080p while retaining more detail than 720p.</td></tr>
+        <tr><td>Frame-rate cap</td><td>40 FPS</td><td>Targets a practical middle ground between controller response, visual clarity, and demanding city scenes.</td></tr>
+        <tr><td>Quick preset</td><td>Steam Deck</td><td>Provides a conservative official in-game starting preset before individual changes.</td></tr>
+        <tr><td>AMD FidelityFX Super Resolution</td><td>Quality</td><td>Starts with the clearer upscaling mode. Compare Balanced only if the repeatable route needs more headroom.</td></tr>
+        <tr><td>Dynamic resolution scaling</td><td>Off for the first comparison</td><td>Keeps image resolution consistent while diagnosing settings. Test dynamic scaling later if occasional softness is preferable to drops.</td></tr>
+        <tr><td>Texture quality</td><td>Medium</td><td>Retains useful surface detail without making the first shared-memory profile overly aggressive.</td></tr>
+        <tr><td>Local shadows</td><td>Low</td><td>Reduces a common scene cost while preserving basic lighting readability.</td></tr>
+        <tr><td>Cascaded shadow range / resolution</td><td>Low</td><td>Cuts distant shadow work during driving and dense outdoor views.</td></tr>
+        <tr><td>Volumetric fog</td><td>Low</td><td>Preserves headroom in illuminated and effect-heavy scenes.</td></tr>
+        <tr><td>Screen-space reflections</td><td>Low</td><td>Reduces expensive reflections on wet streets and reflective interiors.</td></tr>
+        <tr><td>Crowd density</td><td>Low</td><td>Limits additional CPU and scene pressure in populated areas.</td></tr>
+        <tr><td>Ray tracing</td><td>Off</td><td>Avoids a large rendering cost on integrated graphics.</td></tr>
+        <tr><td>Motion blur / film grain / chromatic aberration</td><td>Off for baseline testing</td><td>Makes clarity and frame pacing easier to judge. Restore only according to preference.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Menu names and available upscalers can change with patches. Use the closest current option and save a screenshot before editing. Steam's minimum desktop-PC hardware is useful context, not proof of an Ally result.</p>
+
+    <h2>Tune Cyberpunk in a repeatable order</h2>
+    <ol>
+      <li><strong>Update and restart deliberately.</strong> Finish the stable game, Windows, ASUS graphics-driver, Armoury Crate SE, and BIOS updates offered for the exact Ally model.</li>
+      <li><strong>Record the power condition.</strong> Note original Ally versus Ally X, charger state, operating mode, battery percentage, display setting, and background downloads.</li>
+      <li><strong>Apply the baseline.</strong> Select 1600×900, 40 FPS, the Steam Deck preset, FSR Quality, Low crowd density, and ray tracing off.</li>
+      <li><strong>Run the built-in benchmark twice.</strong> Save the result for comparison, but do not present it as a universal device benchmark.</li>
+      <li><strong>Drive a busy route.</strong> Test traffic, crowds, rapid camera movement, and a short combat encounter. Repeat the same route after each meaningful change.</li>
+      <li><strong>Change one pressure point at a time.</strong> If pacing is uneven, compare FSR Balanced, then lower reflections, fog, shadows, and crowd density before cutting textures.</li>
+      <li><strong>Use 720p as a diagnostic.</strong> Keep the same mode and cap. If the route changes little, investigate scene pressure, background work, driver state, storage, or temperature instead of lowering resolution again.</li>
+    </ol>
+
+    <h2>Three profiles worth comparing</h2>
+    <div class="grid cols3">
+      <section class="card">
+        <span class="chip">Balanced baseline</span>
+        <h3>900p / 40 FPS</h3>
+        <p>Steam Deck preset, FSR Quality, Medium textures, Low crowd density, and ray tracing off. Try FSR Balanced if the busy-route test needs more headroom.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Consistency fallback</span>
+        <h3>900p / 30 FPS</h3>
+        <p>Keep the same visual settings and use the lower cap when steadier pacing matters more than response. Then test whether shadows or textures can be raised independently.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Response experiment</span>
+        <h3>720p / 60 FPS</h3>
+        <p>Expect more aggressive compromises. Test FSR Balanced and lower effects in a plugged-in profile. Reject it if driving produces uneven pacing or distracting softness.</p>
+      </section>
+    </div>
+
+    <h2>Fix common Cyberpunk 2077 problems on Ally</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Benchmark passes but driving stutters</td><td>Repeat the same route with downloads and overlays paused</td><td>Lower crowd density, reflections, fog, and shadows; then compare FSR Balanced</td></tr>
+        <tr><td>Image looks too soft</td><td>Return to 900p, FSR Quality, and fixed resolution</td><td>Use modest sharpening, then compare Medium textures without changing other settings</td></tr>
+        <tr><td>Frame rate is unstable in crowds</td><td>Confirm Low crowd density and the same operating mode</td><td>Try the 30 FPS consistency profile before raising the power target</td></tr>
+        <tr><td>Hitching appears after an update</td><td>Restart, pause downloads, and verify free SSD space</td><td>Run the benchmark and city route twice before changing several settings</td></tr>
+        <tr><td>Controller prompts are wrong</td><td>Set Armoury Crate control mode to Gamepad or Auto</td><td>Restore the default Steam Input or in-game controller layout and remove conflicting remaps</td></tr>
+        <tr><td>Turbo is unavailable through a dock</td><td>Connect the compatible charger directly to the Ally</td><td>Isolate the dock and cable, then verify USB-C PD input, output, and port-sharing behavior</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, battery, and dock planning</h2>
+    <p>Steam currently lists <strong>70GB of available space</strong>, DirectX 12, 12GB minimum system memory, full controller support, and an SSD requirement. Keep extra room for updates, shader data, saves, optional content, and Windows temporary files. Use the <a href="/calculators/storage-planner/">storage planner</a>, then check the <a href="/guides/rog-ally-ssd-size-compatibility-upgrade/">ROG Ally SSD size and compatibility guide</a> before opening the device.</p>
+    <p>This page does not invent a battery runtime. Read total system draw from your own repeatable route and enter it in the <a href="/calculators/battery-estimator/">battery estimator</a>. For plugged-in or TV play, verify the direct charger first, then use the <a href="/guides/handheld-gaming-usb-c-dock-checklist/">USB-C dock checklist</a> to isolate power and display issues.</p>
+
+    <h2>Optional gear after the settings are stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact model fit, electrical specifications, seller support, and return terms. No price, compatibility, performance, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+x+100w+usb+c+charger" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers">
+        <span class="chip">Sponsored search</span><h3>ROG Ally USB-C chargers</h3><p class="muted">Match USB-C PD wattage, cable rating, port-sharing behavior, warranty, and the exact Ally model.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+dock+100w+hdmi+vrr" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks">
+        <span class="chip">Sponsored search</span><h3>ROG Ally docks</h3><p class="muted">Compare power passthrough, display modes, VRR support, Ethernet, port layout, and physical clearance.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+x+2280+nvme+ssd" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="nvme-ssds">
+        <span class="chip">Sponsored search</span><h3>Ally-compatible NVMe SSDs</h3><p class="muted">Confirm 2230 versus 2280 fit for the exact model, capacity, warranty, thermals, and recovery plan.</p>
+      </a>
+    </div>
+    <p>Compare these categories in the <a href="/gear/">spec-based gear library</a> or plan the full setup with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on July 29, 2026. Steam's public store data supplies the current 70GB SSD requirement, 12GB minimum system-memory listing, DirectX 12 requirement, full-controller-support label, developer/publisher identity, and official image. ASUS supplies the original Ally and Ally X specifications plus its first-party performance-tuning workflow. CD PROJEKT RED supplies the official game site. The profiles are conservative editorial starting sequences informed by those constraints, the game's built-in benchmark, and recurring public configuration patterns. Handheld Settings Lab did not personally benchmark the current game, driver, BIOS, Windows, or Armoury Crate build. Google autocomplete evidence saved in the July 2026 audit includes “ROG Ally settings for Cyberpunk”; that is query-language evidence, not search volume.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+    <p>For more games, return to the <a href="/rog-ally-settings/">ROG Ally settings hub</a>. Compare the <a href="/legion-go-settings/cyberpunk-2077/">Legion Go Cyberpunk 2077 baseline</a>, use the <a href="/calculators/">battery, storage, and accessory calculators</a>, or browse the <a href="/gear/">gear library</a>.</p>
+  </article>
+</Base>
