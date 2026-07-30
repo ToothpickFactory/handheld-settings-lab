@@ -1,0 +1,202 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/steam-deck-settings/clair-obscur-expedition-33/';
+const title = 'Expedition 33 Steam Deck settings: 800p/30 baseline — Handheld Settings Lab';
+const description = 'Start Clair Obscur: Expedition 33 on Steam Deck with a cautious 800p/30 FPS baseline, low settings, repeatable parry testing, and 55GB SSD planning.';
+const image = '/assets/games/clair-obscur-expedition-33-header.jpg';
+
+const sources = [
+  {
+    label: 'Steam: Clair Obscur: Expedition 33 store data, PC requirements, controller support, and official media',
+    url: 'https://store.steampowered.com/app/1903340/Clair_Obscur_Expedition_33/'
+  },
+  {
+    label: 'Steam: current Steam Deck compatibility report for app 1903340',
+    url: 'https://store.steampowered.com/saleaction/ajaxgetdeckappcompatibilityreport?nAppID=1903340'
+  },
+  {
+    label: 'Sandfall Interactive: official Clair Obscur: Expedition 33 site',
+    url: 'https://www.expedition33.com/'
+  },
+  {
+    label: 'Valve: Steam Deck technical specifications',
+    url: 'https://www.steamdeck.com/en/tech'
+  }
+];
+
+const faqs = [
+  {
+    question: 'What settings should I use for Expedition 33 on Steam Deck?',
+    answer: 'Begin at 1280×800, Low, a 30 FPS cap, and the current temporal upscaler’s Balanced mode. Keep shadows, global illumination, effects, post processing, and foliage Low; turn motion blur off for the first comparison. This is a cautious editorial baseline to test, not a personally measured guarantee.'
+  },
+  {
+    question: 'Is Clair Obscur: Expedition 33 Steam Deck Verified?',
+    answer: 'Yes. Valve’s compatibility endpoint currently resolves the game as category 3, Verified, and reports functional default controls, matching controller glyphs, legible interface text, and a performant default configuration. That label does not guarantee a locked frame rate in every battle, cutscene, or area.'
+  },
+  {
+    question: 'Can Steam Deck run Expedition 33 at 60 FPS?',
+    answer: 'Do not use 60 FPS as the first tuning target. The official minimum PC note targets 1080p/30 at Low on listed desktop hardware, while Steam Deck uses a different integrated system. Establish a repeatable 30 FPS profile first; a higher cap is an experiment, not an expectation.'
+  },
+  {
+    question: 'Should I use FSR Quality or Balanced in Expedition 33 on Steam Deck?',
+    answer: 'Begin with the current temporal upscaler’s Balanced mode for headroom, then compare Quality on the same combat encounter without changing the cap or quality settings. Keep Quality only if parries, effects-heavy attacks, camera cuts, and traversal remain acceptably paced.'
+  },
+  {
+    question: 'How much storage does Expedition 33 need on Steam Deck?',
+    answer: 'Steam currently lists 55GB of available storage and says an SSD is required. Leave additional room for patches, shader data, saves, and SteamOS maintenance rather than planning around exactly 55GB.'
+  },
+  {
+    question: 'Were these Expedition 33 Steam Deck settings benchmarked?',
+    answer: 'No. Handheld Settings Lab did not personally benchmark the current game, SteamOS, or compatibility-layer build. This page is informed by official requirements, Valve’s current compatibility report, and conservative public configuration patterns; it does not present frame-rate, battery, or thermal results as measurements.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Clair Obscur: Expedition 33 Steam Deck settings: 800p/30 FPS baseline',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-07-30',
+    dateModified: '2026-07-30',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Clair Obscur: Expedition 33', 'Steam Deck', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Steam Deck settings', item: 'https://handheldsettings.com/steam-deck-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Clair Obscur: Expedition 33 settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Steam Deck settings · Baseline published July 2026</span>
+    <h1>Clair Obscur: Expedition 33 Steam Deck settings: start at 800p and 30 FPS</h1>
+    <p class="lede muted">Expedition 33 combines detailed environments with timing-sensitive parries, rapid camera cuts, and effects-heavy turn-based combat. Valve currently marks it Steam Deck Verified. This cautious profile starts at 800p/30 and restores clarity one step at a time. It is official-spec and public configuration-pattern-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Clair Obscur Expedition 33 Steam header artwork showing members of the expedition" width="460" height="215" />
+      <figcaption class="media-credit">Official Clair Obscur: Expedition 33 Steam store header image, saved locally from <a href="https://store.steampowered.com/app/1903340/Clair_Obscur_Expedition_33/" target="_blank" rel="nofollow noopener">Sandfall Interactive and Kepler Interactive's Steam store page</a>. Artwork and trademarks belong to their owners; use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Starting target</h3><div class="stat">800p / 30</div><p class="muted">Cautious baseline, not a guarantee</p></section>
+      <section class="card"><h3>Starting preset</h3><div class="stat">Low</div><p class="muted">Restore clarity after combat is stable</p></section>
+      <section class="card"><h3>Compatibility</h3><p><strong>Deck Verified</strong></p><p class="muted">Valve report checked July 30, 2026</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">55GB</div><p class="muted">Official requirement; SSD required</p></section>
+    </div>
+
+    <div class="callout"><strong>Test parry timing, not only a quiet vista.</strong> Repeat one encounter with several enemies, attacks, particle effects, and camera movement. Then walk the same traversal route. A menu or empty corridor cannot prove the profile is ready.</div>
+
+    <h2>Recommended Expedition 33 Steam Deck baseline</h2>
+    <table>
+      <thead><tr><th>Setting</th><th>Start here</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Resolution</td><td>1280×800</td><td>Matches the Deck panel’s 16:10 shape while establishing a straightforward handheld baseline.</td></tr>
+        <tr><td>Frame-rate cap</td><td>30 FPS</td><td>Sets a cautious pacing target for effects-heavy combat and timing-based defense.</td></tr>
+        <tr><td>Graphics preset</td><td>Low</td><td>Creates a known floor before individual quality options are restored.</td></tr>
+        <tr><td>Temporal upscaling</td><td>Balanced</td><td>Prioritizes headroom for the first pass. Compare Quality only after the repeated encounter feels acceptable.</td></tr>
+        <tr><td>Shadows</td><td>Low</td><td>Reduces a common source of rendering pressure in detailed scenes.</td></tr>
+        <tr><td>Global illumination</td><td>Low</td><td>Keeps the lighting path conservative on integrated graphics.</td></tr>
+        <tr><td>Effects</td><td>Low</td><td>Preserves headroom for attacks, particles, and scene transitions.</td></tr>
+        <tr><td>Post processing</td><td>Low</td><td>Provides a clean diagnostic profile before presentation effects are raised.</td></tr>
+        <tr><td>Textures</td><td>Low, then test Medium</td><td>Raise this separately for clarity; revert if hitching or shared-memory pressure becomes worse.</td></tr>
+        <tr><td>Foliage</td><td>Low</td><td>Reduces scene complexity during outdoor traversal.</td></tr>
+        <tr><td>Motion blur</td><td>Off for baseline test</td><td>Makes motion and pacing differences easier to inspect. Re-enable later only by preference.</td></tr>
+        <tr><td>Steam Deck TDP limit</td><td>Off for the first test</td><td>Do not constrain device power before the graphics profile is repeatable. Tune power only after the target is acceptable.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Menu names and upscaler options can change with patches. Use the closest current option and avoid copying an old configuration file. Steam’s 1080p/30 Low statement describes the listed minimum desktop-PC hardware; it is useful context, not proof of a Steam Deck result.</p>
+
+    <h2>Tune it in an order you can reproduce</h2>
+    <ol>
+      <li><strong>Update, launch, and restart.</strong> Finish stable SteamOS, game, and shader-cache downloads, then restart before diagnosing a repeatable problem.</li>
+      <li><strong>Use Valve’s default compatibility choice.</strong> The current report is Verified. Do not force an old compatibility-tool version before testing the supported default path.</li>
+      <li><strong>Apply 800p/30 Low.</strong> Choose Balanced temporal upscaling, keep expensive lighting and effects Low, and disable motion blur for the comparison.</li>
+      <li><strong>Repeat one useful encounter.</strong> Include parries, dodges, effects, and camera cuts. Follow it with the same traversal route to expose recurring hitching.</li>
+      <li><strong>Improve clarity one change at a time.</strong> Compare Quality upscaling first, then Medium textures. Revert the first change that makes pacing or controls less consistent.</li>
+      <li><strong>Tune battery last.</strong> If the 30 FPS profile passes, lower the Deck TDP limit in small steps and retest the same encounter. Stop when pacing worsens, then move back one step.</li>
+    </ol>
+
+    <h2>Two useful profiles to compare</h2>
+    <div class="grid cols2">
+      <section class="card">
+        <span class="chip">Profile A · consistency</span>
+        <h3>800p / 30 FPS / Low</h3>
+        <p>Use Balanced upscaling with Low lighting, shadows, effects, post processing, textures, and foliage. This is the starting diagnostic profile, not a guarantee that every scene will hold 30 FPS.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Profile B · clarity test</span>
+        <h3>800p / 30 FPS / selective Medium</h3>
+        <p>Keep the same cap and power condition, compare Quality upscaling, then raise textures to Medium. Leave lighting, shadows, effects, and foliage Low until the repeated encounter still feels acceptable.</p>
+      </section>
+    </div>
+
+    <h2>Fix common Expedition 33 problems on Steam Deck</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Parries feel inconsistent</td><td>Confirm the 30 FPS cap is active and repeat the same enemy pattern</td><td>Close downloads and overlays, use the consistency profile, and test the built-in controls before changing several settings</td></tr>
+        <tr><td>Combat dips during effects</td><td>Keep effects, global illumination, shadows, and post processing Low</td><td>Return to Balanced upscaling and remove any TDP limit for the diagnostic pass</td></tr>
+        <tr><td>Image looks too soft</td><td>Compare Quality upscaling at 800p without raising other settings</td><td>Test Medium textures separately; avoid excessive sharpening that creates halos</td></tr>
+        <tr><td>Hitching during traversal</td><td>Pause downloads, restart after updates, and verify free storage</td><td>Repeat the route twice before deciding whether the hitch is persistent</td></tr>
+        <tr><td>External controller cannot control player one</td><td>Use the built-in controls and check controller order</td><td>Valve’s current report flags external controllers as not supporting the primary player; recheck that report after game updates</td></tr>
+        <tr><td>New crashes after a patch</td><td>Restart, verify files, and restore the baseline</td><td>Remove unofficial launch options or compatibility overrides and check official channels for a current issue</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, battery, and travel planning</h2>
+    <p>Steam currently lists <strong>55GB of available space</strong>, DirectX 12, 8GB of minimum system memory, full controller support, and an SSD requirement. Keep extra room for patches, shader data, saves, screenshots, and SteamOS maintenance. Use the <a href="/calculators/storage-planner/">storage planner</a>, then compare the <a href="/guides/microsd-vs-ssd-handheld-pc/">microSD versus SSD guide</a> before moving a large library.</p>
+    <p>This page does not invent a battery runtime. Read total system draw from your own repeated encounter and enter it in the <a href="/calculators/battery-estimator/">battery estimator</a>. Lower brightness and test a smaller TDP limit only after the frame profile is stable. Before travel, use the <a href="/guides/handheld-pc-offline-mode-flight-checklist/">offline-mode flight checklist</a>.</p>
+
+    <h2>Optional gear after the settings are stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, seller traceability, support, and return terms. No price, compatibility, performance, or battery promise is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+a2+u3+microsd+card" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microsd-cards">
+        <span class="chip">Sponsored search</span><h3>A2 / U3 microSD cards</h3><p class="muted">Compare capacity, seller traceability, warranty, and verification tools before moving a 55GB-plus library.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+45w+usb+c+pd+power+bank" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="power-banks">
+        <span class="chip">Sponsored search</span><h3>45W USB-C PD power banks</h3><p class="muted">Check dedicated-port PD output, printed watt-hours, cable rating, weight, and current airline rules.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+travel+case+charger+storage" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="cases">
+        <span class="chip">Sponsored search</span><h3>Steam Deck travel cases</h3><p class="muted">Confirm exact fit, stick and vent clearance, and whether accessory storage presses against the handheld.</p>
+      </a>
+    </div>
+    <p>Compare these categories in the <a href="/gear/">spec-based gear library</a> or plan the setup with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on July 30, 2026. Steam’s public store API supplies the 55GB SSD requirement, minimum and recommended desktop-PC context, full-controller-support label, developer and publisher identity, release information, and official image. Valve’s live compatibility endpoint currently resolves the game as Deck Verified and reports functional default controls, matching glyphs, legible interface text, and a performant default configuration; it also flags external controllers as not supporting the primary player. Sandfall Interactive supplies the official game site, and Valve supplies Steam Deck hardware context. The profiles are conservative editorial starting sequences informed by those official constraints and public configuration patterns. Handheld Settings Lab did not personally benchmark the current game, SteamOS, or compatibility build. Google autocomplete evidence saved in the July 2026 audit includes “Steam Deck settings for Expedition 33”; that is query-language evidence, not search volume.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+    <p>For more games, return to the <a href="/steam-deck-settings/">Steam Deck settings hub</a>. Compare the <a href="/legion-go-settings/clair-obscur-expedition-33/">Legion Go Expedition 33 baseline</a>, use the <a href="/calculators/">battery, storage, and accessory calculators</a>, or browse the <a href="/gear/">gear library</a>.</p>
+  </article>
+</Base>
