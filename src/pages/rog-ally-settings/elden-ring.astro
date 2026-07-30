@@ -1,0 +1,215 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/rog-ally-settings/elden-ring/';
+const title = 'Elden Ring ROG Ally settings: 900p/40 baseline — Handheld Settings Lab';
+const description = 'Tune Elden Ring on ROG Ally or Ally X with a cautious 900p/40 FPS baseline, 720p fallback, ray tracing off, repeatable Limgrave testing, and 60GB storage planning.';
+const image = '/assets/games/elden-ring-header.jpg';
+
+const sources = [
+  {
+    label: 'Steam: Elden Ring store data, PC requirements, controller support, and official media',
+    url: 'https://store.steampowered.com/app/1245620/ELDEN_RING/'
+  },
+  {
+    label: 'Bandai Namco: official Elden Ring site and PC system requirements',
+    url: 'https://en.bandainamcoent.eu/elden-ring/elden-ring'
+  },
+  {
+    label: 'ASUS ROG: How to boost gaming performance on the ROG Ally',
+    url: 'https://rog.asus.com/articles/guides/how-to-boost-gaming-performance-on-the-rog-ally/'
+  },
+  {
+    label: 'ASUS ROG: ROG Ally (2023) technical specifications',
+    url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-2023/spec/'
+  },
+  {
+    label: 'ASUS ROG: ROG Ally X (2024) technical specifications',
+    url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/'
+  }
+];
+
+const faqs = [
+  {
+    question: 'What Elden Ring settings should I use on ROG Ally?',
+    answer: 'Start at 1600×900, a 40 FPS external cap, ray tracing off, Medium textures, and Low-to-Medium settings elsewhere. Test one repeatable outdoor route and a familiar boss or enemy group before raising quality. This is a cautious editorial baseline, not a personally measured guarantee.'
+  },
+  {
+    question: 'Can ROG Ally run Elden Ring at 60 FPS?',
+    answer: 'You can test the game’s 60 FPS ceiling, especially while plugged in, but demanding vistas, weather, effects, and encounters may not hold it consistently. Establish the 40 FPS profile first; then compare 720p and lower effects at the same operating mode before deciding whether the less consistent 60 FPS target is worthwhile.'
+  },
+  {
+    question: 'Should I use 900p or 720p for Elden Ring on Ally?',
+    answer: 'Begin at 900p for clearer fine detail. If the same outdoor route cannot approach the target after ray tracing and expensive effects are reduced, compare 720p without changing the cap or operating mode. Return to 900p if the lower resolution does not materially improve frame pacing.'
+  },
+  {
+    question: 'Should ray tracing be enabled in Elden Ring on ROG Ally?',
+    answer: 'No—not for the baseline. Ray tracing increases rendering load and is not necessary to play the game. Leave it off while tuning an integrated-graphics handheld, and only experiment after the non-ray-traced profile is stable.'
+  },
+  {
+    question: 'How much storage does Elden Ring need on ROG Ally?',
+    answer: 'Steam and Bandai Namco currently list 60GB of available space for the base PC game. Keep additional free space for updates, save backups, shader data, Windows temporary files, and any separately installed expansion content instead of planning around exactly 60GB.'
+  },
+  {
+    question: 'Were these Elden Ring ROG Ally settings personally benchmarked?',
+    answer: 'No. Handheld Settings Lab did not personally test the current game, Windows, driver, BIOS, or Armoury Crate build on an Ally or Ally X. This is an official-spec and public configuration-pattern-informed starting point; no frame rate, battery runtime, or thermal result is presented as a measurement.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Elden Ring ROG Ally settings: 900p/40 FPS baseline',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-07-30',
+    dateModified: '2026-07-30',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Elden Ring', 'ROG Ally', 'ROG Ally X', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'ROG Ally settings', item: 'https://handheldsettings.com/rog-ally-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Elden Ring settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">ROG Ally settings · Baseline published July 2026</span>
+    <h1>Elden Ring ROG Ally settings: start at 900p and 40 FPS</h1>
+    <p class="lede muted">Elden Ring can shift from a quiet interior to wide views, weather, field bosses, particle-heavy attacks, and rapid traversal. This Ally and Ally X workflow begins at 900p/40 with ray tracing off, then uses a 720p comparison to isolate rendering pressure. It is official-spec and public configuration-pattern-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Elden Ring Steam header artwork showing a lone figure facing the glowing Erdtree" width="460" height="215" />
+      <figcaption class="media-credit">Official Elden Ring Steam store header image, saved locally from <a href="https://store.steampowered.com/app/1245620/ELDEN_RING/" target="_blank" rel="nofollow noopener">FromSoftware and Bandai Namco's Steam store page</a>. Artwork and trademarks belong to their owners; use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Starting target</h3><div class="stat">900p / 40</div><p class="muted">Baseline to test, not a guarantee</p></section>
+      <section class="card"><h3>Fallback test</h3><div class="stat">720p / 40</div><p class="muted">Use to isolate resolution pressure</p></section>
+      <section class="card"><h3>Starting preset</h3><p><strong>Low / Medium mix</strong></p><p class="muted">Ray tracing off</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">60GB</div><p class="muted">Official base-game requirement</p></section>
+    </div>
+
+    <div class="callout"><strong>Test the same route, not the opening menu.</strong> Ride through a familiar Limgrave route with distant scenery, turn the camera, trigger one enemy encounter, and repeat after every meaningful change. Also test the area that gives your own save the most trouble.</div>
+
+    <h2>Recommended Elden Ring ROG Ally baseline</h2>
+    <table>
+      <thead><tr><th>Setting</th><th>Start here</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Ally operating mode</td><td>Performance; compare Turbo while plugged in</td><td>Defines the power condition before graphics tuning. Never compare battery Performance against plugged-in Turbo as if they were the same test.</td></tr>
+        <tr><td>Display resolution</td><td>1600×900</td><td>Reduces rendering load from the panel's native 1080p while retaining more detail than 720p.</td></tr>
+        <tr><td>Frame-rate target</td><td>40 FPS external cap</td><td>Targets a practical middle ground below the game's 60 FPS ceiling. Use one limiting method and verify it works in the current game mode.</td></tr>
+        <tr><td>Texture quality</td><td>Medium</td><td>Retains useful surface detail without making the first shared-memory profile overly aggressive.</td></tr>
+        <tr><td>Antialiasing quality</td><td>Low</td><td>Keeps the baseline light; raise separately if edge shimmer is distracting at 900p.</td></tr>
+        <tr><td>SSAO</td><td>Medium</td><td>Preserves some contact shading while leaving room to reduce it if busy outdoor scenes struggle.</td></tr>
+        <tr><td>Depth of field / motion blur</td><td>Off</td><td>Improves handheld clarity during camera movement and removes two presentation effects from the first comparison.</td></tr>
+        <tr><td>Shadow quality</td><td>Low</td><td>Reduces a common cost across large outdoor spaces and dynamic lighting.</td></tr>
+        <tr><td>Lighting quality</td><td>Medium</td><td>Maintains basic scene definition; lower it only after testing the same route.</td></tr>
+        <tr><td>Effects quality</td><td>Low</td><td>Preserves headroom during combat, magic, fire, and particle-heavy encounters.</td></tr>
+        <tr><td>Volumetric quality</td><td>Low</td><td>Reduces pressure from fog, weather, and atmospheric scenes.</td></tr>
+        <tr><td>Reflection / water surface quality</td><td>Low</td><td>Cuts secondary scene detail before sacrificing texture clarity.</td></tr>
+        <tr><td>Shader / global illumination quality</td><td>Low</td><td>Creates a conservative floor for visually complex locations.</td></tr>
+        <tr><td>Grass quality</td><td>Low</td><td>Reduces dense outdoor detail while riding through fields.</td></tr>
+        <tr><td>Ray tracing quality</td><td>Off</td><td>Avoids a substantial optional rendering cost on integrated graphics.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Menu names can change with patches. Use the closest current option and photograph the settings screen before editing. Steam's minimum desktop-PC hardware is context, not proof of an Ally frame rate. Elden Ring does not need an invented upscaling setting: this baseline uses the resolution options exposed by the current game and avoids unofficial configuration-file claims.</p>
+
+    <h2>Compare three profiles without mixing variables</h2>
+    <div class="grid cols3">
+      <section class="card">
+        <span class="chip">Balanced baseline</span>
+        <h3>900p / 40 FPS</h3>
+        <p>Medium textures and SSAO, Low shadows, effects, volumetrics, reflections, water, shaders, global illumination, and grass, with ray tracing off. Test this first on a repeatable outdoor route.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Consistency fallback</span>
+        <h3>900p / 30 FPS</h3>
+        <p>Keep the same image settings and lower only the cap when a steadier target matters more than response. If stable, test Medium antialiasing or shadows one at a time.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Response experiment</span>
+        <h3>720p / 60 FPS</h3>
+        <p>Use as a demanding experiment, not a promise. Keep ray tracing off and test the same route while plugged in. Reject the profile if frame pacing remains uneven or the softer image is not worth it.</p>
+      </section>
+    </div>
+
+    <h2>Tune Elden Ring in a repeatable order</h2>
+    <ol>
+      <li><strong>Update and restart deliberately.</strong> Finish the stable game, Windows, ASUS graphics-driver, Armoury Crate SE, and BIOS updates offered for the exact Ally model.</li>
+      <li><strong>Record the conditions.</strong> Note original Ally versus Ally X, charger state, operating mode, battery percentage, resolution, cap method, game version, driver, and background downloads.</li>
+      <li><strong>Apply the 900p/40 baseline.</strong> Turn ray tracing off and set the Low/Medium mix before loading the chosen route.</li>
+      <li><strong>Repeat one outdoor pass.</strong> Ride through the same Limgrave path twice, then test one known combat encounter. A quiet interior is not enough.</li>
+      <li><strong>Use 720p as a diagnostic.</strong> Keep the same cap, mode, route, and settings. If pacing changes little, rendering resolution was probably not the only pressure point.</li>
+      <li><strong>Lower expensive scene settings first.</strong> Reduce SSAO and Lighting after shadows, effects, volumetrics, reflections, water, global illumination, and grass are already Low. Keep textures at Medium unless symptoms suggest memory pressure.</li>
+      <li><strong>Build a separate plugged-in profile.</strong> Compare Turbo only with a compatible charger connected directly, then retest through a dock separately.</li>
+    </ol>
+
+    <h2>Fix common Elden Ring problems on Ally</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Outdoor traversal feels uneven</td><td>Repeat the route with downloads and overlays paused</td><td>Keep shadows, volumetrics, effects, reflections, global illumination, and grass Low; then compare 720p at the same cap</td></tr>
+        <tr><td>Image looks too soft or jagged</td><td>Return to 900p and verify antialiasing is enabled</td><td>Raise antialiasing to Medium before raising several scene settings</td></tr>
+        <tr><td>Performance changes little at 720p</td><td>Confirm the same operating mode, cap, route, and background state</td><td>Investigate scene pressure, driver state, temperature, storage activity, or a game-side issue instead of lowering resolution again</td></tr>
+        <tr><td>Combat effects cause drops</td><td>Confirm ray tracing and motion blur are off</td><td>Keep Effects, Volumetrics, Shadows, and Global Illumination Low, then choose the 30 FPS consistency profile if needed</td></tr>
+        <tr><td>Controller prompts or input are wrong</td><td>Set Armoury Crate control mode to Gamepad or Auto</td><td>Restore the default Steam Input or in-game layout and remove conflicting remaps</td></tr>
+        <tr><td>Turbo is unavailable through a dock</td><td>Connect the compatible charger directly to the Ally</td><td>Isolate the dock and cable, then verify USB-C PD input, output, and port-sharing specifications</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, battery, and dock planning</h2>
+    <p>Steam and Bandai Namco currently list <strong>60GB of available space</strong>, DirectX 12, 12GB minimum system memory, and full controller support on Steam. Keep extra room for patches, shader data, saves, Windows temporary files, and separately installed expansion content. Use the <a href="/calculators/storage-planner/">storage planner</a>, then check the <a href="/guides/rog-ally-ssd-size-compatibility-upgrade/">ROG Ally SSD size and compatibility guide</a> before opening the device.</p>
+    <p>This page does not invent a battery runtime. The original ROG Ally and Ally X have different official battery capacities, and runtime also changes with power mode, brightness, wireless use, frame target, and the scene. Read total system draw from your own repeatable route and enter it in the <a href="/calculators/battery-estimator/">battery estimator</a>. For plugged-in or TV play, verify the direct charger first, then use the <a href="/guides/handheld-gaming-usb-c-dock-checklist/">USB-C dock checklist</a>.</p>
+
+    <h2>Optional gear after the settings are stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact model fit, electrical specifications, seller support, and return terms. No price, compatibility, performance, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+x+100w+usb+c+charger" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers">
+        <span class="chip">Sponsored search</span><h3>ROG Ally USB-C chargers</h3><p class="muted">Match USB-C PD wattage, cable rating, port-sharing behavior, warranty, and the exact Ally model.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+dock+100w+hdmi+vrr" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks">
+        <span class="chip">Sponsored search</span><h3>ROG Ally docks</h3><p class="muted">Compare power passthrough, display modes, VRR support, Ethernet, port layout, and physical clearance.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+x+2280+nvme+ssd" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="nvme-ssds">
+        <span class="chip">Sponsored search</span><h3>Ally-compatible NVMe SSDs</h3><p class="muted">Confirm 2230 versus 2280 fit for the exact model, capacity, warranty, thermals, and recovery plan.</p>
+      </a>
+    </div>
+    <p>Compare these categories in the <a href="/gear/">spec-based gear library</a> or plan the full setup with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on July 30, 2026. Steam's public store API and store page supply the current 60GB requirement, 12GB minimum-memory listing, DirectX 12 requirement, full-controller-support label, developer and publisher identity, and official image. Bandai Namco's official game page independently lists the PC requirements. ASUS supplies the original Ally and Ally X specifications and its first-party guidance on operating modes, updates, resolution, and performance tuning. The profile is a conservative editorial starting sequence informed by those official constraints and recurring public configuration patterns. Handheld Settings Lab did not personally benchmark the current game, driver, BIOS, Windows, or Armoury Crate build. Google autocomplete evidence saved in the site's July 2026 audit includes “best Steam Deck settings for Elden Ring”; this cross-device page extends the site's one-game/every-handheld coverage, and the autocomplete phrase is query-language evidence—not search volume.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+    <p>For more games, return to the <a href="/rog-ally-settings/">ROG Ally settings hub</a>. Compare the <a href="/steam-deck-settings/elden-ring/">Steam Deck Elden Ring baseline</a>, use the <a href="/calculators/">battery, storage, and accessory calculators</a>, or browse the <a href="/gear/">gear library</a>.</p>
+  </article>
+</Base>
