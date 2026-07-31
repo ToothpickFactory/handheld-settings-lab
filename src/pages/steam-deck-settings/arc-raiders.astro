@@ -1,0 +1,204 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/steam-deck-settings/arc-raiders/';
+const title = 'ARC Raiders Steam Deck settings: Verified 800p baseline — Handheld Settings Lab';
+const description = 'Start ARC Raiders on Steam Deck with a cautious 800p/30 FPS Low baseline, Valve Verified status, repeatable raid testing, and network troubleshooting.';
+const image = '/assets/games/arc-raiders-header.jpg';
+
+const sources = [
+  {
+    label: 'Steam: ARC Raiders store data, PC requirements, controller support, release details, and official media',
+    url: 'https://store.steampowered.com/app/1808500/ARC_Raiders/'
+  },
+  {
+    label: 'Steam: current Steam Deck compatibility report for app 1808500',
+    url: 'https://store.steampowered.com/saleaction/ajaxgetdeckappcompatibilityreport?nAppID=1808500'
+  },
+  {
+    label: 'Embark Studios: official ARC Raiders site',
+    url: 'https://arcraiders.com/'
+  },
+  {
+    label: 'Valve: Steam Deck technical specifications',
+    url: 'https://www.steamdeck.com/en/tech'
+  }
+];
+
+const faqs = [
+  {
+    question: 'What ARC Raiders settings should I use on Steam Deck?',
+    answer: 'Start at 1280×800, a 30 FPS cap, the Low preset, motion blur off, and the clearest quality-oriented upscaling mode that keeps the repeated test acceptable. Restore view distance before decorative effects. This is a cautious editorial baseline, not a personally measured guarantee.'
+  },
+  {
+    question: 'Is ARC Raiders Steam Deck Verified?',
+    answer: 'Yes. Valve’s current compatibility endpoint resolves ARC Raiders as category 3, Verified, and reports functional default controls, matching controller glyphs, legible interface text, and a performant default configuration. Verified does not promise a locked frame rate in every weather condition or firefight.'
+  },
+  {
+    question: 'Can Steam Deck run ARC Raiders at 60 FPS?',
+    answer: 'Do not use 60 FPS as the first target. Validate the current default configuration and a capped 30 FPS profile in a real raid first. A higher cap can reduce consistency and battery life, especially when weather, machines, players, and effects overlap.'
+  },
+  {
+    question: 'Should frame generation be enabled in ARC Raiders on Steam Deck?',
+    answer: 'Leave frame generation off for the first diagnostic pass so base frame rate, input response, and image artifacts are easier to judge. Compare it later only if the current game build exposes the option, and reject it if aiming latency or moving-image artifacts become distracting.'
+  },
+  {
+    question: 'Why does ARC Raiders lag even after lowering graphics?',
+    answer: 'Online delay, packet loss, server conditions, shader work, background downloads, and rendering pressure can feel similar. Repeat the same route, watch the Steam performance overlay, pause downloads, and compare a stable network before assuming every hitch is a graphics-setting problem.'
+  },
+  {
+    question: 'Were these ARC Raiders Steam Deck settings benchmarked?',
+    answer: 'No. Handheld Settings Lab did not personally benchmark the current ARC Raiders build, SteamOS version, compatibility layer, network route, battery runtime, or thermals. This page is informed by official sources and conservative configuration patterns.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'ARC Raiders Steam Deck settings: Verified 800p baseline',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-07-31',
+    dateModified: '2026-07-31',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['ARC Raiders', 'Steam Deck', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Steam Deck settings', item: 'https://handheldsettings.com/steam-deck-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'ARC Raiders settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Steam Deck settings · Baseline published July 2026</span>
+    <h1>ARC Raiders Steam Deck settings: start with the Verified default, then test 800p/30</h1>
+    <p class="lede muted">ARC Raiders mixes wide outdoor views, changing weather, machines, other players, and effects-heavy firefights. Valve currently marks it Steam Deck Verified. Start with that default, then use this cautious 800p/30 Low profile to diagnose consistency and restore useful visibility one setting at a time. This is official-source-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official ARC Raiders logo in cream lettering beside colored diagonal stripes on a dark background" width="460" height="215" />
+      <figcaption class="media-credit">Official ARC Raiders Steam store header image, saved locally from <a href="https://store.steampowered.com/app/1808500/ARC_Raiders/" target="_blank" rel="nofollow noopener">Embark Studios' Steam store page</a>. Artwork and trademarks belong to their owners; use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Starting target</h3><div class="stat">800p / 30</div><p class="muted">Diagnostic baseline, not a guarantee</p></section>
+      <section class="card"><h3>Starting preset</h3><div class="stat">Low</div><p class="muted">Restore visibility selectively</p></section>
+      <section class="card"><h3>Compatibility</h3><p><strong>Deck Verified</strong></p><p class="muted">Valve report checked July 31, 2026</p></section>
+      <section class="card"><h3>Connection</h3><p><strong>Online required</strong></p><p class="muted">Separate network issues from FPS</p></section>
+    </div>
+
+    <div class="callout"><strong>Protect your inventory while testing:</strong> use a low-value loadout, then repeat the same surface route and a comparable fight. Different weather, enemies, players, or network conditions make two raids a poor graphics comparison.</div>
+
+    <h2>Recommended ARC Raiders Steam Deck baseline</h2>
+    <table>
+      <thead><tr><th>Setting</th><th>Start here</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Compatibility tool</td><td>Valve default</td><td>The current report is Verified. Avoid forcing an old Proton version before testing the supported path.</td></tr>
+        <tr><td>Resolution</td><td>1280×800</td><td>Matches the Deck panel’s 16:10 shape and provides a straightforward handheld baseline.</td></tr>
+        <tr><td>Frame-rate cap</td><td>30 FPS</td><td>Sets a cautious pacing target for outdoor traversal and effects-heavy fights.</td></tr>
+        <tr><td>Graphics preset</td><td>Low</td><td>Establishes headroom first. Raise settings only after the repeatable route passes.</td></tr>
+        <tr><td>Resolution scaling / upscaling</td><td>Quality-oriented mode</td><td>Begins with the clearer current option. Move one step toward performance only when the same test misses the target.</td></tr>
+        <tr><td>View distance</td><td>Medium after baseline passes</td><td>Distant silhouettes and terrain matter in an extraction game, so this is the first option worth restoring.</td></tr>
+        <tr><td>Textures</td><td>Medium after baseline passes</td><td>Can improve surface readability, but should be checked for hitching and shared-memory pressure.</td></tr>
+        <tr><td>Shadows</td><td>Low</td><td>Preserves frame-time headroom across open areas and moving combat.</td></tr>
+        <tr><td>Effects / post-processing</td><td>Low</td><td>Limits spikes and visual clutter during explosions, smoke, weather, and machine attacks.</td></tr>
+        <tr><td>Motion blur</td><td>Off</td><td>Keeps camera motion and distant target tracking easier to judge during the test.</td></tr>
+        <tr><td>Frame generation</td><td>Off for baseline</td><td>Exposes base performance and input feel before generated frames are compared.</td></tr>
+        <tr><td>Steam Deck TDP limit</td><td>Off for first test</td><td>Do not constrain device power until the graphics profile is repeatable; tune battery afterward.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Graphics labels and available upscalers can change with patches. Use the closest current option, save screenshots before editing, and do not copy an old desktop preset blindly. Steam’s minimum desktop-PC requirements are context, not proof of a Steam Deck result.</p>
+
+    <h2>Run a repeatable raid-side test</h2>
+    <ol>
+      <li><strong>Update and restart.</strong> Finish stable SteamOS, game, and shader-cache downloads before diagnosing a repeatable problem.</li>
+      <li><strong>Test Valve’s default first.</strong> Record the game version, battery state, refresh rate, cap, and whether downloads are active.</li>
+      <li><strong>Use a low-value loadout.</strong> Settings iteration should not create an avoidable gear loss.</li>
+      <li><strong>Apply the baseline.</strong> Select 1280×800, 30 FPS, Low, quality-oriented upscaling, Low effects and shadows, motion blur off, and frame generation off.</li>
+      <li><strong>Repeat one route.</strong> Traverse the same open area, rotate across the same skyline, and fight a similar machine type when possible.</li>
+      <li><strong>Separate rendering from networking.</strong> Frame-time spikes, packet loss, rubber-banding, and server delay require different fixes. Lowering shadows cannot repair packet loss.</li>
+      <li><strong>Restore clarity deliberately.</strong> Raise view distance first, then textures. Make one change per run and roll it back if pacing or hitching worsens.</li>
+      <li><strong>Tune battery last.</strong> Lower the TDP limit in small steps only after the profile passes, then repeat the same route and stop at the first regression.</li>
+    </ol>
+
+    <h2>Two profiles worth comparing</h2>
+    <div class="grid cols2">
+      <section class="card">
+        <span class="chip">Consistency baseline</span>
+        <h3>800p / 30 FPS / Low</h3>
+        <p>Use quality-oriented upscaling, Low effects and shadows, motion blur off, and frame generation off. Restore Medium view distance first after the test passes.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Clarity test</span>
+        <h3>800p / 30 FPS / selective Medium</h3>
+        <p>Keep the same cap and power condition, then raise view distance and textures separately. Do not increase several options at once or the useful comparison disappears.</p>
+      </section>
+    </div>
+
+    <h2>Fix common ARC Raiders problems on Steam Deck</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Outdoor traversal falls below the cap</td><td>Confirm 800p, Low, no TDP limit, and the same route</td><td>Move upscaling one step toward performance, then lower view distance and effects separately</td></tr>
+        <tr><td>Firefights feel uneven</td><td>Turn frame generation off and repeat a comparable encounter</td><td>Keep effects and shadows Low; close downloads and overlays before changing device power</td></tr>
+        <tr><td>Distant targets look too soft</td><td>Return to quality-oriented upscaling and motion blur off</td><td>Raise view distance before textures and reject sharpening that creates obvious halos</td></tr>
+        <tr><td>Rubber-banding or delayed interactions</td><td>Check the network path, server status, and downloads</td><td>Compare a stable nearby Wi-Fi connection or Ethernet through a compatible dock; graphics changes do not fix packet loss</td></tr>
+        <tr><td>External controller cannot control player one</td><td>Use the built-in controls and check controller order</td><td>Valve’s current report flags external controllers as not supporting the primary player; recheck after updates</td></tr>
+        <tr><td>New crashes or corruption after an update</td><td>Restore defaults and remove unofficial launch options</td><td>Verify files, restart, use Valve’s default compatibility choice, and check current official notices</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Network, battery, and storage planning</h2>
+    <p>Steam describes ARC Raiders as an online action game with PvP, co-op, and cross-platform multiplayer, and lists broadband internet under both minimum and recommended PC requirements. Download updates before a planned session and use the <a href="/guides/handheld-gaming-ethernet-adapter-dock-checklist/">Ethernet adapter and dock checklist</a> when Wi-Fi makes diagnosis ambiguous.</p>
+    <p>The current Steam requirements checked for this page do not state a storage amount, so this guide does not invent one. Inspect Steam’s current install prompt and keep patch headroom in the <a href="/calculators/storage-planner/">storage planner</a>. This page also does not invent battery runtime: read total system draw during your own repeatable route and enter it in the <a href="/calculators/battery-estimator/">battery estimator</a>.</p>
+
+    <h2>Optional gear after the settings are stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, seller traceability, model fit, warranty, and return terms. No price, compatibility, performance, or latency claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+45w+usb+c+pd+power+bank" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="power-banks">
+        <span class="chip">Sponsored search</span><h3>45W USB-C PD power banks</h3><p class="muted">Check dedicated-port PD output, printed watt-hours, cable rating, weight, and current airline rules.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+ethernet+usb+c+dock+45w" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks">
+        <span class="chip">Sponsored search</span><h3>USB-C docks with Ethernet</h3><p class="muted">Compare Ethernet, USB-C PD passthrough, cable position, display modes, and whether a charger is included.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+travel+case+charger+storage" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="cases">
+        <span class="chip">Sponsored search</span><h3>Steam Deck travel cases</h3><p class="muted">Confirm exact-device fit, stick and vent clearance, and whether stored accessories press against the handheld.</p>
+      </a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a>, review the <a href="/guides/handheld-gaming-travel-kit-case-power-checklist/">travel kit checklist</a>, or plan the total setup with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on July 31, 2026. Steam’s public store data supplies the October 30, 2025 release date, current desktop-PC requirements, DirectX 12 and broadband requirements, multiplayer and full-controller-support labels, developer/publisher identity, and official image. Valve’s compatibility endpoint currently resolves ARC Raiders as Deck Verified and reports functional default controls, matching glyphs, legible interface text, and a performant default configuration; it flags external controllers as not supporting the primary player. Embark Studios supplies the official game site, and Valve supplies Steam Deck hardware context. The profiles are conservative editorial starting sequences informed by those official constraints. Handheld Settings Lab did not personally benchmark the current game, SteamOS, compatibility layer, network route, battery, or thermals. Google autocomplete evidence saved in the July 2026 audit includes “best Steam Deck settings for Arc Raiders”; that is query-language evidence, not search volume.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+    <p>For more games, return to the <a href="/steam-deck-settings/">Steam Deck settings hub</a>. Compare the <a href="/legion-go-settings/arc-raiders/">Legion Go ARC Raiders baseline</a>, use the <a href="/calculators/">battery, storage, and accessory calculators</a>, or browse the <a href="/gear/">gear library</a>.</p>
+  </article>
+</Base>
