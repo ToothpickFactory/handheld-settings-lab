@@ -1,0 +1,206 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/steam-deck-settings/diablo-iv/';
+const title = 'Diablo 4 Steam Deck settings: Verified 40 FPS baseline — Handheld Settings Lab';
+const description = 'Tune Diablo 4 on Steam Deck with a Valve Verified default-first workflow, cautious 40 FPS baseline, 30 FPS fallback, 90GB storage planning, and online fixes.';
+const image = '/assets/games/diablo-iv-header.jpg';
+
+const sources = [
+  {
+    label: 'Steam: Diablo IV store data, PC requirements, controller support, release details, and official media',
+    url: 'https://store.steampowered.com/app/2344520/Diablo_IV/'
+  },
+  {
+    label: 'Steam: current Steam Deck compatibility report for app 2344520',
+    url: 'https://store.steampowered.com/saleaction/ajaxgetdeckappcompatibilityreport?nAppID=2344520'
+  },
+  {
+    label: 'Blizzard Support: Diablo IV system requirements',
+    url: 'https://us.battle.net/support/en/article/251518'
+  },
+  {
+    label: 'Valve: Steam Deck technical specifications',
+    url: 'https://www.steamdeck.com/en/tech'
+  }
+];
+
+const faqs = [
+  {
+    question: 'What settings should I use for Diablo 4 on Steam Deck?',
+    answer: 'Test Valve’s Verified default configuration first. For a manual baseline, use 1280×800, a 40 Hz display with a 40 FPS cap, Low settings, quality-oriented upscaling, Medium textures if hitch-free, Low shadows and fog, and distortion off. If busy events remain uneven, use the 30 FPS fallback before making the image excessively soft. This is a cautious editorial baseline, not a personally measured guarantee.'
+  },
+  {
+    question: 'Is Diablo 4 Steam Deck Verified?',
+    answer: 'Yes. Valve’s current compatibility endpoint resolves Diablo IV as category 3, Verified, with functional default controls, matching controller glyphs, legible interface text, and a performant default configuration. Valve also notes that single-player gameplay requires an active internet connection and that external controllers do not support the primary player.'
+  },
+  {
+    question: 'Should I use 30 FPS or 40 FPS for Diablo 4 on Steam Deck?',
+    answer: 'Try 40 FPS first for a more responsive handheld target, but validate it in a crowded town and an effects-heavy public event. Choose a capped 30 FPS profile if 40 cannot remain acceptably even in those repeatable tests. A stable lower cap is preferable to an unstable higher target.'
+  },
+  {
+    question: 'How much storage does Diablo 4 need on Steam Deck?',
+    answer: 'Steam currently lists 90GB of available storage and says an SSD is required. Keep additional free space for updates, shader data, and Steam’s patching process. Check the current install dialog before downloading because live-service game sizes can change.'
+  },
+  {
+    question: 'Can Diablo 4 be played offline on Steam Deck?',
+    answer: 'Do not plan on offline play. Steam lists broadband internet in the requirements, and Valve’s Deck report explicitly says single-player gameplay requires an active internet connection. Test hotel, airplane, or mobile-hotspot access before depending on it while traveling.'
+  },
+  {
+    question: 'Were these Diablo 4 Steam Deck settings benchmarked?',
+    answer: 'No. Handheld Settings Lab did not personally benchmark the current Diablo IV build, SteamOS version, compatibility layer, network route, battery runtime, or thermals. The page uses current official store and compatibility information plus a conservative, repeatable tuning method.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Diablo 4 Steam Deck settings: Verified 40 FPS baseline',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-07-31',
+    dateModified: '2026-07-31',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Diablo IV', 'Steam Deck', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Steam Deck settings', item: 'https://handheldsettings.com/steam-deck-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Diablo IV settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Steam Deck settings · Baseline published July 2026</span>
+    <h1>Diablo 4 Steam Deck settings: test the Verified default, then tune for 40 FPS</h1>
+    <p class="lede muted">Diablo IV is currently Steam Deck Verified, but a live-service action RPG can still become heavier when a crowded town, public event, dense enemy pack, network delay, and layered effects meet. Start with Valve’s supported default, then compare this cautious 800p/40 profile with a 30 FPS fallback. This is official-source-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Diablo IV logo over dark red demonic key art" width="460" height="215" />
+      <figcaption class="media-credit">Official Diablo IV Steam store header image, saved locally from <a href="https://store.steampowered.com/app/2344520/Diablo_IV/" target="_blank" rel="nofollow noopener">Blizzard Entertainment's Steam store page</a>. Artwork and trademarks belong to their owners; use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Starting target</h3><div class="stat">800p / 40</div><p class="muted">Compare with capped 30 FPS</p></section>
+      <section class="card"><h3>Starting preset</h3><div class="stat">Low</div><p class="muted">Restore textures selectively</p></section>
+      <section class="card"><h3>Compatibility</h3><p><strong>Deck Verified</strong></p><p class="muted">Valve report checked July 31, 2026</p></section>
+      <section class="card"><h3>Storage</h3><div class="stat">90GB</div><p class="muted">Steam lists SSD required</p></section>
+    </div>
+
+    <div class="callout"><strong>Use a demanding test, not the login screen:</strong> repeat a busy town route and a comparable enemy-heavy event. Record the game version, SteamOS version, power state, frame cap, and network condition before comparing changes.</div>
+
+    <h2>Recommended Diablo 4 Steam Deck baseline</h2>
+    <table>
+      <thead><tr><th>Setting</th><th>Start here</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Compatibility tool</td><td>Valve default</td><td>The current report is Verified. Do not force an old Proton version before testing the supported path.</td></tr>
+        <tr><td>Resolution</td><td>1280×800</td><td>Matches the Deck panel’s 16:10 shape and gives the interface its expected handheld canvas.</td></tr>
+        <tr><td>Display refresh / cap</td><td>40 Hz / 40 FPS</td><td>Provides a responsive starting target without chasing 60 FPS. Switch both to a 30 FPS profile if demanding scenes remain uneven.</td></tr>
+        <tr><td>Graphics quality</td><td>Low baseline</td><td>Creates headroom before you selectively restore image quality.</td></tr>
+        <tr><td>Upscaling</td><td>Quality-oriented mode</td><td>Begins with the clearer available option. Move one step toward performance only after a repeatable miss.</td></tr>
+        <tr><td>Texture quality</td><td>Medium if hitch-free</td><td>Improves materials and equipment clarity, but must be rolled back if traversal or menu changes hitch.</td></tr>
+        <tr><td>Shadow quality</td><td>Low</td><td>Preserves headroom when enemies, lights, and effects overlap.</td></tr>
+        <tr><td>Fog quality</td><td>Low</td><td>Reduces an effect that can become costly in atmospheric outdoor and dungeon scenes.</td></tr>
+        <tr><td>Clutter / environment detail</td><td>Low</td><td>Limits scene complexity during the first stability pass.</td></tr>
+        <tr><td>Distortion</td><td>Off</td><td>Removes an optional effect and makes combat readability easier to compare.</td></tr>
+        <tr><td>Sharpness</td><td>Conservative</td><td>Add only enough to recover legibility; excessive sharpening creates halos and noisy foliage.</td></tr>
+        <tr><td>Steam Deck TDP limit</td><td>Off for first test</td><td>Do not constrain device power until the graphics profile is repeatable. Tune battery afterward.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Setting labels and available upscalers can change with game updates. Use the closest current option and save screenshots before editing. Steam’s minimum PC note—low graphics, 720p render resolution, 30 FPS—is useful context, not a Steam Deck benchmark.</p>
+
+    <h2>Compare 40 FPS and 30 FPS fairly</h2>
+    <div class="grid cols2">
+      <section class="card">
+        <span class="chip">Responsive baseline</span>
+        <h3>800p / 40 Hz / 40 FPS</h3>
+        <p>Start Low with quality-oriented upscaling, Medium textures only if stable, and Low shadows and fog. Keep the Deck TDP unrestricted during the first comparison.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Consistency fallback</span>
+        <h3>800p / 60 Hz / 30 FPS</h3>
+        <p>Use the same graphics settings and repeat the same route. If frame pacing is visibly calmer in dense fights, preserve the 30 FPS profile instead of sacrificing clarity to chase 40.</p>
+      </section>
+    </div>
+
+    <h2>A repeatable tuning order</h2>
+    <ol>
+      <li><strong>Update, then restart.</strong> Finish stable SteamOS, game, and shader downloads before diagnosing persistent stutter.</li>
+      <li><strong>Test the Verified default.</strong> Valve says the default controller setup, glyphs, interface text, and configuration satisfy its Verified checks. Establish what that profile does before replacing it.</li>
+      <li><strong>Apply one cap.</strong> Set 40 Hz/40 FPS and do not change TDP during the initial graphics comparison.</li>
+      <li><strong>Run two demanding scenes.</strong> Walk the same busy-town route, then repeat a similar dense event or dungeon fight. Menus and quiet corridors are not sufficient.</li>
+      <li><strong>Lower costly effects first.</strong> Keep shadows, fog, and clutter Low. Preserve textures when they do not cause hitching.</li>
+      <li><strong>Use upscaling as a measured step.</strong> Compare the same moving scene after changing one quality level. Reject a softer mode if enemy telegraphs or labels become hard to read.</li>
+      <li><strong>Try the 30 FPS fallback.</strong> If 40 remains uneven, cap 30 before cutting every graphics option. Consistent pacing can be more useful than a fluctuating higher target.</li>
+      <li><strong>Tune power last.</strong> Lower the Deck TDP limit in small steps only after the profile passes, repeating both scenes after every change.</li>
+    </ol>
+
+    <h2>Fix common Diablo 4 Steam Deck problems</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Busy events miss 40 FPS</td><td>Confirm Low shadows, fog, and clutter with no TDP limit</td><td>Test one faster upscaling mode, then compare a capped 30 FPS profile</td></tr>
+        <tr><td>Image looks soft or noisy</td><td>Return to quality-oriented upscaling and conservative sharpening</td><td>Keep the 30 FPS cap if that preserves a clearer render than a performance-oriented scaler</td></tr>
+        <tr><td>Traversal or inventory changes hitch</td><td>Check downloads, free storage, and Medium textures</td><td>Lower textures one step, restart, and repeat the same route before changing other settings</td></tr>
+        <tr><td>Rubber-banding or delayed skills</td><td>Check the network path and current Blizzard service status</td><td>Pause downloads and compare a stable Wi-Fi or Ethernet connection; graphics changes cannot repair packet loss</td></tr>
+        <tr><td>Cannot play after losing internet</td><td>Reconnect before changing Proton or graphics</td><td>Valve explicitly flags an active connection requirement even for single-player gameplay</td></tr>
+        <tr><td>Docked controller will not control player one</td><td>Use built-in controls and inspect controller order</td><td>Valve’s current report flags external controllers as unsupported for the primary player; recheck after game updates</td></tr>
+        <tr><td>New crash after an update</td><td>Restore defaults and remove unofficial launch options</td><td>Verify game files, restart, and return to Valve’s default compatibility tool</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Online, storage, and battery planning</h2>
+    <p>Diablo IV is not a dependable offline-flight game. Steam lists broadband internet under its requirements, and Valve’s Deck report says an active connection is required for single-player gameplay. If travel is the priority, use the <a href="/guides/handheld-pc-offline-mode-flight-checklist/">offline-mode and flight checklist</a> to test a different offline-capable game before departure.</p>
+    <p>Steam currently lists 90GB available space and an SSD requirement. Keep patching headroom beyond that number, confirm the current install prompt, and model the rest of your library in the <a href="/calculators/storage-planner/">storage planner</a>. The local official header image on this page is editorial media, not evidence that the game’s install size will remain fixed.</p>
+    <p>This guide does not invent battery runtime. OLED and LCD Deck battery capacities differ, while brightness, Wi-Fi quality, frame cap, scene load, and device power all change consumption. Read total system draw during your own repeatable route and enter it in the <a href="/calculators/battery-estimator/">battery estimator</a>. Reduce TDP only after the chosen cap is stable.</p>
+
+    <h2>Optional gear after the settings are stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, seller traceability, device fit, warranty, and return terms. No price, compatibility, performance, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+microSD+card+a2+uhs+i" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microsd-cards">
+        <span class="chip">Sponsored search</span><h3>A2 UHS-I microSD cards</h3><p class="muted">Compare genuine capacity, A2/U3 markings, seller traceability, warranty, and the current 90GB-plus-patch requirement.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+45w+usb+c+pd+power+bank" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="power-banks">
+        <span class="chip">Sponsored search</span><h3>45W USB-C PD power banks</h3><p class="muted">Check dedicated-port output, watt-hours, cable rating, weight, and current airline rules rather than headline capacity alone.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+ethernet+usb+c+dock+45w" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks">
+        <span class="chip">Sponsored search</span><h3>USB-C docks with Ethernet</h3><p class="muted">Compare Ethernet, PD passthrough, display modes, controller behavior, and whether the dock blocks airflow.</p>
+      </a>
+    </div>
+    <p>Use the <a href="/guides/best-microsd-cards-for-handheld-gaming/">microSD comparison method</a>, check <a href="/guides/usb-c-power-bank-wattage-handheld-gaming/">power-bank wattage requirements</a>, or browse the <a href="/gear/">spec-based gear library</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on July 31, 2026. Steam’s public store data supplies the October 17, 2023 Steam release date, 90GB storage requirement, SSD requirement, DirectX 12 and broadband requirements, full controller support, desktop minimum/recommended notes, developer/publisher identity, and official image. Valve’s compatibility endpoint currently resolves Diablo IV as Deck Verified and reports functional default controls, matching glyphs, legible interface text, and a performant default configuration; it also flags active internet for single-player and the primary-player external-controller limitation. Blizzard Support is the publisher’s current system-requirements reference, and Valve supplies Steam Deck hardware context. The profiles above are conservative editorial testing sequences informed by those official constraints. Handheld Settings Lab did not personally benchmark the current game, SteamOS, compatibility layer, network route, battery, or thermals. Google autocomplete evidence saved in the July 2026 audit includes “best Steam Deck settings for Diablo 4”; that is query-language evidence, not search volume.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+    <p>For more games, return to the <a href="/steam-deck-settings/">Steam Deck settings hub</a>. Compare the <a href="/rog-ally-settings/diablo-iv/">ROG Ally Diablo IV baseline</a>, use the <a href="/calculators/">battery, storage, and accessory calculators</a>, or browse the <a href="/gear/">gear library</a>.</p>
+  </article>
+</Base>
