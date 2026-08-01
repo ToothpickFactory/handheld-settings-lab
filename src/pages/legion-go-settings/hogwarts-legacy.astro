@@ -1,0 +1,203 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/legion-go-settings/hogwarts-legacy/';
+const title = 'Hogwarts Legacy Legion Go settings: 800p/30 baseline — Handheld Settings Lab';
+const description = 'Start Hogwarts Legacy on Lenovo Legion Go with a cautious 800p/30 FPS profile, a 720p fallback, repeatable Hogsmeade testing, and 85GB storage planning.';
+const image = '/assets/games/hogwarts-legacy-header.jpg';
+
+const sources = [
+  {
+    label: 'Steam: Hogwarts Legacy store page, PC requirements, controller support, and official media',
+    url: 'https://store.steampowered.com/app/990080/Hogwarts_Legacy/'
+  },
+  {
+    label: 'Lenovo PSREF: original Legion Go 8APU1 specifications',
+    url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1'
+  },
+  {
+    label: 'Lenovo Support: drivers and software lookup',
+    url: 'https://pcsupport.lenovo.com/'
+  },
+  {
+    label: 'Warner Bros. Games: Hogwarts Legacy support and bug reports',
+    url: 'https://bugs.wbgames.com/games/hogwarts-legacy/bugs'
+  }
+];
+
+const faqs = [
+  {
+    question: 'What settings should I use for Hogwarts Legacy on Legion Go?',
+    answer: 'Begin at 1280×800, Low, a 30 FPS cap, ray tracing off, and the current quality-oriented temporal upscaler. Keep population, shadows, fog, foliage, effects, and view distance low for the first Hogsmeade or outdoor test. This is a cautious baseline to test, not a benchmark guarantee.'
+  },
+  {
+    question: 'Can Legion Go run Hogwarts Legacy at 60 FPS?',
+    answer: 'Do not use 60 FPS as the first target. Steam describes its minimum desktop PC specification as 720p/30 at Low, while the Legion Go uses integrated graphics and shared memory. Establish consistent 30 FPS pacing in a demanding route before experimenting with a higher cap.'
+  },
+  {
+    question: 'Should I use 800p or 1200p for Hogwarts Legacy on Legion Go?',
+    answer: 'Start at 800p because it preserves the screen’s 16:10 shape while lowering render load. If 800p/30 is acceptably paced, test 1200p with the same power mode and settings. Keep it only if the clarity gain is worth any loss of consistency. Use 720p as a diagnostic fallback if needed.'
+  },
+  {
+    question: 'How much storage does Hogwarts Legacy need?',
+    answer: 'Steam currently lists 85GB of available space, says an SSD is preferred at minimum, and specifies an SSD for the recommended desktop configuration. Leave extra room for patches, shader data, saves, and Windows temporary files.'
+  },
+  {
+    question: 'Does Hogwarts Legacy support the Legion Go controls?',
+    answer: 'Steam lists full controller support. Start with Legion Space in gamepad mode and the default in-game controller layout. If keyboard or mouse prompts appear, confirm the controller mode before creating a custom remap.'
+  },
+  {
+    question: 'Were these Legion Go settings personally benchmarked?',
+    answer: 'No. This is an official-spec and public configuration-pattern-informed starting point. Handheld Settings Lab did not personally test the current game, Windows, graphics-driver, or Legion Space build, so no frame-rate, battery-life, or thermal result is guaranteed.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Hogwarts Legacy Legion Go settings: 800p/30 FPS baseline',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-01',
+    dateModified: '2026-08-01',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Hogwarts Legacy', 'Lenovo Legion Go', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Legion Go settings', item: 'https://handheldsettings.com/legion-go-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Hogwarts Legacy settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Legion Go settings · Baseline published August 2026</span>
+    <h1>Hogwarts Legacy Legion Go settings: start at 800p and 30 FPS</h1>
+    <p class="lede muted">Hogwarts Legacy shifts between lighter interiors and demanding traversal, crowds, foliage, spell effects, and asset streaming. This original Legion Go profile begins at 800p/30, then uses a 720p diagnostic fallback before restoring detail. It is official-spec and public configuration-pattern-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Hogwarts Legacy Steam header artwork showing Hogwarts castle and a hippogriff" width="460" height="215" />
+      <figcaption class="media-credit">Official Hogwarts Legacy Steam store header image. Source: <a href="https://store.steampowered.com/app/990080/Hogwarts_Legacy/" target="_blank" rel="nofollow noopener">Warner Bros. Games' Steam store page</a>. Artwork and trademarks belong to their owners; use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Starting target</h3><div class="stat">800p / 30</div><p class="muted">Cautious consistency baseline</p></section>
+      <section class="card"><h3>Fallback test</h3><div class="stat">720p / 30</div><p class="muted">Use to isolate resolution pressure</p></section>
+      <section class="card"><h3>Starting preset</h3><p><strong>Low + upscaling</strong></p><p class="muted">Ray tracing off; restore detail later</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">85GB</div><p class="muted">Official requirement; extra room advised</p></section>
+    </div>
+
+    <div class="callout"><strong>Test a real traversal route.</strong> Walk the same Hogsmeade or busy outdoor path, turn the camera, enter combat, and repeat it after each change. A menu, classroom, or empty corridor cannot reveal the heavier streaming and population load.</div>
+
+    <h2>Recommended Hogwarts Legacy Legion Go baseline</h2>
+    <table>
+      <thead><tr><th>Setting</th><th>Start here</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Legion Go power mode</td><td>Performance-class profile</td><td>Establishes a stable power condition before graphics tuning. Record battery versus compatible-charger use.</td></tr>
+        <tr><td>Display refresh rate</td><td>60Hz for the first test</td><td>Makes a 30 FPS target straightforward to interpret; a higher panel refresh does not make the game render more frames.</td></tr>
+        <tr><td>In-game resolution</td><td>1280×800</td><td>Preserves the panel’s 16:10 shape where the current menu supports it while reducing load from native 2560×1600.</td></tr>
+        <tr><td>Frame-rate cap</td><td>30 FPS</td><td>Sets a conservative pacing target for streaming-heavy and populated scenes.</td></tr>
+        <tr><td>Graphics preset</td><td>Low</td><td>Creates a known baseline before individual clarity settings are restored.</td></tr>
+        <tr><td>Upscale mode</td><td>Quality first</td><td>Use the current build’s quality-oriented temporal option; compare Balanced only on the same route.</td></tr>
+        <tr><td>Ray tracing</td><td>Off</td><td>Avoids assigning the handheld GPU budget to ray-traced effects.</td></tr>
+        <tr><td>Population / effects / material</td><td>Low</td><td>Leaves headroom for busy areas and spell combat.</td></tr>
+        <tr><td>Shadow / fog / sky / foliage</td><td>Low</td><td>Reduces expensive outdoor scene detail during the baseline test.</td></tr>
+        <tr><td>View distance</td><td>Low, then test Medium</td><td>Raise separately only after the repeated route is acceptably paced.</td></tr>
+        <tr><td>Texture quality</td><td>Low, then test Medium</td><td>Restore clarity independently; revert if hitching or shared-memory pressure gets worse.</td></tr>
+        <tr><td>VSync</td><td>Off for the first comparison</td><td>Uses one frame-limiting path while establishing the baseline.</td></tr>
+        <tr><td>Motion blur / depth of field</td><td>Personal preference</td><td>These affect presentation but should not be treated as the primary fix for heavy dips.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Option names and available upscalers can change with patches. If the current build does not expose a listed option, use the closest menu setting or skip it rather than copying an old configuration-file tweak. Steam’s 720p/30 Low note describes its listed minimum desktop PC hardware; it is context, not proof of a Legion Go result.</p>
+
+    <h2>Use two profiles to isolate the problem</h2>
+    <div class="grid cols2">
+      <section class="card">
+        <span class="chip">Profile A · daily baseline</span>
+        <h3>800p / 30 FPS</h3>
+        <p>Use Low, ray tracing off, and Quality upscaling. Keep population, effects, fog, foliage, shadows, sky, and view distance low while repeating a demanding route. Raise textures first only after pacing is acceptable.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Profile B · diagnostic fallback</span>
+        <h3>720p / 30 FPS</h3>
+        <p>Keep the same power mode, preset, frame cap, and route, then lower only resolution to 1280×720. If repeated dips change very little, investigate scene load, background work, driver state, temperatures, or a game-side issue rather than lowering resolution again.</p>
+      </section>
+    </div>
+
+    <h2>Tune it without losing track of the cause</h2>
+    <ol>
+      <li><strong>Update and restart deliberately.</strong> Finish the stable game, Windows, Lenovo, graphics-driver, firmware, and Legion Space updates for the exact device.</li>
+      <li><strong>Record the power condition.</strong> Note the Legion Go power profile, charger state, refresh rate, background downloads, and current game version.</li>
+      <li><strong>Apply 800p/30 Low.</strong> Turn ray tracing off, choose Quality upscaling, and leave the costly outdoor settings low.</li>
+      <li><strong>Repeat one demanding route twice.</strong> Include traversal, camera turns, populated spaces, and spell combat. The second pass may differ after assets or shaders have been encountered.</li>
+      <li><strong>Try 720p without another change.</strong> Treat it as a diagnostic comparison, not an automatic recommendation. Return to 800p if it provides the better clarity/performance balance.</li>
+      <li><strong>Restore clarity one step at a time.</strong> Test Medium textures, then Medium view distance. Revert the first change that makes pacing or hitching worse.</li>
+    </ol>
+
+    <h2>Fix common Hogwarts Legacy problems on Legion Go</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Stutter during traversal</td><td>Pause downloads, close browsers and launchers, confirm free SSD space, then repeat the route</td><td>Keep population, view distance, foliage, fog, and effects low; compare a second pass before changing more settings</td></tr>
+        <tr><td>Image looks too soft</td><td>Return to 800p and Quality upscaling</td><td>Keep scene settings low, then test Medium textures separately instead of adding excessive sharpening</td></tr>
+        <tr><td>Frame rate changes little at 720p</td><td>Confirm the same cap, power mode, and route</td><td>Investigate scene or CPU pressure, background tasks, driver state, temperatures, and known game issues</td></tr>
+        <tr><td>Wrong button prompts appear</td><td>Set Legion Space controls to gamepad mode</td><td>Restore the default gamepad layout and remove conflicting remaps</td></tr>
+        <tr><td>Performance changes while docked</td><td>Connect a compatible charger directly and record the power mode</td><td>Isolate the dock and cable, then verify their USB-C PD input/output ratings</td></tr>
+        <tr><td>New crashes after an update</td><td>Restart, restore the baseline, and remove unofficial launch or config tweaks</td><td>Verify game files and check the official Warner Bros. Games bug portal for a current matching issue</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, battery, and dock planning</h2>
+    <p>Steam currently lists <strong>85GB of available space</strong>, 16GB of minimum system memory, DirectX 12, and an SSD preference at minimum. Those desktop-PC requirements provide context rather than a handheld guarantee. Keep extra room for updates, shader data, saves, and Windows temporary files. Use the <a href="/calculators/storage-planner/">storage planner</a>, then read the <a href="/guides/handheld-pc-ssd-form-factor-guide/">handheld SSD form-factor guide</a> before buying internal storage.</p>
+    <p>This page does not invent a battery runtime. Read total system draw from your own repeatable session and enter it in the <a href="/calculators/battery-estimator/">battery estimator</a>. Lower brightness and test a lower power profile only after the baseline is stable. For TV play, use the <a href="/guides/handheld-gaming-usb-c-dock-checklist/">USB-C dock checklist</a>.</p>
+
+    <h2>Optional gear after the game is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, device fit, seller support, and return terms. No price, compatibility, performance, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+65w+usb+c+pd+charger" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers">
+        <span class="chip">Sponsored search</span><h3>65W-class USB-C PD chargers</h3><p class="muted">Verify exact single-port output, cable rating, port-sharing behavior, warranty, and device support.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+a2+u3+microsd+card" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microsd-cards">
+        <span class="chip">Sponsored search</span><h3>A2 / U3 microSD cards</h3><p class="muted">Compare capacity, seller traceability, warranty, and verification tools before moving a large library.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+travel+case+charger+storage" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="cases">
+        <span class="chip">Sponsored search</span><h3>Legion Go travel cases</h3><p class="muted">Confirm exact fit, controller and stick clearance, accessory separation, and charger pressure.</p>
+      </a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a> or set a limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on August 1, 2026. Steam supplies the 85GB storage requirement, SSD guidance, 16GB memory requirement, full-controller-support label, 720p/30 Low minimum-PC context, and official image. Lenovo PSREF supplies the original Legion Go hardware context, and Lenovo Support supplies the device-support route. Warner Bros. Games supplies the official bug-report route. The profiles are conservative editorial starting sequences informed by those official constraints and recurring public configuration patterns. Handheld Settings Lab did not personally benchmark the current game, Windows, driver, or Legion Space build.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+    <p>Return to the <a href="/legion-go-settings/">Legion Go settings hub</a>, compare the <a href="/steam-deck-settings/hogwarts-legacy/">Steam Deck Hogwarts Legacy baseline</a> and <a href="/rog-ally-settings/hogwarts-legacy/">ROG Ally Hogwarts Legacy baseline</a>, or use the <a href="/calculators/">battery, storage, and accessory calculators</a>.</p>
+  </article>
+</Base>
