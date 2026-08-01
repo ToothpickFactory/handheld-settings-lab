@@ -1,0 +1,210 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/legion-go-settings/diablo-iv/';
+const title = 'Diablo 4 Legion Go settings: 800p/40 FPS baseline — Handheld Settings Lab';
+const description = 'Tune Diablo 4 on the original Lenovo Legion Go with a cautious 800p/40 FPS baseline, 30 FPS fallback, 90GB SSD planning, online checks, and repeatable tests.';
+const image = '/assets/games/diablo-iv-header.jpg';
+
+const sources = [
+  {
+    label: 'Steam: Diablo IV store data, PC requirements, controller support, release details, and official media',
+    url: 'https://store.steampowered.com/app/2344520/Diablo_IV/'
+  },
+  {
+    label: 'Blizzard Support: Diablo IV system requirements',
+    url: 'https://us.battle.net/support/en/article/251518'
+  },
+  {
+    label: 'Lenovo PSREF: original Legion Go 8APU1 specifications',
+    url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1'
+  },
+  {
+    label: 'Lenovo Support: drivers and software lookup',
+    url: 'https://pcsupport.lenovo.com/'
+  }
+];
+
+const faqs = [
+  {
+    question: 'What settings should I use for Diablo 4 on the original Legion Go?',
+    answer: 'Start at 1280×800, a 40 FPS cap, the Low preset, quality-oriented upscaling, Medium textures if hitch-free, Low shadows and fog, and distortion off. Use a performance-class Legion Go power profile and test a crowded town plus an effects-heavy event. This is a cautious editorial baseline, not a personally measured guarantee.'
+  },
+  {
+    question: 'Should I target 30 FPS, 40 FPS, or 60 FPS in Diablo 4?',
+    answer: 'Try 40 FPS first as a balance of response and image quality. Use a capped 30 FPS fallback if busy towns or events remain uneven. Treat 60 FPS as a separate experiment that may need lower image quality or more power; do not assume it will hold throughout the game.'
+  },
+  {
+    question: 'Should Diablo 4 run at 800p or 1200p on Legion Go?',
+    answer: 'Use 800p for the first performance baseline. After that profile is repeatable, test 1200p with a 30 FPS cap as a separate clarity profile. The original Legion Go panel can display 1600p, but native panel resolution is not automatically the right render target for a demanding game.'
+  },
+  {
+    question: 'How much storage does Diablo 4 need on Legion Go?',
+    answer: 'Steam currently lists 90GB of available storage and says an SSD is required. Leave additional free space for live-service updates, patch staging, shader data, saves, and Windows temporary files, and confirm the current install size before downloading.'
+  },
+  {
+    question: 'Can Diablo 4 be played offline on Legion Go?',
+    answer: 'Do not plan on offline play. Steam lists a broadband internet connection in the requirements. Test the exact launcher login, game build, network, and sleep-resume path before relying on a hotel, hotspot, or travel connection.'
+  },
+  {
+    question: 'Were these Diablo 4 Legion Go settings benchmarked?',
+    answer: 'No. Handheld Settings Lab did not personally benchmark the current Diablo IV build, Windows version, Lenovo driver, Legion Space version, network route, battery runtime, or thermals. The page uses current official requirements and a conservative, repeatable tuning method.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Diablo 4 Legion Go settings: 800p/40 FPS baseline',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-01',
+    dateModified: '2026-08-01',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Diablo IV', 'Lenovo Legion Go', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Legion Go settings', item: 'https://handheldsettings.com/legion-go-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Diablo IV settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Legion Go settings · Baseline published August 2026</span>
+    <h1>Diablo 4 Legion Go settings: start at 800p and test 40 FPS</h1>
+    <p class="lede muted">Diablo IV can move from a quiet dungeon to a crowded town or layered public event quickly, while network delay can look like a performance problem. This original Legion Go guide starts with a cautious 800p/40 FPS profile and a 30 FPS fallback, then separates rendering, storage, and connection checks. It is official-source-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Diablo IV logo over dark red demonic key art" width="460" height="215" />
+      <figcaption class="media-credit">Official Diablo IV Steam store header image, saved locally from <a href="https://store.steampowered.com/app/2344520/Diablo_IV/" target="_blank" rel="nofollow noopener">Blizzard Entertainment's Steam store page</a>. Artwork and trademarks belong to their owners; use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Starting target</h3><div class="stat">800p / 40</div><p class="muted">Baseline to test, not a guarantee</p></section>
+      <section class="card"><h3>Starting preset</h3><div class="stat">Low</div><p class="muted">Restore textures selectively</p></section>
+      <section class="card"><h3>Fallback</h3><div class="stat">30 FPS</div><p class="muted">Prefer consistency over blur</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">90GB</div><p class="muted">Steam lists SSD required</p></section>
+    </div>
+
+    <div class="callout"><strong>Use two demanding checks:</strong> repeat the same crowded-town route and a comparable enemy-heavy event. Record the game version, Windows build, Lenovo driver, Legion Space version, power profile, charger state, frame cap, and network condition before comparing changes.</div>
+
+    <h2>Recommended Diablo 4 Legion Go baseline</h2>
+    <table>
+      <thead><tr><th>Setting</th><th>Start here</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Legion Go power profile</td><td>Performance-class profile</td><td>Provides a repeatable starting condition. Record whether the device is on battery or a compatible charger.</td></tr>
+        <tr><td>Display refresh rate</td><td>60Hz for the baseline</td><td>Keeps the first comparison simple. The panel refresh rate does not guarantee the game can render the same number of frames.</td></tr>
+        <tr><td>In-game resolution</td><td>1280×800</td><td>Preserves the panel's 16:10 shape while reducing render load substantially versus 2560×1600.</td></tr>
+        <tr><td>Frame-rate cap</td><td>40 FPS</td><td>Targets a practical response-and-clarity balance without beginning at 60 FPS.</td></tr>
+        <tr><td>Graphics preset</td><td>Low</td><td>Creates headroom before restoring settings that noticeably improve the image.</td></tr>
+        <tr><td>Upscaling</td><td>Quality-oriented available mode</td><td>Starts with the clearer scaler option. Move one step toward performance only after a repeatable miss.</td></tr>
+        <tr><td>Texture quality</td><td>Medium if hitch-free</td><td>Can improve armor and surface detail, but should be returned to Low if traversal or inventory changes hitch.</td></tr>
+        <tr><td>Shadow quality</td><td>Low</td><td>Protects headroom when enemies, lights, and effects overlap.</td></tr>
+        <tr><td>Fog quality</td><td>Low</td><td>Reduces an atmospheric effect that can become costly in dense outdoor and dungeon scenes.</td></tr>
+        <tr><td>Clutter / environment detail</td><td>Low</td><td>Limits scene complexity during the first stability pass.</td></tr>
+        <tr><td>Distortion</td><td>Off</td><td>Removes an optional effect and makes combat readability easier to compare.</td></tr>
+        <tr><td>Sharpness</td><td>Conservative</td><td>Add only enough to recover legibility; excessive sharpening can create halos and noisy surfaces.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Setting names and available upscalers can change with game updates. Use the closest current option and save screenshots before editing. Steam's desktop minimum note—720p render resolution, Low settings, 30 FPS, and an SSD—is useful context, not proof of a Legion Go result.</p>
+
+    <h2>Compare three profiles without mixing variables</h2>
+    <div class="grid cols3">
+      <section class="card">
+        <span class="chip">Balanced baseline</span>
+        <h3>800p / 40 FPS</h3>
+        <p>Low preset, quality-oriented upscaling, Medium textures only if hitch-free, and Low shadows, fog, and clutter. This is the first profile to validate.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Consistency fallback</span>
+        <h3>800p / 30 FPS</h3>
+        <p>Keep the same graphics and power condition. Choose this profile when the demanding tests are visibly calmer and clearer than an aggressively upscaled 40 FPS attempt.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Clarity experiment</span>
+        <h3>1200p / 30 FPS</h3>
+        <p>Test only after the 800p baseline passes. Compare text, character detail, power use, and frame pacing on the exact same route before keeping it.</p>
+      </section>
+    </div>
+
+    <h2>A repeatable Diablo 4 tuning order</h2>
+    <ol>
+      <li><strong>Update, then restart.</strong> Finish stable Windows, Lenovo driver, Legion Space, game, and launcher updates before diagnosing persistent stutter.</li>
+      <li><strong>Record the power and network state.</strong> Note the Legion Go profile, charger, battery percentage, refresh rate, Wi-Fi path, and background downloads.</li>
+      <li><strong>Apply one baseline.</strong> Set 1280×800, 40 FPS, Low, quality-oriented upscaling, Low shadows and fog, and distortion off.</li>
+      <li><strong>Run the same town route.</strong> Repeat movement, camera turns, inventory access, and a portal or waypoint transition.</li>
+      <li><strong>Repeat an effects-heavy event.</strong> Use a comparable dense fight; a menu, login screen, or empty corridor is not enough.</li>
+      <li><strong>Lower expensive effects before textures.</strong> Preserve useful texture clarity when it does not hitch, and reduce shadows, fog, clutter, and scaler quality one step at a time.</li>
+      <li><strong>Try the 30 FPS fallback.</strong> If 40 remains uneven, cap 30 before making the image excessively soft.</li>
+      <li><strong>Experiment last.</strong> Test 1200p/30 or a 60 FPS attempt as separate profiles, never while also changing the power mode and network path.</li>
+    </ol>
+
+    <h2>Fix common Diablo 4 problems on Legion Go</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Busy events miss 40 FPS</td><td>Confirm Low shadows, fog, and clutter in the same power profile</td><td>Test one faster upscaling mode, then compare the capped 30 FPS fallback</td></tr>
+        <tr><td>Image looks soft or noisy</td><td>Return to the quality-oriented scaler and conservative sharpening</td><td>Keep 30 FPS if it preserves a clearer render than the faster scaler</td></tr>
+        <tr><td>Traversal or inventory changes hitch</td><td>Check downloads, free SSD space, and Medium textures</td><td>Lower textures one step, restart, and repeat the same route</td></tr>
+        <tr><td>Rubber-banding or delayed skills</td><td>Check the network path and Blizzard service status</td><td>Pause downloads and compare a stable Wi-Fi or Ethernet connection; graphics settings cannot repair packet loss</td></tr>
+        <tr><td>Controls or button prompts are wrong</td><td>Set Legion Space controls to gamepad mode</td><td>Restore the default Steam Input or in-game layout and remove conflicting remaps</td></tr>
+        <tr><td>New crash after an update</td><td>Restore defaults and remove unofficial config edits</td><td>Verify game files, restart Windows, and check current Blizzard and Lenovo support guidance</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Online, storage, battery, and dock planning</h2>
+    <p>Diablo IV is not a dependable offline-flight game: Steam currently lists a broadband internet connection. Test the exact launcher login, sleep-resume behavior, and network before travel. For a different travel title, use the <a href="/guides/handheld-pc-offline-mode-flight-checklist/">offline-mode and flight checklist</a>.</p>
+    <p>Steam currently lists <strong>90GB of available storage</strong> and an SSD requirement. Leave patching headroom beyond that number, confirm the current install prompt, and model the rest of your library in the <a href="/calculators/storage-planner/">storage planner</a>. Check the <a href="/guides/handheld-pc-ssd-form-factor-guide/">handheld SSD form-factor guide</a> before opening the device.</p>
+    <p>This page does not invent a battery runtime. Read total system draw during your own repeatable route and enter it in the <a href="/calculators/battery-estimator/">battery estimator</a>. For desk or TV play, use the <a href="/guides/handheld-gaming-usb-c-dock-checklist/">USB-C dock checklist</a> and verify the charger's USB-C PD output for the exact setup.</p>
+
+    <h2>Optional gear after the settings are stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, model fit, seller support, and return terms. No price, compatibility, performance, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+65w+usb+c+pd+charger" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers">
+        <span class="chip">Sponsored search</span><h3>65W-class USB-C PD chargers</h3><p class="muted">Verify dedicated-port output, included cable rating, port-sharing behavior, exact-device support, warranty, and return terms.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+a2+u3+microsd+card" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microsd-cards">
+        <span class="chip">Sponsored search</span><h3>A2 / U3 microSD cards</h3><p class="muted">Compare genuine capacity, seller traceability, warranty, and verification tools before moving a large live-service game.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+usb+c+dock+ethernet+65w" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks">
+        <span class="chip">Sponsored search</span><h3>USB-C docks with Ethernet</h3><p class="muted">Check Ethernet, display modes, PD passthrough, cable position, device clearance, and controller needs.</p>
+      </a>
+    </div>
+    <p>Compare those categories in the <a href="/gear/">spec-based gear library</a> or plan the setup with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on August 1, 2026. Steam's public store data supplies the October 17, 2023 Steam release date, 90GB storage requirement, SSD requirement, DirectX 12 and broadband requirements, full controller support, desktop minimum/recommended notes, developer/publisher identity, and official image. Blizzard Support is the publisher's system-requirements reference. Lenovo PSREF supplies the original Legion Go hardware context, while Lenovo Support supplies the current device-support route. The profiles above are conservative editorial testing sequences informed by those official constraints. Handheld Settings Lab did not personally benchmark the current game, Windows, driver, Legion Space, network route, battery, or thermals. No autocomplete phrase is represented as search volume.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+    <p>For more games, return to the <a href="/legion-go-settings/">Legion Go settings hub</a>. Compare the <a href="/steam-deck-settings/diablo-iv/">Steam Deck Diablo IV baseline</a> or <a href="/rog-ally-settings/diablo-iv/">ROG Ally Diablo IV guide</a>, use the <a href="/calculators/">battery, storage, and accessory calculators</a>, or browse the <a href="/gear/">gear library</a>.</p>
+  </article>
+</Base>
