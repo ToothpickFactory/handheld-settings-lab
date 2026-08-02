@@ -1,0 +1,202 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/legion-go-settings/path-of-exile-2/';
+const title = 'Path of Exile 2 Legion Go settings: 800p/30 baseline — Handheld Settings Lab';
+const description = 'Start Path of Exile 2 on Lenovo Legion Go with a cautious 800p/30 FPS profile, dynamic-resolution tuning, combat troubleshooting, and 100GB storage planning.';
+const image = '/assets/games/path-of-exile-2-header.jpg';
+
+const sources = [
+  {
+    label: 'Steam: Path of Exile 2 store page, PC requirements, controller support, Early Access status, and official media',
+    url: 'https://store.steampowered.com/app/2694490/Path_of_Exile_2/'
+  },
+  {
+    label: 'Lenovo PSREF: original Legion Go 8APU1 specifications',
+    url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1'
+  },
+  {
+    label: 'Lenovo Support: Legion Go drivers and software lookup',
+    url: 'https://pcsupport.lenovo.com/'
+  },
+  {
+    label: 'Grinding Gear Games: Path of Exile 2 support',
+    url: 'https://www.pathofexile.com/support'
+  }
+];
+
+const faqs = [
+  {
+    question: 'What settings should I use for Path of Exile 2 on Legion Go?',
+    answer: 'Begin at 1280×800, 30 FPS, Low, dynamic resolution on with a 30 FPS target, and Quality upscaling. Keep shadows, lighting, global illumination, water, and effect detail low until a dense encounter is acceptably paced. This is a cautious baseline to test, not a benchmark guarantee.'
+  },
+  {
+    question: 'Can Legion Go run Path of Exile 2 at 60 FPS?',
+    answer: 'Do not make 60 FPS the first target. Path of Exile 2 is demanding and still in Early Access. Establish a repeatable 30 FPS baseline in a busy fight before trying 40 FPS; treat 60 FPS as an experiment for lighter scenes, not a promise for the full game.'
+  },
+  {
+    question: 'Should I use 800p or 1200p for Path of Exile 2 on Legion Go?',
+    answer: 'Start at 800p because it preserves a 16:10 output while cutting render load substantially from 1600p. If 800p/30 is stable in real combat, test 1200p with every other variable unchanged. Keep the higher resolution only if clarity improves without unacceptable frame-pacing loss.'
+  },
+  {
+    question: 'Should I enable dynamic resolution in Path of Exile 2?',
+    answer: 'Use it for the first 30 FPS baseline because encounter load can vary sharply. If the image becomes too soft, keep the same combat route and compare Quality upscaling, lower effect settings, or a fixed resolution one change at a time.'
+  },
+  {
+    question: 'How much storage does Path of Exile 2 need?',
+    answer: 'Steam currently lists 100GB of available space and recommends solid-state storage. Leave additional room for Early Access updates, shader data, caches, saves, and Windows temporary files.'
+  },
+  {
+    question: 'Were these Legion Go settings personally benchmarked?',
+    answer: 'No. This is official-spec and public configuration-pattern-informed guidance. Handheld Settings Lab did not personally test the current game, Windows, graphics-driver, or Legion Space build, so no frame-rate, battery-life, or thermal result is guaranteed.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Path of Exile 2 Legion Go settings: 800p/30 FPS baseline',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-02',
+    dateModified: '2026-08-02',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Path of Exile 2', 'Lenovo Legion Go', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Legion Go settings', item: 'https://handheldsettings.com/legion-go-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Path of Exile 2 settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Legion Go settings · Baseline published August 2026</span>
+    <h1>Path of Exile 2 Legion Go settings: start at 800p and 30 FPS</h1>
+    <p class="lede muted">Path of Exile 2 can shift from a quiet corridor to a screen full of enemies, projectiles, lighting, and network-driven combat. This original Legion Go profile starts at 800p/30 with dynamic resolution, then separates resolution pressure from encounter or shader hitching. It is official-spec and public configuration-pattern-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Path of Exile 2 Steam header artwork showing the game logo and dark fantasy characters" width="460" height="215" />
+      <figcaption class="media-credit">Official Path of Exile 2 Steam store header image. Source: <a href="https://store.steampowered.com/app/2694490/Path_of_Exile_2/" target="_blank" rel="nofollow noopener">Grinding Gear Games' Steam store page</a>. Artwork and trademarks belong to their owners; use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Starting target</h3><div class="stat">800p / 30</div><p class="muted">Cautious combat baseline</p></section>
+      <section class="card"><h3>Fallback test</h3><div class="stat">720p / 30</div><p class="muted">Use to isolate render pressure</p></section>
+      <section class="card"><h3>Starting preset</h3><p><strong>Low + dynamic resolution</strong></p><p class="muted">Quality upscaling first</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">100GB</div><p class="muted">Official requirement; extra room advised</p></section>
+    </div>
+
+    <div class="callout"><strong>Test combat, not the login screen.</strong> Repeat the same enemy-dense route or encounter after each change. Town, network, shader, and combat loads can behave differently, so one quiet scene cannot validate a profile.</div>
+
+    <h2>Recommended Path of Exile 2 Legion Go baseline</h2>
+    <table>
+      <thead><tr><th>Setting</th><th>Start here</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Legion Go power mode</td><td>Performance-class profile</td><td>Creates a consistent starting condition. Record whether the device is on battery or a compatible charger.</td></tr>
+        <tr><td>Display refresh rate</td><td>60Hz for the first test</td><td>Keeps a 30 FPS target easy to interpret; a 144Hz panel mode does not make the game render 144 frames.</td></tr>
+        <tr><td>In-game resolution</td><td>1280×800</td><td>Preserves a 16:10 output while lowering load substantially from the panel's native resolution.</td></tr>
+        <tr><td>Frame-rate cap</td><td>30 FPS</td><td>Sets a cautious target for effect-heavy combat and changing Early Access builds.</td></tr>
+        <tr><td>Renderer</td><td>DirectX 12 first</td><td>Steam lists DirectX 12 in the current requirements. Keep one renderer through the baseline; compare Vulkan only for a repeatable fault.</td></tr>
+        <tr><td>Graphics preset</td><td>Low</td><td>Establishes headroom before restoring the settings that matter most to clarity.</td></tr>
+        <tr><td>Dynamic resolution</td><td>On, 30 FPS target</td><td>Lets render resolution react to encounter load during the first consistency test.</td></tr>
+        <tr><td>Upscale mode</td><td>Quality first</td><td>Preserves more image detail; test Balanced on the identical route only if needed.</td></tr>
+        <tr><td>Textures</td><td>Medium, then Low if needed</td><td>Keeps useful surface detail while providing a clear fallback if shared-memory pressure or hitching appears.</td></tr>
+        <tr><td>Shadows / lighting / global illumination</td><td>Low</td><td>Leaves more budget for enemy and spell-heavy scenes.</td></tr>
+        <tr><td>Water / effects detail</td><td>Low</td><td>Reduces decorative load during visually dense encounters.</td></tr>
+        <tr><td>Engine multithreading</td><td>On</td><td>Use the engine's multithreaded path unless a current official support note directs otherwise.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Option names and available renderers can change during Early Access. If the current build does not expose a listed option, use the closest menu setting or skip it rather than copying an old configuration-file edit.</p>
+
+    <h2>Compare two profiles without changing everything</h2>
+    <div class="grid cols2">
+      <section class="card">
+        <span class="chip">Profile A · daily baseline</span>
+        <h3>800p / 30 FPS</h3>
+        <p>Use Low, dynamic resolution with a 30 FPS target, Quality upscaling, Medium textures, and Low scene effects. Repeat a dense encounter twice before deciding whether it is stable.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Profile B · diagnostic fallback</span>
+        <h3>720p / 30 FPS</h3>
+        <p>Keep the same power mode, cap, renderer, preset, and route, then lower only resolution to 1280×720. If the same hitch remains, investigate shader work, encounter load, storage, background tasks, heat, network conditions, or a game-side issue.</p>
+      </section>
+    </div>
+
+    <h2>Tune in a repeatable order</h2>
+    <ol>
+      <li><strong>Update and restart deliberately.</strong> Finish the stable game, Windows, Lenovo, graphics-driver, firmware, and Legion Space updates for the exact device.</li>
+      <li><strong>Record the test state.</strong> Note the game version, power profile, charger state, refresh rate, background downloads, renderer, and selected frame cap.</li>
+      <li><strong>Apply 800p/30 Low.</strong> Enable dynamic resolution, choose Quality upscaling, keep expensive scene settings low, and begin with Medium textures.</li>
+      <li><strong>Repeat a dense route twice.</strong> Include enemy packs, effects, camera turns, and traversal. A second pass may differ after shaders or assets have been encountered.</li>
+      <li><strong>Try 720p without another change.</strong> If it materially improves pacing, resolution pressure matters. If it does not, stop reducing image quality and inspect other causes.</li>
+      <li><strong>Restore clarity carefully.</strong> At a stable 800p/30 baseline, test higher texture detail first. Compare one change per repeatable route.</li>
+    </ol>
+
+    <h2>Fix common Path of Exile 2 problems on Legion Go</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Heavy drops in dense combat</td><td>Confirm 30 FPS, Low shadows, lighting, global illumination, water, and effects</td><td>Compare Balanced upscaling or the 720p diagnostic profile on the same encounter</td></tr>
+        <tr><td>Image becomes too soft</td><td>Return to 800p and Quality upscaling</td><td>Keep scene effects low, then compare dynamic resolution off without changing the combat route</td></tr>
+        <tr><td>Short hitches after an update</td><td>Restart, pause downloads, verify free SSD space, and repeat a second pass</td><td>Restore the default renderer and remove unofficial launch or configuration edits before deeper troubleshooting</td></tr>
+        <tr><td>720p barely changes the problem</td><td>Confirm the same cap, power profile, renderer, and encounter</td><td>Investigate encounter or CPU load, shader work, background tasks, heat, storage, network conditions, and current game issues</td></tr>
+        <tr><td>Wrong prompts or controls</td><td>Set Legion Space controls to gamepad mode</td><td>Restore the default Steam controller layout before remapping individual actions</td></tr>
+        <tr><td>Crashes repeat on one renderer</td><td>Return all graphics and launch options to defaults</td><td>Verify files, compare the alternate renderer once, and use official Grinding Gear Games support with the error details</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, battery, and dock planning</h2>
+    <p>Steam currently lists <strong>100GB of available space</strong>, 8GB of minimum system memory, DirectX 12, broadband, and solid-state storage in its recommended configuration. Those desktop-PC requirements provide context rather than a Legion Go guarantee. Keep extra room for Early Access updates, shader data, caches, saves, and Windows temporary files. Use the <a href="/calculators/storage-planner/">storage planner</a>, then read the <a href="/guides/handheld-pc-ssd-form-factor-guide/">handheld SSD form-factor guide</a> before buying internal storage.</p>
+    <p>This page does not invent a battery runtime. Read total system draw from your own repeatable session and enter it in the <a href="/calculators/battery-estimator/">battery estimator</a>. For plugged-in or TV play, verify the full charger, cable, and dock chain with the <a href="/guides/handheld-gaming-usb-c-dock-checklist/">USB-C dock checklist</a>.</p>
+
+    <h2>Optional gear after the game is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, device fit, seller support, and return terms. No price, compatibility, performance, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+2242+nvme+ssd" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="nvme-ssds">
+        <span class="chip">Sponsored search</span><h3>Legion Go 2242 NVMe SSDs</h3><p class="muted">Confirm exact 2242 fit, capacity, thermals, warranty, and recovery or cloning plan before opening the device.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+a2+u3+microsd+card" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microsd-cards">
+        <span class="chip">Sponsored search</span><h3>A2 / U3 microSD cards</h3><p class="muted">Compare capacity, seller traceability, warranty, and verification tools before moving a large game library.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+65w+usb+c+pd+charger" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers">
+        <span class="chip">Sponsored search</span><h3>65W-class USB-C PD chargers</h3><p class="muted">Verify exact single-port output, cable rating, port-sharing behavior, warranty, and device support.</p>
+      </a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a> or set a limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on August 2, 2026. Steam supplies the 100GB storage requirement, SSD recommendation, DirectX 12 and broadband requirements, full-controller-support label, Early Access status, and official image. Lenovo PSREF supplies the original Legion Go hardware context, while Lenovo Support supplies the device driver and software route. Grinding Gear Games supplies the official game-support route. The profiles are conservative editorial starting sequences informed by those official constraints and recurring public configuration patterns. Handheld Settings Lab did not personally benchmark the current game, Windows, driver, or Legion Space build.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+    <p>Return to the <a href="/legion-go-settings/">Legion Go settings hub</a>, compare the <a href="/steam-deck-settings/path-of-exile-2/">Steam Deck Path of Exile 2 baseline</a>, or use the <a href="/calculators/">battery, storage, and accessory calculators</a>.</p>
+  </article>
+</Base>
