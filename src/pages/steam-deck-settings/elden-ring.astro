@@ -1,0 +1,212 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/steam-deck-settings/elden-ring/';
+const title = 'Best Elden Ring Steam Deck settings: Verified 30/40 FPS baseline — Handheld Settings Lab';
+const description = 'Tune Elden Ring on Steam Deck with a Valve Verified default-first workflow, cautious 30 FPS baseline, 40 FPS experiment, 60GB storage planning, and stutter fixes.';
+const image = '/assets/games/elden-ring-header.jpg';
+
+const sources = [
+  {
+    label: 'Steam: Elden Ring store data, PC requirements, controller support, release details, and official media',
+    url: 'https://store.steampowered.com/app/1245620/ELDEN_RING/'
+  },
+  {
+    label: 'Steam: current Steam Deck compatibility report for app 1245620',
+    url: 'https://store.steampowered.com/saleaction/ajaxgetdeckappcompatibilityreport?nAppID=1245620'
+  },
+  {
+    label: 'Bandai Namco: Elden Ring patch notes version 1.16.1',
+    url: 'https://en.bandainamcoent.eu/elden-ring/news/elden-ring-patch-notes-version-1161'
+  },
+  {
+    label: 'Valve: Steam Deck technical specifications',
+    url: 'https://www.steamdeck.com/en/tech'
+  }
+];
+
+const faqs = [
+  {
+    question: 'What are the best Elden Ring settings for Steam Deck?',
+    answer: 'Test Valve’s Verified default first. For a manual consistency profile, start at 1280×800, 30 FPS, Medium quality, Low shadows, Medium lighting and effects, Low volumetric quality, Medium grass, motion blur off, and ray tracing off. This is a cautious editorial baseline to validate in demanding outdoor combat, not a personally measured benchmark.'
+  },
+  {
+    question: 'Is Elden Ring Steam Deck Verified?',
+    answer: 'Yes. Valve’s current compatibility endpoint resolves Elden Ring as category 3, Verified. It reports functional default controls, matching controller glyphs, legible interface text, and a performant default configuration.'
+  },
+  {
+    question: 'Should I use 30 FPS or 40 FPS for Elden Ring on Steam Deck?',
+    answer: 'Use capped 30 FPS as the consistency baseline. After it passes an open-world ride and effects-heavy boss test, try 40 Hz and 40 FPS with the same graphics settings. Keep 40 only if frame pacing remains acceptable in the areas you actually play; this guide does not guarantee a locked 40 FPS.'
+  },
+  {
+    question: 'Should ray tracing be on in Elden Ring on Steam Deck?',
+    answer: 'No for this handheld baseline. Keep ray tracing off while establishing performance and frame pacing. Adding it increases rendering work and makes troubleshooting harder without improving playability.'
+  },
+  {
+    question: 'How much storage does Elden Ring need on Steam Deck?',
+    answer: 'Steam currently lists 60GB of available space. Leave additional room for updates, shader data, saves, and Steam’s patching process, and check the current install dialog before downloading.'
+  },
+  {
+    question: 'Were these Elden Ring Steam Deck settings personally benchmarked?',
+    answer: 'No. Handheld Settings Lab did not personally benchmark the current Elden Ring build, SteamOS version, compatibility layer, battery runtime, or thermals. The page combines current official store and compatibility information with a conservative, repeatable tuning method.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Best Elden Ring Steam Deck settings: Verified 30/40 FPS baseline',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-02',
+    dateModified: '2026-08-02',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Elden Ring', 'Steam Deck', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Steam Deck settings', item: 'https://handheldsettings.com/steam-deck-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Elden Ring settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Steam Deck settings · Baseline published August 2026</span>
+    <h1>Best Elden Ring Steam Deck settings: start with a stable 30 FPS profile</h1>
+    <p class="lede muted">Elden Ring is Steam Deck Verified, but the Lands Between can shift from an enclosed dungeon to long sightlines, weather, foliage, mounted traversal, and effects-heavy combat. Test Valve’s supported default first, then compare this cautious 800p/30 profile with a 40 FPS experiment. This is official-source-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Elden Ring Steam header artwork showing a kneeling armored figure beneath the glowing Elden Ring" width="460" height="215" />
+      <figcaption class="media-credit">Official Elden Ring Steam store header image, saved locally from <a href="https://store.steampowered.com/app/1245620/ELDEN_RING/" target="_blank" rel="nofollow noopener">Bandai Namco Entertainment's Steam store page</a>. Artwork and trademarks belong to their owners; use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Consistency target</h3><div class="stat">800p / 30</div><p class="muted">Validate this profile first</p></section>
+      <section class="card"><h3>Optional experiment</h3><div class="stat">800p / 40</div><p class="muted">Not a locked-FPS promise</p></section>
+      <section class="card"><h3>Compatibility</h3><p><strong>Deck Verified</strong></p><p class="muted">Valve report checked August 2, 2026</p></section>
+      <section class="card"><h3>Storage</h3><div class="stat">60GB</div><p class="muted">Current Steam requirement</p></section>
+    </div>
+
+    <div class="callout"><strong>Test outside the tutorial:</strong> repeat one open-world horseback route and one effects-heavy combat encounter. Record the game version, SteamOS version, charger state, refresh rate, cap, and weather or time-of-day before judging a change.</div>
+
+    <h2>Recommended Elden Ring Steam Deck baseline</h2>
+    <table>
+      <thead><tr><th>Setting</th><th>Start here</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Compatibility tool</td><td>Valve default</td><td>The current compatibility report is Verified. Do not force an old Proton version before testing the supported path.</td></tr>
+        <tr><td>Resolution</td><td>1280×800</td><td>Matches the Deck panel’s 16:10 shape and keeps interface text on its intended handheld canvas.</td></tr>
+        <tr><td>Refresh rate / cap</td><td>60 Hz / 30 FPS</td><td>Sets the consistency baseline before trying a more demanding 40 Hz / 40 FPS profile.</td></tr>
+        <tr><td>Quality preset</td><td>Medium, then customize</td><td>Provides a clear starting point without assuming every option should remain at the same tier.</td></tr>
+        <tr><td>Texture quality</td><td>Medium</td><td>Preserves character and world detail; lower it only if a repeated hitch correlates with asset loading.</td></tr>
+        <tr><td>Antialiasing quality</td><td>Medium</td><td>Balances edge stability and cost on the 800p display.</td></tr>
+        <tr><td>SSAO quality</td><td>Medium</td><td>Retains useful depth while leaving room to reduce it for a repeatable miss.</td></tr>
+        <tr><td>Depth of field</td><td>Personal preference</td><td>Keep it if the effect is comfortable; it is not the first performance lever.</td></tr>
+        <tr><td>Motion blur</td><td>Off</td><td>Improves visual clarity during camera turns and makes frame-pacing comparisons easier.</td></tr>
+        <tr><td>Shadow quality</td><td>Low</td><td>Creates headroom in open areas with complex lighting and geometry.</td></tr>
+        <tr><td>Lighting / effects quality</td><td>Medium</td><td>Keeps spell and environment readability while avoiding the High starting point.</td></tr>
+        <tr><td>Volumetric quality</td><td>Low</td><td>Reduces cloud, fog, and atmospheric load in wide outdoor views.</td></tr>
+        <tr><td>Reflection / water quality</td><td>Low</td><td>Leaves more rendering budget for combat and traversal.</td></tr>
+        <tr><td>Shader quality</td><td>Medium</td><td>Preserves the intended material presentation; change only after a repeatable test.</td></tr>
+        <tr><td>Global illumination</td><td>Medium</td><td>Maintains scene readability without beginning at the highest setting.</td></tr>
+        <tr><td>Grass quality</td><td>Medium, Low fallback</td><td>Dense foliage can pressure open-world scenes; lower it before blurring the whole image.</td></tr>
+        <tr><td>Ray tracing</td><td>Off</td><td>Keeps the handheld baseline focused on stable rasterized performance.</td></tr>
+        <tr><td>Steam Deck TDP limit</td><td>Off for first test</td><td>Do not constrain device power until the graphics profile is repeatable.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Option labels can move or change with patches. Save screenshots before editing and use the closest current setting. Steam’s desktop PC requirements provide context, not a Steam Deck frame-rate guarantee.</p>
+
+    <h2>Compare 30 FPS and 40 FPS fairly</h2>
+    <div class="grid cols2">
+      <section class="card">
+        <span class="chip">Consistency baseline</span>
+        <h3>800p / 60 Hz / 30 FPS</h3>
+        <p>Use the custom Medium/Low mix above with ray tracing off and no TDP limit. Repeat an outdoor ride and a demanding fight twice before changing anything.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Optional experiment</span>
+        <h3>800p / 40 Hz / 40 FPS</h3>
+        <p>Keep every graphics option identical and change only refresh rate and cap. Retain 40 only if your repeated routes remain acceptably paced; expect heavier scenes to challenge it.</p>
+      </section>
+    </div>
+
+    <h2>A repeatable tuning order</h2>
+    <ol>
+      <li><strong>Update, then restart.</strong> Finish stable SteamOS, game, and shader downloads before diagnosing stutter.</li>
+      <li><strong>Test the Verified default.</strong> Valve currently reports functional default controls, matching glyphs, legible text, and a performant default configuration. Learn how it behaves before replacing it.</li>
+      <li><strong>Apply one frame target.</strong> Begin at capped 30 FPS and leave the Deck TDP unrestricted during the graphics comparison.</li>
+      <li><strong>Repeat two representative routes.</strong> Use an open-world ride with foliage and weather plus an effects-heavy fight. Menus and caves alone are not sufficient.</li>
+      <li><strong>Lower scene cost first.</strong> Keep shadows, volumetrics, reflections, and water Low. Move grass from Medium to Low if outdoor pacing remains worse than indoor pacing.</li>
+      <li><strong>Separate shader hitches from sustained load.</strong> Repeat the route after shaders and assets have appeared once. A short first-pass hitch is different from a persistent frame-rate miss.</li>
+      <li><strong>Try 40 only after 30 passes.</strong> Change refresh rate and cap without changing graphics. Return to 30 if demanding scenes become uneven.</li>
+      <li><strong>Tune battery last.</strong> Lower the Deck TDP in small steps only after the profile passes both routes, repeating them after every change.</li>
+    </ol>
+
+    <h2>Fix common Elden Ring Steam Deck problems</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Open-world areas miss the cap</td><td>Confirm ray tracing off, Low shadows and volumetrics, and no TDP limit</td><td>Lower grass, reflections, and water one step; use the 30 FPS profile if 40 remains uneven</td></tr>
+        <tr><td>Brief hitch when entering a new area</td><td>Pause downloads and repeat the same route a second time</td><td>Check free storage and restore Valve’s default compatibility tool before broad graphics cuts</td></tr>
+        <tr><td>Frame pacing worsened after a patch</td><td>Confirm the game version and restart after shader updates complete</td><td>Restore the known baseline, verify files, and check official patch notes before using unofficial launch flags</td></tr>
+        <tr><td>Image looks noisy or overly soft</td><td>Return to native 800p and avoid extra scaling layers</td><td>Preserve the 30 FPS cap rather than lowering every image-quality option to chase 40</td></tr>
+        <tr><td>Battery drains faster than expected</td><td>Confirm frame cap, brightness, Wi-Fi use, and total system draw</td><td>Lower TDP gradually only after the game remains stable; model your observed draw in the battery estimator</td></tr>
+        <tr><td>Controller prompts or input changed</td><td>Restore the official/default Steam Input layout</td><td>Remove per-game remaps one at a time and retest before changing Proton</td></tr>
+        <tr><td>Crash began after a setting change</td><td>Turn ray tracing off and restore defaults</td><td>Remove unofficial launch options, verify files, restart, and use Valve’s default compatibility tool</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, battery, and online planning</h2>
+    <p>Steam currently lists <strong>60GB of available space</strong>, DirectX 12, full controller support, multiplayer, online co-op, PvP, and Steam Cloud. Keep additional room for patches, shader data, saves, and Steam’s patching process. Check the current install dialog, then model the rest of your library in the <a href="/calculators/storage-planner/">storage planner</a>.</p>
+    <p>This page does not invent a battery runtime. Steam Deck LCD and OLED battery capacities differ, while frame cap, brightness, Wi-Fi activity, scene load, and device power change consumption. Read total system draw during your own repeated route and enter it in the <a href="/calculators/battery-estimator/">battery estimator</a>. Use the <a href="/guides/steam-deck-battery-life-by-game/">battery-by-game planning guide</a> for clearly labeled ranges and methodology.</p>
+    <p>Online co-op and PvP need a reliable connection, but solo play and service availability can still be affected by account, update, or network conditions. Before travel, use the <a href="/guides/handheld-pc-offline-mode-flight-checklist/">offline-mode flight checklist</a> and perform a real disconnected launch test at home.</p>
+
+    <h2>Optional gear after the settings are stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, seller traceability, device fit, warranty, and return terms. No price, compatibility, performance, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+microSD+card+a2+uhs+i" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microsd-cards">
+        <span class="chip">Sponsored search</span><h3>A2 UHS-I microSD cards</h3><p class="muted">Compare genuine capacity, A2/U3 markings, seller traceability, warranty, and room beyond the current 60GB requirement.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+45w+usb+c+pd+power+bank" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="power-banks">
+        <span class="chip">Sponsored search</span><h3>45W USB-C PD power banks</h3><p class="muted">Check dedicated-port output, watt-hours, cable rating, weight, and current airline rules instead of relying on headline capacity.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+oled+carrying+case+charger+storage" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="cases">
+        <span class="chip">Sponsored search</span><h3>Steam Deck travel cases</h3><p class="muted">Compare exact LCD/OLED fit, stick pressure, charger separation, airflow after play, and bag dimensions.</p>
+      </a>
+    </div>
+    <p>Use the <a href="/guides/best-microsd-cards-for-handheld-gaming/">microSD comparison method</a>, check the <a href="/guides/usb-c-power-bank-wattage-handheld-gaming/">power-bank and airline guide</a>, or browse the <a href="/gear/">spec-based gear library</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on August 2, 2026. Steam’s public store data supplies the February 24, 2022 release date, 60GB storage requirement, DirectX 12 requirement, full controller support, online feature labels, developer/publisher identity, and official image. Valve’s compatibility endpoint currently resolves Elden Ring as Deck Verified and reports functional default controls, matching glyphs, legible interface text, and a performant default configuration. Bandai Namco supplies the official patch-note route, and Valve supplies Steam Deck hardware context. The profiles above are conservative editorial testing sequences informed by those official constraints and common graphics-cost relationships. Handheld Settings Lab did not personally benchmark the current game, SteamOS, compatibility layer, battery, or thermals. Google autocomplete evidence saved in the July 2026 audit includes “best Steam Deck settings for Elden Ring”; that is query-language evidence, not search volume.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+    <p>For more games, return to the <a href="/steam-deck-settings/">Steam Deck settings hub</a>. Compare the <a href="/rog-ally-settings/elden-ring/">ROG Ally Elden Ring baseline</a>, use the <a href="/calculators/">battery, storage, and accessory calculators</a>, or browse the <a href="/gear/">gear library</a>.</p>
+  </article>
+</Base>
