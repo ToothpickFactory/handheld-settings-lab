@@ -1,0 +1,203 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/legion-go-settings/marvel-rivals/';
+const title = 'Marvel Rivals Legion Go settings: 800p/30 and 40 FPS — Handheld Settings Lab';
+const description = 'Start Marvel Rivals on Lenovo Legion Go with cautious 800p/30 and 800p/40 FPS profiles, team-fight testing, troubleshooting, and 70GB storage planning.';
+const image = '/assets/games/marvel-rivals-header.jpg';
+
+const sources = [
+  {
+    label: 'Steam: Marvel Rivals store page, PC requirements, controller support, and official media',
+    url: 'https://store.steampowered.com/app/2767030/Marvel_Rivals/'
+  },
+  {
+    label: 'Lenovo PSREF: original Legion Go 8APU1 specifications',
+    url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1'
+  },
+  {
+    label: 'Lenovo Support: Legion Go drivers and software lookup',
+    url: 'https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/legion-series/legion-go-8apu1/'
+  },
+  {
+    label: 'Marvel Rivals: official news and support site',
+    url: 'https://www.marvelrivals.com/'
+  }
+];
+
+const faqs = [
+  {
+    question: 'What settings should I use for Marvel Rivals on Legion Go?',
+    answer: 'Begin at 1280×800, 30 FPS, the Low preset, ray tracing off, frame generation off, and a quality-oriented upscaler. Keep shadows, reflections, effects, and global illumination low, then validate the profile in a full team fight. This is a cautious editorial baseline, not a measured guarantee.'
+  },
+  {
+    question: 'Can Legion Go run Marvel Rivals at 60 FPS?',
+    answer: 'Do not use 60 FPS as the first pass. Establish a repeatable 800p/30 baseline in effect-heavy team fights, then test 40 FPS with Balanced upscaling. A quiet practice area cannot prove that 60 FPS will hold through a full multiplayer match.'
+  },
+  {
+    question: 'Should I use 800p or 1200p for Marvel Rivals on Legion Go?',
+    answer: 'Start at 800p because it preserves the panel’s 16:10 shape while reducing render load substantially from 1600p. Test 1200p only after 800p is stable, changing no other variable. Keep it only if the extra clarity is worth the frame-pacing cost in real matches.'
+  },
+  {
+    question: 'Should frame generation be on in Marvel Rivals?',
+    answer: 'Keep frame generation off while establishing the baseline so you can judge underlying frame pacing and input response. Generated frames can improve displayed smoothness, but they do not replace a healthy base frame rate. Compare the option later in the same match conditions if the current build offers it.'
+  },
+  {
+    question: 'How much storage does Marvel Rivals need?',
+    answer: 'Steam currently lists 70GB of available space and recommends an SSD. Leave additional free space for seasonal updates, shader caches, and Windows temporary files instead of planning around exactly 70GB.'
+  },
+  {
+    question: 'Were these Legion Go settings personally benchmarked?',
+    answer: 'No. Handheld Settings Lab did not personally benchmark the current game, Windows, graphics-driver, or Legion Space build. This page combines current official requirements with a conservative and repeatable tuning sequence; it does not promise a frame rate, battery runtime, or thermal result.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Marvel Rivals Legion Go settings: 800p/30 and 40 FPS baselines',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-03',
+    dateModified: '2026-08-03',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Marvel Rivals', 'Lenovo Legion Go', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Legion Go settings', item: 'https://handheldsettings.com/legion-go-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Marvel Rivals settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Legion Go settings · Baseline published August 2026</span>
+    <h1>Marvel Rivals Legion Go settings: start at 800p/30, then test 40 FPS</h1>
+    <p class="lede muted">Marvel Rivals is much harder to judge in the practice range than in a 12-player fight full of abilities, destructible scenery, and rapid camera movement. This original Legion Go workflow starts with a cautious 800p/30 profile, then tests 800p/40 without moving every setting at once. It is official-source-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Marvel Rivals Steam header artwork with the Marvel Rivals logo and heroes facing across a city scene" width="460" height="215" />
+      <figcaption class="media-credit">Official Marvel Rivals Steam store header image. Source: <a href="https://store.steampowered.com/app/2767030/Marvel_Rivals/" target="_blank" rel="nofollow noopener">NetEase Games' Steam store page</a>. Artwork and trademarks belong to their owners; use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Starting target</h3><div class="stat">800p / 30</div><p class="muted">Quality-oriented baseline</p></section>
+      <section class="card"><h3>Response test</h3><div class="stat">800p / 40</div><p class="muted">Validate in full team fights</p></section>
+      <section class="card"><h3>Starting preset</h3><p><strong>Low + upscaling</strong></p><p class="muted">Ray tracing and frame generation off</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">70GB</div><p class="muted">Official requirement; SSD recommended</p></section>
+    </div>
+
+    <div class="callout"><strong>Do not validate settings in the practice range alone.</strong> Play at least two full matches with the same power mode, charger state, resolution, cap, and graphics profile. Judge the busiest team fight—not the spawn room or a quiet corridor.</div>
+
+    <h2>Recommended Marvel Rivals Legion Go baseline</h2>
+    <table>
+      <thead><tr><th>Setting</th><th>Start here</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Legion Go power mode</td><td>Performance-class profile</td><td>Creates a repeatable starting condition. Record whether the device is on battery or connected to a compatible charger.</td></tr>
+        <tr><td>Display refresh rate</td><td>60Hz for the 30 FPS baseline</td><td>Keeps the first test easy to interpret. A 144Hz panel mode does not make the game render 144 frames.</td></tr>
+        <tr><td>In-game resolution</td><td>1280×800</td><td>Preserves a 16:10 output while reducing rendering load substantially from the panel’s native resolution.</td></tr>
+        <tr><td>Frame-rate target</td><td>30 FPS first; 40 FPS second</td><td>Establishes consistency before asking for more responsive input and motion.</td></tr>
+        <tr><td>Graphics preset</td><td>Low</td><td>Provides headroom for effect-heavy team fights before restoring individual clarity settings.</td></tr>
+        <tr><td>Upscaling</td><td>Quality at 30 FPS; Balanced as the 40 FPS test</td><td>Keeps the first profile clearer and changes one major rendering control for the response test.</td></tr>
+        <tr><td>Frame generation</td><td>Off for baseline testing</td><td>Exposes underlying frame pacing and input response before generated frames are introduced.</td></tr>
+        <tr><td>Ray tracing</td><td>Off</td><td>Avoids an expensive rendering feature while establishing handheld consistency.</td></tr>
+        <tr><td>Textures</td><td>Low, then test Medium</td><td>Provides a conservative shared-memory baseline with one clear quality control to restore later.</td></tr>
+        <tr><td>Shadows / reflections / effects</td><td>Low</td><td>Leaves more rendering budget for heroes, abilities, destruction, and camera movement.</td></tr>
+        <tr><td>Global illumination / model detail</td><td>Low</td><td>Reduces scene cost before sacrificing resolution or the frame target further.</td></tr>
+        <tr><td>Motion blur / VSync</td><td>Off / Off for the first test</td><td>Makes motion and the selected frame cap easier to judge before adding presentation options.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Available upscalers and exact option names can change with updates. If the current build does not expose a listed option, use the closest menu control or skip it rather than applying an old configuration-file tweak.</p>
+
+    <h2>Compare 30 and 40 FPS without hiding the bottleneck</h2>
+    <div class="grid cols2">
+      <section class="card">
+        <span class="chip">Profile A · consistency first</span>
+        <h3>800p / 30 FPS</h3>
+        <p>Use Low, Quality upscaling, ray tracing off, frame generation off, Low textures, and Low scene effects. Repeat two full matches before restoring Medium textures.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Profile B · response test</span>
+        <h3>800p / 40 FPS</h3>
+        <p>Keep the same power mode and Low preset, change the cap to 40 FPS, and compare Balanced upscaling. If busy fights miss the target, return to 30 rather than masking weak base performance with frame generation.</p>
+      </section>
+    </div>
+
+    <h2>Tune in a repeatable order</h2>
+    <ol>
+      <li><strong>Update and restart deliberately.</strong> Finish the stable game, Windows, Lenovo, graphics-driver, firmware, and Legion Space updates intended for the exact device.</li>
+      <li><strong>Record the test state.</strong> Note the game version, power profile, charger state, refresh rate, selected cap, upscaler, and any active downloads or overlays.</li>
+      <li><strong>Apply 800p/30 Low.</strong> Use Quality upscaling, switch off ray tracing and frame generation, and keep expensive scene settings Low.</li>
+      <li><strong>Play two full matches.</strong> Include effect-heavy team fights and destruction. The second match may differ after shaders and assets have appeared once.</li>
+      <li><strong>Test 40 FPS carefully.</strong> Keep 800p and the Low preset, raise only the target to 40, then compare Balanced upscaling on the same device conditions.</li>
+      <li><strong>Restore clarity one setting at a time.</strong> At a stable target, try Medium textures before raising shadows, reflections, effects, or global illumination.</li>
+      <li><strong>Try frame generation last.</strong> Compare it only after the base profile is healthy, and reject it if aim or camera response feels less direct.</li>
+    </ol>
+
+    <h2>Fix common Marvel Rivals problems on Legion Go</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Heavy drops during ultimate effects</td><td>Confirm the selected cap plus Low shadows, reflections, effects, and global illumination</td><td>Return to 30 FPS or compare Balanced upscaling in the same match conditions</td></tr>
+        <tr><td>Image looks smeared or unstable</td><td>Disable frame generation and return to Quality upscaling</td><td>Keep 800p/30 and Low scene effects, then compare motion blur off</td></tr>
+        <tr><td>Stutter after a game or driver update</td><td>Restart, pause downloads, close overlays, and play a second full match</td><td>Verify game files and restore default cache/configuration behavior before trying unofficial edits</td></tr>
+        <tr><td>40 FPS feels no better</td><td>Confirm the game is actually approaching the target in busy fights</td><td>Return to 30 FPS and prioritize consistent pacing rather than the higher cap</td></tr>
+        <tr><td>Wrong button prompts or mouse controls</td><td>Set Legion Space controls to gamepad mode</td><td>Restore the standard Steam controller layout before remapping individual actions</td></tr>
+        <tr><td>Crashes or memory warnings repeat</td><td>Close background apps and restore graphics or shared-memory experiments to defaults</td><td>Verify files, reproduce the fault cleanly, and use official Marvel Rivals support</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, battery, controls, and dock planning</h2>
+    <p>Steam currently lists <strong>70GB of available space</strong>, 16GB of system memory, DirectX 12, broadband, full controller support, and an SSD recommendation. Those desktop requirements provide context rather than a Legion Go performance guarantee. Keep room for updates, shader caches, recordings, and Windows temporary files. Use the <a href="/calculators/storage-planner/">storage planner</a>, then consult the <a href="/guides/handheld-pc-ssd-form-factor-guide/">handheld SSD form-factor guide</a> before buying internal storage.</p>
+    <p>This page does not invent a battery runtime. Read total system draw during your own repeatable match and enter it in the <a href="/calculators/battery-estimator/">battery estimator</a>. For docked play, verify the charger, USB-C cable, dock passthrough, display output, and controller chain with the <a href="/guides/handheld-gaming-usb-c-dock-checklist/">USB-C dock checklist</a>.</p>
+
+    <h2>Optional gear after the baseline is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, device fit, seller traceability, warranty, and return terms. No price, compatibility, performance, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+usb+c+ethernet+dock+65w" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks">
+        <span class="chip">Sponsored search</span><h3>Legion Go docks with Ethernet</h3><p class="muted">Compare USB-C PD passthrough, Ethernet speed, display output, physical clearance, cable reach, and charger requirements.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+65w+usb+c+pd+charger" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers">
+        <span class="chip">Sponsored search</span><h3>65W-class USB-C PD chargers</h3><p class="muted">Verify single-port output, cable rating, shared-port behavior, warranty, and support for the exact Legion Go model.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+wired+controller+usb+c" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="controllers">
+        <span class="chip">Sponsored search</span><h3>Docked controllers</h3><p class="muted">Compare wired versus wireless latency, Windows support, button layout, battery behavior, and return terms.</p>
+      </a>
+    </div>
+    <p>Compare more categories in the <a href="/gear/">spec-based gear library</a> or set a limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on August 3, 2026. Steam’s public store data supplied the 70GB storage requirement, 16GB memory requirement, DirectX 12 and broadband notes, SSD recommendation, full-controller-support label, Windows availability, and official media. Lenovo PSREF supplies the original Legion Go display and hardware context; Lenovo Support supplies the current driver and software route. The profiles above are conservative editorial testing sequences informed by those official constraints and common graphics-cost relationships. Handheld Settings Lab did not personally benchmark the current game, Windows, driver, Legion Space build, battery, or thermals.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+    <p>Return to the <a href="/legion-go-settings/">Legion Go settings hub</a>, compare the <a href="/rog-ally-settings/marvel-rivals/">ROG Ally Marvel Rivals baseline</a>, and use the <a href="/calculators/">battery, storage, and accessory calculators</a> for your own device assumptions.</p>
+  </article>
+</Base>
