@@ -1,0 +1,204 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/rog-ally-settings/path-of-exile-2/';
+const title = 'Path of Exile 2 ROG Ally settings: 900p/30 baseline — Handheld Settings Lab';
+const description = 'Start Path of Exile 2 on ROG Ally or Ally X with a cautious 900p/30 FPS profile, 720p diagnostic test, combat troubleshooting, and 100GB storage planning.';
+const image = '/assets/games/path-of-exile-2-header.jpg';
+
+const sources = [
+  {
+    label: 'Steam: Path of Exile 2 store data, requirements, controller support, Early Access status, and official media',
+    url: 'https://store.steampowered.com/app/2694490/Path_of_Exile_2/'
+  },
+  {
+    label: 'ASUS ROG: How to boost gaming performance on the ROG Ally',
+    url: 'https://rog.asus.com/articles/guides/how-to-boost-gaming-performance-on-the-rog-ally/'
+  },
+  {
+    label: 'ASUS ROG: ROG Ally (2023) technical specifications',
+    url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-2023/spec/'
+  },
+  {
+    label: 'Grinding Gear Games: official Path of Exile support',
+    url: 'https://www.pathofexile.com/support'
+  }
+];
+
+const faqs = [
+  {
+    question: 'What settings should I use for Path of Exile 2 on ROG Ally?',
+    answer: 'Begin at 1600×900, 30 FPS, Low, dynamic resolution on with a 30 FPS target, Quality upscaling, Medium textures, and low shadows, lighting, global illumination, water, and effects. Validate that profile in a dense combat encounter. It is a cautious editorial baseline, not a benchmark guarantee.'
+  },
+  {
+    question: 'Can ROG Ally run Path of Exile 2 at 60 FPS?',
+    answer: 'Do not make 60 FPS the first target. Path of Exile 2 is demanding and remains in Early Access. Establish a repeatable 30 FPS combat baseline before trying 45 FPS at 720p or a higher-power profile. Lighter scenes do not prove that 60 FPS will hold through dense encounters.'
+  },
+  {
+    question: 'Should I use 900p or 720p for Path of Exile 2 on ROG Ally?',
+    answer: 'Start at 900p for a clearer 16:9 image. If dense combat misses the 30 FPS target, keep the same power mode, renderer, cap, and route while testing 720p. A material improvement points toward render pressure; little change suggests that shaders, encounter load, storage, heat, network conditions, or background tasks deserve attention.'
+  },
+  {
+    question: 'Should dynamic resolution be on in Path of Exile 2?',
+    answer: 'Use it for the initial 30 FPS profile because combat load can change sharply. If the image becomes distracting, repeat the same encounter while comparing Quality upscaling, lower scene effects, or fixed resolution one change at a time.'
+  },
+  {
+    question: 'How much storage does Path of Exile 2 need on ROG Ally?',
+    answer: 'Steam currently lists 100GB of available space and recommends solid-state storage. Keep additional room for Early Access updates, shader data, caches, saves, and Windows temporary files rather than planning around exactly 100GB.'
+  },
+  {
+    question: 'Were these ROG Ally settings personally benchmarked?',
+    answer: 'No. Handheld Settings Lab did not personally benchmark the current game, Windows build, graphics driver, Armoury Crate version, battery runtime, or thermals. This page combines current official requirements with a conservative, repeatable tuning sequence.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Path of Exile 2 ROG Ally settings: 900p/30 FPS baseline',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-03',
+    dateModified: '2026-08-03',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Path of Exile 2', 'ROG Ally', 'ROG Ally X', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'ROG Ally settings', item: 'https://handheldsettings.com/rog-ally-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Path of Exile 2 settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">ROG Ally settings · Baseline published August 2026</span>
+    <h1>Path of Exile 2 ROG Ally settings: start at 900p and 30 FPS</h1>
+    <p class="lede muted">Path of Exile 2 can move from an easy corridor to a screen packed with enemies, projectiles, lighting, and network-driven combat. This ROG Ally and Ally X workflow starts at 900p/30, then uses a 720p comparison to separate rendering pressure from encounter, shader, or system issues. It is official-source-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Path of Exile 2 Steam store campaign header artwork" width="460" height="215" />
+      <figcaption class="media-credit">Current official campaign header served for Path of Exile 2 by <a href="https://store.steampowered.com/app/2694490/Path_of_Exile_2/" target="_blank" rel="nofollow noopener">Grinding Gear Games' Steam store page</a>. Artwork and trademarks belong to their owners; use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Starting target</h3><div class="stat">900p / 30</div><p class="muted">Clarity-first combat baseline</p></section>
+      <section class="card"><h3>Diagnostic test</h3><div class="stat">720p / 30</div><p class="muted">Isolate rendering pressure</p></section>
+      <section class="card"><h3>Starting preset</h3><p><strong>Low + dynamic resolution</strong></p><p class="muted">Quality upscaling first</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">100GB</div><p class="muted">Official requirement; buffer extra</p></section>
+    </div>
+
+    <div class="callout"><strong>Test a dense fight, not town or the login screen.</strong> Repeat the same enemy-heavy route twice after every meaningful change. Network activity, shader work, combat effects, power mode, and background downloads can make a quiet scene misleading.</div>
+
+    <h2>Recommended Path of Exile 2 ROG Ally baseline</h2>
+    <table>
+      <thead><tr><th>Setting</th><th>Start here</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Ally operating mode</td><td>Performance for baseline; Turbo as a plugged-in comparison</td><td>Records power conditions before graphics tuning. Do not compare battery Performance with plugged-in Turbo as though they were the same test.</td></tr>
+        <tr><td>Display resolution</td><td>1600×900</td><td>Preserves the Ally panel's 16:9 shape while reducing rendering load from native 1080p.</td></tr>
+        <tr><td>Frame-rate target</td><td>30 FPS</td><td>Sets a cautious target for effect-heavy combat and changing Early Access builds.</td></tr>
+        <tr><td>Renderer</td><td>DirectX 12 first</td><td>Steam lists DirectX 12 in the current requirements. Keep one renderer through the baseline and compare an alternative only for a repeatable fault.</td></tr>
+        <tr><td>Graphics preset</td><td>Low</td><td>Establishes headroom before restoring the settings that matter most to image clarity.</td></tr>
+        <tr><td>Dynamic resolution</td><td>On, 30 FPS target</td><td>Lets render resolution react to sharp encounter-load changes during the first consistency test.</td></tr>
+        <tr><td>Upscale mode</td><td>Quality first</td><td>Preserves more detail at 900p; compare Balanced on the same route only if needed.</td></tr>
+        <tr><td>Textures</td><td>Medium, Low fallback</td><td>Retains useful detail while leaving a clear fallback if shared-memory pressure or repeatable asset hitching appears.</td></tr>
+        <tr><td>Shadows / lighting / global illumination</td><td>Low</td><td>Leaves more rendering budget for enemy and skill-heavy scenes.</td></tr>
+        <tr><td>Water / effects detail</td><td>Low</td><td>Reduces decorative load during the encounters that matter most.</td></tr>
+        <tr><td>Engine multithreading</td><td>On</td><td>Use the engine's multithreaded path unless a current official support note directs otherwise.</td></tr>
+        <tr><td>Frame generation</td><td>Off for the baseline</td><td>Judge the underlying frame rate and input response before testing generated frames, if the current build offers them.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Option names and renderer choices may change during Early Access. If the current build does not expose a listed option, use the closest menu control or skip it rather than applying an old configuration-file tweak.</p>
+
+    <h2>Compare 900p and 720p without moving the goalposts</h2>
+    <div class="grid cols2">
+      <section class="card">
+        <span class="chip">Profile A · daily baseline</span>
+        <h3>900p / 30 FPS</h3>
+        <p>Use Low, dynamic resolution at a 30 FPS target, Quality upscaling, Medium textures, and Low scene effects. Repeat one dense encounter twice before deciding whether the profile is stable.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Profile B · diagnostic fallback</span>
+        <h3>720p / 30 FPS</h3>
+        <p>Keep the same power mode, cap, renderer, preset, and route, then lower only the resolution to 1280×720. If the same hitch remains, investigate shaders, encounter or CPU load, storage, heat, network conditions, and background tasks.</p>
+      </section>
+    </div>
+
+    <h2>Tune in a repeatable order</h2>
+    <ol>
+      <li><strong>Finish stable updates and restart.</strong> Apply the game, Windows, ASUS, graphics-driver, BIOS, and Armoury Crate updates intended for the exact Ally model.</li>
+      <li><strong>Record the test state.</strong> Note the game version, Armoury Crate operating mode, charger state, renderer, resolution, cap, and active downloads.</li>
+      <li><strong>Apply 900p/30 Low.</strong> Enable dynamic resolution, select Quality upscaling, keep expensive scene settings Low, and begin with Medium textures.</li>
+      <li><strong>Repeat one dense encounter twice.</strong> Include enemy packs, skill effects, movement, and camera turns. A second pass can differ after assets or shaders appear once.</li>
+      <li><strong>Try 720p with nothing else changed.</strong> If it materially improves pacing, rendering pressure matters. If it does not, stop trading away image quality and inspect other causes.</li>
+      <li><strong>Restore clarity one control at a time.</strong> At a stable baseline, test textures first. Do not simultaneously raise resolution, effects, shadows, and the frame target.</li>
+      <li><strong>Tune power last.</strong> Compare Performance and plugged-in Turbo only after the graphics profile and encounter are repeatable, then keep the lowest mode that meets your actual goal.</li>
+    </ol>
+
+    <h2>Fix common Path of Exile 2 problems on Ally</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Heavy drops in dense combat</td><td>Confirm 30 FPS, Low shadows, lighting, global illumination, water, and effects</td><td>Compare Balanced upscaling or the 720p diagnostic profile on the identical encounter</td></tr>
+        <tr><td>Image becomes too soft</td><td>Return to 900p and Quality upscaling</td><td>Keep scene effects Low, then compare dynamic resolution off without changing the route</td></tr>
+        <tr><td>Short hitches after an update</td><td>Restart, pause downloads, verify free SSD space, and repeat a second pass</td><td>Restore the default renderer and remove unofficial launch or configuration edits before deeper troubleshooting</td></tr>
+        <tr><td>720p barely changes the problem</td><td>Confirm the same cap, power mode, renderer, and encounter</td><td>Inspect encounter or CPU load, shader work, background apps, heat, storage, network conditions, and current game issues</td></tr>
+        <tr><td>Wrong prompts or mouse-style controls</td><td>Set Armoury Crate control mode to Gamepad or Auto</td><td>Restore the standard Steam controller layout before remapping individual actions</td></tr>
+        <tr><td>Turbo is unavailable through a dock</td><td>Connect the compatible charger directly to the Ally</td><td>Check dock input, USB-C PD passthrough, cable rating, and shared-port behavior separately</td></tr>
+        <tr><td>Crashes repeat on one renderer</td><td>Restore graphics and launch options to defaults</td><td>Verify files, compare the alternate renderer once, and use official Grinding Gear Games support with the error details</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, battery, controls, and dock planning</h2>
+    <p>Steam currently lists <strong>100GB of available space</strong>, 8GB minimum system memory, DirectX 12, broadband, at least 3GB of GPU memory, and solid-state storage in its recommended configuration. It also labels the game with full controller support. Those desktop requirements provide context rather than an Ally performance guarantee. Keep room for Early Access updates, shaders, caches, saves, and Windows temporary files. Use the <a href="/calculators/storage-planner/">storage planner</a>, then check the <a href="/guides/rog-ally-ssd-size-compatibility-upgrade/">ROG Ally SSD compatibility guide</a> before buying storage.</p>
+    <p>This page does not invent a battery runtime. Read total system draw during your own repeated encounter and enter it in the <a href="/calculators/battery-estimator/">battery estimator</a>. For plugged-in play, verify charger and cable behavior before blaming the game; use the <a href="/guides/one-usb-c-charger-steam-deck-rog-ally-legion-go/">multi-handheld charger guide</a> and <a href="/guides/handheld-gaming-usb-c-dock-checklist/">USB-C dock checklist</a>.</p>
+
+    <h2>Optional gear after the baseline is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, model fit, seller traceability, warranty, and return terms. No price, compatibility, performance, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+x+2280+nvme+ssd" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="nvme-ssds">
+        <span class="chip">Sponsored search</span><h3>Ally-compatible NVMe SSDs</h3><p class="muted">Confirm 2230 versus 2280 fit for the exact Ally model, capacity, thermals, warranty, and recovery plan before opening the device.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+100w+usb+c+pd+charger+cable" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers">
+        <span class="chip">Sponsored search</span><h3>USB-C PD chargers and cables</h3><p class="muted">Compare dedicated-port output, cable rating, shared-port behavior, warranty, and exact operating-mode support.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+dock+100w+ethernet+hdmi" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks">
+        <span class="chip">Sponsored search</span><h3>ROG Ally docks</h3><p class="muted">Check PD passthrough, display output, Ethernet, physical clearance, cable reach, and charger requirements.</p>
+      </a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a> or set a limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on August 3, 2026. Steam's public store data supplies the 100GB storage requirement, DirectX 12 and broadband requirements, minimum memory and GPU-memory notes, SSD recommendation, full-controller-support label, Early Access status, and official media. ASUS supplies the original Ally specification page and its first-party performance-tuning workflow. Grinding Gear Games supplies the official support route. The profiles above are conservative editorial testing sequences informed by those constraints and common graphics-cost relationships. Handheld Settings Lab did not personally benchmark the current game, Windows, graphics driver, Armoury Crate build, battery, or thermals.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+    <p>Return to the <a href="/rog-ally-settings/">ROG Ally settings hub</a>, compare the <a href="/steam-deck-settings/path-of-exile-2/">Steam Deck Path of Exile 2 baseline</a> or <a href="/legion-go-settings/path-of-exile-2/">Legion Go Path of Exile 2 baseline</a>, and use the <a href="/calculators/">battery, storage, and accessory calculators</a> for your own device assumptions.</p>
+  </article>
+</Base>
