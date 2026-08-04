@@ -1,0 +1,198 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/steam-deck-settings/marvel-rivals/';
+const title = 'Marvel Rivals Steam Deck settings: Playable 800p baseline — Handheld Settings Lab';
+const description = 'Start Marvel Rivals on Steam Deck with a cautious 800p/30 FPS Low baseline, Valve Playable caveats, team-fight testing, controls, and storage planning.';
+const image = '/assets/games/marvel-rivals-header.jpg';
+
+const sources = [
+  {
+    label: 'Steam: Marvel Rivals store data, PC requirements, controller support, and official media',
+    url: 'https://store.steampowered.com/app/2767030/Marvel_Rivals/'
+  },
+  {
+    label: 'Steam: current Steam Deck compatibility report for app 2767030',
+    url: 'https://store.steampowered.com/saleaction/ajaxgetdeckappcompatibilityreport?nAppID=2767030'
+  },
+  {
+    label: 'Marvel Rivals: official news and support site',
+    url: 'https://www.marvelrivals.com/'
+  },
+  {
+    label: 'Valve: Steam Deck technical specifications',
+    url: 'https://www.steamdeck.com/en/tech'
+  }
+];
+
+const faqs = [
+  {
+    question: 'What Marvel Rivals settings should I use on Steam Deck?',
+    answer: 'Start at 1280×800, a 30 FPS cap, the Low preset, ray tracing off, frame generation off, and a quality-oriented upscaler. Keep shadows, reflections, effects, and global illumination low, then validate the profile in two full matches. This is a cautious editorial baseline, not a measured guarantee.'
+  },
+  {
+    question: 'Is Marvel Rivals Steam Deck Verified?',
+    answer: 'No. Valve’s compatibility endpoint currently resolves Marvel Rivals as category 2, Playable. Valve reports a performant default configuration and matching controller glyphs, but flags controller-configuration, manual on-screen-keyboard, small-text, and external-controller caveats.'
+  },
+  {
+    question: 'Can Steam Deck run Marvel Rivals at 60 FPS?',
+    answer: 'Do not use 60 FPS as the first target. Begin at 30 FPS and judge the busiest 12-player fight rather than the practice range. Patches, effects, thermals, and network conditions can all change the result, and this page does not claim a measured locked frame rate.'
+  },
+  {
+    question: 'Should frame generation be enabled in Marvel Rivals on Steam Deck?',
+    answer: 'Leave it off for the first test so underlying frame pacing, image quality, and input response are visible. Compare it later only if the current build offers the option and the base frame rate is already healthy; generated frames do not repair a weak baseline.'
+  },
+  {
+    question: 'How much storage does Marvel Rivals need?',
+    answer: 'Steam currently lists 70GB of available space and recommends an SSD. Keep additional free space for seasonal updates, shader caches, and SteamOS temporary files rather than planning around exactly 70GB.'
+  },
+  {
+    question: 'Were these Marvel Rivals Steam Deck settings benchmarked?',
+    answer: 'No. Handheld Settings Lab did not personally benchmark the current game build, SteamOS version, compatibility layer, battery runtime, or thermals. The page combines current official compatibility and requirement data with a conservative testing sequence.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Marvel Rivals Steam Deck settings: Playable 800p baseline',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-04',
+    dateModified: '2026-08-04',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Marvel Rivals', 'Steam Deck', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Steam Deck settings', item: 'https://handheldsettings.com/steam-deck-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Marvel Rivals settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Steam Deck settings · Baseline published August 2026</span>
+    <h1>Marvel Rivals Steam Deck settings: start at 800p/30 on the Playable default</h1>
+    <p class="lede muted">Marvel Rivals is harder to judge in its practice range than in a 12-player fight filled with abilities, destruction, and rapid camera movement. Valve currently rates it Steam Deck Playable, not Verified. Start with the Valve-selected compatibility path, then use this cautious 800p/30 Low profile to test real matches. This is official-source-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Marvel Rivals Steam header artwork showing heroes facing across a city scene" width="460" height="215" />
+      <figcaption class="media-credit">Official Marvel Rivals Steam store header image, saved locally from <a href="https://store.steampowered.com/app/2767030/Marvel_Rivals/" target="_blank" rel="nofollow noopener">NetEase Games' Steam store page</a>. Artwork and trademarks belong to their owners; use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Starting target</h3><div class="stat">800p / 30</div><p class="muted">Conservative baseline, not a guarantee</p></section>
+      <section class="card"><h3>Starting preset</h3><div class="stat">Low</div><p class="muted">Quality-oriented upscaling first</p></section>
+      <section class="card"><h3>Compatibility</h3><p><strong>Deck Playable</strong></p><p class="muted">Valve report checked August 4, 2026</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">70GB</div><p class="muted">Official requirement; SSD recommended</p></section>
+    </div>
+
+    <div class="callout"><strong>Test a full match, not an empty range.</strong> Keep the same SteamOS build, compatibility choice, frame cap, graphics profile, and network for two matches. Judge the most effect-heavy team fight before restoring visual settings.</div>
+
+    <h2>Recommended Marvel Rivals Steam Deck baseline</h2>
+    <table>
+      <thead><tr><th>Setting</th><th>Start here</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Compatibility tool</td><td>Valve default</td><td>The game is currently Playable. Avoid forcing an old Proton version before testing Valve’s selected route.</td></tr>
+        <tr><td>Resolution</td><td>1280×800</td><td>Matches the Deck display’s 16:10 shape and creates a clear first comparison.</td></tr>
+        <tr><td>Frame-rate cap</td><td>30 FPS</td><td>Sets a cautious target for busy fights instead of optimizing only for the practice range.</td></tr>
+        <tr><td>Graphics preset</td><td>Low</td><td>Creates rendering headroom before individual clarity controls are restored.</td></tr>
+        <tr><td>Upscaling</td><td>Quality first; Balanced if needed</td><td>Begins with the clearer mode, then changes one major render control when fights miss the target.</td></tr>
+        <tr><td>Frame generation</td><td>Off for baseline testing</td><td>Exposes base frame pacing and input response before generated frames are introduced.</td></tr>
+        <tr><td>Ray tracing</td><td>Off</td><td>Avoids an expensive rendering feature while establishing consistency.</td></tr>
+        <tr><td>Textures</td><td>Low, then test Medium</td><td>Uses a conservative shared-memory baseline and gives you one clear quality setting to restore later.</td></tr>
+        <tr><td>Shadows / effects / reflections</td><td>Low</td><td>Preserves headroom for heroes, abilities, destruction, and camera movement.</td></tr>
+        <tr><td>Global illumination / model detail</td><td>Low</td><td>Reduces scene cost before sacrificing the frame target further.</td></tr>
+        <tr><td>Motion blur / VSync</td><td>Off / Off for first test</td><td>Makes motion, pacing, and the selected cap easier to judge.</td></tr>
+        <tr><td>Steam Deck TDP limit</td><td>Off for first test</td><td>Do not constrain device power until the graphics profile is repeatable; tune battery afterward.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Exact option names and available upscalers can change with updates. If the current build does not show an option, skip it rather than applying an old configuration-file edit. Desktop PC requirements provide context; they do not prove a Steam Deck frame rate.</p>
+
+    <h2>What Valve’s Playable rating means here</h2>
+    <p>Valve’s current report resolves Marvel Rivals as category 2, Playable. It records a performant default configuration and matching Deck controller glyphs, but the report also identifies usability caveats. Treat those caveats separately from rendering performance:</p>
+    <ul>
+      <li><strong>Default controls:</strong> Valve says some functionality is not fully accessible through the default controller configuration. Start with the official layout, then map only the missing action you can reproduce.</li>
+      <li><strong>Text entry:</strong> Valve says some text input does not automatically invoke the on-screen keyboard. Use <strong>Steam + X</strong> when a field needs manual keyboard entry.</li>
+      <li><strong>Interface text:</strong> Valve flags some text as difficult to read. Prefer 800p, avoid overly aggressive upscaling, and use any available UI-scale control before sharpening.</li>
+      <li><strong>External controllers:</strong> Valve flags external controllers as not supporting the primary player. Test controller order and built-in controls before blaming Bluetooth or a dock.</li>
+    </ul>
+
+    <h2>Tune in a repeatable order</h2>
+    <ol>
+      <li><strong>Finish stable updates.</strong> Complete SteamOS, game, and shader-cache downloads, then restart before comparing settings.</li>
+      <li><strong>Test Valve’s default first.</strong> Record the game build, SteamOS version, battery or charger state, refresh rate, cap, and active downloads.</li>
+      <li><strong>Apply 800p/30 Low.</strong> Use quality-oriented upscaling, ray tracing off, frame generation off, and Low scene effects.</li>
+      <li><strong>Play two full matches.</strong> Include ability-heavy team fights. A second match can behave differently after effects and assets have appeared once.</li>
+      <li><strong>Change one bottleneck control.</strong> If the target misses, compare Balanced upscaling first. Keep the resolution, cap, power state, and other settings unchanged.</li>
+      <li><strong>Restore clarity deliberately.</strong> Try Medium textures after pacing is acceptable. Raise model detail, shadows, or effects only one at a time.</li>
+      <li><strong>Tune battery last.</strong> Reduce the TDP limit in small steps only after the profile is repeatable, then stop at the first meaningful regression.</li>
+    </ol>
+
+    <h2>Fix common Marvel Rivals problems on Steam Deck</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Heavy drops during ultimate effects</td><td>Confirm 800p/30, Low effects, shadows, reflections, and no TDP limit</td><td>Move upscaling from Quality to Balanced and repeat the same match conditions</td></tr>
+        <tr><td>Image looks smeared or unstable</td><td>Turn frame generation and motion blur off</td><td>Return to Quality upscaling and keep the 30 FPS target while lowering scene effects</td></tr>
+        <tr><td>Small text is hard to read</td><td>Keep 800p and check the current UI-scale options</td><td>Avoid Performance upscaling; use temporary display magnification for isolated text when needed</td></tr>
+        <tr><td>Keyboard does not open for chat or login</td><td>Press Steam + X</td><td>Use the touchscreen for the field, then return to the controller layout</td></tr>
+        <tr><td>Wrong controls or a missing action</td><td>Restore the official controller layout</td><td>Map only the reproducible missing function; Valve currently flags the default configuration as not fully functional</td></tr>
+        <tr><td>Rubber-banding or delayed abilities</td><td>Check the network and pause downloads</td><td>Compare another stable Wi-Fi path or Ethernet dock; graphics changes do not repair packet loss</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, battery, and network planning</h2>
+    <p>Steam currently lists <strong>70GB of available space</strong>, 16GB of memory, DirectX 12, broadband internet, full controller support, and an SSD recommendation. Keep extra room for seasonal updates, shader caches, recordings, and temporary files. Use the <a href="/calculators/storage-planner/">storage planner</a>, then compare expansion paths in the <a href="/guides/microsd-vs-ssd-handheld-pc/">microSD versus SSD guide</a>.</p>
+    <p>This page does not invent battery runtime. Read total system draw during your own repeatable match and enter it in the <a href="/calculators/battery-estimator/">battery estimator</a>. For network troubleshooting, compare Wi-Fi with a known-good wired route using the <a href="/guides/handheld-gaming-ethernet-adapter-dock-checklist/">Ethernet adapter and dock checklist</a>.</p>
+
+    <h2>Optional gear after the baseline is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, seller traceability, model fit, warranty, and return terms. No price, compatibility, frame-rate, battery, or latency claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+usb+c+ethernet+dock+45w" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks">
+        <span class="chip">Sponsored search</span><h3>Steam Deck Ethernet docks</h3><p class="muted">Compare Ethernet, USB-C PD passthrough, display support, cable position, and whether a compatible charger is included.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+45w+usb+c+pd+power+bank" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="power-banks">
+        <span class="chip">Sponsored search</span><h3>45W USB-C PD power banks</h3><p class="muted">Check dedicated-port PD output, printed watt-hours, cable rating, weight, and current airline rules.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+microsd+a2+u3" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microSD-cards">
+        <span class="chip">Sponsored search</span><h3>Steam Deck microSD cards</h3><p class="muted">Compare capacity, A2/U3 markings, seller traceability, warranty, and a safe authenticity-test plan.</p>
+      </a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a> or set a spending limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on August 4, 2026. Steam’s public store data supplies the 70GB storage requirement, 16GB memory requirement, DirectX 12 and broadband notes, SSD recommendation, full-controller-support label, and official image. Valve’s live compatibility report resolves Marvel Rivals as Deck Playable and supplies the controller, text-entry, interface-text, default-performance, glyph, and external-controller caveats summarized above. Marvel Rivals supplies the official game and support site; Valve supplies Steam Deck hardware context. The profile is a conservative editorial testing sequence informed by those official constraints. Handheld Settings Lab did not personally benchmark the current game, SteamOS, compatibility layer, network route, battery, or thermals.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+    <p>Return to the <a href="/steam-deck-settings/">Steam Deck settings hub</a>, compare the <a href="/rog-ally-settings/marvel-rivals/">ROG Ally Marvel Rivals baseline</a> or <a href="/legion-go-settings/marvel-rivals/">Legion Go Marvel Rivals baseline</a>, and use the <a href="/calculators/">battery, storage, and accessory calculators</a> for your own device assumptions.</p>
+  </article>
+</Base>
