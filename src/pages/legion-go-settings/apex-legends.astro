@@ -1,0 +1,195 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/legion-go-settings/apex-legends/';
+const title = 'Apex Legends Legion Go settings: 800p/60 baseline — Handheld Settings Lab';
+const description = 'Tune Apex Legends on Lenovo Legion Go from a cautious 800p/60 FPS Low baseline, with adaptive-resolution, frame-pacing, controls, and 75GB storage guidance.';
+const image = '/assets/games/apex-legends-header.jpg';
+
+const sources = [
+  { label: 'Steam: Apex Legends store page, PC requirements, controller support, and official media', url: 'https://store.steampowered.com/app/1172470/Apex_Legends/' },
+  { label: 'EA: Apex Legends PC system requirements', url: 'https://www.ea.com/games/apex-legends/about/pc-system-requirements' },
+  { label: 'EA Help: Apex Legends support', url: 'https://help.ea.com/en/games/apex-legends/apex-legends/' },
+  { label: 'Lenovo PSREF: original Legion Go 8APU1 specifications', url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1' },
+  { label: 'Lenovo Support: Legion Go drivers and software', url: 'https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/legion-series/legion-go-8apu1/' }
+];
+
+const faqs = [
+  {
+    question: 'What settings should I use for Apex Legends on Legion Go?',
+    answer: 'Start at 1280×800, a 60 FPS target, Low texture streaming, Low model detail, Low effects detail, Low impact marks, Low ragdolls, volumetric lighting off, dynamic spot shadows off, and adaptive-resolution FPS target 60. Validate in real fights. This is a conservative editorial baseline, not a measured guarantee.'
+  },
+  {
+    question: 'Can Legion Go run Apex Legends at 60 FPS?',
+    answer: 'Use 60 FPS as a test target rather than a promise. Start at 800p and Low, monitor several full matches, and judge drops during close fights, smoke, abilities, and rapid traversal. If the target is not consistent, keep 800p, reduce remaining effects, and favor stable frame pacing over a higher cap.'
+  },
+  {
+    question: 'Should I use 800p or 1200p for Apex Legends on Legion Go?',
+    answer: 'Start at 800p for competitive play because it reduces render load while preserving the panel’s 16:10 shape. Test 1200p only after the 800p profile is stable, and change no other major setting during the comparison.'
+  },
+  {
+    question: 'Should adaptive resolution be on in Apex Legends?',
+    answer: 'It is a useful baseline tool when the priority is holding a 60 FPS target. Watch image clarity during distant spotting and fast fights. If the image becomes too soft, turn it off and accept a lower or less consistent frame target rather than hiding the tradeoff.'
+  },
+  {
+    question: 'How much storage does Apex Legends need?',
+    answer: 'Steam currently lists 75GB of available space plus about 3.8GB for one localized language. Keep additional free space for seasonal updates, shader caches, recordings, and Windows temporary files instead of planning around exactly 75GB.'
+  },
+  {
+    question: 'Were these Legion Go settings personally benchmarked?',
+    answer: 'No. Handheld Settings Lab did not personally benchmark the current game, Windows, driver, or Legion Space build. The page combines official requirements with a cautious, repeatable tuning workflow and does not promise FPS, battery runtime, latency, or thermal results.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Apex Legends Legion Go settings: 800p/60 FPS baseline',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-04',
+    dateModified: '2026-08-04',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Apex Legends', 'Lenovo Legion Go', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Legion Go settings', item: 'https://handheldsettings.com/legion-go-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Apex Legends settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Legion Go settings · Baseline published August 2026</span>
+    <h1>Apex Legends Legion Go settings: start at 800p/60 FPS</h1>
+    <p class="lede muted">Apex Legends needs to stay readable and responsive during actual drops and fights, not just in the quiet firing range. This original Legion Go workflow begins at 800p/60 with conservative settings, then restores clarity one control at a time. It is official-source-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Apex Legends Steam header artwork with the Apex Legends logo and Bloodhound in motion" width="460" height="215" />
+      <figcaption class="media-credit">Official Apex Legends Steam store header image. Source: <a href="https://store.steampowered.com/app/1172470/Apex_Legends/" target="_blank" rel="nofollow noopener">Electronic Arts' Steam store page</a>. Artwork and trademarks belong to their owners; use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Starting target</h3><div class="stat">800p / 60</div><p class="muted">Competitive Low baseline</p></section>
+      <section class="card"><h3>Resolution tool</h3><p><strong>Adaptive target 60</strong></p><p class="muted">Check distant-target clarity</p></section>
+      <section class="card"><h3>Starting preset</h3><p><strong>Low / effects reduced</strong></p><p class="muted">V-Sync off for baseline testing</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">75GB</div><p class="muted">Plus language and update headroom</p></section>
+    </div>
+
+    <div class="callout"><strong>Validate in Battle Royale or Mixtape, not only the firing range.</strong> Keep the same power mode, charger state, resolution, cap, field of view, and graphics profile for several matches. Judge the busiest close fight and rapid traversal—not a static wall.</div>
+
+    <h2>Recommended Apex Legends Legion Go baseline</h2>
+    <table>
+      <thead><tr><th>Setting</th><th>Start here</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Legion Go power mode</td><td>Performance-class profile</td><td>Creates a repeatable starting condition. Record whether the device is on battery or a compatible charger.</td></tr>
+        <tr><td>Display refresh rate</td><td>60Hz for the first pass</td><td>Makes a 60 FPS baseline straightforward to interpret before testing the panel’s higher refresh mode.</td></tr>
+        <tr><td>Display mode / aspect ratio</td><td>Full screen / 16:10</td><td>Keeps the test chain simple and avoids stretching a 16:9 output.</td></tr>
+        <tr><td>Resolution</td><td>1280×800</td><td>Preserves the display shape while reducing render load substantially from the panel’s native resolution.</td></tr>
+        <tr><td>V-Sync</td><td>Off for baseline testing</td><td>Avoids adding another timing control while evaluating the selected frame target and input response.</td></tr>
+        <tr><td>Adaptive resolution FPS target</td><td>60</td><td>Lets the game trade resolution for the target; verify that distant enemies remain readable.</td></tr>
+        <tr><td>Adaptive supersampling</td><td>Off</td><td>Avoids spending spare headroom above the chosen baseline while consistency is the priority.</td></tr>
+        <tr><td>Anti-aliasing</td><td>TSAA</td><td>Provides a stable first-pass presentation; revisit only after the frame target is healthy.</td></tr>
+        <tr><td>Texture streaming budget</td><td>Low</td><td>Starts conservatively in a shared-memory handheld environment. Watch for texture warnings before raising it.</td></tr>
+        <tr><td>Texture filtering</td><td>2× or 4×</td><td>Retains useful ground and surface clarity without making it the first performance variable.</td></tr>
+        <tr><td>Ambient occlusion / sun shadows</td><td>Disabled / Low</td><td>Reduces scene cost before compromising resolution further.</td></tr>
+        <tr><td>Spot shadows / volumetric lighting</td><td>Disabled / Disabled</td><td>Removes effects that are less important than target visibility and stable response.</td></tr>
+        <tr><td>Model detail / effects detail</td><td>Low / Low</td><td>Preserves headroom for close fights, abilities, smoke, and rapid camera movement.</td></tr>
+        <tr><td>Impact marks / ragdolls</td><td>Low / Low</td><td>Keeps combat aftermath from becoming the first bottleneck during the test.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Option names and behavior can change with seasonal updates. If the current build differs, use the closest normal in-game control rather than copying an old configuration-file edit.</p>
+
+    <h2>Choose a field of view after performance is repeatable</h2>
+    <p>A wider field of view can reveal more at the edges, but targets occupy fewer pixels and the game may have more scene content to draw. Do not copy a desktop competitive setting automatically onto the Legion Go’s smaller screen.</p>
+    <div class="grid cols2">
+      <section class="card">
+        <span class="chip">First pass</span>
+        <h3>Keep the current/default FOV</h3>
+        <p>Build the 800p/60 baseline without changing graphics, controls, and field of view at the same time.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Second pass</span>
+        <h3>Raise FOV in small steps</h3>
+        <p>Use the same range markers and fight conditions. Stop when target readability or frame consistency becomes worse.</p>
+      </section>
+    </div>
+
+    <h2>Tune in a repeatable order</h2>
+    <ol>
+      <li><strong>Finish stable updates.</strong> Update Apex Legends, Windows, Lenovo software, firmware, and the intended graphics driver, then restart.</li>
+      <li><strong>Record the test state.</strong> Note the game version, power mode, charger state, refresh rate, field of view, and background downloads or overlays.</li>
+      <li><strong>Apply 800p/60 Low.</strong> Use the table above and set adaptive resolution to target 60 FPS.</li>
+      <li><strong>Play multiple real matches.</strong> Include a busy drop, smoke or ability effects, close combat, and rapid traversal. One firing-range lap is not enough.</li>
+      <li><strong>Check visibility before adding quality.</strong> If adaptive resolution makes distant targets too soft, compare it off under the same conditions and accept the measured tradeoff.</li>
+      <li><strong>Restore clarity one control at a time.</strong> Try texture filtering, then texture budget, then model detail. Retest after each change.</li>
+      <li><strong>Change FOV and sensitivity last.</strong> Keep graphics fixed so a control change is not confused with a performance change.</li>
+    </ol>
+
+    <h2>Fix common Apex Legends problems on Legion Go</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Drops during smoke or ability-heavy fights</td><td>Confirm 800p, Low effects, volumetric lighting off, and the intended power profile</td><td>Keep adaptive target 60, close overlays/downloads, and retest the same type of fight</td></tr>
+        <tr><td>Distant targets look too soft</td><td>Compare adaptive resolution off without changing other settings</td><td>Keep 800p and reduce scene effects before raising render resolution</td></tr>
+        <tr><td>Stutter after a seasonal or driver update</td><td>Restart, pause downloads, and play more than one match</td><td>Verify game files and restore standard settings before trying unofficial cache or config edits</td></tr>
+        <tr><td>Tearing is distracting</td><td>Confirm the actual frame behavior and display refresh mode</td><td>Compare the game’s V-Sync setting in the same scene, noting the response tradeoff</td></tr>
+        <tr><td>Wrong prompts or mouse input</td><td>Set Legion Space controls to gamepad mode</td><td>Restore the standard Steam controller layout before remapping individual actions</td></tr>
+        <tr><td>Crashes or anti-cheat errors repeat</td><td>Remove unsupported launch/config experiments and verify files</td><td>Reproduce on a clean setup and use official EA Help rather than disabling security components</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, network, battery, and dock planning</h2>
+    <p>Steam currently lists <strong>75GB of available space</strong>, roughly 3.8GB for one localized language, DirectX 12, broadband internet, and full controller support. Leave room for seasonal patches, shader caches, clips, and Windows temporary files. Use the <a href="/calculators/storage-planner/">storage planner</a>, then read the <a href="/guides/handheld-pc-ssd-form-factor-guide/">handheld SSD form-factor guide</a> before an internal upgrade.</p>
+    <p>A stable local frame rate cannot repair Wi-Fi congestion, packet loss, or server latency. Test close to the router or use a compatible Ethernet dock to separate rendering issues from network issues. This page does not invent a battery runtime: record your own total system draw and use the <a href="/calculators/battery-estimator/">battery estimator</a>.</p>
+
+    <h2>Optional gear after the baseline is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, device fit, seller traceability, warranty, and return terms. No price, compatibility, latency, or performance claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+usb+c+ethernet+dock+65w" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks">
+        <span class="chip">Sponsored search</span><h3>Legion Go Ethernet docks</h3><p class="muted">Compare USB-C PD passthrough, Ethernet, display output, physical clearance, cable reach, and charger requirements.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+65w+usb+c+pd+charger" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers">
+        <span class="chip">Sponsored search</span><h3>65W-class USB-C PD chargers</h3><p class="muted">Verify single-port output, cable rating, shared-port behavior, warranty, and support for the exact Legion Go model.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+headset+2.4ghz+usb+c" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="headsets-earbuds">
+        <span class="chip">Sponsored search</span><h3>USB-C wireless headsets</h3><p class="muted">Compare dongle clearance, dock compatibility, microphone support, battery life claims, and return terms.</p>
+      </a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a> or set a limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on August 4, 2026. Steam and EA supply the current Windows requirements and game context; Steam supplies the official header artwork and full-controller-support label. Lenovo PSREF supplies original Legion Go hardware context, and Lenovo Support supplies the current driver/software route. The profile is a conservative editorial test sequence informed by those official constraints and normal graphics-cost relationships. Handheld Settings Lab did not personally benchmark the current game, Windows, driver, Legion Space build, network, battery, or thermals.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+    <p>Return to the <a href="/legion-go-settings/">Legion Go settings hub</a>, reduce setup variables with the <a href="/guides/rog-ally-update-checklist-before-game-settings/">handheld update-order example</a>, and use the <a href="/calculators/">battery, storage, and accessory calculators</a> for your own assumptions.</p>
+  </article>
+</Base>
