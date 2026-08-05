@@ -1,0 +1,165 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/steam-deck-settings/apex-legends/';
+const title = 'Apex Legends Steam Deck status: Unsupported anti-cheat — Handheld Settings Lab';
+const description = 'Apex Legends is currently Steam Deck Unsupported because of anti-cheat. Check the official status, avoid wasted graphics tuning, and compare safe next steps.';
+const image = '/assets/games/apex-legends-header.jpg';
+
+const sources = [
+  {
+    label: 'Steam: live Steam Deck compatibility report for Apex Legends (app 1172470)',
+    url: 'https://store.steampowered.com/saleaction/ajaxgetdeckappcompatibilityreport?nAppID=1172470'
+  },
+  {
+    label: 'Steam: Apex Legends store data, requirements, controller support, and official media',
+    url: 'https://store.steampowered.com/app/1172470/Apex_Legends/'
+  },
+  {
+    label: 'EA: Apex Legends PC system requirements',
+    url: 'https://www.ea.com/games/apex-legends/about/pc-system-requirements'
+  },
+  {
+    label: 'EA Help: Apex Legends support',
+    url: 'https://help.ea.com/en/games/apex-legends/apex-legends/'
+  },
+  {
+    label: 'Valve: Steam Deck technical specifications',
+    url: 'https://www.steamdeck.com/en/tech'
+  }
+];
+
+const faqs = [
+  {
+    question: 'Does Apex Legends work on Steam Deck?',
+    answer: 'Not through the normal SteamOS route at the time of this check. Valve’s live compatibility report resolves Apex Legends as category 1, Unsupported, and identifies unsupported anti-cheat as the reason. Recheck the live report after major game or anti-cheat updates.'
+  },
+  {
+    question: 'Is Apex Legends Steam Deck Verified?',
+    answer: 'No. Valve currently marks it Unsupported, not Verified or Playable. Old videos and settings lists may describe an earlier compatibility period, so check the current official status before following them.'
+  },
+  {
+    question: 'Can lower graphics settings fix the Apex Legends anti-cheat error?',
+    answer: 'No. Resolution, frame caps, upscaling, and quality settings change rendering load; they do not make an unsupported anti-cheat path compatible with SteamOS. Diagnose compatibility before spending time on performance tuning.'
+  },
+  {
+    question: 'Should I install unofficial anti-cheat workarounds?',
+    answer: 'No. Do not disable security controls, replace anti-cheat files, or use unsupported bypasses. They may create account, security, or integrity risks. Use official Steam, EA, and Valve status channels instead.'
+  },
+  {
+    question: 'How much storage should I reserve for Apex Legends?',
+    answer: 'Steam and EA currently list 75GB of available space, with Steam also noting additional space for a localized language. Keep patch and temporary-file headroom. This does not change the current SteamOS Unsupported status.'
+  },
+  {
+    question: 'Were Apex Legends settings benchmarked on Steam Deck for this page?',
+    answer: 'No. Publishing an FPS preset would be misleading while Valve’s official report says the normal SteamOS route is Unsupported because of anti-cheat. This page documents current compatibility and a safe verification workflow instead.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Apex Legends Steam Deck status: Unsupported because of anti-cheat',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-05',
+    dateModified: '2026-08-05',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Apex Legends', 'Steam Deck', 'SteamOS', 'anti-cheat compatibility', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Steam Deck settings', item: 'https://handheldsettings.com/steam-deck-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Apex Legends status', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Steam Deck compatibility · Official status checked August 5, 2026</span>
+    <h1>Apex Legends on Steam Deck: Unsupported because of anti-cheat</h1>
+    <p class="lede muted">Do not start with an old 800p preset. Valve’s live compatibility report currently resolves Apex Legends as <strong>Unsupported</strong> on Steam Deck and SteamOS because its anti-cheat is unsupported. Graphics settings cannot fix that compatibility block. This page shows how to verify the status and avoid unsafe or irrelevant troubleshooting.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Apex Legends Steam header artwork with the Apex Legends logo and Bloodhound in motion" width="460" height="215" />
+      <figcaption class="media-credit">Official Apex Legends Steam store header image, saved locally from <a href="https://store.steampowered.com/app/1172470/Apex_Legends/" target="_blank" rel="nofollow noopener">Electronic Arts' Steam store page</a>. Artwork and trademarks belong to their owners; use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Valve status</h3><div class="stat">Unsupported</div><p class="muted">Compatibility category 1</p></section>
+      <section class="card"><h3>Reported reason</h3><p><strong>Unsupported anti-cheat</strong></p><p class="muted">Not a graphics bottleneck</p></section>
+      <section class="card"><h3>SteamOS preset</h3><div class="stat">None</div><p class="muted">Do not publish a false FPS target</p></section>
+      <section class="card"><h3>Storage listing</h3><div class="stat">75GB</div><p class="muted">Plus language and update headroom</p></section>
+    </div>
+
+    <div class="callout"><strong>Compatibility comes before performance.</strong> If the game cannot pass its supported anti-cheat path on SteamOS, changing resolution, Proton versions, launch options, TDP, or graphics quality will not create a legitimate settings baseline.</div>
+
+    <h2>What the current Valve report says</h2>
+    <p>Valve’s public app-compatibility endpoint for Steam app <strong>1172470</strong> currently returns <strong>resolved category 1</strong>. Valve’s result item identifies an unsupported third-party anti-cheat component. The same endpoint also reports the SteamOS compatibility category as 1 for this app.</p>
+    <p>That status is more useful than an old screenshot or settings video because live-service games can change anti-cheat, launchers, and platform support after publication. A guide written during a previous working period may still rank in search even when its launch instructions are no longer valid.</p>
+
+    <h2>Do not use these as “fixes”</h2>
+    <table>
+      <thead><tr><th>Attempt</th><th>Why it does not solve this status</th><th>Safer action</th></tr></thead>
+      <tbody>
+        <tr><td>Lower resolution or quality</td><td>Reduces rendering load but does not add anti-cheat support</td><td>Recheck Valve’s compatibility report before tuning graphics</td></tr>
+        <tr><td>Force an old Proton version</td><td>An old compatibility layer does not guarantee current game or anti-cheat support</td><td>Use Valve’s default route only after the official status changes</td></tr>
+        <tr><td>Copy old launch options</td><td>Flags from a previous season may be obsolete and cannot authorize anti-cheat</td><td>Remove unexplained flags and follow current EA support guidance</td></tr>
+        <tr><td>Replace or disable anti-cheat files</td><td>Creates security, integrity, and possible account risks</td><td>Never use a bypass; wait for an officially supported path</td></tr>
+        <tr><td>Tune TDP or frame caps</td><td>Power controls matter only after the game has a supported launch path</td><td>Save performance testing for a future Playable or Verified result</td></tr>
+      </tbody>
+    </table>
+
+    <h2>How to recheck Apex Legends Steam Deck support</h2>
+    <ol>
+      <li><strong>Open the current Steam store page.</strong> Read its Steam Deck compatibility panel rather than relying on a search-result snippet.</li>
+      <li><strong>Check Valve’s live compatibility report.</strong> Confirm whether app 1172470 still resolves as category 1 and whether the anti-cheat warning remains.</li>
+      <li><strong>Read current EA support notices.</strong> Look for a dated announcement about SteamOS, Linux, or anti-cheat support—not a community workaround.</li>
+      <li><strong>Remove stale experiments.</strong> If support returns, begin with Valve’s default compatibility tool and no copied launch options.</li>
+      <li><strong>Only then build a preset.</strong> Record the game version, SteamOS build, compatibility layer, Deck model, frame cap, power state, and test scenario before making FPS claims.</li>
+    </ol>
+
+    <h2>If the status changes later</h2>
+    <p>A future Playable or Verified result would justify a new performance pass. The first test should use the Valve-selected compatibility route, native 1280×800 output, no manual TDP limit, and a conservative cap. Validation should cover several real Battle Royale or Mixtape matches, including a busy drop, smoke, abilities, close combat, and rapid traversal—not only the firing range.</p>
+    <p>Any future page update should separate a measured result from an editorial baseline and should record the season, game build, SteamOS version, Deck LCD or OLED model, battery/charger state, and test date. Until then, publishing an “optimized” 40 or 60 FPS preset would imply access that the current official compatibility report does not support.</p>
+
+    <h2>Storage, network, and legal alternatives</h2>
+    <p>Steam and EA currently list <strong>75GB of available space</strong>; Steam also notes extra space for one localized language, broadband internet, and full controller support. Those Windows store requirements provide planning context but do not prove SteamOS compatibility. If you are reserving space for a future status change, leave room for seasonal patches and temporary files using the <a href="/calculators/storage-planner/">storage planner</a>.</p>
+    <p>Remote play or a legitimate cloud service, where available under its current terms and region support, runs the game on another supported system and streams the result to the Deck. That is not native Steam Deck performance: image quality, response, and stability depend on the host and network. Use the <a href="/guides/handheld-gaming-ethernet-adapter-dock-checklist/">Ethernet adapter and dock checklist</a> to diagnose the local network path without pretending it removes anti-cheat restrictions.</p>
+
+    <h2>Optional gear for streaming or docked use</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, seller traceability, device fit, warranty, and return terms. No compatibility, latency, battery, or performance claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+usb+c+ethernet+adapter+pd" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="cables-adapters"><span class="chip">Sponsored search</span><h3>USB-C Ethernet adapters</h3><p class="muted">Compare chipset support, USB-C PD passthrough, cable reach, port speed, and SteamOS compatibility.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+ethernet+dock+45w" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks"><span class="chip">Sponsored search</span><h3>Steam Deck Ethernet docks</h3><p class="muted">Compare Ethernet, display output, 45W-class PD passthrough, cable position, and whether a charger is included.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+microsd+a2+u3" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microSD-cards"><span class="chip">Sponsored search</span><h3>Steam Deck microSD cards</h3><p class="muted">Compare capacity, A2/U3 markings, seller traceability, warranty, and an authenticity-test plan.</p></a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a> and set a limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on August 5, 2026. Valve’s live compatibility endpoint supplies the current category and anti-cheat reason. Steam and EA supply the game’s Windows requirements, controller-support context, official support routes, and artwork; Valve supplies Steam Deck hardware context. Handheld Settings Lab did not bypass anti-cheat or benchmark Apex Legends on Steam Deck. The page intentionally documents the official incompatibility instead of fabricating a working preset.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Return to the <a href="/steam-deck-settings/">Steam Deck settings hub</a>, compare the current <a href="/rog-ally-settings/apex-legends/">ROG Ally Apex Legends baseline</a> or <a href="/legion-go-settings/apex-legends/">Legion Go Apex Legends baseline</a>, and recheck this page after an official compatibility change.</p>
+  </article>
+</Base>
