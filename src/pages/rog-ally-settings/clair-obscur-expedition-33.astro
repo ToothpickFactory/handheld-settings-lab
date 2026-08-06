@@ -1,0 +1,167 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/rog-ally-settings/clair-obscur-expedition-33/';
+const title = 'Clair Obscur Expedition 33 ROG Ally settings: 720p baseline — Handheld Settings Lab';
+const description = 'Tune Clair Obscur: Expedition 33 on ROG Ally or Ally X from a cautious 720p/30 Low baseline, with upscaling, VRR, storage, power, and stutter checks.';
+const image = '/assets/games/clair-obscur-expedition-33-header.jpg';
+
+const sources = [
+  { label: 'Steam: Clair Obscur: Expedition 33 requirements, controller support, and official media', url: 'https://store.steampowered.com/app/1903340/Clair_Obscur_Expedition_33/' },
+  { label: 'Official Clair Obscur: Expedition 33 website', url: 'https://www.expedition33.com/' },
+  { label: 'ASUS ROG: ROG Ally (2023) technical specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-2023/spec/' },
+  { label: 'ASUS ROG: performance-tuning guidance for ROG Ally', url: 'https://rog.asus.com/articles/guides/how-to-boost-gaming-performance-on-the-rog-ally/' }
+];
+
+const faqs = [
+  {
+    question: 'What settings should I use for Clair Obscur: Expedition 33 on ROG Ally?',
+    answer: 'Start at 1280×720, the Low preset, a 30 FPS cap, motion blur to preference, and a Quality upscaling mode if the current build exposes one. Test a busy field area and a battle with effects before raising resolution or quality. This is a cautious editorial baseline, not a personally measured benchmark.'
+  },
+  {
+    question: 'Can ROG Ally run Expedition 33 at 60 FPS?',
+    answer: 'Do not treat 60 FPS as the default expectation. Steam says the desktop minimum specification targets 1080p at 30 FPS on Low, while its recommended specification targets 1080p at 60 FPS on High with much stronger discrete graphics. Start with a repeatable 30 FPS handheld profile; only test higher caps after establishing headroom on your exact Ally model and software state.'
+  },
+  {
+    question: 'Should I use 720p, 900p, or 1080p?',
+    answer: 'Use 720p to diagnose performance first. If 30 FPS is repeatable in demanding scenes, compare 900p without changing the preset or power mode. Native 1080p is a later image-quality experiment, not the best first troubleshooting point for this demanding game.'
+  },
+  {
+    question: 'Should I use frame generation in Expedition 33?',
+    answer: 'Establish acceptable native or upscaled frame pacing before testing any frame-generation option present in the current build. Frame generation can make motion look smoother, but it does not repair a weak base frame rate, input response, traversal stutter, or shader compilation.'
+  },
+  {
+    question: 'How much storage does Expedition 33 need?',
+    answer: 'Steam currently lists 55GB of available space and requires an SSD. Keep additional free capacity for updates, shader caches, Windows temporary files, and recording clips rather than filling the drive to exactly 55GB.'
+  },
+  {
+    question: 'Were these Expedition 33 ROG Ally settings personally benchmarked?',
+    answer: 'No. Handheld Settings Lab did not personally benchmark the current game build, Ally model, Windows build, graphics driver, Armoury Crate version, battery, or thermals. This page combines official requirements with a conservative and reproducible tuning sequence.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Clair Obscur: Expedition 33 ROG Ally settings: 720p/30 baseline',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-06',
+    dateModified: '2026-08-06',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Clair Obscur: Expedition 33', 'ASUS ROG Ally', 'ROG Ally X', 'game settings', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'ROG Ally settings', item: 'https://handheldsettings.com/rog-ally-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Expedition 33 settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">ROG Ally settings · Baseline published August 2026</span>
+    <h1>Clair Obscur: Expedition 33 ROG Ally settings</h1>
+    <p class="lede muted">Expedition 33 combines detailed environments with timing-sensitive real-time actions inside its turn-based combat. Start with a controlled 720p/30 Low profile on ROG Ally or Ally X, test traversal and effect-heavy battles, and add clarity only after frame pacing is dependable. This is official-source-informed guidance, not a personally tested performance claim.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Clair Obscur: Expedition 33 Steam header artwork showing the expedition party" width="460" height="215" />
+      <figcaption class="media-credit">Official Steam store header image, saved locally from <a href="https://store.steampowered.com/app/1903340/Clair_Obscur_Expedition_33/" target="_blank" rel="nofollow noopener">Kepler Interactive's Steam store page</a>. Artwork and trademarks belong to their owners; use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Starting target</h3><div class="stat">720p / 30</div><p class="muted">Low preset baseline</p></section>
+      <section class="card"><h3>Clarity test</h3><div class="stat">900p / 30</div><p class="muted">Only after 720p holds up</p></section>
+      <section class="card"><h3>Frame pacing</h3><p><strong>30 FPS cap</strong></p><p class="muted">Validate traversal and battles</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">55GB</div><p class="muted">SSD required; leave headroom</p></section>
+    </div>
+
+    <div class="callout"><strong>Do not judge the profile in one quiet room.</strong> Test a populated field area, camera movement during traversal, a battle with several enemies and effects, and the timing of dodge/parry inputs. Record the exact operating mode, charger state, driver, game version, resolution, cap, and upscaler state.</div>
+
+    <h2>Recommended Expedition 33 ROG Ally baseline</h2>
+    <table>
+      <thead><tr><th>Control</th><th>Start here</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>Ally operating mode</td><td>Performance for the first pass</td><td>Creates a practical portable baseline. Compare plugged-in Turbo later without presenting two different power states as the same test.</td></tr>
+        <tr><td>Refresh rate / VRR</td><td>120Hz / VRR enabled</td><td>The original Ally specification lists a 120Hz FreeSync Premium display. VRR can improve presentation around the target, but it cannot fix a sustained performance deficit.</td></tr>
+        <tr><td>Display mode / resolution</td><td>Full screen / 1280×720</td><td>Preserves the Ally panel's 16:9 shape while reducing render load from native 1080p.</td></tr>
+        <tr><td>Frame cap</td><td>30 FPS</td><td>Matches the performance class in Steam's minimum-spec note and gives this demanding title a conservative handheld starting point.</td></tr>
+        <tr><td>Graphics preset</td><td>Low</td><td>Establishes headroom before individual image-quality controls are restored.</td></tr>
+        <tr><td>Upscaling</td><td>Quality mode first, if available</td><td>Preserves more detail than aggressive modes. Move to Balanced only if demanding scenes cannot hold the target.</td></tr>
+        <tr><td>Frame generation</td><td>Off for baseline testing</td><td>Measure the underlying delivery and input feel first; generated frames do not cure traversal or shader stutter.</td></tr>
+        <tr><td>Motion blur</td><td>Personal preference</td><td>It changes presentation more than the basic performance diagnosis. Choose one state and keep it fixed during comparisons.</td></tr>
+        <tr><td>Textures</td><td>Low initially</td><td>The Ally uses shared memory. Raise texture quality only after checking for streaming issues, warnings, or new hitching.</td></tr>
+        <tr><td>Shadows / effects / foliage</td><td>Low</td><td>These are sensible places to preserve headroom during complex scenes before increasing resolution.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Menus and option names may change with game updates. Use the closest standard in-game option and avoid unexplained configuration-file edits.</p>
+
+    <h2>Why the page starts at 30 FPS</h2>
+    <p>Steam's official requirements put useful boundaries around the first profile. The minimum desktop specification lists a GTX 1060 6GB, RX 5600 XT 6GB, or Arc A380 6GB and says it targets <strong>1080p/30 on Low</strong>. The recommended specification rises to an RTX 3060 Ti 8GB or RX 6800 XT 16GB for <strong>1080p/60 on High</strong>. Steam also requires DirectX 12 and an SSD.</p>
+    <p>Those desktop targets are not ROG Ally benchmarks, and this page does not convert them into a false handheld result. They support a cautious method: lower the starting render resolution, use Low, target 30 FPS, and test the real game. A higher cap is an optional experiment only after your exact device shows repeatable headroom.</p>
+
+    <h2>Tune in a repeatable order</h2>
+    <ol>
+      <li><strong>Finish stable updates.</strong> Update the game, Windows, Armoury Crate SE, ASUS firmware, and the intended graphics driver, then restart.</li>
+      <li><strong>Record the device state.</strong> Note Ally or Ally X, game build, driver, operating mode, charger state, refresh rate, resolution, and background tasks.</li>
+      <li><strong>Apply 720p/30 Low.</strong> Disable frame generation for the first pass and choose a Quality upscaler if one is available.</li>
+      <li><strong>Test traversal and combat.</strong> Include a populated area, camera turns, multiple enemies, effects, and several dodge/parry sequences.</li>
+      <li><strong>Separate repeatable slowdown from one-time stutter.</strong> Repeat the same route after assets and shaders have appeared once.</li>
+      <li><strong>Try 900p alone.</strong> Keep the power mode, cap, preset, and test route fixed. Return to 720p if the weakest scene becomes materially less stable.</li>
+      <li><strong>Restore quality one setting at a time.</strong> Try texture quality, then shadows or effects, retesting the same sequence after every change.</li>
+      <li><strong>Test frame generation last.</strong> Compare image artifacts and input feel against the known baseline rather than judging only the displayed counter.</li>
+    </ol>
+
+    <h2>Fix common Expedition 33 problems on ROG Ally</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Frame rate falls in effects-heavy battles</td><td>Confirm 720p, Low preset, 30 FPS cap, and the recorded operating mode</td><td>Use a less demanding upscaler mode before raising power; repeat the same battle type</td></tr>
+        <tr><td>Traversal hitches</td><td>Confirm the game is on an SSD and background downloads are stopped</td><td>Repeat the route, verify files, and compare a standard driver/profile before making config edits</td></tr>
+        <tr><td>Image looks too soft</td><td>Check resolution scale and upscaler mode</td><td>Try Quality at 720p, then compare 900p while keeping the cap and preset fixed</td></tr>
+        <tr><td>Motion looks smoother but controls still feel heavy</td><td>Disable frame generation and assess the base frame rate</td><td>Improve the 30 FPS baseline before enabling generated frames again</td></tr>
+        <tr><td>Dodge or parry timing feels inconsistent</td><td>Compare the same encounter at a stable cap with frame generation off</td><td>Check wireless controller/display latency if docked; visual smoothness is not input latency</td></tr>
+        <tr><td>Wrong prompts or mouse-style input</td><td>Set Armoury Crate control mode to Gamepad</td><td>Restore the standard Steam controller layout before remapping individual actions</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, battery, and dock planning</h2>
+    <p>Steam currently lists <strong>55GB available space</strong>, an SSD requirement, DirectX 12, and full controller support. Leave room for patches, shader caches, captures, and Windows temporary files. Use the <a href="/calculators/storage-planner/">storage planner</a>, then read the <a href="/guides/rog-ally-ssd-size-compatibility-upgrade/">ROG Ally SSD compatibility guide</a> before opening the device.</p>
+    <p>This page does not invent a battery-runtime range. ASUS describes Performance mode as a balance between performance and battery life and Turbo as the maximum-power option, with extra plugged-in capability on supported Ally models. Record your own observed total draw and use the <a href="/calculators/battery-estimator/">battery estimator</a>. For a television, validate the handheld profile first and then follow the <a href="/guides/handheld-gaming-usb-c-dock-checklist/">USB-C dock checklist</a>.</p>
+
+    <h2>Optional gear after the profile is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, device fit, seller traceability, warranty, and return terms. No price, compatibility, battery, or performance claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+usb+c+pd+dock+65w" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks"><span class="chip">Sponsored search</span><h3>ROG Ally USB-C docks</h3><p class="muted">Compare PD passthrough, display output, VRR claims, physical clearance, cable reach, and exact-model support.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+65w+usb+c+pd+charger" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers"><span class="chip">Sponsored search</span><h3>65W-class USB-C PD chargers</h3><p class="muted">Verify single-port output, cable rating, shared-port behavior, warranty, and support for the exact Ally model.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+2230+nvme+ssd" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="NVMe-SSDs"><span class="chip">Sponsored search</span><h3>2230 NVMe SSD searches</h3><p class="muted">For original Ally models, verify 2230 size, capacity, warranty, seller traceability, cloning needs, and current ASUS service guidance.</p></a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a> or set a spending limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on August 6, 2026. Steam supplies the current PC requirements, 55GB SSD requirement, full-controller-support label, release information, and official header artwork. The official game site confirms the product and publisher context. ASUS supplies the original Ally's 1920×1080, 120Hz, FreeSync Premium display specification and explains its operating modes and upscaling-oriented tuning approach. Handheld Settings Lab did not personally benchmark the game or claim a guaranteed frame rate; the settings above are a conservative test workflow based on those published constraints.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Return to the <a href="/rog-ally-settings/">ROG Ally settings hub</a>, compare the <a href="/steam-deck-settings/clair-obscur-expedition-33/">Steam Deck baseline</a> or <a href="/legion-go-settings/clair-obscur-expedition-33/">Legion Go baseline</a>, and use the <a href="/calculators/">battery, storage, and accessory calculators</a> for your own assumptions.</p>
+  </article>
+</Base>
