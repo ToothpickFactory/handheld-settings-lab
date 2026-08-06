@@ -1,0 +1,186 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/legion-go-settings/elden-ring/';
+const title = 'Elden Ring Legion Go settings: 800p/30 baseline — Handheld Settings Lab';
+const description = 'Tune Elden Ring on the original Lenovo Legion Go from a cautious 800p/30 FPS baseline, with a 40 FPS experiment, ray tracing off, stutter checks, and 60GB storage planning.';
+const image = '/assets/games/elden-ring-header.jpg';
+
+const sources = [
+  { label: 'Steam: Elden Ring requirements, controller support, release details, and official media', url: 'https://store.steampowered.com/app/1245620/ELDEN_RING/' },
+  { label: 'Bandai Namco: official Elden Ring game page', url: 'https://en.bandainamcoent.eu/elden-ring/elden-ring' },
+  { label: 'Lenovo PSREF: original Legion Go 8APU1 specifications', url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1' },
+  { label: 'Lenovo Support: original Legion Go drivers and software', url: 'https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/legion-series/legion-go-8apu1/' }
+];
+
+const faqs = [
+  {
+    question: 'What Elden Ring settings should I use on Legion Go?',
+    answer: 'Start at 1280×800, a 30 FPS cap, Medium textures, Low shadows, Low effects, Low volumetrics, Low reflections and water, Low grass, and ray tracing off. Test one repeatable outdoor route and a familiar fight before raising quality. This is a cautious editorial baseline, not a personally measured guarantee.'
+  },
+  {
+    question: 'Can Legion Go run Elden Ring at 40 or 60 FPS?',
+    answer: 'Treat 40 FPS as an experiment after the 30 FPS profile is dependable. Keep the same 800p resolution and graphics mix so the cap is the only major change. Do not make 60 FPS the default expectation: wide views, weather, foliage, traversal, and effects-heavy combat can be more demanding than an interior or menu.'
+  },
+  {
+    question: 'Should I use 800p, 1200p, or 1600p for Elden Ring on Legion Go?',
+    answer: 'Begin at 800p because it preserves the panel’s 16:10 shape while reducing render load substantially. Test 1200p only after the 30 FPS baseline passes, without changing the power profile or graphics settings. Native 1600p is not the practical first troubleshooting resolution for this game.'
+  },
+  {
+    question: 'Should ray tracing be enabled in Elden Ring on Legion Go?',
+    answer: 'No for the baseline. Ray tracing adds optional rendering work and makes diagnosis harder on integrated graphics. Keep it off while establishing frame pacing, then prioritize a stable non-ray-traced profile.'
+  },
+  {
+    question: 'How much storage does Elden Ring need on Legion Go?',
+    answer: 'Steam currently lists 60GB of available space for the base PC game. Leave additional room for patches, shader data, saves, Windows temporary files, and separately installed expansion content rather than planning around exactly 60GB.'
+  },
+  {
+    question: 'Were these Elden Ring Legion Go settings personally benchmarked?',
+    answer: 'No. Handheld Settings Lab did not personally benchmark the current Elden Ring build, Windows version, graphics driver, firmware, Legion Space build, battery, or thermals. The page combines official requirements with a conservative, reproducible tuning sequence.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Elden Ring Legion Go settings: 800p/30 FPS baseline',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-06',
+    dateModified: '2026-08-06',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Elden Ring', 'Lenovo Legion Go', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Legion Go settings', item: 'https://handheldsettings.com/legion-go-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Elden Ring settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Legion Go settings · Baseline published August 2026</span>
+    <h1>Elden Ring Legion Go settings: start at 800p and 30 FPS</h1>
+    <p class="lede muted">Elden Ring moves between interiors, long outdoor views, dense grass, weather, mounted traversal, and effects-heavy fights. This original Legion Go workflow establishes a cautious 800p/30 profile before testing 40 FPS or more image quality. It is official-source-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Elden Ring Steam header artwork showing a kneeling armored figure beneath the glowing Elden Ring" width="460" height="215" />
+      <figcaption class="media-credit">Official Elden Ring Steam store header image, saved locally from <a href="https://store.steampowered.com/app/1245620/ELDEN_RING/" target="_blank" rel="nofollow noopener">FromSoftware and Bandai Namco Entertainment's Steam store page</a>. Artwork and trademarks belong to their owners; use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Consistency target</h3><div class="stat">800p / 30</div><p class="muted">Validate this profile first</p></section>
+      <section class="card"><h3>Optional experiment</h3><div class="stat">800p / 40</div><p class="muted">Not a locked-FPS promise</p></section>
+      <section class="card"><h3>Starting quality</h3><p><strong>Low / Medium mix</strong></p><p class="muted">Ray tracing off</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">60GB</div><p class="muted">Current base-game requirement</p></section>
+    </div>
+
+    <div class="callout"><strong>Test the Lands Between, not the menu.</strong> Repeat one outdoor mounted route with distant scenery and grass, then one familiar fight with effects. Record game version, driver, Legion Space version, power profile, charger state, refresh rate, cap, and background activity before judging a change.</div>
+
+    <h2>Recommended Elden Ring Legion Go baseline</h2>
+    <table>
+      <thead><tr><th>Control</th><th>Start here</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>Legion Go power mode</td><td>Performance-class profile</td><td>Creates a repeatable starting condition. Record whether the handheld is on battery or a compatible charger rather than mixing power states.</td></tr>
+        <tr><td>Display refresh rate</td><td>60Hz for the first pass</td><td>Makes the 30 FPS baseline straightforward to interpret. A higher panel refresh does not force the game to render more frames.</td></tr>
+        <tr><td>Display mode / resolution</td><td>Full screen / 1280×800</td><td>Preserves the original Legion Go panel’s 16:10 shape while reducing render load substantially from native 2560×1600.</td></tr>
+        <tr><td>Frame cap</td><td>30 FPS</td><td>Prioritizes repeatable pacing in open-world traversal and combat before a more demanding 40 FPS comparison.</td></tr>
+        <tr><td>Texture quality</td><td>Medium</td><td>Retains useful world and armor detail. Lower only if a repeatable symptom points to shared-memory or asset-streaming pressure.</td></tr>
+        <tr><td>Antialiasing quality</td><td>Medium</td><td>Controls edge shimmer at 800p without beginning at the highest tier.</td></tr>
+        <tr><td>SSAO quality</td><td>Low</td><td>Reduces ambient-shadow cost while preserving the more important clarity controls.</td></tr>
+        <tr><td>Depth of field</td><td>Personal preference</td><td>Choose one state and keep it fixed during tests; it is not the first lever for sustained outdoor slowdown.</td></tr>
+        <tr><td>Motion blur</td><td>Off</td><td>Makes camera motion and frame-pacing differences easier to inspect on the handheld display.</td></tr>
+        <tr><td>Shadow quality</td><td>Low</td><td>Creates headroom across wide outdoor scenes and dynamic lighting.</td></tr>
+        <tr><td>Lighting quality</td><td>Medium</td><td>Maintains useful scene definition; lower it only after the more obvious scene-cost settings are already reduced.</td></tr>
+        <tr><td>Effects quality</td><td>Low</td><td>Preserves headroom during spells, fire, particles, and effects-heavy attacks.</td></tr>
+        <tr><td>Volumetric quality</td><td>Low</td><td>Reduces pressure from fog, clouds, and atmospheric weather in long views.</td></tr>
+        <tr><td>Reflection / water quality</td><td>Low</td><td>Cuts secondary scene detail before sacrificing texture clarity.</td></tr>
+        <tr><td>Shader / global illumination</td><td>Low</td><td>Establishes a conservative floor for complex environments on integrated graphics.</td></tr>
+        <tr><td>Grass quality</td><td>Low</td><td>Reduces outdoor scene complexity during riding and field combat.</td></tr>
+        <tr><td>Ray tracing quality</td><td>Off</td><td>Avoids a substantial optional rendering cost and removes one major troubleshooting variable.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Option names can move with patches. Photograph the current settings screen and use the closest normal in-game option. Steam’s desktop requirements are context, not proof of a Legion Go frame rate; this page does not invent an upscaler or use unofficial configuration-file claims.</p>
+
+    <h2>Compare 30 FPS and 40 FPS fairly</h2>
+    <div class="grid cols2">
+      <section class="card">
+        <span class="chip">Consistency baseline</span>
+        <h3>800p / 60Hz / 30 FPS</h3>
+        <p>Use Medium textures, antialiasing, and lighting; keep shadows, effects, volumetrics, reflections, water, shaders, global illumination, and grass Low; leave ray tracing off. Repeat the outdoor route and fight twice.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Optional response test</span>
+        <h3>800p / higher refresh / 40 FPS</h3>
+        <p>Keep every image setting and the power condition identical. Change only the display mode and cap, then rerun both tests. Return to 30 when demanding areas are less consistent than the response gain is worth.</p>
+      </section>
+    </div>
+
+    <h2>Tune in a repeatable order</h2>
+    <ol>
+      <li><strong>Finish stable updates.</strong> Update Elden Ring, Windows, Lenovo firmware and software, the intended graphics driver, and Legion Space, then restart.</li>
+      <li><strong>Record the device state.</strong> Note original Legion Go model, game and driver versions, power profile, charger state, refresh rate, cap, temperatures if available, and background downloads.</li>
+      <li><strong>Apply 800p/30.</strong> Use the Low/Medium mix above, turn ray tracing off, and keep the power condition fixed.</li>
+      <li><strong>Repeat two representative tests.</strong> Ride the same outdoor route twice, then repeat one effects-heavy fight. A quiet cave or static camera is not enough.</li>
+      <li><strong>Separate first-pass hitches from sustained misses.</strong> If a brief hitch occurs when new assets appear, repeat the route before cutting every setting.</li>
+      <li><strong>Restore clarity one setting at a time.</strong> Try SSAO, shadows, or grass separately and revert the first change that damages the weakest test.</li>
+      <li><strong>Try 40 FPS last.</strong> Keep resolution, graphics, power, and routes unchanged so the cap remains the only major variable.</li>
+      <li><strong>Build battery and dock profiles separately.</strong> A battery power profile, direct charger, and charger-through-dock setup are different conditions and should not share one claimed result.</li>
+    </ol>
+
+    <h2>Fix common Elden Ring problems on Legion Go</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Outdoor traversal misses the cap</td><td>Confirm 800p, ray tracing off, Low shadows, volumetrics, reflections, water, global illumination, and grass</td><td>Use the 30 FPS profile, pause overlays/downloads, and repeat the same mounted route</td></tr>
+        <tr><td>Brief hitch entering a new area</td><td>Repeat the route after assets have appeared once</td><td>Verify files, free SSD space, driver state, and background storage activity before lowering resolution again</td></tr>
+        <tr><td>Image looks too soft or jagged</td><td>Confirm 1280×800 is selected and extra scaling layers are not stacked</td><td>Keep antialiasing Medium, then compare 1200p only after the 30 FPS baseline passes</td></tr>
+        <tr><td>Effects-heavy combat slows down</td><td>Confirm effects, volumetrics, shadows, and global illumination are Low</td><td>Keep 800p and 30 FPS, then retest the same encounter before changing textures</td></tr>
+        <tr><td>Controller prompts or input are wrong</td><td>Set Legion Space controls to gamepad mode</td><td>Restore the default Steam and in-game layouts before remapping individual actions</td></tr>
+        <tr><td>Performance changed after a patch</td><td>Restart, confirm version and power state, and restore the saved baseline</td><td>Verify game files and check official support notes before using unofficial launch flags or config edits</td></tr>
+        <tr><td>Docked display adds lag or bad pacing</td><td>Retest on the handheld screen with the charger connected directly</td><td>Check television game mode, output refresh, resolution, VRR support, dock power, and cable path separately</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, battery, online, and dock planning</h2>
+    <p>Steam currently lists <strong>60GB of available space</strong>, DirectX 12, 12GB minimum system memory, full controller support, online co-op, and PvP. Keep additional room for patches, shader data, saves, Windows temporary files, and separately installed expansion content. Use the <a href="/calculators/storage-planner/">storage planner</a>, then consult the <a href="/guides/handheld-pc-ssd-form-factor-guide/">handheld SSD form-factor guide</a> before an internal upgrade.</p>
+    <p>This page does not invent a battery runtime. Brightness, radios, frame cap, power mode, battery condition, and scene load all change total draw. Read your own repeatable-session draw and enter it in the <a href="/calculators/battery-estimator/">battery estimator</a>. For television play, establish the handheld profile first and then follow the <a href="/guides/handheld-gaming-usb-c-dock-checklist/">USB-C dock checklist</a>.</p>
+    <p>Online features need a reliable connection, but service, account, and update checks can also affect travel plans. Before leaving home, use the <a href="/guides/handheld-pc-offline-mode-flight-checklist/">offline-mode flight checklist</a> and perform a real disconnected launch test.</p>
+
+    <h2>Optional gear after the profile is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, model fit, seller traceability, warranty, and return terms. No price, compatibility, performance, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+usb+c+pd+dock+65w" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks"><span class="chip">Sponsored search</span><h3>Legion Go USB-C docks</h3><p class="muted">Compare PD passthrough, display output, refresh and VRR claims, physical clearance, cable reach, and exact-model support.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+65w+usb+c+pd+charger" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers"><span class="chip">Sponsored search</span><h3>65W-class USB-C PD chargers</h3><p class="muted">Verify dedicated-port output, cable rating, shared-port behavior, warranty, and support for the exact handheld.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+a2+u3+microsd+card" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microsd-cards"><span class="chip">Sponsored search</span><h3>A2 / U3 microSD cards</h3><p class="muted">Compare capacity, authentic seller chain, warranty, verification tools, and room beyond the current 60GB requirement.</p></a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a> or set a limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on August 6, 2026. Steam’s public store data supplies the February 24, 2022 release date, 60GB storage requirement, 12GB minimum-memory listing, DirectX 12 requirement, full-controller-support label, online feature labels, developer and publisher identity, and official image. Bandai Namco supplies the official game route. Lenovo PSREF supplies the original Legion Go hardware context, including its 16:10 2560×1600 display, while Lenovo Support supplies the current driver/software route. The settings are a conservative editorial test sequence informed by those official constraints and normal graphics-cost relationships. Handheld Settings Lab did not personally benchmark the current game, Windows, driver, firmware, Legion Space, battery, or thermals.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Return to the <a href="/legion-go-settings/">Legion Go settings hub</a>, compare the <a href="/steam-deck-settings/elden-ring/">Steam Deck</a> and <a href="/rog-ally-settings/elden-ring/">ROG Ally</a> Elden Ring baselines, or use the <a href="/calculators/">battery, storage, and accessory calculators</a> for your own assumptions.</p>
+  </article>
+</Base>
