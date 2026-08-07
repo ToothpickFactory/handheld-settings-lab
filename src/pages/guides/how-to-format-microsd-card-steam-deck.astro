@@ -1,0 +1,203 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/how-to-format-microsd-card-steam-deck/';
+const title = 'How to format a microSD card for Steam Deck safely — Handheld Settings Lab';
+const description = 'Format a microSD card for Steam Deck in Gaming Mode, protect existing files, diagnose format errors, and verify the new Steam library before a large download.';
+
+const sourceLinks = [
+  { label: 'Valve: Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' },
+  { label: 'Steam Support: Steam Deck basic use and troubleshooting', url: 'https://help.steampowered.com/en/faqs/view/69E3-14AF-9764-4C28' },
+  { label: 'Steam Support: SteamOS recovery and troubleshooting', url: 'https://help.steampowered.com/en/faqs/view/1B71-EDF2-EB6D-2BB3' },
+  { label: 'SD Association: Application Performance Class', url: 'https://www.sdcard.org/developers/sd-standard-overview/application-performance-class/' }
+];
+
+const shoppingLinks = [
+  { label: '512GB A2 microSDXC cards', href: 'https://www.amazon.com/s?k=512GB+A2+microSDXC+card+Steam+Deck' },
+  { label: '1TB A2 microSDXC cards', href: 'https://www.amazon.com/s?k=1TB+A2+microSDXC+card+Steam+Deck' },
+  { label: 'USB-C UHS-I microSD card readers', href: 'https://www.amazon.com/s?k=USB-C+UHS-I+microSD+card+reader' }
+];
+
+const faqs = [
+  {
+    question: 'What format should a Steam Deck microSD card use?',
+    answer: 'For a card dedicated to Steam Deck game storage, use SteamOS Gaming Mode to format it instead of choosing a filesystem manually on another computer. SteamOS prepares the card for its own game-library workflow. Formatting erases the card.'
+  },
+  {
+    question: 'Does formatting a microSD card on Steam Deck delete everything?',
+    answer: 'Yes. Treat the format action as destructive. Copy any screenshots, saves, ROMs where legally owned, mods, documents, or other files you need to keep before confirming it. Steam Cloud does not cover every game or every non-Steam file.'
+  },
+  {
+    question: 'Why will my Steam Deck not format the microSD card?',
+    answer: 'Common causes include a poorly seated card, counterfeit or failing flash, a damaged filesystem, a read-only adapter or card state, or an unreliable card reader used during earlier setup. Restart, reseat, inspect, and test the full capacity on another computer before repeatedly formatting.'
+  },
+  {
+    question: 'Can I move a Steam Deck microSD card to a Windows PC?',
+    answer: 'Windows may not natively mount the SteamOS-formatted game card like an ordinary removable drive. Do not accept a Windows format prompt if the card contains a library you want to preserve. Use network transfer, an external drive both systems can read, or another deliberate migration method.'
+  },
+  {
+    question: 'Should I buy A1 or A2 for Steam Deck?',
+    answer: 'A1 and A2 are SD Application Performance Class markings. An A2 card can be a sensible shortlist filter, but the seller, authenticity, warranty, capacity, and reliable UHS-I operation matter more than assuming a logo guarantees real-world game performance.'
+  },
+  {
+    question: 'How do I know the new card is working?',
+    answer: 'After formatting, confirm SteamOS lists the card, install one small game to it, launch the game, restart the Deck, and launch it again. Only then begin a large library transfer or overnight download.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: 'How to format a microSD card for Steam Deck safely',
+    description,
+    url: canonicalUrl,
+    datePublished: '2026-08-07',
+    dateModified: '2026-08-07',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    supply: [{ '@type': 'HowToSupply', name: 'Compatible microSD, microSDHC, or microSDXC card' }],
+    tool: [{ '@type': 'HowToTool', name: 'Steam Deck running SteamOS' }],
+    step: [
+      { '@type': 'HowToStep', position: 1, name: 'Back up existing files', text: 'Copy every file you need to keep because formatting erases the microSD card.' },
+      { '@type': 'HowToStep', position: 2, name: 'Inspect and insert the card', text: 'Check the card for damage, insert it fully, and confirm SteamOS detects it.' },
+      { '@type': 'HowToStep', position: 3, name: 'Open the SteamOS format control', text: 'In Gaming Mode, open Settings, then System, and locate the Format SD Card control.' },
+      { '@type': 'HowToStep', position: 4, name: 'Confirm the destructive format', text: 'Recheck that the correct card can be erased, then confirm and let SteamOS finish without removing power or the card.' },
+      { '@type': 'HowToStep', position: 5, name: 'Verify with one game', text: 'Install and launch one small game from the card, restart the Deck, and launch it again before moving a large library.' }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'Format a Steam Deck microSD card', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Steam Deck storage guide</span>
+    <h1>How to format a microSD card for Steam Deck safely</h1>
+    <p class="muted">Use SteamOS Gaming Mode to prepare a card intended for your Steam Deck game library. This is official-source/spec-informed guidance, not a card-speed benchmark or a claim that every card can be repaired by formatting.</p>
+    <p class="affiliate-note">Disclosure: optional shopping links are broad Amazon searches marked sponsored/nofollow. We did not hands-on test every result, and the site adds an Associates tag only when a real tag is configured.</p>
+
+    <div class="callout"><strong>Formatting erases the card.</strong> If it already contains files, games, screenshots, mods, emulator data, or saves not protected elsewhere, stop and make a verified backup first. Do not use formatting as the first response to a card that suddenly disappears.</div>
+
+    <h2>Fast answer</h2>
+    <ol>
+      <li><strong>Back up anything you need to keep.</strong> Confirm the backup opens from another drive.</li>
+      <li><strong>Inspect and insert the card.</strong> Seat it fully in the Deck’s microSD slot.</li>
+      <li><strong>Open Gaming Mode settings.</strong> Go to <strong>Settings → System</strong> and locate the <strong>Format SD Card</strong> control. SteamOS wording can change between updates.</li>
+      <li><strong>Confirm only when the card may be erased.</strong> Keep the Deck powered and do not remove the card while the operation is active.</li>
+      <li><strong>Prove the result.</strong> Install one small game to the card, launch it, restart the Deck, and launch it again before downloading a large library.</li>
+    </ol>
+
+    <h2>Before you press Format</h2>
+    <div class="grid cols3">
+      <section class="card">
+        <span class="chip">Data safety</span>
+        <h3>Verify the backup, not just the copy</h3>
+        <p>Open a few copied files from the destination and compare folder sizes. Steam Cloud may protect supported game saves, but it is not a backup for every game or for arbitrary files stored on the card.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Card health</span>
+        <h3>Question a suspicious card first</h3>
+        <p>A counterfeit card can report more capacity than it physically has. If it was unusually cheap, arrived from an unknown seller, or corrupts files, perform a full-capacity write/read verification on a computer before trusting it.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Compatibility</span>
+        <h3>Match the Deck’s reader</h3>
+        <p>Valve lists the Steam Deck expansion slot as microSD UHS-I with SD, SDHC, and SDXC support. A more expensive card standard does not make the internal reader use a bus mode it does not support.</p>
+      </section>
+    </div>
+
+    <h2>SteamOS format walkthrough</h2>
+    <table>
+      <thead><tr><th>Stage</th><th>What to do</th><th>Stop if…</th></tr></thead>
+      <tbody>
+        <tr><td>1. Prepare</td><td>Charge the Deck or connect its known-good charger, finish pending system updates, and close active downloads.</td><td>The Deck is unstable, nearly out of power, or rebooting for an update.</td></tr>
+        <tr><td>2. Insert</td><td>With the card’s contacts aligned correctly, insert it until it seats. Do not force it.</td><td>The card or slot appears bent, dirty, cracked, or obstructed.</td></tr>
+        <tr><td>3. Select</td><td>In Gaming Mode, open Settings, then System, and find the SD-card format option.</td><td>The card contains the only copy of files you care about.</td></tr>
+        <tr><td>4. Format</td><td>Read the warning, confirm the destructive action, and leave the card in place while SteamOS works.</td><td>You are unsure which storage device is being erased.</td></tr>
+        <tr><td>5. Validate</td><td>Confirm the card appears as Steam storage, install one small game there, launch it, reboot, and retest.</td><td>SteamOS reports errors, the card vanishes, or the test install becomes corrupt.</td></tr>
+      </tbody>
+    </table>
+    <p>Using the Deck’s own control avoids guessing which filesystem and library structure SteamOS expects. A computer-side formatter can still be useful for diagnostics, but it is not the preferred final preparation path for a dedicated Steam game card.</p>
+
+    <h2>If Steam Deck says the format failed</h2>
+    <p>Repeated formatting is not a repair plan. Use the least-destructive checks first, especially if the card previously held a working library.</p>
+    <ol>
+      <li><strong>Restart SteamOS once.</strong> Clear a temporary mount or storage-service problem before changing the card.</li>
+      <li><strong>Power down and reseat the card.</strong> Do not repeatedly eject it while the system is writing.</li>
+      <li><strong>Inspect the card and slot.</strong> Stop if there is physical damage, swelling elsewhere in the device, liquid exposure, or debris you cannot safely remove.</li>
+      <li><strong>Test detection in a known-good reader.</strong> If another device cannot read the card either, focus on card recovery or replacement rather than SteamOS.</li>
+      <li><strong>Verify the full advertised capacity.</strong> A quick copy is not enough to expose every counterfeit card. Use a reputable full write/read test and expect it to erase or overwrite data depending on the tool.</li>
+      <li><strong>Use the return or warranty path.</strong> A new card that cannot pass verification should not become a travel or game library.</li>
+    </ol>
+
+    <h2>Do not accept a Windows format prompt blindly</h2>
+    <p>A microSD card prepared by SteamOS may not appear in Windows like a normal exFAT removable drive. If Windows offers to format it, cancel unless erasing the Steam Deck library is your deliberate goal. Moving a card between SteamOS and Windows is not the same as moving a universally readable USB drive.</p>
+    <p>For transfers, consider Steam’s supported network transfer features, a separate external drive formatted for the systems in your workflow, or a network share. If the goal is simply to add storage, keep the game card dedicated to the Deck and use the <a href="/calculators/storage-planner/">storage planner</a> before buying another capacity.</p>
+
+    <h2>How to validate the card after formatting</h2>
+    <ul>
+      <li>Confirm SteamOS shows the expected approximate capacity. Formatted capacity will be lower than the marketing number; an extreme mismatch deserves investigation.</li>
+      <li>Choose the microSD card as the install destination for one small game.</li>
+      <li>Let the download, verification, shader processing, and first launch complete.</li>
+      <li>Restart the Deck rather than only suspending it.</li>
+      <li>Confirm the card remounts and the test game launches a second time.</li>
+      <li>Move or download the rest of the library in batches, leaving free space for updates and temporary files.</li>
+    </ul>
+
+    <h2>Card labels worth understanding</h2>
+    <table>
+      <thead><tr><th>Marking</th><th>What it describes</th><th>Practical buying note</th></tr></thead>
+      <tbody>
+        <tr><td>UHS-I</td><td>The bus family Valve lists for the Deck’s microSD slot.</td><td>Use this as the compatibility baseline rather than paying only for unsupported headline bus speeds.</td></tr>
+        <tr><td>A1 / A2</td><td>Application Performance Class minimums for random and sequential access under SD Association specifications.</td><td>A2 is a useful shortlist signal, not proof of authenticity or a guaranteed in-game result.</td></tr>
+        <tr><td>U1 / U3, V30+</td><td>Minimum sequential-write class markings.</td><td>Helpful context for file transfers and other workloads, but seller quality and genuine capacity remain essential.</td></tr>
+        <tr><td>microSDXC</td><td>The SD-family capacity category commonly seen on larger cards.</td><td>Valve explicitly lists SDXC support; still verify the individual card and seller.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Spec-based replacement searches</h2>
+    <div class="grid cols3">
+      {shoppingLinks.map(link => (
+        <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="micro-sd-cards">
+          <span class="chip">Sponsored search</span>
+          <h3>{link.label}</h3>
+          <p class="muted">Compare the seller, warranty, return policy, capacity, A-class markings, and recent authenticity reports before buying.</p>
+        </a>
+      ))}
+    </div>
+    <p>Also see the <a href="/gear/micro-sd-cards/">microSD gear guide</a>, the <a href="/guides/steam-deck-microsd-card-not-showing-up/">not-showing-up troubleshooting guide</a>, and the <a href="/steam-deck-settings/">Steam Deck settings hub</a>. Troubleshoot first when an existing card disappears; buy only after the card or capacity is the actual constraint.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Sources checked</h2>
+    <p>Valve’s technical-specification and support pages were checked on August 7, 2026. Valve establishes the Deck’s listed UHS-I/SD/SDHC/SDXC compatibility; the SD Association source explains Application Performance Class. Menu wording can change with SteamOS updates, so use the current warning shown on your Deck.</p>
+    <ul>
+      {sourceLinks.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+  </article>
+</Base>
