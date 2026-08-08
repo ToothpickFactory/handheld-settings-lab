@@ -1,0 +1,175 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/legion-go-settings/monster-hunter-wilds/';
+const title = 'Monster Hunter Wilds Legion Go settings: 800p/30 baseline — Handheld Settings Lab';
+const description = 'Start Monster Hunter Wilds on the original Lenovo Legion Go with a cautious 800p/30 FPS Lowest baseline, upscaling, frame-generation guidance, troubleshooting, and 75GB SSD planning.';
+const image = '/assets/games/monster-hunter-wilds-header.jpg';
+
+const sources = [
+  { label: 'Steam: Monster Hunter Wilds requirements, controller support, release details, and official media', url: 'https://store.steampowered.com/app/2246340/Monster_Hunter_Wilds/' },
+  { label: 'Steam app-details API: current public product data for app 2246340', url: 'https://store.steampowered.com/api/appdetails?appids=2246340&cc=us&l=en' },
+  { label: 'Capcom: official Monster Hunter Wilds site', url: 'https://www.monsterhunter.com/wilds/' },
+  { label: 'Lenovo PSREF: original Legion Go 8APU1 specifications', url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1' }
+];
+
+const faqs = [
+  {
+    question: 'What Monster Hunter Wilds settings should I use on Legion Go?',
+    answer: 'Start at 1280×800, the Lowest preset, a 30 FPS cap, and a Balanced upscaling mode. Keep frame generation off while establishing the baseline, then lower shadows, volumetric fog, fur, vegetation, and distant-detail controls if the current menu exposes them. This is a cautious editorial test profile, not a personally measured guarantee.'
+  },
+  {
+    question: 'Can Legion Go run Monster Hunter Wilds at 30 FPS?',
+    answer: 'Treat 800p/30 as a test target rather than a promised lock. Steam’s current minimum desktop specification describes 1080p output upscaled from 720p at 30 FPS on Lowest using a discrete GTX 1660 6GB or RX 5500 XT 8GB. The original Legion Go uses integrated graphics and shared memory, so demanding weather, settlements, multiplayer hunts, and effects can miss the target.'
+  },
+  {
+    question: 'Should I enable frame generation in Monster Hunter Wilds on Legion Go?',
+    answer: 'Leave it off for the diagnostic baseline so the displayed frame rate does not hide the underlying render rate, latency, or visual artifacts. After input and frame pacing are acceptable, compare it as a separate experiment in the same hunt. Do not use frame generation to describe an unstable low base frame rate as a locked result.'
+  },
+  {
+    question: 'Should I use 800p or 1200p for Monster Hunter Wilds on Legion Go?',
+    answer: 'Begin at 800p because Wilds is demanding and the original Legion Go panel is 16:10. Test 1200p only after the same weather-heavy route and hunt are acceptable at 800p, keeping the power mode, cap, and graphics controls unchanged. Native 1600p is not the sensible first troubleshooting resolution.'
+  },
+  {
+    question: 'How much storage does Monster Hunter Wilds need?',
+    answer: 'Steam currently lists 75GB of available space and says an SSD is required. Leave extra room for patches, shader data, saves, recordings, and Windows temporary files rather than planning to fill the drive to exactly 75GB.'
+  },
+  {
+    question: 'Were these Monster Hunter Wilds Legion Go settings personally benchmarked?',
+    answer: 'No. Handheld Settings Lab did not personally benchmark the current game build, Windows version, graphics driver, firmware, Legion Space build, battery, or thermals. This page turns official requirements into a conservative and reproducible tuning sequence without fabricating a frame-rate result.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Monster Hunter Wilds Legion Go settings: 800p/30 FPS baseline',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-08',
+    dateModified: '2026-08-08',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Monster Hunter Wilds', 'Lenovo Legion Go', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Legion Go settings', item: 'https://handheldsettings.com/legion-go-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Monster Hunter Wilds settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Legion Go settings · Baseline published August 2026</span>
+    <h1>Monster Hunter Wilds Legion Go settings: start at 800p and 30 FPS</h1>
+    <p class="lede muted">Monster Hunter Wilds combines large environments, changing weather, dense settlements, fur, vegetation, particles, and multiplayer hunts. This original Legion Go workflow starts from a cautious 800p/30 Lowest profile and tests the demanding parts of a hunt before restoring clarity. It is official-source-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Monster Hunter Wilds Steam header artwork showing a hunter and companions facing a large monster" width="460" height="215" />
+      <figcaption class="media-credit">Official Monster Hunter Wilds Steam store header image, saved locally from <a href="https://store.steampowered.com/app/2246340/Monster_Hunter_Wilds/" target="_blank" rel="nofollow noopener">Capcom's Steam store page</a>. Artwork and trademarks belong to Capcom; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Test target</h3><div class="stat">800p / 30</div><p class="muted">Cautious target, not a lock guarantee</p></section>
+      <section class="card"><h3>Starting preset</h3><div class="stat">Lowest</div><p class="muted">Restore clarity only after a real hunt</p></section>
+      <section class="card"><h3>Upscaling</h3><p><strong>Balanced first</strong></p><p class="muted">Frame generation off for diagnosis</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">75GB</div><p class="muted">Current requirement; SSD required</p></section>
+    </div>
+
+    <div class="callout"><strong>Important hardware context:</strong> Steam’s minimum desktop target uses a discrete 6GB or 8GB GPU for 720p-upscaled output at 30 FPS on Lowest. The original Legion Go uses integrated graphics with shared system memory. That official target supports a conservative test—not a claim that every hunt will hold 30 FPS.</div>
+
+    <h2>Recommended Monster Hunter Wilds Legion Go baseline</h2>
+    <table>
+      <thead><tr><th>Control</th><th>Start here</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>Legion Go power mode</td><td>Performance-class profile</td><td>Creates a repeatable first condition. Record whether the device is on battery or connected directly to a compatible charger.</td></tr>
+        <tr><td>Display refresh rate</td><td>60Hz for the first pass</td><td>Makes a 30 FPS cap easy to interpret while removing a needlessly high display state from the initial comparison.</td></tr>
+        <tr><td>Display mode / resolution</td><td>Full screen / 1280×800</td><td>Preserves the panel’s 16:10 shape and reduces render load substantially from native 2560×1600.</td></tr>
+        <tr><td>Frame-rate cap</td><td>30 FPS</td><td>Prioritizes pacing through weather changes, traversal, monsters, and combat rather than chasing a high average in a quiet area.</td></tr>
+        <tr><td>Graphics preset</td><td>Lowest</td><td>Matches the class of Steam’s published minimum-target preset and gives individual quality controls room to be raised methodically.</td></tr>
+        <tr><td>Upscaling</td><td>Balanced</td><td>Provides a cautious starting render load. Compare Quality only after the same field route and hunt are acceptable.</td></tr>
+        <tr><td>Frame generation</td><td>Off for baseline</td><td>Exposes the underlying render pacing, latency, and artifacts instead of masking them with generated frames.</td></tr>
+        <tr><td>Textures / texture filtering</td><td>Lowest preset, then raise carefully</td><td>The handheld uses shared memory. Improve texture clarity only after watching traversal hitching and memory pressure in a repeatable route.</td></tr>
+        <tr><td>Shadows / contact shadows</td><td>Low or off where offered</td><td>Preserves headroom across moving monsters, foliage, and changing outdoor light.</td></tr>
+        <tr><td>Volumetric fog / clouds</td><td>Low</td><td>Reduces atmospheric cost during weather transitions and wide outdoor views.</td></tr>
+        <tr><td>Fur / vegetation / distant detail</td><td>Low</td><td>Cuts scene complexity without making the interface or close-range monster tells unreadable.</td></tr>
+        <tr><td>Reflections / ambient occlusion</td><td>Low</td><td>Reduces secondary lighting work before sacrificing basic geometry clarity.</td></tr>
+        <tr><td>Motion blur / depth of field</td><td>Off for comparison</td><td>Makes camera motion, image reconstruction, and frame-pacing differences easier to inspect; restore later only by preference.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Menu names and available upscalers can change with game patches. Photograph the current options and use the closest normal in-game control. Avoid stacking game upscaling with another driver-level scaling layer during the first test.</p>
+
+    <h2>Use a hunt that exposes the real workload</h2>
+    <ol>
+      <li><strong>Finish stable updates and restart.</strong> Update the game, Windows, Lenovo firmware/software, the intended graphics driver, and Legion Space before recording a baseline.</li>
+      <li><strong>Record the complete device state.</strong> Note game version, driver, Legion Space version, power mode, charger state, refresh, cap, resolution, upscaler, and background downloads.</li>
+      <li><strong>Run a field route twice.</strong> Include traversal, vegetation, long views, a settlement or camp, and a weather transition if practical. A static training view is not representative.</li>
+      <li><strong>Repeat one real hunt.</strong> Include monster movement, particles, camera changes, companions, and multiplayer only if multiplayer is the intended use case.</li>
+      <li><strong>Separate compilation or streaming hitches.</strong> Repeat the same route before lowering every setting because a one-time hitch and a sustained frame-rate miss need different responses.</li>
+      <li><strong>Restore one clarity control at a time.</strong> Compare Quality upscaling, then texture quality or filtering. Revert the first change that harms the weakest test.</li>
+      <li><strong>Test frame generation separately.</strong> Only after the base profile feels responsive, compare it in the same route and hunt; inspect HUD edges, monster motion, camera pans, and control latency.</li>
+    </ol>
+
+    <h2>Three honest result states</h2>
+    <div class="grid cols3">
+      <section class="card"><span class="chip">Pass</span><h3>30 FPS profile is acceptable</h3><p>The repeated route and hunt feel consistent enough for your tolerance. Save the settings and device state, then test one visual upgrade at a time.</p></section>
+      <section class="card"><span class="chip">Compromise</span><h3>30 FPS with occasional misses</h3><p>Keep 800p and Lowest, verify power and background activity, and decide whether the misses occur in rare transitions or normal combat before accepting the profile.</p></section>
+      <section class="card"><span class="chip">Fail</span><h3>Core hunt is persistently unstable</h3><p>Do not hide the result with frame generation. Restore defaults, verify files and updates, repeat the baseline, and treat another platform or streaming option as the practical fallback.</p></section>
+    </div>
+
+    <h2>Fix common Wilds problems on Legion Go</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Weather or wide views miss the cap</td><td>Confirm 800p, Lowest, Balanced upscaling, Low volumetrics, shadows, vegetation, and distant detail</td><td>Keep frame generation off, pause background work, and rerun the same route on the recorded performance profile</td></tr>
+        <tr><td>Combat feels delayed despite a high displayed FPS</td><td>Disable frame generation and inspect the underlying 30 FPS profile</td><td>Prioritize stable base pacing and input response over the generated-frame counter</td></tr>
+        <tr><td>Image is too soft or shimmers</td><td>Confirm only one scaling method is active</td><td>Compare Quality upscaling at 800p before raising output resolution or adding aggressive sharpening</td></tr>
+        <tr><td>Traversal hitches after texture changes</td><td>Restore the Lowest texture setting, close overlays, and verify free SSD space</td><td>Repeat the route after a restart; do not assign every brief first-pass hitch to average GPU load</td></tr>
+        <tr><td>Controller prompts are wrong</td><td>Set Legion Space controls to gamepad mode</td><td>Restore default Steam Input and in-game layouts before creating a custom remap</td></tr>
+        <tr><td>Performance changed after a patch</td><td>Restart, confirm versions and power state, then restore the saved baseline</td><td>Verify game files and check Capcom’s official channels before applying unofficial config edits</td></tr>
+        <tr><td>Docked display performs worse</td><td>Retest on the handheld screen with the charger connected directly</td><td>Check dock power, output resolution, refresh, TV game mode, and cable path as separate variables</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, online, battery, and dock planning</h2>
+    <p>Steam currently lists <strong>75GB of available space</strong>, an SSD requirement, DirectX 12, 16GB minimum system memory, broadband internet, multiplayer, online co-op, cross-platform multiplayer, Steam Cloud, and full controller support. Leave extra room for patches, shader data, saves, clips, and Windows temporary files. Use the <a href="/calculators/storage-planner/">storage planner</a>, then check the <a href="/guides/handheld-pc-ssd-form-factor-guide/">handheld SSD form-factor guide</a> before opening the device.</p>
+    <p>This page does not invent a battery runtime. Dynamic weather, online play, brightness, radios, power mode, battery health, and scene load all alter total draw. Read total system draw from your own repeatable hunt and enter it in the <a href="/calculators/battery-estimator/">battery estimator</a>. For multiplayer travel, perform a real launch and connection test before leaving home.</p>
+    <p>Establish the handheld profile before moving to a TV. Then use the <a href="/guides/handheld-gaming-usb-c-dock-checklist/">USB-C dock checklist</a> and avoid assuming a docked 1080p or 4K desktop means the game should render internally at that resolution.</p>
+
+    <h2>Optional gear after the profile is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, model fit, seller traceability, warranty, and return terms. No price, compatibility, performance, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+65w+usb+c+pd+charger" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers"><span class="chip">Sponsored search</span><h3>65W-class USB-C PD chargers</h3><p class="muted">Verify dedicated-port output, cable rating, shared-port behavior, warranty, and exact-device support.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+a2+u3+microsd+card" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microsd-cards"><span class="chip">Sponsored search</span><h3>A2 / U3 microSD cards</h3><p class="muted">Compare capacity, authentic seller chain, warranty, and card-verification tools while leaving room beyond the current 75GB floor.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+usb+c+pd+dock+65w" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks"><span class="chip">Sponsored search</span><h3>Legion Go USB-C docks</h3><p class="muted">Check PD passthrough, display modes, cable reach, physical clearance, and support for the exact Legion Go model.</p></a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a>, read the <a href="/guides/legion-go-accessories-buying-checklist/">Legion Go accessory buying order</a>, or set a limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on August 8, 2026. Steam’s live store page and public app-details API supplied the February 27, 2025 release date, 75GB SSD requirement, minimum and recommended desktop-PC context, online feature labels, full-controller-support label, Capcom identity, and official image. The current minimum note says 1080p output upscaled from 720p at 30 FPS on Lowest using the listed discrete GPUs; that is desktop context, not proof of a Legion Go result. Lenovo PSREF supplies the original Legion Go product route and hardware context. Capcom supplies the official game site.</p>
+    <p>The settings are a conservative editorial test sequence derived from those official constraints and normal graphics-diagnosis practice. Handheld Settings Lab did not personally benchmark the current game, Windows, driver, firmware, Legion Space, battery, thermals, or multiplayer session. No search-volume claim is made.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Return to the <a href="/legion-go-settings/">Legion Go settings hub</a>, compare the existing <a href="/steam-deck-settings/monster-hunter-wilds/">Steam Deck</a> and <a href="/rog-ally-settings/monster-hunter-wilds/">ROG Ally</a> baseline pages, or use the <a href="/calculators/">battery, storage, and accessory calculators</a> with your own observations.</p>
+  </article>
+</Base>

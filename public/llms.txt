@@ -11,6 +11,6 @@ Core sections:
 - /guides/
 
 Recent guide:
-- /guides/rog-ally-x-accessories-buying-checklist/ — spec-based ROG Ally X buying order for 65W charging, power banks, docks, cases, screen protection, microSD cards, and travel.
+- /legion-go-settings/monster-hunter-wilds/ — official-source-informed 800p/30 FPS Lowest test baseline for Monster Hunter Wilds on the original Legion Go, with frame-generation diagnosis, 75GB SSD planning, and gear links.
 
 Editorial guardrails: do not fabricate benchmark data, test claims, affiliate relationships, or official affiliations.
