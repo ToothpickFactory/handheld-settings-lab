@@ -1,0 +1,184 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/steam-deck-dock-firmware-update/';
+const title = 'Steam Deck Dock firmware update: safe official steps — Handheld Settings Lab';
+const description = 'Update the official Steam Deck Dock firmware safely, distinguish Valve and third-party docks, recover from a stuck prompt, and avoid unsupported version claims.';
+
+const sources = [
+  { label: 'Valve: official Steam Deck Docking Station specifications and FAQ', url: 'https://store.steampowered.com/steamdeckdock' },
+  { label: 'Steam Support: Steam Deck help portal', url: 'https://help.steampowered.com/en/wizard/HelpWithSteamDeck' },
+  { label: 'Valve: Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' }
+];
+
+const faqs = [
+  {
+    question: 'How do I update the official Steam Deck Dock firmware?',
+    answer: 'Update the Steam Deck on the stable SteamOS channel, connect the official Dock to power, and plug the Dock directly into the Deck. Valve says a firmware update may appear and is installed through the on-screen installation wizard. Keep both devices connected until it finishes.'
+  },
+  {
+    question: 'Can I update Steam Deck Dock firmware without a TV or monitor?',
+    answer: 'A display connected to the Dock is not required for the basic connection between the Deck and official Dock. Use the Deck’s built-in screen for the prompt, with dock power attached and other dock peripherals removed while troubleshooting.'
+  },
+  {
+    question: 'What is the latest Steam Deck Dock firmware version?',
+    answer: 'Valve’s public Dock product page explains the automatic update process but does not publish a stable, consumer-facing latest-version number there. Avoid comparing an uncited number from an old post; update SteamOS, reconnect the official Dock, and use the prompt Valve delivers to your device.'
+  },
+  {
+    question: 'Why is the Steam Deck Dock firmware update not appearing?',
+    answer: 'The Dock may already be current, SteamOS may need an update, power or the USB-C connection may be unstable, or the accessory may be a third-party dock that does not use Valve’s updater. Restart after stable SteamOS updates, attach known-good power, and reconnect the bare official Dock.'
+  },
+  {
+    question: 'What should I do if the Dock firmware update is stuck or loops?',
+    answer: 'Do not repeatedly disconnect it during active progress. If the interface has clearly stopped and provides a retry or error state, follow that state, then fully restart the Deck and retry with the powered Dock alone. Contact Steam Support if the same official Dock fails repeatedly; do not flash unrelated third-party firmware.'
+  },
+  {
+    question: 'Does this process update a third-party Steam Deck dock?',
+    answer: 'No. Valve’s installation wizard is for Valve’s official Steam Deck Docking Station. A third-party dock may have no user-updatable firmware or may require its maker’s exact updater and hardware revision. Confirm the model before installing anything.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Steam Deck Dock firmware update: safe official steps',
+    description,
+    url: canonicalUrl,
+    datePublished: '2026-08-08',
+    dateModified: '2026-08-08',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Steam Deck', 'Steam Deck Docking Station', 'dock firmware', 'SteamOS'],
+    isBasedOn: sources.map(source => source.url)
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'Steam Deck Dock firmware update', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Official Steam Deck Dock support</span>
+    <h1>Steam Deck Dock firmware update: the safe official process</h1>
+    <p class="muted">Valve’s official Dock can receive firmware improvements through a connected Steam Deck. This guide separates that built-in process from third-party dock updaters and gives you a conservative recovery order when the prompt is missing, stuck, or repeating. It is official-source-informed guidance, not a hands-on test of your specific dock.</p>
+
+    <div class="callout"><strong>Short version:</strong> update SteamOS first, power the official Dock, remove its extra peripherals, connect it directly to the Deck, and follow the installation wizard if one appears. Do not unplug the Dock or power while visible update progress is active.</div>
+
+    <h2>First, confirm which dock you own</h2>
+    <div class="grid cols2">
+      <section class="card">
+        <span class="chip">Valve official Dock</span>
+        <h3>Updated through Steam Deck</h3>
+        <p>Valve says its Dock receives ongoing support and improvements. A firmware update may appear when the Steam Deck is plugged in, with the installation handled by an on-screen wizard.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Third-party USB-C dock</span>
+        <h3>Maker-specific process</h3>
+        <p>Do not assume Valve’s Dock wizard supports it. Check the exact brand, model, and hardware revision. Use only that manufacturer’s documented updater, or leave the firmware alone if the maker provides no update path.</p>
+      </section>
+    </div>
+    <p>The shell shape, number of ports, or an Amazon listing title does not identify the firmware platform. Look for the manufacturer and model printed on the dock or its packaging before troubleshooting an update.</p>
+
+    <h2>Before starting the update</h2>
+    <ol>
+      <li><strong>Use stable SteamOS.</strong> Connect the Deck to reliable Wi-Fi and install pending stable system updates before diagnosing the Dock prompt.</li>
+      <li><strong>Give the Deck enough charge.</strong> Do not begin while the handheld is about to shut down.</li>
+      <li><strong>Power the Dock.</strong> Connect Valve’s supplied power adapter or a known-good compatible USB-C PD source to the Dock’s power input.</li>
+      <li><strong>Remove extra variables.</strong> Disconnect HDMI, DisplayPort, Ethernet, storage, controllers, receivers, and other USB devices for the update attempt.</li>
+      <li><strong>Keep the Deck awake.</strong> Avoid starting immediately before travel, a forced shutdown, or any situation where the connection must be removed.</li>
+    </ol>
+    <p>Valve says the official Dock can function without an external power supply, though USB throughput is reduced. That does not make an unpowered setup the best update test: attach stable power so the updater is not sharing a troubleshooting session with a power variable.</p>
+
+    <h2>Step-by-step: update the official Steam Deck Dock</h2>
+    <ol>
+      <li>On the undocked Deck, open the system update area and install any offered stable SteamOS update.</li>
+      <li>Restart the Deck when SteamOS requests it, then sign back in and let the home interface finish loading.</li>
+      <li>Connect power to the official Dock. For the cleanest test, leave all other Dock ports empty.</li>
+      <li>Plug the Dock’s captive USB-C cable directly into the Steam Deck.</li>
+      <li>If Valve presents a Dock firmware installation wizard, read the prompt and start the update.</li>
+      <li>Leave the Dock, power, and Deck connected while progress is active. Do not put the Deck to sleep deliberately.</li>
+      <li>After the wizard reports completion, allow any requested restart. Reconnect display and USB accessories one at a time.</li>
+    </ol>
+    <p>Menu labels and prompt wording can change with SteamOS. The durable part of Valve’s published method is simpler: connect the Steam Deck to the official Dock and complete the installation wizard that appears.</p>
+
+    <h2>If no firmware prompt appears</h2>
+    <table>
+      <thead><tr><th>Possible reason</th><th>Safe check</th><th>What not to assume</th></tr></thead>
+      <tbody>
+        <tr><td>The Dock is already current</td><td>Install stable SteamOS updates, restart, and reconnect once</td><td>No prompt does not prove an update is broken</td></tr>
+        <tr><td>SteamOS is behind</td><td>Update the Deck while undocked, then restart</td><td>A Dock update cannot replace a pending Deck system update</td></tr>
+        <tr><td>Power or USB-C seating is unstable</td><td>Attach known-good power and reseat the Dock’s direct cable</td><td>A working HDMI output does not prove every connection is stable</td></tr>
+        <tr><td>It is a third-party dock</td><td>Read its printed manufacturer and model</td><td>Similar appearance does not make it Valve firmware-compatible</td></tr>
+        <tr><td>The interface state is stale</td><td>Fully restart the Deck once and reconnect the bare Dock</td><td>Repeated rapid unplugging is not a firmware repair method</td></tr>
+      </tbody>
+    </table>
+
+    <h2>If the update is stuck, cancelled, or looping</h2>
+    <ol>
+      <li><strong>Distinguish active progress from a clear error.</strong> Do not pull power merely because an update is taking longer than expected.</li>
+      <li><strong>Use the error action on screen.</strong> If SteamOS explicitly offers Retry, Restart, or Cancel, follow that interface rather than forcing a disconnect mid-write.</li>
+      <li><strong>On a completed error state, simplify.</strong> Remove every dock accessory except power, restart the Deck fully, and retry the direct connection.</li>
+      <li><strong>Do not hunt for random firmware files.</strong> Valve’s public process is the Deck-delivered wizard. An unrelated binary, unofficial script, or firmware for a visually similar dock can create a larger problem.</li>
+      <li><strong>Escalate repeat failures.</strong> Record the exact message, take a photo, note whether the Deck is on the stable update channel, and contact Steam Support for the official Dock.</li>
+    </ol>
+    <div class="callout"><strong>Important limit:</strong> Valve’s public Dock page does not provide a standalone rollback recipe or a consumer-facing “latest firmware” number. This page therefore does not invent either one.</div>
+
+    <h2>After the update: verify the dock in layers</h2>
+    <ul>
+      <li><strong>Charging:</strong> confirm the Deck recognizes external power before adding other devices.</li>
+      <li><strong>Display:</strong> connect one HDMI or DisplayPort display directly and begin with a conservative mode such as 1080p at 60Hz.</li>
+      <li><strong>USB:</strong> test one low-risk peripheral, then storage or multiple devices.</li>
+      <li><strong>Network:</strong> attach Ethernet last so a cable, switch, or DHCP issue is not confused with firmware behavior.</li>
+      <li><strong>Resume:</strong> test one normal sleep-and-wake cycle after the basic ports are stable.</li>
+    </ul>
+    <p>A successful update does not guarantee that every TV handshake, cable, charger, and peripheral chain will work. If the update completes but the TV still says no signal, use the <a href="/guides/steam-deck-dock-not-connecting-to-tv/">Steam Deck Dock no-signal checklist</a>. For a new setup, follow the <a href="/guides/steam-deck-docked-tv-monitor-setup/">docked TV and monitor guide</a>.</p>
+
+    <h2>Replacement checks only after software isolation</h2>
+    <p class="affiliate-note">Disclosure: the links below are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. A firmware prompt problem rarely proves that you need a new dock. Cross-test power and the direct connection first.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=usb+c+pd+charger+45w+65w+steam+deck+dock" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers">
+        <span class="chip">Sponsored search</span><h3>45W–65W USB-C PD chargers</h3><p class="muted">Compare stated USB-C PD profiles, cable requirements, safety certification, warranty, and return policy.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+dock+hdmi+ethernet+usb+c+pd" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks">
+        <span class="chip">Sponsored search</span><h3>Steam Deck-compatible docks</h3><p class="muted">Confirm the exact maker’s firmware policy, power-input rating, display ports, and model revision before buying.</p>
+      </a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=certified+hdmi+cable+steam+deck+dock" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="cables-adapters">
+        <span class="chip">Sponsored search</span><h3>Certified HDMI cables</h3><p class="muted">Relevant to a post-update no-signal test, not to the Dock firmware installation itself.</p>
+      </a>
+    </div>
+    <p>Compare connection requirements in the <a href="/gear/docks/">dock buying guide</a>, check power basics in the <a href="/guides/usb-c-wall-charger-wattage-handheld-gaming/">USB-C charger wattage guide</a>, and choose realistic game output settings from the <a href="/steam-deck-settings/">Steam Deck settings hub</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Sources and research notes</h2>
+    <p>Sources were checked August 8, 2026. Valve’s official Dock page says support and improvements are ongoing, a firmware update may be offered out of the box, and installation is performed by plugging in the Steam Deck and following the wizard. Valve also says its Dock can function without a power supply with reduced USB throughput. The troubleshooting order above is conservative editorial guidance; no update duration, failure rate, hidden firmware version, or hands-on result is claimed.</p>
+    <p>Google autocomplete returned “steam deck dock firmware update” plus current variants including “not working,” “changelog,” “latest version,” “loop,” “cancelled,” and “stuck.” These suggestions are evidence that people formulate those queries, not search-volume data.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+  </article>
+</Base>
