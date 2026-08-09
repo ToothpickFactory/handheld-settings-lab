@@ -1,0 +1,174 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/rog-ally-dock-tv-monitor-setup/';
+const title = 'ROG Ally dock setup: TV, monitor, power, and compatibility — Handheld Settings Lab';
+const description = 'Choose and troubleshoot a ROG Ally or Ally X dock by 65W USB-C power, HDMI or DisplayPort output, VRR expectations, Ethernet, and physical fit.';
+
+const sources = [
+  { label: 'ASUS: ROG Ally (2023) official specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-2023/spec/' },
+  { label: 'ASUS: ROG Ally X (2024) official specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/' },
+  { label: 'ASUS: ROG Gaming Charger Dock specifications', url: 'https://rog.asus.com/docks-chargers-and-cables/chargers/rog-gaming-charger-dock/' },
+  { label: 'USB-IF: USB Power Delivery overview', url: 'https://www.usb.org/usb-charger-pd' },
+  { label: 'HDMI Licensing Administrator: HDMI specifications', url: 'https://www.hdmi.org/spec/index' }
+];
+
+const shoppingLinks = [
+  { label: 'ROG Ally docks with 100W PD and HDMI', href: 'https://www.amazon.com/s?k=rog+ally+dock+100w+pd+hdmi', category: 'docks' },
+  { label: 'ROG Ally docks with Ethernet and DisplayPort', href: 'https://www.amazon.com/s?k=rog+ally+dock+displayport+ethernet+100w', category: 'docks' },
+  { label: '100W USB-C PD chargers and rated cables', href: 'https://www.amazon.com/s?k=100w+usb+c+pd+charger+cable+rog+ally', category: 'chargers' },
+  { label: 'Certified HDMI cables for 4K displays', href: 'https://www.amazon.com/s?k=certified+hdmi+cable+4k+120hz', category: 'usb-c-cables-adapters' }
+];
+
+const faqs = [
+  {
+    question: 'Does a Steam Deck dock work with a ROG Ally?',
+    answer: 'It may work electrically, but the Steam Deck label does not prove ROG Ally compatibility. Verify USB-C Power Delivery pass-through, the display mode, host-cable reach, cradle width, vent clearance, and whether the attached grip changes fit. Use a returnable purchase and test the complete chain.'
+  },
+  {
+    question: 'How many watts should a ROG Ally dock provide?',
+    answer: 'ASUS lists 65W adapters for the original Ally and Ally X. Treat 65W delivered to the handheld as the baseline, not merely the dock’s input number. A dock consumes some power, so a 100W-capable dock and charger can provide useful headroom when their published pass-through and cable ratings support it.'
+  },
+  {
+    question: 'Can the ROG Ally output to a TV or monitor?',
+    answer: 'Yes. ASUS lists DisplayPort 1.4 support over the original Ally’s USB-C combo port. Ally X has a USB 3.2 Gen 2 Type-C port with DisplayPort and a USB4 Type-C port with DisplayPort 1.4 and FreeSync support. A compatible dock or USB-C display adapter converts that output for the target screen.'
+  },
+  {
+    question: 'Why does my ROG Ally dock show no signal?',
+    answer: 'Start with the TV input and display cable, then power-cycle the handheld, dock, and display. Reconnect one item at a time with the Ally set to a conservative 1080p/60 output. Update Windows, ASUS software, graphics drivers, and dock firmware where the manufacturer provides it before testing higher refresh, HDR, or VRR.'
+  },
+  {
+    question: 'Does every ROG Ally dock support VRR or FreeSync?',
+    answer: 'No. The handheld, USB-C path, dock chipset and output, cable, display input, display mode, and Windows settings all have to support the intended variable-refresh path. A dock saying 4K or HDMI does not by itself establish VRR compatibility.'
+  },
+  {
+    question: 'Is the ASUS ROG Gaming Charger Dock required?',
+    answer: 'No. It is a useful official reference point rather than a requirement. ASUS publishes 65W PD 3.0, HDMI 2.0 output up to 1080p/120Hz or 4K/60Hz, and one USB-A port for that model. A third-party dock may provide more ports, Ethernet, DisplayPort, or a cradle, but each claim needs separate verification.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'ROG Ally dock setup: TV, monitor, power, and compatibility',
+    description,
+    url: canonicalUrl,
+    datePublished: '2026-08-09',
+    dateModified: '2026-08-09',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['ROG Ally', 'ROG Ally X', 'USB-C docks', 'USB Power Delivery', 'HDMI', 'DisplayPort']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'ROG Ally dock setup', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">ROG Ally dock and display guide</span>
+    <h1>ROG Ally dock setup: match the TV, monitor, and power path</h1>
+    <p class="muted">A spec-based setup and troubleshooting guide for the original ROG Ally and ROG Ally X. Official ASUS specifications establish the ports and 65W adapter class; the dock-selection method is editorial guidance, not a hands-on dock test or a guarantee that every marketplace result works.</p>
+    <p class="affiliate-note">Disclosure: shopping cards are broad Amazon searches marked sponsored/nofollow. They are not product endorsements, current prices, or measured compatibility claims. Handheld Settings Lab adds an Associates tag only when a real tag is configured.</p>
+
+    <div class="callout"><strong>Short answer:</strong> choose the dock from the screen backward. Verify the exact HDMI or DisplayPort mode, then check 65W-or-better host power, host-cable reach, cradle and vent clearance, and only the USB/Ethernet ports the setup needs. For more power headroom, compare a 100W-capable dock, charger, and rated cable as one chain.</div>
+
+    <h2>Original ROG Ally versus Ally X dock connections</h2>
+    <table>
+      <thead><tr><th>Model</th><th>Official USB-C/display specification</th><th>Docking implication</th></tr></thead>
+      <tbody>
+        <tr><td>ROG Ally (2023)</td><td>One ROG XG Mobile / USB-C combo port with USB 3.2 Gen 2 and DisplayPort 1.4; 65W adapter listed</td><td>The dock occupies the charging/display port, so PD pass-through is central</td></tr>
+        <tr><td>ROG Ally X (2024)</td><td>One USB 3.2 Gen 2 Type-C with DisplayPort/power delivery plus one USB4 Type-C with DisplayPort 1.4, FreeSync support, and PD 3.0; 65W adapter listed</td><td>Two ports allow more flexible charging and peripherals, but do not validate a dock’s display or fit claims</td></tr>
+      </tbody>
+    </table>
+    <p>ASUS’s port descriptions establish what the handheld exposes, not what a third-party dock preserves. Every added chipset, adapter, connector, and cable can narrow the working mode. Check the exact Ally model and exact dock revision rather than treating “USB-C dock” as one universal specification.</p>
+
+    <h2>Choose a dock in five checks</h2>
+    <div class="grid cols2">
+      <section class="card"><span class="chip">1 · Display</span><h3>Write down one target mode</h3><p>Start with the actual screen and input: for example, 1080p/60 over HDMI or 1440p at a supported refresh over DisplayPort. Do not buy from “8K” or “gaming dock” language without a mode table.</p></section>
+      <section class="card"><span class="chip">2 · Power</span><h3>Separate input from host pass-through</h3><p>A dock accepting 100W does not necessarily send 100W to the Ally. Look for the host-delivery figure, then account for power used by the dock and attached USB devices.</p></section>
+      <section class="card"><span class="chip">3 · Physical fit</span><h3>Check cable, cradle, grip, and vents</h3><p>The host cable should reach the chosen Ally port without pulling sideways. A cradle must fit the thicker Ally X or any grip while leaving intakes and exhausts clear.</p></section>
+      <section class="card"><span class="chip">4 · Ports</span><h3>Count the peripherals you really own</h3><p>Ethernet, controller receivers, keyboard/mouse, storage, audio, and capture devices compete for ports and USB bandwidth. Avoid paying for an untested feature list.</p></section>
+      <section class="card"><span class="chip">5 · Updates</span><h3>Prefer documented firmware support</h3><p>Before buying, find the manufacturer support page and model number. A dock with no identifiable firmware, manual, warranty, or support path is harder to diagnose.</p></section>
+      <section class="card"><span class="chip">Baseline</span><h3>Test at 1080p/60 first</h3><p>Prove a conservative mode before enabling higher refresh, HDR, VRR, capture hardware, or multiple USB devices. Add one variable at a time.</p></section>
+    </div>
+
+    <h2>65W versus 100W dock power</h2>
+    <p>ASUS lists a <strong>65W, 20V/3.25A adapter</strong> for both the original Ally and Ally X. That makes 65W to the handheld the practical spec-matched target. A dock sits between the charger and handheld, however, and its electronics and attached devices use part of the input budget.</p>
+    <table>
+      <thead><tr><th>Power label</th><th>What it can mean</th><th>What to verify</th></tr></thead>
+      <tbody>
+        <tr><td>65W charger</td><td>Matches the official adapter class before dock overhead</td><td>Whether the dock can still deliver the intended power to the host</td></tr>
+        <tr><td>100W dock input</td><td>The maximum the dock may accept</td><td>Published host pass-through, not just input</td></tr>
+        <tr><td>100W charger</td><td>Useful headroom for dock and peripherals</td><td>Correct USB-C PD profile, port allocation, and cable rating</td></tr>
+      </tbody>
+    </table>
+    <p>USB Power Delivery is negotiated between compatible equipment. A 100W source does not force 100W into the Ally, and a larger charger does not guarantee a particular performance mode. Use the <a href="/guides/usb-c-wall-charger-wattage-handheld-gaming/">wall-charger wattage guide</a> and <a href="/guides/usb-c-cable-wattage-handheld-gaming/">USB-C cable guide</a> to validate the rest of the chain.</p>
+
+    <h2>HDMI, DisplayPort, refresh rate, and VRR</h2>
+    <p>Resolution, refresh rate, HDR, and variable refresh rate are separate capabilities. A listing that proves one does not prove the others. ASUS’s own ROG Gaming Charger Dock illustrates a bounded claim: ASUS publishes HDMI 2.0 output up to <strong>1080p at 120Hz or 4K at 60Hz</strong>. That does not make those two modes a universal specification for third-party docks.</p>
+    <ul>
+      <li><strong>For a TV:</strong> HDMI is usually the simplest connection. Confirm the selected TV input supports the mode, then enable enhanced-input settings only after basic output works.</li>
+      <li><strong>For a PC monitor:</strong> compare HDMI and DisplayPort support on the monitor itself. DisplayPort may be the clearer path when the desired monitor mode or adaptive-sync documentation is tied to that input.</li>
+      <li><strong>For VRR/FreeSync:</strong> require explicit support across the Ally port, dock or adapter, cable, display input, and selected mode. “120Hz” alone is not VRR.</li>
+      <li><strong>For 4K:</strong> treat 4K output support separately from game render performance. A dock can carry a 4K desktop signal without making a demanding game run well at native 4K.</li>
+    </ul>
+
+    <h2>ROG Ally dock no-signal troubleshooting order</h2>
+    <ol>
+      <li><strong>Save work and shut down cleanly.</strong> Disconnect the dock from the Ally, charger, display, and USB peripherals.</li>
+      <li><strong>Confirm the display input.</strong> Select the exact HDMI or DisplayPort input manually and test the cable/display with another known-good source when available.</li>
+      <li><strong>Reconnect power first.</strong> Connect the dock to a known-good USB-C PD charger and cable, then the display cable, then the Ally.</li>
+      <li><strong>Start at 1080p/60.</strong> In Windows display settings, use a conservative resolution and refresh rate before testing HDR, VRR, or higher modes.</li>
+      <li><strong>Remove every optional peripheral.</strong> A drive, capture card, Ethernet adapter, or receiver can add power, bandwidth, driver, or enumeration problems.</li>
+      <li><strong>Update one layer at a time.</strong> Check Windows Update, MyASUS, Armoury Crate SE, ASUS graphics/system updates, and dock-vendor firmware for the exact model.</li>
+      <li><strong>Swap one component at a time.</strong> Test another display cable, input, charger, USB-C cable where removable, or dock. Changing the whole chain hides the failing part.</li>
+    </ol>
+    <div class="callout"><strong>Important:</strong> if a connector becomes unusually hot, a cable is damaged, the dock smells abnormal, or power repeatedly connects and disconnects, stop using that component. Software troubleshooting is not a remedy for physical battery, cable, or connector damage.</div>
+
+    <h2>Official dock reference versus a third-party cradle</h2>
+    <p>ASUS publishes the ROG Gaming Charger Dock with 65W PD 3.0, HDMI 2.0 output up to 1080p/120Hz or 4K/60Hz, one USB-A port, and an included two-meter USB cable. This makes it a useful official reference for a compact charger/adapter, but not automatically the best fit for every desk: it does not provide a cradle, Ethernet, DisplayPort, or a large USB port bank.</p>
+    <p>A third-party cradle dock can add those features and physically support the handheld. Compare it by published host power, display mode, Ethernet speed, USB layout, fixed-cable reach, Ally X fit, grip clearance, support documentation, and return policy. This is a spec-based method; no named third-party dock has been personally tested here.</p>
+
+    <h2>Spec-based shopping starting points</h2>
+    <div class="grid cols2">
+      {shoppingLinks.map(link => (
+        <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored" data-affiliate-link data-category={link.category}>
+          <span class="chip">Sponsored search</span>
+          <h3>{link.label}</h3>
+          <p class="muted">Compare host power, exact display modes, model fit, cable reach, support documentation, seller, warranty, and return policy.</p>
+        </a>
+      ))}
+    </div>
+    <p>For category-level comparisons, use the <a href="/gear/docks/">dock gear guide</a>. For game-side tuning after the display is stable, visit the <a href="/rog-ally-settings/">ROG Ally settings hub</a>. Use the <a href="/calculators/accessory-budget/">accessory budget calculator</a> before buying a dock, charger, cable, and controller together.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>
+      ))}
+    </div>
+
+    <h2>Sources and method</h2>
+    <p>Official ASUS, USB-IF, and HDMI Licensing Administrator pages were fetched on August 9, 2026. ASUS supplied the original Ally and Ally X port, adapter, and display-support specifications plus the published capabilities of its Gaming Charger Dock. USB-IF and HDMI sources provide standards context. The selection and troubleshooting order is conservative editorial guidance; no dock benchmark, universal compatibility, search volume, or hands-on claim is fabricated.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+  </article>
+</Base>

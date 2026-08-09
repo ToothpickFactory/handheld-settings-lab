@@ -11,6 +11,6 @@ Core sections:
 - /guides/
 
 Recent guide:
-- /legion-go-settings/monster-hunter-wilds/ — official-source-informed 800p/30 FPS Lowest test baseline for Monster Hunter Wilds on the original Legion Go, with frame-generation diagnosis, 75GB SSD planning, and gear links.
+- /guides/rog-ally-dock-tv-monitor-setup/ — official-source-informed ROG Ally and Ally X dock selection, display setup, 65W power guidance, and no-signal troubleshooting.
 
 Editorial guardrails: do not fabricate benchmark data, test claims, affiliate relationships, or official affiliations.
