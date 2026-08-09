@@ -1,0 +1,199 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/steam-deck-microsd-speed-compatibility/';
+const title = 'Steam Deck microSD speed and compatibility: UHS-I, A2, U3 explained — Handheld Settings Lab';
+const description = 'Understand Steam Deck microSD compatibility, UHS-I limits, A1 vs A2, U1/U3 and V30 labels, capacity choices, counterfeit checks, and when an SSD is better.';
+
+const sourceLinks = [
+  { label: 'Valve: Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' },
+  { label: 'SD Association: Speed Class standards', url: 'https://www.sdcard.org/developers/sd-standard-overview/speed-class/' },
+  { label: 'SD Association: Application Performance Class', url: 'https://www.sdcard.org/developers/sd-standard-overview/application-performance-class/' },
+  { label: 'Steam Support: Steam Deck basic use and troubleshooting', url: 'https://help.steampowered.com/en/faqs/view/69E3-14AF-9764-4C28' }
+];
+
+const shoppingLinks = [
+  { label: '512GB UHS-I A2 microSDXC cards', href: 'https://www.amazon.com/s?k=512GB+UHS-I+A2+microSDXC+card+Steam+Deck' },
+  { label: '1TB UHS-I A2 microSDXC cards', href: 'https://www.amazon.com/s?k=1TB+UHS-I+A2+microSDXC+card+Steam+Deck' },
+  { label: 'USB-C UHS-I microSD card readers', href: 'https://www.amazon.com/s?k=USB-C+UHS-I+microSD+card+reader' }
+];
+
+const faqs = [
+  {
+    question: 'What microSD cards are compatible with Steam Deck?',
+    answer: 'Valve lists the Steam Deck expansion slot as microSD UHS-I with support for SD, SDHC, and SDXC. For the capacities most players buy, a genuine UHS-I microSDXC card from a reputable seller is the practical baseline. Format a game-library card through SteamOS after backing up anything already on it.'
+  },
+  {
+    question: 'What is the maximum microSD speed on Steam Deck?',
+    answer: 'Valve specifies the reader as UHS-I but does not publish one guaranteed real-world game-loading number. Card, workload, filesystem, game patching, free space, thermals, and small-file behavior all affect results. Treat benchmark numbers from other readers or devices as context, not a promise for Steam Deck.'
+  },
+  {
+    question: 'Is A2 better than A1 for Steam Deck?',
+    answer: 'A2 is the newer SD Application Performance Class with higher specified random-I/O minimums than A1 under the standard’s test conditions. It is a useful shortlist filter when the price is close, but it does not guarantee that every game loads faster on Steam Deck. Authenticity, stable UHS-I behavior, seller quality, and warranty still matter.'
+  },
+  {
+    question: 'Does Steam Deck need a U3 or V30 microSD card?',
+    answer: 'U3 and V30 are minimum sequential-write class markings. They can be useful quality filters for transfers and write-heavy work, but they are not game-loading ratings. A card can carry several marks at once; choose the whole specification and a trustworthy seller rather than treating one logo as a performance guarantee.'
+  },
+  {
+    question: 'Will a UHS-II microSD card work in Steam Deck?',
+    answer: 'UHS standards are designed with backward compatibility in mind, but Valve lists the Deck slot as UHS-I. A faster, more expensive card cannot make the internal reader operate as a UHS-II host. Confirm the individual card’s backward compatibility and do not pay extra solely for an unsupported bus mode.'
+  },
+  {
+    question: 'Is a microSD card slower than the Steam Deck SSD?',
+    answer: 'The internal NVMe SSD has a different interface and is the better destination for large, patch-heavy games when storage budget allows. A good microSD card remains useful for expanding a library without opening the device, especially for smaller games, older titles, and travel overflow. This guide does not claim one universal loading-time gap.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Steam Deck microSD speed and compatibility: UHS-I, A2, and U3 explained',
+    description,
+    url: canonicalUrl,
+    datePublished: '2026-08-09',
+    dateModified: '2026-08-09',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Steam Deck', 'microSD cards', 'UHS-I', 'Application Performance Class', 'removable storage']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'Steam Deck microSD speed and compatibility', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Steam Deck storage guide</span>
+    <h1>Steam Deck microSD speed and compatibility explained</h1>
+    <p class="muted">A spec-based guide to the labels printed on Steam Deck microSD cards. Valve and SD Association sources establish the compatibility and label definitions; this page does not present unrun loading benchmarks or promise that one card will make every game faster.</p>
+    <p class="affiliate-note">Disclosure: optional shopping links are broad Amazon searches marked sponsored/nofollow. We did not hands-on test every result, quote live prices, or call a named card the fastest. An Associates tag is added only when a real tag is configured.</p>
+
+    <div class="callout"><strong>Short answer:</strong> Valve lists a UHS-I microSD slot with SD, SDHC, and SDXC support. For a new game-library card, start with a genuine UHS-I microSDXC card from a reputable seller; A2 and U3/V30 are useful shortlist markings, not guarantees of a particular Steam Deck loading time.</div>
+
+    <h2>Steam Deck microSD compatibility at a glance</h2>
+    <table>
+      <thead><tr><th>Label or feature</th><th>What it means</th><th>Steam Deck buying note</th></tr></thead>
+      <tbody>
+        <tr><td>microSD UHS-I</td><td>The host bus family Valve lists for the Deck slot</td><td>Use UHS-I as the reader baseline; do not buy a pricier bus mode expecting the Deck slot to become that host</td></tr>
+        <tr><td>SD / SDHC / SDXC</td><td>SD-family capacity categories</td><td>Valve lists support for all three; most current large-capacity game cards are microSDXC</td></tr>
+        <tr><td>A1 / A2</td><td>Application Performance Class markings for random and sequential access minimums</td><td>A2 is a sensible filter when value is similar, but host behavior and card authenticity still determine the result</td></tr>
+        <tr><td>U1 / U3</td><td>UHS Speed Class minimum sequential-write markings</td><td>Useful for understanding sustained writes, not a direct game-loading score</td></tr>
+        <tr><td>V10 / V30 and above</td><td>Video Speed Class minimum sequential-write markings</td><td>Helpful label context, but not evidence that every Steam game will load faster</td></tr>
+        <tr><td>Advertised peak read speed</td><td>A maker’s headline result under stated or unstated conditions</td><td>Check whether it requires a proprietary reader or unsupported bus mode before paying more</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Why the biggest speed number can mislead</h2>
+    <p>A card package may lead with a peak read figure produced in a specific reader. Valve’s public specification identifies the Deck’s internal slot as UHS-I; it does not promise that every card reaches its package maximum or that one sequential-transfer figure predicts game startup.</p>
+    <div class="grid cols3">
+      <section class="card">
+        <span class="chip">Host limit</span>
+        <h3>The reader and card work as a pair</h3>
+        <p>The card cannot add a host mode Valve did not list for the Deck. Paying for UHS-II or a card maker’s special reader mode may help elsewhere without changing the Deck’s internal slot.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Workload</span>
+        <h3>Games are not one sequential file copy</h3>
+        <p>Launching, patching, shader-cache work, and unpacking can mix large transfers with many smaller operations. No single package number represents all of those tasks.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Condition</span>
+        <h3>Free space and card health matter</h3>
+        <p>A nearly full, overheating, counterfeit, damaged, or unstable card can behave very differently from a genuine new card in controlled test conditions.</p>
+      </section>
+    </div>
+
+    <h2>A1 versus A2: useful label, not a universal winner</h2>
+    <p>The SD Association defines A1 and A2 as Application Performance Classes. They include minimum random-read, random-write, and sustained sequential-performance requirements under the standard’s conditions. A2 raises the specified random-I/O minimums and includes features intended to improve application workloads when the host and card support them.</p>
+    <p>That makes <strong>A2 a reasonable default shortlist filter</strong> for a new Steam Deck game card when brand, seller, warranty, capacity, and price are otherwise comparable. It does not support claiming a fixed percentage improvement, and it does not rescue a counterfeit card or turn microSD into NVMe storage.</p>
+
+    <h2>U3 and V30 do not mean “30 MB/s game loading”</h2>
+    <p>The SD Association explains that Speed Class, UHS Speed Class, and Video Speed Class symbols indicate minimum writing speed for workloads such as video recording. U3 and V30 both communicate a sustained-write class, but the symbols come from different class systems.</p>
+    <ul>
+      <li>Use U3/V30 as helpful evidence that a card targets a stronger sustained-write tier.</li>
+      <li>Do not translate the number into a promised game-load time or frame-rate gain.</li>
+      <li>Do not ignore A-class, capacity, warranty, return policy, seller, and full-capacity verification.</li>
+      <li>Remember that one card may carry A2, U3, V30, and UHS-I marks at the same time because they describe different things.</li>
+    </ul>
+
+    <h2>Choose capacity by the library you will actually keep</h2>
+    <table>
+      <thead><tr><th>Capacity tier</th><th>Practical role</th><th>Decision check</th></tr></thead>
+      <tbody>
+        <tr><td>256GB</td><td>Indies, older games, emulation files you legally own, screenshots, or a small travel set</td><td>Use the <a href="/calculators/storage-planner/">storage planner</a>; a few large games can fill it quickly</td></tr>
+        <tr><td>512GB</td><td>Balanced first expansion for a smaller internal drive</td><td>Compare the cost with waiting for a trustworthy 1TB sale</td></tr>
+        <tr><td>1TB</td><td>Larger rotating library without opening the Deck</td><td>Counterfeit risk and seller quality matter more as purchase value rises</td></tr>
+        <tr><td>Above 1TB</td><td>High-capacity removable library</td><td>Compare total cost, patching workflow, and reliability with an internal SSD upgrade</td></tr>
+      </tbody>
+    </table>
+    <p>Capacity labels use decimal marketing units, while operating systems may display usable space differently and formatting consumes some room. Leave free space for updates, temporary files, shader data, and library maintenance rather than planning to fill the card completely.</p>
+
+    <h2>Card arrival and compatibility test</h2>
+    <ol>
+      <li><strong>Inspect the listing and package.</strong> Confirm model, capacity, marks, warranty region, seller, and return window match what you ordered.</li>
+      <li><strong>Back up anything already on the card.</strong> A Steam Deck format is destructive.</li>
+      <li><strong>Verify the full advertised capacity.</strong> Use a reputable full-write/read test on a computer before trusting a large library to a marketplace card. Quick capacity display alone does not expose every fake.</li>
+      <li><strong>Format through SteamOS for Deck game storage.</strong> Follow the <a href="/guides/how-to-format-microsd-card-steam-deck/">safe Steam Deck microSD formatting guide</a> rather than improvising a filesystem.</li>
+      <li><strong>Install one small and one representative large game.</strong> Launch both, restart the Deck, and verify the card remounts before moving the whole library.</li>
+      <li><strong>Watch a real update cycle.</strong> A card that installs once but throws read/write errors during patching should not be trusted with the only copy of important data.</li>
+    </ol>
+
+    <h2>When the SSD is the better upgrade</h2>
+    <p>Choose internal NVMe storage when you want one consolidated library, regularly patch very large games, or are buying enough premium microSD capacity that an SSD upgrade is competitive. First verify the exact Steam Deck SSD form factor, recovery plan, tools, warranty implications, and comfort with opening the device.</p>
+    <p>A microSD card is still the lower-friction option when you want expansion without disassembly, easy library separation, or removable travel storage. Compare the paths in the <a href="/guides/microsd-vs-ssd-handheld-pc/">microSD versus SSD guide</a> and browse the <a href="/gear/nvme-ssds/">NVMe SSD gear guide</a> before deciding.</p>
+
+    <h2>If the card is slow, missing, or failing</h2>
+    <ul>
+      <li>If it disappears after previously working, do not format first. Use the <a href="/guides/steam-deck-microsd-card-not-showing-up/">Steam Deck microSD not-showing-up checklist</a>.</li>
+      <li>If Windows offers to format a SteamOS card, cancel unless erasing the Deck library is intentional.</li>
+      <li>If only one game is slow, compare that game’s internal-drive behavior and patch status before blaming the card.</li>
+      <li>If every write fails or files return corrupt, stop using the card and pursue recovery, return, or warranty options.</li>
+      <li>If performance is acceptable but capacity is tight, model the library in the <a href="/calculators/storage-planner/">storage planner</a> before buying another card.</li>
+    </ul>
+
+    <h2>Spec-based shopping starting points</h2>
+    <div class="grid cols3">
+      {shoppingLinks.map(link => (
+        <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="micro-sd-cards">
+          <span class="chip">Sponsored search</span>
+          <h3>{link.label}</h3>
+          <p class="muted">Compare maker, exact model, seller, capacity, UHS-I and A-class markings, warranty, return policy, and recent authenticity reports.</p>
+        </a>
+      ))}
+    </div>
+    <p>These are broad search starting points, not endorsements. For a wider comparison method, use the <a href="/gear/micro-sd-cards/">microSD gear guide</a>. For per-game storage and settings planning, return to the <a href="/steam-deck-settings/">Steam Deck settings hub</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Sources and method</h2>
+    <p>Valve, Steam Support, and SD Association public pages were checked on August 9, 2026. Valve’s technical page returned the UHS-I and SD/SDHC/SDXC compatibility statement. The SD Association pages establish what the application and write-speed class symbols mean. Editorial buying guidance is spec-based; no card benchmarks, search volume, prices, or universal game-loading claims were fabricated.</p>
+    <ul>
+      {sourceLinks.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+  </article>
+</Base>
