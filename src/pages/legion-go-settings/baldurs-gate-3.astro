@@ -1,0 +1,174 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/legion-go-settings/baldurs-gate-3/';
+const title = "Baldur's Gate 3 Legion Go settings: 800p/30 baseline — Handheld Settings Lab";
+const description = "Start Baldur's Gate 3 on the original Lenovo Legion Go with a cautious 800p/30 FPS Low baseline, FSR guidance, dense-area testing, and 150GB SSD planning.";
+const image = '/assets/games/baldurs-gate-3-header.jpg';
+
+const sources = [
+  { label: "Steam: Baldur's Gate 3 requirements, features, controller support, and official media", url: 'https://store.steampowered.com/app/1086940/Baldurs_Gate_3/' },
+  { label: 'Steam app-details API: current public product data for app 1086940', url: 'https://store.steampowered.com/api/appdetails?appids=1086940&cc=us&l=en' },
+  { label: "Larian Studios: official Baldur's Gate 3 site", url: 'https://baldursgate3.game/' },
+  { label: 'Lenovo PSREF: original Legion Go 8APU1 specifications', url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1' }
+];
+
+const faqs = [
+  {
+    question: "What Baldur's Gate 3 settings should I use on Legion Go?",
+    answer: 'Start at 1280×800, a 30 FPS cap, the Low preset, and FSR 2 Quality. Keep dynamic crowds off and reduce shadows, fog, clouds, and detail distance first if dense areas miss the target. This is a conservative official-source-informed test profile, not a personally measured guarantee.'
+  },
+  {
+    question: "Can Legion Go run Baldur's Gate 3 at 30 FPS?",
+    answer: 'Treat 800p/30 as a test target, not a promised lock. The original Legion Go can be tuned around a 30 FPS cap, but CPU-heavy crowds, dense settlements, combat, patches, drivers, power mode, and thermals can all change the result. Test a busy late-game save before calling the profile stable.'
+  },
+  {
+    question: "Should I use FSR 2 in Baldur's Gate 3 on Legion Go?",
+    answer: 'FSR 2 Quality is a sensible clarity-first starting point at 800p. Compare Balanced only when the same demanding route still misses the cap after lowering expensive settings. Avoid stacking in-game FSR with a second driver-level scaling method during the baseline test.'
+  },
+  {
+    question: "Should I use 800p or 1200p for Baldur's Gate 3 on Legion Go?",
+    answer: 'Start at 800p because it preserves the 16:10 shape while leaving more graphics headroom than 1200p or native 1600p. Try 1200p only after the same busy route is stable, changing no other variable. A higher output resolution does not solve CPU-heavy crowd slowdowns.'
+  },
+  {
+    question: "How much storage does Baldur's Gate 3 need?",
+    answer: 'Steam currently lists 150GB of available space and says an SSD is required. Leave additional free room for updates, shader data, saves, recordings, and Windows temporary files rather than filling the drive to exactly 150GB.'
+  },
+  {
+    question: "Were these Baldur's Gate 3 Legion Go settings personally benchmarked?",
+    answer: 'No. Handheld Settings Lab did not personally benchmark the current game build, Windows version, graphics driver, firmware, Legion Space build, battery, or thermals. The page provides a reproducible baseline and clearly separates the target from a measured result.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: "Baldur's Gate 3 Legion Go settings: 800p/30 FPS baseline",
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-10',
+    dateModified: '2026-08-10',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ["Baldur's Gate 3", 'Lenovo Legion Go', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Legion Go settings', item: 'https://handheldsettings.com/legion-go-settings/' },
+      { '@type': 'ListItem', position: 3, name: "Baldur's Gate 3 settings", item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Legion Go settings · Baseline published August 2026</span>
+    <h1>Baldur's Gate 3 Legion Go settings: start at 800p and 30 FPS</h1>
+    <p class="lede muted">Baldur's Gate 3 can shift from quiet exploration and turn-based conversations to dense settlements, crowds, effects, and multi-character combat. This original Legion Go workflow starts with a cautious 800p/30 Low profile, then tests a busy save before restoring image quality. It is official-source-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Baldur's Gate 3 Steam header artwork showing the main adventuring party" width="460" height="215" />
+      <figcaption class="media-credit">Official Baldur's Gate 3 Steam store header image, saved locally from <a href="https://store.steampowered.com/app/1086940/Baldurs_Gate_3/" target="_blank" rel="nofollow noopener">Larian Studios' Steam store page</a>. Artwork and trademarks belong to their owners; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Test target</h3><div class="stat">800p / 30</div><p class="muted">Cautious target, not a lock guarantee</p></section>
+      <section class="card"><h3>Starting preset</h3><div class="stat">Low</div><p class="muted">Tune after a busy-area test</p></section>
+      <section class="card"><h3>Upscaling</h3><p><strong>FSR 2 Quality</strong></p><p class="muted">Balanced only if the repeatable test needs it</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">150GB</div><p class="muted">Current Steam requirement; SSD required</p></section>
+    </div>
+
+    <div class="callout"><strong>Do not tune from the opening area alone:</strong> a profile that looks stable in a quiet interior can struggle when crowd simulation, multiple party members, NPCs, effects, and background streaming overlap. Validate with the busiest representative save available to you.</div>
+
+    <h2>Recommended Baldur's Gate 3 Legion Go baseline</h2>
+    <table>
+      <thead><tr><th>Control</th><th>Start here</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>Legion Go power mode</td><td>Performance-class profile</td><td>Creates a repeatable first condition. Record whether the handheld is on battery or connected directly to a compatible charger.</td></tr>
+        <tr><td>Display refresh rate</td><td>60Hz for baseline</td><td>Pairs cleanly with a 30 FPS target while simplifying the first frame-pacing comparison.</td></tr>
+        <tr><td>Display mode / resolution</td><td>Fullscreen / 1280×800</td><td>Preserves the panel's 16:10 shape and reduces graphics load from native 2560×1600.</td></tr>
+        <tr><td>Frame-rate cap</td><td>30 FPS</td><td>Prioritizes consistent camera movement and input over a higher number that cannot survive a dense area.</td></tr>
+        <tr><td>Graphics preset</td><td>Low</td><td>Provides a conservative diagnostic floor before individual clarity controls are raised.</td></tr>
+        <tr><td>AMD FSR 2</td><td>Quality</td><td>Starts with the clearer mode. Move to Balanced only after comparing the same demanding route.</td></tr>
+        <tr><td>Model quality / texture quality</td><td>Medium if memory behavior is stable</td><td>Character readability matters in an RPG; lower these after shadows, fog, clouds, and distance if memory pressure or hitching appears.</td></tr>
+        <tr><td>Texture filtering</td><td>8×</td><td>Preserves surface clarity at a lower likely cost than major lighting or distance controls, but the repeatable test remains authoritative.</td></tr>
+        <tr><td>Shadow quality / cloud quality / fog quality</td><td>Low</td><td>Protects headroom in layered outdoor scenes and effect-heavy encounters.</td></tr>
+        <tr><td>Instance distance / detail distance</td><td>Low</td><td>Reduces distant scene complexity before sacrificing nearby interface or character clarity.</td></tr>
+        <tr><td>Dynamic crowds</td><td>Off</td><td>Provides a conservative baseline in populated scenes; crowd-heavy areas can expose a different bottleneck than quiet exploration.</td></tr>
+        <tr><td>Depth of field / god rays / bloom</td><td>Off for comparison</td><td>Makes image reconstruction and camera motion easier to inspect. Restore only by preference after stability is established.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Menu names and available options can change with patches. Use the closest normal in-game control and photograph the current settings before experimenting. Do not combine multiple scaling or sharpening systems during the first test.</p>
+
+    <h2>Build a test that survives the full campaign</h2>
+    <ol>
+      <li><strong>Update and restart first.</strong> Finish the game, Windows, Lenovo firmware/software, graphics driver, and Legion Space updates before recording a result.</li>
+      <li><strong>Record the full device state.</strong> Note the game version, driver, firmware, power mode, charger state, resolution, refresh, cap, FSR mode, and background downloads.</li>
+      <li><strong>Use two saves when possible.</strong> Compare a quiet exploration route with a populated settlement or effect-heavy encounter rather than optimizing for only one scene.</li>
+      <li><strong>Repeat the route.</strong> Walk the same path, rotate the camera at the same landmarks, open the inventory, start a conversation, and enter a representative combat encounter.</li>
+      <li><strong>Separate a brief hitch from sustained slowdown.</strong> Repeat the route before changing every setting; first-pass asset or shader behavior is not the same as a persistent miss.</li>
+      <li><strong>Restore clarity one setting at a time.</strong> Raise model or texture quality, then distance or effects. Revert the first change that harms the weakest scene.</li>
+      <li><strong>Retest after major patches.</strong> Keep the saved baseline so a changed result can be compared against the same route instead of memory.</li>
+    </ol>
+
+    <h2>Diagnose the bottleneck instead of lowering everything</h2>
+    <div class="grid cols3">
+      <section class="card"><span class="chip">Graphics load</span><h3>Resolution-sensitive slowdown</h3><p>If FSR Balanced or lower effects materially improves the same scene, graphics load is likely part of the limit. Keep 800p and restore visual settings carefully.</p></section>
+      <section class="card"><span class="chip">Crowd / simulation load</span><h3>Busy areas remain slow</h3><p>If a quiet scene is stable but crowds remain weak despite lower resolution, keep dynamic crowds off, close background work, and accept that image-quality cuts may not solve the whole limit.</p></section>
+      <section class="card"><span class="chip">Streaming / memory</span><h3>Traversal hitches or texture issues</h3><p>Restore the Low preset, verify SSD free space and files, restart, then repeat the route before raising textures or distance.</p></section>
+    </div>
+
+    <h2>Common Legion Go fixes for Baldur's Gate 3</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Busy settlement misses 30 FPS</td><td>Confirm 800p, Low, FSR 2 Quality, dynamic crowds off, and low distance/effects</td><td>Compare FSR Balanced, pause background work, and rerun the same route on the recorded power profile</td></tr>
+        <tr><td>Image is too soft</td><td>Make sure only in-game FSR is scaling</td><td>Return to FSR 2 Quality and restore texture filtering before raising output resolution</td></tr>
+        <tr><td>Camera movement feels uneven</td><td>Confirm one 30 FPS cap and 60Hz refresh</td><td>Remove overlapping game, driver, and overlay caps, then retest without a recording overlay</td></tr>
+        <tr><td>Textures load slowly or traversal hitches</td><td>Restore Low textures/distance and verify free SSD space</td><td>Restart, verify game files, and repeat the same route before making a diagnosis</td></tr>
+        <tr><td>Controller prompts or inputs are wrong</td><td>Set Legion Space controls to gamepad mode</td><td>Restore default Steam Input and in-game controller settings before creating a custom layout</td></tr>
+        <tr><td>Performance changed after a patch</td><td>Restart and restore the photographed baseline</td><td>Confirm versions, verify files, and review Larian's official channels before applying unofficial configuration edits</td></tr>
+        <tr><td>Docked performance is worse</td><td>Retest on the handheld screen with the charger connected directly</td><td>Check dock power and output resolution separately; do not render at the TV's desktop resolution by default</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, battery, co-op, and dock planning</h2>
+    <p>Steam currently lists <strong>150GB of available space</strong>, an SSD requirement, DirectX 11, 8GB minimum memory, multiplayer, online and LAN co-op, cross-platform multiplayer, Steam Cloud, and full controller support. Leave meaningful free room beyond 150GB for updates, saves, shader data, recordings, and Windows temporary files. Use the <a href="/calculators/storage-planner/">storage planner</a>, then read the <a href="/guides/handheld-pc-ssd-form-factor-guide/">handheld SSD form-factor guide</a> before buying an internal drive.</p>
+    <p>This page does not invent battery runtime. Brightness, radios, power mode, scene load, frame cap, battery health, and thermals change total draw. Read your own repeatable-session draw and use the <a href="/calculators/battery-estimator/">battery estimator</a>. For travel or co-op, launch the intended save and test the connection before leaving home.</p>
+    <p>Establish the handheld profile before moving to a TV. Then use the <a href="/guides/handheld-gaming-usb-c-dock-checklist/">USB-C dock checklist</a>; a 4K desktop output does not mean the game should render internally at 4K.</p>
+
+    <h2>Optional gear after the profile is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, fit, seller traceability, warranty, and return terms. No price, compatibility, performance, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+65w+usb+c+pd+charger" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers"><span class="chip">Sponsored search</span><h3>65W-class USB-C PD chargers</h3><p class="muted">Verify dedicated-port output, cable rating, shared-port behavior, warranty, and exact-device support.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+ssd+upgrade" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="ssds"><span class="chip">Sponsored search</span><h3>Legion Go SSD upgrades</h3><p class="muted">Verify the exact model's form factor, interface, thermal fit, seller, recovery plan, and warranty before opening the handheld.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+usb+c+pd+dock+65w" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks"><span class="chip">Sponsored search</span><h3>Legion Go USB-C docks</h3><p class="muted">Check PD passthrough, display modes, cable reach, physical clearance, and support for the exact Legion Go model.</p></a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a>, follow the <a href="/guides/legion-go-accessories-buying-checklist/">Legion Go accessory buying order</a>, or set a limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on August 10, 2026. Steam's live store page and public app-details API supplied the August 3, 2023 release date, 150GB SSD requirement, minimum and recommended desktop-PC specifications, multiplayer/co-op labels, full-controller-support label, Larian Studios identity, and official image. Lenovo PSREF supplies the original Legion Go product route and hardware context. Larian supplies the official game site.</p>
+    <p>The settings are a conservative editorial test sequence derived from those official constraints and normal graphics-diagnosis practice. Handheld Settings Lab did not personally benchmark the current game, Windows, driver, firmware, Legion Space, battery, thermals, campaign area, or multiplayer session. No search-volume or guaranteed-frame-rate claim is made.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Return to the <a href="/legion-go-settings/">Legion Go settings hub</a>, compare the <a href="/steam-deck-settings/baldurs-gate-3/">Steam Deck</a> and <a href="/rog-ally-settings/baldurs-gate-3/">ROG Ally</a> baseline pages, or use the <a href="/calculators/">battery, storage, and accessory calculators</a> with your own observations.</p>
+  </article>
+</Base>
