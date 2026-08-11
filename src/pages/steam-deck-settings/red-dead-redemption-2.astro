@@ -1,0 +1,185 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/steam-deck-settings/red-dead-redemption-2/';
+const title = 'Red Dead Redemption 2 Steam Deck settings: Playable 30 FPS baseline — Handheld Settings Lab';
+const description = 'Tune Red Dead Redemption 2 on Steam Deck with a cautious 800p/30 FPS baseline, Valve Playable notes, launcher preparation, 150GB storage planning, and battery guidance.';
+const image = '/assets/games/red-dead-redemption-2-header.jpg';
+
+const sources = [
+  { label: 'Steam: Red Dead Redemption 2 requirements, features, and official media', url: 'https://store.steampowered.com/app/1174180/Red_Dead_Redemption_2/' },
+  { label: 'Steam: current Steam Deck compatibility report for app 1174180', url: 'https://store.steampowered.com/saleaction/ajaxgetdeckappcompatibilityreport?nAppID=1174180' },
+  { label: 'Steam app-details API: current product data for app 1174180', url: 'https://store.steampowered.com/api/appdetails?appids=1174180&cc=us&l=en' },
+  { label: 'Rockstar Games: official Red Dead Redemption 2 site', url: 'https://www.rockstargames.com/reddeadredemption2/' },
+  { label: 'Valve: Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' }
+];
+
+const faqs = [
+  {
+    question: 'What settings should I use for Red Dead Redemption 2 on Steam Deck?',
+    answer: 'Start at 1280×800, a 30 FPS cap, FSR 2 Quality when available, Medium textures, 8× anisotropic filtering, and Low settings for shadows, reflections, water, volumetrics, grass, and distant detail. Validate the built-in benchmark and a busy town route before raising one option at a time. This is an editorial baseline, not a personally measured benchmark.'
+  },
+  {
+    question: 'Is Red Dead Redemption 2 Steam Deck Verified?',
+    answer: 'No. Valve’s current report places it in category 2, Playable. Valve flags launcher interaction, small interface text, and an active-internet requirement for first-time setup, while also reporting functional default controls, matching controller glyphs, and a performant default configuration.'
+  },
+  {
+    question: 'Can Red Dead Redemption 2 run at 40 FPS on Steam Deck?',
+    answer: 'This guide does not promise a locked 40 FPS. RDR2 changes load across towns, weather, water, vegetation, and long sightlines, so a capped 30 FPS is the safer consistency target. If you test 40, keep the graphics profile identical and retain it only after repeated demanding routes remain acceptably paced.'
+  },
+  {
+    question: 'Should I use FSR 2 in RDR2 on Steam Deck?',
+    answer: 'FSR 2 Quality is a sensible clarity-first starting point if the current build exposes it. Try Balanced only when the same demanding route still misses the cap after costly graphics settings are reduced. Avoid stacking an in-game upscaler with a second scaling layer while diagnosing image quality.'
+  },
+  {
+    question: 'How much storage does Red Dead Redemption 2 need on Steam Deck?',
+    answer: 'Steam currently lists 150GB of available space. Leave extra room for the launcher, patches, shader data, saves, screenshots, and Steam’s update process, and verify the current install dialog before downloading.'
+  },
+  {
+    question: 'Can I play RDR2 offline on Steam Deck?',
+    answer: 'Valve flags that first-time setup requires an active internet connection, and the game uses Rockstar Games Launcher. Sign in, finish updates, open the intended save, and perform a real disconnected launch test before travel. Offline access can change with account, launcher, or update state.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Red Dead Redemption 2 Steam Deck settings: Playable 30 FPS baseline',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-11',
+    dateModified: '2026-08-11',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Red Dead Redemption 2', 'Steam Deck', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Steam Deck settings', item: 'https://handheldsettings.com/steam-deck-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Red Dead Redemption 2 settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Steam Deck settings · Baseline published August 2026</span>
+    <h1>Red Dead Redemption 2 Steam Deck settings: start at 800p and 30 FPS</h1>
+    <p class="lede muted">Red Dead Redemption 2 is Steam Deck Playable rather than Verified. Valve reports a performant default configuration, but also flags launcher interaction, small text, and first-time internet setup. Start with that supported default, then use this cautious 800p/30 workflow to test towns, weather, water, and long rides. This is official-source-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Red Dead Redemption 2 Steam header artwork showing Arthur Morgan against a red sunset" width="460" height="215" />
+      <figcaption class="media-credit">Official Red Dead Redemption 2 Steam store header image, saved locally from <a href="https://store.steampowered.com/app/1174180/Red_Dead_Redemption_2/" target="_blank" rel="nofollow noopener">Rockstar Games' Steam store page</a>. Artwork and trademarks belong to their owners; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Consistency target</h3><div class="stat">800p / 30</div><p class="muted">Cautious baseline, not a lock promise</p></section>
+      <section class="card"><h3>Compatibility</h3><p><strong>Deck Playable</strong></p><p class="muted">Valve report checked August 11, 2026</p></section>
+      <section class="card"><h3>Upscaling</h3><p><strong>FSR 2 Quality</strong></p><p class="muted">If present in the current build</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">150GB</div><p class="muted">Current Steam requirement</p></section>
+    </div>
+
+    <div class="callout"><strong>Test beyond the benchmark:</strong> run the built-in benchmark for a repeatable comparison, then ride through a busy town in representative weather. A short indoor scene or the opening snow sequence cannot establish whole-game stability.</div>
+
+    <h2>Recommended RDR2 Steam Deck baseline</h2>
+    <table>
+      <thead><tr><th>Control</th><th>Start here</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Compatibility tool</td><td>Valve default</td><td>Valve currently rates the game Playable and reports a performant default configuration. Do not force an old Proton build before testing the supported path.</td></tr>
+        <tr><td>Resolution</td><td>1280×800 fullscreen</td><td>Matches the Deck panel’s 16:10 shape and keeps the first test simple.</td></tr>
+        <tr><td>Refresh / frame cap</td><td>60 Hz / 30 FPS</td><td>Prioritizes consistent camera movement and traversal across changing scene loads.</td></tr>
+        <tr><td>Quality preset</td><td>Favor Performance, then customize</td><td>Creates a conservative diagnostic floor without assuming every patch uses identical preset names.</td></tr>
+        <tr><td>Upscaling</td><td>FSR 2 Quality, if available</td><td>Begins with the clarity-first reconstruction mode; compare Balanced only on the same weak route.</td></tr>
+        <tr><td>Texture quality</td><td>Medium</td><td>Preserves nearby character and surface detail while leaving more margin than the highest setting.</td></tr>
+        <tr><td>Anisotropic filtering</td><td>8×</td><td>Keeps roads and ground textures clearer at angles; reduce after more expensive effects.</td></tr>
+        <tr><td>Lighting / global illumination</td><td>Low–medium</td><td>Balances image structure with headroom across day-night and weather changes.</td></tr>
+        <tr><td>Shadows / far shadows</td><td>Low / off</td><td>Reduces scene cost in towns and long outdoor views before sacrificing texture clarity.</td></tr>
+        <tr><td>Reflections / mirror quality</td><td>Low</td><td>Protects headroom around wet streets, water, shop interiors, and complex town scenes.</td></tr>
+        <tr><td>Water / volumetrics / grass</td><td>Low</td><td>Rivers, fog, clouds, and vegetation can expose misses that the benchmark average hides.</td></tr>
+        <tr><td>Tree / geometry detail</td><td>Low–medium</td><td>Keeps distant scene complexity conservative during long rides.</td></tr>
+        <tr><td>Motion blur</td><td>Preference; off for diagnosis</td><td>Makes judder, ghosting, and reconstruction artifacts easier to compare while tuning.</td></tr>
+        <tr><td>Steam Deck TDP limit</td><td>Off for first test</td><td>Do not constrain device power until the graphics profile is repeatable.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Option names and available upscalers can change with game updates. Photograph the current menu before editing, use the nearest normal in-game control, and avoid enabling a second scaler or overlapping frame cap during the baseline.</p>
+
+    <h2>Playable status: what Valve currently flags</h2>
+    <div class="grid cols2">
+      <section class="card">
+        <span class="chip">Needs attention</span>
+        <h3>Launcher interaction and small text</h3>
+        <p>Valve flags launcher interaction issues and interface text that may be difficult to read. Keep the touchscreen or trackpad available, enlarge text where the launcher permits it, and do not mistake a launcher prompt behind another window for a game crash.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Reported working</span>
+        <h3>Controls, glyphs, and default performance</h3>
+        <p>Valve reports a functional default controller configuration, matching controller glyphs, and a performant default configuration. Test those defaults before installing community layouts or forcing compatibility changes.</p>
+      </section>
+    </div>
+
+    <h2>A repeatable benchmark, town, and launcher test</h2>
+    <ol>
+      <li><strong>Finish online setup.</strong> Update SteamOS, the game, Rockstar Games Launcher, and shader data; sign in and restart before testing.</li>
+      <li><strong>Record the test state.</strong> Note the game version, SteamOS version, compatibility tool, battery or charger state, resolution, refresh, cap, and scaling mode.</li>
+      <li><strong>Test Valve’s default first.</strong> Complete one benchmark run and save the result without changing compatibility tools or adding launch commands.</li>
+      <li><strong>Apply the 800p/30 baseline.</strong> Use the table above, then repeat the benchmark. Compare like with like rather than changing resolution, cap, and graphics simultaneously.</li>
+      <li><strong>Ride a busy route twice.</strong> Use Saint Denis or another populated save, turn at the same corners, enter a shop, and include water or weather when possible.</li>
+      <li><strong>Separate one-time hitches from sustained misses.</strong> Repeat the route before editing. Shader or asset activity on the first pass is different from persistent poor pacing.</li>
+      <li><strong>Restore clarity one option at a time.</strong> Raise textures first, then lighting or shadows. Revert the first change that damages the weakest scene.</li>
+      <li><strong>Test offline separately.</strong> After a successful online launch and save sync, disconnect at home and verify the exact launch-and-load path you will need while traveling.</li>
+    </ol>
+
+    <h2>Fix the symptom without random settings changes</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Busy town misses 30 FPS</td><td>Confirm 800p, one 30 FPS cap, and Low shadows, reflections, volumetrics, water, and distant detail</td><td>Compare FSR 2 Balanced if available and repeat the identical route</td></tr>
+        <tr><td>Image looks too soft</td><td>Confirm only one scaling path is active</td><td>Return to FSR 2 Quality, restore anisotropic filtering, and compare before raising resolution</td></tr>
+        <tr><td>Launcher appears stuck</td><td>Check for a prompt behind the game and use touchscreen or trackpad input</td><td>Reconnect, finish launcher updates, restart, and test Valve’s default compatibility tool</td></tr>
+        <tr><td>Text is hard to read</td><td>Use native 800p and check game or launcher text-size options</td><td>Avoid aggressive scaling and keep trackpad/touch input ready for small launcher controls</td></tr>
+        <tr><td>Traversal hitches</td><td>Pause downloads and check free internal storage</td><td>Repeat the route, verify files, and restore the default compatibility tool before broad graphics cuts</td></tr>
+        <tr><td>Offline launch fails</td><td>Reconnect and complete Steam plus Rockstar sign-in and updates</td><td>Open the intended save online, exit cleanly, then repeat a disconnected test before travel</td></tr>
+        <tr><td>Battery drains faster than planned</td><td>Confirm cap, brightness, Wi-Fi, downloads, and total system draw</td><td>Lower TDP gradually only after performance is stable; model the observed draw instead of guessing runtime</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, battery, and travel planning</h2>
+    <p>Steam currently lists <strong>150GB of available space</strong>, broadband internet, partial controller support, multiplayer, online co-op, and PvP. Leave additional room for patches, Rockstar Games Launcher, shader data, saves, captures, and Steam’s update process. Check the current install dialog, then model the rest of your library in the <a href="/calculators/storage-planner/">storage planner</a>.</p>
+    <p>This page does not invent an RDR2 battery runtime. Deck model, battery health, scene load, frame cap, brightness, radios, launcher activity, and thermals affect total draw. Read your own <em>total system draw</em> during the repeated town route and enter it in the <a href="/calculators/battery-estimator/">battery estimator</a>. Compare the method and clearly labeled ranges in the <a href="/guides/steam-deck-battery-life-by-game/">Steam Deck battery-by-game guide</a>.</p>
+    <p>Valve flags active internet for first-time setup, and Steam’s store data lists a Rockstar Games Launcher account requirement. Before a flight or remote trip, complete the <a href="/guides/handheld-pc-offline-mode-flight-checklist/">offline-mode checklist</a> and test the real game, launcher, account, and save path while disconnected.</p>
+
+    <h2>Optional gear after the profile is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, seller traceability, fit, warranty, and return terms. No price, performance, battery, or compatibility claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+microSD+card+a2+uhs+i" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microsd-cards"><span class="chip">Sponsored search</span><h3>A2 UHS-I microSD cards</h3><p class="muted">Compare genuine capacity, seller traceability, A2/U3 markings, warranty, and free room beyond the current 150GB requirement.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+45w+usb+c+pd+power+bank+under+100wh" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="power-banks"><span class="chip">Sponsored search</span><h3>45W USB-C PD power banks</h3><p class="muted">Verify single-port PD output, printed watt-hours, cable rating, recall status, weight, and current airline rules.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+oled+carrying+case+charger+storage" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="cases"><span class="chip">Sponsored search</span><h3>Steam Deck travel cases</h3><p class="muted">Compare exact LCD/OLED fit, stick pressure, charger separation, ventilation after play, and external dimensions.</p></a>
+    </div>
+    <p>Read the <a href="/guides/steam-deck-microsd-speed-compatibility/">Steam Deck microSD compatibility guide</a>, check the <a href="/guides/usb-c-power-bank-wattage-handheld-gaming/">power-bank and airline guide</a>, or browse the <a href="/gear/">spec-based gear library</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on August 11, 2026. Steam’s live store data supplies the December 5, 2019 PC release date, 150GB storage requirement, desktop requirements, partial controller support, online features, Rockstar Games Launcher account requirement, publisher identity, and official image. Valve’s compatibility endpoint currently resolves the game as category 2, Playable; it flags launcher interaction, small text, and first-time internet setup while reporting functional default controls, matching glyphs, and a performant default configuration. Valve’s technical page supplies Steam Deck hardware context, and Rockstar supplies the official game site.</p>
+    <p>The settings above are a conservative editorial test sequence informed by those official constraints and normal graphics-diagnosis practice. Handheld Settings Lab did not personally benchmark the current game, launcher, SteamOS, compatibility layer, battery, thermals, campaign scene, or online session. No search-volume, fixed-runtime, or guaranteed-frame-rate claim is made.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Return to the <a href="/steam-deck-settings/">Steam Deck settings hub</a>, compare the <a href="/legion-go-settings/red-dead-redemption-2/">Legion Go RDR2 baseline</a>, use the <a href="/calculators/">battery, storage, and accessory calculators</a>, or browse the <a href="/gear/">gear library</a>.</p>
+  </article>
+</Base>
