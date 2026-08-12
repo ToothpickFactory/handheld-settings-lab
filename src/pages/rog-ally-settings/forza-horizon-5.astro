@@ -1,0 +1,177 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/rog-ally-settings/forza-horizon-5/';
+const title = 'Forza Horizon 5 ROG Ally settings: 720p/60 baseline — Handheld Settings Lab';
+const description = 'Tune Forza Horizon 5 on ROG Ally or Ally X from a cautious 720p/60 FPS Low baseline, then test 900p, VRR, image quality, storage, controls, and docked play.';
+const image = '/assets/games/forza-horizon-5-header.jpg';
+
+const sources = [
+  { label: 'Steam: Forza Horizon 5 requirements, features, and official media', url: 'https://store.steampowered.com/app/1551360/Forza_Horizon_5/' },
+  { label: 'Steam app-details API: current public product data for app 1551360', url: 'https://store.steampowered.com/api/appdetails?appids=1551360&cc=us&l=en' },
+  { label: 'Xbox: official Forza Horizon 5 product page', url: 'https://www.xbox.com/en-US/games/store/forza-horizon-5-standard-edition/9NKX70BBCDRN' },
+  { label: 'ASUS ROG: ROG Ally (2023) technical specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-2023/spec/' }
+];
+
+const faqs = [
+  {
+    question: 'What Forza Horizon 5 settings should I use on ROG Ally?',
+    answer: 'Start at 1280×720, a 60 FPS cap, the Low preset, and a Quality-oriented temporal upscaling option if the current game build offers one. Run the built-in benchmark twice, then repeat a busy festival route and an off-road event before raising textures or environment detail. This is an official-source-informed baseline, not a personally measured guarantee.'
+  },
+  {
+    question: 'Can ROG Ally run Forza Horizon 5 at 60 FPS?',
+    answer: 'Use 60 FPS as a test target rather than a promise. Keep 720p and Low for the first pass, record the exact Ally model and operating mode, and validate rain, traffic, night driving, festival areas, and off-road effects. Lower the cap if the weakest repeatable scene cannot hold the target consistently.'
+  },
+  {
+    question: 'Should I use 720p, 900p, or 1080p for Forza Horizon 5 on ROG Ally?',
+    answer: 'Start at 720p to establish performance headroom. If 60 FPS is repeatable, test 900p while keeping the same power mode, preset, cap, and upscaler. Treat 1080p as a later image-quality comparison; changing resolution and quality together makes the result difficult to diagnose.'
+  },
+  {
+    question: 'Does VRR replace a frame-rate cap in Forza Horizon 5?',
+    answer: 'No. The original ROG Ally specification lists a 120Hz FreeSync Premium display, and VRR can make variation look smoother within its operating behavior, but it does not create missing performance. Use a deliberate target and judge the same demanding route.'
+  },
+  {
+    question: 'How much storage does Forza Horizon 5 need on ROG Ally?',
+    answer: 'Steam currently lists 110GB of available space. Leave additional capacity for updates, shader data, Windows temporary files, recordings, and another launcher rather than filling the drive to exactly 110GB.'
+  },
+  {
+    question: 'Were these ROG Ally settings personally benchmarked?',
+    answer: 'No. Handheld Settings Lab did not personally benchmark the current game, Ally model, Windows build, graphics driver, Armoury Crate version, battery, thermals, race, or online session. The page provides a reproducible test sequence and makes no measured frame-rate claim.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Forza Horizon 5 ROG Ally settings: 720p/60 FPS baseline',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-12',
+    dateModified: '2026-08-12',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Forza Horizon 5', 'ASUS ROG Ally', 'ROG Ally X', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'ROG Ally settings', item: 'https://handheldsettings.com/rog-ally-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Forza Horizon 5 settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">ROG Ally settings · Baseline published August 2026</span>
+    <h1>Forza Horizon 5 ROG Ally settings: start at 720p and 60 FPS</h1>
+    <p class="lede muted">Forza Horizon 5 shifts rapidly between open roads, traffic, festival crowds, rain, night lighting, and particle-heavy off-road races. This ROG Ally and Ally X workflow starts with a cautious 720p/60 Low profile, uses the built-in benchmark for repeatability, and then tests 900p and better image quality one change at a time. It is official-source-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Forza Horizon 5 artwork with a red Mercedes-AMG One on a tropical road beside a beach and off-road vehicle" width="460" height="215" />
+      <figcaption class="media-credit">Official Forza Horizon 5 Steam store header image, saved locally from <a href="https://store.steampowered.com/app/1551360/Forza_Horizon_5/" target="_blank" rel="nofollow noopener">Xbox Game Studios' Steam store page</a>. Artwork and trademarks belong to their owners; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Test target</h3><div class="stat">720p / 60</div><p class="muted">Cautious target, not a lock guarantee</p></section>
+      <section class="card"><h3>Starting preset</h3><div class="stat">Low</div><p class="muted">Restore detail after validation</p></section>
+      <section class="card"><h3>Clarity test</h3><p><strong>900p / 60</strong></p><p class="muted">Only after 720p holds up</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">110GB</div><p class="muted">Current Steam requirement</p></section>
+    </div>
+
+    <div class="callout"><strong>Benchmark, then drive:</strong> the built-in benchmark creates a repeatable comparison, but it cannot represent every race. Follow it with the same wet-road route, crowded festival pass, and off-road event before calling the profile stable.</div>
+
+    <h2>Recommended Forza Horizon 5 ROG Ally baseline</h2>
+    <table>
+      <thead><tr><th>Control</th><th>Start here</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>Ally operating mode</td><td>Performance for baseline; Turbo as a plugged-in comparison</td><td>Creates a recorded first condition. Do not compare battery Performance with plugged-in Turbo as if they were the same test.</td></tr>
+        <tr><td>Display refresh / VRR</td><td>120Hz / VRR enabled</td><td>The original Ally specification lists a 120Hz FreeSync Premium display. VRR helps presentation but does not replace an achievable target.</td></tr>
+        <tr><td>Screen mode / resolution</td><td>Fullscreen / 1280×720</td><td>Preserves the panel's 16:9 shape while reducing load substantially from native 1080p.</td></tr>
+        <tr><td>Frame-rate cap</td><td>60 FPS</td><td>Provides a responsive driving target and a clear pass/fail condition for the same benchmark and route.</td></tr>
+        <tr><td>Graphics preset</td><td>Low</td><td>Establishes a conservative diagnostic floor before restoring visual detail setting by setting.</td></tr>
+        <tr><td>Dynamic optimization</td><td>Off for the first comparison</td><td>A fixed profile makes cause and effect easier to understand. Test dynamic behavior later as its own profile.</td></tr>
+        <tr><td>Upscaling / anti-aliasing</td><td>Quality-oriented temporal mode, if available</td><td>Starts with the clearest reconstruction option exposed by the current build. Use only one scaling path during diagnosis.</td></tr>
+        <tr><td>Textures</td><td>Medium after the Low baseline passes</td><td>Car and road detail matter; raise textures first while watching the game's memory indicator and new streaming hitches.</td></tr>
+        <tr><td>Anisotropic filtering</td><td>Medium or 8×</td><td>Improves road and ground texture clarity at angles without being the first control to cut during scene-load trouble.</td></tr>
+        <tr><td>Shadows / reflections</td><td>Low</td><td>Preserves headroom across changing sun, headlights, wet roads, bodywork, and dense roadside scenes.</td></tr>
+        <tr><td>World cars / environment geometry</td><td>Low</td><td>Busy festival areas and traffic can expose scene complexity that an empty road does not.</td></tr>
+        <tr><td>Particles / deformable terrain</td><td>Low</td><td>Protects the target during dust, water spray, collisions, and off-road racing before reducing texture clarity.</td></tr>
+        <tr><td>Motion blur</td><td>Preference; fixed during tests</td><td>Choose the look you prefer, but keep it unchanged while comparing frame pacing and image reconstruction.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Available labels, upscalers, presets, and dynamic-quality behavior can change with updates. Use the closest normal in-game option, photograph the current menu, and avoid combining an in-game scaler with unexplained driver scaling during the baseline.</p>
+
+    <h2>A repeatable benchmark and driving test</h2>
+    <ol>
+      <li><strong>Finish stable updates.</strong> Complete the game, Steam, Xbox sign-in components, Windows, Armoury Crate SE, ASUS firmware, and the intended graphics driver updates, then restart.</li>
+      <li><strong>Record the device state.</strong> Note the exact Ally model, game version, driver, operating mode, charger state, resolution, refresh rate, cap, upscaler, and background downloads.</li>
+      <li><strong>Apply 720p/60 Low.</strong> Keep dynamic optimization off initially so each later change has a clear cause.</li>
+      <li><strong>Run the built-in benchmark twice.</strong> Treat the first pass as warm-up and save the second result plus any memory or quality warning.</li>
+      <li><strong>Repeat a real route.</strong> Include traffic, a festival area, fast camera movement, wet pavement or night lighting when available, and an off-road event with dust or water.</li>
+      <li><strong>Separate one-time stutter from sustained misses.</strong> Repeat the route before changing settings; one asset or shader event is not the same as repeatable overload.</li>
+      <li><strong>Test 900p by itself.</strong> Keep the cap, operating mode, preset, and upscaler fixed. Return to 720p if the weakest sequence regresses.</li>
+      <li><strong>Restore clarity one control at a time.</strong> Try textures, anisotropic filtering, and environment texture quality before expensive reflections or geometry.</li>
+    </ol>
+
+    <h2>Choose 720p, 900p, or 1080p deliberately</h2>
+    <div class="grid cols3">
+      <section class="card"><span class="chip">Performance baseline</span><h3>720p / 60 FPS</h3><p>Use this first to reveal whether scene complexity, background tasks, heat, or another factor—not just pixel count—is limiting the target.</p></section>
+      <section class="card"><span class="chip">Balanced comparison</span><h3>900p / 60 FPS</h3><p>Change only resolution after 720p is repeatable. Keep it when the road and car detail gain is worth the reduced headroom.</p></section>
+      <section class="card"><span class="chip">Clarity experiment</span><h3>1080p / lower target</h3><p>Native resolution costs more. Treat it as a separate quality profile and consider a lower cap rather than assuming native/60 must hold.</p></section>
+    </div>
+
+    <h2>Fix common Forza Horizon 5 issues on ROG Ally</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Festival or city slowdown</td><td>Confirm 720p, Low, 60 FPS cap, and low world-car, geometry, shadow, and reflection settings</td><td>Use one Quality/Balanced upscaler path, stop background work, and repeat the same route</td></tr>
+        <tr><td>Off-road effects cause drops</td><td>Lower particles, deformable terrain, and environment geometry</td><td>Compare the same event and weather before reducing textures or the frame target</td></tr>
+        <tr><td>Memory warning or texture hitching</td><td>Return textures and environment textures to Low; check free SSD space</td><td>Close overlays, restart, rerun the benchmark, and raise one memory-heavy setting at a time</td></tr>
+        <tr><td>Image looks too soft</td><td>Confirm one upscaler and a Quality-oriented mode</td><td>Restore anisotropic filtering, then compare 900p only after 720p is repeatable</td></tr>
+        <tr><td>Tearing or uneven delivery</td><td>Confirm 120Hz, VRR, and one intended cap</td><td>Remove overlapping in-game, Armoury Crate, or driver caps and retest without recording software</td></tr>
+        <tr><td>Controls switch to keyboard prompts</td><td>Set Armoury Crate control mode to Gamepad</td><td>Restore the default Steam Input layout and reconnect external controllers one at a time</td></tr>
+        <tr><td>Online or sign-in failure</td><td>Confirm network, Steam, and Xbox account status</td><td>Complete an online launch and sync before relying on the game away from home</td></tr>
+        <tr><td>Docked play performs worse</td><td>Retest on the handheld display with power connected directly</td><td>Check dock power and TV output separately; do not default to native 4K rendering</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, battery, online, and dock planning</h2>
+    <p>Steam currently lists <strong>110GB of available space</strong>, DirectX 12, broadband internet, full controller support, Steam Cloud, and cross-platform multiplayer. Leave extra capacity for updates, shader data, captures, Windows temporary files, and another version rollback rather than filling the drive to exactly 110GB. Use the <a href="/calculators/storage-planner/">storage planner</a>, then read the <a href="/guides/rog-ally-ssd-size-compatibility-upgrade/">ROG Ally SSD compatibility guide</a> before buying internal storage.</p>
+    <p>This page does not invent a battery-runtime range. Brightness, radios, operating mode, frame target, scene complexity, battery health, heat, and background downloads all affect total draw. Record your own observed power use and enter it in the <a href="/calculators/battery-estimator/">battery estimator</a>. Before travel, complete an online launch and follow the <a href="/guides/handheld-pc-offline-mode-flight-checklist/">offline-mode checklist</a>.</p>
+    <p>Establish the handheld profile before moving to a television. Then use the <a href="/guides/rog-ally-dock-tv-monitor-setup/">ROG Ally dock and TV setup guide</a>. A 4K desktop signal does not mean Forza Horizon 5 should render internally at 4K on the handheld.</p>
+
+    <h2>Optional gear after the profile is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, fit, seller traceability, warranty, and return terms. No price, compatibility, performance, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+usb+c+pd+dock+65w" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks"><span class="chip">Sponsored search</span><h3>ROG Ally USB-C docks</h3><p class="muted">Check PD passthrough, display modes, cable reach, physical clearance, Ethernet, and support for the exact Ally model.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+65w+usb+c+pd+charger" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers"><span class="chip">Sponsored search</span><h3>65W-class USB-C PD chargers</h3><p class="muted">Verify dedicated-port output, cable rating, shared-port behavior, warranty, and exact-device support.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+ssd+upgrade" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="ssds"><span class="chip">Sponsored search</span><h3>ROG Ally SSD upgrades</h3><p class="muted">Verify the exact model's form factor, interface, thermal fit, seller, recovery plan, and warranty before opening the handheld.</p></a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a>, use the <a href="/guides/rog-ally-x-accessories-buying-checklist/">ROG Ally X accessory checklist</a>, or set a limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on August 12, 2026. Steam's live product data supplied the 110GB storage requirement, Windows and DirectX 12 requirements, controller and online feature labels, and official image. Xbox supplies the official product route. ASUS supplies the original Ally's 1920×1080, 120Hz, FreeSync Premium display specification.</p>
+    <p>The settings are a conservative editorial test sequence derived from those official constraints, the game's built-in benchmark, and normal graphics-diagnosis practice. Handheld Settings Lab did not personally benchmark the current game, Ally model, Windows build, driver, Armoury Crate version, battery, thermals, route, race, or online session. No search-volume or guaranteed-frame-rate claim is made.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Return to the <a href="/rog-ally-settings/">ROG Ally settings hub</a>, compare the <a href="/legion-go-settings/forza-horizon-5/">Legion Go Forza Horizon 5 baseline</a>, or use the <a href="/calculators/">battery, storage, and accessory calculators</a> with your own observations.</p>
+  </article>
+</Base>
