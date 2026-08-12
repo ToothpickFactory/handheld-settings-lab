@@ -1,0 +1,175 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/rog-ally-settings/red-dead-redemption-2/';
+const title = 'Red Dead Redemption 2 ROG Ally settings: 720p/30 baseline — Handheld Settings Lab';
+const description = 'Tune Red Dead Redemption 2 on ROG Ally or Ally X from a cautious 720p/30 FPS baseline, then test 900p, FSR, towns, storage, battery, and docked play.';
+const image = '/assets/games/red-dead-redemption-2-header.jpg';
+
+const sources = [
+  { label: 'Steam: Red Dead Redemption 2 requirements, features, and official media', url: 'https://store.steampowered.com/app/1174180/Red_Dead_Redemption_2/' },
+  { label: 'Steam app-details API: current public product data for app 1174180', url: 'https://store.steampowered.com/api/appdetails?appids=1174180&cc=us&l=en' },
+  { label: 'Rockstar Games: official Red Dead Redemption 2 site', url: 'https://www.rockstargames.com/reddeadredemption2/' },
+  { label: 'ASUS ROG: ROG Ally (2023) technical specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-2023/spec/' }
+];
+
+const faqs = [
+  {
+    question: 'What Red Dead Redemption 2 settings should I use on ROG Ally?',
+    answer: 'Start at 1280×720, a 30 FPS cap, low-to-medium settings, medium textures, and FSR 2 Quality when available. Keep reflection, water, volumetric, grass, and far-shadow controls conservative until the built-in benchmark and a busy town route hold the target. This is a source-informed test baseline, not a personally measured guarantee.'
+  },
+  {
+    question: 'Can ROG Ally run Red Dead Redemption 2 at 30 FPS?',
+    answer: 'Use 720p/30 as a cautious test target rather than a promised lock. Weather, towns, water, vegetation, driver and game updates, operating mode, heat, and background activity can change frame pacing. Validate the profile in Saint Denis or another busy save, not only the opening snow sequence.'
+  },
+  {
+    question: 'Should I use 720p, 900p, or 1080p for RDR2 on ROG Ally?',
+    answer: 'Start at 720p because it preserves the display’s 16:9 shape while reducing graphics load substantially from native 1080p. Try 900p only after a repeatable demanding route is stable, and treat 1080p as a later image-quality experiment. Change no other setting during each resolution comparison.'
+  },
+  {
+    question: 'Should I use FSR 2 in Red Dead Redemption 2 on ROG Ally?',
+    answer: 'FSR 2 Quality is a sensible clarity-first starting point if the current game build exposes it. Compare Balanced only when the same demanding route still misses the cap after expensive settings are reduced. Use one scaling system at a time so the result is diagnosable.'
+  },
+  {
+    question: 'How much storage does Red Dead Redemption 2 need?',
+    answer: 'Steam currently lists 150GB of available space. Leave additional free room for game and launcher updates, shader data, saves, recordings, and Windows temporary files rather than filling the drive to exactly 150GB.'
+  },
+  {
+    question: 'Were these Red Dead Redemption 2 ROG Ally settings personally benchmarked?',
+    answer: 'No. Handheld Settings Lab did not personally benchmark the current game build, Rockstar Games Launcher, Windows version, graphics driver, firmware, Armoury Crate SE build, battery, or thermals. The page supplies a reproducible baseline and does not claim measured frame rates.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Red Dead Redemption 2 ROG Ally settings: 720p/30 FPS baseline',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-12',
+    dateModified: '2026-08-12',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Red Dead Redemption 2', 'ASUS ROG Ally', 'ROG Ally X', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'ROG Ally settings', item: 'https://handheldsettings.com/rog-ally-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Red Dead Redemption 2 settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">ROG Ally settings · Baseline published August 2026</span>
+    <h1>Red Dead Redemption 2 ROG Ally settings: start at 720p and 30 FPS</h1>
+    <p class="lede muted">Red Dead Redemption 2 combines wide landscapes, dense towns, layered weather, water, vegetation, and long rides that expose settings a short indoor test can miss. This ROG Ally and Ally X workflow starts conservatively at 720p/30, then tests 900p and restores image quality one control at a time. It is official-source-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Red Dead Redemption 2 Steam header artwork showing Arthur Morgan against a red sunset" width="460" height="215" />
+      <figcaption class="media-credit">Official Red Dead Redemption 2 Steam store header image, saved locally from <a href="https://store.steampowered.com/app/1174180/Red_Dead_Redemption_2/" target="_blank" rel="nofollow noopener">Rockstar Games' Steam store page</a>. Artwork and trademarks belong to their owners; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Test target</h3><div class="stat">720p / 30</div><p class="muted">Cautious target, not a lock guarantee</p></section>
+      <section class="card"><h3>Starting range</h3><div class="stat">Low–medium</div><p class="muted">Restore clarity after the stress test</p></section>
+      <section class="card"><h3>Upscaling</h3><p><strong>FSR 2 Quality</strong></p><p class="muted">If present in the current build</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">150GB</div><p class="muted">Current Steam requirement</p></section>
+    </div>
+
+    <div class="callout"><strong>Test more than the built-in benchmark:</strong> use it for repeatability, then ride through a busy town in changing weather. A settings profile is only useful if it survives the least stable part of your real save.</div>
+
+    <h2>Recommended Red Dead Redemption 2 ROG Ally baseline</h2>
+    <table>
+      <thead><tr><th>Control</th><th>Start here</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>Ally operating mode</td><td>Performance for baseline; Turbo as a plugged-in comparison</td><td>Creates a recorded first condition. Do not compare battery Performance with plugged-in Turbo as if they were the same test.</td></tr>
+        <tr><td>Display refresh / VRR</td><td>120Hz / VRR enabled</td><td>The original Ally specification lists a 120Hz FreeSync Premium display. VRR can smooth variation, but it does not create missing performance.</td></tr>
+        <tr><td>Screen type / resolution</td><td>Fullscreen / 1280×720</td><td>Preserves the panel's 16:9 shape while reducing load substantially from native 1920×1080.</td></tr>
+        <tr><td>Frame-rate cap</td><td>30 FPS</td><td>Prioritizes consistent traversal and camera movement over a higher target that may collapse in towns.</td></tr>
+        <tr><td>Quality preset</td><td>Favor Performance, then customize</td><td>Provides a conservative diagnostic floor without pretending every menu revision exposes identical preset names.</td></tr>
+        <tr><td>Upscaling</td><td>FSR 2 Quality, if available</td><td>Starts with the clearer reconstruction mode. Compare Balanced only on the same demanding route.</td></tr>
+        <tr><td>Texture quality</td><td>Medium</td><td>Protects character and surface detail while leaving a safer first-run memory margin than the highest setting.</td></tr>
+        <tr><td>Anisotropic filtering</td><td>8×</td><td>Keeps roads and ground textures clearer at oblique angles; reduce after more expensive effects if troubleshooting.</td></tr>
+        <tr><td>Lighting / global illumination / shadows</td><td>Low–medium</td><td>These shape the image but can add load across day-night and weather changes. Raise individually after stability.</td></tr>
+        <tr><td>Reflections / mirror quality</td><td>Low</td><td>Protects headroom in towns, wet scenes, and interiors before sacrificing nearby texture clarity.</td></tr>
+        <tr><td>Water / volumetrics / grass</td><td>Low</td><td>Rivers, fog, clouds, and vegetation can expose scene-dependent misses on long outdoor routes.</td></tr>
+        <tr><td>Far shadows / long shadows / tree detail</td><td>Low or off</td><td>Reduces distant scene cost before lowering interface, character, or nearby texture clarity.</td></tr>
+        <tr><td>Motion blur</td><td>Preference; off for diagnosis</td><td>Disabling it makes judder, ghosting, and reconstruction artifacts easier to compare during tuning.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Graphics labels and available upscalers can change with updates. Use the closest normal in-game option, photograph the current menu, and avoid stacking in-game scaling with a driver-level scaler during the baseline test.</p>
+
+    <h2>A repeatable benchmark and town test</h2>
+    <ol>
+      <li><strong>Finish updates first.</strong> Complete Steam, Rockstar Games Launcher, game, Windows, MyASUS, Armoury Crate SE, firmware, and the intended graphics driver updates, then restart.</li>
+      <li><strong>Record the device state.</strong> Note the game version, driver, firmware, power mode, charger state, resolution, refresh, cap, scaling mode, and background downloads.</li>
+      <li><strong>Run the built-in benchmark if available.</strong> Save the result as a comparison point, not proof that every campaign scene will match it.</li>
+      <li><strong>Repeat a busy route.</strong> Ride through Saint Denis or another populated area, turn the camera at the same corners, enter a shop, cross water, and trigger representative weather if your save permits.</li>
+      <li><strong>Separate brief hitches from sustained misses.</strong> Repeat the route before changing settings; a one-time shader or asset event is not the same as persistent poor frame pacing.</li>
+      <li><strong>Restore clarity one control at a time.</strong> Raise textures first, then lighting or shadows. Revert the first change that damages the weakest section.</li>
+      <li><strong>Retest after a major update.</strong> Keep screenshots of the old settings and the same route so a changed result can be diagnosed rather than guessed.</li>
+    </ol>
+
+    <h2>Fix the weak scene, not the benchmark average</h2>
+    <div class="grid cols3">
+      <section class="card"><span class="chip">Town slowdown</span><h3>Lower reflections and shadows first</h3><p>Keep 720p and the 30 FPS cap, then reduce reflections, mirror quality, far shadows, and lighting controls before sacrificing textures.</p></section>
+      <section class="card"><span class="chip">Outdoor slowdown</span><h3>Trim water, fog, and vegetation</h3><p>Compare water physics, volumetrics, grass, tree detail, and long-shadow controls on the same route through open terrain.</p></section>
+      <section class="card"><span class="chip">Soft or unstable image</span><h3>Use one scaling path</h3><p>Confirm only the in-game upscaler is active, return to Quality, and disable extra sharpening or driver scaling before judging clarity.</p></section>
+    </div>
+
+    <h2>Common ROG Ally fixes for RDR2</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Busy town misses 30 FPS</td><td>Confirm 720p, 30 FPS, and low reflections, shadows, volumetrics, and far detail</td><td>Compare FSR 2 Balanced if available, pause background work, and repeat the same route</td></tr>
+        <tr><td>Image looks too soft</td><td>Confirm only one upscaler is enabled</td><td>Return to FSR 2 Quality and restore anisotropic filtering before raising output resolution</td></tr>
+        <tr><td>Traversal hitching</td><td>Check free SSD space and whether Steam, Rockstar, or Windows is updating</td><td>Restart, verify game files through Steam, and repeat the route before changing every graphics control</td></tr>
+        <tr><td>Uneven camera movement</td><td>Confirm one 30 FPS cap, 120Hz display mode, and VRR</td><td>Remove overlapping in-game, Armoury Crate, or driver caps and retest without recording software</td></tr>
+        <tr><td>Launcher or sign-in failure</td><td>Reconnect, update Rockstar Games Launcher, and confirm account access</td><td>Complete an online launch before relying on offline travel; do not delete saves during troubleshooting</td></tr>
+        <tr><td>Controller prompts are wrong</td><td>Set Armoury Crate control mode to Gamepad</td><td>Restore default Steam Input and in-game controller settings before creating a custom layout</td></tr>
+        <tr><td>Docked play is worse</td><td>Retest on the handheld screen with power connected directly</td><td>Check dock power and TV output resolution separately; do not default to native 4K rendering</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, battery, offline, and dock planning</h2>
+    <p>Steam currently lists <strong>150GB of available space</strong>, broadband internet, Steam Cloud, Remote Play on TV, and the Rockstar Games Launcher account requirement. Leave free room beyond 150GB for updates, shader data, saves, captures, and Windows temporary files. Use the <a href="/calculators/storage-planner/">storage planner</a>, then read the <a href="/guides/rog-ally-ssd-size-compatibility-upgrade/">ROG Ally SSD compatibility guide</a> before buying an internal drive.</p>
+    <p>This page does not invent a battery runtime. Scene load, brightness, radios, power mode, frame cap, battery health, and thermals affect total draw. Use your own observed draw with the <a href="/calculators/battery-estimator/">battery estimator</a>. For a flight, complete an online Rockstar Games Launcher sign-in and test the exact save from a disconnected state using the <a href="/guides/handheld-pc-offline-mode-flight-checklist/">offline-mode checklist</a>.</p>
+    <p>Establish the handheld profile before moving to a TV. Then use the <a href="/guides/rog-ally-dock-tv-monitor-setup/">ROG Ally dock and TV setup guide</a>; a 4K desktop output does not mean the game should render internally at 4K.</p>
+
+    <h2>Optional gear after the profile is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, fit, seller traceability, warranty, and return terms. No price, compatibility, performance, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+65w+usb+c+pd+charger" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers"><span class="chip">Sponsored search</span><h3>65W-class USB-C PD chargers</h3><p class="muted">Verify dedicated-port output, cable rating, shared-port behavior, warranty, and exact-device support.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+ssd+upgrade" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="ssds"><span class="chip">Sponsored search</span><h3>ROG Ally SSD upgrades</h3><p class="muted">Verify the exact model's form factor, interface, thermal fit, seller, recovery plan, and warranty before opening the handheld.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+usb+c+pd+dock+65w" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks"><span class="chip">Sponsored search</span><h3>ROG Ally USB-C docks</h3><p class="muted">Check PD passthrough, display modes, cable reach, physical clearance, and support for the exact Ally model.</p></a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a>, follow the <a href="/guides/rog-ally-x-accessories-buying-checklist/">ROG Ally X accessory buying order</a>, or set a limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on August 12, 2026. Steam's live store page and public app-details API supplied the December 5, 2019 PC release date, 150GB storage requirement, desktop minimum and recommended specifications, Steam Cloud and Remote Play labels, Rockstar Games Launcher account requirement, publisher identity, and official image. ASUS supplies the original ROG Ally's 1920×1080, 120Hz, FreeSync Premium display specification. Rockstar supplies the official game site.</p>
+    <p>The settings are a conservative editorial test sequence derived from those official constraints and normal graphics-diagnosis practice. Handheld Settings Lab did not personally benchmark the current game, launcher, Ally model, Windows build, driver, firmware, Armoury Crate SE, battery, thermals, campaign scene, or online session. No search-volume or guaranteed-frame-rate claim is made.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Return to the <a href="/rog-ally-settings/">ROG Ally settings hub</a>, compare the <a href="/steam-deck-settings/red-dead-redemption-2/">Steam Deck</a> and <a href="/legion-go-settings/red-dead-redemption-2/">Legion Go</a> baseline pages, or use the <a href="/calculators/">battery, storage, and accessory calculators</a> with your own observations.</p>
+  </article>
+</Base>

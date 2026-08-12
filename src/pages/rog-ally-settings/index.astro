@@ -5,6 +5,14 @@ const platform = Astro.url.pathname.includes('rog-ally') ? 'ROG Ally' : 'Steam D
 const slug = platform === 'ROG Ally' ? 'rog-ally-settings' : 'steam-deck-settings';
 const additionalGames = platform === 'ROG Ally' ? [
   {
+    slug: 'red-dead-redemption-2',
+    title: 'Red Dead Redemption 2',
+    deckFps: '',
+    allyFps: '30 FPS test baseline',
+    storage: 150,
+    preset: '720p Low–medium + FSR 2 Quality'
+  },
+  {
     slug: 'forza-horizon-5',
     title: 'Forza Horizon 5',
     deckFps: '',
