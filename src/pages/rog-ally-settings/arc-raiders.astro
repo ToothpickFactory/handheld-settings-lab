@@ -1,0 +1,181 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/rog-ally-settings/arc-raiders/';
+const title = 'ARC Raiders ROG Ally settings: 720p/30 FPS baseline — Handheld Settings Lab';
+const description = 'Start ARC Raiders on the original ROG Ally or Ally X at 720p/30 FPS with a cautious Low baseline, visibility tuning, repeatable raid tests, and network fixes.';
+const image = '/assets/games/arc-raiders-header.jpg';
+
+const sources = [
+  { label: 'Steam: ARC Raiders requirements, features, release details, and official media', url: 'https://store.steampowered.com/app/1808500/ARC_Raiders/' },
+  { label: 'Steam app-details API: current public product data for app 1808500', url: 'https://store.steampowered.com/api/appdetails?appids=1808500&cc=us&l=en' },
+  { label: 'Embark Studios: official ARC Raiders site', url: 'https://arcraiders.com/' },
+  { label: 'ASUS: original ROG Ally specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-2023/spec/' }
+];
+
+const faqs = [
+  {
+    question: 'What ARC Raiders settings should I use on ROG Ally?',
+    answer: 'Start at 1280×720, a 30 FPS cap, the Low preset, motion blur off, frame generation off, and a Quality-oriented upscaler when the current build offers one. Validate the same outdoor route and a comparable firefight before raising view distance or textures. This is an editorial test baseline, not a personally measured guarantee.'
+  },
+  {
+    question: 'Can ROG Ally run ARC Raiders at 60 FPS?',
+    answer: 'Treat 60 FPS as an experiment rather than a promised target. It can require a performance-class power profile, aggressive upscaling, low effects, or frame generation, and effects-heavy fights may expose an unstable base frame rate. Validate 30 FPS first, then test 40 FPS before deciding whether 60 is useful.'
+  },
+  {
+    question: 'Should I use 720p or 1080p for ARC Raiders on ROG Ally?',
+    answer: 'Use 720p for the first performance baseline. It preserves the 16:9 shape of the Ally display while leaving more graphics headroom for outdoor combat. Test 900p or 1080p later as separate clarity profiles without also changing the power mode, frame cap, and preset.'
+  },
+  {
+    question: 'Should frame generation be on in ARC Raiders?',
+    answer: 'Leave frame generation off for the first test so base frame pacing, image reconstruction, and input response remain visible. Compare it later only after the underlying profile is stable, and turn it back off if generated-frame artifacts or added latency make target tracking less predictable.'
+  },
+  {
+    question: 'Does ARC Raiders support controllers on PC?',
+    answer: 'Steam currently labels ARC Raiders with full controller support. Use Gamepad control mode in Armoury Crate SE, begin with the default game layout, and remove overlapping remaps if prompts, aim, menus, or radial controls behave incorrectly.'
+  },
+  {
+    question: 'Were these ROG Ally settings personally benchmarked?',
+    answer: 'No. Handheld Settings Lab did not personally test the current ARC Raiders build, Windows release, AMD graphics driver, BIOS, Armoury Crate SE version, network route, battery, or thermals. The page provides a reproducible official-source-informed baseline and makes no measured frame-rate, battery-runtime, latency, or temperature claim.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'ARC Raiders ROG Ally settings: 720p/30 FPS baseline',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-13',
+    dateModified: '2026-08-13',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['ARC Raiders', 'ASUS ROG Ally', 'ROG Ally X', 'game settings', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'ROG Ally settings', item: 'https://handheldsettings.com/rog-ally-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'ARC Raiders settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">ROG Ally settings · Baseline published August 2026</span>
+    <h1>ARC Raiders ROG Ally settings: start at 720p and 30 FPS</h1>
+    <p class="lede muted">ARC Raiders mixes long outdoor sightlines, weather, machines, players, and effects-heavy fights. This original ROG Ally and Ally X workflow begins with a cautious 720p/30 Low profile, then restores useful visibility one control at a time. It is official-source-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official ARC Raiders logo in cream lettering beside colored diagonal stripes on a dark background" width="460" height="215" />
+      <figcaption class="media-credit">Official ARC Raiders Steam store header image, saved locally from <a href="https://store.steampowered.com/app/1808500/ARC_Raiders/" target="_blank" rel="nofollow noopener">Embark Studios’ Steam store page</a>. Artwork and trademarks belong to their owners; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Starting target</h3><div class="stat">720p / 30</div><p class="muted">Baseline to validate, not a lock promise</p></section>
+      <section class="card"><h3>Starting preset</h3><div class="stat">Low</div><p class="muted">Restore visibility selectively</p></section>
+      <section class="card"><h3>Upscaling</h3><p><strong>Quality-oriented</strong></p><p class="muted">Use one supported scaling path</p></section>
+      <section class="card"><h3>Connection</h3><p><strong>Online required</strong></p><p class="muted">Separate network and render symptoms</p></section>
+    </div>
+
+    <div class="callout"><strong>Protect your inventory while testing:</strong> take a low-value loadout, repeat the same surface route, and compare a similar machine fight. Different weather, players, effects, and server conditions can turn two raids into very different workloads.</div>
+
+    <h2>Recommended ARC Raiders ROG Ally baseline</h2>
+    <table>
+      <thead><tr><th>Control</th><th>Start here</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>Operating Mode</td><td>Performance-class profile</td><td>Creates a repeatable first condition. Record the exact Armoury Crate SE mode and whether the Ally is on battery or connected directly to a compatible charger.</td></tr>
+        <tr><td>Control Mode</td><td>Gamepad</td><td>Steam lists full controller support. Gamepad mode reduces the chance of Desktop mode or a custom remap confusing prompts and controls.</td></tr>
+        <tr><td>Display mode / resolution</td><td>Fullscreen / 1280×720</td><td>Preserves the Ally panel’s 16:9 shape while reducing graphics load versus 1920×1080.</td></tr>
+        <tr><td>Display refresh</td><td>60Hz for the first profile</td><td>Keeps the first 30 FPS comparison simple. Record refresh rate before later VRR or higher-target tests.</td></tr>
+        <tr><td>Frame-rate cap</td><td>30 FPS</td><td>Sets a cautious base target for traversal and fights before attempting 40 or 60.</td></tr>
+        <tr><td>Graphics preset</td><td>Low</td><td>Establishes headroom first. Restore individual settings only after the repeatable route is acceptable.</td></tr>
+        <tr><td>Upscaling</td><td>Quality-oriented mode</td><td>Starts with the clearest supported reconstruction option. Move one step toward performance only if the same test still misses the cap.</td></tr>
+        <tr><td>Frame generation</td><td>Off for baseline</td><td>Exposes the underlying frame pacing and input response before generated frames are evaluated.</td></tr>
+        <tr><td>View distance</td><td>Medium after baseline passes</td><td>Distant silhouettes and terrain matter in an extraction game, making this a useful first setting to restore.</td></tr>
+        <tr><td>Textures</td><td>Low; test Medium later</td><td>The original Ally and Ally X do not have identical memory capacity. Raise textures only while watching for new hitching or shared-memory pressure.</td></tr>
+        <tr><td>Shadows</td><td>Low</td><td>Preserves frame-time headroom across wide outdoor scenes and moving combat.</td></tr>
+        <tr><td>Effects / post-processing</td><td>Low</td><td>Limits spikes and visual clutter during explosions, smoke, weather, and machine attacks.</td></tr>
+        <tr><td>Motion blur</td><td>Off</td><td>Makes camera motion and distant target tracking easier to judge during the test.</td></tr>
+        <tr><td>Driver overrides</td><td>Off or default initially</td><td>Avoid stacking driver scaling, sharpening, frame generation, and caps before the normal in-game path is understood.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Graphics labels and supported upscalers can change with game updates. Photograph the current menu and use the closest normal in-game option. Steam’s desktop minimum requirements provide context, not proof that any ROG Ally profile will hold a target in every raid.</p>
+
+    <h2>Run a repeatable raid-side test</h2>
+    <ol>
+      <li><strong>Finish stable updates.</strong> Complete the game, Steam, Windows, ASUS BIOS/firmware, AMD graphics driver, and Armoury Crate SE updates, then restart.</li>
+      <li><strong>Record the exact Ally.</strong> Note original Ally or Ally X, processor variant, game and driver versions, Operating Mode, charger state, memory allocation if changed, resolution, refresh, cap, and upscaler.</li>
+      <li><strong>Use a low-value loadout.</strong> Settings diagnosis should not turn normal iteration into an avoidable equipment loss.</li>
+      <li><strong>Apply one clean baseline.</strong> Select 720p, 30 FPS, Low, quality-oriented upscaling, Low effects and shadows, motion blur off, and frame generation off.</li>
+      <li><strong>Repeat one route.</strong> Traverse the same open area, rotate across the same skyline, and compare a similar machine encounter when conditions allow.</li>
+      <li><strong>Separate render and network symptoms.</strong> Frame-time spikes, packet loss, rubber-banding, and server delay need different fixes. Do not lower graphics to repair an unstable connection.</li>
+      <li><strong>Restore visibility deliberately.</strong> Try Medium view distance first, then textures. Make one change per run and roll it back if pacing or hitching worsens.</li>
+    </ol>
+
+    <h2>Three profiles worth comparing</h2>
+    <div class="grid cols3">
+      <section class="card"><span class="chip">Stable baseline</span><h3>720p / 30 FPS</h3><p>Low preset, quality-oriented upscaling, Low effects and shadows, motion blur off, and frame generation off. Restore view distance first after validation.</p></section>
+      <section class="card"><span class="chip">Response experiment</span><h3>720p / 40 FPS</h3><p>Keep expensive effects Low and change only the cap. Use a more performance-oriented upscaler only if needed, then reject the profile if fights remain uneven.</p></section>
+      <section class="card"><span class="chip">Clarity experiment</span><h3>900p or 1080p / 30</h3><p>Keep the same power mode and route. Test one resolution at a time and retain it only when distant readability improves enough to justify the added render load.</p></section>
+    </div>
+
+    <h2>Original ROG Ally versus Ally X</h2>
+    <div class="grid cols2">
+      <section class="card"><span class="chip">Original Ally</span><h3>Protect shared-memory headroom</h3><p>Steam currently lists 12GB RAM as the desktop minimum. On a handheld APU, system and graphics workloads share memory, so do not interpret that minimum as permission to maximize textures. Close background apps, begin at Low, and investigate new hitching after each texture or view-distance increase.</p></section>
+      <section class="card"><span class="chip">Ally X</span><h3>More headroom is not a free preset</h3><p>The Ally X has different memory and battery hardware, but the same repeatable workflow still matters. Do not copy an original-Ally power or memory profile blindly, and do not assume added headroom guarantees a 60 FPS fight or fixed runtime.</p></section>
+    </div>
+
+    <h2>Fix common ARC Raiders problems on ROG Ally</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Outdoor traversal misses the cap</td><td>Confirm 720p, Low, the same Operating Mode, and one frame cap</td><td>Move the in-game upscaler one step toward performance, then lower view distance and effects separately</td></tr>
+        <tr><td>Firefights feel uneven</td><td>Turn frame generation off and repeat a comparable encounter</td><td>Keep effects and shadows Low; compare 30 FPS before increasing device power</td></tr>
+        <tr><td>Distant targets look too soft</td><td>Return to quality-oriented upscaling and motion blur off</td><td>Raise view distance first or test 900p/30 as a separate profile</td></tr>
+        <tr><td>Hitching begins after texture changes</td><td>Restore Low textures and close background apps</td><td>Return custom memory allocation to a known stable value, restart, and retest before changing another control</td></tr>
+        <tr><td>Rubber-banding or delayed interactions</td><td>Check server status, network path, and background downloads</td><td>Compare a stable nearby Wi-Fi connection or Ethernet through a compatible dock; graphics changes cannot fix packet loss</td></tr>
+        <tr><td>Prompts or aim controls are wrong</td><td>Set Armoury Crate SE Control Mode to Gamepad</td><td>Restore the default layout and remove overlapping Steam Input or Command Center remaps</td></tr>
+        <tr><td>New crashes after an update</td><td>Restore Low and remove unofficial configuration edits</td><td>Verify game files, restart, and check current Embark, Steam, ASUS, and AMD notices</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Network, battery, and storage planning</h2>
+    <p>Steam describes ARC Raiders as an online PvP/co-op title and lists broadband internet in both minimum and recommended PC requirements. Pause competing downloads and use the <a href="/guides/handheld-gaming-ethernet-adapter-dock-checklist/">Ethernet adapter and dock checklist</a> when Wi-Fi makes diagnosis ambiguous. Steam’s requirements checked for this page do not state a storage amount, so this guide does not invent one; inspect the current install prompt and reserve patch headroom with the <a href="/calculators/storage-planner/">storage planner</a>.</p>
+    <p>This page does not invent battery runtime. Original Ally and Ally X battery capacities differ, while Operating Mode, brightness, radios, scene load, frame cap, battery health, and thermals all affect draw. Read your own total system power during the repeatable route and enter it in the <a href="/calculators/battery-estimator/">battery estimator</a>.</p>
+
+    <h2>Optional gear after the profile is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, model fit, seller support, recall status, warranty, and returns. No price, compatibility, performance, or latency claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+65w+usb+c+pd+charger" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers"><span class="chip">Sponsored search</span><h3>65W-class USB-C PD chargers</h3><p class="muted">Verify dedicated-port output, included cable rating, port-sharing behavior, warranty, and support for the exact Ally model.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+ethernet+usb+c+dock+65w" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks"><span class="chip">Sponsored search</span><h3>USB-C docks with Ethernet</h3><p class="muted">Compare Gigabit Ethernet, PD passthrough, cable reach, Ally/Ally X fit, display modes, and whether a charger is included.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+carrying+case+charger" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="cases"><span class="chip">Sponsored search</span><h3>Exact-model travel cases</h3><p class="muted">Check stick and trigger clearance, hard-shell protection, charger storage, dimensions, and explicit fit for original Ally or Ally X.</p></a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a>, follow the <a href="/guides/rog-ally-x-accessories-buying-checklist/">ROG Ally X accessory checklist</a>, or plan the setup with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on August 13, 2026. Steam’s live store data supplies the October 30, 2025 release date, current 12GB minimum and 16GB recommended desktop memory, listed processors and GPUs, DirectX 12 and broadband requirements, online PvP/co-op and cross-platform labels, full-controller-support label, developer/publisher identity, and official image. Embark Studios supplies the official game route; ASUS supplies original ROG Ally hardware context.</p>
+    <p>The settings are a conservative editorial test sequence informed by those official constraints and normal graphics/network diagnosis. Handheld Settings Lab did not personally benchmark the current game, Windows, graphics driver, BIOS, Armoury Crate SE, battery, thermals, or network route. No search-volume, fixed-runtime, temperature, latency, or guaranteed-frame-rate claim is made.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Return to the <a href="/rog-ally-settings/">ROG Ally settings hub</a>, compare the <a href="/legion-go-settings/arc-raiders/">Legion Go profile</a> and <a href="/steam-deck-settings/arc-raiders/">Steam Deck profile</a>, or use the <a href="/calculators/">battery, storage, and accessory calculators</a>.</p>
+  </article>
+</Base>
