@@ -1,0 +1,192 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/steam-deck-settings/forza-horizon-5/';
+const title = 'Forza Horizon 5 Steam Deck settings: Playable 40 FPS baseline — Handheld Settings Lab';
+const description = 'Tune Forza Horizon 5 on Steam Deck from a cautious 800p/40 FPS Low baseline, with Valve Playable notes, controller fixes, 110GB storage planning, and battery guidance.';
+const image = '/assets/games/forza-horizon-5-header.jpg';
+
+const sources = [
+  { label: 'Steam: Forza Horizon 5 requirements, features, and official media', url: 'https://store.steampowered.com/app/1551360/Forza_Horizon_5/' },
+  { label: 'Steam: current Steam Deck compatibility report for app 1551360', url: 'https://store.steampowered.com/saleaction/ajaxgetdeckappcompatibilityreport?nAppID=1551360' },
+  { label: 'Steam app-details API: current public product data for app 1551360', url: 'https://store.steampowered.com/api/appdetails?appids=1551360&cc=us&l=en' },
+  { label: 'Xbox: official Forza Horizon 5 product page', url: 'https://www.xbox.com/en-US/games/forza-horizon-5' },
+  { label: 'Valve: Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' }
+];
+
+const faqs = [
+  {
+    question: 'What Forza Horizon 5 settings should I use on Steam Deck?',
+    answer: 'Start at 1280×800, a 40 FPS cap, the Low preset, and a Quality-oriented temporal upscaling option if the current build offers one. Run the built-in benchmark twice, then repeat a busy festival route, wet road, and off-road event before raising textures or environment detail. This is an official-source-informed baseline, not a personally measured guarantee.'
+  },
+  {
+    question: 'Is Forza Horizon 5 Steam Deck Verified?',
+    answer: 'No. Valve’s current compatibility report places it in category 2, Playable. Valve reports matching controller glyphs, legible interface text, and a performant default configuration, but flags that the default controller configuration is not fully functional.'
+  },
+  {
+    question: 'Can Steam Deck run Forza Horizon 5 at 60 FPS?',
+    answer: 'Treat 60 FPS as an experiment rather than a promise. Start from 800p and Low, change only the cap, and validate traffic, festival crowds, rain, night driving, and off-road effects. Return to 40 or 30 FPS if the weakest repeatable route cannot hold the higher target consistently.'
+  },
+  {
+    question: 'Should I use 800p or 720p for Forza Horizon 5 on Steam Deck?',
+    answer: 'Start at native-shape 1280×800 for readable menus and a simple baseline. If a demanding route repeatedly misses the target after costly effects are reduced, compare 1280×720 as a separate profile and expect small letterbox bars because it is 16:9 rather than the Deck screen’s 16:10 shape.'
+  },
+  {
+    question: 'How much storage does Forza Horizon 5 need on Steam Deck?',
+    answer: 'Steam currently lists 110GB of available space. Leave additional room for updates, shader data, Steam’s update process, screenshots, and other games instead of filling the drive to exactly 110GB.'
+  },
+  {
+    question: 'Were these Steam Deck settings personally benchmarked?',
+    answer: 'No. Handheld Settings Lab did not personally benchmark the current game build, SteamOS version, compatibility layer, battery, thermals, route, race, or online session. The page provides a reproducible test sequence and makes no measured frame-rate or battery-runtime claim.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Forza Horizon 5 Steam Deck settings: Playable 40 FPS baseline',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-13',
+    dateModified: '2026-08-13',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Forza Horizon 5', 'Steam Deck', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Steam Deck settings', item: 'https://handheldsettings.com/steam-deck-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Forza Horizon 5 settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Steam Deck settings · Baseline published August 2026</span>
+    <h1>Forza Horizon 5 Steam Deck settings: start at 800p and 40 FPS</h1>
+    <p class="lede muted">Forza Horizon 5 is Steam Deck Playable rather than Verified. Valve reports a performant default configuration but flags incomplete default-controller behavior. This cautious workflow starts at 800p/40 on Low, uses the built-in benchmark for repeatability, and then checks traffic, weather, festival crowds, and off-road effects. It is official-source-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Forza Horizon 5 artwork with a red Mercedes-AMG One on a tropical road beside a beach and off-road vehicle" width="460" height="215" />
+      <figcaption class="media-credit">Official Forza Horizon 5 Steam store header image, saved locally from <a href="https://store.steampowered.com/app/1551360/Forza_Horizon_5/" target="_blank" rel="nofollow noopener">Xbox Game Studios’ Steam store page</a>. Artwork and trademarks belong to their owners; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Test target</h3><div class="stat">800p / 40</div><p class="muted">Cautious target, not a lock promise</p></section>
+      <section class="card"><h3>Compatibility</h3><p><strong>Deck Playable</strong></p><p class="muted">Valve report checked August 13, 2026</p></section>
+      <section class="card"><h3>Starting preset</h3><div class="stat">Low</div><p class="muted">Restore detail after validation</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">110GB</div><p class="muted">Current Steam requirement</p></section>
+    </div>
+
+    <div class="callout"><strong>Benchmark, then drive:</strong> the built-in benchmark gives you a repeatable comparison, but it cannot represent every race. Follow it with the same crowded festival pass, wet-road route, and off-road event before calling the profile stable.</div>
+
+    <h2>Recommended Forza Horizon 5 Steam Deck baseline</h2>
+    <table>
+      <thead><tr><th>Control</th><th>Start here</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>Compatibility tool</td><td>Valve default</td><td>Valve currently rates the game Playable and reports a performant default configuration. Test the supported path before forcing an older Proton build.</td></tr>
+        <tr><td>Screen mode / resolution</td><td>Fullscreen / 1280×800</td><td>Matches the Deck panel’s 16:10 shape and keeps menus readable while establishing the first profile.</td></tr>
+        <tr><td>Refresh / frame cap</td><td>40Hz / 40 FPS</td><td>Creates a responsive middle target with more headroom than an assumed 60 FPS lock.</td></tr>
+        <tr><td>Graphics preset</td><td>Low</td><td>Establishes a conservative diagnostic floor before restoring visual detail one setting at a time.</td></tr>
+        <tr><td>Dynamic optimization</td><td>Off for the first comparison</td><td>A fixed profile makes cause and effect easier to understand. Test dynamic behavior later as its own profile.</td></tr>
+        <tr><td>Upscaling / anti-aliasing</td><td>Quality-oriented temporal mode, if available</td><td>Begins with the clearest reconstruction option exposed by the current build. Use only one scaling path while diagnosing.</td></tr>
+        <tr><td>Textures</td><td>Medium after Low passes</td><td>Car and road detail matter; raise textures first while watching the memory indicator and new streaming hitches.</td></tr>
+        <tr><td>Anisotropic filtering</td><td>Medium or 8×</td><td>Improves road and ground clarity at angles without being the first control to cut during scene-load trouble.</td></tr>
+        <tr><td>Shadows / reflections</td><td>Low</td><td>Preserves headroom across changing sunlight, headlights, wet roads, bodywork, and dense roadside scenes.</td></tr>
+        <tr><td>World cars / environment geometry</td><td>Low</td><td>Traffic and festival areas can expose scene complexity that an empty open road does not.</td></tr>
+        <tr><td>Particles / deformable terrain</td><td>Low</td><td>Protects the target during dust, water spray, collisions, and off-road driving before sacrificing nearby texture clarity.</td></tr>
+        <tr><td>Motion blur</td><td>Preference; fixed during tests</td><td>Choose the look you prefer, but keep it unchanged while comparing frame pacing and reconstruction.</td></tr>
+        <tr><td>Steam Deck TDP limit</td><td>Off for the first test</td><td>Do not constrain device power until the graphics profile is repeatable in the weakest route.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Available labels, upscalers, presets, and dynamic-quality behavior can change with updates. Photograph the current menu, use the closest normal in-game option, and avoid combining an in-game scaler with an unexplained second scaling layer.</p>
+
+    <h2>Playable status: what Valve currently reports</h2>
+    <div class="grid cols2">
+      <section class="card">
+        <span class="chip">Needs attention</span>
+        <h3>Default controls are not fully functional</h3>
+        <p>Valve flags the default controller configuration. Test steering, braking, menu navigation, map controls, photo mode, rewind, and text entry before a long session. If an action is missing, inspect the official layout first, then map only that action instead of replacing the entire scheme blindly.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Reported working</span>
+        <h3>Glyphs, text, and default performance</h3>
+        <p>Valve reports matching controller glyphs, legible interface text, and a performant default configuration. Treat those as current compatibility observations—not a guarantee for every race, update, expansion, online mode, or user-created event.</p>
+      </section>
+    </div>
+
+    <h2>A repeatable benchmark and driving test</h2>
+    <ol>
+      <li><strong>Finish stable updates.</strong> Complete SteamOS, game, shader-data, and Steam client updates, then restart before tuning.</li>
+      <li><strong>Record the device state.</strong> Note the game version, SteamOS version, compatibility tool, LCD or OLED model, battery or charger state, resolution, refresh, cap, and upscaler.</li>
+      <li><strong>Test Valve’s default first.</strong> Run the built-in benchmark without a forced compatibility tool or custom launch command and save the result.</li>
+      <li><strong>Apply 800p/40 Low.</strong> Keep dynamic optimization off initially so each later change has a clear cause.</li>
+      <li><strong>Run the benchmark twice.</strong> Treat the first pass as warm-up and save the second result plus any memory or quality warning.</li>
+      <li><strong>Repeat a real route.</strong> Include traffic, a festival area, fast camera movement, wet pavement or night lighting when available, and an off-road event with dust or water.</li>
+      <li><strong>Separate one-time stutter from sustained misses.</strong> Repeat the route before editing; asset or shader activity on one pass differs from repeatable overload.</li>
+      <li><strong>Restore clarity one setting at a time.</strong> Try textures and anisotropic filtering before expensive reflections, geometry, or particle settings.</li>
+    </ol>
+
+    <h2>Choose 40, 30, or 60 FPS deliberately</h2>
+    <div class="grid cols3">
+      <section class="card"><span class="chip">Balanced baseline</span><h3>800p / 40 FPS</h3><p>Use this page’s starting profile for a responsive middle ground. Validate weather, traffic, festival scenes, and off-road effects before increasing quality.</p></section>
+      <section class="card"><span class="chip">Consistency priority</span><h3>800p / 30 FPS</h3><p>Use a 30 FPS cap when the same demanding scenes repeatedly miss 40, or when you plan to reduce device power only after the profile is stable.</p></section>
+      <section class="card"><span class="chip">Response experiment</span><h3>800p / 60 FPS test</h3><p>Start from Low and change only the cap. Keep it only if your weakest repeated route remains consistent enough for your standards.</p></section>
+    </div>
+
+    <h2>Fix common Forza Horizon 5 issues on Steam Deck</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Festival or city slowdown</td><td>Confirm 800p, Low, one 40 FPS cap, and low world-car, geometry, shadow, and reflection settings</td><td>Use one Quality/Balanced upscaler path, stop downloads, and repeat the same route</td></tr>
+        <tr><td>Off-road effects cause drops</td><td>Lower particles, deformable terrain, and environment geometry</td><td>Compare the same event and weather before reducing textures or abandoning the target</td></tr>
+        <tr><td>Memory warning or texture hitching</td><td>Return texture and environment texture quality to Low; check free storage</td><td>Close overlays, restart, rerun the benchmark, and raise one memory-heavy option at a time</td></tr>
+        <tr><td>Image looks too soft</td><td>Confirm only one scaling path and a Quality-oriented mode</td><td>Restore anisotropic filtering, then compare 720p or another mode without changing the cap</td></tr>
+        <tr><td>A controller action is missing</td><td>Open the current official layout and compare the missing command</td><td>Map only the absent action, test menu plus driving controls, and save a named local layout</td></tr>
+        <tr><td>Online or sign-in failure</td><td>Confirm network, Steam, and Xbox account state</td><td>Complete an online launch and sync before relying on the game away from home</td></tr>
+        <tr><td>Battery drains faster than planned</td><td>Confirm cap, brightness, Wi-Fi, downloads, and total system draw</td><td>Lower TDP gradually only after performance is stable; model observed draw instead of guessing runtime</td></tr>
+        <tr><td>Docked play performs worse</td><td>Retest on the Deck display with power connected directly</td><td>Check dock power and TV output separately; do not default to native 4K rendering</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, battery, online, and dock planning</h2>
+    <p>Steam currently lists <strong>110GB of available space</strong>, DirectX 12 and broadband requirements, full controller support, Steam Cloud, HDR, and cross-platform multiplayer. Leave extra capacity for updates, shader data, captures, and Steam’s update process rather than filling the drive to exactly 110GB. Check the current install dialog, then model the rest of your library with the <a href="/calculators/storage-planner/">storage planner</a>.</p>
+    <p>This page does not invent a Forza Horizon 5 battery-runtime range. Deck model, battery health, scene load, frame cap, brightness, radios, downloads, and thermals affect total draw. Read your own <em>total system draw</em> during the repeated route and enter it in the <a href="/calculators/battery-estimator/">battery estimator</a>. Compare the method and clearly labeled ranges in the <a href="/guides/steam-deck-battery-life-by-game/">Steam Deck battery-by-game guide</a>.</p>
+    <p>For travel, complete an online launch, account check, and save sync, then perform the <a href="/guides/handheld-pc-offline-mode-flight-checklist/">offline-mode checklist</a>. Establish the handheld profile before using the <a href="/guides/steam-deck-docked-tv-monitor-setup/">Steam Deck dock and TV guide</a>; a 4K desktop output does not mean the game should render internally at 4K.</p>
+
+    <h2>Optional gear after the profile is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, seller traceability, fit, warranty, recall status, and return terms. No price, performance, battery, or compatibility claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+microSD+card+a2+uhs+i" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microsd-cards"><span class="chip">Sponsored search</span><h3>A2 UHS-I microSD cards</h3><p class="muted">Compare genuine capacity, seller traceability, A2/U3 markings, warranty, and free room beyond the current 110GB requirement.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+45w+usb+c+pd+power+bank+under+100wh" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="power-banks"><span class="chip">Sponsored search</span><h3>45W USB-C PD power banks</h3><p class="muted">Verify single-port PD output, printed watt-hours, cable rating, recall status, weight, and current airline rules.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+usb+c+dock+45w+hdmi+ethernet" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks"><span class="chip">Sponsored search</span><h3>Steam Deck USB-C docks</h3><p class="muted">Check PD passthrough, display modes, cable reach, physical clearance, Ethernet, and support for the exact Deck model.</p></a>
+    </div>
+    <p>Read the <a href="/guides/steam-deck-microsd-speed-compatibility/">Steam Deck microSD compatibility guide</a>, check the <a href="/guides/usb-c-power-bank-wattage-handheld-gaming/">power-bank and airline guide</a>, or browse the <a href="/gear/">spec-based gear library</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on August 13, 2026. Steam’s live store data supplies the November 2021 PC release, 110GB storage requirement, desktop requirements, online and controller features, developer/publisher identity, and official image. Valve’s compatibility endpoint currently resolves the game as category 2, Playable; it flags incomplete default-controller functionality while reporting matching controller glyphs, legible text, and a performant default configuration. Valve’s technical page supplies Steam Deck display context, and Xbox supplies the official game route.</p>
+    <p>The settings above are a conservative editorial test sequence informed by those official constraints, the built-in benchmark, and normal graphics-diagnosis practice. Handheld Settings Lab did not personally benchmark the current game, SteamOS, compatibility layer, battery, thermals, route, race, expansion, or online session. No search-volume, fixed-runtime, or guaranteed-frame-rate claim is made.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Return to the <a href="/steam-deck-settings/">Steam Deck settings hub</a>, compare the <a href="/rog-ally-settings/forza-horizon-5/">ROG Ally profile</a> and <a href="/legion-go-settings/forza-horizon-5/">Legion Go profile</a>, or use the <a href="/calculators/">battery, storage, and accessory calculators</a>.</p>
+  </article>
+</Base>
