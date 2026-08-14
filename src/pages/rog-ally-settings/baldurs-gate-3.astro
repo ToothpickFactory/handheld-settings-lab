@@ -1,0 +1,185 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/rog-ally-settings/baldurs-gate-3/';
+const title = "Baldur's Gate 3 ROG Ally settings: ASUS 1080p profile — Handheld Settings Lab";
+const description = "Tune Baldur's Gate 3 on the original ROG Ally Z1 Extreme from ASUS's 1080p, 25W Turbo, FSR 2 Quality profile, with Act 3 testing and 150GB SSD planning.";
+const image = '/assets/games/baldurs-gate-3-header.jpg';
+
+const sources = [
+  { label: "ASUS ROG: Baldur's Gate 3 ROG Ally performance guide and tested settings", url: 'https://rog.asus.com/articles/rog-ally/baldurs-gate-3-on-the-rog-ally-performance-guide--best-settings/' },
+  { label: "Steam: Baldur's Gate 3 requirements, features, controller support, and official media", url: 'https://store.steampowered.com/app/1086940/Baldurs_Gate_3/' },
+  { label: 'Steam app-details API: current public product data for app 1086940', url: 'https://store.steampowered.com/api/appdetails?appids=1086940&cc=us&l=en' },
+  { label: "Larian Studios: official Baldur's Gate 3 site", url: 'https://baldursgate3.game/' },
+  { label: 'ASUS: original ROG Ally (2023) specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-2023/spec/' }
+];
+
+const faqs = [
+  {
+    question: "What Baldur's Gate 3 settings should I use on ROG Ally?",
+    answer: "For the original Z1 Extreme Ally, ASUS's published profile starts at 1920×1080, DirectX 11, 25W Turbo, and FSR 2.2 Quality, with Low model, instance distance, fog, animation detail, and dynamic crowds off. ASUS paired selected higher settings with a 6GB VRAM allocation. Treat it as an attributed test profile to revalidate, not a guarantee for every patch or Ally model."
+  },
+  {
+    question: "Can ROG Ally run Baldur's Gate 3 at 1080p?",
+    answer: "ASUS reports testing the original Z1 Extreme Ally at 1080p with FSR Quality and 25W Turbo. Its article says early-game performance was around 45 FPS at the low end and just under 60 FPS in combat, while later stages rarely fell below 30 FPS with its settings. Those are ASUS's results, not Handheld Settings Lab measurements, and ASUS warns that scenes, drivers, patches, software, and plugged-in state affect results."
+  },
+  {
+    question: "Should I use DirectX 11 or Vulkan for Baldur's Gate 3 on ROG Ally?",
+    answer: 'ASUS recommends DirectX 11 for its original ROG Ally profile. Use that as the first controlled baseline. If you compare Vulkan, change only the graphics API, restart when required, and replay the same demanding route before deciding.'
+  },
+  {
+    question: "How much VRAM should I allocate for Baldur's Gate 3 on ROG Ally?",
+    answer: "ASUS says Medium textures suit the Ally's default settings and reports using Ultra textures with a 6GB VRAM allocation in its tested profile. Start with the current default or Medium textures if you do not want to change memory allocation. Treat 6GB plus Ultra as ASUS's documented configuration, not a universal requirement."
+  },
+  {
+    question: "How much storage does Baldur's Gate 3 need on ROG Ally?",
+    answer: 'Steam currently lists 150GB of available space and says an SSD is required. Leave additional free room for patches, shader data, saves, recordings, and Windows temporary files rather than filling the drive to exactly 150GB.'
+  },
+  {
+    question: "Were these Baldur's Gate 3 ROG Ally settings personally benchmarked?",
+    answer: "No. The performance figures and high-fidelity profile are explicitly attributed to ASUS's test of the original Z1 Extreme Ally. Handheld Settings Lab checked those public results and the official game data, but did not personally benchmark the current game, driver, BIOS, Armoury Crate build, battery, thermals, or campaign save."
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: "Baldur's Gate 3 ROG Ally settings: ASUS 1080p profile",
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-14',
+    dateModified: '2026-08-14',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ["Baldur's Gate 3", 'ASUS ROG Ally', 'AMD Ryzen Z1 Extreme', 'game settings', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'ROG Ally settings', item: 'https://handheldsettings.com/rog-ally-settings/' },
+      { '@type': 'ListItem', position: 3, name: "Baldur's Gate 3 settings", item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">ROG Ally settings · Official ASUS results separated from our guidance</span>
+    <h1>Baldur's Gate 3 ROG Ally settings: start with ASUS's 1080p profile</h1>
+    <p class="lede muted">ASUS published a detailed Baldur's Gate 3 profile for the original Ryzen Z1 Extreme ROG Ally: 1080p, 25W Turbo, DirectX 11, and FSR 2 Quality, with visual quality spent selectively. This page preserves that useful first-party baseline, shows exactly what ASUS measured, and adds a repeatable Act 3 validation plan. We did not personally benchmark it.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Baldur's Gate 3 Steam header artwork showing the main adventuring party" width="460" height="215" />
+      <figcaption class="media-credit">Official Baldur's Gate 3 Steam store header image, saved locally from <a href="https://store.steampowered.com/app/1086940/Baldurs_Gate_3/" target="_blank" rel="nofollow noopener">Larian Studios' Steam store page</a>. Artwork and trademarks belong to their owners; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>ASUS test mode</h3><div class="stat">1080p / 25W</div><p class="muted">Original Z1 Extreme Ally in Turbo</p></section>
+      <section class="card"><h3>Graphics API</h3><div class="stat">DX11</div><p class="muted">ASUS's preferred API for this profile</p></section>
+      <section class="card"><h3>Upscaling</h3><p><strong>FSR 2.2 Quality</strong></p><p class="muted">As named in the ASUS guide</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">150GB</div><p class="muted">Current Steam requirement; SSD required</p></section>
+    </div>
+
+    <div class="callout"><strong>What ASUS actually reported:</strong> at 1080p, FSR Quality, and 25W Turbo on a Z1 Extreme Ally, ASUS says the early game was around 45 FPS on the low end and just under 60 FPS during combat; later stages rarely dipped below 30 FPS with its profile. ASUS also warns that the scene, drivers, software, patches, and plugged-in state change results. These are attributed ASUS measurements—not our benchmark and not a fixed-FPS promise.</div>
+
+    <h2>ASUS's Baldur's Gate 3 ROG Ally settings</h2>
+    <table>
+      <thead><tr><th>Control</th><th>ASUS profile</th><th>How to use it safely</th></tr></thead>
+      <tbody>
+        <tr><td>Ally model / operating mode</td><td>Original Z1 Extreme / 25W Turbo</td><td>Do not transfer the measured result to a Z1, Ally X, or a different power profile without retesting.</td></tr>
+        <tr><td>Resolution</td><td>1920×1080</td><td>Native panel output on the original Ally; FSR lowers the internal rendering burden.</td></tr>
+        <tr><td>Graphics API</td><td>DirectX 11</td><td>Use DX11 for the first test so your baseline matches ASUS's published configuration.</td></tr>
+        <tr><td>AMD FSR 2.2</td><td>Quality</td><td>Keep one scaling system active while comparing image clarity and performance.</td></tr>
+        <tr><td>Model quality</td><td>Low</td><td>ASUS identifies this as a meaningful performance control, especially for distant geometry.</td></tr>
+        <tr><td>Shadow quality</td><td>Medium</td><td>ASUS retains a visible shadow upgrade without using the higher-cost levels.</td></tr>
+        <tr><td>Cloud quality</td><td>High</td><td>Lower it only after the same cloud-heavy route demonstrates a useful gain.</td></tr>
+        <tr><td>Texture quality</td><td>Ultra with ASUS's 6GB VRAM allocation; Medium at default</td><td>Match texture quality to the memory allocation you actually use; do not copy Ultra in isolation.</td></tr>
+        <tr><td>Texture filtering</td><td>Anisotropic ×4</td><td>Retains surface clarity at angles without jumping to the maximum setting.</td></tr>
+        <tr><td>Instance distance</td><td>Low</td><td>Protects headroom when geometry and CPU load increase.</td></tr>
+        <tr><td>Fog quality</td><td>Low</td><td>Reduces volumetric cost on the compact display.</td></tr>
+        <tr><td>Detail distance</td><td>High</td><td>One of the quality settings ASUS chose to preserve.</td></tr>
+        <tr><td>Animation level of detail</td><td>Low</td><td>Targets CPU pressure in busy areas such as Act 3.</td></tr>
+        <tr><td>Ambient occlusion</td><td>On</td><td>Preserves contact shading and scene depth.</td></tr>
+        <tr><td>Depth of field / quality</td><td>Circular / Quarter</td><td>ASUS keeps the effect while selecting the lower quality level.</td></tr>
+        <tr><td>God rays / bloom</td><td>On / On</td><td>Preference effects retained in the official profile; disable only with an A/B test.</td></tr>
+        <tr><td>Subsurface scattering</td><td>Off</td><td>ASUS trades this subtle effect for headroom.</td></tr>
+        <tr><td>Slow HDD mode</td><td>Off</td><td>The Ally uses an NVMe SSD; this is not the profile's storage remedy.</td></tr>
+        <tr><td>Dynamic crowds</td><td>Off</td><td>ASUS calls this necessary for reasonable Act 3 frame rates in its test.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">The names above are transcribed from ASUS's public article, checked August 14, 2026. Menus, FSR versions, and performance can change after a game patch. Photograph the current menu before changing it and use the nearest normal option if wording changes.</p>
+
+    <h2>Validate the profile in Act 3, not only the opening area</h2>
+    <ol>
+      <li><strong>Finish updates first.</strong> Complete the game, Windows, MyASUS, Armoury Crate SE, BIOS, and graphics-driver updates, then restart.</li>
+      <li><strong>Record the exact Ally.</strong> Note Z1 or Z1 Extreme, original Ally or Ally X, BIOS, driver, Armoury Crate version, VRAM allocation, power mode, charger state, resolution, and game patch.</li>
+      <li><strong>Match ASUS before modifying ASUS.</strong> On an original Z1 Extreme Ally, start with 1080p, 25W Turbo, DX11, FSR Quality, and the published controls above.</li>
+      <li><strong>Use two repeatable routes.</strong> Compare a quiet early-game path with the busiest settlement, crowd, or effects-heavy encounter available in your own campaign.</li>
+      <li><strong>Repeat camera and conversation actions.</strong> Walk the same route, rotate at the same landmarks, enter dialogue, open inventory, and complete a representative combat round.</li>
+      <li><strong>Separate brief hitches from sustained misses.</strong> Repeat once before changing settings; first-pass streaming behavior is not always persistent overload.</li>
+      <li><strong>Change one control at a time.</strong> If the busy route misses your chosen cap, lower cloud, shadow, detail distance, or FSR mode one by one rather than selecting an unexplained preset.</li>
+      <li><strong>Retest after major patches.</strong> Keep the photographed baseline and save route so later comparisons use evidence instead of memory.</li>
+    </ol>
+
+    <h2>A cooler 720p or 900p baseline</h2>
+    <p>ASUS's published measurements belong to a 25W, 1080p Z1 Extreme test. If your priority is battery use, lower fan demand, or a steadier cap away from the charger, create a separate profile rather than silently attaching those goals to ASUS's result.</p>
+    <div class="grid cols3">
+      <section class="card"><span class="chip">Step 1</span><h3>Keep the visual controls</h3><p>Start from ASUS's individual settings so only output resolution and power policy change.</p></section>
+      <section class="card"><span class="chip">Step 2</span><h3>Try 1600×900 or 1280×720</h3><p>Pick one 16:9 mode, keep FSR Quality first, and rerun the same busy route. Do not call it faster until the repeatable test shows it.</p></section>
+      <section class="card"><span class="chip">Step 3</span><h3>Reduce power last</h3><p>After the cap is stable, lower the Ally operating mode one step at a time. Stop at the first profile that harms the weakest scene.</p></section>
+    </div>
+    <p>This is our conservative tuning sequence, not an ASUS-measured 720p or 900p result. Battery runtime depends on total system draw, brightness, radios, scene, cap, battery health, and thermals. Enter your own observed draw in the <a href="/calculators/battery-estimator/">battery estimator</a> instead of using an invented hours claim.</p>
+
+    <h2>Common ROG Ally fixes for Baldur's Gate 3</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Act 3 falls below the chosen cap</td><td>Confirm dynamic crowds off, animation LOD Low, instance distance Low, DX11, and the recorded power mode</td><td>Pause background work, compare lower output resolution on the same route, and avoid raising CPU-heavy controls</td></tr>
+        <tr><td>Textures hitch or fail to settle</td><td>Match texture quality to current VRAM allocation and check SSD free space</td><td>Return to Medium textures, restart, verify files, and repeat before changing memory allocation</td></tr>
+        <tr><td>Image looks soft</td><td>Confirm one FSR path and 1080p output</td><td>Keep FSR Quality, restore ×4 filtering, and inspect a still scene before adding driver sharpening</td></tr>
+        <tr><td>Frame pacing feels uneven</td><td>Check for overlapping in-game, Armoury Crate, driver, and overlay limits</td><td>Use one cap, one overlay for diagnosis, and replay the same route without recording</td></tr>
+        <tr><td>Controller prompts or input are wrong</td><td>Set Control Mode to Gamepad and restore the default game layout</td><td>Remove overlapping Steam Input or third-party remaps before building a custom profile</td></tr>
+        <tr><td>Performance changed after an update</td><td>Restart and restore the photographed baseline</td><td>Confirm game, BIOS, driver, Armoury Crate, power, and VRAM settings; verify files before applying unofficial edits</td></tr>
+        <tr><td>Docked play is slower</td><td>Retest directly on the handheld screen with the charger connected</td><td>Check dock power and TV output resolution separately; do not render internally at 4K by default</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, co-op, and dock planning</h2>
+    <p>Steam currently lists <strong>150GB of available space</strong>, an SSD requirement, DirectX 11, 8GB minimum memory, multiplayer, online and LAN co-op, cross-platform multiplayer, Steam Cloud, and full controller support. Leave meaningful free space beyond 150GB for patches, saves, shader data, recordings, and Windows temporary files. Use the <a href="/calculators/storage-planner/">storage planner</a>, then read the <a href="/guides/rog-ally-ssd-size-compatibility-upgrade/">ROG Ally SSD compatibility guide</a> before buying a drive.</p>
+    <p>For co-op or offline travel, launch the exact save and account configuration before leaving. Third-party login, update, network, and cloud-save behavior can differ from the base game's controller support. Follow the <a href="/guides/handheld-pc-offline-mode-flight-checklist/">offline-mode checklist</a>.</p>
+    <p>Stabilize the handheld profile before moving to a TV. Then use the <a href="/guides/rog-ally-dock-tv-monitor-setup/">ROG Ally dock and TV guide</a>. A 4K desktop signal does not mean Baldur's Gate 3 should render internally at 4K.</p>
+
+    <h2>Optional gear after the profile is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, fit, seller traceability, warranty, and returns. No price, compatibility, performance, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+ssd+upgrade+2230" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="ssds"><span class="chip">Sponsored search</span><h3>Original ROG Ally 2230 SSDs</h3><p class="muted">Verify original Ally form factor, capacity, interface, thermal fit, seller, recovery plan, and warranty before opening the shell.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+65w+usb+c+pd+charger" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers"><span class="chip">Sponsored search</span><h3>65W-class USB-C PD chargers</h3><p class="muted">Check dedicated-port output, cable rating, port-sharing behavior, seller traceability, warranty, and exact-device support.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+usb+c+dock+65w+hdmi+ethernet" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks"><span class="chip">Sponsored search</span><h3>ROG Ally USB-C docks</h3><p class="muted">Compare PD passthrough, display modes, Ethernet, host-cable reach, case clearance, and whether an adequate charger is included.</p></a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a>, follow the <a href="/guides/rog-ally-x-accessories-buying-checklist/">ROG Ally X accessory checklist</a> when that is your exact model, or set a limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on August 14, 2026. ASUS's official ROG article, originally published October 23, 2023, supplies the original Z1 Extreme Ally test conditions, attributed performance observations, recommended controls, and warning that scenes, drivers, software, patches, and plugged-in state affect results. Steam's live store page and app-details API supplied the August 3, 2023 release date, 150GB SSD requirement, PC specifications, multiplayer/co-op and controller labels, Larian identity, and official image. ASUS's product page supplies original Ally hardware context; Larian supplies the official game site.</p>
+    <p>Handheld Settings Lab did not rerun ASUS's test. The lower-resolution workflow and troubleshooting order are cautious editorial guidance for creating a controlled comparison, not measured results. No search-volume, fixed-runtime, temperature, or guaranteed-frame-rate claim is made.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Return to the <a href="/rog-ally-settings/">ROG Ally settings hub</a>, compare the <a href="/steam-deck-settings/baldurs-gate-3/">Steam Deck</a> and <a href="/legion-go-settings/baldurs-gate-3/">Legion Go</a> baselines, or use the <a href="/calculators/">battery, storage, and accessory calculators</a> with your own observations.</p>
+  </article>
+</Base>
