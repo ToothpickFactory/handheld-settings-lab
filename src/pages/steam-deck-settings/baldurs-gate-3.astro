@@ -1,0 +1,180 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/steam-deck-settings/baldurs-gate-3/';
+const title = "Baldur's Gate 3 Steam Deck settings: verified 30 FPS baseline — Handheld Settings Lab";
+const description = "Tune Baldur's Gate 3 on Steam Deck from a cautious 800p/30 FPS Low baseline, with FSR 2 guidance, dense-area tests, Verified status context, and 150GB SSD planning.";
+const image = '/assets/games/baldurs-gate-3-header.jpg';
+
+const sources = [
+  { label: "Steam: Baldur's Gate 3 requirements, features, Deck rating, and official media", url: 'https://store.steampowered.com/app/1086940/Baldurs_Gate_3/' },
+  { label: 'Steam Deck compatibility report: Valve test results for app 1086940', url: 'https://store.steampowered.com/saleaction/ajaxgetdeckappcompatibilityreport?nAppID=1086940' },
+  { label: 'Steam app-details API: current public product data for app 1086940', url: 'https://store.steampowered.com/api/appdetails?appids=1086940&cc=us&l=en' },
+  { label: "Larian Studios: official Baldur's Gate 3 site", url: 'https://baldursgate3.game/' },
+  { label: 'Valve: official Steam Deck Verified program explanation', url: 'https://www.steamdeck.com/en/verified' }
+];
+
+const faqs = [
+  {
+    question: "What Baldur's Gate 3 settings should I use on Steam Deck?",
+    answer: 'Start at 1280×800, 30 FPS, the Low preset, and FSR 2 Quality. Keep dynamic crowds off and lower shadows, fog, clouds, instance distance, and detail distance first. Validate a populated late-game save, not only the opening area. This is an official-source-informed test baseline, not a personally measured guarantee.'
+  },
+  {
+    question: "Is Baldur's Gate 3 Steam Deck Verified?",
+    answer: "Yes. Valve's live compatibility report currently resolves Baldur's Gate 3 as category 3, Verified, and says the default controller configuration, glyphs, interface text, and default performance meet its checks. Verified is a compatibility classification, not a promise that every campaign area holds one frame rate."
+  },
+  {
+    question: "Can Steam Deck run Baldur's Gate 3 at 30 FPS?",
+    answer: 'Use 30 FPS as a target to validate rather than a guaranteed lock. Dense settlements, crowds, combat, patches, background downloads, heat, and the specific Deck can change performance. A profile that passes a quiet early area still needs a busy-area test.'
+  },
+  {
+    question: "Should I use FSR 2 in Baldur's Gate 3 on Steam Deck?",
+    answer: 'FSR 2 Quality is a clarity-first starting point at 800p. Try Balanced only when the same demanding route still misses the cap after expensive settings are reduced. Do not stack in-game FSR with another scaling method during the baseline comparison.'
+  },
+  {
+    question: "How much storage does Baldur's Gate 3 need on Steam Deck?",
+    answer: 'Steam currently lists 150GB of available space and requires an SSD for the Windows PC specification. Leave extra free room for updates, shader data, saves, screenshots, and SteamOS maintenance instead of filling internal storage to exactly 150GB.'
+  },
+  {
+    question: "Were these Baldur's Gate 3 Steam Deck settings personally benchmarked?",
+    answer: 'No. Handheld Settings Lab did not personally benchmark the current game build, SteamOS version, Proton build, firmware, battery, thermals, campaign area, or multiplayer session. This page supplies a repeatable official-source-informed baseline and makes no measured frame-rate or runtime claim.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: "Baldur's Gate 3 Steam Deck settings: Verified 30 FPS baseline",
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-14',
+    dateModified: '2026-08-14',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ["Baldur's Gate 3", 'Valve Steam Deck', 'Steam Deck Verified', 'game settings', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Steam Deck settings', item: 'https://handheldsettings.com/steam-deck-settings/' },
+      { '@type': 'ListItem', position: 3, name: "Baldur's Gate 3 settings", item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Steam Deck settings · Baseline published August 2026</span>
+    <h1>Baldur's Gate 3 Steam Deck settings: start at 800p and 30 FPS</h1>
+    <p class="lede muted">Baldur's Gate 3 is currently Steam Deck Verified, but that badge is not a fixed-FPS promise for every campaign area. This workflow starts with a cautious 800p/30 Low profile, then tests a populated save before restoring image quality. It is official-source-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Baldur's Gate 3 Steam header artwork showing the main adventuring party" width="460" height="215" />
+      <figcaption class="media-credit">Official Baldur's Gate 3 Steam store header image, saved locally from <a href="https://store.steampowered.com/app/1086940/Baldurs_Gate_3/" target="_blank" rel="nofollow noopener">Larian Studios' Steam store page</a>. Artwork and trademarks belong to their owners; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Test target</h3><div class="stat">800p / 30</div><p class="muted">Target to validate, not a lock guarantee</p></section>
+      <section class="card"><h3>Valve rating</h3><div class="stat">Verified</div><p class="muted">Compatibility label, not an FPS promise</p></section>
+      <section class="card"><h3>Upscaling</h3><p><strong>FSR 2 Quality</strong></p><p class="muted">Balanced only after a repeatable test</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">150GB</div><p class="muted">Current Steam PC requirement</p></section>
+    </div>
+
+    <div class="callout"><strong>Test beyond the opening area:</strong> quiet interiors and early wilderness do not represent populated settlements, layered spell effects, multiple party members, NPC simulation, and background streaming. Use the busiest representative save available before calling a profile stable.</div>
+
+    <h2>Recommended Baldur's Gate 3 Steam Deck baseline</h2>
+    <table>
+      <thead><tr><th>Control</th><th>Start here</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>SteamOS performance profile</td><td>Default power first</td><td>Establishes a clean baseline before applying a manual TDP limit. Record LCD or OLED model, charger state, SteamOS, Proton, and game version.</td></tr>
+        <tr><td>Display resolution</td><td>1280×800</td><td>Uses the Deck display's native 16:10 output shape while FSR handles the internal rendering workload.</td></tr>
+        <tr><td>Refresh rate / frame cap</td><td>60Hz / 30 FPS</td><td>Creates a simple frame-pacing relationship and a cautious target for dense areas.</td></tr>
+        <tr><td>Graphics preset</td><td>Low</td><td>Provides a diagnostic floor before character and texture clarity are restored selectively.</td></tr>
+        <tr><td>AMD FSR 2</td><td>Quality</td><td>Starts with the clearer reconstruction mode. Compare Balanced only on the same route if Quality still misses the target.</td></tr>
+        <tr><td>Model / texture quality</td><td>Medium after baseline passes</td><td>Character readability matters in an RPG. Raise these before expensive atmosphere controls while watching for hitching.</td></tr>
+        <tr><td>Texture filtering</td><td>8×</td><td>Preserves surface clarity at angles; validate the setting rather than assuming its cost is zero.</td></tr>
+        <tr><td>Shadow / cloud / fog quality</td><td>Low</td><td>Protects headroom in layered exterior scenes and effect-heavy fights.</td></tr>
+        <tr><td>Instance distance / detail distance</td><td>Low</td><td>Reduces distant scene complexity before sacrificing nearby interface or character clarity.</td></tr>
+        <tr><td>Dynamic crowds</td><td>Off</td><td>Creates a conservative starting point for populated areas where simulation load can differ from quiet exploration.</td></tr>
+        <tr><td>Depth of field / god rays / bloom</td><td>Off for comparison</td><td>Makes image reconstruction and camera motion easier to inspect. Restore later by preference.</td></tr>
+        <tr><td>SteamOS scaling filter</td><td>Linear / default</td><td>Avoids stacking a second sharpening or scaling path over in-game FSR during diagnosis.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Menu labels and available options can change with patches. Photograph the current settings screen and use the closest normal in-game option. Do not copy an old preset without retesting the current game, SteamOS, and Proton versions.</p>
+
+    <h2>What Steam Deck Verified does—and does not—mean</h2>
+    <p>Valve's live compatibility report currently gives app 1086940 resolved category 3, Verified. Its recorded checks say the default controller configuration is fully functional, controller glyphs match the Deck, interface text is legible, and the default configuration is performant. The report also notes that an external controller is not supported for the primary player.</p>
+    <p>Valve describes Verified as a compatibility-review result. It does not publish a guaranteed frame rate for every save, patch, crowd, battle, or thermal condition. Keep the badge and your performance test separate: compatibility can pass while one demanding campaign area still needs a lower setting or cap.</p>
+
+    <h2>Build a repeatable campaign test</h2>
+    <ol>
+      <li><strong>Finish updates first.</strong> Complete the game, SteamOS, firmware, and compatibility-tool updates, then restart the Deck.</li>
+      <li><strong>Record the test state.</strong> Note LCD or OLED, game version, SteamOS, Proton selection, charger state, resolution, cap, FSR mode, and any manual TDP limit.</li>
+      <li><strong>Use two saves when possible.</strong> Compare a quiet exploration route with a populated settlement or effects-heavy fight.</li>
+      <li><strong>Apply one clean baseline.</strong> Set 800p output, 30 FPS, Low, FSR 2 Quality, low atmosphere and distance controls, and dynamic crowds off.</li>
+      <li><strong>Repeat the route.</strong> Walk the same path, rotate at the same landmarks, open inventory, enter conversation, and run a representative combat round.</li>
+      <li><strong>Separate brief hitches from sustained misses.</strong> Repeat once before changing settings; first-pass asset or shader behavior is not always persistent overload.</li>
+      <li><strong>Restore clarity one control at a time.</strong> Raise models, textures, then filtering. Revert the first change that harms the weakest scene.</li>
+      <li><strong>Retest after major patches.</strong> Preserve the baseline so the same save and route can reveal real changes.</li>
+    </ol>
+
+    <h2>Diagnose the limit instead of lowering everything</h2>
+    <div class="grid cols3">
+      <section class="card"><span class="chip">Graphics load</span><h3>Resolution-sensitive slowdown</h3><p>If FSR Balanced or lower fog and shadows materially improve the same scene, graphics load is likely part of the limit. Keep 800p output and restore visual controls carefully.</p></section>
+      <section class="card"><span class="chip">Crowd / simulation load</span><h3>Busy areas remain slow</h3><p>If quiet scenes pass but crowds remain weak after resolution cuts, keep dynamic crowds off, close background work, and recognize that image-quality cuts may not solve the whole limit.</p></section>
+      <section class="card"><span class="chip">Streaming / storage</span><h3>Traversal hitches</h3><p>Restore Low, confirm meaningful internal-drive free space, verify files, restart, and repeat the route before changing textures or compatibility tools.</p></section>
+    </div>
+
+    <h2>Common Steam Deck fixes for Baldur's Gate 3</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Populated area misses 30 FPS</td><td>Confirm 800p, Low, FSR 2 Quality, dynamic crowds off, and low distance/effects</td><td>Compare FSR Balanced, pause downloads, remove a manual TDP cap, and rerun the same route</td></tr>
+        <tr><td>Image looks too soft</td><td>Confirm only in-game FSR is scaling</td><td>Return to FSR 2 Quality and restore texture filtering before changing output resolution</td></tr>
+        <tr><td>Camera motion feels uneven</td><td>Confirm one 30 FPS limiter and 60Hz refresh</td><td>Remove overlapping game and SteamOS caps, then repeat without performance overlays or recording</td></tr>
+        <tr><td>Textures load slowly or traversal hitches</td><td>Restore Low textures/distance and check free storage</td><td>Restart, verify game files, and repeat the same route before changing Proton</td></tr>
+        <tr><td>Prompts or controls are wrong</td><td>Restore the official/default Steam Input layout</td><td>Remove overlapping community remaps and test built-in controls before rebuilding custom bindings</td></tr>
+        <tr><td>External controller cannot control player one</td><td>Review Valve's current compatibility note</td><td>Test the Deck controls as primary input and recheck after game or Steam Input updates</td></tr>
+        <tr><td>Performance changed after a patch</td><td>Restart and restore the photographed baseline</td><td>Confirm game, SteamOS, and Proton versions; verify files before applying unofficial configuration edits</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, battery, co-op, and dock planning</h2>
+    <p>Steam currently lists <strong>150GB of available space</strong>, an SSD requirement for its Windows PC specification, DirectX 11, 8GB minimum memory, multiplayer, online and LAN co-op, cross-platform multiplayer, Steam Cloud, and full controller support. Leave room beyond 150GB for updates, shader data, saves, screenshots, and system maintenance. Use the <a href="/calculators/storage-planner/">storage planner</a>, then compare internal and removable storage in the <a href="/guides/microsd-vs-ssd-handheld-pc/">microSD versus SSD guide</a>.</p>
+    <p>This page does not invent battery runtime. LCD/OLED model, brightness, radios, cap, scene load, battery health, thermals, and manual power limits all affect draw. Read your own repeatable-session power use and enter it in the <a href="/calculators/battery-estimator/">battery estimator</a>. Before offline travel, launch the intended save and follow the <a href="/guides/handheld-pc-offline-mode-flight-checklist/">offline-mode checklist</a>.</p>
+    <p>Establish the handheld profile before moving to a TV. Then follow the <a href="/guides/steam-deck-docked-tv-monitor-setup/">Steam Deck docked setup guide</a>. A 4K desktop signal does not mean the game should render internally at 4K.</p>
+
+    <h2>Optional gear after the profile is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, fit, seller traceability, warranty, and returns. No price, compatibility, performance, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+1tb+micro+sd+a2+u3" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microsd"><span class="chip">Sponsored search</span><h3>A2/U3 microSD storage</h3><p class="muted">Verify capacity, seller traceability, return terms, and card authenticity; internal storage still gives the simplest large-install baseline.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+45w+usb+c+pd+charger" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers"><span class="chip">Sponsored search</span><h3>45W-class USB-C PD chargers</h3><p class="muted">Check dedicated-port USB-C PD output, cable rating, port-sharing behavior, warranty, and explicit Steam Deck support.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+dock+hdmi+ethernet+45w" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks"><span class="chip">Sponsored search</span><h3>Steam Deck USB-C docks</h3><p class="muted">Compare PD passthrough, HDMI modes, Ethernet, cable reach, case clearance, firmware support, and whether a charger is included.</p></a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a>, use the <a href="/guides/steam-deck-oled-first-week-accessories/">Steam Deck OLED accessory checklist</a>, or set a limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on August 14, 2026. Steam's live app-details data supplied the August 3, 2023 release date, 150GB requirement, SSD note, PC specifications, multiplayer/co-op and controller labels, Larian identity, and official image. Valve's live compatibility endpoint supplied category 3 Verified status and the individual controller, glyph, text, default-performance, and external-controller notes. Valve's Verified page explains the program; Larian supplies the official game site.</p>
+    <p>The settings are a conservative editorial test sequence informed by those official constraints and ordinary graphics diagnosis. Handheld Settings Lab did not personally benchmark the current game, SteamOS, Proton, firmware, battery, thermals, campaign area, or multiplayer session. No search-volume, fixed-runtime, temperature, or guaranteed-frame-rate claim is made.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Return to the <a href="/steam-deck-settings/">Steam Deck settings hub</a>, compare the <a href="/legion-go-settings/baldurs-gate-3/">Legion Go baseline</a>, or use the <a href="/calculators/">battery, storage, and accessory calculators</a> with your own observations.</p>
+  </article>
+</Base>
