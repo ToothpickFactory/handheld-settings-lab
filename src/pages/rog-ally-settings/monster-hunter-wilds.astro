@@ -1,0 +1,181 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/rog-ally-settings/monster-hunter-wilds/';
+const title = 'Monster Hunter Wilds ROG Ally settings: 720p/30 baseline — Handheld Settings Lab';
+const description = 'Start Monster Hunter Wilds on ROG Ally or Ally X with a cautious 720p/30 FPS Lowest baseline, controlled upscaling and frame-generation tests, plus 75GB SSD planning.';
+const image = '/assets/games/monster-hunter-wilds-header.jpg';
+
+const sources = [
+  { label: 'Steam: Monster Hunter Wilds requirements, features, controller support, and official media', url: 'https://store.steampowered.com/app/2246340/Monster_Hunter_Wilds/' },
+  { label: 'Steam app-details API: current public product data for app 2246340', url: 'https://store.steampowered.com/api/appdetails?appids=2246340&cc=us&l=en' },
+  { label: 'Capcom: official Monster Hunter Wilds site', url: 'https://www.monsterhunter.com/wilds/' },
+  { label: 'ASUS: original ROG Ally (2023) specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-2023/spec/' },
+  { label: 'ASUS: ROG Ally X (2024) specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/' }
+];
+
+const faqs = [
+  {
+    question: 'What Monster Hunter Wilds settings should I use on ROG Ally?',
+    answer: 'Start at 1280×720, 30 FPS, the Lowest preset, and a Balanced in-game upscaling mode. Use a plugged-in Turbo-class profile for the first controlled test and leave frame generation off. Validate a weather-heavy field route and a real hunt before raising texture filtering or switching to Quality upscaling. This is a cautious test baseline, not a personally measured result.'
+  },
+  {
+    question: 'Can ROG Ally run Monster Hunter Wilds at 30 FPS?',
+    answer: 'Use 720p/30 as a target to test, not a promised lock. Steam’s current minimum desktop specification targets 1080p output upscaled from 720p at 30 FPS on Lowest with a discrete 6GB or 8GB GPU. ROG Ally models use integrated graphics and shared system memory, so weather, settlements, monsters, multiplayer, patches, power, and heat can change the result.'
+  },
+  {
+    question: 'Should I use frame generation in Monster Hunter Wilds on ROG Ally?',
+    answer: 'Keep it off while establishing the underlying render rate, pacing, and input response. If the base 30 FPS profile feels acceptable, compare frame generation separately on the same route and hunt. Inspect HUD edges, monster motion, camera pans, and latency rather than judging only the displayed counter.'
+  },
+  {
+    question: 'Should I use 720p, 900p, or 1080p on ROG Ally?',
+    answer: 'Begin at 720p because Wilds is demanding. If the repeatable hunt is stable enough for your target, test 900p next with every other control unchanged. Treat 1080p as a later image-quality experiment, not the default troubleshooting point. A higher panel resolution does not make a higher game render resolution free.'
+  },
+  {
+    question: 'Is the Monster Hunter Wilds profile the same for ROG Ally and Ally X?',
+    answer: 'No measured result should be transferred between models without retesting. The Ally X has a larger battery and other hardware revisions, while Z1 and Z1 Extreme configurations also differ. Record the exact model, processor, memory allocation, BIOS, graphics driver, power mode, charger state, and game version with every result.'
+  },
+  {
+    question: 'How much storage does Monster Hunter Wilds need on ROG Ally?',
+    answer: 'Steam currently lists 75GB of available space and says an SSD is required. Leave extra room for patches, shader data, saves, recordings, and Windows temporary files instead of filling the drive to exactly 75GB.'
+  },
+  {
+    question: 'Were these Monster Hunter Wilds ROG Ally settings personally benchmarked?',
+    answer: 'No. Handheld Settings Lab checked current Valve, Capcom, and ASUS public sources but did not personally benchmark the current game, BIOS, graphics driver, Armoury Crate build, memory allocation, battery, thermals, save, or multiplayer session. The page provides a reproducible baseline without inventing a frame-rate or runtime result.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Monster Hunter Wilds ROG Ally settings: 720p/30 FPS baseline',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-15',
+    dateModified: '2026-08-15',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Monster Hunter Wilds', 'ASUS ROG Ally', 'ASUS ROG Ally X', 'game settings', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'ROG Ally settings', item: 'https://handheldsettings.com/rog-ally-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Monster Hunter Wilds settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">ROG Ally settings · Baseline published August 2026</span>
+    <h1>Monster Hunter Wilds ROG Ally settings: test 720p and 30 FPS first</h1>
+    <p class="lede muted">Monster Hunter Wilds can combine broad views, changing weather, dense settlements, fur, vegetation, particles, and multiplayer hunts in one workload. This ROG Ally workflow starts at a cautious 720p/30 Lowest profile and tests a representative hunt before restoring clarity. It is official-source-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Monster Hunter Wilds Steam header artwork showing a hunter and companions facing a large monster" width="460" height="215" />
+      <figcaption class="media-credit">Official Monster Hunter Wilds Steam store header image, saved locally from <a href="https://store.steampowered.com/app/2246340/Monster_Hunter_Wilds/" target="_blank" rel="nofollow noopener">Capcom's Steam store page</a>. Artwork and trademarks belong to Capcom; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Test target</h3><div class="stat">720p / 30</div><p class="muted">Target to validate, not a lock guarantee</p></section>
+      <section class="card"><h3>Starting preset</h3><div class="stat">Lowest</div><p class="muted">Restore clarity after a real hunt</p></section>
+      <section class="card"><h3>Upscaling</h3><p><strong>Balanced first</strong></p><p class="muted">Frame generation off for diagnosis</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">75GB</div><p class="muted">Current requirement; SSD specified</p></section>
+    </div>
+
+    <div class="callout"><strong>Hardware context matters:</strong> Steam’s minimum desktop target uses a discrete GTX 1660 6GB or RX 5500 XT 8GB for 1080p output upscaled from 720p at 30 FPS on Lowest. ROG Ally models use integrated graphics and shared memory. That official requirement supports a cautious 720p test; it does not prove a locked handheld result.</div>
+
+    <h2>Recommended Monster Hunter Wilds ROG Ally baseline</h2>
+    <table>
+      <thead><tr><th>Control</th><th>Start here</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>Ally model</td><td>Record exact model and processor</td><td>Original Ally, Ally X, Z1, and Z1 Extreme results are not interchangeable. Also record BIOS, driver, Armoury Crate SE, and memory allocation.</td></tr>
+        <tr><td>Operating Mode</td><td>Plugged-in Turbo-class baseline</td><td>Creates a clear first condition. Do not attach its result to a lower-power battery profile without a separate test.</td></tr>
+        <tr><td>Control Mode</td><td>Gamepad</td><td>Steam currently lists full controller support; a clean gamepad baseline avoids overlapping desktop controls or remaps.</td></tr>
+        <tr><td>Display resolution</td><td>1280×720</td><td>Uses a light 16:9 output mode on the Ally panel while in-game upscaling reduces internal render load further.</td></tr>
+        <tr><td>Refresh / frame cap</td><td>60Hz / 30 FPS</td><td>Creates a simple pacing relationship and prioritizes consistency during weather changes and combat.</td></tr>
+        <tr><td>Graphics preset</td><td>Lowest</td><td>Matches the class of Steam’s published minimum-target preset and establishes a diagnostic floor before visual upgrades.</td></tr>
+        <tr><td>In-game upscaling</td><td>Balanced</td><td>Provides a cautious first render load. Compare Quality only after the same route and hunt pass.</td></tr>
+        <tr><td>Frame generation</td><td>Off for baseline</td><td>Exposes underlying render pacing, response, and image artifacts instead of masking them with generated frames.</td></tr>
+        <tr><td>Textures / filtering</td><td>Lowest preset, then raise carefully</td><td>The Ally uses shared memory. Improve close-range clarity only after checking traversal hitching and memory pressure.</td></tr>
+        <tr><td>Shadows / contact shadows</td><td>Low or off where offered</td><td>Preserves headroom around moving monsters, foliage, and changing light.</td></tr>
+        <tr><td>Volumetric fog / clouds</td><td>Low</td><td>Reduces atmosphere cost in broad views and weather transitions.</td></tr>
+        <tr><td>Fur / vegetation / distant detail</td><td>Low</td><td>Cuts scene complexity without sacrificing interface or close-range attack-tell readability first.</td></tr>
+        <tr><td>Reflections / ambient occlusion</td><td>Low</td><td>Reduces secondary lighting work before compromising basic geometry clarity.</td></tr>
+        <tr><td>Motion blur / depth of field</td><td>Off for comparison</td><td>Makes motion, reconstruction, and pacing differences easier to inspect; restore later by preference.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Menu names and upscaler choices can change with patches. Photograph the current options and choose the nearest normal in-game control. Avoid stacking in-game upscaling with driver-level RSR during the first comparison.</p>
+
+    <h2>Run a test that represents an actual hunt</h2>
+    <ol>
+      <li><strong>Finish stable updates and restart.</strong> Complete the game, Windows, MyASUS, Armoury Crate SE, BIOS, and intended graphics-driver updates before recording a baseline.</li>
+      <li><strong>Record the full device state.</strong> Note exact Ally, processor, BIOS, driver, Armoury Crate build, memory allocation, charger, Operating Mode, resolution, cap, upscaler, and game version.</li>
+      <li><strong>Run a field route twice.</strong> Include traversal, vegetation, a settlement or camp, long views, and a weather transition if practical.</li>
+      <li><strong>Repeat one representative hunt.</strong> Include monster movement, particles, camera changes, companions, and multiplayer only if multiplayer is your intended use.</li>
+      <li><strong>Separate brief hitches from sustained misses.</strong> Repeat the route before changing settings; first-pass compilation or streaming behavior needs different treatment from persistent load.</li>
+      <li><strong>Restore clarity one control at a time.</strong> Compare Quality upscaling, then texture filtering. Revert the first change that harms the weakest scene.</li>
+      <li><strong>Test frame generation separately.</strong> Only after base pacing and input feel are acceptable, compare it on the same route and inspect motion, HUD edges, and latency.</li>
+    </ol>
+
+    <h2>Choose the next step from the result</h2>
+    <div class="grid cols3">
+      <section class="card"><span class="chip">Pass</span><h3>The repeated hunt feels consistent</h3><p>Save the exact settings and software state. Test 900p or Quality upscaling one at a time rather than raising both together.</p></section>
+      <section class="card"><span class="chip">Compromise</span><h3>Occasional misses remain</h3><p>Keep 720p and Lowest, verify power and background work, and decide whether misses occur only in rare transitions or during normal combat.</p></section>
+      <section class="card"><span class="chip">Fail</span><h3>Core combat is persistently unstable</h3><p>Do not hide the result with frame generation. Restore defaults, verify files and updates, rerun the baseline, and consider another platform or streaming option.</p></section>
+    </div>
+
+    <h2>Fix common Wilds problems on ROG Ally</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Weather or wide views miss the cap</td><td>Confirm 720p, Lowest, Balanced upscaling, low volumetrics, shadows, vegetation, and distance detail</td><td>Keep frame generation off, pause downloads and recording, verify Turbo/power state, and rerun the same route</td></tr>
+        <tr><td>Combat feels delayed despite a high counter</td><td>Disable frame generation and inspect the underlying 30 FPS profile</td><td>Prioritize base pacing and response over generated-frame totals</td></tr>
+        <tr><td>Image is too soft or shimmers</td><td>Confirm only one scaling method is active and RSR is not stacked over the game upscaler</td><td>Compare Quality upscaling at 720p, then 900p as a separate test</td></tr>
+        <tr><td>Traversal hitches after texture changes</td><td>Restore Lowest textures, close overlays, and check free SSD space</td><td>Restart and repeat the route before assigning every first-pass hitch to sustained GPU load</td></tr>
+        <tr><td>Controller prompts or input are wrong</td><td>Set Armoury Crate Control Mode to Gamepad</td><td>Restore the default game and Steam Input layouts before creating a custom remap</td></tr>
+        <tr><td>Performance changed after a patch</td><td>Restart and restore the photographed baseline</td><td>Confirm game, BIOS, driver, Armoury Crate, memory allocation, and power state before unofficial edits</td></tr>
+        <tr><td>Docked play is slower</td><td>Retest directly on the handheld screen with its compatible charger</td><td>Check dock power and TV output separately; do not render internally at 4K by default</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Battery, storage, online play, and dock planning</h2>
+    <p>Steam currently lists <strong>75GB of available space</strong>, an SSD requirement, DirectX 12, 16GB minimum system memory, broadband internet, multiplayer, online co-op, cross-platform multiplayer, Steam Cloud, and full controller support. Leave extra room for patches, shader data, saves, clips, and Windows temporary files. Use the <a href="/calculators/storage-planner/">storage planner</a>, then read the <a href="/guides/rog-ally-ssd-size-compatibility-upgrade/">ROG Ally SSD size and compatibility guide</a> before buying a drive.</p>
+    <p>This page does not invent battery runtime. Ally model, battery health, brightness, radios, online play, cap, scene, Operating Mode, and thermals all change total draw. Run the same hunt on your intended battery profile, read your own total system draw, and use the <a href="/calculators/battery-estimator/">battery estimator</a>.</p>
+    <p>Complete sign-in, updates, and a launch of the intended save before travel. For a TV, first stabilize the handheld profile, then use the <a href="/guides/rog-ally-dock-tv-monitor-setup/">ROG Ally dock and TV setup guide</a>. A 4K desktop signal does not mean Wilds should render internally at 4K.</p>
+
+    <h2>Optional gear after the profile is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, model fit, seller traceability, warranty, and returns. No price, performance, compatibility, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+ssd+upgrade+2230" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="ssds"><span class="chip">Sponsored search</span><h3>Original ROG Ally 2230 SSDs</h3><p class="muted">Verify the exact Ally model, form factor, capacity, interface, thermal fit, seller, recovery plan, and warranty before opening the shell.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+65w+usb+c+pd+charger" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers"><span class="chip">Sponsored search</span><h3>65W-class USB-C PD chargers</h3><p class="muted">Check dedicated-port output, cable rating, port-sharing behavior, seller traceability, warranty, and exact-device support.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+usb+c+dock+65w+hdmi+ethernet" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks"><span class="chip">Sponsored search</span><h3>ROG Ally USB-C docks</h3><p class="muted">Compare PD passthrough, display modes, Ethernet, host-cable reach, case clearance, and whether an adequate charger is included.</p></a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a>, follow the <a href="/guides/rog-ally-x-accessories-buying-checklist/">ROG Ally X accessory checklist</a> for that exact model, or set a limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on August 15, 2026. Steam’s live store page and public app-details API supplied the February 27, 2025 release date, 75GB SSD requirement, desktop minimum and recommended context, online feature labels, full-controller-support label, Capcom identity, and official image. The minimum note says 1080p output upscaled from 720p at 30 FPS on Lowest using the listed discrete GPUs; the recommended note describes 1080p/60 with frame generation on Medium. Those are desktop targets, not ROG Ally benchmark results. ASUS’s product pages supply the device routes and model context; Capcom supplies the official game site.</p>
+    <p>The settings are a conservative editorial test sequence derived from those official constraints and normal graphics diagnosis. Handheld Settings Lab did not personally benchmark the current game, Windows, BIOS, graphics driver, Armoury Crate build, memory allocation, battery, thermals, region, save, or multiplayer session. No search-volume, fixed-runtime, temperature, or guaranteed-frame-rate claim is made.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Return to the <a href="/rog-ally-settings/">ROG Ally settings hub</a>, compare the <a href="/steam-deck-settings/monster-hunter-wilds/">Steam Deck</a> and <a href="/legion-go-settings/monster-hunter-wilds/">Legion Go</a> baselines, or use the <a href="/calculators/">battery, storage, and accessory calculators</a> with your own observations.</p>
+  </article>
+</Base>
