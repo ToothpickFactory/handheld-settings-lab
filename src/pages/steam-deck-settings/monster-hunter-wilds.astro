@@ -1,0 +1,184 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/steam-deck-settings/monster-hunter-wilds/';
+const title = 'Monster Hunter Wilds Steam Deck settings: Playable 30 FPS test — Handheld Settings Lab';
+const description = 'Tune Monster Hunter Wilds on Steam Deck from a cautious 800p/30 FPS Lowest baseline, with Valve Playable notes, upscaling tests, first-launch checks, and 75GB SSD planning.';
+const image = '/assets/games/monster-hunter-wilds-header.jpg';
+
+const sources = [
+  { label: 'Steam: Monster Hunter Wilds requirements, features, controller support, and official media', url: 'https://store.steampowered.com/app/2246340/Monster_Hunter_Wilds/' },
+  { label: 'Steam Deck compatibility report: Valve test results for app 2246340', url: 'https://store.steampowered.com/saleaction/ajaxgetdeckappcompatibilityreport?nAppID=2246340' },
+  { label: 'Steam app-details API: current public product data for app 2246340', url: 'https://store.steampowered.com/api/appdetails?appids=2246340&cc=us&l=en' },
+  { label: 'Capcom: official Monster Hunter Wilds site', url: 'https://www.monsterhunter.com/wilds/' },
+  { label: 'Valve: official Steam Deck compatibility program explanation', url: 'https://www.steamdeck.com/en/verified' }
+];
+
+const faqs = [
+  {
+    question: 'What Monster Hunter Wilds settings should I use on Steam Deck?',
+    answer: 'Start at 1280×800, 30 FPS, the Lowest preset, and a Balanced in-game upscaling mode. Leave frame generation off while diagnosing the underlying render rate. Keep shadows, volumetrics, fur, vegetation, reflections, and distant detail low, then validate a weather-heavy field route and a real hunt. This is a cautious test baseline, not a personally measured result.'
+  },
+  {
+    question: 'Is Monster Hunter Wilds Steam Deck Verified?',
+    answer: 'No. Valve’s live compatibility report currently resolves it as category 2, Playable. Valve records passing checks for the default controller configuration, matching controller glyphs, legible interface text, and a performant default configuration, while noting manual keyboard invocation for some text input and an active internet requirement for first-time setup.'
+  },
+  {
+    question: 'Can Steam Deck run Monster Hunter Wilds at 30 FPS?',
+    answer: 'Use 30 FPS as a target to test, not a promised lock. Steam’s current minimum desktop specification targets 1080p output upscaled from 720p at 30 FPS on Lowest with a discrete 6GB or 8GB GPU. Steam Deck uses an integrated APU and shared memory, so weather, settlements, multiplayer hunts, effects, patches, heat, and background work can change the result.'
+  },
+  {
+    question: 'Should I use frame generation in Monster Hunter Wilds on Steam Deck?',
+    answer: 'Keep it off for the first diagnostic pass. A generated-frame counter can obscure the underlying render rate, latency, and visual artifacts. If the base 30 FPS profile already feels responsive, compare frame generation separately on the same route and hunt; inspect HUD edges, monster motion, camera pans, and input response.'
+  },
+  {
+    question: 'Does Monster Hunter Wilds need internet on Steam Deck?',
+    answer: 'Valve’s current compatibility report says first-time setup requires an active internet connection, and Steam lists online multiplayer and cross-platform multiplayer. Complete installation, sign-in, first launch, updates, and the exact save or online flow before relying on the game away from a dependable connection.'
+  },
+  {
+    question: 'How much storage does Monster Hunter Wilds need on Steam Deck?',
+    answer: 'Steam currently lists 75GB of available space and says an SSD is required for the Windows PC specification. Leave extra room for patches, shader data, saves, screenshots, and SteamOS maintenance rather than filling storage to exactly 75GB.'
+  },
+  {
+    question: 'Were these Monster Hunter Wilds Steam Deck settings personally benchmarked?',
+    answer: 'No. Handheld Settings Lab checked Valve and Capcom public sources but did not personally benchmark the current game build, SteamOS version, Proton build, firmware, battery, thermals, region, save, or multiplayer session. The page supplies a reproducible baseline without inventing a frame-rate or runtime result.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Monster Hunter Wilds Steam Deck settings: Playable 30 FPS test baseline',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-15',
+    dateModified: '2026-08-15',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Monster Hunter Wilds', 'Valve Steam Deck', 'Steam Deck Playable', 'game settings', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Steam Deck settings', item: 'https://handheldsettings.com/steam-deck-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Monster Hunter Wilds settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Steam Deck settings · Valve Playable status checked August 2026</span>
+    <h1>Monster Hunter Wilds Steam Deck settings: test 800p and 30 FPS</h1>
+    <p class="lede muted">Monster Hunter Wilds is currently rated Playable—not Verified—by Valve. Its weather, settlements, vegetation, fur, particles, and multiplayer hunts make a quiet opening view a weak performance test. This workflow starts from a cautious 800p/30 Lowest profile and validates a real hunt before restoring clarity. It is official-source-informed guidance, not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Monster Hunter Wilds Steam header artwork showing a hunter and companions facing a large monster" width="460" height="215" />
+      <figcaption class="media-credit">Official Monster Hunter Wilds Steam store header image, saved locally from <a href="https://store.steampowered.com/app/2246340/Monster_Hunter_Wilds/" target="_blank" rel="nofollow noopener">Capcom's Steam store page</a>. Artwork and trademarks belong to Capcom; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Test target</h3><div class="stat">800p / 30</div><p class="muted">Target to validate, not a lock guarantee</p></section>
+      <section class="card"><h3>Valve rating</h3><div class="stat">Playable</div><p class="muted">Manual text input and first-setup notes</p></section>
+      <section class="card"><h3>Upscaling</h3><p><strong>Balanced first</strong></p><p class="muted">Frame generation off for diagnosis</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">75GB</div><p class="muted">Current requirement; SSD specified</p></section>
+    </div>
+
+    <div class="callout"><strong>Hardware context matters:</strong> Steam’s minimum desktop target uses a discrete GTX 1660 6GB or RX 5500 XT 8GB for 1080p output upscaled from 720p at 30 FPS on Lowest. Steam Deck uses integrated graphics and shared memory. Valve’s Playable result is useful compatibility evidence, but neither source promises a locked 30 FPS in every hunt.</div>
+
+    <h2>Recommended Monster Hunter Wilds Steam Deck baseline</h2>
+    <table>
+      <thead><tr><th>Control</th><th>Start here</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>SteamOS performance profile</td><td>Default power first</td><td>Establishes a clean baseline before imposing a manual TDP limit. Record LCD or OLED model, charger state, SteamOS, Proton, firmware, and game version.</td></tr>
+        <tr><td>Display resolution</td><td>1280×800</td><td>Uses the Deck display’s native 16:10 output shape while in-game upscaling reduces the internal rendering workload.</td></tr>
+        <tr><td>Refresh rate / frame cap</td><td>60Hz / 30 FPS</td><td>Creates a simple pacing relationship and prioritizes consistency through changing weather and combat.</td></tr>
+        <tr><td>Graphics preset</td><td>Lowest</td><td>Matches the class of Steam’s published minimum-target preset and provides a diagnostic floor before visual upgrades.</td></tr>
+        <tr><td>In-game upscaling</td><td>Balanced</td><td>Provides a cautious first render load. Compare Quality only after the same field route and hunt pass.</td></tr>
+        <tr><td>Frame generation</td><td>Off for baseline</td><td>Exposes underlying render pacing, control response, and image artifacts instead of masking them with generated frames.</td></tr>
+        <tr><td>Textures / texture filtering</td><td>Lowest preset, then raise carefully</td><td>Deck uses shared memory. Improve close-range monster and ground clarity only after checking traversal hitching on a repeatable route.</td></tr>
+        <tr><td>Shadows / contact shadows</td><td>Low or off where offered</td><td>Preserves headroom around moving monsters, foliage, and changing outdoor light.</td></tr>
+        <tr><td>Volumetric fog / clouds</td><td>Low</td><td>Reduces atmosphere cost during broad views and weather transitions.</td></tr>
+        <tr><td>Fur / vegetation / distant detail</td><td>Low</td><td>Cuts scene complexity without sacrificing interface or close-range attack-tell readability first.</td></tr>
+        <tr><td>Reflections / ambient occlusion</td><td>Low</td><td>Reduces secondary lighting work before basic geometry clarity is compromised.</td></tr>
+        <tr><td>Motion blur / depth of field</td><td>Off for comparison</td><td>Makes camera motion, reconstruction, and pacing differences easier to inspect; restore later by preference.</td></tr>
+        <tr><td>SteamOS scaling filter</td><td>Linear / default</td><td>Avoids stacking another scaling or sharpening path over the in-game upscaler during diagnosis.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Menu names and available upscalers can change with patches. Photograph the current menu and use the closest normal in-game option. Make one change at a time and do not stack in-game upscaling with SteamOS FSR during the first comparison.</p>
+
+    <h2>What Valve’s Playable result means</h2>
+    <p>Valve’s live compatibility report currently resolves app 2246340 as category 2, Playable. Its recorded checks say the default controller configuration is fully functional, glyphs match the Deck, interface text is legible, and the default configuration is performant. The report also flags that some text input does not automatically invoke the on-screen keyboard and that first-time setup requires an active internet connection.</p>
+    <p>Playable is a compatibility label, not a benchmark certificate. Preserve the useful passing checks, plan around the two setup/input caveats, and separately test frame pacing in the campaign conditions you actually use.</p>
+
+    <h2>Use a hunt that exposes the real workload</h2>
+    <ol>
+      <li><strong>Finish updates and first-time setup.</strong> Install the game, complete sign-in and setup on a reliable connection, update SteamOS and firmware, then restart.</li>
+      <li><strong>Record the test state.</strong> Note LCD or OLED model, game version, SteamOS, Proton selection, charger state, resolution, cap, upscaler, frame-generation state, and any manual TDP limit.</li>
+      <li><strong>Run a field route twice.</strong> Include traversal, vegetation, a settlement or camp, long views, and a weather transition if practical.</li>
+      <li><strong>Repeat one representative hunt.</strong> Include monster movement, particles, camera changes, companions, and multiplayer only if multiplayer is the intended use.</li>
+      <li><strong>Separate brief hitches from sustained misses.</strong> Repeat the same route before lowering everything; one-time compilation or streaming behavior needs different treatment from persistent load.</li>
+      <li><strong>Restore clarity one control at a time.</strong> Compare Quality upscaling, then texture quality or filtering. Revert the first change that harms the weakest scene.</li>
+      <li><strong>Test frame generation separately.</strong> Only after base pacing and input feel acceptable, compare it in the same route and hunt while inspecting motion, HUD edges, and latency.</li>
+    </ol>
+
+    <h2>Three honest outcomes</h2>
+    <div class="grid cols3">
+      <section class="card"><span class="chip">Pass</span><h3>The repeated hunt feels consistent</h3><p>Save the exact settings and software state, then test one clarity upgrade at a time. Keep the weakest representative scene in the loop.</p></section>
+      <section class="card"><span class="chip">Compromise</span><h3>Occasional misses remain</h3><p>Keep 800p and Lowest, verify power and background activity, and decide whether misses occur only in rare transitions or during normal combat.</p></section>
+      <section class="card"><span class="chip">Fail</span><h3>Core combat is persistently unstable</h3><p>Do not hide the result with frame generation. Restore defaults, verify files and updates, rerun the baseline, and consider another platform or streaming option.</p></section>
+    </div>
+
+    <h2>Fix common Wilds problems on Steam Deck</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Weather or wide views miss the cap</td><td>Confirm 800p, Lowest, Balanced upscaling, low volumetrics, shadows, vegetation, and distance detail</td><td>Keep frame generation off, pause downloads, remove a manual TDP cap, and rerun the same route</td></tr>
+        <tr><td>Combat feels delayed despite a high counter</td><td>Disable frame generation and inspect the underlying 30 FPS profile</td><td>Prioritize base pacing and input response over generated-frame totals</td></tr>
+        <tr><td>Image is too soft or shimmers</td><td>Confirm only one scaling method is active</td><td>Compare Quality upscaling at 800p before raising output resolution or adding sharpening</td></tr>
+        <tr><td>Traversal hitches after texture changes</td><td>Restore Lowest textures, close overlays, and check free storage</td><td>Restart and repeat the route before assigning every first-pass hitch to sustained GPU load</td></tr>
+        <tr><td>Text field does not open the keyboard</td><td>Use Steam + X to invoke the on-screen keyboard manually</td><td>Finish required name or lobby text while connected, then recheck controls after updates</td></tr>
+        <tr><td>First launch or online flow fails</td><td>Confirm a stable connection and complete updates/sign-in</td><td>Restart, verify files, and finish first-time setup before attempting offline travel</td></tr>
+        <tr><td>Performance changed after a patch</td><td>Restart and restore the photographed baseline</td><td>Confirm game, SteamOS, Proton, and firmware versions before applying unofficial edits</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, internet, battery, and dock planning</h2>
+    <p>Steam currently lists <strong>75GB of available space</strong>, an SSD requirement for its PC specification, DirectX 12, 16GB minimum system memory, broadband internet, multiplayer, online co-op, cross-platform multiplayer, Steam Cloud, and full controller support. Leave extra room for patches, shader data, saves, screenshots, and SteamOS maintenance. Use the <a href="/calculators/storage-planner/">storage planner</a>, then compare options in the <a href="/guides/microsd-vs-ssd-handheld-pc/">microSD versus SSD guide</a>.</p>
+    <p>This page does not invent battery runtime. LCD/OLED model, brightness, radios, online play, cap, weather, battery health, and thermals all alter total draw. Read your own repeatable-hunt power use and enter it in the <a href="/calculators/battery-estimator/">battery estimator</a>. Complete first-time setup and launch the intended save before following the <a href="/guides/handheld-pc-offline-mode-flight-checklist/">offline-mode travel checklist</a>.</p>
+    <p>Establish the handheld profile before moving to a TV. Then use the <a href="/guides/steam-deck-docked-tv-monitor-setup/">Steam Deck docked setup guide</a>. A 4K desktop signal does not mean Wilds should render internally at 4K.</p>
+
+    <h2>Optional gear after the profile is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, seller traceability, warranty, and returns. No price, compatibility, performance, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+a2+u3+microsd+card" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microsd-cards"><span class="chip">Sponsored search</span><h3>A2 / U3 microSD cards</h3><p class="muted">Compare capacity, seller traceability, authenticity checks, warranty, and return terms while leaving room beyond the current 75GB floor.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+45w+usb+c+pd+charger" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers"><span class="chip">Sponsored search</span><h3>45W-class USB-C PD chargers</h3><p class="muted">Verify dedicated-port output, cable rating, shared-port behavior, seller traceability, and explicit Steam Deck support.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+dock+hdmi+ethernet+45w" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks"><span class="chip">Sponsored search</span><h3>Steam Deck USB-C docks</h3><p class="muted">Check PD passthrough, HDMI modes, Ethernet, cable reach, case clearance, firmware support, and whether a charger is included.</p></a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a>, use the <a href="/guides/steam-deck-oled-first-week-accessories/">Steam Deck OLED accessory checklist</a>, or set a limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on August 15, 2026. Steam’s live app-details data supplied the February 27, 2025 release date, 75GB SSD requirement, desktop minimum and recommended context, online feature labels, full-controller-support label, Capcom identity, and official image. Valve’s live compatibility endpoint supplied category 2 Playable status plus its default controls, matching glyphs, text-legibility, default-performance, manual-keyboard, and first-time-internet results. Valve’s compatibility page explains the rating program; Capcom supplies the official game site.</p>
+    <p>The settings are a conservative editorial test sequence informed by those first-party constraints and ordinary graphics diagnosis. Handheld Settings Lab did not personally benchmark the current game, SteamOS, Proton, firmware, battery, thermals, region, save, or multiplayer session. No search-volume, fixed-runtime, temperature, or guaranteed-frame-rate claim is made.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Return to the <a href="/steam-deck-settings/">Steam Deck settings hub</a>, compare the <a href="/legion-go-settings/monster-hunter-wilds/">Legion Go baseline</a> or <a href="/rog-ally-settings/monster-hunter-wilds/">ROG Ally baseline</a>, and use the <a href="/calculators/">battery, storage, and accessory calculators</a> with your own observations.</p>
+  </article>
+</Base>
