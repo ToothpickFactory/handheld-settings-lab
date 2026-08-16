@@ -1,0 +1,176 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/steam-deck-settings/no-mans-sky/';
+const title = "No Man's Sky Steam Deck settings: 30/40 FPS — Handheld Settings Lab";
+const description = "Start No Man's Sky on Steam Deck at 800p/30 FPS, then test 40 FPS with Verified-status context, planet-to-space checks, and 15GB storage planning.";
+const image = '/assets/games/no-mans-sky-header.jpg';
+
+const sources = [
+  { label: "Steam: No Man's Sky requirements, features, controller support, and official media", url: 'https://store.steampowered.com/app/275850/No_Mans_Sky/' },
+  { label: "Valve: current Steam Deck compatibility report for No Man's Sky (app 275850)", url: 'https://store.steampowered.com/saleaction/ajaxgetdeckappcompatibilityreport?nAppID=275850' },
+  { label: 'Steam app-details API: current public product data for app 275850', url: 'https://store.steampowered.com/api/appdetails?appids=275850&cc=us&l=en' },
+  { label: "Hello Games: official No Man's Sky release log", url: 'https://www.nomanssky.com/release-log/' },
+  { label: 'Valve: how the Deck Verified program works', url: 'https://www.steamdeck.com/en/verified' }
+];
+
+const faqs = [
+  {
+    question: "What No Man's Sky settings should I use on Steam Deck?",
+    answer: 'Start at 1280×800, a 30 FPS cap, and the Standard preset. Keep textures at Standard initially and set shadows, reflections, volumetrics, planet quality, and base complexity to Standard. Use a Quality-class in-game upscaler if the current build offers one. Test a busy planet, base, low flight, atmosphere transition, and space combat before raising settings. This is a cautious editorial baseline, not a personally measured result.'
+  },
+  {
+    question: "Can Steam Deck run No Man's Sky at 40 FPS?",
+    answer: 'Treat 40 FPS as a second test rather than a guaranteed lock. Valve currently marks the game Verified and says the default configuration performs well on Steam Deck, but that verdict is not a promise for every procedural planet, base, storm, multiplayer session, or future patch. Validate the 30 FPS route first, then change only the cap and repeat it.'
+  },
+  {
+    question: "Is No Man's Sky Steam Deck Verified?",
+    answer: 'Valve’s live compatibility endpoint returned category 3 (Verified) when checked on August 16, 2026. Its listed checks say the default controller configuration is fully functional, controller glyphs match, interface text is legible, and the default configuration performs well. Compatibility labels can change, so confirm the current badge on Steam before purchase or travel.'
+  },
+  {
+    question: "Which No Man's Sky settings should I lower first on Steam Deck?",
+    answer: 'Reduce shadows, reflections, volumetric quality, planet quality, base complexity, and animation quality before making interface text or nearby textures unnecessarily soft. Change one setting at a time and repeat the same planet-to-space route because procedural worlds expose different limits.'
+  },
+  {
+    question: "How much storage does No Man's Sky need on Steam Deck?",
+    answer: 'Steam currently lists 15GB of available space. Leave additional free room for updates, shader data, Proton files, saves, screenshots, recordings, and SteamOS maintenance rather than planning to fill internal or microSD storage to exactly 15GB.'
+  },
+  {
+    question: "Were these No Man's Sky Steam Deck settings personally benchmarked?",
+    answer: 'No. Handheld Settings Lab checked current Valve and Hello Games public sources but did not personally benchmark the current game build, save, planet, SteamOS version, Proton version, Deck model, battery, or thermals. The page provides a reproducible starting workflow without inventing an FPS or runtime result.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: "No Man's Sky Steam Deck settings: 30 and 40 FPS baseline",
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-16',
+    dateModified: '2026-08-16',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ["No Man's Sky", 'Valve Steam Deck', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Steam Deck settings', item: 'https://handheldsettings.com/steam-deck-settings/' },
+      { '@type': 'ListItem', position: 3, name: "No Man's Sky settings", item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Steam Deck settings · Baseline published August 2026</span>
+    <h1>No Man's Sky Steam Deck settings: start at 30 FPS, then test 40</h1>
+    <p class="lede muted">No Man's Sky can move from a quiet interior to procedural terrain, dense flora, weather, settlements, atmosphere transitions, freighter spaces, and multiplayer activity. This Steam Deck workflow starts at a cautious 800p/30 Standard profile, then tests 40 FPS only after the same planet-to-space route passes. It is official-source-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official No Man's Sky Steam header artwork showing a traveler overlooking an alien landscape" width="460" height="215" />
+      <figcaption class="media-credit">Official No Man's Sky Steam store header image, saved locally from <a href="https://store.steampowered.com/app/275850/No_Mans_Sky/" target="_blank" rel="nofollow noopener">Hello Games' Steam store page</a>. Artwork and trademarks belong to Hello Games; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Safe first target</h3><div class="stat">800p / 30</div><p class="muted">Baseline to validate, not a lock guarantee</p></section>
+      <section class="card"><h3>Starting preset</h3><div class="stat">Standard</div><p class="muted">Raise clarity after planet-to-space testing</p></section>
+      <section class="card"><h3>Second target</h3><div class="stat">40 FPS</div><p class="muted">Test only after the 30 FPS route passes</p></section>
+      <section class="card"><h3>Steam Deck status</h3><div class="stat">Verified</div><p class="muted">Valve endpoint checked August 16, 2026</p></section>
+    </div>
+
+    <div class="callout"><strong>Verified does not mean every planet is identical:</strong> Valve currently says the default configuration performs well and passes its input, glyph, and legibility checks. Procedural terrain, weather, base complexity, NPCs, multiplayer, and patches can still change the workload. Save the exact route used for every comparison.</div>
+
+    <h2>Recommended No Man's Sky Steam Deck baseline</h2>
+    <table>
+      <thead><tr><th>Control</th><th>Start here</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>SteamOS performance profile</td><td>Default first</td><td>Establishes the state Valve evaluates before adding a manual power limit. Record the Deck model, charger state, SteamOS, and Proton version.</td></tr>
+        <tr><td>Display refresh / frame limit</td><td>60Hz / 30 FPS first</td><td>Provides a simple first pacing relationship. On an OLED Deck, keep the same 30 FPS cap for the first test before comparing a different refresh state.</td></tr>
+        <tr><td>Display mode / resolution</td><td>Fullscreen / 1280×800</td><td>Matches the Deck display's 16:10 shape while avoiding unnecessary external-display load.</td></tr>
+        <tr><td>Graphics preset</td><td>Standard</td><td>Provides a cautious diagnostic floor without pretending the preset is a measured requirement for every procedural world.</td></tr>
+        <tr><td>Anti-aliasing / upscaling</td><td>Quality-class in-game mode, if offered</td><td>Starts from the clearer reconstruction option. Avoid stacking in-game scaling with another system scaling layer during diagnosis.</td></tr>
+        <tr><td>Texture quality</td><td>Standard, then raise carefully</td><td>Nearby materials matter in exploration, but shared memory and streaming behavior should be checked before raising it.</td></tr>
+        <tr><td>Shadow quality / reflections</td><td>Standard</td><td>Protects headroom in moving sunlight, water, ships, interiors, and weather before sacrificing interface clarity.</td></tr>
+        <tr><td>Volumetric quality</td><td>Standard</td><td>Reduces the cost of clouds, fog, storms, and atmosphere transitions in the initial test.</td></tr>
+        <tr><td>Planet quality</td><td>Standard</td><td>Limits terrain detail and streaming pressure while testing low flight and fast surface traversal.</td></tr>
+        <tr><td>Base complexity</td><td>Standard</td><td>Large player bases can behave differently from untouched terrain; include one representative base before raising this control.</td></tr>
+        <tr><td>Animation quality</td><td>Standard</td><td>Provides a conservative state for busy settlements or multiplayer areas; raise only after those areas pass.</td></tr>
+        <tr><td>Motion blur</td><td>Off for comparison</td><td>Makes camera motion, scaling artifacts, and frame pacing easier to inspect. Restore later only by preference.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Menu names, presets, scaling choices, Valve compatibility labels, and Proton behavior can change. Photograph the current menu and note the compatibility-tool selection. If the default tool works, do not switch Proton versions merely to reproduce somebody else's configuration.</p>
+
+    <h2>Run a repeatable planet-to-space test</h2>
+    <ol>
+      <li><strong>Finish updates and restart.</strong> Complete the game and stable SteamOS updates before recording a baseline; pause downloads during the run.</li>
+      <li><strong>Record the full device state.</strong> Note game version, save, planet/location, SteamOS, Proton selection, Deck LCD or OLED model, charger state, refresh, cap, and scaling mode.</li>
+      <li><strong>Walk a dense surface route twice.</strong> Include terrain generation, flora, fauna, structures, mining effects, inventory use, and weather if practical.</li>
+      <li><strong>Fly low over the same area.</strong> Fast surface traversal can expose terrain and asset streaming that a static base view misses.</li>
+      <li><strong>Leave the atmosphere.</strong> Include the transition, pulse flight, a station or freighter interior, and a short combat encounter when available.</li>
+      <li><strong>Test a representative base or settlement.</strong> A starter shelter is not a useful proxy for a dense build or populated settlement.</li>
+      <li><strong>Change one control at a time.</strong> Compare 40 FPS, a clearer scaling mode, textures, then effects—repeating the complete route after each change.</li>
+    </ol>
+
+    <h2>Choose 30 or 40 FPS without inventing a benchmark</h2>
+    <div class="grid cols3">
+      <section class="card"><span class="chip">Stable 30</span><h3>Keep the consistency profile</h3><p>If every segment feels even, save the exact settings and device state. Raise texture clarity or one effect before increasing the cap.</p></section>
+      <section class="card"><span class="chip">Test 40</span><h3>Headroom survives the full route</h3><p>Change only the cap and repeat the same planet, base, flight, transition, and combat pass. Keep 40 only if the weakest segment remains acceptable.</p></section>
+      <section class="card"><span class="chip">Diagnose</span><h3>Streaming or heavy-area misses remain</h3><p>Restore Standard, verify files and free space, pause downloads, restart, and repeat. Lower the setting tied to the failing scene rather than everything at once.</p></section>
+    </div>
+
+    <h2>Fix common No Man's Sky problems on Steam Deck</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Low flight or traversal hitches</td><td>Restore Standard planet, texture, and base settings; check free storage and downloads</td><td>Restart and repeat the exact route to separate persistent problems from first-pass work</td></tr>
+        <tr><td>Storms or clouds miss the cap</td><td>Confirm 800p and Standard volumetrics, shadows, reflections, and planet quality</td><td>Keep 30 FPS, disable recording, and rerun the same weather route</td></tr>
+        <tr><td>Large bases perform worse</td><td>Return base complexity and animation quality to Standard</td><td>Test the same base offline only as a diagnostic, then restore the intended multiplayer state</td></tr>
+        <tr><td>Image is too soft or shimmers</td><td>Confirm only one scaling method is active</td><td>Compare a clearer in-game quality mode at 800p before lowering render resolution further</td></tr>
+        <tr><td>Camera movement feels uneven</td><td>Confirm one frame limit and the recorded display refresh</td><td>Remove overlapping game and SteamOS limits, then retest without recording</td></tr>
+        <tr><td>Controller prompts or inputs are wrong</td><td>Restore the official/default Steam Input layout</td><td>Confirm the current Valve compatibility report, then test before creating a custom layout</td></tr>
+        <tr><td>Performance changed after an update</td><td>Restart and restore the photographed baseline</td><td>Confirm game, SteamOS, and Proton versions; verify files and check the official release log</td></tr>
+        <tr><td>Docked play is slower</td><td>Retest on the Deck screen with the charger connected directly</td><td>Check dock power and output separately; do not default to native 4K rendering</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, battery, offline, and dock planning</h2>
+    <p>Steam currently lists <strong>15GB of available space</strong>, multiplayer, online co-op, cross-platform multiplayer, Steam Cloud, and full controller support. Leave room beyond 15GB for updates, shader data, Proton files, saves, screenshots, clips, and system maintenance. Use the <a href="/calculators/storage-planner/">storage planner</a>, then compare the <a href="/guides/microsd-vs-ssd-handheld-pc/">microSD-versus-SSD tradeoffs</a>.</p>
+    <p>This page does not invent battery runtime. Deck model, planet, weather, base, multiplayer state, brightness, radios, cap, battery health, and thermals all alter total draw. Measure your own complete route on the intended profile and use the <a href="/calculators/battery-estimator/">battery estimator</a>. For travel, use the <a href="/guides/handheld-pc-offline-mode-flight-checklist/">offline-mode flight checklist</a> before leaving a reliable connection.</p>
+    <p>Stabilize the handheld profile before moving to a TV. Then follow the <a href="/guides/steam-deck-docked-tv-monitor-setup/">Steam Deck docked-display setup</a>. A 4K output signal does not mean the game should render internally at 4K.</p>
+
+    <h2>Optional gear after the profile is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, device fit, seller traceability, warranty, and return terms. No price, compatibility, performance, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+a2+u3+microsd+card" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microsd-cards"><span class="chip">Sponsored search</span><h3>A2 / U3 microSD cards</h3><p class="muted">Compare capacity, seller traceability, warranty, and card-verification tools while leaving update headroom.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+45w+usb+c+pd+charger" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers"><span class="chip">Sponsored search</span><h3>45W-class USB-C PD chargers</h3><p class="muted">Verify dedicated-port output, cable rating, port-sharing behavior, warranty, and Steam Deck support.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+dock+usb+c+pd" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks"><span class="chip">Sponsored search</span><h3>Steam Deck USB-C docks</h3><p class="muted">Check PD passthrough, display modes, host-cable reach, physical fit, and support for the exact Deck model.</p></a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a>, read the <a href="/guides/steam-deck-oled-first-week-accessories/">Steam Deck OLED accessory checklist</a>, or set a limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on August 16, 2026. Steam's live product data supplied the August 12, 2016 release date, current 15GB storage requirement, feature labels, full-controller-support label, Hello Games identity, and official image. Valve's live compatibility endpoint returned category 3 (Verified) and listed functional default controls, matching glyphs, legible interface text, and a performant default configuration. Hello Games supplies the official release log.</p>
+    <p>The settings are a conservative editorial test sequence derived from those public constraints and normal graphics-diagnosis practice. Handheld Settings Lab did not personally benchmark the current game, procedural world, save, SteamOS version, Proton version, Deck model, battery, thermals, or multiplayer session. The 30 and 40 FPS figures are test targets, not measured guarantees; no search-volume or fixed-runtime claim is made.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Return to the <a href="/steam-deck-settings/">Steam Deck settings hub</a>, compare the <a href="/rog-ally-settings/no-mans-sky/">ROG Ally</a> and <a href="/legion-go-settings/no-mans-sky/">Legion Go</a> pages, or use the <a href="/calculators/">battery, storage, and accessory calculators</a> with your own observations.</p>
+  </article>
+</Base>
