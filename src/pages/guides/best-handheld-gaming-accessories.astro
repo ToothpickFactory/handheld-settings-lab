@@ -1,5 +1,211 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { gearPicks } from '../../data/games';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/best-handheld-gaming-accessories/';
+const title = 'Best handheld gaming accessories: spec-based buying order — Handheld Settings Lab';
+const description = 'Choose handheld gaming accessories by need: cases, microSD storage, USB-C PD chargers, power banks, docks, cables, and controls for Steam Deck, ROG Ally, and Legion Go.';
+
+const sources = [
+  { label: 'Valve: Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' },
+  { label: 'ASUS: ROG Ally X (2024) specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/' },
+  { label: 'Lenovo PSREF: Legion Go 8APU1', url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1' },
+  { label: 'SD Association: Application Performance Class', url: 'https://www.sdcard.org/developers/sd-standard-overview/application-performance-class/' },
+  { label: 'USB-IF: USB Power Delivery overview', url: 'https://www.usb.org/usb-charger-pd' },
+  { label: 'FAA PackSafe: lithium batteries', url: 'https://www.faa.gov/hazmat/packsafe/lithium-batteries' }
+];
+
+const shoppingLinks = [
+  { label: 'Exact-model handheld carrying cases', href: 'https://www.amazon.com/s?k=handheld+gaming+pc+carrying+case+steam+deck+rog+ally+legion+go', category: 'cases' },
+  { label: 'UHS-I A2 microSD cards from established brands', href: 'https://www.amazon.com/s?k=uhs-i+a2+microsd+card+handheld+gaming', category: 'microsd-cards' },
+  { label: '65W USB-C PD chargers with port allocation table', href: 'https://www.amazon.com/s?k=65w+usb+c+pd+charger+port+allocation', category: 'chargers' },
+  { label: '100W USB-C cables with e-marker', href: 'https://www.amazon.com/s?k=100w+usb+c+cable+e-marker', category: 'usb-c-cables-adapters' },
+  { label: '65W USB-C PD power banks under 100Wh', href: 'https://www.amazon.com/s?k=65w+usb+c+pd+power+bank+under+100wh', category: 'power-banks' },
+  { label: 'Handheld docks with HDMI and Ethernet', href: 'https://www.amazon.com/s?k=handheld+gaming+dock+hdmi+ethernet+usb+c+pd', category: 'docks' }
+];
+
+const faqs = [
+  {
+    question: 'What handheld gaming accessory should I buy first?',
+    answer: 'Buy for the first real constraint. An exact-fit case comes first for travel; storage comes first for a full library; a second charger comes first when the included charger is always in the wrong room. Do not buy a dock, power bank, or controller until a specific use needs one.'
+  },
+  {
+    question: 'Can one charger work with Steam Deck, ROG Ally, and Legion Go?',
+    answer: 'A standards-compliant USB-C Power Delivery charger can serve several handhelds, but each model has its own input and performance expectations. Compare the official adapter specification, the output available from the exact port in use, and the cable rating. A multi-port charger may divide its headline wattage.'
+  },
+  {
+    question: 'Is A2 microSD always faster for handheld games?',
+    answer: 'A2 is an SD Association application-performance class, not a universal game-load-time promise. The handheld interface, card authenticity, workload, filesystem, thermals, and game all matter. Buy from a reputable seller and test the reported capacity before moving a large library.'
+  },
+  {
+    question: 'Does every handheld PC fit the same dock or case?',
+    answer: 'No. Body dimensions, thickness, USB-C port location, vent placement, kickstands, detachable controllers, and grip shells differ. A USB-C dock may work electrically while its cradle or fixed host cable fits poorly. Cases should name the exact handheld and accommodate any shell you leave attached.'
+  },
+  {
+    question: 'How powerful should a handheld gaming power bank be?',
+    answer: 'Match the official charger class of the most demanding handheld you plan to use and verify that output from one USB-C PD port. For U.S. flights, FAA guidance treats a power bank as a spare lithium battery: it belongs in carry-on baggage, and the simplest ordinary limit is 100Wh or less.'
+  },
+  {
+    question: 'Do accessories improve handheld gaming FPS?',
+    answer: 'Storage, docks, cables, chargers, and cases do not provide a general FPS upgrade. Correct power can prevent a handheld from dropping to a lower power mode, and better controls or a larger display can change usability, but performance claims require measured evidence for the exact setup.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Best handheld gaming accessories: a spec-based buying order',
+    description,
+    url: canonicalUrl,
+    datePublished: '2026-07-21',
+    dateModified: '2026-08-17',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['handheld gaming accessories', 'Steam Deck', 'ROG Ally', 'Legion Go', 'USB-C Power Delivery', 'microSD cards']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'Handheld gaming accessories', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
 ---
-<Base title="Best handheld gaming accessories to buy first — Handheld Settings Lab" description="A practical accessory buying guide for Steam Deck, ROG Ally, Legion Go, and handheld PC players."><article class="wrap article"><span class="eyebrow">Gear guide</span><h1>Best handheld gaming accessories to buy first</h1><p class="muted">Start with gear that solves real handheld problems: storage, charging, protection, and docked play. We avoid fake hands-on claims and mark shopping links clearly.</p><p class="affiliate-note">Disclosure: outbound shopping links are marked sponsored/nofollow and may become affiliate links after the tracking program is connected.</p><div class="grid cols2">{gearPicks.map(item => <div class="card gear-card"><span class="chip">{item.bestFor}</span><h2>{item.title}</h2><p>{item.verdict}</p><p><strong>Typical range:</strong> {item.price}</p><a class="btn ghost" href={item.amazonUrl} target="_blank" rel="nofollow sponsored">Search Amazon</a></div>)}</div><h2>Buying rule</h2><p>Buy accessories in this order: storage, power, protection, then desk/TV extras. A flashy dock is less useful if your game library does not fit or your handheld dies halfway through a trip.</p><h2>What we still need</h2><ul><li>Amazon Associates tracking ID.</li><li>Direct product picks after source-backed comparison or hands-on testing.</li><li>Separate device-specific guides for Steam Deck OLED, ROG Ally X, and Legion Go.</li></ul></article></Base>
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Cross-device accessory guide</span>
+    <h1>Best handheld gaming accessories: buy for the problem, not the bundle</h1>
+    <p class="muted">This is a published-spec comparison for Steam Deck, ROG Ally, Legion Go, and similar handheld PCs—not a hands-on product ranking. “Best” here means the right accessory class and specification for a stated need. Exact fit, port output, model revision, warranty, and seller still need to be checked before purchase.</p>
+    <p class="affiliate-note">Disclosure: shopping cards are broad Amazon searches marked sponsored/nofollow. They are starting points, not product endorsements or live price claims. Handheld Settings Lab appends an Associates tag only when a real tag is configured.</p>
+
+    <div class="callout"><strong>Fast buying order:</strong> case for travel, storage when the library is full, spare charger/cable when power is inconvenient, power bank for outlet-free sessions, and dock only for a named TV or desk setup. Skip any category that does not solve a current problem.</div>
+
+    <h2>Accessory priority by the problem it solves</h2>
+    <table>
+      <thead><tr><th>Problem</th><th>Accessory to consider</th><th>Specification that matters</th><th>Common mistake</th></tr></thead>
+      <tbody>
+        <tr><td>Controls or screen need protection in a bag</td><td>Exact-model carrying case</td><td>Stick, trigger, vent, shell, and charger clearance</td><td>Buying a “universal” case by screen size</td></tr>
+        <tr><td>Active games no longer fit</td><td>microSD card or compatible SSD</td><td>Device support, capacity, seller, and upgrade difficulty</td><td>Assuming storage adds FPS</td></tr>
+        <tr><td>Included charger is not where you play</td><td>USB-C PD charger and rated cable</td><td>Single-port output and multi-port allocation</td><td>Reading only the charger’s total wattage</td></tr>
+        <tr><td>Trips outlast the internal battery</td><td>USB-C PD power bank</td><td>Output watts, printed Wh, size, and travel rules</td><td>Comparing only marketing mAh</td></tr>
+        <tr><td>You want a TV or desk setup</td><td>Dock or USB-C hub</td><td>Display path, PD pass-through, Ethernet, and physical fit</td><td>Buying the most ports without mapping the setup</td></tr>
+        <tr><td>Built-in controls are awkward while docked</td><td>Controller, keyboard, or mouse</td><td>Game support, connection method, charging, and latency</td><td>Adding Bluetooth devices before testing the display chain</td></tr>
+      </tbody>
+    </table>
+
+    <h2>1. Carrying case: exact shape matters more than the label</h2>
+    <p>Steam Deck, ROG Ally, and Legion Go are not one case size. Their controls, body dimensions, vents, stands, and USB-C port locations differ. A grip shell or stick cap changes the required interior again. Prefer a case that names the exact model and shows its molded interior.</p>
+    <ul>
+      <li>Close the empty case around the handheld and confirm neither stick moves and neither trigger stays pressed.</li>
+      <li>Keep hard items such as a charger, dock, and power bank behind a divider instead of against the screen.</li>
+      <li>Check fit again with any grip or protective shell that remains installed.</li>
+      <li>Remove the handheld before gaming, charging under load, downloading, or updating so the vents stay clear.</li>
+    </ul>
+    <p>Use the <a href="/guides/handheld-gaming-carrying-case-size-checklist/">carrying-case size checklist</a> or browse the <a href="/gear/cases/">case gear guide</a>.</p>
+
+    <h2>2. Storage: choose removable convenience or internal capacity</h2>
+    <p>A microSD card is the lowest-disruption way to add a removable game library on a model that supports it. Internal NVMe storage can offer more capacity and a direct storage path, but form factors and service procedures differ by handheld. Do not assume that a 2230, 2242, or 2280 drive fits because all three are called M.2 NVMe.</p>
+    <ol>
+      <li>List the games kept installed and use the <a href="/calculators/storage-planner/">storage planner</a>.</li>
+      <li>Check the exact handheld’s official microSD and SSD specifications before ordering.</li>
+      <li>Buy flash storage from a reputable seller and test reported capacity before trusting it.</li>
+      <li>Plan backup and recovery before opening a handheld for an SSD replacement.</li>
+    </ol>
+    <p>A1 and A2 are application-performance classes defined by the SD Association; they do not establish a measured game loading advantage on every handheld. Read <a href="/guides/microsd-vs-ssd-handheld-pc/">microSD vs SSD</a> and the <a href="/guides/handheld-pc-ssd-form-factor-guide/">2230 vs 2242 vs 2280 guide</a>.</p>
+
+    <h2>3. Charger and cable: verify the port, not just the box</h2>
+    <p>Official handheld specifications provide the starting point for charging. Steam Deck lists a 45W USB-C PD supply, while higher-power Windows handheld configurations may ship with a 65W-class adapter. Check the exact model rather than extending one device’s requirement to every handheld.</p>
+    <div class="grid cols2">
+      <section class="card">
+        <span class="chip">One handheld</span>
+        <h3>Match its official adapter class</h3>
+        <p>A USB-C PD charger should make the required output available from the connected port. Pair it with a cable rated for that power and avoid an unmarked phone cable.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Shared travel kit</span>
+        <h3>Plan the multi-port allocation</h3>
+        <p>A charger advertised as 100W total may redistribute power when a phone or laptop is connected. Read its output table for the exact port combination you will use.</p>
+      </section>
+    </div>
+    <p>USB Power Delivery is negotiated; a reputable higher-capacity source does not force its full maximum into the handheld. See the <a href="/guides/one-usb-c-charger-steam-deck-rog-ally-legion-go/">one-charger compatibility guide</a>, <a href="/guides/usb-c-cable-wattage-handheld-gaming/">cable wattage guide</a>, and <a href="/gear/chargers/">charger gear guide</a>.</p>
+
+    <h2>4. Power bank: output watts and stored watt-hours are separate</h2>
+    <p>Output wattage determines whether the bank can support the handheld’s charging class. Watt-hours describe stored energy and are the number relevant to airline limits. Neither figure alone supports a fixed “extra gaming hours” claim because game load, frame cap, screen brightness, radios, thermals, and conversion losses vary.</p>
+    <ul>
+      <li>Match the most demanding handheld in the bag using one USB-C PD port, not combined output.</li>
+      <li>Verify the printed Wh rating on the battery body instead of inferring travel eligibility from mAh alone.</li>
+      <li>For U.S. flights, FAA guidance says power banks stay in carry-on baggage; ordinary spare lithium-ion batteries are limited to 100Wh, while 101–160Wh requires airline approval and has additional limits.</li>
+      <li>Model a range with the <a href="/calculators/battery-estimator/">battery estimator</a> instead of treating it as a benchmark.</li>
+    </ul>
+    <p>Read the <a href="/guides/usb-c-power-bank-wattage-handheld-gaming/">power-bank wattage and airline guide</a> and compare specifications in the <a href="/gear/power-banks/">power-bank gear guide</a>.</p>
+
+    <h2>5. Dock: map the complete display chain before shopping</h2>
+    <p>A dock is a USB-C hub plus a physical cradle; compatibility requires both parts to work. Start with the actual TV or monitor, desired HDMI or DisplayPort path, charger, Ethernet need, controller plan, and any shell left on the handheld.</p>
+    <ul>
+      <li><strong>Display:</strong> match the screen input, intended resolution and refresh rate, HDR/VRR expectation, and cable.</li>
+      <li><strong>Power:</strong> account for dock overhead and attached USB devices when checking PD pass-through.</li>
+      <li><strong>Physical fit:</strong> verify cradle width, vent clearance, kickstand or detachable-controller access, and fixed host-cable reach.</li>
+      <li><strong>Troubleshooting:</strong> prove charging first, then display, then Ethernet and peripherals one at a time.</li>
+    </ul>
+    <p>Use the <a href="/guides/handheld-gaming-usb-c-dock-checklist/">USB-C dock checklist</a>, <a href="/guides/steam-deck-dock-not-connecting-to-tv/">Steam Deck TV no-signal guide</a>, or <a href="/guides/rog-ally-dock-tv-monitor-setup/">ROG Ally dock setup guide</a>.</p>
+
+    <h2>6. Controls, audio, and screen accessories come after the foundation</h2>
+    <p>Controllers, keyboards, headsets, portable monitors, and screen protectors can improve a known setup, but they also add charging, pairing, cable, fit, or latency variables. Add one at a time after storage and power are stable.</p>
+    <div class="grid cols3">
+      <section class="card"><span class="chip">Docked controls</span><h3>Controller or keyboard/mouse</h3><p>Choose by game support and connection method. Keep a wired fallback while diagnosing Bluetooth or 2.4GHz behavior.</p></section>
+      <section class="card"><span class="chip">Travel audio</span><h3>Wired, Bluetooth, or 2.4GHz</h3><p>Convenience and latency trade off differently by game. A dongle also consumes a port and may need a dock or adapter.</p></section>
+      <section class="card"><span class="chip">Display protection</span><h3>Exact-cut screen protector</h3><p>Match the device and finish. Matte layers may reduce reflections while changing perceived sharpness and contrast.</p></section>
+    </div>
+
+    <h2>Spec-based shopping starting points</h2>
+    <p>These broad searches follow the checks above. No result has been personally tested or labeled the best product, and no current price, stock, or compatibility is asserted.</p>
+    <div class="grid cols2">
+      {shoppingLinks.map(link => (
+        <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored" data-affiliate-link data-category={link.category}>
+          <span class="chip">Sponsored search</span>
+          <h3>{link.label}</h3>
+          <p class="muted">Compare exact-model fit, single-port USB-C PD output, dimensions, seller, warranty, and return policy as applicable.</p>
+        </a>
+      ))}
+    </div>
+
+    <h2>Accessories to skip until evidence or need catches up</h2>
+    <ul>
+      <li><strong>Cooling add-ons with FPS promises:</strong> no general performance improvement is claimed without a controlled test on the exact handheld.</li>
+      <li><strong>Rigid USB-C adapters under leverage:</strong> they may improve cable direction but can increase stress on the handheld port.</li>
+      <li><strong>Large accessory bundles:</strong> one weak charger, cable, card, or hub can make diagnosis harder than deliberate purchases.</li>
+      <li><strong>An SSD sold as an FPS upgrade:</strong> more capacity is useful, but it is not a general frame-rate improvement.</li>
+      <li><strong>A dock with ports you cannot name a use for:</strong> unused features add cost, heat, and troubleshooting surface.</li>
+    </ul>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Sources and comparison method</h2>
+    <p>The official Valve, ASUS, Lenovo PSREF, SD Association, USB-IF, and FAA pages below were fetched successfully on August 17, 2026. Device makers establish model specifications; SD Association and USB-IF define relevant standards; FAA provides current U.S. spare-battery guidance. The buying order is conservative editorial guidance based on needs and compatibility checks. No accessory was personally tested, autocomplete evidence is not represented as search volume, and readers should recheck exact model revisions and travel rules.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+
+    <div class="callout"><strong>Next step:</strong> open the <a href="/gear/">gear library</a> for category shortlists, or tune a game from the <a href="/steam-deck-settings/">Steam Deck</a>, <a href="/rog-ally-settings/">ROG Ally</a>, or <a href="/legion-go-settings/">Legion Go</a> hub before buying hardware to solve a settings problem.</div>
+  </article>
+</Base>
