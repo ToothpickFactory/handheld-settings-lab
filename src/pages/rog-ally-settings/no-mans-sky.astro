@@ -1,0 +1,177 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/rog-ally-settings/no-mans-sky/';
+const title = "No Man's Sky ROG Ally settings: 720p/30 baseline — Handheld Settings Lab";
+const description = "Start No Man's Sky on ROG Ally or Ally X at 720p/30 FPS, then test 900p and 40 FPS with planet-to-space checks, model-aware power guidance, and 15GB storage planning.";
+const image = '/assets/games/no-mans-sky-header.jpg';
+
+const sources = [
+  { label: "Steam: No Man's Sky requirements, features, controller support, and official media", url: 'https://store.steampowered.com/app/275850/No_Mans_Sky/' },
+  { label: "Steam app-details API: current public product data for app 275850", url: 'https://store.steampowered.com/api/appdetails?appids=275850&cc=us&l=en' },
+  { label: "Hello Games: official No Man's Sky release log", url: 'https://www.nomanssky.com/release-log/' },
+  { label: 'ASUS: original ROG Ally (2023) specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-2023/spec/' },
+  { label: 'ASUS: ROG Ally X (2024) specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/' }
+];
+
+const faqs = [
+  {
+    question: "What No Man's Sky settings should I use on ROG Ally?",
+    answer: 'Start at 1280×720, a 30 FPS cap, and the Standard preset. Keep planet quality, base complexity, shadows, reflections, volumetrics, and animation quality at Standard while testing. Use a Quality-class in-game upscaler if the current build offers one. Test a busy planet, base, low flight, atmosphere transition, and space combat before raising settings. This is a cautious editorial baseline, not a personally measured result.'
+  },
+  {
+    question: "Can ROG Ally run No Man's Sky at 40 FPS?",
+    answer: 'Treat 40 FPS as a test target rather than a guaranteed lock. Start plugged in with a documented Turbo-class profile, prove the 720p/30 route first, then change only the cap. Procedural terrain, weather, large bases, settlements, multiplayer, patches, power, and thermals can change the weakest scene.'
+  },
+  {
+    question: "Should I use 720p, 900p, or 1080p for No Man's Sky on ROG Ally?",
+    answer: 'Use 720p as the diagnostic baseline. If the complete planet-to-space route passes, compare 900p with every other control unchanged. Test 1080p only after deciding that image clarity is worth the extra render load; the Ally panel’s native resolution does not make native-resolution rendering free.'
+  },
+  {
+    question: 'Are the settings identical for the original ROG Ally and Ally X?',
+    answer: 'No result should be transferred between models without retesting. Battery capacity, memory configuration, cooling behavior, firmware, processor configuration, charger state, and power profile all matter. Record the exact model, Z1 or Z1 Extreme processor, BIOS, graphics driver, Armoury Crate SE version, memory allocation, and Operating Mode.'
+  },
+  {
+    question: "How much storage does No Man's Sky need on ROG Ally?",
+    answer: 'Steam currently lists 15GB of available space. Leave additional room for updates, shader data, saves, screenshots, recordings, launcher data, and Windows temporary files rather than filling the SSD or microSD card to exactly 15GB.'
+  },
+  {
+    question: "Were these No Man's Sky ROG Ally settings personally benchmarked?",
+    answer: 'No. Handheld Settings Lab checked current Valve, Hello Games, and ASUS public sources but did not personally benchmark the current game build, Ally model, BIOS, driver, Armoury Crate build, memory allocation, battery, thermals, save, planet, or multiplayer session. The page provides a reproducible starting workflow without inventing an FPS or runtime result.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: "No Man's Sky ROG Ally settings: 720p/30 FPS baseline",
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-17',
+    dateModified: '2026-08-17',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ["No Man's Sky", 'ASUS ROG Ally', 'ASUS ROG Ally X', 'game settings', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'ROG Ally settings', item: 'https://handheldsettings.com/rog-ally-settings/' },
+      { '@type': 'ListItem', position: 3, name: "No Man's Sky settings", item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">ROG Ally settings · Baseline published August 2026</span>
+    <h1>No Man's Sky ROG Ally settings: start at 720p and 30 FPS</h1>
+    <p class="lede muted">No Man's Sky can move from a quiet interior to procedural terrain, dense flora, weather, settlements, player bases, atmosphere transitions, freighters, and multiplayer activity. This ROG Ally workflow starts at a cautious 720p/30 Standard profile, then tests 900p or 40 FPS one change at a time. It is official-source-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official No Man's Sky Steam header artwork showing a traveler overlooking an alien landscape" width="460" height="215" />
+      <figcaption class="media-credit">Official No Man's Sky Steam store header image, saved locally from <a href="https://store.steampowered.com/app/275850/No_Mans_Sky/" target="_blank" rel="nofollow noopener">Hello Games' Steam store page</a>. Artwork and trademarks belong to Hello Games; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Safe first target</h3><div class="stat">720p / 30</div><p class="muted">Baseline to validate, not a lock guarantee</p></section>
+      <section class="card"><h3>Starting preset</h3><div class="stat">Standard</div><p class="muted">Raise clarity after route testing</p></section>
+      <section class="card"><h3>Second tests</h3><div class="stat">900p or 40</div><p class="muted">Change only one variable at a time</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">15GB</div><p class="muted">Current Steam requirement; leave headroom</p></section>
+    </div>
+
+    <div class="callout"><strong>Model and power state are part of the result:</strong> “ROG Ally” can mean an original Ally or Ally X, with different processor, battery, memory, firmware, and thermal context. Record the exact hardware and software state. Do not attach a plugged-in Turbo result to a lower-power battery profile.</div>
+
+    <h2>Recommended No Man's Sky ROG Ally baseline</h2>
+    <table>
+      <thead><tr><th>Control</th><th>Start here</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>Ally model</td><td>Record exact model and processor</td><td>Original Ally, Ally X, Z1, and Z1 Extreme results are not interchangeable. Also record BIOS, driver, Armoury Crate SE, and memory allocation.</td></tr>
+        <tr><td>Operating Mode</td><td>Plugged-in Turbo-class baseline</td><td>Creates a clear first condition. Test Performance or a manual profile separately after the graphics route is stable.</td></tr>
+        <tr><td>Control Mode</td><td>Gamepad</td><td>Steam lists full controller support; a clean gamepad baseline avoids overlapping desktop controls and remaps.</td></tr>
+        <tr><td>Display mode / resolution</td><td>Fullscreen / 1280×720</td><td>Uses a light 16:9 output mode on the Ally panel and provides a clean troubleshooting floor.</td></tr>
+        <tr><td>Refresh / frame cap</td><td>60Hz / 30 FPS first</td><td>Creates a simple first pacing relationship before testing 40 FPS or a variable-refresh route.</td></tr>
+        <tr><td>Graphics preset</td><td>Standard</td><td>Provides a cautious floor without pretending every procedural planet needs the same setting.</td></tr>
+        <tr><td>Anti-aliasing / upscaling</td><td>Quality-class in-game mode, if offered</td><td>Begins with the clearer reconstruction choice. Avoid stacking in-game scaling with driver-level RSR during diagnosis.</td></tr>
+        <tr><td>Texture quality</td><td>Standard, then raise carefully</td><td>The Ally uses shared memory; check traversal and base streaming before increasing this control.</td></tr>
+        <tr><td>Shadows / reflections</td><td>Standard</td><td>Protects headroom in moving sunlight, water, ships, interiors, and weather.</td></tr>
+        <tr><td>Volumetric quality</td><td>Standard</td><td>Reduces the cost of clouds, fog, storms, and atmosphere transitions in the first test.</td></tr>
+        <tr><td>Planet quality</td><td>Standard</td><td>Limits terrain-detail and streaming pressure during low flight and fast surface traversal.</td></tr>
+        <tr><td>Base complexity / animation</td><td>Standard</td><td>Large player bases and populated settlements can behave differently from untouched terrain.</td></tr>
+        <tr><td>Motion blur</td><td>Off for comparison</td><td>Makes camera motion, scaling artifacts, and pacing easier to inspect; restore later by preference.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Menu names and scaling choices can change with patches. Photograph the current options and note the selected profile. Do not combine a resolution change, power change, new upscaler, and new cap in one comparison.</p>
+
+    <h2>Run a repeatable planet-to-space test</h2>
+    <ol>
+      <li><strong>Finish stable updates and restart.</strong> Complete the game, Windows, MyASUS, Armoury Crate SE, BIOS, and intended graphics-driver updates before recording a baseline.</li>
+      <li><strong>Record the full device state.</strong> Note exact Ally, processor, BIOS, driver, Armoury Crate build, memory allocation, charger, Operating Mode, resolution, cap, upscaler, and game version.</li>
+      <li><strong>Walk a dense surface route twice.</strong> Include terrain generation, flora, fauna, structures, mining effects, inventory use, and weather if practical.</li>
+      <li><strong>Fly low over the same area.</strong> Fast surface traversal can expose terrain and asset streaming that a static interior misses.</li>
+      <li><strong>Leave the atmosphere.</strong> Include the transition, pulse flight, a station or freighter interior, and a short combat encounter when available.</li>
+      <li><strong>Test a representative base or settlement.</strong> A starter shelter is not a useful proxy for a dense build or populated location.</li>
+      <li><strong>Change one control at a time.</strong> Compare 40 FPS, 900p, a clearer scaling mode, then textures—repeating the complete route after each change.</li>
+    </ol>
+
+    <h2>Choose the next test from the result</h2>
+    <div class="grid cols3">
+      <section class="card"><span class="chip">Pass</span><h3>720p/30 survives the full route</h3><p>Save the exact profile. Test 900p or 40 FPS next, but not both together, and repeat the same planet, base, flight, transition, and combat pass.</p></section>
+      <section class="card"><span class="chip">Tune</span><h3>Headroom remains but clarity is soft</h3><p>Keep the cap and compare a clearer in-game upscaler before raising resolution. Check text, foliage, wires, ship edges, and motion—not only a still image.</p></section>
+      <section class="card"><span class="chip">Diagnose</span><h3>Heavy-area misses remain</h3><p>Restore Standard, verify power and free space, pause downloads and recording, restart, and repeat. Lower the control tied to the failing scene rather than everything.</p></section>
+    </div>
+
+    <h2>Fix common No Man's Sky problems on ROG Ally</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Low flight or traversal hitches</td><td>Restore Standard planet, texture, and base settings; check free storage and background downloads</td><td>Restart and repeat the exact route to separate first-pass work from persistent load</td></tr>
+        <tr><td>Storms or clouds miss the cap</td><td>Confirm 720p and Standard volumetrics, shadows, reflections, and planet quality</td><td>Keep 30 FPS, disable recording, confirm power state, and rerun the same weather route</td></tr>
+        <tr><td>Large bases perform worse</td><td>Return base complexity and animation quality to Standard</td><td>Test the same base offline only as a diagnostic, then restore the intended multiplayer state</td></tr>
+        <tr><td>Image is too soft or shimmers</td><td>Confirm only one scaling method is active and RSR is not stacked over the game upscaler</td><td>Compare a clearer in-game Quality mode at 720p before testing 900p</td></tr>
+        <tr><td>Camera movement feels uneven</td><td>Confirm one frame limit and the recorded display refresh</td><td>Remove overlapping game, Armoury Crate, and driver limits, then retest without recording</td></tr>
+        <tr><td>Controller prompts or inputs are wrong</td><td>Set Armoury Crate Control Mode to Gamepad and restore the default layout</td><td>Confirm Steam Input state before creating a custom remap</td></tr>
+        <tr><td>Performance changed after an update</td><td>Restart and restore the photographed baseline</td><td>Confirm game, BIOS, driver, Armoury Crate, memory allocation, and power state; check the official release log</td></tr>
+        <tr><td>Docked play is slower</td><td>Retest directly on the Ally screen with its compatible charger</td><td>Check dock power and TV output separately; do not render internally at 4K by default</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, battery, online play, and dock planning</h2>
+    <p>Steam currently lists <strong>15GB of available space</strong>, multiplayer, online co-op, cross-platform multiplayer, Steam Cloud, and full controller support. Leave room beyond 15GB for updates, shader data, saves, clips, and Windows temporary files. Use the <a href="/calculators/storage-planner/">storage planner</a>, then compare <a href="/guides/microsd-vs-ssd-handheld-pc/">microSD and internal SSD tradeoffs</a>.</p>
+    <p>This page does not invent battery runtime. Ally model, scene, weather, base, multiplayer state, brightness, radios, cap, Operating Mode, battery health, and thermals all alter total draw. Measure your own complete route on the intended profile and use the <a href="/calculators/battery-estimator/">battery estimator</a>.</p>
+    <p>Complete sign-in, updates, and a launch of the intended save before travel. Stabilize the handheld profile before moving to a TV, then follow the <a href="/guides/rog-ally-dock-tv-monitor-setup/">ROG Ally dock and TV setup guide</a>.</p>
+
+    <h2>Optional gear after the profile is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, model fit, seller traceability, warranty, and return terms. No price, performance, compatibility, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+a2+u3+microsd+card" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microsd-cards"><span class="chip">Sponsored search</span><h3>A2 / U3 microSD cards</h3><p class="muted">Compare capacity, seller traceability, warranty, card-verification tools, and update headroom.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+65w+usb+c+pd+charger" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers"><span class="chip">Sponsored search</span><h3>65W-class USB-C PD chargers</h3><p class="muted">Check dedicated-port output, cable rating, port sharing, warranty, and support for the exact Ally model.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+usb+c+dock+65w+hdmi+ethernet" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks"><span class="chip">Sponsored search</span><h3>ROG Ally USB-C docks</h3><p class="muted">Compare PD passthrough, display modes, Ethernet, host-cable reach, case clearance, and included power.</p></a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a>, follow the <a href="/guides/rog-ally-x-accessories-buying-checklist/">ROG Ally X accessory checklist</a>, or set a limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on August 17, 2026. Steam's live product data supplied the August 12, 2016 release date, current 15GB storage requirement, feature labels, full-controller-support label, Hello Games identity, and official image. Hello Games supplies the official release log. ASUS's official specification pages establish the original Ally and Ally X device context, including their 1920×1080 120Hz displays and model-specific hardware.</p>
+    <p>The settings are a conservative editorial test sequence derived from those public constraints and normal graphics diagnosis. Handheld Settings Lab did not personally benchmark the current game, save, planet, Ally model, Windows build, BIOS, graphics driver, Armoury Crate version, memory allocation, battery, thermals, or multiplayer session. The 30 and 40 FPS figures are test targets, not measured guarantees; no search-volume or fixed-runtime claim is made.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Return to the <a href="/rog-ally-settings/">ROG Ally settings hub</a>, compare the <a href="/steam-deck-settings/no-mans-sky/">Steam Deck</a> and <a href="/legion-go-settings/no-mans-sky/">Legion Go</a> pages, or use the <a href="/calculators/">battery, storage, and accessory calculators</a> with your own observations.</p>
+  </article>
+</Base>
