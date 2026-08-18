@@ -1,0 +1,202 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/rog-ally-battery-life-calculator-guide/';
+const title = 'ROG Ally battery life calculator guide: 40Wh vs 80Wh — Handheld Settings Lab';
+const description = 'Estimate ROG Ally or Ally X runtime from official 40Wh or 80Wh capacity, measured total system draw, and a realistic safety buffer.';
+
+const sourceLinks = [
+  { label: 'ASUS: ROG Ally X (2024) technical specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/' },
+  { label: 'ASUS: ROG Ally (2023) technical specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-2023/spec/' },
+  { label: 'Microsoft Learn: powercfg command-line options', url: 'https://learn.microsoft.com/en-us/windows-hardware/design/device-experiences/powercfg-command-line-options' },
+  { label: 'Microsoft Support: caring for your battery in Windows', url: 'https://support.microsoft.com/en-us/windows/caring-for-your-battery-in-windows-2db3e37f-5e7d-488e-9086-ed15320519e4' }
+];
+
+const shoppingLinks = [
+  { label: '65W USB-C PD power banks under 100Wh', href: 'https://www.amazon.com/s?k=65w+usb+c+pd+power+bank+under+100wh', category: 'power-banks' },
+  { label: '100W USB-C PD cables with e-marker', href: 'https://www.amazon.com/s?k=100w+usb+c+pd+cable+e-marker', category: 'cables-adapters' }
+];
+
+const faqs = [
+  {
+    question: 'How long should a ROG Ally battery last?',
+    answer: 'There is no single honest runtime for every game. ASUS lists a 40Wh battery for the 2023 ROG Ally and an 80Wh battery for the 2024 ROG Ally X. Runtime depends on total system draw, not battery capacity alone. Use the calculator with a draw observed during representative play and keep a safety buffer.'
+  },
+  {
+    question: 'Does the ROG Ally X have twice the battery life of the original Ally?',
+    answer: 'Its official 80Wh capacity is twice the original model’s listed 40Wh capacity, but that does not guarantee exactly twice the observed runtime. Screen settings, processor mode, game load, background activity, battery condition, firmware, and accessories can differ. With identical total system draw and buffer, the arithmetic estimate doubles.'
+  },
+  {
+    question: 'Should I enter TDP as total system draw?',
+    answer: 'No. A processor power target excludes other loads such as the display, memory, storage, cooling, radios, speakers, and power-conversion overhead. Use a total system or battery-discharge figure observed during the game when available.'
+  },
+  {
+    question: 'What safety buffer should I use in a battery estimate?',
+    answer: 'Ten percent is a useful planning default, not a universal rule. Use a larger buffer for travel, an older battery, variable workloads, high brightness, downloads, voice chat, or a session where reaching zero charge would be disruptive.'
+  },
+  {
+    question: 'How do I check ROG Ally battery health in Windows?',
+    answer: 'Windows powercfg can generate a battery report. Open Terminal as an administrator, run powercfg /batteryreport, and open the saved HTML report. Compare design capacity and recent full-charge capacity as context, but remember that a report is not a live game-power benchmark.'
+  },
+  {
+    question: 'Will a 65W power bank extend ROG Ally runtime?',
+    answer: 'A compatible USB-C PD bank can add energy, but 65W describes maximum output, not stored capacity. Check both single-port PD output and watt-hours. Conversion loss, cable capability, shared-port behavior, temperature, and game draw prevent a guaranteed extra-hours claim.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'ROG Ally battery life calculator guide: 40Wh vs 80Wh',
+    description,
+    url: canonicalUrl,
+    datePublished: '2026-08-18',
+    dateModified: '2026-08-18',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['ROG Ally battery life', 'ROG Ally X battery life', 'battery runtime calculator', 'Windows battery report']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'ROG Ally battery life calculator guide', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <article class="wrap article ally-battery-guide">
+    <span class="eyebrow">ROG Ally calculator support guide</span>
+    <h1>ROG Ally battery life calculator guide: 40Wh vs 80Wh</h1>
+    <p class="lede muted">The original ROG Ally and ROG Ally X do not start with the same energy budget. This guide turns their official battery capacities and your observed game draw into a transparent planning estimate.</p>
+
+    <div class="estimate-warning">
+      <strong>No fabricated battery benchmarks:</strong>
+      <p>The examples below are formula outputs, not personally measured game tests. They do not promise that a named game will last a fixed number of hours. Use your own representative total system draw for a useful estimate.</p>
+    </div>
+
+    <h2>Start with the correct ROG Ally battery capacity</h2>
+    <div class="grid cols2 model-cards">
+      <section class="card">
+        <span class="chip">ROG Ally (2023)</span>
+        <h3>40Wh official capacity</h3>
+        <p>ASUS lists a 40WHrs, four-cell lithium-ion battery and a 65W Type-C adapter. Enter <strong>40</strong> in the calculator before applying a buffer.</p>
+      </section>
+      <section class="card">
+        <span class="chip">ROG Ally X (2024)</span>
+        <h3>80Wh official capacity</h3>
+        <p>ASUS lists an 80WHrs, four-cell lithium-ion battery and a 65W Type-C adapter. Enter <strong>80</strong> for the Ally X before applying a buffer.</p>
+      </section>
+    </div>
+    <p>Model names matter. Do not assume the Ally X value applies to the original Z1 or Z1 Extreme model, and do not use the charger’s 65W output as the battery capacity. <strong>Wh</strong> describes stored energy; <strong>W</strong> describes an instantaneous rate of power.</p>
+
+    <div class="callout"><strong>Open the tool:</strong> use the <a href="/calculators/battery-estimator/">handheld battery-life calculator</a>. Enter 40Wh for a 2023 ROG Ally or 80Wh for a 2024 Ally X, then add observed total system draw and a safety buffer.</div>
+
+    <h2>The runtime formula</h2>
+    <p>The site calculator uses a simple planning formula:</p>
+    <div class="formula" aria-label="Usable watt-hours divided by total system draw equals estimated hours">
+      <strong>Estimated hours = battery Wh × (1 − safety buffer) ÷ total system draw in watts</strong>
+    </div>
+    <p>For example, an Ally X entered as 80Wh with a 10% buffer leaves 72Wh in the planning budget. Dividing 72Wh by a 20W observed total draw produces 3.6 hours. That is arithmetic—not a claim that every game, unit, battery, or 20W operating profile will reproduce 3.6 hours.</p>
+
+    <h2>40Wh vs 80Wh: arithmetic planning scenarios</h2>
+    <p>These rows show what the same formula returns with a 10% reserve. They are designed to explain sensitivity to total draw, not to stand in for a review benchmark.</p>
+    <div class="battery-table-wrap">
+      <table class="battery-table">
+        <thead><tr><th>Observed total draw</th><th>40Wh ROG Ally estimate</th><th>80Wh ROG Ally X estimate</th><th>Workload interpretation</th></tr></thead>
+        <tbody>
+          <tr><td>10W</td><td>3.60 hours</td><td>7.20 hours</td><td>Light workload scenario</td></tr>
+          <tr><td>15W</td><td>2.40 hours</td><td>4.80 hours</td><td>Moderate total-draw scenario</td></tr>
+          <tr><td>20W</td><td>1.80 hours</td><td>3.60 hours</td><td>Demanding handheld scenario</td></tr>
+          <tr><td>25W</td><td>1.44 hours</td><td>2.88 hours</td><td>High total-draw scenario</td></tr>
+          <tr><td>30W</td><td>1.20 hours</td><td>2.40 hours</td><td>Very high total-draw scenario</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>The clean two-to-one relationship appears because the table holds draw and buffer constant while doubling nominal capacity. Real comparisons can diverge when resolution, refresh rate, processor mode, firmware, brightness, battery health, or game settings are not matched.</p>
+
+    <h2>Do not confuse processor TDP with battery draw</h2>
+    <p>A game profile’s processor target is only one component of the system load. The screen, memory, SSD, fan, Wi-Fi, Bluetooth, speakers, RGB lighting, USB devices, and voltage conversion also consume energy. Entering a “15W mode” as though the whole handheld draws exactly 15W usually makes the estimate too optimistic.</p>
+    <ol>
+      <li><strong>Finish updates first.</strong> Downloads, installs, antivirus work, and shader preparation can distort a short sample.</li>
+      <li><strong>Choose a repeatable game area.</strong> Use active play that resembles the session, not a static menu or loading screen.</li>
+      <li><strong>Set brightness and radios.</strong> Keep display level, Wi-Fi, Bluetooth, audio, and attached devices consistent.</li>
+      <li><strong>Stabilize the frame target.</strong> A profile swinging between limits is less useful than a repeatable cap in a demanding area.</li>
+      <li><strong>Observe total discharge behavior.</strong> Prefer a device-reported whole-system or battery-discharge figure over the processor target alone.</li>
+      <li><strong>Sample more than once.</strong> Different maps, crowds, weather, cutscenes, and online activity can change draw.</li>
+    </ol>
+
+    <h2>Check battery condition with a Windows battery report</h2>
+    <p>Microsoft documents the <code>powercfg /batteryreport</code> option for generating an HTML battery report. It can help explain why an older battery no longer behaves like its nominal specification.</p>
+    <ol>
+      <li>Open Windows Terminal or Command Prompt as an administrator.</li>
+      <li>Run <code>powercfg /batteryreport</code>.</li>
+      <li>Open the file path Windows reports.</li>
+      <li>Compare <strong>design capacity</strong> with recent <strong>full charge capacity</strong>.</li>
+      <li>Use the report as battery-health context, not as a live power meter or a guarantee of remaining runtime.</li>
+    </ol>
+    <p>If recent full-charge capacity is materially below design capacity, a calculation based only on 40Wh or 80Wh may overstate the usable energy available today. Battery reports also include historical estimates based on past use; they cannot predict every new game workload.</p>
+
+    <h2>How to tune a game for a longer session</h2>
+    <div class="grid cols2">
+      <section class="card"><h3>1. Pick a stable frame cap</h3><p>Do not spend power rendering frames the display target or game cannot use consistently. Compare the same scene after each change and prioritize even frame pacing.</p></section>
+      <section class="card"><h3>2. Reduce expensive effects</h3><p>Shadows, volumetrics, reflections, crowd density, and view distance often deserve attention before textures. Avoid making text unreadable with aggressive scaling.</p></section>
+      <section class="card"><h3>3. Lower the power profile gradually</h3><p>Make one change at a time, replay the same demanding area, and stop when frame pacing or input response no longer meets the goal.</p></section>
+      <section class="card"><h3>4. Control non-game loads</h3><p>Pause downloads, close unused launchers, set comfortable brightness, and disconnect accessories that are not part of the planned session.</p></section>
+    </div>
+    <p>Start with a title in the <a href="/rog-ally-settings/">ROG Ally settings hub</a>, then model the observed draw in the calculator. If storage activity is part of the problem, use the <a href="/calculators/storage-planner/">storage planner</a> rather than filling the internal drive to its limit.</p>
+
+    <h2>External power: output and capacity are separate checks</h2>
+    <p>Both official specification pages checked for this guide list a 65W Type-C adapter. For an external battery, verify that a single USB-C PD port offers the required profile and that the cable supports the intended power. Then check the bank’s watt-hour capacity separately. A “65W” label alone says nothing about how long the bank can run the handheld.</p>
+    <p class="affiliate-note">Disclosure: the shopping links below are broad Amazon searches marked sponsored/nofollow. They are not product endorsements, live-price claims, or hands-on test results. The site adds an Associates tag only when a real tag is configured.</p>
+    <div class="grid cols2">
+      {shoppingLinks.map(link => (
+        <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored" data-affiliate-link data-category={link.category}>
+          <span class="chip">Sponsored search</span>
+          <h3>{link.label}</h3>
+          <p class="muted">Verify single-port USB-C PD output, watt-hours, cable rating, warranty, recall status, and recent compatibility reports before buying.</p>
+        </a>
+      ))}
+    </div>
+    <p>Read the <a href="/guides/usb-c-power-bank-wattage-handheld-gaming/">power-bank wattage and airline guide</a>, compare the central <a href="/gear/power-banks/">power-bank gear page</a>, and check the <a href="/guides/usb-c-cable-wattage-handheld-gaming/">USB-C cable wattage guide</a> before building a travel kit.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Official ASUS specification pages and Microsoft battery documentation were fetched on August 18, 2026. ASUS lists the 2023 ROG Ally with a 40WHrs battery and the 2024 ROG Ally X with an 80WHrs battery; both pages list a 65W Type-C adapter. Microsoft documents the battery-report command and general Windows battery-care guidance.</p>
+    <ul>
+      {sourceLinks.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+    <p>The scenario table was calculated as <code>capacity × 0.90 ÷ draw</code> and rounded to two decimal places. No runtime was copied from a review, presented as personally measured, or attributed to ASUS. No autocomplete evidence is described as search volume.</p>
+  </article>
+</Base>
+
+<style>
+  .ally-battery-guide { padding-top: 56px; padding-bottom: 72px; }
+  .estimate-warning { margin: 28px 0; padding: 20px 22px; border: 1px solid rgba(255,184,77,.45); border-left: 5px solid #ffb84d; border-radius: 14px; background: #15130e; }
+  .estimate-warning p { margin: 6px 0 0; color: #d6d0c2; }
+  .model-cards { margin: 22px 0; }
+  .formula { margin: 20px 0; padding: 22px; border: 1px solid rgba(184,255,77,.35); border-radius: 14px; color: #b8ff4d; background: #10150d; text-align: center; }
+  .battery-table-wrap { overflow-x: auto; margin: 22px 0 34px; border: 1px solid rgba(255,255,255,.12); border-radius: 16px; }
+  .battery-table { width: 100%; min-width: 760px; margin: 0; border-collapse: collapse; }
+  .battery-table th { color: #b8ff4d; background: #111722; text-align: left; }
+  .battery-table th, .battery-table td { padding: 14px 16px; border-bottom: 1px solid rgba(255,255,255,.09); vertical-align: top; }
+  .battery-table tbody tr:last-child td { border-bottom: 0; }
+  code { padding: .12rem .35rem; border-radius: 5px; color: #d9ff9d; background: #111722; }
+</style>
