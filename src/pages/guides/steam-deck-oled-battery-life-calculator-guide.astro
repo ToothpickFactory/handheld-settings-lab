@@ -1,0 +1,199 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/steam-deck-oled-battery-life-calculator-guide/';
+const title = 'Steam Deck OLED battery calculator: 50Wh guide — Handheld Settings Lab';
+const description = 'Estimate Steam Deck OLED battery life from its official 50Wh capacity, observed total system draw, and a realistic safety buffer.';
+
+const sourceLinks = [
+  { label: 'Valve: Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' },
+  { label: 'Steam Support: Steam Deck basic use and troubleshooting', url: 'https://help.steampowered.com/en/faqs/view/69E3-14AF-9764-4C28' }
+];
+
+const shoppingLinks = [
+  { label: '45W+ USB-C PD power banks under 100Wh', href: 'https://www.amazon.com/s?k=45w+usb+c+pd+power+bank+under+100wh', category: 'power-banks' },
+  { label: '60W or 100W USB-C PD cables', href: 'https://www.amazon.com/s?k=usb+c+pd+cable+60w+100w', category: 'cables-adapters' }
+];
+
+const faqs = [
+  {
+    question: 'How long does the Steam Deck OLED battery last?',
+    answer: 'Valve lists a 50Wh battery and a broad 3–12 hours of gameplay for the current Steam Deck OLED specification. A useful estimate for your game divides usable battery watt-hours by observed total system draw. Game load, frame cap, brightness, radios, battery condition, and background activity all change runtime.'
+  },
+  {
+    question: 'What battery capacity should I enter for Steam Deck OLED?',
+    answer: 'Enter 50Wh when modeling the nominal capacity listed on Valve’s current technical-specification page. If battery health has reduced the full-charge capacity, use a lower effective capacity or a larger safety buffer rather than treating 50Wh as guaranteed usable energy.'
+  },
+  {
+    question: 'Is Steam Deck TDP the same as total system draw?',
+    answer: 'No. A processor power limit does not include the display, memory, storage, fan, radios, speakers, or power-conversion losses. Use a whole-system or battery-discharge figure observed during representative play when available.'
+  },
+  {
+    question: 'Why does the calculator differ from Steam Deck remaining-time estimates?',
+    answer: 'The calculator holds the wattage you enter constant. The device estimate reacts to recent real load, while a game can move between menus, cutscenes, quiet areas, and demanding scenes. Treat both as changing planning signals, not exact arrival times.'
+  },
+  {
+    question: 'Does a 40 FPS cap improve Steam Deck OLED battery life?',
+    answer: 'It can reduce power use when the game would otherwise render more frames, but the gain is not fixed. Compare the same demanding area, check frame pacing, and observe total system draw before and after the change.'
+  },
+  {
+    question: 'Will a 45W power bank add one full Steam Deck OLED charge?',
+    answer: 'Not necessarily. The 45W figure describes output rate, while watt-hours describe stored energy. Conversion loss, simultaneous gameplay, cable capability, temperature, and reserve behavior mean a bank’s label cannot be converted into a guaranteed number of full charges or extra hours.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Steam Deck OLED battery life calculator guide: 50Wh runtime estimates',
+    description,
+    url: canonicalUrl,
+    datePublished: '2026-08-18',
+    dateModified: '2026-08-18',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Steam Deck OLED battery life', '50Wh battery', 'battery runtime calculator', 'Steam Deck power settings']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'Steam Deck OLED battery calculator guide', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <article class="wrap article deck-battery-guide">
+    <span class="eyebrow">Steam Deck OLED calculator support guide</span>
+    <h1>Steam Deck OLED battery life calculator guide: model a 50Wh battery</h1>
+    <p class="lede muted">Valve gives Steam Deck OLED a 50Wh energy budget, but the game and complete system decide how quickly it is spent. This guide turns that official capacity and your observed power draw into a transparent planning estimate.</p>
+
+    <div class="estimate-warning">
+      <strong>No fabricated runtime benchmarks:</strong>
+      <p>The scenario table below is formula output, not a personally measured game test. It does not promise that a named game, Steam Deck, or battery will reproduce a fixed runtime.</p>
+    </div>
+
+    <h2>Start with Valve’s official 50Wh specification</h2>
+    <div class="grid cols2 model-cards">
+      <section class="card">
+        <span class="chip">Stored energy</span>
+        <h3>50Wh Steam Deck OLED battery</h3>
+        <p>Valve’s current technical page lists a 50Whr battery for Steam Deck OLED. Enter <strong>50</strong> in the battery estimator when modeling nominal capacity.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Official range</span>
+        <h3>3–12 hours of gameplay</h3>
+        <p>Valve publishes a deliberately broad range because workloads vary. It is product context, not a promise that every game or unit will reach either endpoint.</p>
+      </section>
+    </div>
+    <p>The same specification lists a 45W PD 3.0 Type-C power supply. Do not put <strong>45W</strong> into the battery-capacity field: watts describe a rate of power, while watt-hours describe stored energy.</p>
+
+    <div class="callout"><strong>Open the tool:</strong> use the <a href="/calculators/battery-estimator/">Steam Deck battery-life calculator</a>. Enter 50Wh, an observed total-system-draw value, and a safety buffer.</div>
+
+    <h2>The runtime formula</h2>
+    <p>The calculator uses a simple energy-budget formula:</p>
+    <div class="formula" aria-label="Battery watt-hours times one minus the safety buffer, divided by total system draw, equals estimated hours">
+      <strong>Estimated hours = battery Wh × (1 − safety buffer) ÷ total system draw in watts</strong>
+    </div>
+    <p>For example, 50Wh with a 10% reserve leaves 45Wh in the planning budget. Dividing 45Wh by 15W of observed total draw produces 3 hours. That is arithmetic, not a Steam Deck benchmark.</p>
+
+    <h2>Steam Deck OLED 50Wh planning scenarios</h2>
+    <p>These examples all reserve 10% and hold draw constant. They explain the calculator’s sensitivity to power use; labels such as “light” and “demanding” are workload descriptions, not game classifications.</p>
+    <div class="battery-table-wrap">
+      <table class="battery-table">
+        <thead><tr><th>Observed total draw</th><th>Formula estimate</th><th>Planning interpretation</th><th>What could move it</th></tr></thead>
+        <tbody>
+          <tr><td>8W</td><td>5.62 hours</td><td>Light total-load scenario</td><td>Brightness and radios become a larger share of load</td></tr>
+          <tr><td>10W</td><td>4.50 hours</td><td>Efficient game scenario</td><td>Background downloads can distort a short sample</td></tr>
+          <tr><td>12W</td><td>3.75 hours</td><td>Moderate total-load scenario</td><td>Game area and frame-cap stability matter</td></tr>
+          <tr><td>15W</td><td>3.00 hours</td><td>Busy handheld scenario</td><td>Screen, fan, network, and game load are included</td></tr>
+          <tr><td>18W</td><td>2.50 hours</td><td>Demanding total-load scenario</td><td>Upscaling and graphics choices may reduce draw</td></tr>
+          <tr><td>20W</td><td>2.25 hours</td><td>High total-load scenario</td><td>Allow more reserve for travel</td></tr>
+          <tr><td>25W</td><td>1.80 hours</td><td>Very high total-load scenario</td><td>Check for uncapped frames or background work</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Do not compare a number in this table directly with another device unless brightness, resolution, refresh rate, frame target, scene, network state, accessories, battery condition, and measurement method are matched.</p>
+
+    <h2>Measure a useful total-draw input</h2>
+    <p>A processor power target is only one part of the handheld. Display brightness, memory, storage, cooling, Wi-Fi, Bluetooth, speakers, attached USB devices, and conversion losses all draw energy. A calculator fed only the processor limit is usually optimistic.</p>
+    <ol>
+      <li><strong>Finish updates first.</strong> Pause downloads and let shader or game setup complete before sampling.</li>
+      <li><strong>Choose a repeatable area.</strong> Use active gameplay representative of the session, not a menu or quiet tutorial.</li>
+      <li><strong>Set the environment.</strong> Record brightness, Wi-Fi, Bluetooth, audio, refresh rate, frame cap, and attached accessories.</li>
+      <li><strong>Watch whole-system draw.</strong> Use Steam Deck’s performance overlay or a battery-discharge view that represents more than processor power alone.</li>
+      <li><strong>Sample demanding and ordinary play.</strong> Crowds, weather, combat, traversal, cutscenes, and online play can change load.</li>
+      <li><strong>Enter a range.</strong> Calculate with both typical and higher observed draw, then keep reserve for the real session.</li>
+    </ol>
+
+    <h2>What safety buffer should you use?</h2>
+    <div class="grid cols3">
+      <section class="card"><span class="chip">10%</span><h3>Routine planning</h3><p>A useful default for understanding the formula when the battery is healthy and reaching low charge is not disruptive.</p></section>
+      <section class="card"><span class="chip">15–20%</span><h3>Travel or variable games</h3><p>Leave more reserve when an outlet is uncertain, load changes sharply, or suspend and launcher behavior have not been tested.</p></section>
+      <section class="card"><span class="chip">Custom</span><h3>Older battery or cold conditions</h3><p>Use a larger buffer or a lower effective capacity when real full-charge behavior no longer resembles nominal capacity.</p></section>
+    </div>
+    <p>A buffer is a planning choice, not a correction factor that makes the result a benchmark. Battery age, temperature, calibration, and workload variability can still move the observed outcome.</p>
+
+    <h2>Settings to change before buying more battery</h2>
+    <div class="grid cols2">
+      <section class="card"><h3>1. Choose a stable frame cap</h3><p>A consistent 30 or 40 FPS target can avoid unnecessary rendering when the game would otherwise run faster. Verify frame pacing in a demanding scene.</p></section>
+      <section class="card"><h3>2. Lower expensive effects first</h3><p>Test shadows, volumetrics, reflections, crowd density, and view distance before making text unreadably soft with aggressive scaling.</p></section>
+      <section class="card"><h3>3. Reduce the power limit gradually</h3><p>Make one change at a time and replay the same area. Stop when performance consistency or input response no longer meets the goal.</p></section>
+      <section class="card"><h3>4. Control non-game loads</h3><p>Pause downloads, close unused launchers, choose comfortable brightness, and disconnect accessories not required for the session.</p></section>
+    </div>
+    <p>Start with a baseline in the <a href="/steam-deck-settings/">Steam Deck settings hub</a>, compare relative workloads in the <a href="/guides/steam-deck-battery-life-by-game/">battery-life-by-game planner</a>, and model your own observed draw rather than copying another person’s runtime.</p>
+
+    <h2>External power without “extra hours” promises</h2>
+    <p>Valve’s listed 45W USB-C PD supply establishes the relevant charging class for the Steam Deck OLED. A power bank still needs two separate checks: enough single-port USB-C PD output and a clearly labeled watt-hour capacity. Cable capability, conversion loss, heat, multiport sharing, and active gameplay prevent a guaranteed extra-runtime claim.</p>
+    <p class="affiliate-note">Disclosure: the shopping links below are broad Amazon searches marked sponsored/nofollow. They are not product endorsements, live-price claims, or hands-on test results. The site adds an Associates tag only when a real tag is configured.</p>
+    <div class="grid cols2">
+      {shoppingLinks.map(link => (
+        <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored" data-affiliate-link data-category={link.category}>
+          <span class="chip">Sponsored search</span>
+          <h3>{link.label}</h3>
+          <p class="muted">Verify single-port USB-C PD output, printed watt-hours, cable rating, warranty, recall status, and recent compatibility reports before buying.</p>
+        </a>
+      ))}
+    </div>
+    <p>Before travel, read the <a href="/guides/usb-c-power-bank-wattage-handheld-gaming/">Steam Deck power-bank and airline guide</a>, compare the <a href="/gear/power-banks/">power-bank gear page</a>, and check the <a href="/gear/usb-c-cables-adapters/">USB-C cable guide</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Valve’s public Steam Deck technical-specification and support pages were fetched on August 18, 2026. The specification page lists the current Steam Deck OLED with a 50Whr battery, 3–12 hours of gameplay, and a 45W PD 3.0 Type-C power supply. The support page was checked for Valve’s current basic charging and troubleshooting context.</p>
+    <ul>
+      {sourceLinks.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+    <p>The table was calculated as <code>50 × 0.90 ÷ draw</code> and rounded to two decimal places. No game runtime was copied from a review, presented as personally tested, or attributed to Valve. Google autocomplete returned the exact query “steam deck battery life calculator” on August 18, 2026; that is query evidence, not search-volume data.</p>
+  </article>
+</Base>
+
+<style>
+  .deck-battery-guide { padding-top: 56px; padding-bottom: 72px; }
+  .estimate-warning { margin: 28px 0; padding: 20px 22px; border: 1px solid rgba(255,184,77,.45); border-left: 5px solid #ffb84d; border-radius: 14px; background: #15130e; }
+  .estimate-warning p { margin: 6px 0 0; color: #d6d0c2; }
+  .model-cards { margin: 22px 0; }
+  .formula { margin: 20px 0; padding: 22px; border: 1px solid rgba(184,255,77,.35); border-radius: 14px; color: #b8ff4d; background: #10150d; text-align: center; }
+  .battery-table-wrap { overflow-x: auto; margin: 22px 0 34px; border: 1px solid rgba(255,255,255,.12); border-radius: 16px; }
+  .battery-table { width: 100%; min-width: 820px; margin: 0; border-collapse: collapse; }
+  .battery-table th { color: #b8ff4d; background: #111722; text-align: left; }
+  .battery-table th, .battery-table td { padding: 14px 16px; border-bottom: 1px solid rgba(255,255,255,.09); vertical-align: top; }
+  .battery-table tbody tr:last-child td { border-bottom: 0; }
+  code { padding: .12rem .35rem; border-radius: 5px; color: #d9ff9d; background: #111722; }
+</style>
