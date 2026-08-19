@@ -1,0 +1,193 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/legion-go-battery-life-calculator-guide/';
+const title = 'Legion Go battery life calculator guide: 49.2Wh estimates — Handheld Settings Lab';
+const description = 'Estimate original Lenovo Legion Go runtime from its official 49.2Wh battery capacity, observed total system draw, and a realistic safety buffer.';
+
+const sourceLinks = [
+  { label: 'Lenovo PSREF: Legion Go 8APU1 product page', url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1' },
+  { label: 'Lenovo PSREF: Legion Go 8APU1 specification PDF', url: 'https://psref.lenovo.com/syspool/Sys/PDF/Legion/Legion_Go_8APU1/Legion_Go_8APU1_Spec.PDF' },
+  { label: 'Microsoft Learn: powercfg command-line options', url: 'https://learn.microsoft.com/en-us/windows-hardware/design/device-experiences/powercfg-command-line-options' },
+  { label: 'Microsoft Support: caring for your battery in Windows', url: 'https://support.microsoft.com/en-us/windows/caring-for-your-battery-in-windows-2db3e37f-5e7d-488e-9086-ed15320519e4' }
+];
+
+const shoppingLinks = [
+  { label: '65W USB-C PD power banks under 100Wh', href: 'https://www.amazon.com/s?k=65w+usb+c+pd+power+bank+under+100wh', category: 'power-banks' },
+  { label: '100W USB-C PD cables with e-marker', href: 'https://www.amazon.com/s?k=100w+usb+c+pd+cable+e-marker', category: 'cables-adapters' }
+];
+
+const faqs = [
+  {
+    question: 'What battery capacity should I enter for the original Legion Go?',
+    answer: 'Lenovo’s official PSREF specification lists a 49.2Wh rechargeable lithium-ion battery for the Legion Go 8APU1. Enter 49.2Wh for that model, then use an observed total system draw and a planning buffer. Confirm the exact model before applying this value to another Legion handheld.'
+  },
+  {
+    question: 'How long does a Lenovo Legion Go battery last while gaming?',
+    answer: 'There is no truthful fixed answer for every game. Runtime changes with total system draw, display brightness and refresh rate, resolution, frame cap, wireless activity, accessories, battery condition, firmware, and workload. The calculator provides a transparent planning estimate, not a tested game benchmark.'
+  },
+  {
+    question: 'Should I use the Legion Go performance-mode wattage as total draw?',
+    answer: 'No. A processor power target does not include the display, memory, SSD, fan, radios, speakers, controllers, connected devices, or conversion overhead. Use a whole-system or battery-discharge observation during representative play when possible.'
+  },
+  {
+    question: 'What safety buffer should I use?',
+    answer: 'Ten percent is a reasonable starting point for planning, not a universal measurement. Increase it for an older battery, travel, variable games, high brightness, background downloads, attached accessories, or any session where reaching empty would be disruptive.'
+  },
+  {
+    question: 'How can I check Legion Go battery health in Windows?',
+    answer: 'Microsoft documents the powercfg /batteryreport command. Run it from an administrator Terminal, open the generated HTML report, and compare design capacity with recent full-charge capacity. The report adds battery-health context but is not a live gaming benchmark.'
+  },
+  {
+    question: 'What power bank output should I look for?',
+    answer: 'Lenovo’s PSREF lists a 65W USB-C PD 3.0 adapter for the original Legion Go. For a power bank, verify the output available from one USB-C PD port, cable capability, and stored watt-hours separately. A 65W output label does not tell you the bank’s runtime.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Legion Go battery life calculator guide: 49.2Wh estimates',
+    description,
+    url: canonicalUrl,
+    datePublished: '2026-08-19',
+    dateModified: '2026-08-19',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Lenovo Legion Go battery life', '49.2Wh battery', 'battery runtime calculator', 'Windows battery report']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'Legion Go battery life calculator guide', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <article class="wrap article legion-battery-guide">
+    <span class="eyebrow">Legion Go calculator support guide</span>
+    <h1>Legion Go battery life calculator guide: 49.2Wh estimates</h1>
+    <p class="lede muted">The original Lenovo Legion Go has a documented energy budget, but a game’s runtime still depends on the entire handheld’s power draw. This guide turns Lenovo’s official battery capacity and your observed draw into a transparent planning range.</p>
+
+    <div class="estimate-warning">
+      <strong>No fabricated battery benchmarks:</strong>
+      <p>The scenarios below are formula outputs, not personally measured game tests. They do not promise a fixed runtime for any title. Use a representative whole-system draw from your own device for a useful estimate.</p>
+    </div>
+
+    <h2>Use 49.2Wh for the original Legion Go</h2>
+    <div class="grid cols2 model-cards">
+      <section class="card">
+        <span class="chip">Legion Go 8APU1</span>
+        <h3>49.2Wh official capacity</h3>
+        <p>Lenovo’s PSREF lists a 49.2Wh rechargeable lithium-ion battery. Enter <strong>49.2</strong> in the calculator before applying a reserve.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Official charger class</span>
+        <h3>65W USB-C PD 3.0</h3>
+        <p>Lenovo lists 65W USB-C PD 3.0 adapter options. That 65W figure is charging power—not battery capacity and not expected game draw.</p>
+      </section>
+    </div>
+    <p>This page covers the original Legion Go 8APU1 documented by the linked PSREF. Do not silently reuse 49.2Wh for another Legion model: check its exact specification first. <strong>Wh</strong> measures stored energy, while <strong>W</strong> measures a rate of power use or delivery.</p>
+
+    <div class="callout"><strong>Open the tool:</strong> use the <a href="/calculators/battery-estimator/">handheld battery-life calculator</a>. Enter 49.2Wh, then add an observed total system draw and a safety buffer.</div>
+
+    <h2>The calculator formula</h2>
+    <div class="formula" aria-label="Usable watt-hours divided by total system draw equals estimated hours">
+      <strong>Estimated hours = battery Wh × (1 − safety buffer) ÷ total system draw in watts</strong>
+    </div>
+    <p>With a 10% reserve, 49.2Wh becomes a 44.28Wh planning budget. Dividing 44.28Wh by an observed 20W total draw gives 2.21 hours. That is arithmetic, not a claim that every Legion Go, game, or “20W mode” will reproduce 2.21 hours.</p>
+
+    <h2>49.2Wh runtime planning scenarios</h2>
+    <p>These examples hold capacity and the 10% reserve constant so you can see how whole-system draw changes the estimate. The workload labels are illustrative, not game classifications.</p>
+    <div class="battery-table-wrap">
+      <table class="battery-table">
+        <thead><tr><th>Observed total draw</th><th>Estimated runtime</th><th>Planning interpretation</th></tr></thead>
+        <tbody>
+          <tr><td>10W</td><td>4.43 hours</td><td>Light whole-system scenario</td></tr>
+          <tr><td>15W</td><td>2.95 hours</td><td>Moderate whole-system scenario</td></tr>
+          <tr><td>20W</td><td>2.21 hours</td><td>Demanding handheld scenario</td></tr>
+          <tr><td>25W</td><td>1.77 hours</td><td>High whole-system scenario</td></tr>
+          <tr><td>30W</td><td>1.48 hours</td><td>Very high whole-system scenario</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>TDP is not total battery draw</h2>
+    <p>A processor target excludes the 8.8-inch display, memory, storage, fan, controllers, radios, speakers, RGB lighting, USB devices, and conversion losses. Entering a processor mode’s label as whole-system draw can make the result too optimistic.</p>
+    <ol>
+      <li><strong>Finish downloads and updates.</strong> Installation, antivirus work, and shader preparation distort a short sample.</li>
+      <li><strong>Choose representative play.</strong> Observe a repeatable demanding area rather than a menu or loading screen.</li>
+      <li><strong>Fix display conditions.</strong> Keep brightness, resolution, refresh rate, and frame cap consistent between observations.</li>
+      <li><strong>Control radios and accessories.</strong> Wi-Fi, Bluetooth, audio, controllers, and USB devices should match the planned session.</li>
+      <li><strong>Prefer whole-system discharge data.</strong> A battery or system-power observation is more useful here than CPU-package power alone.</li>
+      <li><strong>Sample multiple areas.</strong> Crowds, effects, online activity, weather, and cutscenes can change draw.</li>
+    </ol>
+
+    <h2>Check battery condition in Windows</h2>
+    <p>Microsoft documents <code>powercfg /batteryreport</code>, which generates an HTML battery report. Run the command in an administrator Terminal, open the reported file path, and compare <strong>design capacity</strong> with recent <strong>full charge capacity</strong>.</p>
+    <p>If full-charge capacity has fallen below the nominal design figure, a calculation based on 49.2Wh can overstate the energy available today. Use the report as health context; it does not measure live game power or guarantee remaining runtime.</p>
+
+    <h2>Lower draw without making the game unreadable</h2>
+    <div class="grid cols2">
+      <section class="card"><h3>Set a stable frame cap</h3><p>A consistent target can avoid spending power on frames the game cannot sustain. Replay the same demanding section after each change and watch frame pacing, not only the average.</p></section>
+      <section class="card"><h3>Reduce expensive effects first</h3><p>Shadows, volumetrics, reflections, crowds, and view distance often deserve attention before texture quality. Preserve readable UI and image clarity.</p></section>
+      <section class="card"><h3>Lower the power profile gradually</h3><p>Change one control at a time and stop when frame pacing or input response no longer meets the goal. A lower number is not useful if the game becomes unstable.</p></section>
+      <section class="card"><h3>Control the display load</h3><p>The Legion Go’s high-resolution, high-refresh display creates many combinations. Use the resolution and refresh rate the session actually needs rather than treating maximum settings as mandatory.</p></section>
+    </div>
+    <p>Start with a title in the <a href="/legion-go-settings/">Legion Go settings hub</a>, then model your observed draw. Use the <a href="/calculators/storage-planner/">storage planner</a> if limited space or background transfers are complicating the test.</p>
+
+    <h2>External power: check watts and watt-hours</h2>
+    <p>A compatible power bank can extend a session, but two specifications matter: output from one USB-C PD port and stored energy in watt-hours. Lenovo’s listed 65W adapter class provides a sensible output reference for the original Legion Go. The bank’s Wh label—not its output wattage—describes capacity.</p>
+    <p class="affiliate-note">Disclosure: the shopping links below are broad Amazon searches marked sponsored/nofollow. They are not endorsements, current-price claims, or hands-on test results. The site adds an Associates tag only when a real tag is configured.</p>
+    <div class="grid cols2">
+      {shoppingLinks.map(link => (
+        <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored" data-affiliate-link data-category={link.category}>
+          <span class="chip">Sponsored search</span>
+          <h3>{link.label}</h3>
+          <p class="muted">Verify single-port USB-C PD output, printed Wh capacity, cable rating, warranty, recall status, and recent compatibility reports before buying.</p>
+        </a>
+      ))}
+    </div>
+    <p>Compare the <a href="/gear/power-banks/">power-bank gear guide</a>, read the <a href="/guides/usb-c-power-bank-wattage-handheld-gaming/">power-bank wattage and airline guide</a>, and check the <a href="/guides/usb-c-cable-wattage-handheld-gaming/">USB-C cable wattage guide</a> before travel.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Lenovo’s public PSREF product record and specification PDF and Microsoft’s battery documentation were fetched on August 19, 2026. The PSREF lists the Legion Go 8APU1 with a 49.2Wh battery and 65W USB-C PD 3.0 adapter options. Microsoft documents the battery-report command and Windows battery-care guidance.</p>
+    <ul>
+      {sourceLinks.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+    <p>The table uses <code>49.2 × 0.90 ÷ draw</code>, rounded to two decimal places. No runtime was copied from a review or presented as a personally measured game result. No autocomplete suggestion is described as search volume.</p>
+  </article>
+</Base>
+
+<style>
+  .legion-battery-guide { padding-top: 56px; padding-bottom: 72px; }
+  .estimate-warning { margin: 28px 0; padding: 20px 22px; border: 1px solid rgba(255,184,77,.45); border-left: 5px solid #ffb84d; border-radius: 14px; background: #15130e; }
+  .estimate-warning p { margin: 6px 0 0; color: #d6d0c2; }
+  .model-cards { margin: 22px 0; }
+  .formula { margin: 20px 0; padding: 22px; border: 1px solid rgba(184,255,77,.35); border-radius: 14px; color: #b8ff4d; background: #10150d; text-align: center; }
+  .battery-table-wrap { overflow-x: auto; margin: 22px 0 34px; border: 1px solid rgba(255,255,255,.12); border-radius: 16px; }
+  .battery-table { width: 100%; min-width: 680px; margin: 0; border-collapse: collapse; }
+  .battery-table th { color: #b8ff4d; background: #111722; text-align: left; }
+  .battery-table th, .battery-table td { padding: 14px 16px; border-bottom: 1px solid rgba(255,255,255,.09); vertical-align: top; }
+  .battery-table tbody tr:last-child td { border-bottom: 0; }
+  code { padding: .12rem .35rem; border-radius: 5px; color: #d9ff9d; background: #111722; }
+</style>
