@@ -1,0 +1,176 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/steam-deck-settings/helldivers-2/';
+const title = 'Helldivers 2 Steam Deck settings: Playable 30 FPS baseline — Handheld Settings Lab';
+const description = 'Start Helldivers 2 on Steam Deck at 720p/30 FPS with Low settings, then test real missions, improve text legibility, plan storage, and verify the current Playable rating.';
+const image = '/assets/games/helldivers-2-header.jpg';
+
+const sources = [
+  { label: 'Steam: Helldivers 2 requirements, features, controller support, and official media', url: 'https://store.steampowered.com/app/553850/HELLDIVERS_2/' },
+  { label: 'Valve: current Steam Deck compatibility report for Helldivers 2 (app 553850)', url: 'https://store.steampowered.com/saleaction/ajaxgetdeckappcompatibilityreport?nAppID=553850' },
+  { label: 'Steam app-details API: current public product data for app 553850', url: 'https://store.steampowered.com/api/appdetails?appids=553850&cc=us&l=en' },
+  { label: 'PlayStation: official Helldivers 2 page', url: 'https://www.playstation.com/en-us/games/helldivers-2/' },
+  { label: 'Valve: how the Deck Verified program works', url: 'https://www.steamdeck.com/en/verified' }
+];
+
+const faqs = [
+  {
+    question: 'What Helldivers 2 settings should I use on Steam Deck?',
+    answer: 'Start at 1280×720, a 30 FPS cap, the Low preset, native anti-aliasing, and motion blur off for diagnosis. Keep render scale at a clear quality-oriented option first, then lower it only if a repeatable four-player mission cannot hold acceptable pacing. This is a conservative test baseline, not a personally measured guarantee.'
+  },
+  {
+    question: 'Is Helldivers 2 Steam Deck Verified?',
+    answer: 'No. Valve’s live compatibility endpoint returned category 2 (Playable) when checked on August 19, 2026. It says the default controls and glyphs work and the default configuration performs well, but some interface text is not legible and SteamOS startup may require manual interaction.'
+  },
+  {
+    question: 'Can Helldivers 2 run at 30 FPS on Steam Deck?',
+    answer: 'Use 30 FPS as a target to test, not a promised lock. Mission biome, weather, enemy count, stratagem effects, team size, network conditions, game updates, SteamOS, Proton, thermals, and Deck model can all alter the weakest scene. Test a complete busy mission rather than judging the ship or tutorial.'
+  },
+  {
+    question: 'How do I make Helldivers 2 text easier to read on Steam Deck?',
+    answer: 'Use the game’s adjustable text-size and subtitle options where available, keep the Deck at its native display mode, avoid unnecessarily aggressive render scaling, and check map labels, mission modifiers, loadout details, chat, and stratagem prompts. Valve currently flags some interface text as not legible on Deck.'
+  },
+  {
+    question: 'How much storage does Helldivers 2 need on Steam Deck?',
+    answer: 'Steam’s public requirements were internally inconsistent when checked: the minimum block listed 135GB while the recommended block listed 40GB. Do not plan around the smaller figure. Check Steam’s current install estimate on the Deck and leave substantial additional room for downloads, patches, shader data, Proton files, captures, and temporary update space.'
+  },
+  {
+    question: 'Were these Helldivers 2 Steam Deck settings personally benchmarked?',
+    answer: 'No. Handheld Settings Lab checked current Valve, Steam, and PlayStation public sources but did not personally benchmark the current game build, mission, player count, SteamOS version, Proton version, Deck model, battery, network, or thermals. The page is a reproducible baseline workflow without invented FPS or runtime data.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Helldivers 2 Steam Deck settings: Playable 30 FPS baseline',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-19',
+    dateModified: '2026-08-19',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Helldivers 2', 'Valve Steam Deck', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Steam Deck settings', item: 'https://handheldsettings.com/steam-deck-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Helldivers 2 settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Steam Deck settings · Baseline published August 2026</span>
+    <h1>Helldivers 2 Steam Deck settings: start at 720p and 30 FPS</h1>
+    <p class="lede muted">Helldivers 2 can shift from a quiet Super Destroyer to weather, dense enemies, destruction, stratagem effects, explosions, and four-player combat. This Steam Deck workflow begins with a cautious Low/720p/30 profile and validates it in a busy mission. It is official-source-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Helldivers 2 Steam header artwork showing a Helldiver facing a battlefield" width="460" height="215" />
+      <figcaption class="media-credit">Official Helldivers 2 Steam store header image, saved locally from <a href="https://store.steampowered.com/app/553850/HELLDIVERS_2/" target="_blank" rel="nofollow noopener">Arrowhead and PlayStation's Steam store page</a>. Artwork and trademarks belong to their owners; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>First target</h3><div class="stat">720p / 30</div><p class="muted">A test baseline, not a lock guarantee</p></section>
+      <section class="card"><h3>Starting preset</h3><div class="stat">Low</div><p class="muted">Protect headroom before raising clarity</p></section>
+      <section class="card"><h3>Deck rating</h3><div class="stat">Playable</div><p class="muted">Valve endpoint checked August 19, 2026</p></section>
+      <section class="card"><h3>Known caveat</h3><div class="stat">Small text</div><p class="muted">Inspect mission, map, chat, and loadout UI</p></section>
+    </div>
+
+    <div class="callout"><strong>Playable is not Verified:</strong> Valve currently reports functional default controls, matching controller glyphs, and a performant default configuration, but flags interface text as not legible and SteamOS startup as potentially requiring manual interaction. Confirm the current store badge before buying or relying on the game for travel.</div>
+
+    <h2>Recommended Helldivers 2 Steam Deck baseline</h2>
+    <table>
+      <thead><tr><th>Control</th><th>Start here</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>SteamOS performance profile</td><td>Default first</td><td>Establishes a clean baseline before adding a manual TDP limit. Record LCD/OLED model, SteamOS, Proton, charger state, and game version.</td></tr>
+        <tr><td>Display mode / resolution</td><td>Fullscreen / 1280×720</td><td>Provides a straightforward 16:9 render target and avoids introducing an external-display workload during diagnosis.</td></tr>
+        <tr><td>Refresh / frame limit</td><td>60Hz / 30 FPS</td><td>Creates a simple first pacing target for a game whose combat load can change rapidly. Do not begin at 40 merely because the ship scene is light.</td></tr>
+        <tr><td>Graphics preset</td><td>Low</td><td>Preserves headroom for enemy count, weather, physics, destruction, and overlapping stratagem effects in the first mission test.</td></tr>
+        <tr><td>Render scale</td><td>Native or quality-oriented option first</td><td>Protects map, objective, loadout, and combat-text clarity. Lower scaling one step only after a repeatable heavy scene shows the need.</td></tr>
+        <tr><td>Anti-aliasing</td><td>On</td><td>Reduces unstable edges at handheld resolution. Compare motion, foliage, wires, and distant enemies rather than a still frame.</td></tr>
+        <tr><td>Texture quality</td><td>Low, then test Medium</td><td>Start conservatively because the Deck uses shared memory. Raise only after repeated mission traversal and extraction pass without pressure symptoms.</td></tr>
+        <tr><td>Object detail / render distance</td><td>Low</td><td>Limits distant scene complexity during broad outdoor combat; raise only after the busiest mission segment passes.</td></tr>
+        <tr><td>Shadows / reflections</td><td>Low</td><td>Protects headroom under moving lights, effects, water, structures, smoke, and explosions.</td></tr>
+        <tr><td>Volumetric fog / clouds</td><td>Low</td><td>Reduces the starting cost of atmospheric effects and weather-heavy biomes.</td></tr>
+        <tr><td>Space / terrain quality</td><td>Low</td><td>Keeps the first profile consistent across the ship, planet surface, traversal, and extraction.</td></tr>
+        <tr><td>Motion blur / depth of field</td><td>Off for comparison</td><td>Makes scaling artifacts and frame pacing easier to inspect. Restore either later only by preference.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Setting names and available scaling modes can change with updates. Photograph every graphics page before tuning. Change one item at a time so a better-looking ship scene does not hide a weaker combat profile.</p>
+
+    <h2>Test a real mission, not the Super Destroyer</h2>
+    <ol>
+      <li><strong>Finish updates and restart.</strong> Complete the game and stable SteamOS updates, then pause downloads and recording.</li>
+      <li><strong>Record the test state.</strong> Note game version, mission planet and biome, difficulty, team size, SteamOS, Proton selection, Deck model, charger state, cap, and every graphics value.</li>
+      <li><strong>Check the ship and loadout UI.</strong> Read weapon statistics, armor traits, mission modifiers, map labels, chat, and stratagem descriptions at normal viewing distance.</li>
+      <li><strong>Deploy with a representative team.</strong> A solo low-difficulty drop is not a proxy for a four-player mission with more enemies and effects.</li>
+      <li><strong>Repeat one heavy encounter.</strong> Include enemy reinforcements, multiple stratagems, destruction, weather or fog, traversal, and a crowded objective when practical.</li>
+      <li><strong>Complete extraction.</strong> Extraction can combine enemy density, effects, camera movement, UI, and network activity; do not stop the test after the first quiet objective.</li>
+      <li><strong>Change one control.</strong> Improve render clarity or texture quality only after the full route passes, then repeat the same mission type and difficulty.</li>
+    </ol>
+
+    <h2>Choose the next move from the weakest scene</h2>
+    <div class="grid cols3">
+      <section class="card"><span class="chip">Consistent</span><h3>The full mission is acceptable</h3><p>Save the exact Low/30 profile. Test Medium textures or one clearer quality control next rather than raising the cap and preset together.</p></section>
+      <section class="card"><span class="chip">Hard to read</span><h3>UI clarity fails first</h3><p>Raise text and subtitle sizes where available, keep native display output, and restore a clearer render scale before spending headroom on shadows or reflections.</p></section>
+      <section class="card"><span class="chip">Heavy combat drops</span><h3>Effects and density fail first</h3><p>Restore the full Low preset, verify the 30 cap, pause recording/downloads, restart, and repeat. A power limit is a later battery test, not the first fix.</p></section>
+    </div>
+
+    <h2>Fix common Helldivers 2 problems on Steam Deck</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Small or unreadable interface text</td><td>Text-size, subtitle, chat, HUD, and render-scale options at the Deck’s native display mode</td><td>Keep a clearer scaling mode and verify map, mission, loadout, and stratagem screens—not only subtitles</td></tr>
+        <tr><td>Startup needs touch or keyboard input</td><td>Valve’s current Playable details and the default Steam Input layout</td><td>Use the touchscreen or Steam+X keyboard when needed; avoid remapping working game controls to solve a launcher prompt</td></tr>
+        <tr><td>Large fights miss the target</td><td>Restore 720p, Low preset, 30 FPS, default power, and no recording</td><td>Lower the current render-scale option one step only if the complete mission still fails and text remains usable</td></tr>
+        <tr><td>Image is too soft or enemies shimmer</td><td>Confirm one scaling layer and anti-aliasing</td><td>Use a clearer in-game scale before raising secondary effects; inspect motion rather than screenshots</td></tr>
+        <tr><td>Frame pacing feels uneven</td><td>One 30 FPS limit, stable refresh state, paused downloads, and no overlapping limiter</td><td>Restart and repeat the same encounter before changing graphics again</td></tr>
+        <tr><td>Controls or glyphs are wrong</td><td>Restore the default official Steam Input configuration</td><td>Confirm the current Valve report and disconnect external controllers before custom remapping</td></tr>
+        <tr><td>Performance changed after an update</td><td>Restore the photographed baseline and reboot</td><td>Record game, SteamOS, and Proton versions; verify files and check the official Steam news feed</td></tr>
+        <tr><td>Docked performance is worse</td><td>Retest on the Deck screen with power connected directly</td><td>Troubleshoot dock power and display output separately; do not default to native 4K game rendering</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, online play, battery, and dock planning</h2>
+    <p><strong>Check the live install estimate before downloading.</strong> On August 19, 2026, Steam’s public requirements unusually listed 135GB in the minimum block but 40GB in the recommended block. Because those figures conflict, this page does not present either as the definitive installed size. Use Steam’s current install prompt and leave generous room for the download, patch staging, shader data, Proton files, captures, and future updates. The <a href="/calculators/storage-planner/">storage planner</a> can model the rest of the library.</p>
+    <p>Steam identifies Helldivers 2 as multiplayer, co-op, and online co-op. Treat an internet connection and current service availability as part of the play plan. Do not use this as the only game prepared for an offline flight; follow the <a href="/guides/handheld-pc-offline-mode-flight-checklist/">offline-mode checklist</a> and pack a separately tested offline title.</p>
+    <p>This page does not invent battery runtime. Mission load, brightness, radios, team activity, cap, battery health, and thermals all affect total draw. Measure a full mission on the exact profile, then enter observed system draw in the <a href="/calculators/battery-estimator/">battery estimator</a>. Stabilize handheld play before following the <a href="/guides/steam-deck-docked-tv-monitor-setup/">docked TV/monitor guide</a>.</p>
+
+    <h2>Optional gear after the game is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, seller traceability, warranty, and return terms. No price, compatibility, performance, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+a2+u3+microsd+card" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microsd-cards"><span class="chip">Sponsored search</span><h3>A2 / U3 microSD cards</h3><p class="muted">Compare capacity, seller traceability, warranty, full-capacity verification, and update headroom.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+45w+usb+c+pd+charger" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers"><span class="chip">Sponsored search</span><h3>45W-class USB-C PD chargers</h3><p class="muted">Verify dedicated-port output, cable rating, port sharing, warranty, and Steam Deck support.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+ethernet+dock+45w+pd" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks"><span class="chip">Sponsored search</span><h3>Steam Deck Ethernet docks</h3><p class="muted">Check PD passthrough, Ethernet chipset support, display output, host-cable reach, and exact Deck fit.</p></a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a>, follow the <a href="/guides/steam-deck-oled-first-week-accessories/">Steam Deck OLED accessory checklist</a>, or set a limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on August 19, 2026. Steam’s live product data supplied the February 8, 2024 release date, Windows-only platform listing, online/co-op and partial-controller-support labels, adjustable-text and subtitle feature labels, Arrowhead developer identity, PlayStation publisher identity, official image, and conflicting current storage requirements. Valve’s compatibility endpoint returned category 2 (Playable), with positive control, glyph, and default-performance checks plus interface-legibility and SteamOS-startup caveats.</p>
+    <p>The settings are a conservative editorial test sequence derived from those public constraints and normal graphics-diagnosis practice. Handheld Settings Lab did not personally benchmark the current game build, mission, player count, Deck model, SteamOS, Proton, battery, network, or thermals. The 30 FPS figure is a test target, not a measured guarantee; no search-volume, fixed-runtime, or universal-storage claim is made.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Return to the <a href="/steam-deck-settings/">Steam Deck settings hub</a>, plan the install with the <a href="/calculators/storage-planner/">storage calculator</a>, or use the <a href="/calculators/battery-estimator/">battery estimator</a> with observations from your own mission.</p>
+  </article>
+</Base>
