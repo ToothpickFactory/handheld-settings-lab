@@ -1,0 +1,174 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/legion-go-settings/helldivers-2/';
+const title = 'Helldivers 2 Legion Go settings: 800p/30 baseline — Handheld Settings Lab';
+const description = 'Start Helldivers 2 on the original Lenovo Legion Go at 800p/30 FPS with Low settings, then test busy missions, diagnose drops, and plan storage and power.';
+const image = '/assets/games/helldivers-2-header.jpg';
+
+const sources = [
+  { label: 'Steam: Helldivers 2 requirements, features, accessibility, and official media', url: 'https://store.steampowered.com/app/553850/HELLDIVERS_2/' },
+  { label: 'Steam app-details API: current public product data for app 553850', url: 'https://store.steampowered.com/api/appdetails?appids=553850&cc=us&l=en' },
+  { label: 'PlayStation: official Helldivers 2 page', url: 'https://www.playstation.com/en-us/games/helldivers-2/' },
+  { label: 'Lenovo PSREF: original Legion Go 8APU1 specifications', url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1' }
+];
+
+const faqs = [
+  {
+    question: 'What Helldivers 2 settings should I use on Legion Go?',
+    answer: 'Start at 1280×800, a 30 FPS cap, the Low preset, anti-aliasing on, and motion blur off for comparison. Use a repeatable Performance-class device profile and validate the setup in a full busy mission and extraction. This is a conservative test baseline, not a personally measured guarantee.'
+  },
+  {
+    question: 'Can Legion Go run Helldivers 2 at 40 FPS?',
+    answer: 'Treat 40 FPS as a later experiment, not the initial target or a promised lock. First prove the 800p/Low/30 profile through enemy reinforcements, weather, overlapping stratagems, a crowded objective, and extraction. Then change only the cap and repeat comparable conditions.'
+  },
+  {
+    question: 'Should I use 800p, 1200p, or 1600p for Helldivers 2?',
+    answer: 'Begin at 800p because it preserves the Legion Go panel’s 16:10 shape while leaving more rendering headroom. Try 1200p only after the same heavy mission passes consistently. Native 1600p is not the sensible first baseline for this demanding game.'
+  },
+  {
+    question: 'Which Helldivers 2 settings should I lower first?',
+    answer: 'Start Low, then keep volumetric fog and clouds, shadows, reflections, object detail, terrain, and space quality conservative. Protect interface and target clarity by lowering resolution or render scale only as a controlled comparison after expensive scene controls are already low.'
+  },
+  {
+    question: 'How much storage does Helldivers 2 need?',
+    answer: 'Steam’s public requirements were internally inconsistent when checked: the minimum block listed 135GB while the recommended block listed 40GB. Check the live install estimate instead of trusting the smaller figure, and leave substantial room for downloading, patch staging, shader data, captures, and Windows temporary files.'
+  },
+  {
+    question: 'Were these Helldivers 2 Legion Go settings personally benchmarked?',
+    answer: 'No. Handheld Settings Lab checked current Steam, PlayStation, and Lenovo public sources but did not personally benchmark the current game, driver, firmware, Legion Space version, mission, team, network, battery, or thermals. The page supplies a reproducible baseline without invented FPS or runtime data.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Helldivers 2 Legion Go settings: 800p/30 FPS baseline',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-20',
+    dateModified: '2026-08-20',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Helldivers 2', 'Lenovo Legion Go', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Legion Go settings', item: 'https://handheldsettings.com/legion-go-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Helldivers 2 settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Legion Go settings · Baseline published August 2026</span>
+    <h1>Helldivers 2 Legion Go settings: start at 800p and 30 FPS</h1>
+    <p class="lede muted">Helldivers 2 can shift from a quiet Super Destroyer to weather, destruction, dense enemies, overlapping stratagem effects, and four-player combat. This original Legion Go workflow starts with a cautious 800p/Low/30 profile and judges it by a busy mission—not the ship. It is official-source-informed guidance, not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Helldivers 2 Steam header artwork showing a Helldiver facing a battlefield" width="460" height="215" />
+      <figcaption class="media-credit">Official Helldivers 2 Steam store header image, saved locally from <a href="https://store.steampowered.com/app/553850/HELLDIVERS_2/" target="_blank" rel="nofollow noopener">Arrowhead and PlayStation's Steam store page</a>. Artwork and trademarks belong to their owners; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>First target</h3><div class="stat">800p / 30</div><p class="muted">Consistency baseline, not a lock guarantee</p></section>
+      <section class="card"><h3>Starting preset</h3><div class="stat">Low</div><p class="muted">Preserve combat and extraction headroom</p></section>
+      <section class="card"><h3>Later experiment</h3><div class="stat">40 FPS</div><p class="muted">Test only after a full 30 FPS mission passes</p></section>
+      <section class="card"><h3>Power state</h3><div class="stat">Record it</div><p class="muted">Do not mix battery and plugged-in comparisons</p></section>
+    </div>
+
+    <div class="callout"><strong>Judge the weakest mission scene:</strong> the ship, tutorial, or a quiet solo drop cannot validate this profile. Include enemy reinforcements, weather or fog, multiple stratagems, traversal, a crowded objective, and extraction with a representative team.</div>
+
+    <h2>Recommended Helldivers 2 Legion Go baseline</h2>
+    <table>
+      <thead><tr><th>Control</th><th>Start here</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>Legion Go power profile</td><td>Repeatable Performance-class profile</td><td>Creates a consistent first condition. Record the exact Legion Space mode, custom TDP if used, charger state, and whether the test is on battery.</td></tr>
+        <tr><td>Display refresh rate</td><td>60Hz for the 30 FPS baseline</td><td>Provides a simple first pacing relationship. Record refresh again before comparing another cap.</td></tr>
+        <tr><td>Display mode / resolution</td><td>Fullscreen / 1280×800</td><td>Preserves the 16:10 shape and leaves substantially more render headroom than the panel’s native 2560×1600.</td></tr>
+        <tr><td>Frame-rate limit</td><td>30 FPS</td><td>Creates a conservative pacing target for a workload that can expand sharply during combat. Use one limiter rather than stacking conflicting caps.</td></tr>
+        <tr><td>Graphics preset</td><td>Low</td><td>Protects initial headroom for enemy count, weather, destruction, physics, and overlapping effects.</td></tr>
+        <tr><td>Render scale</td><td>Native or quality-oriented option first</td><td>Protects map, loadout, objective, enemy, and stratagem legibility. Lower it one step only after a repeatable heavy scene demonstrates the need.</td></tr>
+        <tr><td>Anti-aliasing</td><td>On</td><td>Reduces unstable edges at handheld resolution. Inspect vegetation, wires, distant targets, and motion rather than one still frame.</td></tr>
+        <tr><td>Texture quality</td><td>Low, then test Medium</td><td>The APU uses shared memory. Restore texture clarity only after repeated traversal, combat, and extraction pass without pressure symptoms.</td></tr>
+        <tr><td>Object detail / render distance</td><td>Low</td><td>Limits distant scene complexity in broad outdoor encounters; raise only after the busiest route passes.</td></tr>
+        <tr><td>Shadows / reflections</td><td>Low</td><td>Preserves headroom around moving lights, water, structures, smoke, explosions, and effects.</td></tr>
+        <tr><td>Volumetric fog / clouds</td><td>Low</td><td>Reduces the starting cost of atmospheric effects and weather-heavy planets.</td></tr>
+        <tr><td>Space / terrain quality</td><td>Low</td><td>Keeps the initial profile conservative across ship, planet surface, traversal, objectives, and extraction.</td></tr>
+        <tr><td>Motion blur / depth of field</td><td>Off for comparison</td><td>Makes scaling artifacts and uneven pacing easier to inspect. Restore later only by preference.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Setting names and available scaling modes can change with updates. Photograph every graphics page before tuning. Change one variable at a time so a smooth ship scene does not hide a weaker combat setup.</p>
+
+    <h2>Run a reproducible mission test</h2>
+    <ol>
+      <li><strong>Finish updates and restart.</strong> Complete the stable game, Windows, intended graphics driver, Lenovo firmware, and Legion Space updates. Pause downloads and recording.</li>
+      <li><strong>Record the test state.</strong> Note game version, driver, firmware, Legion Space version, power mode, charger state, mission planet and biome, difficulty, team size, cap, and every graphics value.</li>
+      <li><strong>Inspect the ship and loadout UI.</strong> Read weapon statistics, armor traits, mission modifiers, map labels, chat, and stratagem descriptions at normal handheld distance.</li>
+      <li><strong>Deploy with a representative team.</strong> A solo low-difficulty drop does not represent four-player activity with more enemies and simultaneous effects.</li>
+      <li><strong>Repeat one heavy encounter.</strong> Include reinforcements, several stratagems, destruction, weather or fog, traversal, and a crowded objective when practical.</li>
+      <li><strong>Complete extraction.</strong> Extraction can combine density, effects, camera movement, UI, and network activity. Do not stop after the first quiet objective.</li>
+      <li><strong>Change one control.</strong> Compare a clearer scale, Medium textures, or a 40 FPS cap separately, then repeat comparable mission conditions.</li>
+    </ol>
+
+    <h2>Choose the next move from the weakest scene</h2>
+    <div class="grid cols3">
+      <section class="card"><span class="chip">Consistent</span><h3>The full mission is acceptable</h3><p>Save the exact 800p/Low/30 profile. Test Medium textures or one clarity control next rather than raising the cap and preset together.</p></section>
+      <section class="card"><span class="chip">Hard to read</span><h3>UI clarity fails first</h3><p>Use adjustable text and subtitle options where available, preserve 800p, and restore a clearer scale before spending headroom on shadows or reflections.</p></section>
+      <section class="card"><span class="chip">Combat dips</span><h3>Effects and density fail first</h3><p>Restore Low/30, pause background work, restart, and repeat. Keep fog, shadows, reflections, object detail, and terrain conservative before reducing interface clarity.</p></section>
+    </div>
+
+    <h2>Fix common Helldivers 2 problems on Legion Go</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Large fights miss the target</td><td>Restore 800p, Low, 30 FPS, the recorded power profile, and no recording</td><td>Repeat a comparable mission; lower the control tied to the failing scene instead of changing everything</td></tr>
+        <tr><td>Image is too soft or enemies shimmer</td><td>Confirm that only one scaling path is active and anti-aliasing is on</td><td>Return to 800p and a clearer in-game scale before raising secondary effects</td></tr>
+        <tr><td>Frame pacing feels uneven</td><td>Use one 30 FPS limiter, pause downloads, and confirm refresh and power mode</td><td>Restart and repeat a comparable encounter before changing graphics again</td></tr>
+        <tr><td>Controller prompts or inputs are wrong</td><td>Set Legion Space controls to gamepad mode</td><td>Restore default Steam Input and in-game controller settings before custom remapping</td></tr>
+        <tr><td>Performance changed after an update</td><td>Restore the photographed baseline and reboot</td><td>Record game, driver, firmware, and Legion Space versions; verify files and check official game news</td></tr>
+        <tr><td>Docked performance is worse</td><td>Retest on the Legion Go screen with power connected directly</td><td>Troubleshoot dock power and display output separately; do not default to native 4K rendering</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, online play, battery, and dock planning</h2>
+    <p><strong>Check the live Steam install estimate before downloading.</strong> On August 20, 2026, Steam's public data unusually listed 135GB in the minimum block but 40GB in the recommended block. Because those figures conflict, this page does not present either as the definitive installed size. Leave generous room for the download, patch staging, shader data, captures, and Windows temporary files. Use the <a href="/calculators/storage-planner/">storage planner</a>, then compare <a href="/guides/microsd-vs-ssd-handheld-pc/">microSD and internal SSD tradeoffs</a>.</p>
+    <p>Steam identifies Helldivers 2 as multiplayer, co-op, and online co-op. Treat the network and current service availability as part of the test state. Do not rely on it as the only game prepared for a trip; use the <a href="/guides/handheld-pc-offline-mode-flight-checklist/">offline-mode flight checklist</a> and pack a separately verified offline title.</p>
+    <p>This page does not invent battery runtime. Mission load, power mode, brightness, radios, team activity, battery health, and thermals all affect total system draw. Measure a complete mission on the exact profile, then enter observed draw in the <a href="/calculators/battery-estimator/">battery estimator</a>. Stabilize handheld play before following the <a href="/guides/handheld-gaming-usb-c-dock-checklist/">USB-C dock checklist</a>.</p>
+
+    <h2>Optional gear after the game is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, model fit, seller traceability, warranty, and return terms. No price, compatibility, performance, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+a2+u3+microsd+card" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microsd-cards"><span class="chip">Sponsored search</span><h3>A2 / U3 microSD cards</h3><p class="muted">Compare capacity, seller traceability, warranty, and card-verification tools while leaving room for future updates.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+65w+usb+c+pd+charger" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers"><span class="chip">Sponsored search</span><h3>65W-class USB-C PD chargers</h3><p class="muted">Verify dedicated-port output, cable rating, port-sharing behavior, warranty, and exact-device support.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+usb+c+pd+ethernet+dock" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks"><span class="chip">Sponsored search</span><h3>Legion Go Ethernet docks</h3><p class="muted">Check PD passthrough, Ethernet chipset, display modes, host-cable reach, physical clearance, and exact-model support.</p></a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a>, use the <a href="/guides/legion-go-accessories-buying-checklist/">Legion Go accessory checklist</a>, or set a limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were fetched successfully on August 20, 2026. Steam's public product data supplied the February 8, 2024 release date, Windows-only requirements, multiplayer/co-op labels, partial controller support, accessibility features, Arrowhead developer identity, PlayStation publisher identity, official image, and conflicting storage requirements. PlayStation supplied the official game page; Lenovo PSREF supplied the original Legion Go product route.</p>
+    <p>The settings are a conservative editorial test sequence derived from those public constraints and normal graphics-diagnosis practice. Handheld Settings Lab did not personally benchmark the current game build, mission, team size, Windows build, driver, firmware, Legion Space version, battery, network, or thermals. The 30 and 40 FPS figures are test targets, not measured guarantees; no search-volume, fixed-runtime, or universal-storage claim is made.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Return to the <a href="/legion-go-settings/">Legion Go settings hub</a>, compare the <a href="/steam-deck-settings/helldivers-2/">Steam Deck</a> and <a href="/rog-ally-settings/helldivers-2/">ROG Ally</a> Helldivers 2 baselines, or plan battery and storage with your own observations.</p>
+  </article>
+</Base>
