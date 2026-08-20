@@ -1,0 +1,199 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/rog-ally-settings/helldivers-2/';
+const title = 'Helldivers 2 ROG Ally settings: 900p/30 baseline — Handheld Settings Lab';
+const description = 'Start Helldivers 2 on ROG Ally or Ally X at 900p/30 FPS with Low settings, then test busy missions, diagnose drops, and plan storage and battery use.';
+const image = '/assets/games/helldivers-2-header.jpg';
+
+const sources = [
+  { label: 'Steam: Helldivers 2 requirements, features, controller support, and official media', url: 'https://store.steampowered.com/app/553850/HELLDIVERS_2/' },
+  { label: 'Steam app-details API: current public product data for app 553850', url: 'https://store.steampowered.com/api/appdetails?appids=553850&cc=us&l=en' },
+  { label: 'ASUS ROG: How to boost gaming performance on the ROG Ally', url: 'https://rog.asus.com/articles/guides/how-to-boost-gaming-performance-on-the-rog-ally/' },
+  { label: 'ASUS ROG: ROG Ally (2023) technical specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-2023/spec/' },
+  { label: 'ASUS ROG: ROG Ally X (2024) technical specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/' },
+  { label: 'PlayStation: official Helldivers 2 page', url: 'https://www.playstation.com/en-us/games/helldivers-2/' }
+];
+
+const faqs = [
+  {
+    question: 'What Helldivers 2 settings should I use on ROG Ally?',
+    answer: 'Start at 1600×900, a 30 FPS cap, the Low preset, anti-aliasing on, and motion blur off for comparison. Use Performance mode for the first battery-aware pass or compare Turbo while plugged directly into a compatible charger. This is a conservative test baseline, not a personally measured guarantee.'
+  },
+  {
+    question: 'Should I use 900p or 720p for Helldivers 2 on ROG Ally?',
+    answer: 'Begin at 900p for clearer map, objective, loadout, and combat text. If a repeatable busy mission remains uneven with expensive effects already low, compare 720p without changing the cap, preset, power mode, or route. Keep 900p if the lower resolution does not materially improve the weakest scene.'
+  },
+  {
+    question: 'Can Helldivers 2 hold 30 FPS on ROG Ally or Ally X?',
+    answer: 'Use 30 FPS as a target to validate, not a promised lock. Mission biome, weather, enemy count, stratagem effects, team size, network conditions, game updates, drivers, operating mode, thermals, and exact Ally model can all change the weakest scene. Test a complete busy mission and extraction.'
+  },
+  {
+    question: 'Should I use Performance or Turbo mode for Helldivers 2?',
+    answer: 'Performance mode is a practical first battery-aware baseline. Turbo offers more processor power and is most repeatable while plugged into a compatible charger, but it increases power and cooling demand. Record the operating mode and charger state so graphics comparisons remain meaningful.'
+  },
+  {
+    question: 'How much storage does Helldivers 2 need on ROG Ally?',
+    answer: 'Steam’s public requirements were internally inconsistent when checked: the minimum block listed 135GB while the recommended block listed 40GB. Do not plan around the smaller figure. Check the current Steam install estimate and leave substantial extra room for downloading, patch staging, shader data, captures, and Windows temporary files.'
+  },
+  {
+    question: 'Were these Helldivers 2 ROG Ally settings personally benchmarked?',
+    answer: 'No. Handheld Settings Lab checked current Steam, ASUS, and PlayStation public sources but did not personally benchmark the current game, driver, BIOS, Armoury Crate, Ally model, mission, network, battery, or thermals. The page provides a reproducible baseline workflow without invented FPS or runtime data.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Helldivers 2 ROG Ally settings: 900p/30 FPS baseline',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-20',
+    dateModified: '2026-08-20',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Helldivers 2', 'ASUS ROG Ally', 'ROG Ally X', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'ROG Ally settings', item: 'https://handheldsettings.com/rog-ally-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Helldivers 2 settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">ROG Ally settings · Baseline published August 2026</span>
+    <h1>Helldivers 2 ROG Ally settings: start at 900p and 30 FPS</h1>
+    <p class="lede muted">Helldivers 2 can move quickly from a quiet Super Destroyer to weather, destruction, dense enemies, overlapping stratagem effects, and four-player combat. This Ally and Ally X workflow starts with a cautious 900p/Low/30 profile, then validates it in a busy mission. It is official-source-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Helldivers 2 Steam header artwork showing a Helldiver facing a battlefield" width="460" height="215" />
+      <figcaption class="media-credit">Official Helldivers 2 Steam store header image, saved locally from <a href="https://store.steampowered.com/app/553850/HELLDIVERS_2/" target="_blank" rel="nofollow noopener">Arrowhead and PlayStation's Steam store page</a>. Artwork and trademarks belong to their owners; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>First target</h3><div class="stat">900p / 30</div><p class="muted">Clarity-first test baseline, not a lock</p></section>
+      <section class="card"><h3>Fallback test</h3><div class="stat">720p / 30</div><p class="muted">Change only resolution to diagnose load</p></section>
+      <section class="card"><h3>Starting preset</h3><div class="stat">Low</div><p class="muted">Preserve mission and extraction headroom</p></section>
+      <section class="card"><h3>Power state</h3><div class="stat">Performance</div><p class="muted">Compare plugged-in Turbo separately</p></section>
+    </div>
+
+    <div class="callout"><strong>Judge the weakest mission scene:</strong> the ship, tutorial, or a quiet solo drop cannot validate this profile. Test enemy reinforcements, weather or fog, several stratagems, traversal, a crowded objective, and extraction with a representative team.</div>
+
+    <h2>Recommended Helldivers 2 ROG Ally baseline</h2>
+    <table>
+      <thead><tr><th>Control</th><th>Start here</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>Armoury Crate operating mode</td><td>Performance; compare Turbo while plugged in</td><td>Establishes a battery-aware baseline. ASUS describes Performance as its balance mode and Turbo as maximum-power mode. Record charger state and do not mix power conditions within a graphics comparison.</td></tr>
+        <tr><td>Display mode / resolution</td><td>Fullscreen / 1600×900</td><td>Starts below the 1080p panel resolution while preserving more interface clarity than 720p.</td></tr>
+        <tr><td>Frame-rate limit</td><td>30 FPS</td><td>Creates a conservative pacing target for a workload that can expand sharply during combat. Use one limiter rather than stacking an in-game cap and a conflicting external cap.</td></tr>
+        <tr><td>Graphics preset</td><td>Low</td><td>Protects starting headroom for enemy count, weather, destruction, physics, and overlapping effects.</td></tr>
+        <tr><td>Render scale</td><td>Native or quality-oriented option first</td><td>Protects map, objective, loadout, enemy, and stratagem legibility. Lower it one step only after a repeatable heavy scene demonstrates the need.</td></tr>
+        <tr><td>Anti-aliasing</td><td>On</td><td>Reduces unstable edges at handheld resolution. Inspect motion, vegetation, wires, and distant targets rather than one still frame.</td></tr>
+        <tr><td>Texture quality</td><td>Low, then test Medium</td><td>The APU uses shared memory. Restore texture clarity only after repeated traversal, combat, and extraction pass without pressure symptoms.</td></tr>
+        <tr><td>Object detail / render distance</td><td>Low</td><td>Limits distant scene complexity in broad outdoor encounters; raise only after the busiest route passes.</td></tr>
+        <tr><td>Shadows / reflections</td><td>Low</td><td>Preserves headroom around moving lights, water, structures, smoke, explosions, and effects.</td></tr>
+        <tr><td>Volumetric fog / clouds</td><td>Low</td><td>Reduces the starting cost of atmospheric effects and weather-heavy planets.</td></tr>
+        <tr><td>Space / terrain quality</td><td>Low</td><td>Keeps the initial profile conservative across ship, planet surface, traversal, objectives, and extraction.</td></tr>
+        <tr><td>Motion blur / depth of field</td><td>Off for comparison</td><td>Makes scaling artifacts and uneven pacing easier to inspect. Restore later only by preference.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Setting names and available scaling modes can change with updates. Photograph every graphics page before tuning. Change one variable at a time so a smoother ship scene does not hide a weaker combat configuration.</p>
+
+    <h2>Use two profiles to isolate the problem</h2>
+    <div class="grid cols2">
+      <section class="card">
+        <span class="chip">Profile A · clarity first</span>
+        <h3>900p / 30 FPS</h3>
+        <p>Use Performance mode, Low, a quality-oriented scale, anti-aliasing on, and motion blur off. Complete a representative mission. If it passes, test Medium textures or one clearer option next instead of raising the preset and cap together.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Profile B · diagnostic fallback</span>
+        <h3>720p / 30 FPS</h3>
+        <p>Keep the same mission type, team size, power mode, cap, preset, and scaling approach, then lower only resolution to 1280×720. If the weakest scene barely changes, investigate scene complexity, software state, network conditions, or thermals instead of sacrificing more clarity.</p>
+      </section>
+    </div>
+
+    <h2>Run a reproducible mission test</h2>
+    <ol>
+      <li><strong>Finish updates and restart.</strong> Complete the stable game, Windows, MyASUS, Armoury Crate SE, graphics-driver, and BIOS updates offered for the exact model. Restart, then pause downloads and recording.</li>
+      <li><strong>Record the test state.</strong> Note Ally or Ally X model, game version, driver, BIOS, operating mode, charger state, mission planet and biome, difficulty, team size, cap, and every graphics value.</li>
+      <li><strong>Inspect the ship and loadout UI.</strong> Read weapon statistics, armor traits, mission modifiers, map labels, chat, and stratagem descriptions at normal handheld distance.</li>
+      <li><strong>Deploy with a representative team.</strong> A solo low-difficulty drop does not represent four-player activity with more enemies and simultaneous effects.</li>
+      <li><strong>Repeat one heavy encounter.</strong> Include reinforcements, several stratagems, destruction, weather or fog, traversal, and a crowded objective when practical.</li>
+      <li><strong>Complete extraction.</strong> Extraction can combine density, effects, camera movement, UI, and network activity. Do not stop after the first quiet objective.</li>
+      <li><strong>Change one control.</strong> Compare 720p or restore one clarity setting, then repeat the same mission type and difficulty.</li>
+    </ol>
+
+    <h2>Choose the next move from the weakest scene</h2>
+    <div class="grid cols3">
+      <section class="card"><span class="chip">Consistent</span><h3>The full mission is acceptable</h3><p>Save the exact 900p/Low/30 profile. Test Medium textures or one quality control next rather than raising frame target and preset together.</p></section>
+      <section class="card"><span class="chip">Hard to read</span><h3>UI clarity fails first</h3><p>Use the game's adjustable text and subtitle options where available, preserve 900p, and restore a clearer scale before spending headroom on shadows or reflections.</p></section>
+      <section class="card"><span class="chip">Combat dips</span><h3>Effects and density fail first</h3><p>Restore Low/30, pause background work, restart, and repeat. Try 720p as a controlled comparison; plugged-in Turbo is a separate power-state test, not proof that graphics are fixed.</p></section>
+    </div>
+
+    <h2>Fix common Helldivers 2 problems on ROG Ally</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Large fights miss the target</td><td>Restore 900p, Low, 30 FPS, Performance mode, and no recording</td><td>Compare 720p on the same mission; if improvement is small, focus on scene settings, software state, and thermals</td></tr>
+        <tr><td>Image is too soft or enemies shimmer</td><td>Confirm that only one scaling path is active and anti-aliasing is on</td><td>Return to 900p and a clearer in-game scale before raising secondary effects or adding aggressive sharpening</td></tr>
+        <tr><td>Frame pacing feels uneven</td><td>Use one 30 FPS limiter, pause downloads, and confirm the same operating mode</td><td>Restart and repeat the same encounter before changing graphics again</td></tr>
+        <tr><td>Mouse prompts or controls appear wrong</td><td>Set Armoury Crate control mode to Gamepad or Auto</td><td>Restore the default game profile and disconnect external controllers before custom remapping</td></tr>
+        <tr><td>Turbo is unavailable or changes while docked</td><td>Connect the original or compatible charger directly to the Ally</td><td>Isolate the dock and cable; verify USB-C PD input, passthrough, cable rating, and exact port allocation</td></tr>
+        <tr><td>Stutter started after changing GPU memory</td><td>Return to the previous Armoury Crate GPU-memory allocation and reboot</td><td>Change the reserve only for a repeatable memory-related symptom; more reserved VRAM leaves less memory for Windows and the game</td></tr>
+        <tr><td>Performance changed after an update</td><td>Restore the photographed baseline and reboot</td><td>Record game, driver, BIOS, and Armoury Crate versions; verify files and check official game news</td></tr>
+        <tr><td>Docked performance is worse</td><td>Retest on the Ally screen with power connected directly</td><td>Troubleshoot dock power and display output separately; do not default to native 4K rendering</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Original Ally versus Ally X planning</h2>
+    <p>ASUS lists a 40Wh battery and 16GB LPDDR5 memory for the original 2023 Ally, while the 2024 Ally X page lists an 80Wh battery and 24GB LPDDR5X memory. Both official pages list a 1080p/120Hz FreeSync Premium display and a 65W adapter. Those specifications do not create a universal Helldivers 2 result: the exact APU model, memory allocation, operating mode, software state, battery condition, thermals, and mission still matter.</p>
+    <ul>
+      <li><strong>Do not copy battery runtime between models.</strong> Double the labeled battery capacity does not automatically mean double the gaming runtime under different power and workload conditions.</li>
+      <li><strong>Do not copy a manual GPU-memory value blindly.</strong> ASUS notes that changing the shared-memory allocation may help some games, especially on 16GB models, but the useful value depends on the title and requires a reboot.</li>
+      <li><strong>Keep the power comparison honest.</strong> A battery Performance run and a plugged-in Turbo run answer different questions.</li>
+    </ul>
+
+    <h2>Storage, online play, battery, and dock planning</h2>
+    <p><strong>Check the live Steam install estimate before downloading.</strong> On August 20, 2026, Steam's public data unusually listed 135GB in the minimum block but 40GB in the recommended block. Because those figures conflict, this page does not present either as the definitive installed size. Leave generous room for the download, patch staging, shader data, captures, and Windows temporary files. Use the <a href="/calculators/storage-planner/">storage planner</a>, then read the <a href="/guides/rog-ally-ssd-size-compatibility-upgrade/">ROG Ally SSD compatibility guide</a> before opening the device.</p>
+    <p>Steam identifies Helldivers 2 as multiplayer, co-op, and online co-op. Treat network and current service availability as part of the setup. Do not rely on it as the only game prepared for a flight; use the <a href="/guides/handheld-pc-offline-mode-flight-checklist/">offline-mode flight checklist</a> and pack a separately verified offline title.</p>
+    <p>This page does not invent battery runtime. Mission load, operating mode, brightness, radios, team activity, battery health, and thermals all affect total system draw. Measure a complete mission on the exact profile, then enter observed draw in the <a href="/calculators/battery-estimator/">battery estimator</a>. Stabilize handheld play before following the <a href="/guides/rog-ally-dock-tv-monitor-setup/">ROG Ally dock and TV guide</a>.</p>
+
+    <h2>Optional gear after the game is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, seller traceability, warranty, and return terms. No price, compatibility, performance, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+x+65w+usb+c+pd+charger" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers"><span class="chip">Sponsored search</span><h3>65W-class Ally chargers</h3><p class="muted">Verify dedicated-port USB-C PD output, cable rating, port sharing, warranty, and exact Ally support.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+ethernet+dock+65w+pd" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks"><span class="chip">Sponsored search</span><h3>ROG Ally Ethernet docks</h3><p class="muted">Check PD passthrough, Ethernet chipset, display output, host-cable reach, and exact handheld fit.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+x+carrying+case+charger+storage" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="cases"><span class="chip">Sponsored search</span><h3>Exact-model travel cases</h3><p class="muted">Confirm Ally versus Ally X fit, stick and trigger clearance, hard-accessory separation, and return terms.</p></a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a>, follow the <a href="/guides/rog-ally-x-accessories-buying-checklist/">ROG Ally X accessory checklist</a>, or set a limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were fetched successfully on August 20, 2026. Steam's public product data supplied the February 8, 2024 release date, Windows-only listing, online/co-op labels, partial controller support, adjustable-text and subtitle features, Arrowhead developer identity, PlayStation publisher identity, official image, and conflicting storage requirements. ASUS supplied its Operating Mode, 720p/900p scaling, and shared GPU-memory guidance plus official original Ally and Ally X battery, memory, display, and adapter specifications. PlayStation supplied the official game page.</p>
+    <p>The settings are a conservative editorial test sequence derived from those public constraints and normal graphics-diagnosis practice. Handheld Settings Lab did not personally benchmark the current game build, mission, team size, Ally model, Windows build, driver, BIOS, Armoury Crate, battery, network, or thermals. The 30 FPS figure is a test target, not a measured guarantee; no search-volume, fixed-runtime, or universal-storage claim is made.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Return to the <a href="/rog-ally-settings/">ROG Ally settings hub</a>, compare the <a href="/steam-deck-settings/helldivers-2/">Steam Deck Helldivers 2 baseline</a>, plan storage with the <a href="/calculators/storage-planner/">storage calculator</a>, or estimate battery life from your own measured draw.</p>
+  </article>
+</Base>

@@ -43,6 +43,14 @@ const additionalGames = platform === 'ROG Ally' ? [
     allyFps: '60 FPS baseline',
     storage: 75,
     preset: '720p Low + adaptive target'
+  },
+  {
+    slug: 'helldivers-2',
+    title: 'Helldivers 2',
+    deckFps: '',
+    allyFps: '30 FPS test baseline',
+    storage: 'Check current install',
+    preset: '900p Low; 720p fallback'
   }
 ] : [];
 const listedGames = [...games, ...additionalGames];
