@@ -1,0 +1,183 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/rog-ally-settings/diablo-iv/';
+const title = 'Diablo 4 ROG Ally settings: 900p/40 FPS baseline — Handheld Settings Lab';
+const description = 'Tune Diablo 4 on ROG Ally or Ally X with a cautious 900p/40 FPS baseline, 30 FPS fallback, repeatable town and event tests, plus storage and battery planning.';
+const image = '/assets/games/diablo-iv-header.jpg';
+
+const sources = [
+  { label: 'Steam: Diablo IV requirements, controller support, release details, and official media', url: 'https://store.steampowered.com/app/2344520/Diablo_IV/' },
+  { label: 'Steam app-details API: current public product data for app 2344520', url: 'https://store.steampowered.com/api/appdetails?appids=2344520&cc=us&l=en' },
+  { label: 'Blizzard Support: Diablo IV system requirements', url: 'https://us.battle.net/support/en/article/251518' },
+  { label: 'ASUS ROG: How to boost gaming performance on the ROG Ally', url: 'https://rog.asus.com/articles/guides/how-to-boost-gaming-performance-on-the-rog-ally/' },
+  { label: 'ASUS ROG: ROG Ally (2023) technical specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-2023/spec/' },
+  { label: 'ASUS ROG: ROG Ally X (2024) technical specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/' }
+];
+
+const faqs = [
+  {
+    question: 'What Diablo 4 settings should I use on ROG Ally?',
+    answer: 'Start at 1600×900, a 40 FPS cap, the Low preset, quality-oriented upscaling, Medium textures only if traversal remains hitch-free, Low shadows and fog, and distortion off. Use Performance mode for the first battery-aware pass and compare plugged-in Turbo separately. This is a conservative editorial baseline, not a personally measured guarantee.'
+  },
+  {
+    question: 'Should Diablo 4 run at 900p or 720p on ROG Ally?',
+    answer: 'Begin at 900p to preserve interface, inventory, text, and environment clarity. If the same crowded town route or effects-heavy event remains uneven after expensive settings are low, compare 720p while keeping the cap, preset, power mode, and route unchanged. Keep 900p if 720p does not materially improve the weakest scene.'
+  },
+  {
+    question: 'Should I target 30 FPS, 40 FPS, or 60 FPS in Diablo 4?',
+    answer: 'Validate 40 FPS first as a practical clarity-and-response baseline. Use capped 30 FPS if crowded towns or layered events remain uneven. Treat 60 FPS as a separate plugged-in experiment that may require more power or softer scaling; this page does not claim a universal 60 FPS lock.'
+  },
+  {
+    question: 'Should I use Performance or Turbo mode for Diablo 4?',
+    answer: 'ASUS describes Performance mode as a balance between performance and battery life and Turbo as its maximum-power mode. Start in Performance for a battery-aware profile. Compare Turbo while connected directly to a compatible charger, and record the power state so graphics changes are not mixed with power changes.'
+  },
+  {
+    question: 'How much storage does Diablo 4 need on ROG Ally?',
+    answer: 'Steam currently lists 90GB of available storage and says an SSD is required. Leave additional free space for live-service updates, patch staging, shader data, captures, and Windows temporary files, and confirm the current install estimate before downloading.'
+  },
+  {
+    question: 'Were these Diablo 4 ROG Ally settings personally benchmarked?',
+    answer: 'No. Handheld Settings Lab checked current Steam, Blizzard, and ASUS public sources but did not personally benchmark the current game build, Windows version, driver, BIOS, Armoury Crate, Ally model, network, battery, or thermals. The page provides a reproducible baseline without invented FPS or runtime data.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Diablo 4 ROG Ally settings: 900p/40 FPS baseline',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-21',
+    dateModified: '2026-08-21',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Diablo IV', 'ASUS ROG Ally', 'ROG Ally X', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'ROG Ally settings', item: 'https://handheldsettings.com/rog-ally-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Diablo IV settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">ROG Ally settings · Baseline published August 2026</span>
+    <h1>Diablo 4 ROG Ally settings: start at 900p and test 40 FPS</h1>
+    <p class="lede muted">Diablo IV can shift from a quiet dungeon to a crowded town or effects-heavy public event, while network delay can resemble rendering trouble. This Ally and Ally X guide starts with a cautious 900p/40 FPS profile and a 30 FPS fallback, then separates graphics, power, storage, and connection checks. It is official-source-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Diablo IV logo over dark red demonic key art" width="460" height="215" />
+      <figcaption class="media-credit">Official Diablo IV Steam store header image, saved locally from <a href="https://store.steampowered.com/app/2344520/Diablo_IV/" target="_blank" rel="nofollow noopener">Blizzard Entertainment's Steam store page</a>. Artwork and trademarks belong to their owners; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>First target</h3><div class="stat">900p / 40</div><p class="muted">Baseline to validate, not a lock</p></section>
+      <section class="card"><h3>Fallback</h3><div class="stat">30 FPS</div><p class="muted">Prefer steady pacing over blur</p></section>
+      <section class="card"><h3>Starting preset</h3><div class="stat">Low</div><p class="muted">Restore clarity one control at a time</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">90GB</div><p class="muted">Steam lists SSD required</p></section>
+    </div>
+
+    <div class="callout"><strong>Use two demanding checks:</strong> repeat the same crowded-town route and a comparable effects-heavy event. Record the game version, Ally model, Windows build, driver, BIOS, Armoury Crate version, operating mode, charger state, frame cap, and network condition before comparing changes.</div>
+
+    <h2>Recommended Diablo 4 ROG Ally baseline</h2>
+    <table>
+      <thead><tr><th>Control</th><th>Start here</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>Armoury Crate operating mode</td><td>Performance; compare Turbo plugged in</td><td>Creates a battery-aware starting condition. ASUS describes Performance as its balance mode and Turbo as maximum-power mode.</td></tr>
+        <tr><td>Display mode / resolution</td><td>Fullscreen / 1600×900</td><td>Preserves more interface clarity than 720p while reducing render load from the 1080p panel resolution.</td></tr>
+        <tr><td>Frame-rate cap</td><td>40 FPS</td><td>Targets a practical response-and-clarity balance without assuming that 60 FPS will hold in every town and event.</td></tr>
+        <tr><td>Graphics preset</td><td>Low</td><td>Creates headroom before restoring settings that noticeably improve the handheld image.</td></tr>
+        <tr><td>Upscaling</td><td>Quality-oriented available mode</td><td>Protects text, inventory, character, and environment clarity. Move one step toward performance only after a repeatable miss.</td></tr>
+        <tr><td>Texture quality</td><td>Medium if hitch-free</td><td>Can improve armor and surfaces, but should return to Low if traversal, portals, or inventory changes hitch.</td></tr>
+        <tr><td>Shadow quality</td><td>Low</td><td>Preserves headroom as enemies, lights, and effects overlap.</td></tr>
+        <tr><td>Fog quality</td><td>Low</td><td>Reduces a costly atmospheric effect in dense outdoor and dungeon scenes.</td></tr>
+        <tr><td>Clutter / environment detail</td><td>Low</td><td>Limits scene complexity during the first repeatable pass.</td></tr>
+        <tr><td>Distortion</td><td>Off</td><td>Removes an optional effect and makes combat readability easier to compare.</td></tr>
+        <tr><td>Motion blur</td><td>Off for comparison</td><td>Makes uneven pacing and scaling artifacts easier to inspect. Restore later only by preference.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Setting names and available upscalers can change with game updates. Photograph every graphics page before tuning and use the closest current option. Steam's desktop minimum note—720p render resolution, Low settings, 30 FPS, and an SSD—is useful context, not proof of an Ally result.</p>
+
+    <h2>Compare three profiles without mixing variables</h2>
+    <div class="grid cols3">
+      <section class="card"><span class="chip">Balanced baseline</span><h3>900p / 40 FPS</h3><p>Performance mode, Low, quality-oriented upscaling, Medium textures only if hitch-free, and Low shadows, fog, and clutter. Validate this first.</p></section>
+      <section class="card"><span class="chip">Consistency fallback</span><h3>900p / 30 FPS</h3><p>Keep the same power state and graphics controls. Choose this when busy scenes are visibly calmer than an aggressively upscaled 40 FPS attempt.</p></section>
+      <section class="card"><span class="chip">Load diagnostic</span><h3>720p / 40 FPS</h3><p>Lower only resolution on the same route. If the weakest scene barely changes, investigate scene complexity, software state, network conditions, or thermals instead of sacrificing more clarity.</p></section>
+    </div>
+
+    <h2>Run a repeatable town-and-event test</h2>
+    <ol>
+      <li><strong>Finish updates and restart.</strong> Complete stable game, Windows, MyASUS, Armoury Crate SE, graphics-driver, and BIOS updates offered for the exact model.</li>
+      <li><strong>Record the full state.</strong> Note Ally or Ally X, game version, driver, BIOS, operating mode, charger, GPU-memory allocation, resolution, cap, and every graphics value.</li>
+      <li><strong>Apply one baseline.</strong> Set 900p, 40 FPS, Low, quality-oriented upscaling, Low shadows and fog, and distortion off.</li>
+      <li><strong>Repeat the same town route.</strong> Include movement, camera turns, inventory access, vendors, and a portal or waypoint transition.</li>
+      <li><strong>Repeat an effects-heavy event.</strong> Use a comparable dense fight; a menu, login screen, or empty cellar cannot validate the profile.</li>
+      <li><strong>Separate network symptoms.</strong> Rubber-banding, delayed skills, or enemy position jumps need connection checks, not softer graphics.</li>
+      <li><strong>Change one control.</strong> Compare the 30 FPS fallback or 720p diagnostic without also changing operating mode or test route.</li>
+    </ol>
+
+    <h2>Fix common Diablo 4 problems on ROG Ally</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Busy events miss 40 FPS</td><td>Restore 900p, Low, 40 FPS, Performance mode, and no recording</td><td>Compare one faster scaler, then the 30 FPS fallback on the same event type</td></tr>
+        <tr><td>Image looks soft or noisy</td><td>Confirm only one scaling path is active and return to the quality-oriented scaler</td><td>Keep 30 FPS if it preserves a clearer render than faster scaling</td></tr>
+        <tr><td>Traversal or inventory changes hitch</td><td>Check downloads, SSD free space, GPU-memory changes, and Medium textures</td><td>Restore the previous GPU-memory value, lower textures one step, reboot, and repeat</td></tr>
+        <tr><td>Rubber-banding or delayed skills</td><td>Check the network route and Blizzard service status</td><td>Pause downloads and compare stable Wi-Fi or Ethernet; graphics settings cannot repair packet loss</td></tr>
+        <tr><td>Controls or button prompts are wrong</td><td>Set Armoury Crate control mode to Gamepad or Auto</td><td>Restore the default game profile and disconnect conflicting controllers before remapping</td></tr>
+        <tr><td>Turbo is unavailable through a dock</td><td>Connect the original or a compatible charger directly to the Ally</td><td>Isolate dock and cable; verify USB-C PD output, passthrough, port sharing, and cable rating</td></tr>
+        <tr><td>Performance changed after an update</td><td>Restore the photographed baseline and reboot</td><td>Record game, driver, BIOS, and Armoury Crate versions; verify files and check official support</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Original Ally versus Ally X planning</h2>
+    <p>ASUS lists a 40Wh battery and 16GB memory for the original 2023 Ally, while its 2024 Ally X page lists an 80Wh battery and 24GB memory. Both official pages list a 1080p/120Hz display and a 65W adapter. Those specifications do not create a universal Diablo IV result: exact APU, shared-memory allocation, operating mode, software state, battery condition, thermals, and test scene still matter.</p>
+    <ul>
+      <li><strong>Do not copy battery runtime between models.</strong> Different battery capacities do not guarantee a fixed runtime ratio under different power and workload conditions.</li>
+      <li><strong>Do not copy GPU-memory values blindly.</strong> Change the shared-memory allocation only for a repeatable symptom, reboot, and remember that a larger reservation leaves less memory for Windows and the game.</li>
+      <li><strong>Keep power comparisons honest.</strong> A battery Performance run and plugged-in Turbo run answer different questions.</li>
+    </ul>
+
+    <h2>Online, storage, battery, and dock planning</h2>
+    <p>Diablo IV is not a dependable offline-flight game: Steam lists a broadband internet connection. Test the exact launcher login, sleep-resume behavior, and network before travel. Prepare a separately verified offline title with the <a href="/guides/handheld-pc-offline-mode-flight-checklist/">offline-mode flight checklist</a>.</p>
+    <p>Steam currently lists <strong>90GB of available storage</strong> and says an SSD is required. Leave patching headroom beyond that figure, confirm the live install estimate, and model the rest of the library in the <a href="/calculators/storage-planner/">storage planner</a>. Read the <a href="/guides/rog-ally-ssd-size-compatibility-upgrade/">ROG Ally SSD compatibility guide</a> before opening the device.</p>
+    <p>This page does not invent a battery runtime. Measure total system draw during the same route on the exact profile, then enter it in the <a href="/calculators/battery-estimator/">battery estimator</a>. Stabilize handheld play before following the <a href="/guides/rog-ally-dock-tv-monitor-setup/">ROG Ally dock and TV guide</a>.</p>
+
+    <h2>Optional gear after the settings are stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, model fit, seller support, warranty, and return terms. No price, compatibility, performance, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+x+65w+usb+c+pd+charger" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers"><span class="chip">Sponsored search</span><h3>65W-class Ally chargers</h3><p class="muted">Verify dedicated-port USB-C PD output, included cable rating, port sharing, warranty, and exact Ally support.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+ethernet+dock+65w+pd" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks"><span class="chip">Sponsored search</span><h3>ROG Ally Ethernet docks</h3><p class="muted">Check PD passthrough, Ethernet chipset, display output, host-cable reach, and exact handheld fit.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+x+carrying+case+charger+storage" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="cases"><span class="chip">Sponsored search</span><h3>Exact-model travel cases</h3><p class="muted">Confirm Ally versus Ally X fit, stick and trigger clearance, hard-accessory separation, and return terms.</p></a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a>, follow the <a href="/guides/rog-ally-x-accessories-buying-checklist/">ROG Ally X accessory checklist</a>, or set a limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were fetched successfully on August 21, 2026. Steam's public product data supplied the October 17, 2023 Steam release date, Windows requirements, DirectX 12 and broadband requirements, 90GB storage figure, SSD note, full controller support, Blizzard developer/publisher identity, official image, and desktop 720p-render/Low/30 minimum note. Blizzard Support supplies the publisher's requirements route. ASUS supplied its Operating Mode guidance and official original Ally and Ally X battery, memory, display, and adapter specifications.</p>
+    <p>The settings are a conservative editorial test sequence derived from those public constraints and normal graphics-diagnosis practice. Handheld Settings Lab did not personally benchmark the current game build, Ally model, Windows build, driver, BIOS, Armoury Crate, battery, network, or thermals. The 40 FPS figure is a test target, not a measured guarantee; no search-volume or fixed-runtime claim is made.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Return to the <a href="/rog-ally-settings/">ROG Ally settings hub</a>, compare the <a href="/steam-deck-settings/diablo-iv/">Steam Deck Diablo IV baseline</a> or <a href="/legion-go-settings/diablo-iv/">Legion Go Diablo IV guide</a>, use the <a href="/calculators/">battery, storage, and accessory calculators</a>, or browse the <a href="/gear/">gear library</a>.</p>
+  </article>
+</Base>
