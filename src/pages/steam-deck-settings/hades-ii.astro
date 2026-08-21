@@ -1,0 +1,177 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/steam-deck-settings/hades-ii/';
+const title = 'Hades 2 Steam Deck settings: Verified default-first guide — Handheld Settings Lab';
+const description = 'Set up Hades 2 on Steam Deck with Valve’s Verified default-first path, repeatable 60 and 40 FPS test profiles, 11GB storage planning, and controller fixes.';
+const image = '/assets/games/hades-ii-header.jpg';
+
+const sources = [
+  { label: 'Steam: Hades II requirements, release details, controller support, and official media', url: 'https://store.steampowered.com/app/1145350/Hades_II/' },
+  { label: 'Steam app-details API: current public product data for app 1145350', url: 'https://store.steampowered.com/api/appdetails?appids=1145350&cc=us&l=en' },
+  { label: 'Valve: current Steam Deck compatibility report for app 1145350', url: 'https://store.steampowered.com/saleaction/ajaxgetdeckappcompatibilityreport?nAppID=1145350' },
+  { label: 'Supergiant Games: official Hades II page', url: 'https://www.supergiantgames.com/games/hades-ii/' },
+  { label: 'Valve: Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' }
+];
+
+const faqs = [
+  {
+    question: 'What Hades 2 settings should I use on Steam Deck?',
+    answer: 'Start with Valve’s Verified default configuration at 1280×800 and leave the compatibility tool on its default. Test a 60 Hz/60 FPS profile during a busy encounter. If it is uneven or battery life matters more, compare 40 Hz/40 FPS without changing multiple graphics controls at once. These are editorial test targets, not personally measured guarantees.'
+  },
+  {
+    question: 'Is Hades 2 Steam Deck Verified?',
+    answer: 'Yes. Valve’s compatibility endpoint currently resolves Hades II as category 3, Verified. It reports functional default controls, matching controller glyphs, legible interface text, and a performant default configuration. Valve also flags that external controllers are not supported for the primary player.'
+  },
+  {
+    question: 'Should I play Hades 2 at 60 FPS or 40 FPS on Steam Deck?',
+    answer: 'Test 60 FPS first because responsive combat benefits from clear motion, but validate it in a busy late-run encounter rather than only at the Crossroads. A 40 Hz/40 FPS profile is a sensible battery-oriented comparison when it remains visually clear and evenly paced. This page does not claim either target is locked on every build and encounter.'
+  },
+  {
+    question: 'How much storage does Hades 2 need on Steam Deck?',
+    answer: 'Steam currently lists 11GB of available storage. Keep extra room for updates, shader data, screenshots, cloud-save staging, and other games, and confirm the live install dialog before downloading.'
+  },
+  {
+    question: 'Why does an external controller not control player one in Hades 2?',
+    answer: 'Valve’s current Deck report explicitly flags external controllers as unsupported for the primary player. Use the built-in Deck controls first, check controller order, remove conflicting remaps, and recheck the compatibility report after game updates rather than assuming a dock or controller is defective.'
+  },
+  {
+    question: 'Were these Hades 2 Steam Deck settings personally benchmarked?',
+    answer: 'No. Handheld Settings Lab checked current Valve, Steam, and Supergiant public sources but did not personally benchmark the current game build, SteamOS version, compatibility layer, Deck model, battery, or thermals. The profiles are reproducible starting points without invented FPS or runtime measurements.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Hades 2 Steam Deck settings: Verified default-first guide',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-21',
+    dateModified: '2026-08-21',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Hades II', 'Steam Deck', 'Steam Deck Verified', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Steam Deck settings', item: 'https://handheldsettings.com/steam-deck-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Hades II settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Steam Deck settings · Source check August 2026</span>
+    <h1>Hades 2 Steam Deck settings: test the Verified default before tuning</h1>
+    <p class="lede muted">Hades II is currently Steam Deck Verified, and Valve says its default configuration is performant. That makes the supported default—not an old compatibility override—the right first test. This guide adds a repeatable 60 FPS check, a 40 FPS battery-oriented comparison, controller troubleshooting, and storage planning without pretending we measured a universal frame rate or runtime.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Hades II Steam store header art showing Melinoë and the game logo" width="460" height="215" />
+      <figcaption class="media-credit">Official Hades II Steam store header image, saved locally from <a href="https://store.steampowered.com/app/1145350/Hades_II/" target="_blank" rel="nofollow noopener">Supergiant Games’ Steam store page</a>. Artwork and trademarks belong to their owners; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>First path</h3><div class="stat">Default</div><p class="muted">Valve Verified configuration</p></section>
+      <section class="card"><h3>Responsive test</h3><div class="stat">60 FPS</div><p class="muted">Target to validate, not a lock</p></section>
+      <section class="card"><h3>Battery comparison</h3><div class="stat">40 FPS</div><p class="muted">Compare after 60 FPS test</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">11GB</div><p class="muted">Current Steam requirement</p></section>
+    </div>
+
+    <div class="callout"><strong>Use a real combat test:</strong> repeat the same late-run encounter with multiple enemies, projectiles, Boons, and screen effects. Record the game version, SteamOS version, Deck model, display refresh, frame cap, TDP state, brightness, and compatibility tool before comparing changes.</div>
+
+    <h2>Recommended Hades 2 Steam Deck baseline</h2>
+    <table>
+      <thead><tr><th>Control</th><th>Start here</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>Compatibility tool</td><td>Valve default</td><td>The current report is Verified. Do not force an old Proton build before testing the supported path.</td></tr>
+        <tr><td>Resolution</td><td>1280×800</td><td>Matches the Deck panel’s 16:10 shape and gives interface text the expected handheld canvas.</td></tr>
+        <tr><td>Display / frame target</td><td>60 Hz / 60 FPS test</td><td>Responsive action benefits from motion clarity, but this is a target to validate in a demanding encounter—not a measured lock.</td></tr>
+        <tr><td>Graphics</td><td>Verified default</td><td>Establish the officially supported baseline before lowering quality or adding device-level scaling.</td></tr>
+        <tr><td>VSync</td><td>Keep the default first</td><td>Avoid changing presentation and frame limiting simultaneously; reject visible tearing or uneven pacing.</td></tr>
+        <tr><td>Steam Deck TDP limit</td><td>Off for the first test</td><td>Confirm the graphics and frame profile before constraining device power.</td></tr>
+        <tr><td>Manual GPU clock</td><td>Off</td><td>Do not add a second power variable until the baseline is repeatable.</td></tr>
+        <tr><td>Performance overlay</td><td>Use temporarily</td><td>Check pacing, power draw, and temperatures during the same encounter, then hide it for normal play.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Available graphics labels can change with patches. Photograph the current menu before tuning and keep the nearest current equivalent. Valve’s “performant default configuration” result does not specify a guaranteed frame rate, and this page does not turn it into one.</p>
+
+    <h2>Compare 60 FPS and 40 FPS fairly</h2>
+    <div class="grid cols2">
+      <section class="card">
+        <span class="chip">Responsive profile</span>
+        <h3>60 Hz / 60 FPS test</h3>
+        <p>Use the Verified default, native 800p canvas, no TDP limit, and the same encounter. Keep this profile only when combat, camera movement, and effects remain acceptably even.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Battery-oriented profile</span>
+        <h3>40 Hz / 40 FPS test</h3>
+        <p>Change only the display refresh and cap first. If pacing and input feel good, reduce the TDP limit in small steps and repeat the same demanding room after each change.</p>
+      </section>
+    </div>
+
+    <h2>A repeatable Hades 2 tuning order</h2>
+    <ol>
+      <li><strong>Finish updates and restart.</strong> Complete stable SteamOS, game, and shader downloads before diagnosing a persistent issue.</li>
+      <li><strong>Restore Valve’s supported path.</strong> Use the default compatibility tool, built-in controls, and default game configuration for the first pass.</li>
+      <li><strong>Record one demanding encounter.</strong> Note the region, enemy mix, visible effects, game version, cap, refresh rate, and power state.</li>
+      <li><strong>Validate 60 FPS.</strong> Test the same route and encounter rather than judging only the Crossroads or a menu.</li>
+      <li><strong>Compare 40 FPS.</strong> Change refresh and cap together, but leave graphics and TDP unchanged for the first comparison.</li>
+      <li><strong>Tune power last.</strong> Reduce the Deck TDP limit gradually only after choosing the frame target. Stop when pacing worsens in the repeatable encounter.</li>
+      <li><strong>Recheck after patches.</strong> Restore the saved baseline after a major game or SteamOS update before stacking new tweaks.</li>
+    </ol>
+
+    <h2>Fix common Hades 2 problems on Steam Deck</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Busy rooms miss the 60 FPS target</td><td>Restore the Verified default, remove TDP and manual-clock limits, and stop recording</td><td>Compare 40 Hz/40 FPS in the same encounter before reducing resolution</td></tr>
+        <tr><td>Uneven pacing after a battery tweak</td><td>Restore the last stable TDP value and GPU clock default</td><td>Keep the chosen cap and lower power in smaller steps</td></tr>
+        <tr><td>Text or UI looks soft</td><td>Confirm 1280×800 and remove duplicate device-level scaling</td><td>Return to the native canvas before changing sharpening</td></tr>
+        <tr><td>External controller will not control player one</td><td>Use built-in controls and inspect Steam controller order</td><td>Remove conflicting remaps; Valve currently flags primary-player external controllers as unsupported</td></tr>
+        <tr><td>Wrong button prompts or input behavior</td><td>Restore the official layout and default compatibility tool</td><td>Disconnect extra controllers, restart the game, and retest before remapping</td></tr>
+        <tr><td>New issue after an update</td><td>Restore defaults and remove unofficial launch options</td><td>Verify files, restart SteamOS, and check current Supergiant and Valve information</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, saves, battery, and dock planning</h2>
+    <p>Steam currently lists <strong>11GB of available storage</strong>, full controller support, Steam Cloud, and a September 25, 2025 release date. Keep additional room for updates, shader data, captures, and other runs in your library. Use the <a href="/calculators/storage-planner/">storage planner</a> before buying capacity, and follow the <a href="/guides/steam-deck-microsd-speed-compatibility/">Steam Deck microSD compatibility guide</a> if removable storage is the next step.</p>
+    <p>This page does not invent battery hours. Read total system draw during the same encounter and enter it in the <a href="/calculators/battery-estimator/">battery estimator</a>. Compare the 60 and 40 FPS profiles at matched brightness and wireless conditions so the result means something.</p>
+    <p>For docked play, Valve’s current compatibility report flags external controllers for the primary player. Read the <a href="/guides/steam-deck-docked-tv-monitor-setup/">Steam Deck docked TV and monitor guide</a>, but do not buy a new dock solely to fix a game-specific controller limitation.</p>
+
+    <h2>Optional gear after the baseline is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, seller traceability, model fit, warranty, and return terms. No price, compatibility, performance, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+microSD+card+a2+uhs+i" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microsd-cards"><span class="chip">Sponsored search</span><h3>A2 UHS-I microSD cards</h3><p class="muted">Compare genuine capacity, A2/U3 markings, seller traceability, warranty, and validation tools.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+45w+usb+c+pd+power+bank" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="power-banks"><span class="chip">Sponsored search</span><h3>45W USB-C PD power banks</h3><p class="muted">Check dedicated-port output, watt-hours, cable rating, weight, recall status, and current airline rules.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+oled+carrying+case+charger+storage" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="cases"><span class="chip">Sponsored search</span><h3>Exact-fit Steam Deck cases</h3><p class="muted">Verify LCD or OLED fit, stick clearance, charger separation, bulk, and return terms.</p></a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a>, use the <a href="/guides/usb-c-power-bank-wattage-handheld-gaming/">Steam Deck power-bank and airline guide</a>, or set a limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were fetched successfully on August 21, 2026. Steam’s public product data supplied the September 25, 2025 release date, 11GB storage requirement, full controller support, Steam Cloud support, Supergiant developer/publisher identity, Windows requirements, and official image. Valve’s compatibility endpoint currently resolves Hades II as category 3, Verified, and reports functional default controls, matching glyphs, legible interface text, and a performant default configuration; it also flags external controllers as unsupported for the primary player. Supergiant’s official page establishes the publisher’s first-party game reference.</p>
+    <p>The 60 and 40 FPS profiles are conservative editorial test sequences, not observed benchmarks. Handheld Settings Lab did not personally test the current Hades II build, SteamOS version, compatibility layer, LCD or OLED Deck, battery, or thermals. No fixed runtime or search-volume claim is made.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Return to the <a href="/steam-deck-settings/">Steam Deck settings hub</a>, compare the broader <a href="/guides/steam-deck-battery-life-by-game/">battery-by-game planning guide</a>, use the <a href="/calculators/">battery, storage, and accessory calculators</a>, or browse the <a href="/gear/">gear library</a>.</p>
+  </article>
+</Base>
