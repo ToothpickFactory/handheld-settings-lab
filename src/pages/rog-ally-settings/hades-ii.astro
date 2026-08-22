@@ -1,0 +1,171 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/rog-ally-settings/hades-ii/';
+const title = 'Hades 2 ROG Ally settings: 900p/60 FPS test — Handheld Settings Lab';
+const description = 'Tune Hades 2 on ROG Ally or Ally X with a cautious 900p/60 FPS baseline, native-1080p comparison, repeatable combat test, and battery and storage planning.';
+const image = '/assets/games/hades-ii-header.jpg';
+
+const sources = [
+  { label: 'Steam: Hades II requirements, controller support, release details, and official media', url: 'https://store.steampowered.com/app/1145350/Hades_II/' },
+  { label: 'Steam app-details API: current public product data for app 1145350', url: 'https://store.steampowered.com/api/appdetails?appids=1145350&cc=us&l=en' },
+  { label: 'Supergiant Games: official Hades II page', url: 'https://www.supergiantgames.com/games/hades-ii/' },
+  { label: 'ASUS ROG: How to boost gaming performance on the ROG Ally', url: 'https://rog.asus.com/articles/guides/how-to-boost-gaming-performance-on-the-rog-ally/' },
+  { label: 'ASUS ROG: ROG Ally (2023) technical specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-2023/spec/' },
+  { label: 'ASUS ROG: ROG Ally X (2024) technical specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/' }
+];
+
+const faqs = [
+  {
+    question: 'What Hades 2 settings should I use on ROG Ally?',
+    answer: 'Start at 1600×900, a 60 FPS cap, the default graphics configuration, and Armoury Crate Performance mode. Test a busy late-run encounter before changing anything. If pacing is uneven, compare the same scene at 1280×720 or 40 FPS without also changing power mode. This is a conservative editorial test sequence, not a personally measured guarantee.'
+  },
+  {
+    question: 'Should Hades 2 run at 900p or 1080p on ROG Ally?',
+    answer: 'Validate 900p first, then compare native 1080p in the same demanding encounter. Keep 1080p only if motion, effects, interface clarity, and frame pacing remain acceptable. If 900p already misses the target, use 720p as a diagnostic before increasing device power.'
+  },
+  {
+    question: 'Should I use Performance or Turbo mode for Hades 2?',
+    answer: 'Begin in Performance mode for a battery-aware profile. ASUS describes Performance as a balance between performance and battery life and Turbo as its maximum-power mode. Use Turbo as a separate plugged-in comparison only after the baseline is repeatable; more power should not be the first response to every stutter.'
+  },
+  {
+    question: 'How much storage does Hades 2 need on ROG Ally?',
+    answer: 'Steam currently lists 11GB of available storage. Keep additional free space for updates, shader data, cloud-save staging, captures, and Windows temporary files, and verify the live install estimate before downloading.'
+  },
+  {
+    question: 'Why does Hades 2 show the wrong controls on ROG Ally?',
+    answer: 'Steam lists full controller support. Set Armoury Crate control mode to Gamepad or Auto, restore the default game profile, disconnect extra controllers, and remove overlapping Steam Input or per-game remaps before changing graphics or reinstalling.'
+  },
+  {
+    question: 'Were these Hades 2 ROG Ally settings personally benchmarked?',
+    answer: 'No. Handheld Settings Lab checked current Steam, Supergiant, and ASUS public sources but did not personally benchmark the current game build, Windows version, driver, BIOS, Armoury Crate, Ally model, battery, or thermals. The 60 and 40 FPS figures are test targets, not measured locks.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Hades 2 ROG Ally settings: 900p/60 FPS test',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-22',
+    dateModified: '2026-08-22',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Hades II', 'ASUS ROG Ally', 'ROG Ally X', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'ROG Ally settings', item: 'https://handheldsettings.com/rog-ally-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Hades II settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">ROG Ally settings · Baseline published August 2026</span>
+    <h1>Hades 2 ROG Ally settings: start at 900p and test 60 FPS</h1>
+    <p class="lede muted">Hades II has modest published desktop requirements, but fast combat still needs a demanding, repeatable check. This Ally and Ally X guide starts at 900p/60 FPS in Performance mode, compares native 1080p and a 40 FPS battery-oriented profile, and keeps graphics, power, storage, and control fixes separate. It is official-source-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Hades II Steam store header art showing Melinoë and the game logo" width="460" height="215" />
+      <figcaption class="media-credit">Official Hades II Steam store header image, saved locally from <a href="https://store.steampowered.com/app/1145350/Hades_II/" target="_blank" rel="nofollow noopener">Supergiant Games’ Steam store page</a>. Artwork and trademarks belong to their owners; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>First target</h3><div class="stat">900p / 60</div><p class="muted">Baseline to validate, not a lock</p></section>
+      <section class="card"><h3>Clarity test</h3><div class="stat">1080p</div><p class="muted">Compare after 900p is stable</p></section>
+      <section class="card"><h3>Battery test</h3><div class="stat">40 FPS</div><p class="muted">Tune power only after pacing</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">11GB</div><p class="muted">Current Steam requirement</p></section>
+    </div>
+
+    <div class="callout"><strong>Use a real combat test:</strong> repeat the same late-run encounter with several enemies, projectiles, Boons, and screen effects. Record the game version, Ally model, Windows build, driver, BIOS, Armoury Crate version, operating mode, charger state, resolution, and cap before comparing changes.</div>
+
+    <h2>Recommended Hades 2 ROG Ally baseline</h2>
+    <table>
+      <thead><tr><th>Control</th><th>Start here</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>Armoury Crate operating mode</td><td>Performance</td><td>Creates a battery-aware starting condition. ASUS describes Performance as its balance mode and Turbo as maximum-power mode.</td></tr>
+        <tr><td>Display mode / resolution</td><td>Fullscreen / 1600×900</td><td>Preserves interface clarity while lowering render load from the panel’s native 1080p resolution.</td></tr>
+        <tr><td>Frame-rate cap</td><td>60 FPS</td><td>Fast combat benefits from clear motion and response, but this remains a target to validate in a demanding encounter.</td></tr>
+        <tr><td>Graphics</td><td>Default first</td><td>Steam’s listed desktop minimum is modest, so establish the current supported game baseline before lowering quality.</td></tr>
+        <tr><td>VSync</td><td>Keep the default first</td><td>Avoid changing presentation and frame limiting simultaneously; reject visible tearing or uneven pacing.</td></tr>
+        <tr><td>Upscaling / RSR</td><td>Off for the first pass</td><td>Do not stack game scaling and device-level scaling before establishing native 900p behavior.</td></tr>
+        <tr><td>Motion blur</td><td>Off for comparison</td><td>Makes pacing and edge clarity easier to inspect. Restore later only by preference.</td></tr>
+        <tr><td>Control mode</td><td>Gamepad or Auto</td><td>Steam lists full controller support; a consistent Armoury Crate mode reduces input-layer conflicts.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Available graphics labels can change with patches. Photograph the current menu before tuning and keep the nearest current equivalent. Steam’s desktop requirements do not prove a handheld result, and this page does not convert them into one.</p>
+
+    <h2>Compare three profiles without mixing variables</h2>
+    <div class="grid cols3">
+      <section class="card"><span class="chip">Balanced baseline</span><h3>900p / 60 FPS</h3><p>Performance mode, current game defaults, no device-level scaling, and a repeatable late-run encounter. Validate this profile first.</p></section>
+      <section class="card"><span class="chip">Clarity comparison</span><h3>1080p / 60 FPS</h3><p>Change only resolution. Keep native 1080p when the same busy scene remains acceptably even; return to 900p if the extra clarity costs consistency.</p></section>
+      <section class="card"><span class="chip">Battery comparison</span><h3>900p / 40 FPS</h3><p>Change only the cap first. If combat still feels clear and evenly paced, reduce power in small steps and repeat the same encounter after each change.</p></section>
+    </div>
+
+    <h2>Run a repeatable combat test</h2>
+    <ol>
+      <li><strong>Finish updates and restart.</strong> Complete stable game, Windows, MyASUS, Armoury Crate SE, graphics-driver, and BIOS updates offered for the exact model.</li>
+      <li><strong>Record the full state.</strong> Note Ally or Ally X, game version, driver, BIOS, operating mode, charger, resolution, cap, and every graphics value.</li>
+      <li><strong>Apply one baseline.</strong> Set Performance mode, fullscreen 900p, 60 FPS, game defaults, and no extra device-level scaling.</li>
+      <li><strong>Repeat the same demanding room.</strong> Use a late-run encounter with comparable enemies, projectiles, effects, and camera movement—not the Crossroads or a menu.</li>
+      <li><strong>Compare one variable.</strong> Test 1080p for clarity or 40 FPS for battery planning without also changing operating mode or graphics.</li>
+      <li><strong>Tune power last.</strong> Reduce power only after choosing the frame profile, and stop when the weakest repeated scene becomes uneven.</li>
+      <li><strong>Recheck after patches.</strong> Restore the photographed baseline after a major game, driver, BIOS, or Armoury Crate update.</li>
+    </ol>
+
+    <h2>Fix common Hades 2 problems on ROG Ally</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Busy rooms miss 60 FPS</td><td>Restore Performance mode, 900p, defaults, and no recording or overlay</td><td>Compare 40 FPS in the same encounter before lowering image quality</td></tr>
+        <tr><td>Image looks soft or noisy</td><td>Confirm only one scaling path is active and restore fullscreen 900p</td><td>Compare native 1080p; do not stack in-game scaling with RSR</td></tr>
+        <tr><td>Uneven pacing after a power tweak</td><td>Restore the last stable operating mode or manual-power value</td><td>Keep the chosen cap and reduce power in smaller steps</td></tr>
+        <tr><td>Wrong prompts or controls</td><td>Set Armoury Crate control mode to Gamepad or Auto</td><td>Restore the default profile, disconnect extra controllers, and remove overlapping remaps</td></tr>
+        <tr><td>Turbo is unavailable through a dock</td><td>Connect the original or a compatible charger directly</td><td>Isolate dock and cable; verify USB-C PD output, passthrough, port sharing, and cable rating</td></tr>
+        <tr><td>New issue after an update</td><td>Restore defaults, reboot, and remove unofficial overrides</td><td>Verify files and record game, driver, BIOS, and Armoury Crate versions before further changes</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Ally versus Ally X battery and storage planning</h2>
+    <p>ASUS lists a 40Wh battery and 16GB memory for the original 2023 Ally, while its 2024 Ally X page lists an 80Wh battery and 24GB memory. Both official pages list a 1080p/120Hz display and a 65W adapter. Those specifications do not establish a universal Hades II frame rate or a fixed runtime ratio: exact APU, operating mode, software state, battery condition, brightness, wireless state, and test scene still matter.</p>
+    <p>Steam currently lists <strong>11GB of available storage</strong>, full controller support, and Steam Cloud. Leave space beyond the listed minimum for updates, shader data, captures, and Windows temporary files. Model the rest of the library in the <a href="/calculators/storage-planner/">storage planner</a> and use the <a href="/guides/rog-ally-ssd-size-compatibility-upgrade/">ROG Ally SSD compatibility guide</a> before opening the device.</p>
+    <p>This page does not invent battery hours. Read total system draw during the same encounter at matched brightness and wireless conditions, then use the <a href="/calculators/battery-estimator/">battery estimator</a>. Stabilize handheld play before following the <a href="/guides/rog-ally-dock-tv-monitor-setup/">ROG Ally dock and TV guide</a>.</p>
+
+    <h2>Optional gear after the baseline is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, model fit, seller support, warranty, and return terms. No price, compatibility, performance, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+x+65w+usb+c+pd+charger" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers"><span class="chip">Sponsored search</span><h3>65W-class Ally chargers</h3><p class="muted">Verify dedicated-port USB-C PD output, included cable rating, port sharing, warranty, and exact Ally support.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+x+carrying+case+charger+storage" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="cases"><span class="chip">Sponsored search</span><h3>Exact-model travel cases</h3><p class="muted">Confirm Ally versus Ally X fit, stick and trigger clearance, hard-accessory separation, and return terms.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+usb+c+dock+65w+hdmi" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks"><span class="chip">Sponsored search</span><h3>ROG Ally USB-C docks</h3><p class="muted">Check PD passthrough, display output, host-cable reach, port sharing, ventilation, and exact handheld fit.</p></a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a>, follow the <a href="/guides/rog-ally-x-accessories-buying-checklist/">ROG Ally X accessory checklist</a>, or set a limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were fetched successfully on August 22, 2026. Steam’s current public product data supplied the September 25, 2025 release date, Windows requirements, 11GB storage figure, full controller support, Steam Cloud support, Supergiant developer/publisher identity, and official image. Supergiant’s official page establishes the first-party game reference. ASUS supplied its Operating Mode guidance and official original Ally and Ally X battery, memory, display, and adapter specifications.</p>
+    <p>The profiles are conservative editorial test sequences derived from those public constraints and normal graphics-diagnosis practice. Handheld Settings Lab did not personally benchmark the current Hades II build, Ally model, Windows build, driver, BIOS, Armoury Crate, battery, or thermals. The 60 and 40 FPS figures are targets to test, not measured guarantees; no search-volume or fixed-runtime claim is made.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Return to the <a href="/rog-ally-settings/">ROG Ally settings hub</a>, compare the <a href="/steam-deck-settings/hades-ii/">Steam Deck Hades II guide</a>, use the <a href="/calculators/">battery, storage, and accessory calculators</a>, or browse the <a href="/gear/">gear library</a>.</p>
+  </article>
+</Base>
