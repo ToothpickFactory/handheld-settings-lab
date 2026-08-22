@@ -1,0 +1,168 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/legion-go-settings/hades-ii/';
+const title = 'Hades 2 Legion Go settings: 800p/60 FPS test — Handheld Settings Lab';
+const description = 'Tune Hades 2 on the original Legion Go with a cautious 800p/60 FPS baseline, 1200p clarity test, 40 FPS battery comparison, and storage guidance.';
+const image = '/assets/games/hades-ii-header.jpg';
+
+const sources = [
+  { label: 'Steam: Hades II requirements, controller support, release details, and official media', url: 'https://store.steampowered.com/app/1145350/Hades_II/' },
+  { label: 'Steam app-details API: current public product data for app 1145350', url: 'https://store.steampowered.com/api/appdetails?appids=1145350&cc=us&l=en' },
+  { label: 'Supergiant Games: official Hades II page', url: 'https://www.supergiantgames.com/games/hades-ii/' },
+  { label: 'Lenovo PSREF: original Legion Go 8APU1 specifications', url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1' }
+];
+
+const faqs = [
+  {
+    question: 'What Hades 2 settings should I use on Legion Go?',
+    answer: 'Start at 1280×800, a 60 FPS cap, the current default graphics configuration, and one repeatable Performance-class Legion Space profile. Validate a busy late-run encounter before changing anything. If pacing is uneven, compare 40 FPS in the same scene before changing resolution, graphics, and power together. This is an editorial test baseline, not a personally measured guarantee.'
+  },
+  {
+    question: 'Should I use 800p, 1200p, or 1600p for Hades 2?',
+    answer: 'Validate 800p first because it preserves the panel’s 16:10 shape and leaves ample diagnostic headroom. Then compare 1920×1200 in the same busy encounter for clearer artwork and interface elements. Native 2560×1600 is a later quality experiment, not the first baseline, and should be kept only when the weakest repeated scene remains acceptable.'
+  },
+  {
+    question: 'Should Hades 2 run at 60 FPS on Legion Go?',
+    answer: 'Steam publishes modest desktop requirements, so 60 FPS is a reasonable target to test, but desktop requirements do not prove a handheld result. Validate the current game, driver, firmware, power profile, thermals, and a demanding encounter. The page does not claim a measured lock.'
+  },
+  {
+    question: 'Is 40 FPS useful for Hades 2 on Legion Go?',
+    answer: 'A 40 FPS cap can be a useful battery-oriented comparison when combat still feels clear and evenly paced. Change only the cap first, repeat the same encounter, and then reduce power gradually. Record the display refresh and limiter because the original Legion Go panel and software options can change with updates.'
+  },
+  {
+    question: 'How much storage does Hades 2 need on Legion Go?',
+    answer: 'Steam currently lists 11GB of available storage. Keep extra room for updates, shader data, cloud-save staging, captures, and Windows temporary files, and verify the live install estimate before downloading.'
+  },
+  {
+    question: 'Were these Hades 2 Legion Go settings personally benchmarked?',
+    answer: 'No. Handheld Settings Lab checked current Steam, Supergiant, and Lenovo public sources but did not personally benchmark the current game build, Windows version, driver, firmware, Legion Space version, battery, or thermals. The 60 and 40 FPS figures are test targets, not measured locks.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Hades 2 Legion Go settings: 800p/60 FPS test',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-22',
+    dateModified: '2026-08-22',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Hades II', 'Lenovo Legion Go', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Legion Go settings', item: 'https://handheldsettings.com/legion-go-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Hades II settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Legion Go settings · Baseline published August 2026</span>
+    <h1>Hades 2 Legion Go settings: start at 800p and test 60 FPS</h1>
+    <p class="lede muted">Hades II has modest published desktop requirements, but its fast combat still deserves a busy, repeatable check. This original Legion Go guide starts at 800p/60 FPS, compares 1200p for clarity and 40 FPS for battery planning, and keeps power, graphics, controls, and storage diagnosis separate. It is official-source-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Hades II Steam store header art showing Melinoë and the game logo" width="460" height="215" />
+      <figcaption class="media-credit">Official Hades II Steam store header image, saved locally from <a href="https://store.steampowered.com/app/1145350/Hades_II/" target="_blank" rel="nofollow noopener">Supergiant Games’ Steam store page</a>. Artwork and trademarks belong to their owners; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>First target</h3><div class="stat">800p / 60</div><p class="muted">Baseline to validate, not a lock</p></section>
+      <section class="card"><h3>Clarity test</h3><div class="stat">1200p</div><p class="muted">Compare after 800p is stable</p></section>
+      <section class="card"><h3>Battery test</h3><div class="stat">40 FPS</div><p class="muted">Tune power only after pacing</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">11GB</div><p class="muted">Current Steam requirement</p></section>
+    </div>
+
+    <div class="callout"><strong>Use a real combat test:</strong> repeat the same late-run encounter with several enemies, projectiles, Boons, and screen effects. Record the game version, Windows build, driver, firmware, Legion Space version, power profile, charger state, resolution, refresh, and cap before comparing changes.</div>
+
+    <h2>Recommended Hades 2 Legion Go baseline</h2>
+    <table>
+      <thead><tr><th>Control</th><th>Start here</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>Legion Go power profile</td><td>Repeatable Performance-class profile</td><td>Creates a consistent first condition. Record the exact Legion Space mode, custom TDP if used, fan setting, and charger state.</td></tr>
+        <tr><td>Display mode / resolution</td><td>Fullscreen / 1280×800</td><td>Preserves the panel’s 16:10 shape and creates a cautious baseline before testing sharper modes.</td></tr>
+        <tr><td>Frame-rate cap</td><td>60 FPS</td><td>Fast combat benefits from clear motion and response, but this remains a target to validate in a demanding encounter.</td></tr>
+        <tr><td>Graphics</td><td>Current default first</td><td>Steam’s listed desktop minimum is modest, so establish the supported game baseline before lowering quality.</td></tr>
+        <tr><td>VSync</td><td>Keep the default first</td><td>Avoid changing presentation and limiting at the same time; reject visible tearing or uneven pacing.</td></tr>
+        <tr><td>Upscaling / device scaling</td><td>Off for the first pass</td><td>Do not stack in-game and device-level scaling before establishing native 800p behavior.</td></tr>
+        <tr><td>Motion blur</td><td>Off for comparison</td><td>Makes pacing and edge clarity easier to inspect. Restore later only by preference.</td></tr>
+        <tr><td>Control mode</td><td>Gamepad</td><td>Steam lists full controller support; a consistent Legion Space mode reduces input-layer conflicts.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Available labels can change with patches. Photograph the current menu before tuning and keep the nearest current equivalent. Steam’s desktop requirements do not prove a Legion Go frame rate, and this page does not convert them into one.</p>
+
+    <h2>Compare three profiles without mixing variables</h2>
+    <div class="grid cols3">
+      <section class="card"><span class="chip">Balanced baseline</span><h3>800p / 60 FPS</h3><p>Use one recorded Performance-class profile, current game defaults, no extra device scaling, and a repeatable late-run encounter. Validate this first.</p></section>
+      <section class="card"><span class="chip">Clarity comparison</span><h3>1200p / 60 FPS</h3><p>Change only resolution. Keep 1200p when interface detail and art improve without making the same busy scene uneven; otherwise return to 800p.</p></section>
+      <section class="card"><span class="chip">Battery comparison</span><h3>800p / 40 FPS</h3><p>Change only the cap first. If combat remains clear and evenly paced, reduce device power in small steps and repeat the same encounter.</p></section>
+    </div>
+
+    <h2>Run a repeatable Hades 2 combat test</h2>
+    <ol>
+      <li><strong>Finish updates and restart.</strong> Complete stable game, Windows, graphics-driver, Lenovo firmware, and Legion Space updates before diagnosing a persistent issue.</li>
+      <li><strong>Record the full state.</strong> Note game version, driver, firmware, Legion Space version, mode, charger, refresh, resolution, cap, and every graphics value.</li>
+      <li><strong>Apply one baseline.</strong> Set fullscreen 800p, a 60 FPS cap, current game defaults, one repeatable power profile, and no extra device scaling.</li>
+      <li><strong>Repeat a demanding room.</strong> Use a late-run encounter with comparable enemies, projectiles, effects, and camera movement—not the Crossroads or a menu.</li>
+      <li><strong>Compare one variable.</strong> Test 1200p for clarity or 40 FPS for battery planning without also changing power or graphics.</li>
+      <li><strong>Tune power last.</strong> Reduce power only after choosing the frame profile, and stop when the weakest repeated scene becomes uneven.</li>
+      <li><strong>Recheck after patches.</strong> Restore the photographed baseline after a major game, driver, firmware, or Legion Space update.</li>
+    </ol>
+
+    <h2>Fix common Hades 2 problems on Legion Go</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Busy rooms miss 60 FPS</td><td>Restore 800p, defaults, the recorded power profile, and no capture overlay</td><td>Compare 40 FPS in the same encounter before lowering image quality</td></tr>
+        <tr><td>Image looks soft or noisy</td><td>Confirm only one scaling path is active and restore fullscreen 800p</td><td>Compare native 1200p; do not stack game scaling with device scaling</td></tr>
+        <tr><td>Uneven pacing after a power tweak</td><td>Restore the last stable Legion Space mode or custom-power value</td><td>Keep the chosen cap and reduce power in smaller steps</td></tr>
+        <tr><td>Wrong prompts or controls</td><td>Set Legion Space controls to gamepad mode</td><td>Restore default Steam Input and in-game controls, then disconnect extra controllers</td></tr>
+        <tr><td>Docked play behaves differently</td><td>Retest on the built-in display with power connected directly</td><td>Isolate dock power and display output; do not default to a TV’s native 4K mode</td></tr>
+        <tr><td>New issue after an update</td><td>Restore defaults, reboot, and remove unofficial overrides</td><td>Verify files and record game, driver, firmware, and Legion Space versions</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Battery, storage, and dock planning</h2>
+    <p>Steam currently lists <strong>11GB of available storage</strong>, full controller support, and Steam Cloud. Leave space beyond the listed minimum for updates, shader data, captures, and Windows temporary files. Verify the live install estimate, model the rest of the library in the <a href="/calculators/storage-planner/">storage planner</a>, and compare <a href="/guides/microsd-vs-ssd-handheld-pc/">microSD and internal SSD tradeoffs</a>.</p>
+    <p>This page does not invent battery hours. Read total system draw during the same encounter at matched brightness and wireless conditions, then use the <a href="/calculators/battery-estimator/">battery estimator</a> or the <a href="/guides/legion-go-battery-life-calculator-guide/">Legion Go battery calculator guide</a>. Stabilize handheld play before following the <a href="/guides/handheld-gaming-usb-c-dock-checklist/">USB-C dock checklist</a>.</p>
+
+    <h2>Optional gear after the baseline is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, model fit, seller traceability, warranty, and return terms. No price, compatibility, performance, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+a2+u3+microsd+card" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microsd-cards"><span class="chip">Sponsored search</span><h3>A2 / U3 microSD cards</h3><p class="muted">Compare genuine capacity, seller traceability, warranty, and validation tools before moving a game library.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+65w+usb+c+pd+power+bank" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="power-banks"><span class="chip">Sponsored search</span><h3>65W-class USB-C PD power banks</h3><p class="muted">Check dedicated-port output, watt-hours, cable rating, weight, recall status, and current airline rules.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+carrying+case+charger+storage" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="cases"><span class="chip">Sponsored search</span><h3>Exact-fit Legion Go cases</h3><p class="muted">Verify controller and stick clearance, charger separation, shell pressure, dimensions, and return terms.</p></a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a>, use the <a href="/guides/legion-go-accessories-buying-checklist/">Legion Go accessory checklist</a>, or set a limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were fetched successfully on August 22, 2026. Steam’s current public product data supplied the September 25, 2025 release date, Windows requirements, 11GB storage figure, full controller support, Steam Cloud support, Supergiant developer/publisher identity, and official image. Supergiant supplied the first-party game page. Lenovo PSREF supplied the original Legion Go product route.</p>
+    <p>The profiles are conservative editorial test sequences derived from those public constraints and normal graphics-diagnosis practice. Handheld Settings Lab did not personally benchmark the current Hades II build, Windows build, driver, firmware, Legion Space version, battery, or thermals. The 60 and 40 FPS figures are targets to test, not measured guarantees; no fixed-runtime or search-volume claim is made.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Return to the <a href="/legion-go-settings/">Legion Go settings hub</a>, compare the <a href="/steam-deck-settings/hades-ii/">Steam Deck</a> and <a href="/rog-ally-settings/hades-ii/">ROG Ally</a> Hades II guides, use the <a href="/calculators/">battery, storage, and accessory calculators</a>, or browse the <a href="/gear/">gear library</a>.</p>
+  </article>
+</Base>
