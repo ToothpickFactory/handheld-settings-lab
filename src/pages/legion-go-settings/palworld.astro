@@ -1,0 +1,175 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/legion-go-settings/palworld/';
+const title = 'Palworld Legion Go settings: 800p/30 FPS baseline — Handheld Settings Lab';
+const description = 'Start Palworld on the original Legion Go with a cautious 800p/30 FPS Low baseline, repeatable base and exploration tests, multiplayer checks, and 40GB storage planning.';
+const image = '/assets/games/palworld-header.jpg';
+
+const sources = [
+  { label: 'Steam: Palworld requirements, features, controller support, and official media', url: 'https://store.steampowered.com/app/1623730/Palworld/' },
+  { label: 'Steam app-details API: current public product data for app 1623730', url: 'https://store.steampowered.com/api/appdetails?appids=1623730&cc=us&l=en' },
+  { label: 'Pocketpair: official Palworld site', url: 'https://www.pocketpair.jp/palworld/' },
+  { label: 'Lenovo PSREF: original Legion Go 8APU1 specifications', url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1' }
+];
+
+const faqs = [
+  {
+    question: 'What Palworld settings should I use on Legion Go?',
+    answer: 'Start at 1280×800, a 30 FPS cap, the Low preset, and one repeatable Performance-class Legion Space profile. Test a populated base, fast open-world traversal, combat with several active Pals, and the multiplayer mode you actually use before raising quality. This is a cautious editorial baseline, not a personally measured result.'
+  },
+  {
+    question: 'Can Palworld run at 40 FPS on Legion Go?',
+    answer: 'Treat 40 FPS as a test rather than a guarantee. First pass a demanding 800p/30 route, then change only the cap and repeat the same base, traversal, combat, and multiplayer conditions. World complexity, active Pals, server state, patches, power, drivers, memory allocation, and thermals can change the result.'
+  },
+  {
+    question: 'Should I use 800p, 1200p, or 1600p for Palworld on Legion Go?',
+    answer: 'Start at 800p because it preserves the panel’s 16:10 shape and leaves more headroom for world simulation and rendering. Test 1200p only after the complete 800p route is stable. Native 1600p is not a sensible first baseline for this demanding game.'
+  },
+  {
+    question: 'Which Palworld graphics settings should I lower first?',
+    answer: 'Start with view distance, shadows, effects, grass, and other world-detail controls before making nearby textures unnecessarily soft. Keep the Low preset as the diagnostic floor, change one setting at a time, and repeat the same route because a quiet area does not represent a busy base or multi-Pal fight.'
+  },
+  {
+    question: 'How much storage does Palworld need on Legion Go?',
+    answer: 'Steam currently lists 40GB of available space and says an SSD is required. Leave additional free space for updates, shader data, world saves, captures, Workshop content, and Windows temporary files, and verify the live install estimate before downloading.'
+  },
+  {
+    question: 'Were these Palworld Legion Go settings personally benchmarked?',
+    answer: 'No. Handheld Settings Lab checked current Steam, Pocketpair, and Lenovo public sources but did not personally benchmark the current game build, world, server, Windows build, driver, firmware, Legion Space version, battery, memory allocation, or thermals. The 30 and 40 FPS figures are test targets, not measured locks.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Palworld Legion Go settings: 800p/30 FPS baseline',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-23',
+    dateModified: '2026-08-23',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Palworld', 'Lenovo Legion Go', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Legion Go settings', item: 'https://handheldsettings.com/legion-go-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Palworld settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Legion Go settings · Baseline published August 2026</span>
+    <h1>Palworld Legion Go settings: start at 800p and 30 FPS</h1>
+    <p class="lede muted">Palworld combines open-world streaming, base automation, many active Pals, combat effects, and online state. This original Legion Go workflow starts at a cautious 800p/30 FPS Low profile, then tests clarity and frame-rate changes only after the same base-to-combat route passes. It is official-source-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Palworld Steam store header art showing Pals in an open landscape" width="460" height="215" />
+      <figcaption class="media-credit">Official Palworld Steam store header image, saved locally from <a href="https://store.steampowered.com/app/1623730/Palworld/" target="_blank" rel="nofollow noopener">Pocketpair’s Steam store page</a>. Artwork and trademarks belong to their owners; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Safe first target</h3><div class="stat">800p / 30</div><p class="muted">Baseline to validate, not a lock</p></section>
+      <section class="card"><h3>Starting preset</h3><div class="stat">Low</div><p class="muted">Raise one control after full-route testing</p></section>
+      <section class="card"><h3>Second test</h3><div class="stat">40 FPS</div><p class="muted">Only after the 30 FPS route passes</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">40GB</div><p class="muted">Current Steam requirement; SSD required</p></section>
+    </div>
+
+    <div class="callout"><strong>Test the world, not the menu:</strong> Steam explicitly notes that performance may vary with the number of active Pals. Use the same populated base, fast traversal path, raid or multi-Pal fight, weather, and intended multiplayer state for every comparison.</div>
+
+    <h2>Recommended Palworld Legion Go baseline</h2>
+    <table>
+      <thead><tr><th>Control</th><th>Start here</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>Legion Go power profile</td><td>Repeatable Performance-class profile</td><td>Creates a consistent first condition. Record the exact Legion Space mode, charger state, fan setting, and custom power value if used.</td></tr>
+        <tr><td>Display mode / resolution</td><td>Fullscreen / 1280×800</td><td>Preserves the panel’s 16:10 shape and leaves more headroom than 1200p or native 1600p.</td></tr>
+        <tr><td>Frame-rate cap</td><td>30 FPS first</td><td>Prioritizes consistency through streaming, simulation, base activity, and multi-Pal combat. A higher target comes later.</td></tr>
+        <tr><td>Graphics preset</td><td>Low</td><td>Provides a cautious diagnostic floor against demanding published desktop requirements without pretending it guarantees a result.</td></tr>
+        <tr><td>Anti-aliasing / upscaling</td><td>Quality-class in-game option, if available</td><td>Start with the clearest normal reconstruction option. Avoid stacking it with driver-level scaling during diagnosis.</td></tr>
+        <tr><td>View distance</td><td>Low</td><td>Reduces distant world rendering while a stable base and traversal profile is established.</td></tr>
+        <tr><td>Shadow quality</td><td>Low</td><td>Protects headroom during changing daylight, foliage, structures, combat, and busy bases.</td></tr>
+        <tr><td>Effects quality</td><td>Low</td><td>Reduces spikes during multi-Pal abilities, explosions, raids, and weather before texture clarity is sacrificed.</td></tr>
+        <tr><td>Texture quality</td><td>Low first; test Medium separately</td><td>The Legion Go uses shared memory. Raise textures only after watching traversal, paging, and busy-area behavior.</td></tr>
+        <tr><td>Grass / foliage detail</td><td>Low</td><td>Large outdoor scenes can expose a different limit from interiors or menus.</td></tr>
+        <tr><td>Motion blur</td><td>Off for comparison</td><td>Makes camera motion, scaling artifacts, and pacing easier to inspect. Restore later only by preference.</td></tr>
+        <tr><td>Control mode</td><td>Gamepad</td><td>Steam lists full controller support; a consistent Legion Space and Steam Input state avoids diagnosing input-layer changes as game issues.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Menu labels and available controls can change with updates. Photograph the current settings screen and use the nearest normal in-game equivalent. Do not install unofficial overrides merely to reproduce an older menu.</p>
+
+    <h2>Run a repeatable base-to-combat test</h2>
+    <ol>
+      <li><strong>Finish updates and restart.</strong> Complete the stable game, Windows, graphics-driver, Lenovo firmware, and Legion Space updates before recording a baseline.</li>
+      <li><strong>Record the full state.</strong> Note game version, world/save, server or solo mode, driver, firmware, Legion Space version, power profile, charger, memory allocation, resolution, cap, and graphics values.</li>
+      <li><strong>Walk through a populated base.</strong> Include crafting stations, structures, storage, and the normal number of working Pals rather than testing an empty starter plot.</li>
+      <li><strong>Traverse the same outdoor route.</strong> Use fast ground movement or flight through foliage, structures, enemies, and loading boundaries.</li>
+      <li><strong>Repeat a demanding fight.</strong> Include several active Pals and visible abilities when practical. A quiet one-enemy encounter is not representative.</li>
+      <li><strong>Match the intended network state.</strong> If the real use is multiplayer, compare on the same server and similar population; server or network delay is not automatically a graphics problem.</li>
+      <li><strong>Change one variable.</strong> Test a 40 FPS cap, Medium textures, or 1200p separately, repeating the complete route after each change.</li>
+    </ol>
+
+    <h2>Choose the next adjustment from the weakest scene</h2>
+    <div class="grid cols3">
+      <section class="card"><span class="chip">Stable baseline</span><h3>Keep 800p / 30 FPS</h3><p>Save the complete profile. Raise textures or one world-detail control before increasing several settings together.</p></section>
+      <section class="card"><span class="chip">Frame-rate test</span><h3>Try 40 FPS</h3><p>Change only the cap and repeat the same base, traversal, fight, and multiplayer state. Keep it only when the weakest segment remains acceptable.</p></section>
+      <section class="card"><span class="chip">Clarity test</span><h3>Try 1200p carefully</h3><p>Change only resolution after the 800p route passes. Return to 800p if streaming, combat, or base pacing becomes uneven.</p></section>
+    </div>
+
+    <h2>Fix common Palworld problems on Legion Go</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Populated base misses the cap</td><td>Restore 800p, Low, the recorded power profile, and the same active-Pal count</td><td>Reduce world detail and effects; compare the same base before changing the cap</td></tr>
+        <tr><td>Traversal hitches</td><td>Confirm SSD storage, adequate free space, no background downloads, and the Low baseline</td><td>Restart and repeat the exact route before changing texture or view-distance settings</td></tr>
+        <tr><td>Multi-Pal combat becomes uneven</td><td>Restore Low effects, shadows, grass, and a single frame limiter</td><td>Keep 30 FPS and retest without capture overlays or background work</td></tr>
+        <tr><td>Multiplayer feels delayed</td><td>Compare input and world response in the same area offline as a diagnostic</td><td>Check server and network conditions separately; do not assume every delay is GPU load</td></tr>
+        <tr><td>Image is too soft</td><td>Confirm only one scaling path is active</td><td>Try a clearer in-game quality mode at 800p before raising output resolution</td></tr>
+        <tr><td>Controller prompts or inputs are wrong</td><td>Set Legion Space controls to gamepad mode</td><td>Restore default Steam Input and game controls, then disconnect extra controllers</td></tr>
+        <tr><td>Performance changed after an update</td><td>Restart and restore the photographed baseline</td><td>Verify files and record the current game, driver, firmware, and Legion Space versions</td></tr>
+        <tr><td>Docked play is slower</td><td>Retest on the built-in display with power connected directly</td><td>Isolate dock power and output; do not default to rendering the game at a TV’s native 4K resolution</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, multiplayer, battery, and dock planning</h2>
+    <p>Steam currently lists <strong>40GB of available space</strong>, an SSD requirement, 16GB minimum system memory, broadband internet, multiplayer, online co-op, cross-platform multiplayer, Steam Cloud, Workshop support, and full controller support. Leave room beyond 40GB for updates, worlds, shader data, Workshop content, captures, and Windows temporary files. Check the live install estimate and plan the library with the <a href="/calculators/storage-planner/">storage planner</a> and <a href="/guides/microsd-vs-ssd-handheld-pc/">microSD-versus-SSD guide</a>.</p>
+    <p>This page does not invent battery hours. Active Pals, world complexity, multiplayer, brightness, wireless use, power profile, cap, battery health, and thermals change total draw. Measure the complete route at matched conditions, then use the <a href="/calculators/battery-estimator/">battery estimator</a> or <a href="/guides/legion-go-battery-life-calculator-guide/">Legion Go calculator guide</a>.</p>
+    <p>Open the intended world and verify online or offline behavior before travel. Stabilize handheld play before using the <a href="/guides/handheld-gaming-usb-c-dock-checklist/">USB-C dock checklist</a>; a 4K desktop output does not mean Palworld should render internally at 4K.</p>
+
+    <h2>Optional gear after the profile is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, model fit, seller traceability, warranty, and return terms. No price, compatibility, performance, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+external+ssd+usb+c+10gbps" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="nvme-ssds"><span class="chip">Sponsored search</span><h3>USB-C external SSD storage</h3><p class="muted">Compare sustained transfer behavior, enclosure heat, cable rating, capacity, warranty, and exact-device support.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+65w+usb+c+pd+charger" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers"><span class="chip">Sponsored search</span><h3>65W-class USB-C PD chargers</h3><p class="muted">Verify dedicated-port output, cable rating, port-sharing behavior, seller traceability, and warranty.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+usb+c+pd+dock+ethernet" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks"><span class="chip">Sponsored search</span><h3>Legion Go docks with Ethernet</h3><p class="muted">Check PD passthrough, host-cable reach, physical clearance, Ethernet chipset support, and display modes.</p></a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a>, follow the <a href="/guides/legion-go-accessories-buying-checklist/">Legion Go accessory checklist</a>, or set a limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on August 23, 2026. Steam’s current public product data supplied the July 9, 2026 release date, Pocketpair developer/publisher identity, 40GB storage and SSD requirements, 16GB minimum memory, note that performance may vary with active Pals, multiplayer/Workshop/Steam Cloud labels, full-controller-support label, and official image. Pocketpair supplies the official game site. Lenovo PSREF supplies the original Legion Go product route.</p>
+    <p>The settings are a conservative editorial test sequence derived from those public constraints and normal graphics-diagnosis practice. Handheld Settings Lab did not personally benchmark the current game, world, server, Windows build, driver, firmware, Legion Space version, memory allocation, battery, or thermals. The 30 and 40 FPS figures are targets to test, not measured guarantees; no fixed-runtime or search-volume claim is made.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Return to the <a href="/legion-go-settings/">Legion Go settings hub</a>, compare the general <a href="/steam-deck-settings/palworld/">Steam Deck</a> and <a href="/rog-ally-settings/palworld/">ROG Ally</a> pages, use the <a href="/calculators/">battery, storage, and accessory calculators</a>, or browse the <a href="/gear/">gear library</a>.</p>
+  </article>
+</Base>
