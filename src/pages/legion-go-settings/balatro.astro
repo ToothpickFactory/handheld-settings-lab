@@ -1,0 +1,168 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/legion-go-settings/balatro/';
+const title = 'Balatro Legion Go settings: 1600p/60 FPS test — Handheld Settings Lab';
+const description = 'Set up Balatro on the original Legion Go with a native 1600p/60 FPS test, 1200p fallback, controller checks, battery-tuning workflow, and storage guidance.';
+const image = '/assets/games/balatro-header.jpg';
+
+const sources = [
+  { label: 'Steam: Balatro requirements, features, controller support, and official media', url: 'https://store.steampowered.com/app/2379780/Balatro/' },
+  { label: 'Steam app-details API: current public product data for app 2379780', url: 'https://store.steampowered.com/api/appdetails?appids=2379780&cc=us&l=en' },
+  { label: 'Playstack and LocalThunk: official Balatro site', url: 'https://www.playbalatro.com/' },
+  { label: 'Lenovo PSREF: original Legion Go 8APU1 specifications', url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1' }
+];
+
+const faqs = [
+  {
+    question: 'What Balatro settings should I use on Legion Go?',
+    answer: 'Start with fullscreen 2560×1600, a 60 FPS cap, the current game defaults, gamepad controls, and a repeatable Legion Space power profile. Play a mature run with animated scoring and several Jokers before reducing power. If text or pacing is not acceptable, compare 1920×1200 with every other variable unchanged. This is an editorial test workflow, not a personally measured benchmark.'
+  },
+  {
+    question: 'Should I use 1600p or 1200p for Balatro on Legion Go?',
+    answer: 'Test the panel-native 2560×1600 mode first because Steam lists very modest desktop requirements and Balatro depends on readable cards and text. Desktop requirements do not prove a handheld result, so repeat a busy scoring sequence. Use 1920×1200 only when it produces a clearer or steadier result in your current game, Windows, driver, and power state.'
+  },
+  {
+    question: 'Does Balatro need more than 60 FPS?',
+    answer: 'Start with 60 FPS for a simple, repeatable target. Balatro is turn-based and Steam says it is playable without timed input, so a higher cap is not required for the game rules. You can compare another cap by preference, but record the display refresh and verify pacing rather than assuming more frames improve play.'
+  },
+  {
+    question: 'Can I lower Legion Go power for Balatro?',
+    answer: 'Yes, as a test after the visual and frame profile is stable. Reduce the Legion Space power setting one step at a time and replay the same mature scoring sequence. Keep the lowest setting that preserves acceptable input, animation pacing, audio, and system stability; this page does not claim a universal wattage or runtime.'
+  },
+  {
+    question: 'How much storage does Balatro need on Legion Go?',
+    answer: 'Steam currently lists 150MB of available space. Keep additional free space for updates, Steam Cloud staging, captures, Windows temporary files, and the rest of the library, and confirm the current install dialog before downloading.'
+  },
+  {
+    question: 'Were these Balatro Legion Go settings personally benchmarked?',
+    answer: 'No. Handheld Settings Lab checked current Steam, Balatro, and Lenovo public sources but did not personally benchmark the current game build, Windows version, graphics driver, firmware, Legion Space version, battery, or thermals. The resolution and frame-rate figures are targets to validate, not measured guarantees.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Balatro Legion Go settings: 1600p/60 FPS test',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-24',
+    dateModified: '2026-08-24',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Balatro', 'Lenovo Legion Go', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Legion Go settings', item: 'https://handheldsettings.com/legion-go-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Balatro settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Legion Go settings · Baseline published August 2026</span>
+    <h1>Balatro Legion Go settings: test native 1600p at 60 FPS</h1>
+    <p class="lede muted">Balatro’s published Windows requirements are modest and its cards, Joker text, and score details reward clarity. This original Legion Go workflow therefore tests the panel-native 1600p mode at 60 FPS before comparing 1200p or reducing device power. It is official-source-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Balatro Steam store header art with playing cards, chips, and the game logo" width="460" height="215" />
+      <figcaption class="media-credit">Official Balatro Steam store header image, saved locally from <a href="https://store.steampowered.com/app/2379780/Balatro/" target="_blank" rel="nofollow noopener">LocalThunk and Playstack’s Steam store page</a>. Artwork and trademarks belong to their owners; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Clarity test</h3><div class="stat">1600p</div><p class="muted">Native-panel target to validate</p></section>
+      <section class="card"><h3>First cap</h3><div class="stat">60 FPS</div><p class="muted">Target, not a measured lock</p></section>
+      <section class="card"><h3>Fallback test</h3><div class="stat">1200p</div><p class="muted">Compare without other changes</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">150MB</div><p class="muted">Current Steam requirement</p></section>
+    </div>
+
+    <div class="callout"><strong>Use a mature run, not the title screen:</strong> repeat a scoring sequence with several Jokers, card modifiers, effects, sounds, and a large score calculation. Record game, Windows, driver, firmware, Legion Space, display, power, and charger state before comparing changes.</div>
+
+    <h2>Recommended Balatro Legion Go baseline</h2>
+    <table>
+      <thead><tr><th>Control</th><th>Start here</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>Legion Go power profile</td><td>One recorded balanced or Performance-class profile</td><td>Creates a stable first condition. Reduce power only after the display and frame profile passes.</td></tr>
+        <tr><td>Display mode / resolution</td><td>Fullscreen / 2560×1600</td><td>Tests the original panel’s native 16:10 canvas for sharp card art and legible text.</td></tr>
+        <tr><td>Frame-rate cap</td><td>60 FPS</td><td>Provides a simple comparison target; it is not presented as a measured lock.</td></tr>
+        <tr><td>Graphics</td><td>Current defaults</td><td>Steam lists integrated graphics and OpenGL 2.1 in the minimum requirements, so establish the default before changing presentation.</td></tr>
+        <tr><td>VSync / presentation</td><td>Keep the current default first</td><td>Avoid changing synchronization, cap, resolution, and power at once.</td></tr>
+        <tr><td>Device scaling / sharpening</td><td>Off for the native pass</td><td>Native 1600p should be judged without a second scaling layer.</td></tr>
+        <tr><td>Control mode</td><td>Gamepad</td><td>Steam lists full controller support; lock one Legion Space control mode before troubleshooting inputs.</td></tr>
+        <tr><td>Touch / mouse</td><td>Optional preference test</td><td>Steam also lists mouse-only and touch-only options, but do not switch input layers mid-diagnosis.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Menu labels and behavior can change after patches. Photograph the current menu and use the nearest current equivalent. Steam’s desktop requirements are source context, not proof of a Legion Go frame rate, battery runtime, or lowest stable power setting.</p>
+
+    <h2>Compare clarity and battery without mixing variables</h2>
+    <div class="grid cols3">
+      <section class="card"><span class="chip">Clarity baseline</span><h3>1600p / 60 FPS</h3><p>Use current defaults and one recorded power profile. Read small Joker text and inspect pacing during a mature scoring sequence.</p></section>
+      <section class="card"><span class="chip">Resolution fallback</span><h3>1200p / 60 FPS</h3><p>Change only resolution. Keep it only when your repeated sequence is steadier or the resulting image is more comfortable to read.</p></section>
+      <section class="card"><span class="chip">Battery experiment</span><h3>Reduce power last</h3><p>Keep the chosen resolution and 60 FPS target, then lower the Legion Space profile in small steps until the repeated sequence stops passing.</p></section>
+    </div>
+
+    <h2>Run a repeatable Balatro scoring test</h2>
+    <ol>
+      <li><strong>Finish updates and restart.</strong> Complete stable game, Windows, graphics-driver, Lenovo firmware, and Legion Space updates.</li>
+      <li><strong>Record the full state.</strong> Note versions, display mode, refresh, resolution, cap, power mode, charger, controls, brightness, and graphics values.</li>
+      <li><strong>Apply one baseline.</strong> Set fullscreen 1600p, 60 FPS, current defaults, gamepad mode, and no extra device scaling.</li>
+      <li><strong>Play into a real run.</strong> Use a repeatable scoring hand with several active Jokers and visible card effects instead of judging a static menu.</li>
+      <li><strong>Inspect usability.</strong> Check small card and Joker text, controller focus, animation pacing, sound, fan behavior, and unwanted sleep or overlay interruptions.</li>
+      <li><strong>Change one variable.</strong> Compare 1200p or reduce device power—never both in the same pass.</li>
+      <li><strong>Recheck after patches.</strong> Restore the photographed baseline after a game, driver, firmware, or Legion Space update.</li>
+    </ol>
+
+    <h2>Fix common Balatro problems on Legion Go</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Card or Joker text looks soft</td><td>Confirm fullscreen 2560×1600 and disable extra device scaling</td><td>Restore default graphics, then compare 1200p with sharpening off</td></tr>
+        <tr><td>Scoring animation becomes uneven</td><td>Restore the recorded power profile, 60 FPS cap, and default presentation</td><td>Close overlays and repeat; lower resolution only after isolating power</td></tr>
+        <tr><td>Buttons or focus behave incorrectly</td><td>Set Legion Space to gamepad mode and disconnect extra controllers</td><td>Restore default Steam Input and in-game controls before remapping</td></tr>
+        <tr><td>Touch or mouse interferes with gamepad input</td><td>Choose one input method for the test</td><td>Restart the game after returning to gamepad mode</td></tr>
+        <tr><td>Docked image is tiny or badly scaled</td><td>Retest on the built-in display, then inspect Windows and TV scaling</td><td>Use a 16:10 or compatible output deliberately; do not assume 4K is the best target</td></tr>
+        <tr><td>New issue after an update</td><td>Restore defaults, reboot, and remove unofficial overrides</td><td>Verify files and record the current game, driver, firmware, and Legion Space versions</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Battery, storage, saves, and accessibility planning</h2>
+    <p>Steam currently lists <strong>150MB of available storage</strong>, full controller support, Steam Cloud, color alternatives, custom volume controls, mouse-only and touch-only options, and play without timed input. Leave space beyond the listed minimum for updates, cloud-save staging, captures, and Windows temporary files. Confirm the live install estimate and plan the rest of the library with the <a href="/calculators/storage-planner/">storage planner</a>.</p>
+    <p>This page does not invent battery hours. Once the profile is stable, observe total system draw at matched brightness, wireless state, audio, and run conditions, then use the <a href="/calculators/battery-estimator/">battery estimator</a> or <a href="/guides/legion-go-battery-life-calculator-guide/">Legion Go battery calculator guide</a>. Balatro’s accessibility feature labels are useful starting points, but verify the current in-game behavior against your own needs.</p>
+
+    <h2>Optional gear after the baseline is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, model fit, seller traceability, warranty, and return terms. No price, compatibility, performance, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+carrying+case+charger+storage" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="cases"><span class="chip">Sponsored search</span><h3>Exact-fit Legion Go cases</h3><p class="muted">Verify stick and controller clearance, charger separation, shell pressure, dimensions, and return terms.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+65w+usb+c+pd+power+bank" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="power-banks"><span class="chip">Sponsored search</span><h3>65W-class USB-C PD power banks</h3><p class="muted">Check dedicated-port output, watt-hours, cable rating, weight, recall status, and current airline rules.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+usb+c+charger+65w" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers"><span class="chip">Sponsored search</span><h3>65W-class USB-C PD chargers</h3><p class="muted">Compare single-port output, multiport allocation, cable rating, safety certification, warranty, and travel size.</p></a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a>, use the <a href="/guides/legion-go-accessories-buying-checklist/">Legion Go accessory checklist</a>, or set a limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were fetched successfully on August 24, 2026. Steam’s current public product data supplied the February 20, 2024 release date, LocalThunk developer and Playstack publisher identity, 150MB storage figure, modest Windows requirements, full controller support, Steam Cloud, accessibility feature labels, and official image. The official Balatro site confirmed the first-party game identity, and Lenovo PSREF supplied the original Legion Go product route.</p>
+    <p>The profiles are conservative editorial test sequences derived from those public constraints and normal graphics-diagnosis practice. Handheld Settings Lab did not personally benchmark the current Balatro build, Windows build, driver, firmware, Legion Space version, battery, or thermals. The 1600p, 1200p, and 60 FPS figures are targets to test, not measured guarantees; no fixed-runtime or search-volume claim is made.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Return to the <a href="/legion-go-settings/">Legion Go settings hub</a>, compare the <a href="/steam-deck-settings/balatro/">Steam Deck</a> and <a href="/rog-ally-settings/balatro/">ROG Ally</a> Balatro guides, use the <a href="/calculators/">battery, storage, and accessory calculators</a>, or browse the <a href="/gear/">gear library</a>.</p>
+  </article>
+</Base>
