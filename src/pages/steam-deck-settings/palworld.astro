@@ -1,0 +1,173 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/steam-deck-settings/palworld/';
+const title = 'Palworld Steam Deck settings: Verified 30 FPS baseline — Handheld Settings Lab';
+const description = 'Set up Palworld on Steam Deck from Valve’s Verified default, then validate a cautious 30 FPS profile through a populated base, traversal, combat, and multiplayer.';
+const image = '/assets/games/palworld-header.jpg';
+
+const sources = [
+  { label: 'Steam: Palworld requirements, features, controller support, and official media', url: 'https://store.steampowered.com/app/1623730/Palworld/' },
+  { label: 'Steam app-details API: current public product data for app 1623730', url: 'https://store.steampowered.com/api/appdetails?appids=1623730&cc=us&l=en' },
+  { label: 'Valve: current Steam Deck compatibility report for app 1623730', url: 'https://store.steampowered.com/saleaction/ajaxgetdeckappcompatibilityreport?nAppID=1623730' },
+  { label: 'Pocketpair: official Palworld site', url: 'https://www.pocketpair.jp/palworld/' },
+  { label: 'Valve: Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' }
+];
+
+const faqs = [
+  {
+    question: 'What Palworld settings should I use on Steam Deck?',
+    answer: 'Start with Valve’s Verified default configuration at 1280×800 and the default compatibility tool. Validate a 30 FPS cap through a populated base, fast traversal, a multi-Pal fight, and the multiplayer state you actually use. Lower shadows, effects, grass, and view distance one at a time only if the default is uneven. This is an editorial test workflow, not a personally measured benchmark.'
+  },
+  {
+    question: 'Is Palworld Steam Deck Verified?',
+    answer: 'Yes. Valve’s current compatibility endpoint resolves Palworld as category 3, Verified. It reports functional default controls, matching controller glyphs, legible interface text, and a performant default configuration. Valve does not attach a guaranteed frame rate to that label.'
+  },
+  {
+    question: 'Can Palworld run at 40 FPS on Steam Deck?',
+    answer: 'Treat 40 FPS as an optional test rather than a promise. First pass the full 30 FPS route, then change only the cap and display refresh and repeat the same populated base, traversal, fight, and network conditions. Active Pals, world complexity, patches, Deck model, power limits, battery, and thermals can change the result.'
+  },
+  {
+    question: 'How much storage does Palworld need on Steam Deck?',
+    answer: 'Steam currently lists 40GB of available space and says an SSD is required. Leave extra room for patches, shader data, world saves, captures, and Workshop content, and confirm the current install dialog before downloading.'
+  },
+  {
+    question: 'Why does an external controller not control player one?',
+    answer: 'Valve’s current Deck report flags external controllers as unsupported for the primary player. Test with the built-in controls first, check Steam controller order, remove conflicting remaps, and recheck the report after updates before blaming a dock or controller.'
+  },
+  {
+    question: 'Were these Palworld Steam Deck settings personally benchmarked?',
+    answer: 'No. Handheld Settings Lab checked current Valve, Steam, Pocketpair, and Steam Deck public sources but did not personally benchmark the current game build, world, server, SteamOS version, compatibility layer, Deck model, battery, or thermals. Frame-rate figures here are targets to validate, not measured locks.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Palworld Steam Deck settings: Verified 30 FPS baseline',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-24',
+    dateModified: '2026-08-24',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Palworld', 'Steam Deck', 'Steam Deck Verified', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Steam Deck settings', item: 'https://handheldsettings.com/steam-deck-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Palworld settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Steam Deck settings · Source check August 2026</span>
+    <h1>Palworld Steam Deck settings: validate the Verified default at 30 FPS</h1>
+    <p class="lede muted">Valve currently rates Palworld Steam Deck Verified, so the supported default is the right first test. Because Pocketpair’s open world combines streaming, base automation, active Pals, combat effects, and online state, this workflow validates a cautious 30 FPS profile through a real base-to-combat route before changing graphics or power. It is official-source-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Palworld Steam store header art showing Pals in an open landscape" width="460" height="215" />
+      <figcaption class="media-credit">Official Palworld Steam store header image, saved locally from <a href="https://store.steampowered.com/app/1623730/Palworld/" target="_blank" rel="nofollow noopener">Pocketpair’s Steam store page</a>. Artwork and trademarks belong to their owners; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Supported path</h3><div class="stat">Verified</div><p class="muted">Test Valve’s default first</p></section>
+      <section class="card"><h3>Safe first target</h3><div class="stat">30 FPS</div><p class="muted">Baseline to validate, not a lock</p></section>
+      <section class="card"><h3>Native canvas</h3><div class="stat">800p</div><p class="muted">Lower only after real-scene testing</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">40GB</div><p class="muted">Current Steam requirement; SSD required</p></section>
+    </div>
+
+    <div class="callout"><strong>Test the world, not the menu:</strong> Steam explicitly notes that performance may vary with the number of active Pals. Use the same populated base, traversal path, raid or multi-Pal fight, weather, and intended multiplayer state for every comparison.</div>
+
+    <h2>Recommended Palworld Steam Deck baseline</h2>
+    <table>
+      <thead><tr><th>Control</th><th>Start here</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>Compatibility tool</td><td>Valve default</td><td>The current report is Verified. Do not force an old Proton build before testing the supported path.</td></tr>
+        <tr><td>Resolution</td><td>1280×800</td><td>Matches the Deck panel’s 16:10 shape and establishes native-screen clarity before scaling.</td></tr>
+        <tr><td>Frame-rate cap</td><td>30 FPS first</td><td>Prioritizes consistent pacing through streaming, simulation, base activity, and multi-Pal combat. It remains a target to test, not a guarantee.</td></tr>
+        <tr><td>Graphics preset</td><td>Verified default</td><td>Establishes Valve’s currently supported configuration before lowering individual controls.</td></tr>
+        <tr><td>View distance</td><td>Default; lower first if needed</td><td>Reduces distant world work while preserving nearby texture clarity.</td></tr>
+        <tr><td>Shadows / effects</td><td>Default; lower one at a time</td><td>These are practical first reductions when changing daylight, structures, combat, or raids expose unevenness.</td></tr>
+        <tr><td>Grass / foliage</td><td>Default; lower after effects</td><td>Outdoor traversal can reveal a different limit from an interior, menu, or quiet base.</td></tr>
+        <tr><td>Texture quality</td><td>Keep default first</td><td>Raise or lower only after observing traversal and busy-base behavior; do not change several memory-sensitive settings together.</td></tr>
+        <tr><td>Motion blur</td><td>Off for comparison</td><td>Makes camera motion, reconstruction artifacts, and pacing easier to inspect. Restore later only by preference.</td></tr>
+        <tr><td>TDP / manual GPU clock</td><td>Off for first test</td><td>Do not add power constraints until the frame and graphics profile is repeatable.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Menu labels can change with patches. Photograph the current settings screen and use the nearest normal in-game equivalent. Valve’s “performant default configuration” result does not specify a guaranteed frame rate, resolution, or battery runtime.</p>
+
+    <h2>Run a repeatable base-to-combat test</h2>
+    <ol>
+      <li><strong>Finish updates and restart.</strong> Complete stable SteamOS, game, and shader downloads before diagnosing a persistent issue.</li>
+      <li><strong>Restore the supported path.</strong> Use the default compatibility tool, built-in controls, Verified game configuration, and no manual TDP or GPU-clock limit.</li>
+      <li><strong>Record the full state.</strong> Note game version, world/save, server or solo mode, SteamOS version, Deck model, display refresh, cap, graphics values, brightness, and charger state.</li>
+      <li><strong>Walk through a populated base.</strong> Include structures, crafting stations, storage, and the normal number of working Pals rather than an empty starter plot.</li>
+      <li><strong>Traverse and fight.</strong> Repeat one outdoor route and a demanding encounter with several active Pals and visible abilities.</li>
+      <li><strong>Match the intended network state.</strong> If normal play is multiplayer, compare on the same server and similar population; server delay is not automatically a graphics issue.</li>
+      <li><strong>Change one variable.</strong> Lower view distance, shadows, effects, or grass separately. Test 40 Hz/40 FPS only after the complete 30 FPS route passes.</li>
+    </ol>
+
+    <h2>Choose the next adjustment from the weakest scene</h2>
+    <div class="grid cols3">
+      <section class="card"><span class="chip">Stable default</span><h3>Keep Verified / 30 FPS</h3><p>Save the complete profile. Leave native resolution and textures alone unless a repeatable problem points to them.</p></section>
+      <section class="card"><span class="chip">Busy-base issue</span><h3>Lower world controls</h3><p>Reduce view distance, shadows, effects, then grass one at a time, repeating the same populated base after each change.</p></section>
+      <section class="card"><span class="chip">Frame-rate experiment</span><h3>Try 40 Hz / 40 FPS</h3><p>Change only refresh and cap after the 30 FPS route passes. Keep it only if the busiest base and combat segment remain acceptable.</p></section>
+    </div>
+
+    <h2>Fix common Palworld problems on Steam Deck</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Populated base misses the cap</td><td>Restore the Verified default, 30 FPS cap, and the same active-Pal count</td><td>Lower view distance, shadows, effects, then grass separately</td></tr>
+        <tr><td>Traversal hitches</td><td>Confirm adequate free space, no downloads, default Proton, and completed shader downloads</td><td>Restart and repeat the exact route before changing textures or resolution</td></tr>
+        <tr><td>Multi-Pal combat becomes uneven</td><td>Remove TDP limits, recording, and extra overlays; restore one limiter</td><td>Keep 30 FPS and lower effects before sacrificing native resolution</td></tr>
+        <tr><td>Multiplayer feels delayed</td><td>Compare response in the same area offline as a diagnostic</td><td>Check server and network conditions separately; do not assume every delay is GPU load</td></tr>
+        <tr><td>External controller will not control player one</td><td>Use built-in controls and inspect Steam controller order</td><td>Remove conflicting remaps; Valve currently flags primary-player external controllers as unsupported</td></tr>
+        <tr><td>Image looks soft</td><td>Confirm 1280×800 and only one scaling path</td><td>Restore the native canvas before adding sharpening or device-level scaling</td></tr>
+        <tr><td>Performance changed after an update</td><td>Restart and restore the photographed baseline</td><td>Verify files and record the current game, SteamOS, and compatibility-tool versions</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, battery, saves, and dock planning</h2>
+    <p>Steam currently lists <strong>40GB of available space</strong>, an SSD requirement, 16GB minimum system memory, broadband internet, multiplayer, online co-op, cross-platform multiplayer, Steam Cloud, Workshop support, and full controller support. Leave room beyond 40GB for updates, shader data, world saves, Workshop content, captures, and other games. Confirm the live install estimate, then use the <a href="/calculators/storage-planner/">storage planner</a> and <a href="/guides/steam-deck-microsd-speed-compatibility/">Steam Deck microSD compatibility guide</a>.</p>
+    <p>This page does not invent battery hours. Read total system draw during the same route and use the <a href="/calculators/battery-estimator/">battery estimator</a> or <a href="/guides/steam-deck-oled-battery-life-calculator-guide/">Steam Deck OLED calculator guide</a>. Compare profiles at matched brightness, wireless state, world, active-Pal count, and battery condition.</p>
+    <p>For TV play, Valve’s current report flags external controllers for the primary player. Follow the <a href="/guides/steam-deck-docked-tv-monitor-setup/">Steam Deck docked TV guide</a>, but do not buy a new dock solely to fix a game-specific controller limitation.</p>
+
+    <h2>Optional gear after the profile is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, seller traceability, model fit, warranty, and return terms. No price, compatibility, performance, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+microSD+card+a2+uhs+i" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microsd-cards"><span class="chip">Sponsored search</span><h3>A2 UHS-I microSD cards</h3><p class="muted">Compare genuine capacity, A2/U3 markings, seller traceability, warranty, and validation tools.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+45w+usb+c+pd+power+bank" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="power-banks"><span class="chip">Sponsored search</span><h3>45W USB-C PD power banks</h3><p class="muted">Check dedicated-port output, watt-hours, cable rating, weight, recall status, and current airline rules.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+dock+ethernet+hdmi+usb+c+pd" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks"><span class="chip">Sponsored search</span><h3>Steam Deck docks with Ethernet</h3><p class="muted">Check PD passthrough, display modes, Ethernet support, ventilation, cable reach, and return terms.</p></a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a>, use the <a href="/guides/usb-c-power-bank-wattage-handheld-gaming/">power-bank and airline guide</a>, or set a limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were fetched successfully on August 24, 2026. Steam’s public product data supplied the July 9, 2026 release date, Pocketpair developer/publisher identity, 40GB storage and SSD requirements, 16GB minimum memory, note that performance may vary with active Pals, multiplayer/Workshop/Steam Cloud labels, full-controller-support label, and official image. Valve’s compatibility endpoint currently resolves Palworld as category 3, Verified, and reports functional default controls, matching glyphs, legible interface text, and a performant default configuration; it also flags external controllers as unsupported for the primary player. Pocketpair supplies the official game site, and Valve supplies the current Deck specifications.</p>
+    <p>The settings are a conservative editorial test sequence derived from those public constraints and normal graphics-diagnosis practice. Handheld Settings Lab did not personally benchmark the current Palworld build, world, server, SteamOS version, compatibility layer, LCD or OLED Deck, battery, or thermals. The 30 and 40 FPS figures are targets to test, not measured guarantees; no fixed-runtime or search-volume claim is made.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Return to the <a href="/steam-deck-settings/">Steam Deck settings hub</a>, compare the dedicated <a href="/rog-ally-settings/palworld/">ROG Ally</a> and <a href="/legion-go-settings/palworld/">Legion Go</a> guides, use the <a href="/calculators/">battery, storage, and accessory calculators</a>, or browse the <a href="/gear/">gear library</a>.</p>
+  </article>
+</Base>
