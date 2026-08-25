@@ -1,0 +1,169 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/steam-deck-settings/balatro/';
+const title = 'Balatro Steam Deck settings: Verified default, 60 FPS test — Handheld Settings Lab';
+const description = 'Start Balatro from Valve’s Steam Deck Verified default, then validate an 800p/60 FPS clarity profile, lower-power alternatives, controls, battery, and storage.';
+const image = '/assets/games/balatro-header.jpg';
+
+const sources = [
+  { label: 'Steam: Balatro requirements, features, controller support, and official media', url: 'https://store.steampowered.com/app/2379780/Balatro/' },
+  { label: 'Steam app-details API: current public product data for app 2379780', url: 'https://store.steampowered.com/api/appdetails?appids=2379780&cc=us&l=en' },
+  { label: 'Valve: current Steam Deck compatibility report for app 2379780', url: 'https://store.steampowered.com/saleaction/ajaxgetdeckappcompatibilityreport?nAppID=2379780' },
+  { label: 'Playstack and LocalThunk: official Balatro site', url: 'https://www.playbalatro.com/' },
+  { label: 'Valve: Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' }
+];
+
+const faqs = [
+  {
+    question: 'What Balatro settings should I use on Steam Deck?',
+    answer: 'Start with Valve’s Verified default configuration, the default compatibility tool, 1280×800, gamepad controls, and a 60 FPS cap. Validate the profile during a mature run with several Jokers, modifiers, animated scoring, and sound. Only then compare a lower frame cap or power limit. This is an editorial test workflow, not a personally measured benchmark.'
+  },
+  {
+    question: 'Is Balatro Steam Deck Verified?',
+    answer: 'Yes. Valve’s current compatibility endpoint resolves Balatro as category 3, Verified. It reports functional default controls, matching controller glyphs, legible interface text, and a performant default configuration. Verified does not guarantee a specific frame rate or battery runtime.'
+  },
+  {
+    question: 'Should I run Balatro at 60 FPS or 40 FPS on Steam Deck?',
+    answer: 'Use 60 FPS as the first clarity and pacing target, not a guaranteed measured lock. Because Balatro is turn-based and Steam says it is playable without timed input, 40 FPS is a reasonable battery-oriented comparison after the Verified default passes. Change only the cap and matching display refresh, then replay the same scoring sequence.'
+  },
+  {
+    question: 'Can I lower Steam Deck TDP for Balatro?',
+    answer: 'Treat a lower TDP as an experiment after the game profile is stable. Reduce the limit one step at a time while replaying the same mature scoring sequence. Keep the lowest setting that preserves acceptable input, animation pacing, audio, resume behavior, and stability. This page does not claim one universal wattage.'
+  },
+  {
+    question: 'How much storage does Balatro need on Steam Deck?',
+    answer: 'Steam currently lists 150MB of available space. Leave additional room for updates, shader data, Steam Cloud staging, captures, and the rest of the library, and confirm the live install estimate before downloading.'
+  },
+  {
+    question: 'Were these Balatro Steam Deck settings personally benchmarked?',
+    answer: 'No. Handheld Settings Lab checked current Valve, Steam, Balatro, and Steam Deck public sources but did not personally benchmark the current game build, SteamOS version, compatibility layer, Deck model, battery, or thermals. The frame-rate and power suggestions are targets to validate, not measured guarantees.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Balatro Steam Deck settings: Verified default, 60 FPS test',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-25',
+    dateModified: '2026-08-25',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Balatro', 'Steam Deck', 'Steam Deck Verified', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Steam Deck settings', item: 'https://handheldsettings.com/steam-deck-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Balatro settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Steam Deck settings · Source check August 2026</span>
+    <h1>Balatro Steam Deck settings: validate the Verified default at 60 FPS</h1>
+    <p class="lede muted">Valve currently rates Balatro Steam Deck Verified, and its cards, Joker text, and score details reward a clean native image. Start with the supported default at 800p and validate 60 FPS during a mature run before experimenting with a 40 FPS cap or lower power. This is official-source-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Balatro Steam store header art with playing cards, chips, and the game logo" width="460" height="215" />
+      <figcaption class="media-credit">Official Balatro Steam store header image, saved locally from <a href="https://store.steampowered.com/app/2379780/Balatro/" target="_blank" rel="nofollow noopener">LocalThunk and Playstack’s Steam store page</a>. Artwork and trademarks belong to their owners; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Supported path</h3><div class="stat">Verified</div><p class="muted">Test Valve’s default first</p></section>
+      <section class="card"><h3>First target</h3><div class="stat">60 FPS</div><p class="muted">Validate, not a measured lock</p></section>
+      <section class="card"><h3>Native canvas</h3><div class="stat">800p</div><p class="muted">Keep text and cards sharp</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">150MB</div><p class="muted">Current Steam requirement</p></section>
+    </div>
+
+    <div class="callout"><strong>Use a real run, not the title screen:</strong> repeat a scoring hand with several Jokers, modified cards, animated effects, sounds, and a large calculation. Record game version, SteamOS, compatibility tool, Deck model, refresh rate, cap, power limit, brightness, and charger state before comparing changes.</div>
+
+    <h2>Recommended Balatro Steam Deck baseline</h2>
+    <table>
+      <thead><tr><th>Control</th><th>Start here</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>Compatibility tool</td><td>Valve default</td><td>The current report is Verified. Do not force an old Proton build before testing the supported path.</td></tr>
+        <tr><td>Resolution</td><td>1280×800</td><td>Matches the Deck panel’s 16:10 canvas and prioritizes readable card and Joker text.</td></tr>
+        <tr><td>Frame-rate cap</td><td>60 FPS first</td><td>Creates a simple animation-pacing target to validate; it is not presented as a measured guarantee.</td></tr>
+        <tr><td>Graphics</td><td>Verified default</td><td>Establishes Valve’s currently supported configuration before changing presentation.</td></tr>
+        <tr><td>VSync / presentation</td><td>Keep the current default</td><td>Avoid changing synchronization, cap, resolution, and power in the same test.</td></tr>
+        <tr><td>Scaling / sharpening</td><td>Off for the native pass</td><td>Judge native 800p without introducing a second scaling layer.</td></tr>
+        <tr><td>Controls</td><td>Default gamepad layout</td><td>Valve reports functional default controls and matching Deck glyphs.</td></tr>
+        <tr><td>TDP / manual GPU clock</td><td>Off for the first pass</td><td>Prove the display and frame profile before adding device-level constraints.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Menu labels can change after patches. Photograph the current settings screen and use the nearest normal equivalent. Valve’s “performant default configuration” result does not specify a guaranteed frame rate, wattage, or battery runtime.</p>
+
+    <h2>Compare smoothness and battery one variable at a time</h2>
+    <div class="grid cols3">
+      <section class="card"><span class="chip">Clarity baseline</span><h3>800p / 60 FPS</h3><p>Use the Verified default and no manual power limit. Inspect small text, focus movement, scoring effects, and sound during a mature run.</p></section>
+      <section class="card"><span class="chip">Battery comparison</span><h3>800p / 40 FPS</h3><p>Change only the cap and matching refresh. Keep it if the same scoring sequence feels acceptable and the lower system draw is repeatable.</p></section>
+      <section class="card"><span class="chip">Power experiment</span><h3>Reduce TDP last</h3><p>Keep the chosen resolution and cap, then lower power in single steps until the repeated sequence no longer passes.</p></section>
+    </div>
+
+    <h2>Run a repeatable Balatro scoring test</h2>
+    <ol>
+      <li><strong>Finish updates and restart.</strong> Complete stable SteamOS, game, and shader downloads before diagnosing a persistent issue.</li>
+      <li><strong>Restore the supported path.</strong> Use the default compatibility tool, default controls, Verified game configuration, and no manual TDP or GPU-clock limit.</li>
+      <li><strong>Record the full state.</strong> Note versions, Deck model, display refresh, cap, graphics values, brightness, wireless state, and charger condition.</li>
+      <li><strong>Play into a mature run.</strong> Use a repeatable hand with several active Jokers, modifiers, card effects, and a substantial scoring calculation.</li>
+      <li><strong>Inspect usability.</strong> Check small text, controller focus, animation pacing, audio, suspend/resume, fan behavior, and overlay interruptions.</li>
+      <li><strong>Change one variable.</strong> Compare 40 FPS or reduce TDP—never both in the same pass.</li>
+      <li><strong>Recheck after patches.</strong> Restore the photographed baseline after a game, SteamOS, or compatibility-layer update.</li>
+    </ol>
+
+    <h2>Fix common Balatro problems on Steam Deck</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Card or Joker text looks soft</td><td>Confirm 1280×800 and disable extra scaling or sharpening</td><td>Restore the Verified default before changing resolution</td></tr>
+        <tr><td>Scoring animation becomes uneven</td><td>Remove manual TDP/GPU limits and restore the chosen cap</td><td>Close overlays, restart, and repeat the same scoring hand</td></tr>
+        <tr><td>Buttons or focus behave incorrectly</td><td>Restore the official/default controller layout</td><td>Disconnect extra controllers and remove conflicting per-game remaps</td></tr>
+        <tr><td>Touch or mouse input interferes</td><td>Choose one input method for the diagnosis</td><td>Restart after returning to the default gamepad layout</td></tr>
+        <tr><td>Suspend or resume causes a problem</td><td>Save or return to a safe game state, then restart Balatro</td><td>Reboot the Deck and retest on the default compatibility tool</td></tr>
+        <tr><td>New issue appears after an update</td><td>Restore defaults and reboot</td><td>Verify files and record the current game, SteamOS, and compatibility-tool versions</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Battery, storage, saves, and accessibility planning</h2>
+    <p>Steam currently lists <strong>150MB of available storage</strong>, full controller support, Steam Cloud, color alternatives, custom volume controls, mouse-only and touch-only options, and play without timed input. Leave room beyond the listed minimum for updates, shader data, cloud-save staging, captures, and other games. Confirm the live install estimate, then plan the library with the <a href="/calculators/storage-planner/">storage planner</a>.</p>
+    <p>This page does not invent battery hours. Once the profile is stable, observe total system draw during the same run at matched brightness, wireless, audio, and battery state. Use the <a href="/calculators/battery-estimator/">battery estimator</a>, <a href="/guides/steam-deck-oled-battery-life-calculator-guide/">Steam Deck OLED calculator guide</a>, or <a href="/guides/steam-deck-battery-life-by-game/">battery-by-game methodology</a> to turn that observation into a transparent estimate.</p>
+
+    <h2>Optional gear after the baseline is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, seller traceability, model fit, warranty, and return terms. No price, compatibility, performance, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+carrying+case+charger+storage" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="cases"><span class="chip">Sponsored search</span><h3>Exact-fit Steam Deck cases</h3><p class="muted">Verify stick clearance, charger separation, shell pressure, dimensions, zipper protection, and return terms.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+45w+usb+c+pd+power+bank" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="power-banks"><span class="chip">Sponsored search</span><h3>45W USB-C PD power banks</h3><p class="muted">Check dedicated-port output, watt-hours, cable rating, weight, recall status, and current airline rules.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+microSD+card+a2+uhs+i" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microsd-cards"><span class="chip">Sponsored search</span><h3>A2 UHS-I microSD cards</h3><p class="muted">Compare genuine capacity, A2/U3 markings, seller traceability, warranty, and validation tools.</p></a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a>, use the <a href="/guides/steam-deck-oled-first-week-accessories/">Steam Deck OLED accessory checklist</a>, or set a limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were fetched successfully on August 25, 2026. Steam’s public product data supplied the February 20, 2024 release date, LocalThunk developer and Playstack publisher identity, 150MB storage figure, modest Windows requirements, full controller support, Steam Cloud, accessibility feature labels, and official image. Valve’s compatibility endpoint currently resolves Balatro as category 3, Verified, and reports functional default controls, matching controller glyphs, legible interface text, and a performant default configuration. The official Balatro site confirmed the first-party game identity, and Valve supplies the current Deck specifications.</p>
+    <p>The profiles are conservative editorial test sequences derived from those public constraints and normal graphics-diagnosis practice. Handheld Settings Lab did not personally benchmark the current Balatro build, SteamOS version, compatibility layer, LCD or OLED Deck, battery, or thermals. The 60 and 40 FPS figures and lower-power workflow are targets to test, not measured guarantees; no fixed-runtime or search-volume claim is made.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Return to the <a href="/steam-deck-settings/">Steam Deck settings hub</a>, compare the <a href="/legion-go-settings/balatro/">Legion Go Balatro guide</a>, use the <a href="/calculators/">battery, storage, and accessory calculators</a>, or browse the <a href="/gear/">gear library</a>.</p>
+  </article>
+</Base>

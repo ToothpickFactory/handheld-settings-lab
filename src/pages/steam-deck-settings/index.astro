@@ -5,6 +5,14 @@ const platform = Astro.url.pathname.includes('rog-ally') ? 'ROG Ally' : 'Steam D
 const slug = platform === 'ROG Ally' ? 'rog-ally-settings' : 'steam-deck-settings';
 const additionalGames = platform === 'Steam Deck' ? [
   {
+    slug: 'balatro',
+    title: 'Balatro',
+    deckFps: 'Verified default / 60 FPS test',
+    allyFps: '',
+    storage: '150MB',
+    preset: 'Verified default / native 800p'
+  },
+  {
     slug: 'baldurs-gate-3',
     title: "Baldur's Gate 3",
     deckFps: '30 FPS baseline',
