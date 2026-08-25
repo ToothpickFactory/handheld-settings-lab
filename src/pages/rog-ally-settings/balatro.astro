@@ -1,0 +1,171 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/rog-ally-settings/balatro/';
+const title = 'Balatro ROG Ally settings: 1080p/60 FPS test — Handheld Settings Lab';
+const description = 'Set up Balatro on ROG Ally or Ally X with a native 1080p/60 FPS baseline, lower-power test, controller fixes, battery planning, and storage guidance.';
+const image = '/assets/games/balatro-header.jpg';
+
+const sources = [
+  { label: 'Steam: Balatro requirements, features, controller support, and official media', url: 'https://store.steampowered.com/app/2379780/Balatro/' },
+  { label: 'Steam app-details API: current public product data for app 2379780', url: 'https://store.steampowered.com/api/appdetails?appids=2379780&cc=us&l=en' },
+  { label: 'Playstack and LocalThunk: official Balatro site', url: 'https://www.playbalatro.com/' },
+  { label: 'ASUS ROG: How to boost gaming performance on the ROG Ally', url: 'https://rog.asus.com/articles/guides/how-to-boost-gaming-performance-on-the-rog-ally/' },
+  { label: 'ASUS ROG: ROG Ally (2023) technical specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-2023/spec/' },
+  { label: 'ASUS ROG: ROG Ally X (2024) technical specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/' }
+];
+
+const faqs = [
+  {
+    question: 'What Balatro settings should I use on ROG Ally?',
+    answer: 'Start with fullscreen 1920×1080, a 60 FPS cap, current game defaults, Gamepad control mode, and Armoury Crate Performance mode. Validate a mature run with several Jokers, modified cards, animated scoring, and sound before reducing power. This is a conservative editorial test sequence, not a personally measured benchmark.'
+  },
+  {
+    question: 'Should Balatro run at 1080p or 720p on ROG Ally?',
+    answer: 'Test the panel-native 1920×1080 mode first because small card and Joker text benefit from clarity and Steam lists modest desktop requirements. Those requirements do not prove a handheld result, so use a busy scoring sequence. Try 1280×720 only as a diagnostic if native resolution is not stable or readable in the current software and power state.'
+  },
+  {
+    question: 'Should I use Performance or Turbo mode for Balatro?',
+    answer: 'Begin in Performance mode as a repeatable battery-aware baseline. ASUS describes Performance as balancing performance and battery life, while Turbo is its maximum-power mode. Balatro should be tested before adding power; use Turbo only as an isolated troubleshooting comparison, not an automatic recommendation.'
+  },
+  {
+    question: 'Can I cap Balatro at 40 FPS to save battery on ROG Ally?',
+    answer: 'A 40 FPS cap is a reasonable comparison because Balatro is turn-based and Steam says it can be played without timed input. First prove 1080p/60 FPS, then change only the cap and replay the same scoring sequence. Reduce device power afterward in small steps. This page does not claim a fixed wattage or runtime.'
+  },
+  {
+    question: 'How much storage does Balatro need on ROG Ally?',
+    answer: 'Steam currently lists 150MB of available space. Leave additional room for updates, Steam Cloud staging, captures, Windows temporary files, and the rest of the library, and confirm the live install estimate before downloading.'
+  },
+  {
+    question: 'Were these Balatro ROG Ally settings personally benchmarked?',
+    answer: 'No. Handheld Settings Lab checked current Steam, Balatro, and ASUS public sources but did not personally benchmark the current game build, Windows version, driver, BIOS, Armoury Crate version, Ally model, battery, or thermals. Resolution, frame-rate, and power suggestions are targets to validate, not measured guarantees.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Balatro ROG Ally settings: 1080p/60 FPS test',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-25',
+    dateModified: '2026-08-25',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Balatro', 'ASUS ROG Ally', 'ROG Ally X', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'ROG Ally settings', item: 'https://handheldsettings.com/rog-ally-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Balatro settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">ROG Ally settings · Source check August 2026</span>
+    <h1>Balatro ROG Ally settings: test native 1080p at 60 FPS</h1>
+    <p class="lede muted">Balatro’s cards, Joker text, and score details reward a clean native image, while its published Windows requirements are modest. Start on Ally or Ally X at 1080p/60 FPS in Performance mode, validate a mature run, and only then compare a 40 FPS cap or lower device power. This is official-source-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Balatro Steam store header art with playing cards, chips, and the game logo" width="460" height="215" />
+      <figcaption class="media-credit">Official Balatro Steam store header image, saved locally from <a href="https://store.steampowered.com/app/2379780/Balatro/" target="_blank" rel="nofollow noopener">LocalThunk and Playstack’s Steam store page</a>. Artwork and trademarks belong to their owners; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Clarity baseline</h3><div class="stat">1080p</div><p class="muted">Native-panel target to validate</p></section>
+      <section class="card"><h3>First cap</h3><div class="stat">60 FPS</div><p class="muted">Target, not a measured lock</p></section>
+      <section class="card"><h3>Battery test</h3><div class="stat">40 FPS</div><p class="muted">Compare after the baseline passes</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">150MB</div><p class="muted">Current Steam requirement</p></section>
+    </div>
+
+    <div class="callout"><strong>Test a real run, not the title screen:</strong> repeat a scoring hand with several active Jokers, modified cards, animated effects, audio, and a large calculation. Record game version, Ally model, Windows build, driver, BIOS, Armoury Crate version, operating mode, charger state, resolution, cap, and brightness before comparing changes.</div>
+
+    <h2>Recommended Balatro ROG Ally baseline</h2>
+    <table>
+      <thead><tr><th>Control</th><th>Start here</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>Armoury Crate operating mode</td><td>Performance</td><td>Creates a battery-aware first condition. ASUS describes Performance as its balance mode and Turbo as maximum-power mode.</td></tr>
+        <tr><td>Display mode / resolution</td><td>Fullscreen / 1920×1080</td><td>Tests the panel-native canvas for sharp card, Joker, and score text.</td></tr>
+        <tr><td>Frame-rate cap</td><td>60 FPS</td><td>Provides a simple animation-pacing target to validate; it is not presented as a measured lock.</td></tr>
+        <tr><td>Graphics</td><td>Current defaults</td><td>Steam lists integrated graphics and OpenGL 2.1 in the minimum requirements, so establish the default before changing presentation.</td></tr>
+        <tr><td>VSync / presentation</td><td>Keep the current default first</td><td>Avoid changing synchronization, frame cap, resolution, and power in the same test.</td></tr>
+        <tr><td>RSR / extra sharpening</td><td>Off for the native pass</td><td>Judge native 1080p without introducing a second scaling path.</td></tr>
+        <tr><td>Control mode</td><td>Gamepad or Auto</td><td>Steam lists full controller support; one Armoury Crate input mode reduces conflicts.</td></tr>
+        <tr><td>Manual power / GPU controls</td><td>Off for the first pass</td><td>Prove the display and frame profile before adding device-level constraints.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Menu labels can change after patches. Photograph the current settings and use the nearest normal equivalent. Steam’s desktop requirements are source context—not proof of an Ally frame rate, battery runtime, or lowest stable power setting.</p>
+
+    <h2>Compare clarity and battery one variable at a time</h2>
+    <div class="grid cols3">
+      <section class="card"><span class="chip">Clarity baseline</span><h3>1080p / 60 FPS</h3><p>Use Performance mode, current defaults, and no device scaling. Inspect small text, focus movement, scoring effects, and sound during a mature run.</p></section>
+      <section class="card"><span class="chip">Battery comparison</span><h3>1080p / 40 FPS</h3><p>Change only the cap. Keep it if the same scoring sequence remains comfortable and any reduction in total system draw is repeatable.</p></section>
+      <section class="card"><span class="chip">Power experiment</span><h3>Reduce power last</h3><p>Keep the chosen resolution and cap, then lower power in small steps until input, animation, audio, or stability no longer passes.</p></section>
+    </div>
+
+    <h2>Run a repeatable Balatro scoring test</h2>
+    <ol>
+      <li><strong>Finish updates and restart.</strong> Complete stable game, Windows, MyASUS, Armoury Crate SE, graphics-driver, and BIOS updates for the exact model.</li>
+      <li><strong>Record the full state.</strong> Note Ally or Ally X, game version, driver, BIOS, operating mode, charger, resolution, cap, brightness, wireless state, and graphics values.</li>
+      <li><strong>Apply one baseline.</strong> Set Performance mode, fullscreen 1080p, 60 FPS, current defaults, Gamepad or Auto control, and no extra scaling.</li>
+      <li><strong>Play into a mature run.</strong> Use a repeatable hand with several active Jokers, modified cards, visible effects, and a substantial score calculation.</li>
+      <li><strong>Inspect usability.</strong> Check small text, controller focus, animation pacing, audio, fan behavior, suspend/resume, and overlay interruptions.</li>
+      <li><strong>Change one variable.</strong> Compare 40 FPS or reduce power—never both in the same pass.</li>
+      <li><strong>Recheck after patches.</strong> Restore the photographed baseline after a game, driver, BIOS, or Armoury Crate update.</li>
+    </ol>
+
+    <h2>Fix common Balatro problems on ROG Ally</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Card or Joker text looks soft</td><td>Confirm fullscreen 1920×1080 and disable RSR or extra sharpening</td><td>Restore game defaults before testing another resolution</td></tr>
+        <tr><td>Scoring animation becomes uneven</td><td>Restore Performance mode, the chosen cap, and default presentation</td><td>Close overlays, restart, and repeat the same scoring hand</td></tr>
+        <tr><td>Buttons or focus behave incorrectly</td><td>Set Armoury Crate control mode to Gamepad or Auto</td><td>Restore defaults, disconnect extra controllers, and remove overlapping remaps</td></tr>
+        <tr><td>Touch or mouse input interferes</td><td>Choose one input method for the diagnosis</td><td>Restart after returning to the default gamepad profile</td></tr>
+        <tr><td>Battery draw does not change after a cap</td><td>Confirm the cap is active during the same scoring sequence</td><td>Match brightness, wireless, audio, overlays, and charger state before comparing</td></tr>
+        <tr><td>New issue appears after an update</td><td>Restore defaults, reboot, and remove unofficial overrides</td><td>Verify files and record game, Windows, driver, BIOS, and Armoury Crate versions</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Ally versus Ally X battery and storage planning</h2>
+    <p>ASUS lists a 40Wh battery and 16GB memory for the original 2023 Ally, while its 2024 Ally X specifications list an 80Wh battery and 24GB memory. Both official pages list a 1080p/120Hz display and a 65W adapter. Those specifications do not prove a fixed Balatro runtime or a universal runtime ratio: operating mode, APU, software state, battery condition, brightness, wireless use, audio, and the exact run still matter.</p>
+    <p>Steam currently lists <strong>150MB of available storage</strong>, full controller support, Steam Cloud, color alternatives, custom volume controls, mouse-only and touch-only options, and play without timed input. Leave room beyond the listed minimum for updates, cloud staging, captures, and Windows temporary files. Confirm the live install estimate and plan the wider library with the <a href="/calculators/storage-planner/">storage planner</a>.</p>
+    <p>This page does not invent battery hours. Once the profile is stable, read total system draw during the same run at matched conditions, then use the <a href="/calculators/battery-estimator/">battery estimator</a> and <a href="/guides/rog-ally-battery-life-calculator-guide/">ROG Ally battery calculator guide</a>. Use the <a href="/guides/rog-ally-armoury-crate-power-profiles/">Armoury Crate power-profile guide</a> before creating a manual power profile.</p>
+
+    <h2>Optional gear after the baseline is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, model fit, seller traceability, warranty, and return terms. No price, compatibility, performance, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+x+carrying+case+charger+storage" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="cases"><span class="chip">Sponsored search</span><h3>Exact-model Ally cases</h3><p class="muted">Confirm Ally versus Ally X fit, stick and trigger clearance, charger separation, shell pressure, and return terms.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+x+65w+usb+c+pd+power+bank" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="power-banks"><span class="chip">Sponsored search</span><h3>65W-class USB-C PD power banks</h3><p class="muted">Check dedicated-port output, watt-hours, cable rating, weight, recall status, and current airline rules.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+x+65w+usb+c+pd+charger" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers"><span class="chip">Sponsored search</span><h3>65W-class Ally chargers</h3><p class="muted">Compare dedicated-port output, multiport allocation, included cable rating, safety certification, and warranty.</p></a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a>, follow the <a href="/guides/rog-ally-x-accessories-buying-checklist/">ROG Ally X accessory checklist</a>, or set a limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were fetched successfully on August 25, 2026. Steam’s current public product data supplied the February 20, 2024 release date, LocalThunk developer and Playstack publisher identity, 150MB storage figure, modest Windows requirements, full controller support, Steam Cloud, accessibility feature labels, and official image. The official Balatro site confirmed the first-party game identity. ASUS supplied its Operating Mode guidance and official original Ally and Ally X battery, memory, display, and adapter specifications.</p>
+    <p>The profiles are conservative editorial test sequences derived from those public constraints and normal graphics-diagnosis practice. Handheld Settings Lab did not personally benchmark the current Balatro build, Ally model, Windows build, driver, BIOS, Armoury Crate, battery, or thermals. The 1080p, 60 FPS, and 40 FPS figures and lower-power workflow are targets to test, not measured guarantees; no fixed-runtime or search-volume claim is made.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Return to the <a href="/rog-ally-settings/">ROG Ally settings hub</a>, compare the <a href="/steam-deck-settings/balatro/">Steam Deck</a> and <a href="/legion-go-settings/balatro/">Legion Go</a> Balatro guides, use the <a href="/calculators/">battery, storage, and accessory calculators</a>, or browse the <a href="/gear/">gear library</a>.</p>
+  </article>
+</Base>
