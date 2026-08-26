@@ -5,6 +5,14 @@ const platform = Astro.url.pathname.includes('rog-ally') ? 'ROG Ally' : 'Steam D
 const slug = platform === 'ROG Ally' ? 'rog-ally-settings' : 'steam-deck-settings';
 const additionalGames = platform === 'ROG Ally' ? [
   {
+    slug: 'hollow-knight-silksong',
+    title: 'Hollow Knight: Silksong',
+    deckFps: '',
+    allyFps: '60 FPS test baseline',
+    storage: '8GB',
+    preset: '1080p defaults / Performance mode'
+  },
+  {
     slug: 'balatro',
     title: 'Balatro',
     deckFps: '',

@@ -1,0 +1,170 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/rog-ally-settings/hollow-knight-silksong/';
+const title = 'Hollow Knight: Silksong ROG Ally settings: 1080p/60 FPS test — Handheld Settings Lab';
+const description = 'Set up Hollow Knight: Silksong on ROG Ally or Ally X with a 1080p/60 FPS baseline, battery test, controls, storage planning, and troubleshooting.';
+const image = '/assets/games/hollow-knight-silksong-header.jpg';
+
+const sources = [
+  { label: 'Steam: Hollow Knight: Silksong requirements, features, controller support, and official media', url: 'https://store.steampowered.com/app/1030300/Hollow_Knight_Silksong/' },
+  { label: 'Steam app-details API: current public product data for app 1030300', url: 'https://store.steampowered.com/api/appdetails?appids=1030300&cc=us&l=en' },
+  { label: 'Team Cherry: official Hollow Knight: Silksong site', url: 'https://hollowknightsilksong.com/' },
+  { label: 'ASUS ROG: How to boost gaming performance on the ROG Ally', url: 'https://rog.asus.com/articles/guides/how-to-boost-gaming-performance-on-the-rog-ally/' },
+  { label: 'ASUS ROG: ROG Ally (2023) technical specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-2023/spec/' },
+  { label: 'ASUS ROG: ROG Ally X (2024) technical specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/' }
+];
+
+const faqs = [
+  {
+    question: 'What Hollow Knight: Silksong settings should I use on ROG Ally?',
+    answer: 'Start with fullscreen 1920×1080, a 60 FPS cap, current game defaults, Gamepad control mode, and Armoury Crate Performance mode. Validate a busy combat route before changing power or presentation. This is an official-source-informed test sequence, not a personally measured benchmark.'
+  },
+  {
+    question: 'Should Silksong run at 1080p or 720p on ROG Ally?',
+    answer: 'Test panel-native 1920×1080 first because Silksong uses detailed 2D art and Steam lists modest Windows requirements. Desktop requirements do not prove an Ally result, so validate combat and room transitions. Use 1280×720 only as a diagnostic if the native baseline is not stable in the current software and power state.'
+  },
+  {
+    question: 'Should I use Performance or Turbo mode for Silksong?',
+    answer: 'Begin in Performance mode as a repeatable battery-aware baseline. ASUS describes Performance as balancing performance and battery life, while Turbo is its maximum-power mode. Use Turbo only as an isolated troubleshooting comparison if the baseline fails, not as an automatic recommendation.'
+  },
+  {
+    question: 'Can I cap Silksong at 40 FPS to save battery on ROG Ally?',
+    answer: 'A 40 FPS cap is a comparison to run only after 1080p/60 FPS passes. Change only the cap, match the display refresh, and replay the same demanding route. Keep 60 FPS if the lower cap makes movement, parries, or camera motion less comfortable. This page does not claim a fixed wattage or runtime.'
+  },
+  {
+    question: 'How much storage does Hollow Knight: Silksong need on ROG Ally?',
+    answer: 'Steam currently lists 8GB of available space. Leave extra room for updates, Steam Cloud staging, captures, and Windows temporary files, and confirm the current install estimate before downloading.'
+  },
+  {
+    question: 'Were these Silksong ROG Ally settings personally benchmarked?',
+    answer: 'No. Handheld Settings Lab checked current Steam, Team Cherry, and ASUS public sources but did not personally benchmark the current game build, Windows version, driver, BIOS, Armoury Crate version, Ally model, battery, or thermals. Resolution, frame-rate, and power suggestions are targets to validate, not measured guarantees.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Hollow Knight: Silksong ROG Ally settings: 1080p/60 FPS test',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-26',
+    dateModified: '2026-08-26',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Hollow Knight: Silksong', 'ASUS ROG Ally', 'ROG Ally X', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'ROG Ally settings', item: 'https://handheldsettings.com/rog-ally-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Hollow Knight: Silksong settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">ROG Ally settings · Source check August 2026</span>
+    <h1>Hollow Knight: Silksong ROG Ally settings: test 1080p at 60 FPS</h1>
+    <p class="lede muted">Silksong’s crisp 2D art and timing-sensitive combat make native resolution and consistent frame pacing the priorities. Start on ROG Ally or Ally X at 1080p/60 FPS in Performance mode, validate a busy route, and only then compare 40 FPS or lower device power. This is official-source-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Hollow Knight Silksong Steam store header art showing Hornet in Pharloom" width="460" height="215" />
+      <figcaption class="media-credit">Official Hollow Knight: Silksong Steam store header image, saved locally from <a href="https://store.steampowered.com/app/1030300/Hollow_Knight_Silksong/" target="_blank" rel="nofollow noopener">Team Cherry’s Steam store page</a>. Artwork and trademarks belong to Team Cherry; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Clarity baseline</h3><div class="stat">1080p</div><p class="muted">Native-panel target to validate</p></section>
+      <section class="card"><h3>First cap</h3><div class="stat">60 FPS</div><p class="muted">Target, not a measured lock</p></section>
+      <section class="card"><h3>Battery test</h3><div class="stat">40 FPS</div><p class="muted">Compare after baseline passes</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">8GB</div><p class="muted">Current Steam requirement</p></section>
+    </div>
+
+    <div class="callout"><strong>Test combat, not only the title screen:</strong> repeat a route with rapid traversal, several enemies, attacks, effects, healing, and a room transition. Record game version, Ally model, Windows build, driver, BIOS, Armoury Crate version, operating mode, charger state, resolution, cap, and brightness before comparing changes.</div>
+
+    <h2>Recommended Silksong ROG Ally baseline</h2>
+    <table>
+      <thead><tr><th>Control</th><th>Start here</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>Armoury Crate operating mode</td><td>Performance</td><td>Creates a battery-aware first condition. ASUS describes Performance as its balance mode and Turbo as maximum-power mode.</td></tr>
+        <tr><td>Display mode / resolution</td><td>Fullscreen / 1920×1080</td><td>Tests the panel-native canvas for sharp sprites, scenery, effects, and interface text.</td></tr>
+        <tr><td>Frame-rate cap</td><td>60 FPS</td><td>Provides a responsive movement and combat target to validate; it is not presented as a measured lock.</td></tr>
+        <tr><td>Graphics / presentation</td><td>Current defaults</td><td>Establishes a reproducible baseline before changing individual options.</td></tr>
+        <tr><td>RSR / extra sharpening</td><td>Off for the native pass</td><td>Judges native 1080p without introducing a second scaling or sharpening path.</td></tr>
+        <tr><td>Control mode</td><td>Gamepad or Auto</td><td>Steam lists full controller support; one Armoury Crate input mode reduces conflicts.</td></tr>
+        <tr><td>Manual power / GPU controls</td><td>Off for the first pass</td><td>Proves the display and frame profile before adding device-level constraints.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Menu labels can change after patches. Photograph the current settings and use the nearest normal equivalent. Steam’s desktop requirements are source context—not proof of an Ally frame rate, battery runtime, or lowest stable power setting.</p>
+
+    <h2>Compare response and battery one variable at a time</h2>
+    <div class="grid cols3">
+      <section class="card"><span class="chip">Responsive baseline</span><h3>1080p / 60 FPS</h3><p>Use Performance mode, current defaults, and no device scaling. Check rapid direction changes, attacks, effects, camera motion, and room transitions.</p></section>
+      <section class="card"><span class="chip">Battery comparison</span><h3>1080p / 40 FPS</h3><p>Change only the cap and match the display refresh. Keep it only if movement, parries, camera motion, and frame pacing remain comfortable.</p></section>
+      <section class="card"><span class="chip">Power experiment</span><h3>Reduce power last</h3><p>Keep the chosen resolution and cap, then lower power in small steps until input, audio, loading, or stability no longer passes.</p></section>
+    </div>
+
+    <h2>Run a repeatable Silksong combat test</h2>
+    <ol>
+      <li><strong>Finish updates and restart.</strong> Complete stable game, Windows, MyASUS, Armoury Crate SE, graphics-driver, and BIOS updates for the exact model.</li>
+      <li><strong>Record the full state.</strong> Note Ally or Ally X, game version, driver, BIOS, operating mode, charger, resolution, cap, brightness, and graphics values.</li>
+      <li><strong>Apply one baseline.</strong> Set Performance mode, fullscreen 1080p, 60 FPS, current defaults, Gamepad or Auto control, and no extra scaling.</li>
+      <li><strong>Choose a demanding route.</strong> Include traversal, multiple enemies, rapid attacks, layered effects, healing, and a room transition.</li>
+      <li><strong>Repeat it three times.</strong> Watch frame pacing, input response, audio, loading, fan behavior, and any hitch that changes after the first pass.</li>
+      <li><strong>Change one variable.</strong> Compare 40 FPS or reduce power—never both in the same pass.</li>
+      <li><strong>Recheck after patches.</strong> Restore the photographed baseline after a game, driver, BIOS, or Armoury Crate update.</li>
+    </ol>
+
+    <h2>Fix common Silksong problems on ROG Ally</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Art or interface looks soft</td><td>Confirm fullscreen 1920×1080 and disable RSR or extra sharpening</td><td>Restore game defaults before testing another resolution</td></tr>
+        <tr><td>Combat frame pacing is uneven</td><td>Restore Performance mode, 60 FPS, defaults, and no manual power limit</td><td>Close overlays, restart, and repeat the same combat route</td></tr>
+        <tr><td>Buttons or glyphs are wrong</td><td>Set Armoury Crate control mode to Gamepad or Auto</td><td>Disconnect extra controllers and remove overlapping remaps</td></tr>
+        <tr><td>Input feels delayed at 40 FPS</td><td>Return to 60 FPS and match the display refresh</td><td>Keep 60 rather than forcing a battery profile that harms timing</td></tr>
+        <tr><td>Battery draw does not change after a cap</td><td>Confirm the cap is active during the same route</td><td>Match brightness, wireless, audio, overlays, and charger state before comparing</td></tr>
+        <tr><td>New issue appears after an update</td><td>Restore defaults, reboot, and remove unofficial overrides</td><td>Verify files and record game, Windows, driver, BIOS, and Armoury Crate versions</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Ally versus Ally X battery and storage planning</h2>
+    <p>ASUS lists a 40Wh battery and 16GB memory for the original 2023 Ally, while its 2024 Ally X specifications list an 80Wh battery and 24GB memory. Both official pages list a 1080p/120Hz display and a 65W adapter. Those specifications do not prove a fixed Silksong runtime or a universal runtime ratio: operating mode, APU, software state, battery condition, brightness, wireless use, audio, and the exact route still matter.</p>
+    <p>Steam currently lists <strong>8GB of available storage</strong>, Windows and Linux support, full controller support, and Steam Cloud. Leave room beyond the listed requirement for updates, cloud-save staging, captures, and Windows temporary files. Confirm the live install estimate and plan the wider library with the <a href="/calculators/storage-planner/">storage planner</a>.</p>
+    <p>This page does not invent battery hours. Once the profile is stable, read total system draw during the same route at matched conditions, then use the <a href="/calculators/battery-estimator/">battery estimator</a> and <a href="/guides/rog-ally-battery-life-calculator-guide/">ROG Ally battery calculator guide</a>. Use the <a href="/guides/rog-ally-armoury-crate-power-profiles/">Armoury Crate power-profile guide</a> before creating a manual power profile.</p>
+
+    <h2>Optional gear after the baseline is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, model fit, seller traceability, warranty, and return terms. No price, compatibility, performance, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+x+carrying+case+charger+storage" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="cases"><span class="chip">Sponsored search</span><h3>Exact-model Ally cases</h3><p class="muted">Confirm Ally versus Ally X fit, stick and trigger clearance, charger separation, shell pressure, and return terms.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+x+65w+usb+c+pd+power+bank" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="power-banks"><span class="chip">Sponsored search</span><h3>65W-class USB-C PD power banks</h3><p class="muted">Check dedicated-port output, watt-hours, cable rating, weight, recall status, and current airline rules.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+x+65w+usb+c+pd+charger" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers"><span class="chip">Sponsored search</span><h3>65W-class Ally chargers</h3><p class="muted">Compare dedicated-port output, multiport allocation, included cable rating, safety certification, and warranty.</p></a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a>, follow the <a href="/guides/rog-ally-x-accessories-buying-checklist/">ROG Ally X accessory checklist</a>, or set a limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were fetched successfully on August 26, 2026. Steam’s current public product data supplied the September 4, 2025 release date, Team Cherry developer/publisher identity, 8GB storage requirement, Windows and Linux requirements, full controller support, Steam Cloud, and official image. Team Cherry’s official site confirmed the first-party game identity. ASUS supplied its Operating Mode guidance and official original Ally and Ally X battery, memory, display, and adapter specifications.</p>
+    <p>The profiles are conservative editorial test sequences derived from those public constraints and normal graphics-diagnosis practice. Handheld Settings Lab did not personally benchmark the current Silksong build, Ally model, Windows build, driver, BIOS, Armoury Crate, battery, or thermals. The 1080p, 60 FPS, and 40 FPS figures and lower-power workflow are targets to test, not measured guarantees; no fixed-runtime or search-volume claim is made.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Return to the <a href="/rog-ally-settings/">ROG Ally settings hub</a>, compare the <a href="/steam-deck-settings/hollow-knight-silksong/">Steam Deck Silksong guide</a>, use the <a href="/calculators/">battery, storage, and accessory calculators</a>, or browse the <a href="/gear/">gear library</a>.</p>
+  </article>
+</Base>
