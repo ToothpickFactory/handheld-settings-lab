@@ -1,0 +1,168 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/steam-deck-settings/hollow-knight-silksong/';
+const title = 'Hollow Knight: Silksong Steam Deck settings: Verified 60 FPS test — Handheld Settings Lab';
+const description = 'Start Hollow Knight: Silksong from its Steam Deck Verified default, then validate native 800p at 60 FPS, a battery-focused cap, controls, storage, and fixes.';
+const image = '/assets/games/hollow-knight-silksong-header.jpg';
+
+const sources = [
+  { label: 'Steam: Hollow Knight: Silksong requirements, features, controller support, and official media', url: 'https://store.steampowered.com/app/1030300/Hollow_Knight_Silksong/' },
+  { label: 'Steam app-details API: current public product data for app 1030300', url: 'https://store.steampowered.com/api/appdetails?appids=1030300&cc=us&l=en' },
+  { label: 'Valve: current Steam Deck compatibility report for app 1030300', url: 'https://store.steampowered.com/saleaction/ajaxgetdeckappcompatibilityreport?nAppID=1030300' },
+  { label: 'Team Cherry: official Hollow Knight: Silksong site', url: 'https://hollowknightsilksong.com/' },
+  { label: 'Valve: Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' }
+];
+
+const faqs = [
+  {
+    question: 'What Hollow Knight: Silksong settings should I use on Steam Deck?',
+    answer: 'Start with Valve’s Verified default configuration, the default compatibility tool, native 1280×800, the default controller layout, and a 60 FPS cap. Validate the profile in a busy combat room before changing power or presentation. This is an official-source-informed test sequence, not a personally measured benchmark.'
+  },
+  {
+    question: 'Is Hollow Knight: Silksong Steam Deck Verified?',
+    answer: 'Yes. Valve’s current compatibility endpoint resolves app 1030300 as category 3, Verified. It reports functional default controls, matching controller glyphs, legible interface text, and a performant default configuration. Verified does not guarantee one frame rate or battery runtime in every scene and software version.'
+  },
+  {
+    question: 'Should Silksong run at 60 FPS or 40 FPS on Steam Deck?',
+    answer: 'Use 60 FPS as the first target because precise movement, parries, and busy combat make frame pacing and input response important. A 40 FPS cap can be a battery comparison after the Verified default passes, but keep 60 if the lower cap makes timing or camera motion less comfortable. Neither target is claimed as a measured lock here.'
+  },
+  {
+    question: 'Can I lower Steam Deck TDP for Silksong?',
+    answer: 'Treat a lower TDP as an experiment after the native-resolution profile is stable. Reduce the limit one step at a time while replaying the same combat route. Restore the prior step if frame pacing, input, audio, loading, or resume behavior worsens. This page does not claim a universal lowest wattage.'
+  },
+  {
+    question: 'How much storage does Hollow Knight: Silksong need on Steam Deck?',
+    answer: 'Steam currently lists 8GB of available space for both Windows and Linux. Leave extra room for updates, shader data, cloud-save staging, captures, and filesystem overhead, and confirm the current install estimate before downloading.'
+  },
+  {
+    question: 'Were these Silksong Steam Deck settings personally benchmarked?',
+    answer: 'No. Handheld Settings Lab checked current Valve, Steam, Team Cherry, and Steam Deck public sources but did not personally benchmark the current game build, SteamOS version, compatibility layer, Deck model, battery, or thermals. The frame-rate and power suggestions are targets to validate, not measured guarantees.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Hollow Knight: Silksong Steam Deck settings: Verified 60 FPS test',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-26',
+    dateModified: '2026-08-26',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Hollow Knight: Silksong', 'Steam Deck', 'Steam Deck Verified', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Steam Deck settings', item: 'https://handheldsettings.com/steam-deck-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Hollow Knight: Silksong settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Steam Deck settings · Source check August 2026</span>
+    <h1>Hollow Knight: Silksong Steam Deck settings: validate 800p at 60 FPS</h1>
+    <p class="lede muted">Valve currently rates Hollow Knight: Silksong Steam Deck Verified. Start from the supported default at the Deck’s native 800p and test 60 FPS through a busy combat route before experimenting with a 40 FPS cap or lower power. This is official-source-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Hollow Knight Silksong Steam store header art showing Hornet in Pharloom" width="460" height="215" />
+      <figcaption class="media-credit">Official Hollow Knight: Silksong Steam store header image, saved locally from <a href="https://store.steampowered.com/app/1030300/Hollow_Knight_Silksong/" target="_blank" rel="nofollow noopener">Team Cherry’s Steam store page</a>. Artwork and trademarks belong to Team Cherry; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Supported path</h3><div class="stat">Verified</div><p class="muted">Test Valve’s default first</p></section>
+      <section class="card"><h3>First target</h3><div class="stat">60 FPS</div><p class="muted">Validate in busy combat</p></section>
+      <section class="card"><h3>Native canvas</h3><div class="stat">800p</div><p class="muted">Preserve sharp 2D art</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">8GB</div><p class="muted">Current Steam requirement</p></section>
+    </div>
+
+    <div class="callout"><strong>Test movement and combat, not only an empty room:</strong> repeat a route with rapid traversal, several enemies, attacks, effects, healing, and a room transition. Record game version, SteamOS, compatibility tool, Deck model, refresh rate, cap, power limit, brightness, and charger state before comparing changes.</div>
+
+    <h2>Recommended Silksong Steam Deck baseline</h2>
+    <table>
+      <thead><tr><th>Control</th><th>Start here</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>Compatibility tool</td><td>Valve default</td><td>The current report is Verified. Do not force an older Proton build before testing the supported path.</td></tr>
+        <tr><td>Resolution</td><td>1280×800</td><td>Matches the Deck panel’s 16:10 canvas and preserves the game’s detailed 2D art and interface.</td></tr>
+        <tr><td>Frame-rate cap</td><td>60 FPS first</td><td>Creates a responsive movement and combat target to validate; it is not presented as a measured guarantee.</td></tr>
+        <tr><td>Graphics / presentation</td><td>Verified default</td><td>Establishes Valve’s currently supported configuration before changing individual options.</td></tr>
+        <tr><td>Scaling / sharpening</td><td>Off for the native pass</td><td>Judge native 800p without introducing a second scaling or sharpening layer.</td></tr>
+        <tr><td>Controls</td><td>Default gamepad layout</td><td>Steam lists full controller support, and Valve reports functional defaults and matching Deck glyphs.</td></tr>
+        <tr><td>TDP / manual GPU clock</td><td>Off for the first pass</td><td>Prove the display and frame profile before adding a device-level constraint.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Menu labels can change after patches. Photograph the current settings and use the nearest normal equivalent. Valve’s “performant default configuration” result does not specify a guaranteed frame rate, wattage, or battery runtime.</p>
+
+    <h2>Choose 60 FPS first, then compare battery options</h2>
+    <div class="grid cols3">
+      <section class="card"><span class="chip">Responsive baseline</span><h3>800p / 60 FPS</h3><p>Use the Verified default and no manual power limit. Check rapid direction changes, attack timing, camera movement, effects, and room transitions.</p></section>
+      <section class="card"><span class="chip">Battery comparison</span><h3>800p / 40 FPS</h3><p>Change only the cap and matching refresh. Keep it only if movement, timing, camera motion, and frame pacing remain comfortable on the same route.</p></section>
+      <section class="card"><span class="chip">Power experiment</span><h3>Reduce TDP last</h3><p>Keep the chosen resolution and cap, then lower power in single steps until the repeated route no longer passes cleanly.</p></section>
+    </div>
+
+    <h2>Run a repeatable Silksong test route</h2>
+    <ol>
+      <li><strong>Finish updates and restart.</strong> Complete stable SteamOS, game, and shader downloads before diagnosing a persistent issue.</li>
+      <li><strong>Restore the supported path.</strong> Use the default compatibility tool, default controller layout, Verified game configuration, and no manual TDP or GPU-clock limit.</li>
+      <li><strong>Record the state.</strong> Note versions, Deck model, refresh rate, cap, graphics values, brightness, wireless state, and charger condition.</li>
+      <li><strong>Choose a demanding route.</strong> Include traversal, multiple enemies, rapid attacks, layered effects, healing, and a room transition.</li>
+      <li><strong>Repeat it three times.</strong> Watch frame pacing, input response, audio, loading, fan behavior, and any shader-related hitch that changes after the first pass.</li>
+      <li><strong>Change one variable.</strong> Compare a 40 FPS cap or reduce TDP—never both in the same pass.</li>
+      <li><strong>Recheck after patches.</strong> Restore the photographed baseline after a game, SteamOS, or compatibility-layer update.</li>
+    </ol>
+
+    <h2>Fix common Silksong problems on Steam Deck</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Art or interface looks soft</td><td>Confirm 1280×800 and disable extra scaling or sharpening</td><td>Restore the Verified default before changing resolution</td></tr>
+        <tr><td>Combat frame pacing is uneven</td><td>Remove manual TDP/GPU limits and restore the 60 FPS baseline</td><td>Restart and replay the same route after shader downloads finish</td></tr>
+        <tr><td>Input feels delayed at 40 FPS</td><td>Return to 60 FPS and match the display refresh</td><td>Keep 60 rather than forcing a battery profile that harms timing</td></tr>
+        <tr><td>Buttons or glyphs are wrong</td><td>Restore the official/default controller layout</td><td>Disconnect extra controllers and remove conflicting per-game remaps</td></tr>
+        <tr><td>Resume causes audio or input trouble</td><td>Return to a safe state, save where possible, and restart the game</td><td>Reboot the Deck and retest on the default compatibility tool</td></tr>
+        <tr><td>An issue starts after an update</td><td>Restore defaults and reboot</td><td>Verify files and record the current game, SteamOS, and compatibility-tool versions</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Battery, storage, saves, and travel planning</h2>
+    <p>Steam currently lists <strong>8GB of available storage</strong>, Linux support, full controller support, Steam Cloud, gamepad recommendation, save-anytime support, and matching support for several controller families. Leave room beyond the listed requirement for updates, shader data, cloud-save staging, captures, and filesystem overhead. Confirm the live install estimate, then use the <a href="/calculators/storage-planner/">storage planner</a> for the full library.</p>
+    <p>This page does not invent battery hours. Once the profile is stable, observe total system draw during the same route at matched brightness, wireless, audio, and battery state. Use the <a href="/calculators/battery-estimator/">battery estimator</a>, <a href="/guides/steam-deck-oled-battery-life-calculator-guide/">Steam Deck OLED calculator guide</a>, or <a href="/guides/steam-deck-battery-life-by-game/">battery-by-game methodology</a> to create a transparent planning range.</p>
+
+    <h2>Optional gear after the baseline is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, seller traceability, model fit, warranty, and return terms. No price, compatibility, performance, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+carrying+case+charger+storage" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="cases"><span class="chip">Sponsored search</span><h3>Exact-fit Steam Deck cases</h3><p class="muted">Verify stick clearance, charger separation, shell pressure, dimensions, zipper protection, and return terms.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+45w+usb+c+pd+power+bank" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="power-banks"><span class="chip">Sponsored search</span><h3>45W USB-C PD power banks</h3><p class="muted">Check dedicated-port output, watt-hours, cable rating, weight, recall status, and current airline rules.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+microSD+card+a2+uhs+i" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microsd-cards"><span class="chip">Sponsored search</span><h3>A2 UHS-I microSD cards</h3><p class="muted">Compare genuine capacity, A2/U3 markings, seller traceability, warranty, and validation tools.</p></a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a>, use the <a href="/guides/steam-deck-oled-first-week-accessories/">Steam Deck OLED accessory checklist</a>, or set a limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were fetched successfully on August 26, 2026. Steam’s public product data supplied the September 4, 2025 release date, Team Cherry developer/publisher identity, 8GB storage requirement, Windows and Linux requirements, full controller support, Steam Cloud, accessibility feature labels, and official image. Valve’s compatibility endpoint currently resolves Silksong as category 3, Verified, and reports functional default controls, matching controller glyphs, legible interface text, and a performant default configuration. Team Cherry’s official Silksong site confirmed the first-party game identity.</p>
+    <p>The profiles are conservative editorial test sequences derived from those public constraints and normal graphics-diagnosis practice. Handheld Settings Lab did not personally benchmark the current Silksong build, SteamOS version, compatibility layer, LCD or OLED Deck, battery, or thermals. The 60 and 40 FPS figures and lower-power workflow are targets to test, not measured guarantees; no fixed-runtime or search-volume claim is made.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Return to the <a href="/steam-deck-settings/">Steam Deck settings hub</a>, use the <a href="/calculators/">battery, storage, and accessory calculators</a>, or browse the <a href="/gear/">gear library</a>.</p>
+  </article>
+</Base>
