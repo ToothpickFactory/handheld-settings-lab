@@ -1,4 +1,207 @@
 ---
 import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/steam-deck-40fps-explained/';
+const title = 'Steam Deck 40 FPS explained: frame time, refresh rate, and setup — Handheld Settings Lab';
+const description = 'Understand why 40 FPS can feel smoother than 30 on Steam Deck, how 40Hz and 80Hz pacing work, when to use 45 FPS on OLED, and how to tune a stable cap.';
+
+const sources = [
+  { label: 'Valve: Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' },
+  { label: 'Steam Support: Steam Deck basic use and troubleshooting', url: 'https://help.steampowered.com/en/faqs/view/69E3-14AF-9764-4C28' },
+  { label: 'Steamworks: Steam Deck recommendations for developers', url: 'https://partner.steamgames.com/doc/steamhardware/recommendations' }
+];
+
+const shoppingLinks = [
+  { label: '45W USB-C PD chargers for Steam Deck', href: 'https://www.amazon.com/s?k=45w+usb+c+pd+charger+steam+deck', category: 'chargers' },
+  { label: '45W+ USB-C PD power banks under 100Wh', href: 'https://www.amazon.com/s?k=45w+usb+c+pd+power+bank+under+100wh', category: 'power-banks' },
+  { label: 'Steam Deck docks with HDMI and Ethernet', href: 'https://www.amazon.com/s?k=steam+deck+dock+hdmi+ethernet+45w+pd', category: 'docks' }
+];
+
+const faqs = [
+  {
+    question: 'Why does 40 FPS feel much smoother than 30 FPS?',
+    answer: 'At 30 FPS, each frame has about 33.3 milliseconds to render. At 40 FPS, that falls to 25 milliseconds—a 25% reduction in frame time. When delivery is stable and synchronized to a compatible refresh rate, controls and motion can feel meaningfully more responsive even though 40 is numerically closer to 30 than 60.'
+  },
+  {
+    question: 'Should Steam Deck use 40 FPS at 40Hz or 80Hz?',
+    answer: 'Both can display 40 frames evenly when the panel and current SteamOS controls offer those refresh choices. At 40Hz, each game frame is scanned once; at 80Hz, each is repeated twice. Choose a matched option available on the exact Deck and verify smooth frame pacing rather than assuming the higher refresh number changes the game’s 40 FPS render rate.'
+  },
+  {
+    question: 'Is 45 FPS better than 40 FPS on Steam Deck OLED?',
+    answer: 'Steam Deck OLED has a display rated up to 90Hz, so a stable 45 FPS cap can divide evenly into 90Hz and has a 22.2ms frame budget. It is not automatically better: if a demanding game cannot hold 45 consistently, a stable 40 FPS target may feel better. Test the difficult areas of the specific game.'
+  },
+  {
+    question: 'Does a 40 FPS cap save Steam Deck battery?',
+    answer: 'It can reduce load compared with an uncapped or stable 60 FPS target, but no fixed battery gain applies to every game. CPU/GPU demand, display brightness, wireless use, TDP limits, game settings, and background activity all affect total system draw. Measure or estimate total draw for the actual preset.'
+  },
+  {
+    question: 'Why does 40 FPS still feel stuttery?',
+    answer: 'An average near 40 does not prove even delivery. Shader compilation, traversal, CPU spikes, background downloads, thermal or power limits, and an unmatched display refresh can all produce uneven frame times. Use the performance overlay and test demanding gameplay rather than only a quiet opening scene.'
+  },
+  {
+    question: 'Should I use the in-game limiter or SteamOS frame limit?',
+    answer: 'Start with the game’s limiter when it produces stable pacing, then compare SteamOS if it does not. Avoid stacking multiple limiters unless testing shows a clear benefit, because overlapping limits can add latency or inconsistent pacing. Keep one repeatable configuration per game.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Steam Deck 40 FPS explained: frame time, refresh rate, and setup',
+    description,
+    url: canonicalUrl,
+    datePublished: '2026-07-06',
+    dateModified: '2026-08-27',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Steam Deck', '40 FPS', 'frame pacing', 'display refresh rate', 'battery life']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'Steam Deck 40 FPS explained', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
 ---
-<Base title="Why 40 FPS feels so good on handhelds — Handheld Settings Lab" description="A plain-English frame pacing guide for Steam Deck and handheld PC players."><article class="wrap article"><span class="eyebrow">Guide</span><h1>Why 40 FPS feels so good on handhelds</h1><p class="muted">40 FPS is a sweet spot because it can feel much smoother than 30 FPS while using less power than an unlocked 60 FPS target.</p><h2>Quick answer</h2><p>On many handhelds, a stable 40 FPS cap paired with an 80Hz or compatible refresh-rate target gives better frame pacing for travel gaming.</p><h2>Use it when</h2><ul><li>The game cannot hold 60 FPS without noise, heat, or ugly settings.</li><li>You want better input feel than a 30 FPS cap.</li><li>You are playing on battery and want a balanced preset.</li></ul><div class="callout">Lab note: always prioritize stable frame pacing over peak FPS screenshots.</div></article></Base>
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Steam Deck frame-pacing guide</span>
+    <h1>Steam Deck 40 FPS explained: why it can be the handheld sweet spot</h1>
+    <p class="muted">A stable 40 FPS target sits between 30 and 60 in workload, but its frame time explains why the improvement can feel larger than the number suggests. This is display-math and official-spec-informed guidance, not a game benchmark or a promise of battery life.</p>
+
+    <div class="callout"><strong>Short answer:</strong> 30 FPS gives the system 33.3ms per frame; 40 FPS gives it 25ms. That is 8.3ms less waiting per frame, provided the game holds the cap and the display refresh is matched. Use 40 when 60 is unstable or too power-hungry, but 30 has more performance headroom.</div>
+
+    <h2>The frame-time math behind 30, 40, and 60 FPS</h2>
+    <p>Frames per second is easier to discuss, but milliseconds per frame describes the time budget the game has to finish each image. The relationship is <strong>1,000 ÷ FPS = milliseconds per frame</strong>.</p>
+    <table>
+      <thead><tr><th>Target</th><th>Frame time</th><th>What changes from the previous target</th><th>Typical use</th></tr></thead>
+      <tbody>
+        <tr><td>30 FPS</td><td>33.3ms</td><td>Largest render-time budget here</td><td>Demanding games, visual quality, or lower power</td></tr>
+        <tr><td>40 FPS</td><td>25.0ms</td><td>8.3ms less per frame than 30; a 25% frame-time reduction</td><td>Balanced motion, response, image quality, and load</td></tr>
+        <tr><td>45 FPS</td><td>22.2ms</td><td>2.8ms less per frame than 40</td><td>A useful 90Hz OLED match when the game is stable</td></tr>
+        <tr><td>60 FPS</td><td>16.7ms</td><td>8.3ms less per frame than 40</td><td>Fast response when the game can sustain it</td></tr>
+      </tbody>
+    </table>
+    <p>The jump from 30 to 40 removes 25% of the time between completed frames. Moving from 40 to 60 removes another 33.3% of the 40 FPS frame time, but also asks the system to produce 20 more frames every second. That is why 40 can be a practical compromise rather than a claim that it equals 60.</p>
+
+    <h2>Why refresh rate must match the cap</h2>
+    <p>A frame cap controls how often the game produces a frame. Refresh rate controls how often the display scans an image. Smooth pacing is easiest when the refresh rate is the same as the frame rate or a clean multiple of it.</p>
+    <div class="grid cols3">
+      <section class="card">
+        <span class="chip">40 FPS / 40Hz</span>
+        <h3>One frame per refresh</h3>
+        <p>Each rendered frame has one 25ms display interval. This is the familiar 40 FPS pairing on a panel that offers 40Hz.</p>
+      </section>
+      <section class="card">
+        <span class="chip">40 FPS / 80Hz</span>
+        <h3>Each frame displayed twice</h3>
+        <p>The game still renders every 25ms; the display scans at 12.5ms intervals and repeats each game frame twice.</p>
+      </section>
+      <section class="card">
+        <span class="chip">45 FPS / 90Hz</span>
+        <h3>OLED alternative</h3>
+        <p>Valve rates the Steam Deck OLED display up to 90Hz. A stable 45 FPS output divides evenly into that ceiling.</p>
+      </section>
+    </div>
+    <p>Use only refresh options actually presented by the current SteamOS version, display, and game session. An external TV or monitor has its own supported modes, so a handheld-screen preset is not automatically correct when docked.</p>
+
+    <h2>40 FPS setup order on Steam Deck</h2>
+    <ol>
+      <li><strong>Update first.</strong> Finish SteamOS and game updates on stable power, then restart if required. Do not tune around a half-applied update.</li>
+      <li><strong>Start from a known preset.</strong> Select a sensible in-game preset, native or deliberately reduced resolution, and disable unnecessary background downloads.</li>
+      <li><strong>Choose one frame limiter.</strong> Try the in-game 40 FPS limiter when available; otherwise use the SteamOS performance controls. Compare rather than stacking limiters by default.</li>
+      <li><strong>Match refresh rate.</strong> Select 40Hz or a clean multiple such as 80Hz only when that choice is available on the active display.</li>
+      <li><strong>Test the difficult route.</strong> Use a busy city, combat encounter, rapid traversal, or other known heavy area—not only a menu or quiet room.</li>
+      <li><strong>Watch frame time, not only average FPS.</strong> A nearly flat frame-time graph is more useful than occasional peaks above the cap.</li>
+      <li><strong>Save the per-game profile.</strong> Keep the setting local to that title so a 40 FPS experiment does not unintentionally constrain lighter games.</li>
+    </ol>
+
+    <h2>When 40 FPS is the right target</h2>
+    <ul>
+      <li>The game holds 40 through its heavy scenes but cannot remain near 60 without severe image-quality cuts.</li>
+      <li>You want lower control latency and clearer motion than a 30 FPS cap provides.</li>
+      <li>An unlocked frame rate creates visible oscillation, inconsistent pacing, excess fan noise, or avoidable power draw.</li>
+      <li>You prefer a balanced preset and can preserve more resolution or visual settings than at 60 FPS.</li>
+    </ul>
+
+    <h2>When to use 30, 45, or 60 instead</h2>
+    <table>
+      <thead><tr><th>Choose</th><th>When it is the more honest target</th><th>Verify</th></tr></thead>
+      <tbody>
+        <tr><td>30 FPS</td><td>The game repeatedly misses 40 in important scenes, or visual quality and lower load matter more than response</td><td>Stable 33.3ms pacing and acceptable input feel</td></tr>
+        <tr><td>45 FPS</td><td>Steam Deck OLED can hold it and the active 90Hz mode provides a clean 2:1 display cadence</td><td>The difficult scenes stay near 22.2ms, not only the opening area</td></tr>
+        <tr><td>60 FPS</td><td>Fast action benefits from response and the game sustains the target without unacceptable compromises</td><td>Stable 16.7ms delivery, thermals, noise, and battery draw</td></tr>
+      </tbody>
+    </table>
+    <p>A cap should describe what the game can sustain, not the best number seen while looking at the floor. If a title constantly swings below 40, lower the most expensive settings or choose a stable 30 FPS profile.</p>
+
+    <h2>Settings to lower before abandoning 40 FPS</h2>
+    <p>Change one setting at a time and revisit the same test route. The most useful control varies by game, but these categories are common starting points:</p>
+    <ul>
+      <li><strong>Resolution or render scale:</strong> reduces GPU pixel workload; preserve UI readability and avoid excessive softness.</li>
+      <li><strong>Shadows, volumetrics, reflections, and ambient effects:</strong> can be expensive without being essential to playability.</li>
+      <li><strong>Crowd, simulation, view distance, or traffic settings:</strong> may help CPU-limited areas, though labels differ by game.</li>
+      <li><strong>Ray tracing:</strong> disable it first on a constrained handheld unless the exact game has evidence for a stable target.</li>
+      <li><strong>Upscaling quality:</strong> use a quality-oriented mode before more aggressive performance modes, then inspect motion and fine detail.</li>
+    </ul>
+    <p>Start from the <a href="/steam-deck-settings/">Steam Deck settings hub</a> for device-and-game pages. Those pages label presets as baseline or source-informed when they are not direct lab benchmarks.</p>
+
+    <h2>Battery life: estimate from total system draw</h2>
+    <p>A lower cap may reduce CPU/GPU work, but frame rate alone does not determine battery runtime. Valve’s specifications list a 50Wh battery for Steam Deck OLED and a 40Wh battery for Steam Deck LCD. Brightness, wireless activity, game workload, speakers, background tasks, and conversion losses remain part of the system draw.</p>
+    <ol>
+      <li>Set the finished 40 FPS preset and play a representative heavy section.</li>
+      <li>Observe total system draw over time rather than copying another game’s wattage.</li>
+      <li>Enter the battery capacity and a conservative draw range in the <a href="/calculators/battery-estimator/">battery estimator</a>.</li>
+      <li>Compare the result with the <a href="/guides/steam-deck-battery-life-by-game/">Steam Deck battery-by-game planning guide</a>; treat ranges as planning aids, not measured promises.</li>
+    </ol>
+
+    <h2>Docked displays change the equation</h2>
+    <p>A TV may accept 60Hz or 120Hz but not 40Hz or 80Hz. At 120Hz, 40 FPS divides evenly three times; at 60Hz it does not divide cleanly. Actual availability depends on the display, input, cable, dock, selected resolution, and SteamOS mode. Verify the mode shown by the TV rather than assuming the dock created it.</p>
+    <p>Use the <a href="/guides/steam-deck-docked-tv-monitor-setup/">Steam Deck docked setup guide</a> before changing resolution and refresh rate, and the <a href="/guides/steam-deck-dock-not-connecting-to-tv/">dock no-signal checklist</a> if the display disappears.</p>
+
+    <h2>Optional gear for a stable mobile or docked setup</h2>
+    <p>Accessories do not create FPS. Correct charging can prevent a low-power charging setup from complicating a test, while a dock can expose supported external display modes. These are broad sponsored searches, not tested-product rankings.</p>
+    <div class="grid cols3">
+      {shoppingLinks.map(link => (
+        <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored" data-affiliate-link data-category={link.category}>
+          <span class="chip">Sponsored search</span>
+          <h3>{link.label}</h3>
+          <p class="muted">Compare exact specifications, seller, warranty, and return policy. No performance improvement is claimed.</p>
+        </a>
+      ))}
+    </div>
+    <p class="affiliate-note">Disclosure: Handheld Settings Lab has not tested every product returned by these searches. The site appends an Amazon Associates tag only when a real tag is configured.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Sources and method</h2>
+    <p>Valve’s Steam Deck specifications, Steam Support documentation, and Steamworks recommendations were fetched successfully on August 27, 2026. Valve supplies the display ceilings, battery capacities, charging specification, and platform context. Frame times in this guide are arithmetic results from 1,000 divided by the target FPS. No game benchmark, battery runtime, search volume, or universal performance result is claimed.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+
+    <div class="callout"><strong>Practical rule:</strong> choose the highest cap the game can hold through its hardest repeatable scene with acceptable image quality, thermals, and battery draw. Stability is the result; 40 is only one useful target.</div>
+  </article>
+</Base>
