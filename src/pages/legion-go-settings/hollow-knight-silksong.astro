@@ -1,0 +1,167 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/legion-go-settings/hollow-knight-silksong/';
+const title = 'Hollow Knight: Silksong Legion Go settings: 1600p/60 FPS test — Handheld Settings Lab';
+const description = 'Set up Hollow Knight: Silksong on the original Legion Go with a native 1600p/60 FPS baseline, 1200p and power tests, controls, storage, and troubleshooting.';
+const image = '/assets/games/hollow-knight-silksong-header.jpg';
+
+const sources = [
+  { label: 'Steam: Hollow Knight: Silksong requirements, features, controller support, and official media', url: 'https://store.steampowered.com/app/1030300/Hollow_Knight_Silksong/' },
+  { label: 'Steam app-details API: current public product data for app 1030300', url: 'https://store.steampowered.com/api/appdetails?appids=1030300&cc=us&l=en' },
+  { label: 'Team Cherry: official Hollow Knight: Silksong site', url: 'https://hollowknightsilksong.com/' },
+  { label: 'Lenovo PSREF: original Legion Go 8APU1 specifications', url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1' }
+];
+
+const faqs = [
+  {
+    question: 'What Hollow Knight: Silksong settings should I use on Legion Go?',
+    answer: 'Start with fullscreen 2560×1600, a 60 FPS cap, current game defaults, gamepad controls, and one recorded Legion Space power profile. Validate a busy combat route before comparing 1920×1200 or reducing power. This is an official-source-informed test sequence, not a personally measured benchmark.'
+  },
+  {
+    question: 'Should Silksong run at 1600p or 1200p on Legion Go?',
+    answer: 'Test the original Legion Go panel’s native 2560×1600 mode first because Silksong uses detailed 2D art and Steam lists modest Windows requirements. Desktop requirements do not prove a handheld result, so validate combat and room transitions. Compare 1920×1200 only if native resolution is not steady or comfortable in the current software and power state.'
+  },
+  {
+    question: 'Is 60 FPS a good Silksong target on Legion Go?',
+    answer: 'Sixty FPS is a responsive first target for movement and timing-sensitive combat, but it is not guaranteed here. Repeat the same demanding route and judge frame pacing, input response, and audio. If it fails, restore defaults and the recorded power state before changing resolution.'
+  },
+  {
+    question: 'Can I lower Legion Go power for Silksong?',
+    answer: 'Yes, as a controlled experiment after the 1600p or 1200p visual profile is stable. Reduce the Legion Space power setting one step at a time and replay the same route. Keep the lowest setting that preserves input, frame pacing, audio, loading, and stability; this page does not claim a universal wattage or runtime.'
+  },
+  {
+    question: 'How much storage does Hollow Knight: Silksong need on Legion Go?',
+    answer: 'Steam currently lists 8GB of available space. Leave additional room for updates, Steam Cloud staging, captures, and Windows temporary files, and confirm the current install estimate before downloading.'
+  },
+  {
+    question: 'Were these Silksong Legion Go settings personally benchmarked?',
+    answer: 'No. Handheld Settings Lab checked current Steam, Team Cherry, and Lenovo public sources but did not personally benchmark the current game build, Windows version, graphics driver, firmware, Legion Space version, battery, or thermals. Resolution, frame-rate, and power suggestions are targets to validate, not measured guarantees.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Hollow Knight: Silksong Legion Go settings: 1600p/60 FPS test',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-27',
+    dateModified: '2026-08-27',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Hollow Knight: Silksong', 'Lenovo Legion Go', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Legion Go settings', item: 'https://handheldsettings.com/legion-go-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Hollow Knight: Silksong settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Legion Go settings · Source check August 2026</span>
+    <h1>Hollow Knight: Silksong Legion Go settings: test native 1600p at 60 FPS</h1>
+    <p class="lede muted">Silksong’s precise combat, crisp linework, and interface make clarity and consistent frame pacing more useful than an aggressive graphics compromise. Start on the original Legion Go at native 1600p/60 FPS, repeat a busy route, and only then compare 1200p or lower device power. This is official-source-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Hollow Knight Silksong Steam store header art showing Hornet in Pharloom" width="460" height="215" />
+      <figcaption class="media-credit">Official Hollow Knight: Silksong Steam store header image, saved locally from <a href="https://store.steampowered.com/app/1030300/Hollow_Knight_Silksong/" target="_blank" rel="nofollow noopener">Team Cherry’s Steam store page</a>. Artwork and trademarks belong to Team Cherry; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Clarity baseline</h3><div class="stat">1600p</div><p class="muted">Native-panel target to validate</p></section>
+      <section class="card"><h3>First cap</h3><div class="stat">60 FPS</div><p class="muted">Target, not a measured lock</p></section>
+      <section class="card"><h3>Fallback test</h3><div class="stat">1200p</div><p class="muted">Compare without other changes</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">8GB</div><p class="muted">Current Steam requirement</p></section>
+    </div>
+
+    <div class="callout"><strong>Test combat, not only the title screen:</strong> repeat a route with rapid traversal, several enemies, attacks, effects, healing, and a room transition. Record game version, Windows build, graphics driver, firmware, Legion Space version, power mode, charger state, resolution, refresh, cap, and brightness before comparing changes.</div>
+
+    <h2>Recommended Silksong Legion Go baseline</h2>
+    <table>
+      <thead><tr><th>Control</th><th>Start here</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>Legion Go power profile</td><td>One recorded balanced or Performance-class profile</td><td>Creates a repeatable first condition. Reduce power only after the display and frame profile passes.</td></tr>
+        <tr><td>Display mode / resolution</td><td>Fullscreen / 2560×1600</td><td>Tests the original panel’s native 16:10 canvas for sharp art, effects, and interface text.</td></tr>
+        <tr><td>Frame-rate cap</td><td>60 FPS</td><td>Provides a responsive movement and combat target to validate; it is not presented as a measured lock.</td></tr>
+        <tr><td>Graphics / presentation</td><td>Current defaults</td><td>Establishes a reproducible baseline before changing individual options.</td></tr>
+        <tr><td>Device scaling / sharpening</td><td>Off for the native pass</td><td>Judges native 1600p without introducing a second scaling or sharpening path.</td></tr>
+        <tr><td>Control mode</td><td>Gamepad</td><td>Steam lists full controller support; one Legion Space input mode reduces conflicts.</td></tr>
+        <tr><td>Manual power controls</td><td>Off for the first pass</td><td>Proves the display and frame profile before adding device-level constraints.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Menu labels can change after patches. Photograph the current settings and use the nearest normal equivalent. Steam’s desktop requirements are source context—not proof of a Legion Go frame rate, battery runtime, or lowest stable power setting.</p>
+
+    <h2>Compare clarity and battery one variable at a time</h2>
+    <div class="grid cols3">
+      <section class="card"><span class="chip">Clarity baseline</span><h3>1600p / 60 FPS</h3><p>Use current defaults and one recorded power profile. Check art, interface text, effects, movement, attacks, and room transitions.</p></section>
+      <section class="card"><span class="chip">Resolution fallback</span><h3>1200p / 60 FPS</h3><p>Change only resolution. Keep it only if the repeated combat route is steadier or the resulting image remains comfortable.</p></section>
+      <section class="card"><span class="chip">Battery experiment</span><h3>Reduce power last</h3><p>Keep the chosen resolution and 60 FPS target, then lower power in small steps until input, pacing, audio, loading, or stability stops passing.</p></section>
+    </div>
+
+    <h2>Run a repeatable Silksong combat test</h2>
+    <ol>
+      <li><strong>Finish updates and restart.</strong> Complete stable game, Windows, graphics-driver, Lenovo firmware, and Legion Space updates.</li>
+      <li><strong>Record the full state.</strong> Note game, Windows, driver, firmware, Legion Space, power, charger, resolution, refresh, cap, brightness, and graphics values.</li>
+      <li><strong>Apply one baseline.</strong> Set fullscreen 1600p, 60 FPS, current defaults, gamepad mode, and no extra device scaling.</li>
+      <li><strong>Choose a demanding route.</strong> Include rapid traversal, multiple enemies, attacks, effects, healing, and a room transition.</li>
+      <li><strong>Repeat it three times.</strong> Watch frame pacing, input response, audio, loading, fan behavior, and hitches that change after the first pass.</li>
+      <li><strong>Change one variable.</strong> Compare 1200p or reduce power—never both in the same pass.</li>
+      <li><strong>Recheck after patches.</strong> Restore the photographed baseline after a game, driver, firmware, or Legion Space update.</li>
+    </ol>
+
+    <h2>Fix common Silksong problems on Legion Go</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Art or interface looks soft</td><td>Confirm fullscreen 2560×1600 and disable extra scaling or sharpening</td><td>Restore defaults before comparing 1920×1200</td></tr>
+        <tr><td>Combat frame pacing is uneven</td><td>Restore the recorded power profile, 60 FPS, defaults, and native presentation</td><td>Close overlays, restart, and repeat the same combat route</td></tr>
+        <tr><td>Buttons or glyphs are wrong</td><td>Set Legion Space to gamepad mode</td><td>Disconnect extra controllers and restore default Steam Input before remapping</td></tr>
+        <tr><td>Input feels delayed after changing the cap</td><td>Return to 60 FPS and match the display refresh</td><td>Keep the responsive profile rather than forcing a battery experiment</td></tr>
+        <tr><td>Battery draw does not change after reducing power</td><td>Confirm the profile is active during the same route</td><td>Match brightness, wireless, audio, overlays, and charger state before comparing</td></tr>
+        <tr><td>New issue appears after an update</td><td>Restore defaults, reboot, and remove unofficial overrides</td><td>Verify files and record current game, Windows, driver, firmware, and Legion Space versions</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Battery, storage, controls, and accessibility planning</h2>
+    <p>Steam currently lists <strong>8GB of available storage</strong>, Windows and Linux support, full controller support, Steam Cloud, gamepad recommendation, camera-comfort information, save-anytime support, and play without timed input. Leave room beyond the listed requirement for updates, cloud-save staging, captures, and Windows temporary files. Confirm the live install estimate and plan the wider library with the <a href="/calculators/storage-planner/">storage planner</a>.</p>
+    <p>This page does not invent battery hours. Once the profile is stable, observe total system draw at matched brightness, wireless state, audio, and route conditions, then use the <a href="/calculators/battery-estimator/">battery estimator</a> and <a href="/guides/legion-go-battery-life-calculator-guide/">Legion Go battery calculator guide</a>. Steam’s accessibility feature labels are useful starting points, but verify current in-game behavior against your own needs.</p>
+
+    <h2>Optional gear after the baseline is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, model fit, seller traceability, warranty, and return terms. No price, compatibility, performance, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+carrying+case+charger+storage" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="cases"><span class="chip">Sponsored search</span><h3>Exact-fit Legion Go cases</h3><p class="muted">Verify controller and stick clearance, charger separation, shell pressure, dimensions, and return terms.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+65w+usb+c+pd+power+bank" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="power-banks"><span class="chip">Sponsored search</span><h3>65W-class USB-C PD power banks</h3><p class="muted">Check dedicated-port output, watt-hours, cable rating, weight, recall status, and current airline rules.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+usb+c+charger+65w" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers"><span class="chip">Sponsored search</span><h3>65W-class USB-C PD chargers</h3><p class="muted">Compare single-port output, multiport allocation, cable rating, safety certification, warranty, and travel size.</p></a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a>, use the <a href="/guides/legion-go-accessories-buying-checklist/">Legion Go accessory checklist</a>, or set a limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were fetched successfully on August 27, 2026. Steam’s current public product data supplied the September 4, 2025 release date, Team Cherry developer/publisher identity, 8GB storage requirement, Windows and Linux requirements, full controller support, Steam Cloud, accessibility feature labels, and official image. Team Cherry’s official site confirmed the first-party game identity, and Lenovo PSREF supplied the original Legion Go product route.</p>
+    <p>The profiles are conservative editorial test sequences derived from those public constraints and normal graphics-diagnosis practice. Handheld Settings Lab did not personally benchmark the current Silksong build, Windows build, graphics driver, firmware, Legion Space version, battery, or thermals. The 1600p, 1200p, and 60 FPS figures and lower-power workflow are targets to test, not measured guarantees; no fixed-runtime or search-volume claim is made.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Return to the <a href="/legion-go-settings/">Legion Go settings hub</a>, compare the <a href="/steam-deck-settings/hollow-knight-silksong/">Steam Deck</a> and <a href="/rog-ally-settings/hollow-knight-silksong/">ROG Ally</a> Silksong guides, use the <a href="/calculators/">battery, storage, and accessory calculators</a>, or browse the <a href="/gear/">gear library</a>.</p>
+  </article>
+</Base>
