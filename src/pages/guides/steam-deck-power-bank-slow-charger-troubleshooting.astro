@@ -1,0 +1,192 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/steam-deck-power-bank-slow-charger-troubleshooting/';
+const title = 'Steam Deck power bank slow charger warning: fixes — Handheld Settings Lab';
+const description = 'Fix a Steam Deck slow charger warning with a safe USB-C PD test order for the power bank, port, cable, multiport load, temperature, and dock.';
+
+const sources = [
+  { label: 'Valve: Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' },
+  { label: 'Steam Support: Steam Deck basic use and troubleshooting', url: 'https://help.steampowered.com/en/faqs/view/69E3-14AF-9764-4C28' },
+  { label: 'USB-IF: USB Power Delivery overview', url: 'https://www.usb.org/usb-charger-pd' },
+  { label: 'FAA PackSafe: lithium batteries', url: 'https://www.faa.gov/hazmat/packsafe/lithium-batteries' },
+  { label: 'TSA: power banks', url: 'https://www.tsa.gov/travel/security-screening/whatcanibring/items/power-banks' }
+];
+
+const shoppingLinks = [
+  { label: '45W-or-higher single-port USB-C PD power banks', href: 'https://www.amazon.com/s?k=45w+usb+c+pd+power+bank+steam+deck', category: 'power-banks' },
+  { label: '100W USB-C cables with e-marker', href: 'https://www.amazon.com/s?k=100w+usb+c+cable+e-marker', category: 'usb-c-cables-adapters' },
+  { label: '45W USB-C PD chargers for comparison testing', href: 'https://www.amazon.com/s?k=45w+usb+c+pd+charger+steam+deck', category: 'chargers' }
+];
+
+const faqs = [
+  {
+    question: 'Why does Steam Deck say my power bank is a slow charger?',
+    answer: 'The connected setup is not negotiating or sustaining the power the Deck expects. Common causes include using a low-output USB-C port, connecting a second device that changes the bank’s port allocation, using a limited or damaged cable, a nearly empty or hot power bank, inserting a dock, or buying a bank whose headline wattage is only a combined total.'
+  },
+  {
+    question: 'What power-bank output should I use for Steam Deck?',
+    answer: 'Valve lists a 45W USB-C PD 3.0 power supply. Use a power bank that explicitly offers at least 45W USB-C Power Delivery from the single port connected to the Deck. The bank’s total output across all ports is not the same as its output from one port.'
+  },
+  {
+    question: 'Can a 65W power bank damage Steam Deck?',
+    answer: 'A standards-compliant USB-C Power Delivery source and Steam Deck negotiate a supported power profile. A 65W label is the source’s available maximum, not power automatically forced into the handheld. Cable quality, the selected port, and the bank’s actual PD output table still matter.'
+  },
+  {
+    question: 'Why does my power bank charge Steam Deck when sleeping but not while gaming?',
+    answer: 'Active gameplay raises total system demand. A weak or incorrectly negotiated source may add some charge at low load but fail to keep pace during a demanding game. Test with Valve’s charger, then the bank and cable directly, before deciding that the internal battery is at fault.'
+  },
+  {
+    question: 'Should I replace the cable or power bank first?',
+    answer: 'Do not guess. First use the bank’s documented high-output USB-C PD port with no other device attached, then swap only the cable for a known-good rated cable. If the warning remains, compare against Valve’s charger and test the bank at a moderate state of charge and temperature.'
+  },
+  {
+    question: 'Can I fly with the replacement power bank?',
+    answer: 'Under current U.S. FAA and TSA guidance, power banks go in carry-on baggage rather than checked baggage. Verify the printed watt-hour rating, airline rules, destination rules, and battery condition before travel; do not pack a swollen, recalled, punctured, or overheating bank.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Steam Deck power bank slow charger warning: safe troubleshooting',
+    description,
+    url: canonicalUrl,
+    datePublished: '2026-08-28',
+    dateModified: '2026-08-28',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Steam Deck', 'USB-C Power Delivery', 'power banks', 'slow charger warning', 'charging troubleshooting']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'Steam Deck power bank slow charger fixes', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Steam Deck charging troubleshooting</span>
+    <h1>Steam Deck power bank slow charger warning: test the setup in this order</h1>
+    <p class="muted">This is official-source/spec-informed troubleshooting, not a hands-on electrical test or battery benchmark. Valve’s public specification lists a 45W USB-C PD 3.0 Type-C supply. The steps below isolate the bank, port, cable, shared load, dock, and workload without inventing charging-rate results.</p>
+    <p class="affiliate-note">Disclosure: replacement searches appear only after the diagnostic steps. They are broad Amazon searches marked sponsored/nofollow, not product endorsements, current prices, or claims that every result is compatible. The site appends an Associates tag only when a real tag is configured.</p>
+
+    <div class="callout"><strong>Fast fix:</strong> disconnect the dock and every second device, use the power bank’s explicitly documented high-output USB-C PD port, connect a known-good rated USB-C cable directly to Steam Deck, and retest while the bank is neither nearly empty nor hot. Change one part at a time.</div>
+
+    <h2>What the warning does—and does not—prove</h2>
+    <p>A slow charger warning tells you that the current connection is not supplying power at the level Steam Deck expects. It does not identify the failed part. The bank may be capable on a different port; a multiport charger may have changed its allocation; the cable may prevent the intended negotiation; or a dock may be consuming power and adding another connection to the path.</p>
+    <div class="grid cols2">
+      <section class="card">
+        <span class="chip">Power capability</span>
+        <h3>Start from Valve’s 45W PD specification</h3>
+        <p>Valve lists a PD 3.0 Type-C power supply at 45W. Read the bank’s per-port output table and look for USB-C Power Delivery on the exact port in use. “65W total” across several ports is not evidence that one port supplies the Deck correctly.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Stored energy</span>
+        <h3>Capacity does not establish charging speed</h3>
+        <p>Milliamp-hours and watt-hours describe stored energy. They do not prove that the USB-C output supports the required PD profile. A large-capacity phone bank can still be an unsuitable Steam Deck power source.</p>
+      </section>
+    </div>
+
+    <h2>Seven-step isolation test</h2>
+    <ol>
+      <li><strong>Record the exact setup.</strong> Note the bank model, port label, cable, battery state, other connected devices, dock, and whether the warning appears at idle or only in a game.</li>
+      <li><strong>Establish a known-good baseline.</strong> Connect Valve’s supplied charger directly to Steam Deck. If the same warning appears, stop blaming the power bank and follow Steam Support or contact Valve before buying accessories.</li>
+      <li><strong>Remove every middle device.</strong> Disconnect the dock, hub, right-angle adapter, extension, magnetic connector, and second device. Connect bank → cable → Deck directly.</li>
+      <li><strong>Choose the correct bank port.</strong> Use the port whose printed/manual output table explicitly identifies USB-C PD and at least 45W output. A USB-A port or low-output USB-C port is not equivalent.</li>
+      <li><strong>Swap only the cable.</strong> Use a known-good USB-C cable rated for the intended power. Do not change the cable and bank simultaneously, or the test will not reveal which part mattered.</li>
+      <li><strong>Retest the bank under ordinary conditions.</strong> Let an unusually hot bank cool in a safe place, charge a nearly empty bank, and leave its other ports unused. Do not continue using a swollen, leaking, recalled, punctured, or overheating pack.</li>
+      <li><strong>Add components back one at a time.</strong> Reconnect the dock, display, storage, controller receiver, or second charging device individually. The first addition that brings the warning back identifies the branch to investigate.</li>
+    </ol>
+
+    <h2>Read the power bank label correctly</h2>
+    <table>
+      <thead><tr><th>Label detail</th><th>What it answers</th><th>Common mistake</th></tr></thead>
+      <tbody>
+        <tr><td>USB-C output, 45W or higher</td><td>Whether that port is in Valve’s listed adapter class</td><td>Using the bank’s combined total instead of one-port output</td></tr>
+        <tr><td>USB Power Delivery / PD</td><td>Whether the source advertises the relevant USB-C charging system</td><td>Assuming every USB-C-shaped port has the same charging profiles</td></tr>
+        <tr><td>Port allocation table</td><td>What happens when two or more outputs are active</td><td>Leaving a phone connected and expecting unchanged Deck output</td></tr>
+        <tr><td>Wh capacity</td><td>Stored energy and an important airline-limit check</td><td>Treating watt-hours as the bank’s charging wattage</td></tr>
+        <tr><td>mAh capacity</td><td>A cell-capacity label that needs voltage context</td><td>Using mAh alone to decide flight eligibility or runtime</td></tr>
+      </tbody>
+    </table>
+
+    <h2>If it charges while sleeping but loses battery in a game</h2>
+    <p>That pattern can mean the source contributes power but does not keep pace with active system demand. It is not a trustworthy benchmark of the bank’s advertised rating. Run the direct-connection test first, then reduce demand only as a diagnostic—not as a substitute for a compatible charging setup.</p>
+    <ul>
+      <li>Cap frame rate and lower one heavy setting to see whether the battery trend changes.</li>
+      <li>Reduce display brightness temporarily and disconnect unneeded USB devices.</li>
+      <li>Compare a demanding game with the SteamOS interface or a lighter game.</li>
+      <li>Use the <a href="/calculators/battery-estimator/">battery estimator</a> for transparent planning ranges, not as proof of actual charge rate.</li>
+      <li>Visit the <a href="/steam-deck-settings/">Steam Deck settings hub</a> for per-game baseline presets that can reduce system demand.</li>
+    </ul>
+
+    <h2>Docked power-bank troubleshooting</h2>
+    <p>A dock adds pass-through behavior, its own power use, peripherals, and another USB-C connection. Prove the bank works directly with Steam Deck before testing it through a dock.</p>
+    <ol>
+      <li>Test the Deck and bank directly with the same known-good cable.</li>
+      <li>Reconnect the dock with no display, Ethernet, storage, or USB accessories.</li>
+      <li>Add the display, then peripherals, one at a time.</li>
+      <li>Check the dock’s documented PD input and host pass-through rather than assuming input wattage equals power delivered to the Deck.</li>
+      <li>If the dock is the trigger, use the <a href="/guides/steam-deck-dock-not-connecting-to-tv/">Steam Deck dock/TV troubleshooting guide</a> and <a href="/guides/handheld-gaming-usb-c-dock-checklist/">USB-C dock checklist</a>.</li>
+    </ol>
+
+    <h2>When to stop testing</h2>
+    <div class="grid cols2">
+      <section class="card">
+        <span class="chip">Stop using the accessory</span>
+        <h3>Damage or unsafe battery behavior</h3>
+        <p>Disconnect and isolate a bank or cable that is swollen, punctured, recalled, leaking, producing an unusual smell, repeatedly overheating, sparking, or showing damaged connectors. Do not keep cycling unsafe lithium-battery hardware to finish a diagnosis.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Contact support</span>
+        <h3>The known-good Valve charger also fails</h3>
+        <p>If Steam Deck warns or disconnects with Valve’s charger connected directly, inspect the USB-C port without inserting tools, document the symptom, and use Steam Support. An accessory-shopping guide cannot diagnose internal hardware.</p>
+      </section>
+    </div>
+
+    <h2>Replacement searches after the failed part is isolated</h2>
+    <p>Replace only the part that failed the one-variable test. No product family below is labeled “best,” and no current availability, safety certification, or exact compatibility is asserted from a search result.</p>
+    <div class="grid cols3">
+      {shoppingLinks.map(link => (
+        <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored" data-affiliate-link data-category={link.category}>
+          <span class="chip">Sponsored search</span>
+          <h3>{link.label}</h3>
+          <p class="muted">Verify the single-port PD output, cable rating, printed labels, seller, warranty, recall status, and return policy.</p>
+        </a>
+      ))}
+    </div>
+    <p>For the buying decision, read the <a href="/guides/usb-c-power-bank-wattage-handheld-gaming/">Steam Deck power-bank wattage and airline guide</a>, <a href="/gear/power-banks/">power-bank gear guide</a>, and <a href="/guides/usb-c-cable-wattage-handheld-gaming/">USB-C cable wattage guide</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Sources and method</h2>
+    <p>These public pages were fetched successfully on August 28, 2026. Valve’s technical page supplied the 45W USB-C PD 3.0 baseline; Steam Support supplied the official support path; USB-IF supplied general Power Delivery context; and FAA/TSA supplied current U.S. carriage guidance for power banks. The diagnostic order is conservative editorial guidance designed to change one variable at a time. No charging wattage, runtime, cable capability, or accessory performance was personally measured.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+  </article>
+</Base>
