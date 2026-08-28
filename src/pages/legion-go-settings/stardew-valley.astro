@@ -1,0 +1,171 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/legion-go-settings/stardew-valley/';
+const title = 'Stardew Valley Legion Go settings: 1600p/60 FPS test — Handheld Settings Lab';
+const description = 'Set up Stardew Valley on the original Legion Go with a native 1600p/60 FPS baseline, controller and UI-scale checks, a lower-power test, and 500MB storage guidance.';
+const image = '/assets/games/stardew-valley-header.jpg';
+
+const sources = [
+  { label: 'Steam: Stardew Valley requirements, controller support, and official media', url: 'https://store.steampowered.com/app/413150/Stardew_Valley/' },
+  { label: 'Steam app-details API: current public product data for app 413150', url: 'https://store.steampowered.com/api/appdetails?appids=413150&cc=us&l=en' },
+  { label: 'Stardew Valley: official site', url: 'https://www.stardewvalley.net/' },
+  { label: 'Lenovo PSREF: original Legion Go 8APU1 specifications', url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1' },
+  { label: 'Lenovo Support: drivers and software lookup', url: 'https://pcsupport.lenovo.com/' }
+];
+
+const faqs = [
+  {
+    question: 'What Stardew Valley settings should I use on Legion Go?',
+    answer: 'Start at fullscreen 2560×1600, 60 FPS, default graphics, gamepad controls, 100% UI scale, and one recorded Legion Space power profile. Play through farm movement, a busy town route, inventory use, fishing, and combat before lowering power. This is an official-source-informed test workflow, not a personally measured benchmark.'
+  },
+  {
+    question: 'Should I use 1600p or 1200p for Stardew Valley on Legion Go?',
+    answer: 'Test native 2560×1600 first because Stardew Valley has modest published Windows requirements and benefits from crisp pixel art and text. If UI size, a modded save, docked output, or current system behavior causes a problem, compare 1920×1200 while holding every other setting constant.'
+  },
+  {
+    question: 'Can I reduce Legion Go power for Stardew Valley?',
+    answer: 'Treat lower power as a test after the native-resolution baseline passes. Reduce the Legion Space power profile one step at a time and replay the same route. Keep the lowest setting that preserves acceptable pacing, audio, controls, save behavior, and system stability; this page does not promise a universal wattage or runtime.'
+  },
+  {
+    question: 'Does Stardew Valley support the Legion Go controls?',
+    answer: 'Steam currently lists full controller support. Begin in Legion Space gamepad mode with the default Steam Input and in-game bindings. If prompts or focus are wrong, disconnect extra controllers and restore defaults before creating a custom layout.'
+  },
+  {
+    question: 'How much storage does Stardew Valley need on Legion Go?',
+    answer: 'Steam currently lists 500MB of available space for the base Windows game. Leave additional room for updates, saves, screenshots, Steam Cloud staging, mods if you knowingly use them, and Windows temporary files, and confirm the live install estimate before downloading.'
+  },
+  {
+    question: 'Were these Stardew Valley Legion Go settings personally benchmarked?',
+    answer: 'No. Handheld Settings Lab checked current Steam, Stardew Valley, Lenovo PSREF, and Lenovo Support public pages but did not benchmark the current game build, Windows version, driver, firmware, Legion Space version, battery, thermals, or mods. All frame-rate, resolution, and power values are targets to validate.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Stardew Valley Legion Go settings: 1600p/60 FPS test',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-08-28',
+    dateModified: '2026-08-28',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Stardew Valley', 'Lenovo Legion Go', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Legion Go settings', item: 'https://handheldsettings.com/legion-go-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'Stardew Valley settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Legion Go settings · Baseline published August 2026</span>
+    <h1>Stardew Valley Legion Go settings: test native 1600p at 60 FPS</h1>
+    <p class="lede muted">Stardew Valley’s modest published Windows requirements make it a sensible candidate for the original Legion Go panel’s native resolution, but that does not prove a fixed handheld result. Start at 1600p/60, confirm pixel-art clarity and controller behavior, then reduce device power one step at a time. This is official-source-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Stardew Valley Steam header art showing the farm, town, and valley" width="460" height="215" />
+      <figcaption class="media-credit">Official Stardew Valley Steam store header image, saved locally from <a href="https://store.steampowered.com/app/413150/Stardew_Valley/" target="_blank" rel="nofollow noopener">ConcernedApe’s Steam store page</a>. Artwork and trademarks belong to their owners; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Clarity test</h3><div class="stat">1600p</div><p class="muted">Native-panel target to validate</p></section>
+      <section class="card"><h3>First cap</h3><div class="stat">60 FPS</div><p class="muted">Target, not a measured lock</p></section>
+      <section class="card"><h3>Fallback test</h3><div class="stat">1200p</div><p class="muted">Compare without other changes</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">500MB</div><p class="muted">Current Steam requirement</p></section>
+    </div>
+
+    <div class="callout"><strong>Test a real in-game day:</strong> walk the farm and town, open inventory and dialogue, fish, enter the mines, trigger combat, save by sleeping, and reload. A title screen cannot validate controls, UI readability, frame pacing, or save behavior.</div>
+
+    <h2>Recommended Stardew Valley Legion Go baseline</h2>
+    <table>
+      <thead><tr><th>Control</th><th>Start here</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>Legion Go power profile</td><td>One recorded balanced or Performance-class profile</td><td>Creates a stable first condition. Reduce power only after gameplay, saves, audio, and controls pass.</td></tr>
+        <tr><td>Display mode / resolution</td><td>Fullscreen / 2560×1600</td><td>Tests the original panel’s native 16:10 canvas for crisp pixel art and text.</td></tr>
+        <tr><td>Frame-rate cap</td><td>60 FPS</td><td>Provides a simple comparison target; it is not presented as a measured lock.</td></tr>
+        <tr><td>Graphics / presentation</td><td>Current defaults</td><td>Establishes the unmodified game before device-side scaling or sharpening is introduced.</td></tr>
+        <tr><td>UI scale</td><td>100%, then adjust for comfort</td><td>Check dialogue, inventory counts, tooltips, and controller focus at normal viewing distance.</td></tr>
+        <tr><td>Zoom level</td><td>100%, then adjust separately</td><td>Separates world visibility from UI readability instead of changing both together.</td></tr>
+        <tr><td>Device scaling / sharpening</td><td>Off for the native pass</td><td>Native 1600p should be judged without a second scaling layer.</td></tr>
+        <tr><td>Control mode</td><td>Gamepad</td><td>Steam lists full controller support; lock one Legion Space and Steam Input state before troubleshooting.</td></tr>
+        <tr><td>Mods</td><td>Disabled for the baseline</td><td>Separates the current official game from SMAPI, content packs, overlays, or script-related issues.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Menu labels and behavior can change after patches. Use the nearest current option and record it. Steam’s 2GHz processor, 2GB RAM, 256MB graphics, and 500MB storage minimums are desktop context—not evidence of a Legion Go frame rate, battery runtime, or minimum stable power setting.</p>
+
+    <h2>Compare clarity and power without mixing variables</h2>
+    <div class="grid cols3">
+      <section class="card"><span class="chip">Clarity baseline</span><h3>1600p / 60 FPS</h3><p>Use current defaults, gamepad mode, and one recorded power profile. Inspect pixel edges, dialogue, inventory text, motion, and controller focus.</p></section>
+      <section class="card"><span class="chip">Resolution fallback</span><h3>1200p / 60 FPS</h3><p>Change only resolution. Keep it only when a modded save, docked display, current update, or UI preference makes the result more usable.</p></section>
+      <section class="card"><span class="chip">Battery experiment</span><h3>Reduce power last</h3><p>Keep the chosen display profile, then lower Legion Space power in small steps and repeat the same in-game route before deciding.</p></section>
+    </div>
+
+    <h2>Run a repeatable Stardew Valley test day</h2>
+    <ol>
+      <li><strong>Finish updates and restart.</strong> Complete the stable game, Windows, graphics-driver, Lenovo firmware, and Legion Space updates.</li>
+      <li><strong>Back up a valued save.</strong> Let Steam Cloud finish, then keep an additional local copy if the save matters. Do not test unfamiliar mods against the only copy.</li>
+      <li><strong>Record the full state.</strong> Note game and system versions, display resolution, cap, power profile, charger, brightness, controls, UI scale, zoom, and mod state.</li>
+      <li><strong>Apply one baseline.</strong> Set fullscreen 1600p, 60 FPS, current defaults, gamepad mode, 100% UI scale, 100% zoom, and no extra scaling.</li>
+      <li><strong>Play varied tasks.</strong> Walk outdoors, enter buildings, open menus and dialogue, fish, visit the mines, fight an enemy, sleep to save, and reload.</li>
+      <li><strong>Change one variable.</strong> Compare 1200p, UI scale, zoom, or a lower power profile—never several in the same pass.</li>
+      <li><strong>Recheck after patches or mods.</strong> Restore the clean photographed baseline before diagnosing a new problem.</li>
+    </ol>
+
+    <h2>Fix common Stardew Valley problems on Legion Go</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next step</th></tr></thead>
+      <tbody>
+        <tr><td>Text or pixel art looks soft</td><td>Confirm fullscreen 2560×1600 and disable extra device scaling</td><td>Restore default presentation, then adjust UI scale separately from resolution</td></tr>
+        <tr><td>UI is too small</td><td>Increase UI scale one step at the native resolution</td><td>Adjust zoom separately; compare 1200p only after checking the built-in UI controls</td></tr>
+        <tr><td>Buttons or focus behave incorrectly</td><td>Set Legion Space to gamepad mode and disconnect extra controllers</td><td>Restore default Steam Input and in-game bindings before remapping</td></tr>
+        <tr><td>Pacing or audio changes at low power</td><td>Restore the recorded baseline power profile</td><td>Raise power one step and repeat the same route before changing resolution</td></tr>
+        <tr><td>Problem appears only with mods</td><td>Back up the save and launch the current unmodded game</td><td>Update or isolate SMAPI and content packs one at a time; use the mod author’s support route</td></tr>
+        <tr><td>Save or cloud conflict appears</td><td>Stop and preserve both available copies before choosing one</td><td>Compare timestamps deliberately; do not repeatedly launch and overwrite an uncertain save</td></tr>
+        <tr><td>Docked image is tiny or stretched</td><td>Retest on the built-in display, then inspect Windows, game, and TV scaling</td><td>Select a deliberate 16:9 or 16:10 output and adjust UI scale for that display</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Battery, storage, saves, and mods</h2>
+    <p>Steam currently lists <strong>500MB of available storage</strong> for the base Windows game and full controller support. The live install can need more, and saves, updates, screenshots, Steam Cloud staging, Windows temporary files, and mods add overhead. Confirm the current install dialog and plan the wider library with the <a href="/calculators/storage-planner/">storage planner</a>.</p>
+    <p>This page does not invent battery hours. Once your clean baseline is stable, observe total system draw at matched brightness, wireless state, audio, and route, then use the <a href="/calculators/battery-estimator/">battery estimator</a> or <a href="/guides/legion-go-battery-life-calculator-guide/">Legion Go battery calculator guide</a>. Modded saves can have different CPU, memory, load-time, and storage behavior; document the exact mod list instead of attributing every issue to the handheld.</p>
+
+    <h2>Optional gear after the baseline is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, model fit, seller traceability, warranty, and return terms. No price, compatibility, performance, or battery claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+carrying+case+charger+storage" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="cases"><span class="chip">Sponsored search</span><h3>Exact-fit Legion Go cases</h3><p class="muted">Verify stick and controller clearance, charger separation, shell pressure, dimensions, and return terms.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+usb+c+charger+65w" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers"><span class="chip">Sponsored search</span><h3>65W-class USB-C PD chargers</h3><p class="muted">Compare single-port output, cable rating, multiport allocation, safety certification, and warranty.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+dock+ethernet+hdmi" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks"><span class="chip">Sponsored search</span><h3>Legion Go dock searches</h3><p class="muted">Check host-cable reach, controller clearance, PD pass-through, display output, Ethernet, and return terms.</p></a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a>, use the <a href="/guides/legion-go-accessories-buying-checklist/">Legion Go accessory checklist</a>, or set a limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were fetched successfully on August 28, 2026. Steam’s current public product data supplied the February 26, 2016 release date, ConcernedApe developer identity, 500MB storage figure, published Windows minimums, full controller-support label, and official header image. The official Stardew Valley site confirmed the first-party game route. Lenovo PSREF and Lenovo Support supplied the original Legion Go product and device-support routes.</p>
+    <p>The profiles are conservative editorial test sequences derived from those public constraints and normal graphics-diagnosis practice. Handheld Settings Lab did not personally benchmark the current Stardew Valley build, Windows build, driver, firmware, Legion Space version, battery, thermals, or mods. The 1600p, 1200p, and 60 FPS figures are targets to test, not measured guarantees; no fixed-runtime or search-volume claim is made.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Return to the <a href="/legion-go-settings/">Legion Go settings hub</a>, use the <a href="/calculators/">battery, storage, and accessory calculators</a>, or browse the <a href="/gear/">gear library</a>.</p>
+  </article>
+</Base>
