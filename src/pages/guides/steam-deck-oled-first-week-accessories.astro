@@ -2,14 +2,15 @@
 import Base from '../../layouts/Base.astro';
 
 const canonicalUrl = 'https://handheldsettings.com/guides/steam-deck-oled-first-week-accessories/';
-const title = 'Steam Deck OLED accessories checklist: what to buy first — Handheld Settings Lab';
-const description = 'A spec-based Steam Deck OLED accessories checklist for cases, 45W USB-C PD chargers, power banks, docks, microSD cards, and screen protectors.';
+const title = 'Steam Deck OLED travel accessories checklist — Handheld Settings Lab';
+const description = 'Build a Steam Deck OLED travel kit with an exact-fit case, 45W USB-C PD charger, flight-ready power bank, cable, microSD card, and optional dock.';
 
 const sources = [
   { label: 'Valve: Steam Deck OLED technical specifications', url: 'https://www.steamdeck.com/en/tech' },
   { label: 'SD Association: Application Performance Class', url: 'https://www.sdcard.org/developers/sd-standard-overview/application-performance-class/' },
   { label: 'USB-IF: USB Power Delivery overview', url: 'https://www.usb.org/usb-charger-pd' },
-  { label: 'FAA PackSafe: portable electronic devices and spare batteries', url: 'https://www.faa.gov/hazmat/packsafe/lithium-batteries' }
+  { label: 'FAA PackSafe: portable electronic devices and spare batteries', url: 'https://www.faa.gov/hazmat/packsafe/lithium-batteries' },
+  { label: 'TSA: power banks', url: 'https://www.tsa.gov/travel/security-screening/whatcanibring/items/power-banks' }
 ];
 
 const shoppingLinks = [
@@ -45,6 +46,14 @@ const faqs = [
   {
     question: 'Can a Steam Deck power bank go on a plane?',
     answer: 'For U.S. travel, FAA guidance says power banks belong in carry-on baggage. Ordinary spare lithium-ion batteries are limited to 100Wh; larger 101–160Wh batteries require airline approval and have additional limits. Check the printed Wh rating plus current airline and destination rules.'
+  },
+  {
+    question: 'What should go in a minimal Steam Deck OLED travel kit?',
+    answer: 'For most trips, pack the Deck in an exact-fit case, Valve’s charger or a verified 45W-or-higher single-port USB-C PD charger, one known-good rated cable, and headphones if needed. Add a power bank only for outlet-free use, microSD only when the installed library needs it, and a dock only when a destination display is part of the plan.'
+  },
+  {
+    question: 'Should I pack a Steam Deck dock for every trip?',
+    answer: 'No. A dock earns its space only when you expect to use a TV, monitor, Ethernet connection, controller, keyboard, or external storage. If you pack one, test the complete dock, charger, host cable, display cable, and display combination before leaving home.'
   }
 ];
 
@@ -52,14 +61,14 @@ const jsonLd = [
   {
     '@context': 'https://schema.org',
     '@type': 'TechArticle',
-    headline: 'Steam Deck OLED accessories checklist: what to buy first',
+    headline: 'Steam Deck OLED travel accessories checklist',
     description,
     url: canonicalUrl,
     datePublished: '2026-07-22',
-    dateModified: '2026-07-24',
+    dateModified: '2026-08-29',
     author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
     publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
-    about: ['Steam Deck OLED', 'handheld gaming accessories', 'USB-C Power Delivery', 'microSD cards', 'power banks', 'docks']
+    about: ['Steam Deck OLED', 'Steam Deck travel accessories', 'handheld gaming accessories', 'USB-C Power Delivery', 'microSD cards', 'power banks', 'docks', 'air travel']
   },
   {
     '@context': 'https://schema.org',
@@ -67,7 +76,7 @@ const jsonLd = [
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
       { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
-      { '@type': 'ListItem', position: 3, name: 'Steam Deck OLED accessories checklist', item: canonicalUrl }
+      { '@type': 'ListItem', position: 3, name: 'Steam Deck OLED travel accessories checklist', item: canonicalUrl }
     ]
   },
   {
@@ -83,12 +92,12 @@ const jsonLd = [
 ---
 <Base title={title} description={description} jsonLd={jsonLd}>
   <article class="wrap article">
-    <span class="eyebrow">Steam Deck OLED accessory guide</span>
-    <h1>Steam Deck OLED accessories checklist: buy for the problem you actually have</h1>
-    <p class="muted">This is a published-spec comparison, not a hands-on accessory test. Valve’s official specifications are the source for the 45W USB-C PD supply, 50Wh battery, UHS-I microSD slot, 7.4-inch display, dimensions, weight, and USB-C display support. Confirm the exact accessory revision and return policy before buying.</p>
+    <span class="eyebrow">Steam Deck OLED travel gear guide</span>
+    <h1>Steam Deck OLED travel accessories checklist: pack only what the trip needs</h1>
+    <p class="muted">Build a smaller, easier-to-troubleshoot Steam Deck OLED travel kit around the actual trip: handheld play, outlet-free play, or a destination TV setup. This is a published-spec comparison, not a hands-on accessory test. Valve’s official specifications are the source for the 45W USB-C PD supply, 50Wh battery, UHS-I microSD slot, 7.4-inch display, dimensions, weight, and USB-C display support.</p>
     <p class="affiliate-note">Disclosure: the shopping cards are broad Amazon searches marked sponsored/nofollow. They are not product endorsements, current prices, or a promise that every result fits. Handheld Settings Lab appends an Associates tag only when a real tag is configured.</p>
 
-    <div class="callout"><strong>Fast answer:</strong> buy an exact-fit travel case first if the Deck leaves home. Add microSD storage only after the internal drive gets tight, and a second 45W USB-C PD charger only if another room or travel bag needs one. Wait on a dock and power bank until a specific screen or trip justifies them.</div>
+    <div class="callout"><strong>Fast answer:</strong> the useful minimum is an exact-fit case, Valve’s charger or a verified 45W USB-C PD replacement, and one known-good cable. Add a sub-100Wh power bank for outlet-free travel, microSD only when the installed library needs it, and a dock only when you have a specific destination display.</div>
 
     <h2>Steam Deck OLED accessory buying order</h2>
     <table>
@@ -102,6 +111,28 @@ const jsonLd = [
         <tr><td>6</td><td>Dock or hub</td><td>You have a specific TV, monitor, Ethernet, or peripheral need</td><td>Display output, PD pass-through, cable reach, cradle and vent clearance</td></tr>
       </tbody>
     </table>
+
+    <h2>Pack by trip type instead of building one oversized kit</h2>
+    <p>Every extra adapter creates another item to lose and another connection to diagnose. Start with the smallest row that covers the trip, then add only the listed optional branch you know you will use.</p>
+    <table>
+      <thead><tr><th>Trip</th><th>Core kit</th><th>Add only when needed</th><th>Test before leaving</th></tr></thead>
+      <tbody>
+        <tr><td>Commute or day trip</td><td>Deck, exact-fit case, headphones</td><td>Compact charger when an outlet is available</td><td>Case closes without pressing sticks or triggers</td></tr>
+        <tr><td>Flight or long rail trip</td><td>Deck, case, 45W PD charger, rated cable</td><td>Clearly labeled power bank at or below 100Wh for the simplest U.S. flight case</td><td>Offline game launch, printed Wh label, direct bank-to-Deck charging</td></tr>
+        <tr><td>Hotel TV or family visit</td><td>Deck, case, charger, cable</td><td>Dock, display cable, controller, compact input devices</td><td>The complete dock-to-display path at the intended resolution and refresh rate</td></tr>
+        <tr><td>Extended trip</td><td>Deck, case, charger, cable, tested offline library</td><td>microSD, power bank, dock only for known capacity, power, or display needs</td><td>Card capacity, game launches, cloud-save status, and every packed cable</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Five-minute flight check at home</h2>
+    <ol>
+      <li><strong>Read the power-bank body.</strong> Confirm the printed watt-hour rating is legible. Do not use a marketplace mAh headline as the travel limit.</li>
+      <li><strong>Keep the bank accessible in carry-on baggage.</strong> Current FAA and TSA guidance puts power banks in carry-on baggage, not checked luggage. Remove one if the carry-on is gate-checked.</li>
+      <li><strong>Protect it from a short circuit.</strong> Keep connectors away from loose metal items and do not pack a damaged, swollen, recalled, punctured, or overheating battery.</li>
+      <li><strong>Prove the charging path.</strong> Connect the chosen bank, cable, and Deck directly with no dock or second device. Confirm the bank’s exact USB-C port supplies its documented 45W-class PD output.</li>
+      <li><strong>Check the route, not only U.S. guidance.</strong> Confirm the airline’s current terms and rules at the destination or connection because the FAA/TSA sources here do not govern every country or carrier policy.</li>
+    </ol>
+    <p>For watt-hour arithmetic, larger-battery approval rules, and slow-charger diagnosis, use the <a href="/guides/usb-c-power-bank-wattage-handheld-gaming/">Steam Deck power-bank airline guide</a> and <a href="/guides/steam-deck-power-bank-slow-charger-troubleshooting/">slow-charger troubleshooting order</a>.</p>
 
     <h2>1. Case: protect controls and separate hard accessories</h2>
     <p>Valve lists Steam Deck OLED at approximately <strong>298 × 117 × 49 mm</strong> and <strong>640 g</strong>. Those numbers can reject an obviously undersized generic bag, but a good case also needs space above the sticks and triggers. Prefer a listing that explicitly names Steam Deck OLED or demonstrates Deck fit with the interior shown.</p>
@@ -198,7 +229,7 @@ const jsonLd = [
     </div>
 
     <h2>Sources and comparison method</h2>
-    <p>These public sources were fetched on July 24, 2026. Valve supplied the Steam Deck OLED dimensions, weight, display, battery, charger, USB-C display, and microSD details. The SD Association supplied A1/A2 terminology, USB-IF supplied general Power Delivery context, and FAA supplied current U.S. spare-battery flight guidance. The buying order is conservative editorial guidance based on those specifications; no accessory was personally tested, no compatibility is guaranteed from a search result, and autocomplete evidence is not represented as search volume.</p>
+    <p>Valve, FAA, and TSA public pages were fetched successfully on August 29, 2026; the SD Association and USB-IF references remain the terminology sources for storage and USB Power Delivery. Valve supplied the Steam Deck OLED dimensions, weight, display, battery, charger, USB-C display, and microSD details. FAA and TSA supplied current U.S. carry-on and spare-battery guidance. The trip kits and buying order are conservative editorial guidance based on those specifications; no accessory was personally tested, no compatibility is guaranteed from a search result, and autocomplete evidence is not represented as search volume.</p>
     <ul>
       {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
     </ul>
