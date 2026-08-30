@@ -53,7 +53,7 @@ const jsonLd = [
     description,
     url: canonicalUrl,
     datePublished: '2026-07-21',
-    dateModified: '2026-07-21',
+    dateModified: '2026-08-30',
     author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
     publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
     about: ['Steam Deck', 'USB-C Power Delivery', 'power banks', 'air travel']
@@ -79,13 +79,21 @@ const jsonLd = [
 ];
 ---
 <Base title={title} description={description} jsonLd={jsonLd}>
-  <article class="wrap article">
+  <article class="wrap article deck-power-guide">
     <span class="eyebrow">Steam Deck power and flight guide</span>
     <h1>Steam Deck power bank requirements and airline rules</h1>
     <p class="muted">For a Steam Deck, output wattage determines whether the pack can properly power the handheld; watt-hours determine flight eligibility and approximate stored energy. This is official-source-informed buying and packing guidance, not a hands-on runtime test.</p>
     <p class="affiliate-note">Disclosure: shopping links are broad Amazon searches marked sponsored/nofollow, not product endorsements. We have not claimed hands-on testing, and the site adds an Associates tag only when a real tag is configured.</p>
 
-    <div class="callout"><strong>Short answer:</strong> choose a clearly labeled USB-C PD power bank with at least 45W from one USB-C port and a printed rating no higher than 100Wh for the simplest U.S. air-travel case. Pack it in your carry-on, not your checked bag.</div>
+    <div class="callout"><strong>Short answer:</strong> choose a clearly labeled USB-C PD power bank with at least 45W from one USB-C port and a printed rating no higher than 100Wh for the simplest U.S. air-travel case. Pack it in your carry-on, not your checked bag, and test the exact bank, port, and cable under gameplay load before departure.</div>
+
+    <h2>Four requirements to verify before buying</h2>
+    <div class="requirements-grid">
+      <section class="requirement"><span>01</span><h3>45W from one port</h3><p>Match Valve’s listed 45W PD 3.0 power-supply class from the USB-C port that will actually feed the Deck.</p></section>
+      <section class="requirement"><span>02</span><h3>USB-C Power Delivery</h3><p>A USB-C shape or large combined wattage is not enough. The bank must explicitly support USB PD on the chosen output.</p></section>
+      <section class="requirement"><span>03</span><h3>Printed Wh rating</h3><p>Use the watt-hour value on the physical bank for travel checks. A marketplace mAh headline is not the governing label.</p></section>
+      <section class="requirement"><span>04</span><h3>Known-good cable</h3><p>Use a suitably rated USB-C cable with sound connectors and strain relief, then verify it before it becomes travel-critical.</p></section>
+    </div>
 
     <h2>The two numbers that matter</h2>
     <div class="grid cols2">
@@ -113,6 +121,15 @@ const jsonLd = [
     </table>
     <p>A higher advertised maximum does not make the Deck charge beyond its negotiated input. It can still be useful for other hardware, but output wattage and battery capacity are different specifications: a “100W” bank can still be under the 100Wh flight threshold.</p>
 
+    <h2>Read the output table, not the product headline</h2>
+    <p>A bank advertised as “100W” may mean one USB-C port can supply up to 100W, or it may mean several ports add up to 100W. That distinction matters. Locate the small output table on the product body or manufacturer specification page and trace the exact port you plan to use.</p>
+    <div class="decision-grid">
+      <section><h3>One-port test</h3><p>Connect only the Deck to the documented high-output USB-C port. This isolates the bank’s best available PD path.</p></section>
+      <section><h3>Shared-output test</h3><p>Add the phone, dock, or second cable you expect to use. Confirm that the bank does not reallocate power below the Deck’s needs.</p></section>
+      <section><h3>Low-charge test</h3><p>Repeat at a moderate or low bank state of charge. Some packs reduce output as they empty or become warm.</p></section>
+    </div>
+    <p>USB-IF describes USB Power Delivery as an intelligent system in which devices negotiate the power required. That is why a standards-compliant 65W or 100W source can be suitable even though Valve lists a 45W adapter. It is also why a non-PD USB port with a similar connector is not equivalent.</p>
+
     <h2>Airline checklist for a Steam Deck power bank</h2>
     <ol>
       <li><strong>Find the printed Wh rating.</strong> Photograph the label before travel. Do not rely on an online listing after you reach security.</li>
@@ -136,6 +153,14 @@ const jsonLd = [
     </table>
     <p>These are arithmetic examples, not capacity-test results. Cell arrangement, label conventions, and conversion losses complicate real delivered energy. The marked watt-hour rating is the relevant travel specification.</p>
 
+    <h2>Do not confuse battery capacity with delivered runtime</h2>
+    <p>Valve’s current Steam Deck OLED technical page lists a 50Wh internal battery and a 45W PD 3.0 power supply. A nominal 50Wh external bank would not simply double runtime: power conversion, cable resistance, bank electronics, temperature, the Deck’s active load, and charging the internal battery all consume part of the energy budget.</p>
+    <div class="formula-card">
+      <strong>Planning model—not a benchmark</strong>
+      <p><code>added hours ≈ usable external Wh ÷ observed total system watts</code></p>
+      <p>Use a conservative usable-energy assumption and total system draw from a repeatable game scene. Do not substitute the APU’s TDP for the entire device draw.</p>
+    </div>
+
     <h2>What runtime should you expect?</h2>
     <p>We do not publish a fixed “extra hours” claim because game draw, frame cap, brightness, wireless use, thermals, battery-pack conversion efficiency, and whether the Deck is charging while playing all change the result. Use the <a href="/calculators/battery-estimator/">battery estimator</a> to model a range rather than treating the bank’s label as energy delivered directly to the game.</p>
     <ul>
@@ -153,6 +178,18 @@ const jsonLd = [
       <li>Check whether the bank reduces output at low state of charge or high temperature.</li>
       <li>Test the setup before leaving home with the Deck under a real game load.</li>
     </ul>
+    <p>If the warning persists, use the dedicated <a href="/guides/steam-deck-power-bank-slow-charger-troubleshooting/">Steam Deck slow-charger troubleshooting flow</a>. It isolates the port, cable, shared load, dock, temperature, and battery state one variable at a time.</p>
+
+    <h2>Ten-minute pre-trip verification</h2>
+    <ol class="test-list">
+      <li><strong>Inspect the bank.</strong> Confirm that its Wh marking is legible and that there is no swelling, puncture, recall, connector damage, odor, or abnormal heat.</li>
+      <li><strong>Start without a dock.</strong> Connect the charged bank directly to the Deck’s USB-C port using one known-good cable.</li>
+      <li><strong>Use the documented high-output port.</strong> Avoid guessing from port color or position; follow the bank’s output table.</li>
+      <li><strong>Run a representative game scene.</strong> A menu or sleeping Deck cannot prove the source keeps up with active play.</li>
+      <li><strong>Watch the battery state.</strong> Confirm charging is detected and check for a slow-charger warning over several minutes.</li>
+      <li><strong>Add the intended shared device.</strong> If the bank will also power a phone or dock, connect it and watch for output reallocation.</li>
+      <li><strong>Save the manufacturer instructions.</strong> Keep an offline copy of the output table and photograph the bank’s Wh label for travel reference.</li>
+    </ol>
 
     <h2>Spec-based shopping shortlist</h2>
     <div class="grid cols3">
@@ -177,9 +214,27 @@ const jsonLd = [
     </div>
 
     <h2>Sources checked</h2>
-    <p>Valve, FAA, TSA, and USB-IF public pages were checked on July 21, 2026. FAA and TSA establish the U.S. baggage rules; Valve establishes the Deck’s listed 45W USB-C PD power-supply class. Airline approval remains airline-specific, and travel rules can change.</p>
+    <p>Valve, FAA, TSA, and USB-IF public pages were rechecked on August 30, 2026. Valve’s current technical page supplied the 45W PD 3.0 power-supply and 50Wh Steam Deck OLED battery specifications. FAA supplied the carry-on-only, gate-check removal, terminal-protection, 100Wh, airline-approval, and larger-spare-battery guidance. TSA’s page said “Carry On Bags: Yes” and “Checked Bags: No” and showed a May 14, 2025 update date. USB-IF supplied the negotiation context. Airline approval remains airline-specific, international rules can differ, and no bank or runtime was personally tested.</p>
     <ul>
       {sourceLinks.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
     </ul>
   </article>
 </Base>
+
+<style>
+  .deck-power-guide { padding-top: 56px; padding-bottom: 72px; }
+  .requirements-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 14px; margin: 24px 0 38px; }
+  .requirement { padding: 20px; border: 1px solid rgba(255,255,255,.13); border-top: 4px solid #b8ff4d; border-radius: 14px; background: #10141c; }
+  .requirement > span { color: #b8ff4d; font-size: .76rem; font-weight: 900; letter-spacing: .12em; }
+  .requirement h3 { margin: 9px 0 7px; font-size: 1.04rem; }
+  .requirement p { margin: 0; color: #c0c9d5; font-size: .9rem; }
+  .decision-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; margin: 22px 0; }
+  .decision-grid section { padding: 20px; border: 1px solid rgba(77,227,255,.25); border-radius: 14px; background: #0d151b; }
+  .decision-grid h3 { margin: 0 0 8px; color: #4de3ff; font-size: 1rem; }
+  .decision-grid p { margin: 0; color: #c0c9d5; font-size: .9rem; }
+  .formula-card { margin: 24px 0; padding: 22px; border: 1px solid rgba(77,227,255,.35); border-left: 5px solid #4de3ff; border-radius: 14px; background: #0d151b; }
+  .formula-card code { color: #4de3ff; font-weight: 850; }
+  .test-list li { margin-bottom: 13px; }
+  @media (max-width: 900px) { .requirements-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+  @media (max-width: 620px) { .requirements-grid, .decision-grid { grid-template-columns: 1fr; } }
+</style>
