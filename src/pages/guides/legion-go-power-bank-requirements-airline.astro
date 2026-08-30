@@ -1,0 +1,197 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/legion-go-power-bank-requirements-airline/';
+const title = 'Legion Go power bank requirements and airline rules — Handheld Settings Lab';
+const description = 'Choose an original Lenovo Legion Go power bank by 65W USB-C PD output and watt-hours, then check carry-on, 100Wh, cable, and charging requirements.';
+
+const sources = [
+  { label: 'Lenovo PSREF: Legion Go 8APU1 specification PDF', url: 'https://psref.lenovo.com/syspool/Sys/PDF/Legion/Legion_Go_8APU1/Legion_Go_8APU1_Spec.pdf' },
+  { label: 'FAA PackSafe: lithium batteries and power banks', url: 'https://www.faa.gov/hazmat/packsafe/lithium-batteries' },
+  { label: 'USB-IF: USB Power Delivery overview', url: 'https://www.usb.org/usb-charger-pd' }
+];
+
+const faqs = [
+  {
+    question: 'What wattage power bank does the original Legion Go need?',
+    answer: 'Use a USB-C Power Delivery power bank that can provide at least 65W from the single port connected to the original Legion Go. Lenovo lists 65W USB-C adapters supporting PD 3.0 for the Legion Go 8APU1. Read the bank’s per-port output table because a multi-port bank may divide its headline wattage.'
+  },
+  {
+    question: 'Can I use a 100W power bank with a Legion Go?',
+    answer: 'A standards-compliant 100W USB-C PD bank can be suitable because the source and handheld negotiate a supported profile; the bank does not simply force its maximum rating into the device. Confirm that one port supplies at least 65W in the intended connection arrangement and use a suitably rated cable.'
+  },
+  {
+    question: 'Can I bring a Legion Go power bank on a plane?',
+    answer: 'Under current U.S. FAA guidance, power banks must stay in carry-on baggage, not checked baggage. Ordinary lithium-ion spare batteries are limited to 100Wh per battery. Batteries over 100Wh through 160Wh require airline approval and have additional quantity limits. Check the printed Wh label, airline, connection, and destination rules.'
+  },
+  {
+    question: 'Is a 20,000mAh power bank under the 100Wh airline limit?',
+    answer: 'mAh alone does not state watt-hours without the battery’s nominal voltage. As arithmetic examples, 20Ah at 3.6V is 72Wh and at 3.7V is 74Wh. Use the manufacturer’s clearly printed Wh rating on the actual bank rather than calculating from a marketplace headline.'
+  },
+  {
+    question: 'How much extra Legion Go battery life will a power bank provide?',
+    answer: 'There is no honest fixed answer without the exact bank, conversion efficiency, game, power profile, display settings, accessories, temperature, and battery condition. Lenovo lists a 49.2Wh internal battery for the original Legion Go, but an external bank does not deliver every labeled watt-hour to the handheld. Model a range from observed total system draw.'
+  },
+  {
+    question: 'Why does my Legion Go lose battery while connected to a power bank?',
+    answer: 'The bank may be using a lower-output port, sharing power with another device, negotiating an inadequate USB-C PD profile, using a limited cable, derating from heat or low charge, or supplying less power than the active system consumes. Test bank-to-handheld directly with one known-good cable and no dock.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Legion Go power bank requirements and airline rules',
+    description,
+    url: canonicalUrl,
+    datePublished: '2026-08-30',
+    dateModified: '2026-08-30',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Lenovo Legion Go', 'USB-C Power Delivery', '65W power banks', 'airline battery rules', 'watt-hours']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'Legion Go power bank requirements', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <article class="wrap article legion-power-guide">
+    <span class="eyebrow">Original Legion Go power and flight guide</span>
+    <h1>Legion Go power bank requirements: 65W output, watt-hours, and airline rules</h1>
+    <p class="lede muted">A useful power bank for the original Lenovo Legion Go must pass two separate checks: enough USB-C Power Delivery output for the handheld and a clearly labeled energy capacity that fits the trip. This is official-spec and policy-informed guidance, not a hands-on battery test.</p>
+    <p class="affiliate-note">Disclosure: shopping links are broad Amazon searches marked sponsored/nofollow. They are not endorsements, current prices, or claims that every result is compatible. Handheld Settings Lab appends an Associates tag only when a real tag is configured.</p>
+
+    <div class="callout"><strong>Fast answer:</strong> for the original Legion Go 8APU1, start with a bank that supplies at least <strong>65W from one USB-C PD port</strong>, has a clearly printed watt-hour rating at or below <strong>100Wh</strong> for the simplest U.S. flight case, and is paired with a suitably rated USB-C cable. Test the exact bank, port, cable, and game before travel.</div>
+
+    <h2>The four checks that matter</h2>
+    <div class="requirements-grid">
+      <section class="requirement"><span>01</span><h3>65W from one port</h3><p>Match Lenovo’s listed 65W adapter class from the USB-C port that will actually power the Legion Go.</p></section>
+      <section class="requirement"><span>02</span><h3>USB-C PD support</h3><p>A USB-C connector and a large combined wattage are not enough. Confirm Power Delivery on the chosen output.</p></section>
+      <section class="requirement"><span>03</span><h3>Printed watt-hours</h3><p>Use the Wh value on the physical bank for airline checks. mAh alone is not the travel limit.</p></section>
+      <section class="requirement"><span>04</span><h3>Cable and port plan</h3><p>Use a rated cable, avoid unintended port sharing, and verify the full setup under a representative game load.</p></section>
+    </div>
+
+    <h2>Why 65W is the starting specification</h2>
+    <p>Lenovo’s official PSREF for the original <strong>Legion Go 8APU1</strong> lists a <strong>49.2Wh rechargeable lithium-ion battery</strong> and <strong>65W USB-C adapters supporting Power Delivery 3.0</strong>. That makes 65W single-port USB-C PD output a sensible baseline for external power. It does not mean the handheld always draws 65W, that a 100W bank charges it faster, or that every bank with “65W” in its title supports the correct output on every port.</p>
+    <table>
+      <thead><tr><th>Power-bank label</th><th>What it suggests</th><th>What still needs verification</th></tr></thead>
+      <tbody>
+        <tr><td>45W USB-C PD</td><td>Below Lenovo’s listed adapter class</td><td>May charge slowly or lose ground under load; not the preferred main bank</td></tr>
+        <tr><td>65W USB-C PD</td><td>Matches the official adapter’s power class</td><td>65W must be available from one port in the intended connection arrangement</td></tr>
+        <tr><td>100W USB-C PD</td><td>Potential headroom for another compatible device or dock</td><td>Port allocation, cable capability, and actual Legion Go negotiation</td></tr>
+        <tr><td>20,000mAh</td><td>Charge quantity at a stated or unstated cell voltage</td><td>The physical bank’s printed Wh rating and single-port output</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Watts and watt-hours answer different questions</h2>
+    <p><strong>Watts (W)</strong> describe the rate at which the bank can deliver power. <strong>Watt-hours (Wh)</strong> describe nominal stored energy. A bank can have plenty of capacity but weak output, or high 100W output but too little stored energy for a long trip.</p>
+    <div class="formula-card">
+      <strong>Watt-hour arithmetic</strong>
+      <p><code>Wh = (mAh ÷ 1,000) × nominal battery voltage</code></p>
+      <p>Example only: 20,000mAh is 20Ah. At 3.6V that equals 72Wh; at 3.7V it equals 74Wh. A 26,800mAh bank at 3.7V calculates to 99.16Wh. Do not use these examples instead of the manufacturer’s printed rating.</p>
+    </div>
+    <p>Real usable output is lower than nameplate energy because voltage conversion, cable resistance, bank electronics, temperature, and the charging process consume energy. An external 49.2Wh label therefore does not promise one complete extra charge of the Legion Go’s 49.2Wh internal battery.</p>
+
+    <h2>U.S. airline checklist for a Legion Go power bank</h2>
+    <p>The following summarizes the FAA PackSafe page fetched on August 30, 2026. It does not replace the airline’s rules or requirements at an international connection or destination.</p>
+    <ol class="flight-list">
+      <li><strong>Put the bank in carry-on baggage.</strong> FAA says spare lithium batteries and power banks must be carried in the aircraft cabin, not checked baggage.</li>
+      <li><strong>Remove it from a gate-checked bag.</strong> If a carry-on is checked at the gate or planeside, remove every power bank and keep it with you in the cabin.</li>
+      <li><strong>Use the printed Wh rating.</strong> FAA limits ordinary rechargeable lithium-ion batteries to 100Wh per battery.</li>
+      <li><strong>Ask the airline about larger batteries.</strong> FAA allows up to two larger 101–160Wh spare lithium-ion batteries only with airline approval; individual carriers may be stricter.</li>
+      <li><strong>Protect against short circuits.</strong> Keep the bank away from loose metal and protect exposed terminals or connectors.</li>
+      <li><strong>Leave damaged batteries behind.</strong> Do not pack a swollen, punctured, recalled, leaking, smoking, or overheating bank.</li>
+      <li><strong>Recheck before departure.</strong> Airline, country, and connection rules can differ from this U.S. baseline, including in-flight charging or storage instructions.</li>
+    </ol>
+
+    <h2>How to test the bank before relying on it</h2>
+    <ol class="test-list">
+      <li><strong>Inspect the bank and label.</strong> Confirm that its Wh rating and output table are legible and there is no damage, recall, swelling, odor, or abnormal heat.</li>
+      <li><strong>Charge both devices normally.</strong> Begin with a stable Legion Go and no large background download or update.</li>
+      <li><strong>Connect directly.</strong> Remove the dock, hub, phone, and second cable so the first test isolates bank-to-handheld power.</li>
+      <li><strong>Use the documented high-output port.</strong> Do not infer capability from port color or position.</li>
+      <li><strong>Use one known-good cable.</strong> A limited or damaged cable can become the bottleneck even when both endpoints support enough power.</li>
+      <li><strong>Run a representative game area.</strong> A sleeping device, Windows desktop, or game menu cannot prove the source keeps up during play.</li>
+      <li><strong>Watch charging behavior.</strong> Check that Windows recognizes external power and that battery percentage does not unexpectedly fall during the test.</li>
+      <li><strong>Repeat with the travel setup.</strong> Add the dock or second device only after the direct test passes, then watch for power reallocation.</li>
+    </ol>
+
+    <h2>If the Legion Go still drains while plugged in</h2>
+    <div class="troubleshoot">
+      <section><h3>Wrong output port</h3><p>Move to the bank’s documented high-output USB-C port. Similar-looking connectors can have different limits.</p></section>
+      <section><h3>Shared power budget</h3><p>Disconnect the phone or second device. Many multi-port banks redistribute output as connections change.</p></section>
+      <section><h3>Cable bottleneck</h3><p>Swap only the cable for a known-good suitably rated USB-C cable so the test changes one variable.</p></section>
+      <section><h3>Dock overhead</h3><p>Test bank-to-Legion Go directly. Displays, storage, Ethernet, and USB peripherals consume part of the dock’s incoming budget.</p></section>
+      <section><h3>Heat or low-charge derating</h3><p>Let the bank cool outside an insulating bag and retest at a moderate state of charge.</p></section>
+      <section><h3>System load is too high</h3><p>Set a stable frame target and practical power profile. A falling battery can mean the active device uses more than negotiated input.</p></section>
+    </div>
+    <p>Check the <a href="/guides/usb-c-cable-wattage-handheld-gaming/">USB-C cable wattage guide</a> and the <a href="/guides/usb-c-wall-charger-wattage-handheld-gaming/">wall-charger wattage guide</a> before replacing the bank.</p>
+
+    <h2>Estimate added runtime without inventing a benchmark</h2>
+    <p>Do not divide external Wh by an APU power profile and present the result as battery life. The display, memory, SSD, fan, radios, speakers, controllers, conversion losses, and background work also use power. Observe <strong>total system draw</strong> in a repeatable game area and use a conservative external-energy efficiency assumption.</p>
+    <div class="callout"><strong>Planning tools:</strong> use the <a href="/calculators/battery-estimator/">battery-life estimator</a> with observed whole-system draw, then read the <a href="/guides/legion-go-battery-life-calculator-guide/">Legion Go 49.2Wh calculator guide</a>. Both are transparent estimates, not personally measured runtime claims.</div>
+
+    <h2>Spec-based shopping starting points</h2>
+    <p>These broad searches reflect the requirements above. Verify the exact model and revision, single-port output, printed Wh label, cable, warranty, recall status, seller, and return policy. No price, availability, compatibility, or hands-on result is asserted.</p>
+    <div class="shopping-grid">
+      <a class="shopping-card" href="https://www.amazon.com/s?k=65w+usb+c+pd+power+bank+legion+go+under+100wh" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="power-banks"><span>Sponsored search</span><h3>65W PD Legion Go power banks</h3><p>Start with the per-port output table and printed Wh rating, not bundle claims.</p></a>
+      <a class="shopping-card" href="https://www.amazon.com/s?k=100w+usb+c+pd+power+bank+under+100wh" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="power-banks"><span>Sponsored search</span><h3>100W PD banks under 100Wh</h3><p>Useful only when the intended port allocation still gives the handheld enough power.</p></a>
+      <a class="shopping-card" href="https://www.amazon.com/s?k=100w+usb+c+cable+e-marker" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="usb-c-cables-adapters"><span>Sponsored search</span><h3>100W-rated USB-C cables</h3><p>Compare e-marker disclosure, length, connector strain relief, and warranty.</p></a>
+    </div>
+    <p>For central compatibility checks, visit the <a href="/gear/power-banks/">power-bank gear guide</a> and the <a href="/guides/legion-go-accessories-buying-checklist/">Legion Go accessory buying checklist</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and method</h2>
+    <p>Lenovo’s PSREF PDF, FAA PackSafe, and USB-IF public pages were fetched successfully on August 30, 2026. The January 22, 2025 Lenovo specification supplied the original Legion Go 8APU1’s 49.2Wh battery and 65W USB-C PD 3.0 adapter details. FAA supplied the current U.S. carry-on-only, gate-check removal, terminal-protection, 100Wh, and 101–160Wh airline-approval rules. USB-IF supplied general Power Delivery context. No power bank was personally tested, no fixed runtime is claimed, and autocomplete evidence is not represented as search volume.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+
+    <div class="callout"><strong>Next step:</strong> stabilize charging and the chosen Windows power profile, then use the <a href="/legion-go-settings/">Legion Go settings hub</a> to reduce game demand instead of using a larger battery to mask an unstable setup.</div>
+  </article>
+</Base>
+
+<style>
+  .legion-power-guide { padding-top: 56px; padding-bottom: 72px; }
+  .requirements-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 14px; margin: 24px 0 38px; }
+  .requirement { padding: 20px; border: 1px solid rgba(255,255,255,.13); border-top: 4px solid #b8ff4d; border-radius: 14px; background: #10141c; }
+  .requirement > span { color: #b8ff4d; font-size: .76rem; font-weight: 900; letter-spacing: .12em; }
+  .requirement h3 { margin: 9px 0 7px; font-size: 1.04rem; }
+  .requirement p { margin: 0; color: #c0c9d5; font-size: .9rem; }
+  .formula-card { margin: 24px 0; padding: 22px; border: 1px solid rgba(77,227,255,.35); border-left: 5px solid #4de3ff; border-radius: 14px; background: #0d151b; }
+  .formula-card code { color: #4de3ff; font-weight: 850; }
+  .flight-list li, .test-list li { margin-bottom: 13px; }
+  .troubleshoot { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; margin: 22px 0; }
+  .troubleshoot section { padding: 19px; border: 1px solid rgba(255,255,255,.12); border-radius: 14px; background: #11151d; }
+  .troubleshoot h3 { margin: 0 0 8px; color: #ffcc66; font-size: 1rem; }
+  .troubleshoot p { margin: 0; color: #bdc6d3; font-size: .9rem; }
+  .shopping-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; margin: 22px 0; }
+  .shopping-card { padding: 20px; border: 1px solid rgba(184,255,77,.27); border-radius: 14px; background: #10150f; text-decoration: none; }
+  .shopping-card:hover { border-color: #b8ff4d; transform: translateY(-2px); }
+  .shopping-card span { color: #b8ff4d; font-size: .72rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+  .shopping-card h3 { margin: 9px 0 7px; color: #fff; font-size: 1rem; }
+  .shopping-card p { margin: 0; color: #b9c3d1; font-size: .88rem; }
+  @media (max-width: 900px) { .requirements-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } .troubleshoot, .shopping-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+  @media (max-width: 620px) { .requirements-grid, .troubleshoot, .shopping-grid { grid-template-columns: 1fr; } }
+</style>
