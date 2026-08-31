@@ -1,0 +1,221 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/rog-ally-microsd-card-not-showing-up/';
+const title = 'ROG Ally microSD card not showing up: safe Windows fixes — Handheld Settings Lab';
+const description = 'Troubleshoot a microSD card missing from ROG Ally or Ally X without formatting too early: check detection, Disk Management, drivers, the card, and reader.';
+
+const sources = [
+  { label: 'ASUS: ROG Ally (2023) official specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-2023/spec/' },
+  { label: 'ASUS: ROG Ally X (2024) official specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/' },
+  { label: 'ASUS: Windows memory card and card reader troubleshooting', url: 'https://rog.asus.com/support/faq/1051166/' },
+  { label: 'Microsoft Support: Disk Management in Windows', url: 'https://support.microsoft.com/en-us/windows/disk-management-in-windows-ad88ba19-f0d3-0809-7889-830f63e94405' }
+];
+
+const shoppingLinks = [
+  { label: 'USB-C UHS-II microSD card readers', href: 'https://www.amazon.com/s?k=usb+c+uhs-ii+microSD+card+reader', category: 'card-readers' },
+  { label: '512GB A2 microSDXC cards', href: 'https://www.amazon.com/s?k=512gb+a2+microSDXC+card+rog+ally', category: 'microsd-cards' },
+  { label: '1TB A2 microSDXC cards', href: 'https://www.amazon.com/s?k=1tb+a2+microSDXC+card+rog+ally', category: 'microsd-cards' }
+];
+
+const faqs = [
+  {
+    question: 'Does the ROG Ally support microSDXC cards?',
+    answer: 'Yes. ASUS lists a UHS-II microSD card reader supporting SD, SDHC, and SDXC on both the original ROG Ally and ROG Ally X specification pages. That confirms the supported card families, but it does not prove that a particular card, filesystem, or reader is healthy.'
+  },
+  {
+    question: 'Should I format a microSD card that is missing on ROG Ally?',
+    answer: 'Not first. Formatting is destructive. Shut down and reseat the card, inspect Windows Disk Management without modifying partitions, and test the card in another known-good reader. Back up anything readable before creating, deleting, or formatting a volume.'
+  },
+  {
+    question: 'Why is the card in Disk Management but not File Explorer?',
+    answer: 'A detected card may lack a mounted, readable volume or drive letter. Compare its capacity carefully, preserve any data first, and use Windows storage tools only when you are certain which disk is the card. Never initialize or format a disk merely to make it appear.'
+  },
+  {
+    question: 'Does a missing card prove the ROG Ally reader failed?',
+    answer: 'No. The card, its contacts, filesystem, partition, Windows driver state, or reader can each be involved. Testing the suspect card in another reader and a different known-good card in the Ally separates those paths more reliably than repeated formatting.'
+  },
+  {
+    question: 'Can I remove a microSD card while a game is running?',
+    answer: 'Do not remove it while a game, launcher, download, update, or transfer is using it. Close affected apps and use Windows safe-removal controls when offered, or fully shut down before removing the card.'
+  },
+  {
+    question: 'Should I open the ROG Ally to repair the reader?',
+    answer: 'Not as an early troubleshooting step. If multiple verified cards fail only in the Ally after software checks, document the results and use ASUS support or an authorized repair path. Opening the handheld introduces separate damage and warranty risks.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'ROG Ally microSD card not showing up: safe Windows fixes',
+    description,
+    url: canonicalUrl,
+    datePublished: '2026-08-31',
+    dateModified: '2026-08-31',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['ROG Ally', 'ROG Ally X', 'microSD card troubleshooting', 'Windows Disk Management', 'UHS-II card reader']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'ROG Ally microSD troubleshooting', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <article class="wrap article ally-sd-guide">
+    <span class="eyebrow">ROG Ally storage troubleshooting</span>
+    <h1>ROG Ally microSD card not showing up: isolate the card, Windows, and reader safely</h1>
+    <p class="lede muted">Both the original ROG Ally and Ally X have an official UHS-II reader for SD, SDHC, and SDXC cards. A missing drive can still be a card, contact, partition, filesystem, driver, or reader problem. This official-source-informed workflow protects readable data before destructive steps; it is not a remote hardware diagnosis.</p>
+
+    <div class="callout warning"><strong>Preserve first:</strong> do not initialize, repartition, or format a card that may contain saves, screenshots, emulator files, game installs, or personal data. A card appearing in Disk Management does not make those actions safe.</div>
+
+    <h2>Five-minute check before changing anything</h2>
+    <ol class="checklist">
+      <li><strong>Stop storage activity.</strong> Close games and launchers, pause downloads, and wait for transfers to finish.</li>
+      <li><strong>Shut Windows down fully.</strong> Do not diagnose by pulling the card during sleep or active use.</li>
+      <li><strong>Reseat the card.</strong> Remove it, inspect the card and visible slot area without inserting tools, then reinsert it squarely without force.</li>
+      <li><strong>Check File Explorer and Disk Management.</strong> Look, but do not modify any disk yet.</li>
+      <li><strong>Cross-test.</strong> Try the suspect card in a known-good reader and, if available, a different known-good compatible card in the Ally.</li>
+    </ol>
+
+    <h2>First identify where detection stops</h2>
+    <div class="signal-grid">
+      <section><span>01</span><h3>Absent everywhere</h3><p>The card is missing from File Explorer, Disk Management, and another reader. The card or its contacts are the stronger suspects.</p></section>
+      <section><span>02</span><h3>Visible in Disk Management</h3><p>Windows detects a storage device, but the volume may be unmounted, unreadable, unallocated, or missing a drive letter. Preserve before repair.</p></section>
+      <section><span>03</span><h3>Visible in Explorer, not the launcher</h3><p>The reader and volume are working at a basic level. Focus on Steam, Xbox, or another launcher’s library location rather than the slot.</p></section>
+      <section><span>04</span><h3>Works in another reader only</h3><p>The card remains readable. Back it up immediately, then investigate Ally updates, reader state, and support options without erasing it.</p></section>
+    </div>
+
+    <h2>What the official specifications establish</h2>
+    <table>
+      <thead><tr><th>Handheld</th><th>ASUS-listed card reader</th><th>What that does not establish</th></tr></thead>
+      <tbody>
+        <tr><td>ROG Ally (2023)</td><td>UHS-II microSD reader; supports SD, SDHC, and SDXC</td><td>Health of a particular card, filesystem, Windows volume, or physical reader</td></tr>
+        <tr><td>ROG Ally X (2024)</td><td>UHS-II microSD reader; supports SD, SDHC, and SDXC</td><td>Guaranteed speed, capacity authenticity, or recovery of damaged data</td></tr>
+      </tbody>
+    </table>
+    <p>UHS-II describes the reader interface; it does not require buying a UHS-II card for basic compatibility, and it does not turn the advertised speed on a card package into a guaranteed game-load result. For label and speed-class context, use the <a href="/guides/steam-deck-microsd-speed-compatibility/">microSD speed and compatibility explainer</a>.</p>
+
+    <h2>Ordered ROG Ally microSD troubleshooting</h2>
+    <h3>1. Shut down, inspect, and reseat</h3>
+    <p>ASUS’s card-reader troubleshooting begins with correct insertion and checking the card and slot. Power the Ally off and disconnect external power before inspecting. Gently wipe the card’s metal contacts with a clean, soft, dry cloth if necessary. Do not scrape contacts, spray liquid into the slot, or probe it with metal.</p>
+
+    <h3>2. Separate the card from the built-in reader</h3>
+    <p>Use two cross-tests when possible. Put the suspect card in a known-good USB reader on another computer, and put a different known-good compatible card in the Ally. Record the result before changing software:</p>
+    <table>
+      <thead><tr><th>Cross-test result</th><th>Stronger direction</th><th>Safest next move</th></tr></thead>
+      <tbody>
+        <tr><td>Suspect card fails in every reader</td><td>Card, contacts, controller, or filesystem</td><td>Stop writes; consider data recovery or replacement based on the value of the files</td></tr>
+        <tr><td>Suspect card works in another reader</td><td>Ally reader, Windows state, or driver path</td><td>Back up first, then continue with Ally software checks</td></tr>
+        <tr><td>A second card works in the Ally</td><td>Original card or its volume</td><td>Preserve files before any repair or format</td></tr>
+        <tr><td>Multiple verified cards fail only in the Ally</td><td>Reader or device software path</td><td>Update methodically, document tests, then contact ASUS support</td></tr>
+      </tbody>
+    </table>
+
+    <h3>3. Inspect Windows Disk Management without modifying disks</h3>
+    <p>Microsoft describes Disk Management as the built-in Windows tool for disks and volumes. Open it by right-clicking Start and choosing <strong>Disk Management</strong>, or search for <strong>Create and format hard disk partitions</strong>. Compare the card’s approximate capacity carefully.</p>
+    <div class="callout"><strong>Do not click through prompts automatically.</strong> “Initialize,” “New Simple Volume,” and “Format” can overwrite storage structure or erase data. If the card contains anything important, back it up through another readable device or consult a recovery professional before modifying partitions.</div>
+
+    <h3>4. Interpret the Windows result</h3>
+    <ul>
+      <li><strong>Healthy volume with no drive letter:</strong> the device is detected, but it is not mounted in Explorer. Preserve data before changing letter or mount settings.</li>
+      <li><strong>RAW or unreadable volume:</strong> Windows cannot use the filesystem normally. Formatting would erase the existing structure; recover first.</li>
+      <li><strong>Unallocated space:</strong> do not create a new volume if the card previously held files. That state may indicate lost partition information.</li>
+      <li><strong>No disk matching the card:</strong> return to the physical and cross-tests; File Explorer settings cannot repair a device Windows never detects.</li>
+      <li><strong>Normal drive in Explorer:</strong> move to the game-launcher library path rather than reader repair.</li>
+    </ul>
+
+    <h3>5. Restart and apply updates one layer at a time</h3>
+    <p>ASUS recommends checking BIOS, Windows updates, and drivers for card-reader issues. On ROG Ally, record the current behavior first, then use official Windows, MyASUS, Armoury Crate SE, and ASUS support channels for the exact model. Restart and retest after each meaningful layer instead of installing unrelated driver packages from download sites.</p>
+    <p>The <a href="/guides/rog-ally-update-checklist-before-game-settings/">ROG Ally update checklist</a> provides a conservative order. An update is a troubleshooting step, not proof that hardware is healthy.</p>
+
+    <h3>6. Repair the launcher library only after the drive is stable</h3>
+    <p>If the card reliably appears in File Explorer but installed games are missing, check the relevant launcher’s storage/library settings. Confirm the expected folders still exist before adding a library location or testing with one small game. Do not redownload a large library until the drive survives a restart and reconnect without errors.</p>
+
+    <h3>7. Format only a blank or fully backed-up card</h3>
+    <p>For a new card with no needed files—or one whose files have been safely copied—formatting can create a Windows-readable volume. Confirm the disk by capacity and unplug unrelated external drives to reduce selection mistakes. After formatting, copy and verify a small file, restart, then install and launch one small game before committing a large library.</p>
+
+    <h2>Symptoms and the next isolation check</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>What it tells you</th><th>Next useful check</th></tr></thead>
+      <tbody>
+        <tr><td>Card appears after every reboot, then vanishes</td><td>Intermittent detection or software state</td><td>Cross-test cards, inspect contact/fit, record update state, avoid active-use removal</td></tr>
+        <tr><td>Drive letter exists, Steam games are absent</td><td>Basic Windows mount is working</td><td>Verify Steam storage/library folder and actual game files</td></tr>
+        <tr><td>Windows asks to format the card</td><td>The volume is not currently readable to Windows</td><td>Cancel if files matter; test and back up/recover elsewhere</td></tr>
+        <tr><td>Another PC reads the card normally</td><td>The files may still be recoverable</td><td>Copy them immediately before further Ally diagnosis</td></tr>
+        <tr><td>Copy errors or corrupted files occur</td><td>The card or filesystem may be unstable</td><td>Stop game installs and prioritize a backup of irreplaceable files</td></tr>
+        <tr><td>No known-good card is detected</td><td>The built-in reader path needs escalation</td><td>Document BIOS/driver/model details and contact ASUS support</td></tr>
+      </tbody>
+    </table>
+
+    <h2>What not to do</h2>
+    <ul>
+      <li><strong>Do not use formatting as a detection test.</strong> It is destructive and does not repair failing flash or reader hardware.</li>
+      <li><strong>Do not initialize an unknown disk on reflex.</strong> Verify capacity and identity; internal and external storage can both appear in Disk Management.</li>
+      <li><strong>Do not remove the card during writes.</strong> Close games, launchers, downloads, and transfers first.</li>
+      <li><strong>Do not install anonymous “driver updater” packages.</strong> Use Windows and official ASUS channels for the exact Ally model.</li>
+      <li><strong>Do not repeatedly write test games to an unstable card.</strong> Preserve unique files and use a known-good reader for diagnosis.</li>
+      <li><strong>Do not assume the largest printed capacity is genuine.</strong> Marketplace cards can be counterfeit; seller, warranty, and return path matter.</li>
+    </ul>
+
+    <h2>Replacement and diagnostic gear, only after isolation</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow. They are not hands-on endorsements, current prices, or compatibility guarantees. The site appends an Associates tag only when a real tag is configured.</p>
+    <div class="shopping-grid">
+      {shoppingLinks.map(link => (
+        <a class="shopping-card" href={link.href} target="_blank" rel="nofollow sponsored" data-affiliate-link data-category={link.category}>
+          <span>Sponsored search</span>
+          <h3>{link.label}</h3>
+          <p>A separate reader is useful for isolation. For replacement cards, compare capacity, speed labels, seller, warranty, return policy, and authenticity checks.</p>
+        </a>
+      ))}
+    </div>
+    <p>Plan the replacement library with the <a href="/calculators/storage-planner/">storage planner</a>, compare card classes in the <a href="/gear/microsd-cards/">microSD gear guide</a>, consider the tradeoff in <a href="/guides/microsd-vs-ssd-handheld-pc/">microSD versus internal SSD</a>, and use the <a href="/rog-ally-settings/">ROG Ally settings hub</a> after storage is stable.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and method</h2>
+    <p>Official ASUS ROG Ally and Ally X specification pages, ASUS’s gaming-handheld-applicable Windows card-reader troubleshooting page, and Microsoft’s Disk Management page were fetched successfully on August 31, 2026. ASUS establishes UHS-II support for SD, SDHC, and SDXC on both handhelds and recommends insertion/contact checks, cross-testing, restart, BIOS, Windows, and driver checks. Microsoft establishes what Disk Management can change. The preservation-first sequence is conservative editorial guidance; no failure rate, personal hardware test, recovery guarantee, or search volume is claimed.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+  </article>
+</Base>
+
+<style>
+  .ally-sd-guide { padding-top: 56px; padding-bottom: 72px; }
+  .warning { border-color: rgba(255,204,102,.48); background: #18130b; }
+  .checklist li { margin-bottom: 12px; }
+  .signal-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 14px; margin: 24px 0 38px; }
+  .signal-grid section { padding: 20px; border: 1px solid rgba(77,227,255,.25); border-top: 4px solid #4de3ff; border-radius: 14px; background: #0d151b; }
+  .signal-grid span { color: #4de3ff; font-size: .76rem; font-weight: 950; letter-spacing: .1em; }
+  .signal-grid h3 { margin: 9px 0 7px; font-size: 1rem; }
+  .signal-grid p { margin: 0; color: #c0c9d5; font-size: .9rem; }
+  .shopping-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; margin: 22px 0; }
+  .shopping-card { padding: 20px; border: 1px solid rgba(184,255,77,.27); border-radius: 14px; background: #10150f; text-decoration: none; }
+  .shopping-card:hover { border-color: #b8ff4d; transform: translateY(-2px); }
+  .shopping-card span { color: #b8ff4d; font-size: .72rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+  .shopping-card h3 { margin: 9px 0 7px; color: #fff; font-size: 1rem; }
+  .shopping-card p { margin: 0; color: #b9c3d1; font-size: .88rem; }
+  @media (max-width: 900px) { .signal-grid, .shopping-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+  @media (max-width: 620px) { .signal-grid, .shopping-grid { grid-template-columns: 1fr; } }
+</style>
