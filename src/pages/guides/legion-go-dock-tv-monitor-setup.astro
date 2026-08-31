@@ -1,0 +1,233 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/legion-go-dock-tv-monitor-setup/';
+const title = 'Legion Go dock setup: TV, monitor, power, and no-signal fixes — Handheld Settings Lab';
+const description = 'Set up an original Legion Go dock for a TV or monitor using USB4, DisplayPort 1.4, 65W USB-C PD, HDMI checks, and an ordered no-signal troubleshooting flow.';
+
+const sources = [
+  { label: 'Lenovo PSREF: Legion Go 8APU1 specification PDF', url: 'https://psref.lenovo.com/syspool/Sys/PDF/Legion/Legion_Go_8APU1/Legion_Go_8APU1_Spec.pdf' },
+  { label: 'USB-IF: USB Power Delivery overview', url: 'https://www.usb.org/usb-charger-pd' },
+  { label: 'HDMI Licensing Administrator: HDMI specifications', url: 'https://www.hdmi.org/spec/index' }
+];
+
+const shoppingLinks = [
+  { label: 'Legion Go docks with 100W PD and HDMI', href: 'https://www.amazon.com/s?k=legion+go+dock+100w+pd+hdmi+ethernet', category: 'docks' },
+  { label: 'USB-C docks with DisplayPort and Ethernet', href: 'https://www.amazon.com/s?k=usb+c+dock+displayport+ethernet+100w+pd+legion+go', category: 'docks' },
+  { label: '100W USB-C PD chargers with rated cable', href: 'https://www.amazon.com/s?k=100w+usb+c+pd+charger+cable+legion+go', category: 'chargers' },
+  { label: 'Certified HDMI cables for 4K displays', href: 'https://www.amazon.com/s?k=certified+hdmi+cable+4k+120hz', category: 'usb-c-cables-adapters' }
+];
+
+const faqs = [
+  {
+    question: 'Can the original Legion Go connect to a TV or monitor?',
+    answer: 'Yes. Lenovo lists two USB4 40Gbps ports that support DisplayPort 1.4 and Power Delivery 3.0, and explicitly describes a TV mode through USB4. A compatible dock or USB-C display adapter is still required to convert that output to the input accepted by the screen.'
+  },
+  {
+    question: 'How many watts should a Legion Go dock support?',
+    answer: 'Lenovo lists a 65W USB-C PD 3.0 adapter for the original Legion Go. Treat 65W delivered to the handheld as the baseline, not merely the dock’s advertised input. The dock and attached USB devices consume power, so a documented 100W input and suitable host pass-through can provide useful headroom when paired with the correct charger and cable.'
+  },
+  {
+    question: 'Why does my Legion Go dock show no signal on the TV?',
+    answer: 'The failure can be anywhere in the chain: selected TV input, HDMI or DisplayPort cable, dock, USB-C host cable, power source, Windows display mode, driver, or firmware. Disconnect optional devices, power-cycle the chain, reconnect power and display before the Legion Go, and prove 1080p at 60Hz before enabling higher refresh, HDR, or VRR.'
+  },
+  {
+    question: 'Can I use either USB-C port for a Legion Go dock?',
+    answer: 'Lenovo specifies both the top and bottom USB-C connectors as USB4 40Gbps with data, Power Delivery 3.0, and DisplayPort 1.4 support. Either is a valid documented display path, but cable strain, the kickstand, cradle design, and dock placement may make one safer for a particular setup.'
+  },
+  {
+    question: 'Does every Legion Go dock support 4K, 120Hz, HDR, or VRR?',
+    answer: 'No. Those are separate capabilities. The Legion Go port, dock chipset and output, cable, display input, selected mode, and Windows settings must all preserve the feature. A listing that says 4K does not by itself prove 4K at 120Hz, HDR, or variable refresh rate.'
+  },
+  {
+    question: 'Will a Steam Deck or laptop USB-C dock work with Legion Go?',
+    answer: 'It may work electrically, but the label does not prove full compatibility. Verify USB-C PD host output, DisplayPort-to-HDMI or DisplayPort behavior, host-cable reach, cradle width, controller clearance, vents, exact display modes, firmware support, and return terms.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Legion Go dock setup: TV, monitor, power, and no-signal fixes',
+    description,
+    url: canonicalUrl,
+    datePublished: '2026-08-31',
+    dateModified: '2026-08-31',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Lenovo Legion Go', 'USB4 docks', 'DisplayPort 1.4', 'USB Power Delivery', 'TV setup', 'monitor troubleshooting']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'Legion Go dock setup', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <article class="wrap article legion-dock-guide">
+    <span class="eyebrow">Original Legion Go dock and display guide</span>
+    <h1>Legion Go dock setup: TV, monitor, power, and no-signal fixes</h1>
+    <p class="lede muted">The original Legion Go has two documented USB4 display-capable ports, but that does not make every dock, cable, screen mode, or power arrangement interchangeable. This is official-spec-informed setup guidance—not a hands-on dock ranking or a universal compatibility promise.</p>
+    <p class="affiliate-note">Disclosure: shopping links are broad Amazon searches marked sponsored/nofollow. They are not endorsements, current prices, or claims that every result works. Handheld Settings Lab appends an Associates tag only when a real tag is configured.</p>
+
+    <div class="callout"><strong>Reliable starting point:</strong> connect a powered dock to one Legion Go USB4 port, choose one known-good HDMI or DisplayPort cable, remove optional USB devices, and prove <strong>1080p at 60Hz</strong> first. Only then raise resolution or refresh rate and add HDR, VRR, Ethernet, storage, and controllers one at a time.</div>
+
+    <h2>What Lenovo officially documents</h2>
+    <div class="spec-grid">
+      <section class="spec-card"><span>2×</span><h3>USB4 40Gbps ports</h3><p>Lenovo lists one top and one bottom USB4 connector, each supporting data transfer, Power Delivery 3.0, and DisplayPort 1.4.</p></section>
+      <section class="spec-card"><span>65W</span><h3>USB-C PD adapter class</h3><p>The official PSREF lists 65W USB-C adapters with PD 3.0. Dock input and power delivered to the handheld are not always the same.</p></section>
+      <section class="spec-card"><span>TV</span><h3>Documented docked mode</h3><p>Lenovo describes TV mode through USB4. A dock or adapter must still translate the signal into the television’s supported input and mode.</p></section>
+      <section class="spec-card"><span>8.8″</span><h3>Built-in display remains useful</h3><p>Keep the internal screen active during diagnosis so Windows display controls stay visible when the external screen loses signal.</p></section>
+    </div>
+    <p>The Lenovo specification establishes the handheld-side capabilities. It does not certify a third-party dock’s HDMI revision, host power, refresh modes, VRR path, firmware, cable, cradle fit, or compatibility with a grip case.</p>
+
+    <h2>Choose the dock from the screen backward</h2>
+    <ol class="selection-list">
+      <li><strong>Write down one target screen and input.</strong> Record the TV or monitor model, the physical HDMI or DisplayPort input, and one modest target such as 1080p/60.</li>
+      <li><strong>Require a published mode table.</strong> “4K,” “8K,” and “gaming dock” are incomplete labels. Look for resolution plus refresh rate on the exact output.</li>
+      <li><strong>Separate dock input from host output.</strong> A dock accepting 100W does not prove it passes 100W—or even 65W—to the Legion Go.</li>
+      <li><strong>Map every attached device.</strong> Ethernet, storage, capture cards, controller receivers, keyboards, and audio devices use ports, bandwidth, and power.</li>
+      <li><strong>Check physical fit.</strong> Confirm cradle width, kickstand clearance, detachable-controller clearance, vent access, and host-cable reach to the chosen top or bottom USB4 port.</li>
+      <li><strong>Find support before buying.</strong> Prefer a traceable model number, manual, firmware page, warranty, and return path over an anonymous feature list.</li>
+    </ol>
+
+    <h2>Top port or bottom port?</h2>
+    <p>Lenovo documents the same core USB4, PD 3.0, and DisplayPort 1.4 capabilities for both USB-C ports. The practical choice is therefore mechanical as much as electrical.</p>
+    <table>
+      <thead><tr><th>Connection</th><th>Possible advantage</th><th>Check before committing</th></tr></thead>
+      <tbody>
+        <tr><td>Top USB4 port</td><td>Easy access when the Legion Go sits on its kickstand</td><td>Cable should loop without pulling sideways or hanging across the screen</td></tr>
+        <tr><td>Bottom USB4 port</td><td>Can hide the cable in a purpose-built cradle dock</td><td>Cradle must leave room for the connector and avoid bearing weight on it</td></tr>
+        <tr><td>One port for dock, one for power</td><td>May simplify a specialized setup</td><td>Do not assume this bypasses the dock’s power requirements or display limitations</td></tr>
+      </tbody>
+    </table>
+    <p>A rigid adapter or tight fixed cable can place leverage on the handheld’s port. The cleanest-looking arrangement is not worth persistent connector strain.</p>
+
+    <h2>65W power is the baseline, not the dock’s headline</h2>
+    <p>Lenovo lists <strong>65W USB-C PD 3.0 adapters</strong> for the original Legion Go. For a docked setup, read three different figures: charger output on the selected port, dock input limit, and power the dock can pass to the host after its own electronics and peripherals take a share.</p>
+    <div class="power-path">
+      <section><span>1</span><h3>Charger</h3><p>Must provide the intended USB-C PD profile from the exact port and port-sharing arrangement.</p></section>
+      <b aria-hidden="true">→</b>
+      <section><span>2</span><h3>Dock</h3><p>Consumes some power and may cap host pass-through below its advertised input rating.</p></section>
+      <b aria-hidden="true">→</b>
+      <section><span>3</span><h3>Legion Go</h3><p>Negotiates supported power; a larger source does not force its full maximum into the handheld.</p></section>
+    </div>
+    <p>A documented 100W-capable dock, charger, and suitably rated cable can provide headroom for dock overhead and attached devices. It does not automatically unlock a performance mode, fix a weak display path, or make every port combination deliver 100W. Use the <a href="/guides/one-usb-c-charger-steam-deck-rog-ally-legion-go/">one-charger compatibility guide</a> and <a href="/guides/usb-c-cable-wattage-handheld-gaming/">USB-C cable wattage guide</a> to check the rest of the chain.</p>
+
+    <h2>HDMI, DisplayPort, refresh rate, HDR, and VRR are separate checks</h2>
+    <p>The Legion Go exposes DisplayPort 1.4 through USB4. A dock may convert that signal to HDMI or expose a DisplayPort connector directly. Every conversion and cable can narrow the mode that reaches the screen.</p>
+    <div class="mode-grid">
+      <section><h3>Resolution</h3><p>4K output support does not mean a demanding game should render internally at native 4K. Set the desktop and game separately when useful.</p></section>
+      <section><h3>Refresh rate</h3><p>A dock may support 4K/60 and 1080p/120 but not every combination in between. Confirm the exact output table.</p></section>
+      <section><h3>HDR</h3><p>HDR requires support and correct settings through the whole path. Prove standard dynamic range before adding it.</p></section>
+      <section><h3>VRR</h3><p>High refresh alone does not establish variable refresh. Require explicit support from dock output, cable, screen input, selected mode, and Windows.</p></section>
+    </div>
+
+    <h2>Legion Go dock not connecting to TV: ordered no-signal fixes</h2>
+    <ol class="troubleshooting-list">
+      <li><strong>Keep the internal screen available.</strong> Use the Legion Go display to save work and open Windows display settings rather than troubleshooting blind.</li>
+      <li><strong>Disconnect the whole chain.</strong> Shut down cleanly, then unplug the dock from the handheld, charger, display cable, and every peripheral.</li>
+      <li><strong>Prove the TV input and display cable.</strong> Select the exact input manually and test the same cable/input with another known-good source where available.</li>
+      <li><strong>Reconnect in a controlled order.</strong> Attach the USB-C PD charger to the dock, then the display cable, then connect the dock to one Legion Go USB4 port.</li>
+      <li><strong>Start at 1080p/60 in SDR.</strong> Disable HDR and higher refresh temporarily. Use duplicate display mode first if the external-only mode leaves you without controls.</li>
+      <li><strong>Remove optional devices.</strong> Leave Ethernet, SSDs, capture cards, hubs, and wireless receivers disconnected until video and charging are stable.</li>
+      <li><strong>Try the second USB4 port.</strong> Because Lenovo documents display and PD on both, this is a useful isolation step. If only one works repeatedly, stop and investigate the port, cable angle, contamination, or device support.</li>
+      <li><strong>Update one layer at a time.</strong> Apply appropriate Windows, Lenovo, graphics, and exact dock-vendor updates, reboot, and retest the conservative mode before changing another variable.</li>
+      <li><strong>Swap one component—not all of them.</strong> Try a known-good display cable, charger, dock, or screen input individually so the result identifies the failing layer.</li>
+    </ol>
+    <div class="callout warning"><strong>Stop condition:</strong> stop using a component that is swollen, smells abnormal, has a damaged cable or connector, becomes unusually hot, or repeatedly disconnects power when touched. Software settings do not repair physical electrical damage.</div>
+
+    <h2>Symptom-to-check matrix</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>First isolation check</th><th>Next check</th></tr></thead>
+      <tbody>
+        <tr><td>Charging works, no video</td><td>TV input and display cable with another source</td><td>1080p/60 SDR, then dock display specification</td></tr>
+        <tr><td>Video works, battery falls</td><td>Remove USB peripherals and check charger’s active port output</td><td>Dock host pass-through and cable rating</td></tr>
+        <tr><td>Signal drops at higher refresh</td><td>Return to the last stable resolution/refresh combination</td><td>Dock mode table, cable, display input, HDR/VRR path</td></tr>
+        <tr><td>Works until an SSD is attached</td><td>Test video without the drive</td><td>Power budget, USB bandwidth, enclosure cable, and drive condition</td></tr>
+        <tr><td>Works from only one Legion Go port</td><td>Repeat with the same dock and cable orientation</td><td>Inspect for strain/debris and check Lenovo support if behavior persists</td></tr>
+        <tr><td>Desktop displays but game does not</td><td>Run the game windowed or borderless at a conservative mode</td><td>Per-game display selection, resolution, HDR, and refresh settings</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Ten-minute verification before the return window closes</h2>
+    <ol>
+      <li>Photograph the dock model label and save its manual, mode table, firmware link, and seller receipt.</li>
+      <li>Test charging and 1080p/60 video with no peripherals from both Legion Go USB4 ports.</li>
+      <li>Increase to the intended resolution and refresh rate; then test HDR or VRR separately if each is explicitly supported.</li>
+      <li>Add Ethernet, storage, controller receivers, and other devices one at a time while watching charging and display stability.</li>
+      <li>Run a representative game scene for at least several minutes; a Windows desktop does not exercise the same display and power load.</li>
+      <li>Check cable bends, connector tension, kickstand stability, controller clearance, and whether any vent is blocked.</li>
+    </ol>
+
+    <h2>Spec-based shopping starting points</h2>
+    <p>These broad searches follow the checks above. Verify the exact revision, host pass-through, mode table, USB4 host cable, charger requirement, physical fit, firmware support, seller, warranty, and return policy. No current price, compatibility result, or hands-on test is asserted.</p>
+    <div class="shopping-grid">
+      {shoppingLinks.map(link => (
+        <a class="shopping-card" href={link.href} target="_blank" rel="nofollow sponsored" data-affiliate-link data-category={link.category}>
+          <span>Sponsored search</span>
+          <h3>{link.label}</h3>
+          <p>Compare the complete power, display, cable, and physical-fit chain—not the largest number in the listing.</p>
+        </a>
+      ))}
+    </div>
+    <p>Use the <a href="/gear/docks/">dock gear guide</a> for category checks, the <a href="/calculators/accessory-budget/">accessory budget calculator</a> before buying the whole desk setup, and the <a href="/legion-go-settings/">Legion Go settings hub</a> only after the external display is stable.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and method</h2>
+    <p>Lenovo’s official PSREF PDF, USB-IF, and HDMI Licensing Administrator public pages were fetched successfully on August 31, 2026. Lenovo supplied the original Legion Go 8APU1’s two USB4 40Gbps ports with Power Delivery 3.0 and DisplayPort 1.4, its 65W USB-C PD 3.0 adapter class, and its documented TV mode through USB4. USB-IF and HDMI sources provide standards context. The selection, connection, and troubleshooting order is conservative editorial guidance; no dock was personally tested, no third-party compatibility is guaranteed, and no search volume is claimed.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+
+    <div class="callout"><strong>Related power check:</strong> if the display works but the battery still falls, use the <a href="/guides/legion-go-power-bank-requirements-airline/">Legion Go 65W power-bank guide</a> to isolate single-port output, cable capability, shared load, and total system demand.</div>
+  </article>
+</Base>
+
+<style>
+  .legion-dock-guide { padding-top: 56px; padding-bottom: 72px; }
+  .spec-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 14px; margin: 24px 0 38px; }
+  .spec-card { padding: 20px; border: 1px solid rgba(255,255,255,.13); border-top: 4px solid #b8ff4d; border-radius: 14px; background: #10141c; }
+  .spec-card > span { display: block; color: #b8ff4d; font-size: 1.45rem; font-weight: 950; letter-spacing: -.03em; }
+  .spec-card h3 { margin: 7px 0; font-size: 1.02rem; }
+  .spec-card p { margin: 0; color: #c0c9d5; font-size: .9rem; }
+  .selection-list li, .troubleshooting-list li { margin-bottom: 13px; }
+  .power-path { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 12px; align-items: stretch; margin: 24px 0; }
+  .power-path section { padding: 20px; border: 1px solid rgba(77,227,255,.3); border-radius: 14px; background: #0d151b; }
+  .power-path section span { color: #4de3ff; font-size: .75rem; font-weight: 900; }
+  .power-path h3 { margin: 8px 0; }
+  .power-path p { margin: 0; color: #c0c9d5; font-size: .9rem; }
+  .power-path > b { align-self: center; color: #4de3ff; font-size: 1.5rem; }
+  .mode-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 14px; margin: 22px 0; }
+  .mode-grid section { padding: 19px; border: 1px solid rgba(255,204,102,.25); border-radius: 14px; background: #15130e; }
+  .mode-grid h3 { margin: 0 0 8px; color: #ffcc66; font-size: 1rem; }
+  .mode-grid p { margin: 0; color: #c8c5bd; font-size: .9rem; }
+  .warning { border-color: rgba(255,204,102,.45); background: #18130b; }
+  .shopping-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; margin: 22px 0; }
+  .shopping-card { padding: 20px; border: 1px solid rgba(184,255,77,.27); border-radius: 14px; background: #10150f; text-decoration: none; }
+  .shopping-card:hover { border-color: #b8ff4d; transform: translateY(-2px); }
+  .shopping-card span { color: #b8ff4d; font-size: .72rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+  .shopping-card h3 { margin: 9px 0 7px; color: #fff; font-size: 1rem; }
+  .shopping-card p { margin: 0; color: #b9c3d1; font-size: .88rem; }
+  @media (max-width: 900px) { .spec-grid, .mode-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+  @media (max-width: 680px) { .spec-grid, .mode-grid, .shopping-grid, .power-path { grid-template-columns: 1fr; } .power-path > b { display: none; } }
+</style>
