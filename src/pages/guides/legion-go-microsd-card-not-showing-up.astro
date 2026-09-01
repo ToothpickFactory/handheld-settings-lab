@@ -1,0 +1,224 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/legion-go-microsd-card-not-showing-up/';
+const title = 'Legion Go microSD card not showing up: safe fixes — Handheld Settings Lab';
+const description = 'Troubleshoot a microSD card missing from the original Lenovo Legion Go without formatting too early: isolate the card, Windows volume, driver, and reader.';
+
+const sources = [
+  { label: 'Lenovo PSREF: Legion Go 8APU1 specification PDF', url: 'https://psref.lenovo.com/syspool/Sys/PDF/Legion/Legion_Go_8APU1/Legion_Go_8APU1_Spec.pdf' },
+  { label: 'Microsoft Support: Disk Management in Windows', url: 'https://support.microsoft.com/en-us/windows/disk-management-in-windows-ad88ba19-f0d3-0809-7889-830f63e94405' },
+  { label: 'Microsoft Support: update drivers through Device Manager', url: 'https://support.microsoft.com/en-us/windows/update-drivers-through-device-manager-in-windows-ec62f46c-ff14-c91d-eead-d7126dc1f7b6' },
+  { label: 'SD Association: SD capacity standards', url: 'https://www.sdcard.org/developers/sd-standard-overview/capacity-sd-sdhc-sdxc-sduc/' }
+];
+
+const shoppingLinks = [
+  { label: 'USB-C microSD card readers for diagnosis', href: 'https://www.amazon.com/s?k=usb+c+microSD+card+reader+uhs-i', category: 'usb-c-cables-adapters' },
+  { label: '512GB A2 microSDXC cards', href: 'https://www.amazon.com/s?k=512gb+a2+microSDXC+card+legion+go', category: 'microsd-cards' },
+  { label: '1TB A2 microSDXC cards', href: 'https://www.amazon.com/s?k=1tb+a2+microSDXC+card+legion+go', category: 'microsd-cards' }
+];
+
+const faqs = [
+  {
+    question: 'What microSD cards does the original Legion Go support?',
+    answer: 'Lenovo’s Legion Go 8APU1 specification lists a microSD card reader supporting SD, SDHC, and SDXC, with UHS-I support and up to 2TB stated. Those are interface and capacity claims for the original model, not proof that every card is genuine, healthy, correctly formatted, or compatible with every future device named Legion Go.'
+  },
+  {
+    question: 'Should I format a microSD card that does not appear on Legion Go?',
+    answer: 'Not as the first step. Formatting is destructive. First shut down and reseat the card, inspect Disk Management without changing the disk, and cross-test the card in another known-good reader. Back up anything readable before altering a partition or filesystem.'
+  },
+  {
+    question: 'Why does the card appear in Disk Management but not File Explorer?',
+    answer: 'Windows can detect a storage device even when its volume has no drive letter, is unallocated, or uses a damaged or unreadable filesystem. Identify the card by approximate capacity and preserve important files before changing it. Do not automatically accept an Initialize or Format prompt.'
+  },
+  {
+    question: 'Why does Steam not see the card when Windows does?',
+    answer: 'If the card appears reliably in File Explorer, the basic reader and volume path is working. Check Steam Settings, Storage, the expected library folder, and whether the drive letter changed. Repair the launcher path only after the volume survives a restart and a small-file read/write check.'
+  },
+  {
+    question: 'Does one missing card prove the Legion Go reader is broken?',
+    answer: 'No. The card, contacts, filesystem, partition, Windows mount state, driver, or reader may be involved. Test the suspect card in another reader and a different known-good compatible card in the Legion Go before drawing a hardware conclusion.'
+  },
+  {
+    question: 'Can I remove the Legion Go microSD card while a game is open?',
+    answer: 'Do not remove it while a game, launcher, download, update, transfer, or indexing task is using the card. Close affected software and use Windows safe-removal controls when offered, or fully shut down before removing it.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Legion Go microSD card not showing up: safe fixes',
+    description,
+    url: canonicalUrl,
+    datePublished: '2026-09-01',
+    dateModified: '2026-09-01',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Lenovo Legion Go', 'microSD card troubleshooting', 'Windows Disk Management', 'SDXC', 'UHS-I']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'Legion Go microSD troubleshooting', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <article class="wrap article legion-sd-guide">
+    <span class="eyebrow">Original Legion Go storage troubleshooting</span>
+    <h1>Legion Go microSD card not showing up: isolate the card, Windows, and reader safely</h1>
+    <p class="lede muted">The original Legion Go has a documented UHS-I reader for SD, SDHC, and SDXC cards. A missing drive can still be caused by the card, contacts, partition, filesystem, Windows mount state, driver, or reader. This preservation-first workflow is based on public specifications and Windows documentation; it is not a remote hardware diagnosis or hands-on failure-rate study.</p>
+
+    <div class="callout warning"><strong>Preserve first:</strong> do not initialize, repartition, or format a card that may contain saves, screenshots, emulator files, game installs, or personal data. A card appearing in Disk Management does not make destructive changes safe.</div>
+
+    <h2>Five-minute check before changing anything</h2>
+    <ol class="checklist">
+      <li><strong>Stop every storage task.</strong> Close games and launchers, pause downloads, and wait for transfers to finish.</li>
+      <li><strong>Shut Windows down fully.</strong> Do not diagnose by pulling the card during sleep, hibernation, or active use.</li>
+      <li><strong>Reseat the card.</strong> Remove it, inspect the card and visible slot area without inserting tools, then reinsert it squarely without force.</li>
+      <li><strong>Look in File Explorer and Disk Management.</strong> Observe the result, but do not initialize, format, or delete anything.</li>
+      <li><strong>Cross-test.</strong> Try the suspect card in a known-good reader and, if available, a different known-good compatible card in the Legion Go.</li>
+    </ol>
+
+    <h2>First identify where detection stops</h2>
+    <div class="signal-grid">
+      <section><span>01</span><h3>Absent everywhere</h3><p>The card is missing from File Explorer, Disk Management, and another reader. The card or its contacts become stronger suspects.</p></section>
+      <section><span>02</span><h3>Visible in Disk Management</h3><p>Windows detects storage, but its volume may be unmounted, unreadable, unallocated, or missing a drive letter. Preserve before repair.</p></section>
+      <section><span>03</span><h3>Visible in Explorer, not Steam</h3><p>The reader and Windows volume work at a basic level. Focus on the Steam storage path rather than formatting the card.</p></section>
+      <section><span>04</span><h3>Works externally only</h3><p>The files may still be readable. Back them up, then investigate the Legion Go software and reader path without erasing the card.</p></section>
+    </div>
+
+    <h2>What Lenovo officially documents for the original Legion Go</h2>
+    <table>
+      <thead><tr><th>Specification</th><th>Lenovo’s public PSREF</th><th>What it does not prove</th></tr></thead>
+      <tbody>
+        <tr><td>Reader</td><td>MicroSD card reader with UHS-I support</td><td>The health of a particular reader, card, contact, or Windows driver state</td></tr>
+        <tr><td>Card families</td><td>SD, SDHC, and SDXC</td><td>That an unknown card is genuine, correctly formatted, or undamaged</td></tr>
+        <tr><td>Stated capacity</td><td>Up to 2TB</td><td>Availability, authenticity, speed, or compatibility of every marketplace listing</td></tr>
+      </tbody>
+    </table>
+    <p>This page applies specifically to the <strong>Legion Go 8APU1</strong>. Lenovo may use different readers or limits in later devices with similar names, so check the machine type and its own specification before using this table. UHS-I is an interface class, not a promised game-load time.</p>
+
+    <h2>Ordered Legion Go microSD troubleshooting</h2>
+    <h3>1. Shut down, inspect, and reseat</h3>
+    <p>Power off, disconnect external power, and remove the card. Inspect it for cracks, bent material, contamination, or damaged contacts. A clean, soft, dry cloth can remove light residue from the card’s metal contacts. Do not scrape them, spray cleaner into the slot, use compressed air at close range, or probe the reader with metal.</p>
+    <p>Reinsert the card in the documented orientation with gentle, even pressure. If it catches or needs force, stop. Mechanical resistance is not a software problem.</p>
+
+    <h3>2. Separate a card problem from a reader problem</h3>
+    <p>One result is not enough to identify the failing part. Use two cross-tests when possible and write down what happens before installing updates:</p>
+    <table>
+      <thead><tr><th>Cross-test result</th><th>Stronger direction</th><th>Safest next move</th></tr></thead>
+      <tbody>
+        <tr><td>Suspect card fails in every reader</td><td>Card, contacts, controller, or filesystem</td><td>Stop writes; consider recovery or replacement based on the value of the files</td></tr>
+        <tr><td>Suspect card works in another reader</td><td>Legion Go reader, Windows state, or driver path</td><td>Back up the card first, then continue with software checks</td></tr>
+        <tr><td>A second card works in the Legion Go</td><td>Original card or its volume</td><td>Preserve files before any repair or format</td></tr>
+        <tr><td>Multiple verified cards fail only in the Legion Go</td><td>Built-in reader or device software path</td><td>Update methodically, document tests, then contact Lenovo support</td></tr>
+      </tbody>
+    </table>
+
+    <h3>3. Inspect Disk Management without modifying disks</h3>
+    <p>Microsoft documents Disk Management as the built-in Windows tool for disks and volumes. Open it by right-clicking <strong>Start</strong> and choosing <strong>Disk Management</strong>, or search for <strong>Create and format hard disk partitions</strong>. Compare the card’s approximate capacity carefully with the internal SSD and any connected drives.</p>
+    <div class="callout"><strong>Do not click through a prompt automatically.</strong> Initialize, New Simple Volume, Delete Volume, and Format can destroy storage structure or data. If files matter, back them up through another readable device or consult a recovery specialist before modifying the card.</div>
+
+    <h3>4. Interpret the Windows result</h3>
+    <ul>
+      <li><strong>Healthy volume with no drive letter:</strong> Windows detects the storage but has not mounted it in Explorer. Preserve data before changing mount settings.</li>
+      <li><strong>RAW or unreadable filesystem:</strong> Windows cannot use the volume normally. Formatting would erase the existing filesystem rather than recover it.</li>
+      <li><strong>Unallocated space:</strong> do not create a new volume if the card previously held files. Lost partition information may be involved.</li>
+      <li><strong>No disk matching the card:</strong> return to card and reader cross-tests. Explorer settings cannot repair hardware Windows never detects.</li>
+      <li><strong>Normal drive in Explorer:</strong> move to Steam or another launcher’s storage path rather than reader repair.</li>
+    </ul>
+
+    <h3>5. Restart and update through official channels</h3>
+    <p>Record the current behavior first. Then apply Windows updates and Lenovo-provided firmware or driver updates for the exact model, restarting and retesting after each meaningful layer. Avoid anonymous “driver updater” utilities and random card-reader packages.</p>
+    <p>Microsoft’s driver guidance explains that Windows Update is the preferred automatic route and that Device Manager can search for, update, or reinstall a device driver. A driver update is an isolation step, not proof that the card or reader is healthy. If you use Device Manager, note the device and current result before removing or changing anything.</p>
+
+    <h3>6. Repair the Steam library path only after the drive is stable</h3>
+    <p>If the card reliably appears in File Explorer but installed games are absent, open Steam’s storage settings and verify the expected drive and library folder. A changed drive letter can break the remembered path even when the files remain intact. Add or repair the library location only after confirming the folder contents.</p>
+    <p>Test one small game before starting a large download. The card should remain mounted through a restart and complete a small-file copy and readback without errors before you trust it with a library.</p>
+
+    <h3>7. Format only a blank or fully backed-up card</h3>
+    <p>Formatting is reasonable only when the card is new with no needed data, or every important file has already been copied and verified. Unplug unrelated external drives, identify the card by capacity, and stop if there is any uncertainty. After formatting, copy a small test file, read it back, restart, and then install one small game before moving a large library.</p>
+
+    <h2>Symptoms and the next useful isolation check</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>What it establishes</th><th>Next useful check</th></tr></thead>
+      <tbody>
+        <tr><td>Card appears after reboot, then vanishes</td><td>Intermittent detection or software state</td><td>Cross-test cards, inspect fit, record update state, and avoid active-use removal</td></tr>
+        <tr><td>Drive appears but Steam games do not</td><td>Basic Windows mount works</td><td>Verify Steam Storage, drive letter, library folder, and actual files</td></tr>
+        <tr><td>Windows asks to format</td><td>The existing volume is not readable normally</td><td>Cancel if files matter; test and back up or recover elsewhere</td></tr>
+        <tr><td>Another computer reads it normally</td><td>The card may still be recoverable</td><td>Copy important files immediately, then diagnose the Legion Go path</td></tr>
+        <tr><td>Copy errors or corrupt files appear</td><td>The storage path is unstable</td><td>Stop installs and prioritize irreplaceable-file recovery</td></tr>
+        <tr><td>No known-good card is detected</td><td>The built-in path needs escalation</td><td>Document model, firmware, driver, and cross-test results for Lenovo support</td></tr>
+      </tbody>
+    </table>
+
+    <h2>What not to do</h2>
+    <ul>
+      <li><strong>Do not format as a detection test.</strong> It is destructive and does not repair failing flash or reader hardware.</li>
+      <li><strong>Do not initialize an unknown disk reflexively.</strong> Internal, removable, and dock storage can all appear in Disk Management.</li>
+      <li><strong>Do not remove the card during writes.</strong> Close games, launchers, downloads, transfers, and indexing first.</li>
+      <li><strong>Do not install unverified driver bundles.</strong> Use Windows Update and official Lenovo support for the exact model.</li>
+      <li><strong>Do not repeatedly install test games on unstable storage.</strong> Preserve unique files before creating more writes.</li>
+      <li><strong>Do not assume advertised capacity proves authenticity.</strong> Seller, warranty, return path, and full-capacity verification matter.</li>
+    </ul>
+
+    <h2>Diagnostic or replacement gear only after isolation</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow. They are not hands-on endorsements, current prices, or guarantees that every result is genuine or compatible. Handheld Settings Lab appends an Associates tag only when a real tag is configured.</p>
+    <div class="shopping-grid">
+      {shoppingLinks.map(link => (
+        <a class="shopping-card" href={link.href} target="_blank" rel="nofollow sponsored" data-affiliate-link data-category={link.category}>
+          <span>Sponsored search</span>
+          <h3>{link.label}</h3>
+          <p>A separate reader helps isolate the card. For replacement storage, compare capacity, interface labels, seller, warranty, return policy, and authenticity checks.</p>
+        </a>
+      ))}
+    </div>
+    <p>Plan the replacement library with the <a href="/calculators/storage-planner/">storage planner</a>, compare card classes in the <a href="/gear/microsd-cards/">microSD gear guide</a>, review <a href="/guides/microsd-vs-ssd-handheld-pc/">microSD versus internal SSD</a>, and visit the <a href="/legion-go-settings/">Legion Go settings hub</a> only after storage is stable.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and method</h2>
+    <p>The Lenovo Legion Go 8APU1 PSREF PDF and Microsoft Disk Management and Device Manager pages were fetched successfully on September 1, 2026. Lenovo establishes the original model’s UHS-I reader, SD/SDHC/SDXC support, and stated capacity limit. Microsoft documents the Windows disk, volume, and official driver-update tools. The SD Association page is linked for standards terminology; its anti-bot response blocked the automated fetch during this run, so no unsupported detail from that page is asserted. The preservation-first sequence is conservative editorial guidance; no personal hardware test, failure rate, recovery guarantee, or search volume is claimed.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+  </article>
+</Base>
+
+<style>
+  .legion-sd-guide { padding-top: 56px; padding-bottom: 72px; }
+  .warning { border-color: rgba(255,204,102,.48); background: #18130b; }
+  .checklist li { margin-bottom: 12px; }
+  .signal-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 14px; margin: 24px 0 38px; }
+  .signal-grid section { padding: 20px; border: 1px solid rgba(77,227,255,.25); border-top: 4px solid #4de3ff; border-radius: 14px; background: #0d151b; }
+  .signal-grid span { color: #4de3ff; font-size: .76rem; font-weight: 950; letter-spacing: .1em; }
+  .signal-grid h3 { margin: 9px 0 7px; font-size: 1rem; }
+  .signal-grid p { margin: 0; color: #c0c9d5; font-size: .9rem; }
+  .shopping-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; margin: 22px 0; }
+  .shopping-card { padding: 20px; border: 1px solid rgba(184,255,77,.27); border-radius: 14px; background: #10150f; text-decoration: none; }
+  .shopping-card:hover { border-color: #b8ff4d; transform: translateY(-2px); }
+  .shopping-card span { color: #b8ff4d; font-size: .72rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+  .shopping-card h3 { margin: 9px 0 7px; color: #fff; font-size: 1rem; }
+  .shopping-card p { margin: 0; color: #b9c3d1; font-size: .88rem; }
+  @media (max-width: 900px) { .signal-grid, .shopping-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+  @media (max-width: 620px) { .signal-grid, .shopping-grid { grid-template-columns: 1fr; } }
+</style>
