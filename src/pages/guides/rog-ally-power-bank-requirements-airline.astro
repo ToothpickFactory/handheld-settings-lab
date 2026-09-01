@@ -1,0 +1,190 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/rog-ally-power-bank-requirements-airline/';
+const title = 'ROG Ally power bank requirements and airline rules — Handheld Settings Lab';
+const description = 'Choose a power bank for the original ROG Ally by 65W single-port USB-C PD output and watt-hours, then verify cable, carry-on, and 100Wh flight rules.';
+
+const sources = [
+  { label: 'ASUS: ROG Ally (2023) official specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-2023/spec/' },
+  { label: 'USB-IF: USB Power Delivery overview', url: 'https://www.usb.org/usb-charger-pd' },
+  { label: 'FAA PackSafe: portable electronic devices and spare batteries', url: 'https://www.faa.gov/hazmat/packsafe/lithium-batteries' },
+  { label: 'TSA: power banks', url: 'https://www.tsa.gov/travel/security-screening/whatcanibring/items/power-banks' }
+];
+
+const shoppingLinks = [
+  { label: '65W-or-higher USB-C PD power banks', href: 'https://www.amazon.com/s?k=65w+usb+c+pd+power+bank+rog+ally', category: 'power-banks' },
+  { label: 'Power banks under 100Wh with printed Wh rating', href: 'https://www.amazon.com/s?k=65w+usb+c+pd+power+bank+under+100wh', category: 'power-banks' },
+  { label: '100W USB-C cables with e-marker', href: 'https://www.amazon.com/s?k=100w+usb+c+cable+e-marker', category: 'usb-c-cables-adapters' },
+  { label: '65W USB-C PD wall chargers for ROG Ally', href: 'https://www.amazon.com/s?k=65w+usb+c+pd+charger+rog+ally', category: 'chargers' }
+];
+
+const faqs = [
+  {
+    question: 'How many watts should a power bank provide for the original ROG Ally?',
+    answer: 'Use 65W from one USB-C Power Delivery port as the spec-matched baseline. ASUS lists a 65W adapter for the 2023 ROG Ally. A bank advertised as 65W total may provide less from an individual port or when another device is connected, so read its port-allocation table.'
+  },
+  {
+    question: 'Can a 100W power bank charge the ROG Ally?',
+    answer: 'A standards-compliant USB-C Power Delivery bank with a higher maximum can be suitable because the source and device negotiate power. The larger rating does not force 100W into the Ally or guarantee faster charging. Verify that the exact USB-C output supports at least the Ally’s 65W class and use a properly rated cable.'
+  },
+  {
+    question: 'Can an ROG Ally power bank go on a plane?',
+    answer: 'For U.S. travel, FAA and TSA guidance says power banks belong in carry-on baggage, not checked baggage. Ordinary spare lithium-ion batteries are limited to 100Wh; 101–160Wh batteries require airline approval and have additional limits. Check the printed Wh rating plus current airline and destination rules.'
+  },
+  {
+    question: 'Is a 20,000mAh power bank under 100Wh?',
+    answer: 'Do not decide from mAh alone because watt-hours also depend on the battery’s rated voltage. Use the manufacturer’s printed Wh value. If only reliable rated voltage and capacity are provided, Wh equals Ah multiplied by volts, but the physical label and current carrier rules are the travel check.'
+  },
+  {
+    question: 'Why does my ROG Ally lose battery while connected to a power bank?',
+    answer: 'The selected port may not supply 65W-class USB-C PD, the cable may limit negotiation, another device may be dividing output, or the game’s total load may exceed incoming power. Test the bank directly with one known-good rated cable, disconnect other loads, and compare against the official ASUS adapter.'
+  },
+  {
+    question: 'How many extra hours will a power bank add to the ROG Ally?',
+    answer: 'There is no honest fixed answer without measuring the exact game, power profile, frame cap, screen brightness, radios, battery state, and conversion losses. Use watt-hours and observed total system draw to plan a range, then test the complete setup before travel.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'ROG Ally power bank requirements and airline rules',
+    description,
+    url: canonicalUrl,
+    datePublished: '2026-09-01',
+    dateModified: '2026-09-01',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['ROG Ally', 'USB-C Power Delivery', 'power banks', '65W charging', 'airline battery rules']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'ROG Ally power bank requirements', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Original ROG Ally power guide</span>
+    <h1>ROG Ally power bank requirements: 65W USB-C PD and airline rules</h1>
+    <p class="muted">This guide covers the original 2023 ROG Ally, not the 80Wh ROG Ally X. It uses ASUS’s published 65W adapter and 40Wh internal-battery specifications as planning inputs. It is not a hands-on battery-bank test, runtime benchmark, airline approval, or guarantee that a marketplace result supports the required charging profile.</p>
+    <p class="affiliate-note">Disclosure: shopping cards are broad Amazon searches marked sponsored/nofollow. They are not product endorsements, live prices, or fit guarantees. Handheld Settings Lab appends an Associates tag only when a real tag is configured.</p>
+
+    <div class="callout"><strong>Fast answer:</strong> choose a bank that supplies at least <strong>65W from one USB-C Power Delivery output</strong>, pair it with a cable rated for that power, and check the bank’s printed watt-hour value. For the simplest U.S. flight case, keep it at or below <strong>100Wh</strong> and in carry-on baggage.</div>
+
+    <h2>ROG Ally power bank checklist</h2>
+    <table>
+      <thead><tr><th>Check</th><th>Baseline</th><th>Where to verify</th><th>Common mistake</th></tr></thead>
+      <tbody>
+        <tr><td>USB-C output</td><td>65W or higher from one PD port</td><td>Bank output table/manual</td><td>Reading only combined output</td></tr>
+        <tr><td>Cable</td><td>USB-C to USB-C rated for the negotiated power</td><td>Cable specification/marking</td><td>Using an unmarked phone cable</td></tr>
+        <tr><td>Stored energy</td><td>Choose by Wh for runtime planning</td><td>Label on the bank body</td><td>Comparing only mAh</td></tr>
+        <tr><td>U.S. flight handling</td><td>Carry-on; 100Wh or less is the simplest ordinary case</td><td>FAA, TSA, airline</td><td>Putting the bank in checked baggage</td></tr>
+        <tr><td>Real setup</td><td>Bank → cable → Ally, tested under load</td><td>Your complete travel kit</td><td>Testing only a phone or idle desktop</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Why 65W is the useful starting point</h2>
+    <p>ASUS lists the 2023 ROG Ally with a <strong>65W Type-C adapter</strong> and a <strong>40Wh battery</strong>. The adapter specification gives a defensible charging baseline; it does not mean the Ally continuously consumes 65W. Actual draw changes with the operating mode, game, frame target, brightness, charging state, updates, and attached devices.</p>
+    <p>USB Power Delivery is negotiated between the source and device. A reputable 100W source can serve a 65W-class device, but only when the relevant USB-C port and cable support the needed profile. Conversely, a power bank whose listing says “65W total” can fall short if that figure is divided across several outputs.</p>
+    <div class="grid cols2">
+      <section class="card">
+        <span class="chip">Direct handheld use</span>
+        <h3>Prove one 65W-class output</h3>
+        <p>Use the bank’s documented USB-C PD output, disconnect every other device, and connect directly to the Ally with a known-good rated cable.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Docked use</span>
+        <h3>Allow for dock overhead</h3>
+        <p>A dock and attached USB devices use part of the incoming power. A higher-capacity source may be practical, but check the dock’s input and host pass-through rather than assuming the Ally receives the label maximum.</p>
+      </section>
+    </div>
+
+    <h2>Watts, watt-hours, and milliamp-hours are different</h2>
+    <ul>
+      <li><strong>Watts (W)</strong> describe power delivery. For this guide, 65W from one USB-C PD output is the compatibility baseline.</li>
+      <li><strong>Watt-hours (Wh)</strong> describe stored energy. They are useful for runtime planning and are the unit used in FAA spare-battery limits.</li>
+      <li><strong>Milliamp-hours (mAh)</strong> cannot be compared fairly without the rated voltage. A larger mAh headline does not prove higher USB-C output or airline eligibility.</li>
+    </ul>
+    <p>When a manufacturer provides rated capacity and voltage, the conversion is <strong>Wh = Ah × V</strong>. For example, 20,000mAh is 20Ah, but its Wh value depends on the rated voltage used for that capacity. For travel, prefer a power bank with a clear, durable Wh label rather than relying on your own conversion from a marketplace title.</p>
+
+    <h2>Runtime: plan a range instead of promising extra hours</h2>
+    <p>ASUS’s 40Wh internal-battery figure is useful context, but a bank’s labeled Wh does not transfer into the Ally without losses. Conversion, heat, cable resistance, battery-management overhead, and simultaneous play all reduce usable energy. The game and power profile determine how quickly that energy is consumed.</p>
+    <ol>
+      <li>Charge the Ally and bank, then test the exact game, operating mode, frame cap, brightness, and cable planned for the trip.</li>
+      <li>Observe total system draw where reliable telemetry is available; do not substitute the APU power limit for whole-device draw.</li>
+      <li>Use the <a href="/calculators/battery-estimator/">battery estimator</a> to model a conservative range with a safety buffer.</li>
+      <li>Repeat under travel-like conditions before relying on the result. Battery age and temperature can change the outcome.</li>
+    </ol>
+
+    <h2>U.S. airline rules for an ROG Ally power bank</h2>
+    <p>FAA PackSafe and TSA guidance treat a power bank as a spare lithium battery. It must remain in <strong>carry-on baggage</strong>, with terminals protected from short circuit. If a carry-on is gate-checked, remove the power bank and keep it in the cabin. Do not travel with a damaged, swollen, recalled, punctured, or overheating battery.</p>
+    <table>
+      <thead><tr><th>Printed battery rating</th><th>General U.S. passenger guidance</th><th>Action before travel</th></tr></thead>
+      <tbody>
+        <tr><td>100Wh or less</td><td>Ordinary spare-battery range; carry-on only</td><td>Confirm the label, protect terminals, and check the airline</td></tr>
+        <tr><td>101–160Wh</td><td>Airline approval required; additional quantity limits apply</td><td>Get explicit carrier approval before arriving</td></tr>
+        <tr><td>Over 160Wh</td><td>Not permitted as an ordinary passenger spare battery</td><td>Do not pack it under ordinary passenger rules</td></tr>
+      </tbody>
+    </table>
+    <p>These are U.S. references, not worldwide approval. Airlines, connecting countries, and destination authorities may apply additional or newer rules. Recheck all of them for the actual itinerary.</p>
+
+    <h2>If the Ally reports slow charging or still drains</h2>
+    <ol>
+      <li><strong>Remove the dock.</strong> Connect the bank directly to the Ally so display adapters and USB devices cannot consume or interrupt power.</li>
+      <li><strong>Use the correct port.</strong> Some banks have only one high-output USB-C port; another USB-C or USB-A port may provide much less.</li>
+      <li><strong>Disconnect other loads.</strong> Multi-port banks often redistribute output as soon as a phone, tablet, or second cable is connected.</li>
+      <li><strong>Swap one known-good cable.</strong> Use a USB-C to USB-C cable documented for at least the intended power. Avoid chains of extensions and rigid adapters.</li>
+      <li><strong>Compare with the ASUS adapter.</strong> If the official adapter works and the bank does not, the bank, selected port, cable, state of charge, or temperature is the next branch.</li>
+      <li><strong>Reduce load only as a diagnostic.</strong> Lower the operating mode and frame target to see whether discharge slows; do not treat that as proof the bank meets the charging specification.</li>
+    </ol>
+    <p>Continue with the <a href="/guides/usb-c-cable-wattage-handheld-gaming/">USB-C cable wattage guide</a>, <a href="/guides/usb-c-wall-charger-wattage-handheld-gaming/">wall-charger guide</a>, and <a href="/guides/rog-ally-dock-tv-monitor-setup/">ROG Ally dock setup guide</a>.</p>
+
+    <h2>Spec-based shopping starting points</h2>
+    <p>No product is called “best,” no current price or availability is asserted, and no hands-on test is implied. Filter by published single-port output, printed Wh, cable specification, seller, warranty, and return policy.</p>
+    <div class="grid cols2">
+      {shoppingLinks.map(link => (
+        <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored" data-affiliate-link data-category={link.category}>
+          <span class="chip">Sponsored search</span>
+          <h3>{link.label}</h3>
+          <p class="muted">Verify 65W-class output on the exact port, a clear Wh label, model revision, cable requirement, and current travel rules.</p>
+        </a>
+      ))}
+    </div>
+    <p>For category-level checks, use the <a href="/gear/power-banks/">power-bank gear guide</a> and <a href="/gear/usb-c-cables-adapters/">USB-C cable and adapter guide</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Sources and method</h2>
+    <p>The public pages below were fetched successfully on September 1, 2026. ASUS supplied the original ROG Ally’s 65W adapter and 40Wh battery specifications. USB-IF supplied general USB Power Delivery context. FAA and TSA supplied current U.S. carry-on and spare-battery guidance. The selection and troubleshooting order is conservative, source-informed editorial guidance; no bank was personally tested, no runtime was fabricated, and autocomplete evidence is not represented as search volume.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+
+    <div class="callout"><strong>Finish the setup:</strong> use the <a href="/rog-ally-settings/">ROG Ally game-settings hub</a> to lower unnecessary draw game by game, and keep the <a href="/calculators/battery-estimator/">battery estimator</a> labeled as a planning model rather than a benchmark.</div>
+  </article>
+</Base>
