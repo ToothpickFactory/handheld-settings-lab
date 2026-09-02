@@ -1,0 +1,254 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/legion-go-ssd-size-compatibility-upgrade/';
+const title = 'Legion Go SSD size and compatibility: M.2 2242 upgrade guide — Handheld Settings Lab';
+const description = 'Match an M.2 2242 PCIe 4.0 NVMe SSD to the original Legion Go, understand Lenovo’s documented 1TB support, and plan backup or recovery safely.';
+
+const sources = [
+  {
+    label: 'Lenovo PSREF: Legion Go 8APU1 product specifications (PDF)',
+    url: 'https://psref.lenovo.com/syspool/Sys/PDF/Legion/Legion_Go_8APU1/Legion_Go_8APU1_Spec.pdf'
+  },
+  {
+    label: 'Lenovo PSREF: Legion Go 8APU1 product page',
+    url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1'
+  },
+  {
+    label: 'Microsoft Support: Back up and restore with Windows Backup',
+    url: 'https://support.microsoft.com/en-us/windows/experience/backup-recovery/back-up-and-restore-with-windows-backup'
+  },
+  {
+    label: 'Microsoft Support: Recovery options in Windows',
+    url: 'https://support.microsoft.com/en-us/windows/experience/backup-recovery/recovery-options-in-windows'
+  }
+];
+
+const shoppingLinks = [
+  {
+    label: 'M.2 2242 PCIe 4.0 NVMe SSDs',
+    href: 'https://www.amazon.com/s?k=m.2+2242+pcie+4.0+nvme+ssd',
+    category: 'ssds'
+  },
+  {
+    label: 'USB-C NVMe enclosures for cloning or reuse',
+    href: 'https://www.amazon.com/s?k=usb+c+nvme+ssd+enclosure',
+    category: 'ssds'
+  },
+  {
+    label: 'Precision electronics screwdriver kits',
+    href: 'https://www.amazon.com/s?k=precision+electronics+screwdriver+kit',
+    category: 'accessories'
+  }
+];
+
+const faqs = [
+  {
+    question: 'What SSD size fits the original Lenovo Legion Go?',
+    answer: 'Lenovo’s Legion Go 8APU1 specification documents one M.2 2242 PCIe 4.0 x4 slot. Shop by the complete interface and form-factor description—M.2 2242 PCIe NVMe—not capacity alone.'
+  },
+  {
+    question: 'Can I install an M.2 2230 SSD in a Legion Go?',
+    answer: 'A 2230 drive is physically shorter than the documented 2242 device. Do not assume it is retained correctly without a purpose-built, model-specific adapter and installation method. An adapted drive adds fit, fastening, thermal, and service variables that are absent when using the documented 2242 form factor.'
+  },
+  {
+    question: 'Can I install an M.2 2280 SSD in the original Legion Go?',
+    answer: 'The original Legion Go 8APU1 PSREF documents a 2242 slot, not a 2280 slot. A 2280 drive is substantially longer. Avoid flex cables, cut shells, loose drives, or improvised mounting; choose a native 2242 drive unless a qualified repair source documents a safe model-specific conversion.'
+  },
+  {
+    question: 'Does Legion Go support a 2TB SSD?',
+    answer: 'Lenovo’s January 22, 2025 PSREF says one drive up to 1TB and explains that this support figure is based on its current storage offerings and tests. A larger retail drive may exist, but it is outside that documented support statement. Verify firmware reports, physical construction, thermals, return policy, and recent exact-model compatibility before treating a larger capacity as supported.'
+  },
+  {
+    question: 'Is PCIe 4.0 required for a Legion Go replacement SSD?',
+    answer: 'Lenovo documents a PCIe 4.0 x4 slot and PCIe 4.0 NVMe factory offerings. A drive label’s peak speed is not a promise of real game-load performance. Prioritize the correct 2242 NVMe form factor, reasonable power and thermal behavior, warranty, and exact-model compatibility over the largest advertised benchmark number.'
+  },
+  {
+    question: 'Should I clone the original SSD or reinstall Windows?',
+    answer: 'Either can be reasonable if you prepare first. Cloning preserves the current installation but needs a compatible enclosure and enough destination space. A clean recovery avoids copying old clutter but requires a tested recovery path, account access, drivers, game saves, and time to reinstall. Back up irreplaceable files separately in both cases.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Legion Go SSD size and compatibility: M.2 2242 upgrade guide',
+    description,
+    url: canonicalUrl,
+    datePublished: '2026-09-02',
+    dateModified: '2026-09-02',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Lenovo Legion Go', 'M.2 2242 SSD', 'PCIe 4.0 NVMe', 'SSD compatibility', 'Windows recovery']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'Legion Go SSD size and compatibility', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <article class="wrap article legion-ssd-guide">
+    <span class="eyebrow">Original Legion Go 8APU1 · storage compatibility</span>
+    <h1>Legion Go SSD size and compatibility: M.2 2242 upgrade guide</h1>
+    <p class="lede muted">The original Legion Go does not use the same native SSD length as every other handheld. Start with Lenovo’s documented M.2 2242 slot, then decide whether an internal replacement is worth the recovery work.</p>
+
+    <div class="scope-warning">
+      <strong>Scope and testing disclosure</strong>
+      <p>This is a specification-based buying and preparation guide for the original <strong>Legion Go 8APU1</strong>, not a hands-on teardown or a benchmark. It does not cover Legion Go S models. Confirm the machine type and current Lenovo service information before opening your device.</p>
+    </div>
+
+    <h2>The short answer: buy for M.2 2242 PCIe NVMe</h2>
+    <div class="spec-grid" aria-label="Legion Go SSD compatibility summary">
+      <section class="spec-card">
+        <span>Native form factor</span>
+        <strong>M.2 2242</strong>
+        <p>22mm wide and 42mm long. Match the length and mounting position, not only the M.2 connector.</p>
+      </section>
+      <section class="spec-card">
+        <span>Documented interface</span>
+        <strong>PCIe 4.0 x4 NVMe</strong>
+        <p>Lenovo lists one PCIe 4.0 x4 slot and PCIe 4.0 NVMe factory configurations.</p>
+      </section>
+      <section class="spec-card">
+        <span>Official offering ceiling</span>
+        <strong>Up to 1TB</strong>
+        <p>Lenovo says this support figure reflects its current tested storage offerings—not every third-party drive on the market.</p>
+      </section>
+    </div>
+
+    <p>The Lenovo PSREF dated January 22, 2025 lists one M.2 2242 PCIe 4.0 x4 slot with 256GB, 512GB, and 1TB PCIe 4.0 NVMe offerings. That is the cleanest compatibility baseline. A listing that says only “M.2 SSD” or “PCIe 4.0” is incomplete because M.2 cards come in different lengths and can use different interfaces.</p>
+
+    <h2>2242 vs 2230 vs 2280</h2>
+    <div class="size-table-wrap">
+      <table class="size-table">
+        <thead>
+          <tr><th>Form factor</th><th>Physical length</th><th>Original Legion Go fit</th><th>Buying guidance</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>M.2 2230</strong></td><td>30mm</td><td>Shorter than Lenovo’s documented device</td><td>Do not count on an unsupported loose fit. Any adapter must retain the drive securely without stressing nearby parts.</td></tr>
+          <tr class="recommended"><td><strong>M.2 2242</strong></td><td>42mm</td><td>Documented native form factor</td><td>Use this as the default search filter, then verify NVMe/PCIe interface and exact model construction.</td></tr>
+          <tr><td><strong>M.2 2280</strong></td><td>80mm</td><td>Longer than the documented slot</td><td>Do not improvise a flex cable, shell cut, or unrestrained installation. It is not the native replacement size.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>The four digits describe width and length in millimeters: 2242 means roughly 22mm × 42mm. They do not describe capacity or speed. Likewise, “NVMe” describes the storage protocol; it does not tell you whether the board is short enough to mount correctly.</p>
+
+    <h2>How to interpret Lenovo’s 1TB support statement</h2>
+    <p>Lenovo’s PSREF says “one drive, up to 1TB M.2 2242 SSD,” then notes that supported capacity is based on test results with current Lenovo storage offerings. Read those two lines together. One terabyte is the official documented ceiling for those offerings, while third-party sellers may advertise larger 2242 drives that Lenovo did not include in that statement.</p>
+    <p>A capacity above 1TB is therefore not automatically proven incompatible, but it is also not responsible to call it officially supported from this source. For an out-of-specification capacity, verify all of the following before buying:</p>
+    <ul>
+      <li>the exact retail model is <strong>single-sided or otherwise physically compatible</strong> with the available clearance;</li>
+      <li>the drive is M.2 2242 PCIe NVMe, not a similarly named SATA or WWAN module;</li>
+      <li>recent owners identify the same original Legion Go model and firmware—not a Legion Go S or another handheld;</li>
+      <li>the seller has a useful return policy and the manufacturer offers a real warranty;</li>
+      <li>power draw and heat are reasonable for a compact handheld enclosure;</li>
+      <li>you have a recovery path if the drive is not detected or the cloned installation does not boot.</li>
+    </ul>
+
+    <h2>Capacity planning before opening the handheld</h2>
+    <p>Do not upgrade only because the remaining-space number looks small today. Add the games you actually rotate, leave room for Windows and game updates, and preserve working headroom. The <a href="/calculators/storage-planner/">handheld storage planner</a> lets you compare that library with 512GB, 1TB, and larger scenarios without presenting nominal capacity as fully usable space.</p>
+    <div class="grid cols2">
+      <section class="card"><h3>microSD may be enough</h3><p>The PSREF also documents a microSD card reader. A card can be the lower-risk route for a rotating game library because it does not require opening the device or replacing Windows storage. Compare <a href="/gear/microsd-cards/">microSD specifications</a> and use the <a href="/guides/legion-go-microsd-card-not-showing-up/">Legion Go microSD troubleshooting guide</a> if an existing card disappears.</p></section>
+      <section class="card"><h3>An internal SSD solves different problems</h3><p>Internal storage is preferable for the OS, applications, and workloads that benefit from the native NVMe path. It also avoids a protruding external drive, but replacement adds opening, backup, cloning or recovery, thermal, and warranty decisions.</p></section>
+    </div>
+
+    <h2>Clone or recover: choose before removing the original drive</h2>
+    <div class="grid cols2">
+      <section class="card">
+        <span class="chip">Path A</span>
+        <h3>Clone the existing installation</h3>
+        <p>Use a compatible NVMe enclosure and reputable cloning software, verify the destination capacity, and keep the original drive untouched until the replacement boots and your files open. Encryption or device-encryption recovery keys must be accessible before hardware changes.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Path B</span>
+        <h3>Use a clean recovery path</h3>
+        <p>Prepare installation or OEM recovery media and confirm how you will restore Legion drivers and utilities. Microsoft documents Windows recovery choices, but manufacturer-specific recovery details can change, so verify Lenovo’s current exact-model instructions before erasing anything.</p>
+      </section>
+    </div>
+    <p>Windows Backup can preserve supported account-linked settings and selected folders, but it is not a substitute for checking local saves, third-party launcher data, screenshots, mods, authenticator recovery, and files outside synced folders. Cloud game saves also deserve a manual last-sync check.</p>
+
+    <h2>Pre-upgrade checklist</h2>
+    <ol>
+      <li><strong>Identify the exact device.</strong> Confirm original Legion Go 8APU1 rather than assuming advice transfers to a Legion Go S.</li>
+      <li><strong>Record the current storage state.</strong> Save drive capacity, used space, partitions, Windows edition, BIOS version, and any encryption status.</li>
+      <li><strong>Back up irreplaceable data.</strong> Keep a separate copy that does not depend on the SSD you are about to remove.</li>
+      <li><strong>Save recovery credentials.</strong> Confirm Microsoft account access, device-encryption or BitLocker recovery keys, game-launcher logins, and Wi-Fi credentials.</li>
+      <li><strong>Prepare the complete recovery path.</strong> Do not remove the original SSD before recovery or cloning media has been created and checked.</li>
+      <li><strong>Inspect the replacement label.</strong> Confirm M.2 2242, PCIe NVMe, capacity, warranty, and the exact manufacturer part number.</li>
+      <li><strong>Use current service instructions.</strong> Power down fully, disconnect accessories, control static, organize screws, and follow Lenovo’s latest model-specific opening and battery-disconnection sequence.</li>
+      <li><strong>Keep the original drive.</strong> It is your most direct rollback path until the new installation has survived updates, sleep/wake, restarts, storage checks, and real game launches.</li>
+    </ol>
+
+    <h2>What to check after the replacement</h2>
+    <ul>
+      <li>Firmware and Windows detect the expected drive model and capacity.</li>
+      <li>Windows Update, Lenovo software, controller input, audio, Wi-Fi, sleep, and charging behave normally.</li>
+      <li>Device Manager does not show unexplained errors.</li>
+      <li>Several cold boots and sleep/wake cycles complete without storage errors.</li>
+      <li>Large installs and game launches do not produce disconnects, corruption warnings, or unusual heat behavior.</li>
+      <li>The old SSD remains unmodified until important files and saves are verified.</li>
+    </ul>
+    <p>A synthetic peak speed is not the only acceptance test. Stable detection, safe temperatures, low idle behavior, clean sleep/wake, and reliable installs matter more in a handheld than winning a short benchmark.</p>
+
+    <h2>Spec-based shopping paths</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not named-product endorsements, price claims, or hands-on test results. The site adds an Associates tag only when a real tag is configured. Verify every listing against the compatibility checklist above.</p>
+    <div class="grid cols3">
+      {shoppingLinks.map(link => (
+        <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored" data-affiliate-link data-category={link.category}>
+          <span class="chip">Sponsored search</span>
+          <h3>{link.label}</h3>
+          <p class="muted">Confirm exact dimensions, interface, included parts, warranty, return terms, and recent exact-device reports before buying.</p>
+        </a>
+      ))}
+    </div>
+    <p>For a broader product-family comparison, use the <a href="/gear/nvme-ssds/">NVMe SSD gear guide</a>. If an external enclosure is part of the plan, read the <a href="/guides/external-ssd-enclosure-handheld-gaming-pc-checklist/">USB-C NVMe enclosure checklist</a> before assuming one enclosure supports every key type or drive length.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>The Lenovo PSREF PDF and product page were fetched on September 2, 2026. The PDF identifies the original Legion Go 8APU1, one M.2 2242 PCIe 4.0 x4 slot, 256GB/512GB/1TB PCIe 4.0 NVMe offerings, and a microSD reader. Its footnote says the stated storage-capacity support is based on tests with current Lenovo offerings. Microsoft’s Windows Backup and recovery pages were checked for the preparation sections.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+    <p>No drive was installed or benchmarked for this article. No third-party capacity is described as officially supported, no manufacturer warranty outcome is promised, and no autocomplete query is presented as search volume.</p>
+
+    <div class="callout"><strong>Plan the whole setup:</strong> visit the <a href="/legion-go-settings/">Legion Go settings hub</a>, calculate the library in the <a href="/calculators/storage-planner/">storage planner</a>, then decide whether microSD or a native 2242 SSD is the lower-risk upgrade.</div>
+  </article>
+</Base>
+
+<style>
+  .legion-ssd-guide { padding-top: 56px; padding-bottom: 72px; }
+  .scope-warning { margin: 28px 0; padding: 20px 22px; border: 1px solid rgba(255,184,77,.45); border-left: 5px solid #ffb84d; border-radius: 14px; background: #15130e; }
+  .scope-warning p { margin: 6px 0 0; color: #d6d0c2; }
+  .spec-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; margin: 22px 0; }
+  .spec-card { padding: 20px; border: 1px solid rgba(184,255,77,.28); border-radius: 14px; background: #10150d; }
+  .spec-card span { display: block; margin-bottom: 8px; color: #9aa6b8; font-size: .78rem; font-weight: 850; letter-spacing: .05em; text-transform: uppercase; }
+  .spec-card strong { color: #b8ff4d; font-size: 1.35rem; }
+  .spec-card p { margin: 10px 0 0; }
+  .size-table-wrap { overflow-x: auto; margin: 22px 0 30px; border: 1px solid rgba(255,255,255,.12); border-radius: 16px; }
+  .size-table { width: 100%; min-width: 760px; margin: 0; border-collapse: collapse; }
+  .size-table th { color: #b8ff4d; background: #111722; text-align: left; }
+  .size-table th, .size-table td { padding: 14px 16px; border-bottom: 1px solid rgba(255,255,255,.09); vertical-align: top; }
+  .size-table tbody tr:last-child td { border-bottom: 0; }
+  .size-table .recommended { background: rgba(184,255,77,.055); }
+  @media (max-width: 760px) { .spec-grid { grid-template-columns: 1fr; } }
+</style>
