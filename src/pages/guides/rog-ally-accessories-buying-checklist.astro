@@ -1,0 +1,243 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/rog-ally-accessories-buying-checklist/';
+const title = 'ROG Ally accessories checklist: original 2023 model — Handheld Settings Lab';
+const description = 'Choose accessories for the original 2023 ROG Ally by exact fit, 65W USB-C PD, 40Wh battery, UHS-II microSD, M.2 2230 storage, and dock needs.';
+
+const sources = [
+  { label: 'ASUS: ROG Ally (2023) official specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-2023/spec/' },
+  { label: 'USB-IF: USB Power Delivery overview', url: 'https://www.usb.org/usb-charger-pd' },
+  { label: 'SD Association: Application Performance Class', url: 'https://www.sdcard.org/developers/sd-standard-overview/application-performance-class/' },
+  { label: 'FAA PackSafe: lithium batteries and power banks', url: 'https://www.faa.gov/hazmat/packsafe/lithium-batteries' }
+];
+
+const shoppingLinks = [
+  { label: 'Cases for the original 2023 ROG Ally', href: 'https://www.amazon.com/s?k=original+rog+ally+2023+carrying+case+charger+storage', category: 'cases' },
+  { label: 'Screen protectors for the original ROG Ally', href: 'https://www.amazon.com/s?k=original+rog+ally+2023+screen+protector', category: 'screen-protectors' },
+  { label: '65W USB-C PD chargers for ROG Ally', href: 'https://www.amazon.com/s?k=65w+usb+c+pd+charger+rog+ally', category: 'chargers' },
+  { label: '100W USB-C cables with e-marker', href: 'https://www.amazon.com/s?k=100w+usb+c+cable+e-marker', category: 'usb-c-cables-adapters' },
+  { label: '65W USB-C PD power banks under 100Wh', href: 'https://www.amazon.com/s?k=65w+usb+c+pd+power+bank+under+100wh+rog+ally', category: 'power-banks' },
+  { label: 'ROG Ally docks with HDMI and Ethernet', href: 'https://www.amazon.com/s?k=original+rog+ally+dock+hdmi+ethernet+65w+pd', category: 'docks' },
+  { label: 'M.2 2230 NVMe SSDs for original ROG Ally', href: 'https://www.amazon.com/s?k=m.2+2230+nvme+ssd+rog+ally', category: 'nvme-ssds' },
+  { label: 'USB-C UHS-II microSD readers', href: 'https://www.amazon.com/s?k=usb+c+uhs-ii+microsd+card+reader', category: 'microsd-cards' }
+];
+
+const faqs = [
+  {
+    question: 'What accessories should I buy first for the original ROG Ally?',
+    answer: 'Start with an exact-fit case if the Ally will travel and keep the ASUS charger as the known-good 65W baseline. Add a spare charger, power bank, dock, screen protector, or storage only when your actual routine requires it. Buying a bundle before identifying the need creates more compatibility and troubleshooting variables.'
+  },
+  {
+    question: 'Do original ROG Ally and ROG Ally X accessories fit each other?',
+    answer: 'Do not assume they do. ASUS lists different thicknesses, weights, port layouts, battery capacities, and factory SSD form factors. A generic cable may serve both when its USB-C PD specification is suitable, but molded cases, grip shells, docks, screen protectors, and SSDs need exact-model checks.'
+  },
+  {
+    question: 'What charger wattage does the 2023 ROG Ally need?',
+    answer: 'ASUS lists a 65W Type-C adapter with 20V at 3.25A for the original ROG Ally. Use 65W from one USB-C Power Delivery output as the replacement baseline. A multi-port charger’s headline total can be divided when another device is connected.'
+  },
+  {
+    question: 'Can I use a Steam Deck dock with the original ROG Ally?',
+    answer: 'It may work electrically, but fit and full function are not guaranteed. Verify host-cable reach and orientation, cradle width, vent clearance, 65W-class power pass-through, display output, Ethernet, and the exact TV or monitor mode. The original Ally has one combined XG Mobile and USB-C port, so a poor cable route can be especially awkward.'
+  },
+  {
+    question: 'Should I buy a microSD card or an SSD for the original ROG Ally?',
+    answer: 'Use microSD when you want removable overflow without opening the handheld, but test card detection, capacity, and stability before installing a large library. Consider an internal SSD only when more space justifies backup, recovery, and disassembly. ASUS specifies an M.2 2230 NVMe factory drive for the original Ally—not the 2280 used by Ally X.'
+  },
+  {
+    question: 'Can an ROG Ally power bank go on a plane?',
+    answer: 'Under current U.S. FAA guidance, power banks must remain in carry-on baggage. Ordinary spare lithium-ion batteries are limited to 100Wh; 101–160Wh batteries require airline approval and have additional limits. Verify the printed Wh rating and current airline, connection, and destination rules.'
+  },
+  {
+    question: 'Will accessories improve ROG Ally FPS?',
+    answer: 'A case, dock, charger, microSD card, or cooling attachment is not a general frame-rate upgrade. Stable power and storage can prevent avoidable setup problems, but this guide has no measured evidence that an accessory raises FPS. Tune the game and operating mode after updates and charging are stable.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'ROG Ally accessories checklist for the original 2023 model',
+    description,
+    url: canonicalUrl,
+    datePublished: '2026-09-03',
+    dateModified: '2026-09-03',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['ROG Ally (2023)', 'handheld gaming accessories', 'USB-C Power Delivery', 'UHS-II microSD', 'M.2 2230 SSD', 'docks', 'power banks']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'Original ROG Ally accessories checklist', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <article class="wrap article ally-accessory-guide">
+    <span class="eyebrow">Original 2023 ROG Ally accessory guide</span>
+    <h1>ROG Ally accessories checklist: buy for the original model, not the Ally X</h1>
+    <p class="lede muted">This checklist is for the original 2023 ROG Ally. It starts with ASUS’s published 65W adapter, 40Wh battery, dimensions, one combined XG Mobile/USB-C port, UHS-II microSD reader, and M.2 2230 storage specification. It is a spec-based comparison—not a hands-on accessory test, fit guarantee, or performance benchmark.</p>
+    <p class="affiliate-note">Disclosure: shopping links are broad Amazon searches marked sponsored/nofollow. They are not product endorsements, live prices, or claims that every result fits. Handheld Settings Lab appends an Associates tag only when a real tag is configured.</p>
+
+    <div class="callout"><strong>Fast answer:</strong> protect a traveling Ally with an exact-model case and keep a known-good 65W USB-C PD charging path. Add a power bank only for outlet-free use, a dock only for a named display setup, and storage only after planning the library. Do not buy Ally X molded accessories or 2280 SSDs for the original Ally by mistake.</div>
+
+    <h2>Original ROG Ally accessory buying order</h2>
+    <table>
+      <thead><tr><th>Priority</th><th>Accessory</th><th>Buy it when</th><th>Specification to verify</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Exact-fit case</td><td>The Ally will leave home or share a bag</td><td>Original 2023 Ally fit, stick/trigger clearance, separated charger storage</td></tr>
+        <tr><td>2</td><td>Spare charger and cable</td><td>You need a second desk or travel charging path</td><td>65W from one USB-C PD port; suitably rated cable</td></tr>
+        <tr><td>3</td><td>Screen protector</td><td>Your use creates a real scratch or impact risk</td><td>Original Ally seven-inch cut and chosen clear/matte finish</td></tr>
+        <tr><td>4</td><td>Power bank</td><td>You regularly play away from outlets</td><td>65W-class single-port PD, printed Wh label, travel rules</td></tr>
+        <tr><td>5</td><td>Dock or hub</td><td>You own a target TV, monitor, Ethernet run, or USB peripherals</td><td>Host-cable reach, physical support, display output, PD pass-through</td></tr>
+        <tr><td>6</td><td>microSD or M.2 2230 SSD</td><td>Your active library no longer fits with update headroom</td><td>Tested card path or exact 2230 NVMe fit plus recovery plan</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Model check: original ROG Ally versus Ally X</h2>
+    <p>“Fits ROG Ally” is not precise enough for molded or internal products. Record the exact model before shopping, especially when a marketplace listing combines the two devices in one title.</p>
+    <table>
+      <thead><tr><th>Specification</th><th>Original ROG Ally (2023)</th><th>Why an accessory buyer cares</th></tr></thead>
+      <tbody>
+        <tr><td>Dimensions</td><td>28.0 × 11.1 × 2.12–3.24 cm</td><td>Case, grip, cradle, and screen-cover fit</td></tr>
+        <tr><td>Weight</td><td>608 g</td><td>Total travel-kit weight and stand stability</td></tr>
+        <tr><td>Battery</td><td>40Wh</td><td>Runtime planning; not a charging-output specification</td></tr>
+        <tr><td>Power adapter</td><td>65W Type-C, 20V/3.25A</td><td>Replacement charger and power-bank baseline</td></tr>
+        <tr><td>Primary connection</td><td>One ROG XG Mobile/USB-C combo port with DisplayPort 1.4</td><td>Dock host-cable path and charging/peripheral contention</td></tr>
+        <tr><td>Factory storage</td><td>PCIe 4.0 NVMe M.2 2230 in ASUS’s listed configuration</td><td>Direct internal replacement form factor</td></tr>
+        <tr><td>Card reader</td><td>UHS-II microSD; SD, SDXC, and SDHC support</td><td>Removable-storage compatibility baseline</td></tr>
+      </tbody>
+    </table>
+    <p>The <a href="/guides/rog-ally-x-accessories-buying-checklist/">ROG Ally X accessory checklist</a> covers that newer model separately. A USB-C cable or charger can be cross-device gear when the published electrical requirements match, but do not transfer assumptions about cases, grips, cradles, port placement, or SSD length.</p>
+
+    <h2>1. Case: test stick clearance before packing hard gear</h2>
+    <p>ASUS lists the original Ally at <strong>28.0 × 11.1 × 2.12–3.24 cm</strong> and <strong>608 g</strong>. Dimensions can reject an obviously undersized bag, but a good fit also protects the controls. Prefer interior photos and an explicit original-2023-model claim over a generic “handheld PC” label.</p>
+    <ul>
+      <li><strong>Close it empty first:</strong> verify that the lid does not move either stick or hold a trigger down.</li>
+      <li><strong>Separate dense accessories:</strong> a power bank, dock, or charger should not move against the screen and controls.</li>
+      <li><strong>Retest after adding a grip:</strong> molded interiors may stop fitting when a shell or stick cap stays installed.</li>
+      <li><strong>Never operate in a closed case:</strong> remove the Ally before gaming, updating, downloading, or charging under load.</li>
+    </ul>
+    <p>Use the <a href="/guides/handheld-gaming-carrying-case-size-checklist/">carrying-case size checklist</a> and <a href="/gear/cases/">case gear guide</a> for packing-layout checks.</p>
+
+    <h2>2. Charger and cable: prove 65W on one USB-C PD output</h2>
+    <p>ASUS’s specification lists a <strong>65W Type-C adapter with 20V/3.25A output</strong>. Use that as the replacement baseline. “100W total” on a multi-port brick does not prove that the Ally receives 65W when a phone or laptop occupies another output.</p>
+    <div class="decision-grid">
+      <section><span>Desk spare</span><h3>65W single-port PD</h3><p>The simplest spec-matched replacement. Verify the output table, manufacturer, warranty, and cable instead of buying by connector shape.</p></section>
+      <section><span>Shared kit</span><h3>Higher-capacity multi-port</h3><p>Useful only when its allocation table still supplies at least 65W to the Ally in the exact two- or three-device arrangement.</p></section>
+      <section><span>Known-good baseline</span><h3>Keep the ASUS adapter available</h3><p>If a dock or bank behaves badly, direct connection with the official adapter helps isolate the accessory path before replacement.</p></section>
+    </div>
+    <p>USB-IF describes Power Delivery as negotiated power. A reputable higher-capacity source does not force its maximum into the Ally, but the chosen port and cable still need the required profile. Read the <a href="/guides/usb-c-wall-charger-wattage-handheld-gaming/">wall-charger wattage guide</a> and <a href="/guides/usb-c-cable-wattage-handheld-gaming/">USB-C cable checklist</a>.</p>
+
+    <h2>3. Screen protector: exact cut before finish</h2>
+    <p>ASUS lists a seven-inch 1920 × 1080 touch display with Gorilla Glass Victus, Gorilla Glass DXC coating, 120Hz refresh, and FreeSync Premium. A protector is optional damage mitigation, not a display or frame-rate upgrade.</p>
+    <ul>
+      <li>Confirm that the listing names the original ROG Ally and shows the cut rather than relying on “Ally/Ally X” in a broad title.</li>
+      <li>Choose clear or matte deliberately. An anti-glare layer can reduce reflections while also changing perceived sharpness, contrast, and touch feel.</li>
+      <li>Dry-fit with any shell installed so the shell does not lift the protector’s edge.</li>
+      <li>Use the <a href="/guides/handheld-gaming-screen-protector-checklist/">screen-protector checklist</a> before applying or stacking films.</li>
+    </ul>
+
+    <h2>4. Power bank: match output and flight capacity separately</h2>
+    <p>A suitable bank needs <strong>65W-class USB-C PD output from one port</strong>. Its <strong>watt-hour rating</strong> answers a different question: stored energy and an important airline limit. The Ally’s 40Wh internal battery does not mean a 40Wh external label delivers one full extra charge; conversion loss, heat, cable resistance, gameplay draw, and charging overhead all matter.</p>
+    <ol>
+      <li>Read the bank’s per-port output table and identify the exact 65W-or-higher USB-C PD output.</li>
+      <li>Use a suitably rated cable and disconnect second devices during the first test.</li>
+      <li>For U.S. travel, read the printed Wh label and keep the bank in carry-on baggage. FAA guidance places ordinary spare lithium-ion batteries at 100Wh or less; 101–160Wh requires airline approval and additional limits.</li>
+      <li>Do not travel with a swollen, punctured, recalled, leaking, damaged, or overheating bank.</li>
+      <li>Model a range with the <a href="/calculators/battery-estimator/">battery estimator</a>, then test the exact game and power profile. No fixed extra-runtime claim is made here.</li>
+    </ol>
+    <p>The dedicated <a href="/guides/rog-ally-power-bank-requirements-airline/">original ROG Ally power-bank and airline guide</a> covers watt-hours, port sharing, and slow-charging diagnosis.</p>
+
+    <h2>5. Dock: one host port makes cable routing important</h2>
+    <p>The original Ally specification lists one combined ROG XG Mobile and USB-C port with USB 3.2 Gen 2 and DisplayPort 1.4 support. A dock can add charging pass-through, display output, Ethernet, storage, and controller receivers, but every added feature shares one host path and adds a troubleshooting variable.</p>
+    <ol>
+      <li><strong>Start from the display:</strong> write down its input, intended resolution and refresh rate, HDR/VRR expectations, and cable type.</li>
+      <li><strong>Check physical support:</strong> confirm cradle width, vent clearance, cable orientation, and fit with any grip shell.</li>
+      <li><strong>Budget power:</strong> compare dock input and host pass-through. The dock and USB peripherals consume some incoming power.</li>
+      <li><strong>Buy only needed ports:</strong> Ethernet, card readers, extra displays, and multiple USB-A sockets are useful only when the setup uses them.</li>
+      <li><strong>Test before travel:</strong> connect the exact charger, dock, display cable, screen, controller, and storage at home.</li>
+    </ol>
+    <p>Follow the <a href="/guides/rog-ally-dock-tv-monitor-setup/">ROG Ally dock and TV setup guide</a> and central <a href="/gear/docks/">dock gear checklist</a> rather than assuming a Steam Deck-shaped cradle is a full Ally match.</p>
+
+    <h2>6. Storage: removable microSD or internal 2230 SSD</h2>
+    <p>ASUS lists a <strong>UHS-II microSD reader supporting SD, SDXC, and SDHC</strong> plus a <strong>PCIe 4.0 NVMe M.2 2230 SSD</strong> in its original-Ally configuration. These are two different upgrade paths.</p>
+    <div class="grid cols2">
+      <section class="card">
+        <span class="chip">Choose microSD when</span>
+        <h3>You want removable overflow</h3>
+        <p>No shell opening is required. Buy from a reputable seller, validate the reported capacity, preserve backups, and install one small game before trusting a large library. A2 is an application-performance class, not proof of authenticity or a specific load time.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Consider an SSD when</span>
+        <h3>The library justifies recovery work</h3>
+        <p>Match M.2 2230 NVMe—not Ally X’s 2280 form factor. Prepare local-file backup, cloud saves, BitLocker recovery information, and an ASUS recovery or cloning path before opening the device.</p>
+      </section>
+    </div>
+    <p>If the card is unstable or absent, stop before formatting and use the <a href="/guides/rog-ally-microsd-card-not-showing-up/">ROG Ally microSD troubleshooting guide</a>. Compare internal options with the <a href="/guides/rog-ally-ssd-size-compatibility-upgrade/">ROG Ally SSD compatibility guide</a> and plan capacity with the <a href="/calculators/storage-planner/">storage planner</a>.</p>
+
+    <h2>Spec-based shopping starting points</h2>
+    <p>These broad searches follow the compatibility checks above. No item is labeled “best,” no current price or availability is asserted, and no hands-on result or exact fit is implied.</p>
+    <div class="shopping-grid">
+      {shoppingLinks.map(link => (
+        <a class="shopping-card" href={link.href} target="_blank" rel="nofollow sponsored" data-affiliate-link data-category={link.category}>
+          <span>Sponsored search</span>
+          <h3>{link.label}</h3>
+          <p>Verify original-model fit, published output or interface, exact revision, manufacturer, seller, warranty, return policy, and recall status as applicable.</p>
+        </a>
+      ))}
+    </div>
+    <p>For category-level comparison, use the <a href="/gear/">spec-based gear library</a> and set a ceiling with the <a href="/calculators/accessory-budget/">accessory budget calculator</a> before shopping.</p>
+
+    <h2>Accessories to skip until they solve a real problem</h2>
+    <ul>
+      <li><strong>Cooling attachments sold as FPS upgrades:</strong> this page has no measured evidence that an external fan improves original Ally frame rate.</li>
+      <li><strong>Rigid USB-C adapters:</strong> they can improve cable direction while also adding leverage to the Ally’s only USB-C port.</li>
+      <li><strong>Oversized bundles:</strong> one unknown cable, card, or charger can make diagnosis harder than deliberate purchases.</li>
+      <li><strong>A dock for hypothetical future use:</strong> choose one after identifying the actual display, network, input, and storage needs.</li>
+      <li><strong>An SSD for general FPS:</strong> additional capacity is not a broad frame-rate upgrade, and this guide makes no storage benchmark claim.</li>
+    </ul>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and comparison method</h2>
+    <p>The public ASUS, USB-IF, SD Association, and FAA pages above were fetched successfully on September 3, 2026. ASUS supplied the original 2023 ROG Ally dimensions, weight, display, 40Wh battery, 65W adapter, port, UHS-II reader, and M.2 2230 storage specifications. USB-IF and the SD Association supplied terminology context. FAA supplied current U.S. carry-on, terminal-protection, 100Wh, and 101–160Wh airline-approval guidance. The purchase order is conservative editorial guidance based on those sources; no accessory was personally tested, no fit is guaranteed from a search listing, and autocomplete evidence is not represented as search volume.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+
+    <div class="callout"><strong>Finish the setup:</strong> update Windows, BIOS, drivers, and Armoury Crate SE, then visit the <a href="/rog-ally-settings/">ROG Ally game-settings hub</a>. Stable power and storage come before game tuning; accessories are not a substitute for a repeatable settings test.</div>
+  </article>
+</Base>
+
+<style>
+  .ally-accessory-guide { padding-top: 56px; padding-bottom: 72px; }
+  .decision-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; margin: 22px 0; }
+  .decision-grid section { padding: 20px; border: 1px solid rgba(77,227,255,.24); border-top: 4px solid #4de3ff; border-radius: 14px; background: #0d151b; }
+  .decision-grid span, .shopping-card > span { color: #4de3ff; font-size: .72rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+  .decision-grid h3, .shopping-card h3 { margin: 8px 0; color: #fff; font-size: 1rem; }
+  .decision-grid p, .shopping-card p { margin: 0; color: #c0c9d5; font-size: .9rem; }
+  .shopping-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; margin: 22px 0; }
+  .shopping-card { padding: 20px; border: 1px solid rgba(184,255,77,.27); border-radius: 14px; background: #10150f; text-decoration: none; }
+  .shopping-card:hover { border-color: #b8ff4d; transform: translateY(-2px); }
+  .shopping-card > span { color: #b8ff4d; }
+  @media (max-width: 760px) { .decision-grid, .shopping-grid { grid-template-columns: 1fr; } }
+</style>
