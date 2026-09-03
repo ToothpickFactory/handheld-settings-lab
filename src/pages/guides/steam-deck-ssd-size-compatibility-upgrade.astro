@@ -1,0 +1,277 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/steam-deck-ssd-size-compatibility-upgrade/';
+const title = 'Steam Deck SSD size and compatibility: M.2 2230 guide — Handheld Settings Lab';
+const description = 'Match a single-sided M.2 2230 NVMe SSD to Steam Deck LCD or OLED, compare capacities, and prepare backup, recovery, and installation safely.';
+
+const sources = [
+  {
+    label: 'Valve: Steam Deck technical specifications',
+    url: 'https://www.steamdeck.com/en/tech'
+  },
+  {
+    label: 'Valve Support: Steam Deck recovery instructions',
+    url: 'https://help.steampowered.com/en/faqs/view/1B71-EDF2-EB6D-2BB3'
+  },
+  {
+    label: 'iFixit: Steam Deck LCD SSD replacement guide',
+    url: 'https://www.ifixit.com/Guide/Steam+Deck+SSD+Replacement/148989'
+  },
+  {
+    label: 'iFixit: Steam Deck OLED SSD replacement guide',
+    url: 'https://www.ifixit.com/Guide/Steam+Deck+OLED+SSD+Replacement/168255'
+  }
+];
+
+const shoppingLinks = [
+  {
+    label: 'Single-sided M.2 2230 NVMe SSDs',
+    href: 'https://www.amazon.com/s?k=single+sided+m.2+2230+nvme+ssd+steam+deck',
+    category: 'nvme-ssds'
+  },
+  {
+    label: 'M.2 NVMe enclosures that explicitly support 2230',
+    href: 'https://www.amazon.com/s?k=m.2+nvme+enclosure+2230+usb+c',
+    category: 'cables-adapters'
+  },
+  {
+    label: 'Precision electronics screwdriver and opening kits',
+    href: 'https://www.amazon.com/s?k=precision+electronics+screwdriver+opening+tool+kit',
+    category: 'accessories'
+  }
+];
+
+const faqs = [
+  {
+    question: 'What SSD size fits a Steam Deck?',
+    answer: 'The iFixit replacement guides for both Steam Deck LCD and Steam Deck OLED identify the internal SSD as a single-sided M.2 2230. The 2230 designation means a module about 22 mm wide and 30 mm long. Match the form factor, single-sided construction, and NVMe interface rather than shopping by capacity alone.'
+  },
+  {
+    question: 'Can a Steam Deck use an M.2 2242 or 2280 SSD?',
+    answer: 'Those drives are longer than the documented 2230 module and are not direct replacements for the factory mounting position. Avoid extension cables, loose mounting, shell cutting, or other conversions unless you deliberately accept the fit, electrical, thermal, radio-interference, service, and battery-clearance risks of a modification.'
+  },
+  {
+    question: 'Is the Steam Deck OLED SSD different from the LCD model SSD?',
+    answer: 'Both iFixit guides specify a single-sided M.2 2230 SSD, but the devices have different internal layouts and different disassembly procedures. Use the guide for the exact LCD or OLED model; do not copy screw, cable, shield, or battery-disconnection steps between them.'
+  },
+  {
+    question: 'Can I put a 2TB SSD in Steam Deck?',
+    answer: 'Capacity is only one compatibility variable. A prospective 2TB drive still needs to be a single-sided M.2 2230 NVMe model with suitable component clearance, power and thermal behavior, firmware compatibility, warranty, and a useful return policy. This guide does not declare every drive or capacity universally compatible.'
+  },
+  {
+    question: 'Will an SSD upgrade increase Steam Deck FPS?',
+    answer: 'Do not buy a larger SSD as a general frame-rate upgrade. It primarily adds internal storage capacity. Drive health and storage behavior can affect installs, transfers, updates, and some loading, but this page contains no measured FPS or load-time benchmark.'
+  },
+  {
+    question: 'How do I reinstall SteamOS after changing the SSD?',
+    answer: 'Use Valve’s current Steam Deck recovery instructions and recovery image. Read the complete instructions and prepare compatible recovery media before removing the original drive. Keep a separate backup because re-imaging can erase storage.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Steam Deck SSD size and compatibility: M.2 2230 upgrade guide',
+    description,
+    url: canonicalUrl,
+    datePublished: '2026-09-03',
+    dateModified: '2026-09-03',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Steam Deck LCD', 'Steam Deck OLED', 'M.2 2230 NVMe SSD', 'SteamOS recovery', 'SSD compatibility']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'Steam Deck SSD size and compatibility', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <article class="wrap article steam-deck-ssd-guide">
+    <span class="eyebrow">Steam Deck LCD + OLED · storage compatibility</span>
+    <h1>Steam Deck SSD size and compatibility: M.2 2230 upgrade guide</h1>
+    <p class="lede muted">Steam Deck LCD and OLED use a compact internal drive, so “M.2 NVMe” is not a complete shopping specification. Start with a <strong>single-sided M.2 2230 NVMe SSD</strong>, verify the exact drive, and prepare the SteamOS recovery path before opening the handheld.</p>
+
+    <div class="scope-warning">
+      <strong>Scope and testing disclosure</strong>
+      <p>This is a source-informed compatibility and preparation guide, not a hands-on installation or benchmark. No SSD was installed or tested for this article. Follow the current LCD or OLED repair instructions for your exact model, and use professional service if you are not comfortable working near a lithium-ion battery.</p>
+    </div>
+
+    <h2>The short answer: match all four SSD details</h2>
+    <div class="spec-grid" aria-label="Steam Deck SSD compatibility summary">
+      <section class="spec-card">
+        <span>Physical size</span>
+        <strong>M.2 2230</strong>
+        <p>Approximately 22 mm wide by 30 mm long. Longer 2242 and 2280 modules are not direct physical replacements.</p>
+      </section>
+      <section class="spec-card">
+        <span>Construction</span>
+        <strong>Single-sided</strong>
+        <p>Both iFixit model-specific guides describe the Deck SSD this way. Component placement and thickness affect clearance.</p>
+      </section>
+      <section class="spec-card">
+        <span>Storage protocol</span>
+        <strong>NVMe</strong>
+        <p>Do not substitute a similarly shaped M.2 SATA device merely because its connector and product title look familiar.</p>
+      </section>
+    </div>
+    <p>The numbers in an M.2 size describe the module’s width and length, not its capacity or speed. “2230” does not mean 2.23 TB, and “PCIe 4.0” does not prove the board will fit. A useful listing should let you identify the exact manufacturer model, M.2 2230 size, NVMe interface, and single-sided construction.</p>
+
+    <h2>2230 vs 2242 vs 2280 for Steam Deck</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Form factor</th><th>Nominal dimensions</th><th>Steam Deck fit</th><th>Practical guidance</th></tr>
+        </thead>
+        <tbody>
+          <tr class="recommended"><td><strong>M.2 2230</strong></td><td>22 × 30 mm</td><td>Documented replacement size</td><td>Use a single-sided NVMe model as the direct-replacement baseline, then verify the exact drive.</td></tr>
+          <tr><td><strong>M.2 2242</strong></td><td>22 × 42 mm</td><td>12 mm longer</td><td>Not the native mounting length described by the LCD or OLED replacement guides.</td></tr>
+          <tr><td><strong>M.2 2280</strong></td><td>22 × 80 mm</td><td>50 mm longer</td><td>A common laptop/desktop size, but not a direct internal Steam Deck replacement.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>A conversion that relocates a longer drive is a modification, not ordinary compatibility. It can introduce mounting, cable, shield, antenna, airflow, heat, battery-clearance, and service risks. This baseline guide does not recommend improvised adapters, unrestrained drives, cut shells, or removed shielding.</p>
+
+    <h2>LCD and OLED share a size—not a teardown</h2>
+    <div class="grid cols2">
+      <section class="card">
+        <span class="chip">Steam Deck LCD</span>
+        <h3>Use the LCD-specific procedure</h3>
+        <p>The iFixit LCD replacement guide identifies a single-sided M.2 2230 SSD and provides an LCD-specific opening, battery, shield, and drive-removal sequence. Read the complete current guide before starting rather than relying on a remembered OLED video.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Steam Deck OLED</span>
+        <h3>Use the OLED-specific procedure</h3>
+        <p>The OLED guide also identifies a single-sided M.2 2230 SSD, but its internal procedure is separate. Shared drive dimensions do not make screw locations, ribbon cables, shielding, or battery access interchangeable.</p>
+      </section>
+    </div>
+    <p>Valve’s current technical page lists 512GB and 1TB NVMe storage for the Steam Deck models it presently shows, plus a high-speed microSD slot. That establishes the device’s current internal and removable storage options, but it is not a compatibility list for every aftermarket 2230 drive.</p>
+
+    <h2>Choose capacity from your actual library</h2>
+    <p>First add the games you keep installed, their likely updates, non-Steam launchers, shader caches, screenshots, mods, compatibility data, and working headroom. Use the <a href="/calculators/storage-planner/">storage planner</a> to compare scenarios rather than treating the advertised capacity as completely free space.</p>
+    <div class="capacity-grid">
+      <section class="capacity-row"><strong>512GB</strong><p>Suitable for a rotating library or smaller games when microSD storage handles overflow. It may not justify opening a Deck that already has the same capacity.</p></section>
+      <section class="capacity-row"><strong>1TB</strong><p>A straightforward planning tier for several large games plus smaller titles. Count your own library; there is no truthful universal “games per terabyte” number.</p></section>
+      <section class="capacity-row"><strong>2TB+</strong><p>Potentially useful for a large installed library, but higher capacity does not override form-factor, component-clearance, heat, power, firmware, warranty, and return-policy checks.</p></section>
+    </div>
+
+    <h2>SSD, microSD, or cleanup?</h2>
+    <table>
+      <thead><tr><th>Path</th><th>Useful when</th><th>What it avoids</th><th>What to verify</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Clean existing storage</strong></td><td>Old downloads, captures, shader data, or games you no longer use are consuming space</td><td>New hardware and disassembly</td><td>Cloud/local saves and anything irreplaceable before deleting it</td></tr>
+        <tr><td><strong>Add microSD</strong></td><td>You want removable game-library capacity with less installation risk</td><td>Opening the Deck and reinstalling SteamOS</td><td>Genuine card, UHS-I support, capacity, formatting, and workload expectations</td></tr>
+        <tr><td><strong>Replace internal SSD</strong></td><td>You need more internal space for SteamOS, applications, and a large active library</td><td>Managing as much overflow storage</td><td>Exact 2230 NVMe drive, single-sided fit, backup, repair procedure, and recovery media</td></tr>
+      </tbody>
+    </table>
+    <p>For the lower-risk removable route, compare the <a href="/gear/microsd-cards/">microSD card specification guide</a> and read <a href="/guides/steam-deck-microsd-speed-compatibility/">Steam Deck microSD speed and compatibility</a>. The <a href="/guides/microsd-vs-ssd-handheld-pc/">microSD vs SSD decision guide</a> explains why each option solves a different problem.</p>
+
+    <h2>Pick the recovery path before opening the Deck</h2>
+    <div class="grid cols2">
+      <section class="card">
+        <span class="chip">Path A</span>
+        <h3>Valve recovery image</h3>
+        <p>Valve provides Steam Deck recovery instructions for recovery, repair, or re-imaging. Read the current page, download the required image, prepare compatible media, and understand which option erases user data before the original SSD comes out.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Path B</span>
+        <h3>Clone the original SSD</h3>
+        <p>Cloning may preserve the current installation, but it requires an enclosure that explicitly supports a 2230 NVMe module, trustworthy instructions, enough destination capacity, a partition plan, and a healthy readable source. A separate backup is still required.</p>
+      </section>
+    </div>
+    <p>Keep the original SSD unchanged until the replacement has survived cold boots, SteamOS updates, sleep/wake, downloads, game launches, and file checks. The original drive is a useful rollback path; erasing it immediately removes that safety net.</p>
+
+    <h2>Pre-upgrade checklist</h2>
+    <ol>
+      <li><strong>Identify LCD or OLED.</strong> Use the correct current repair guide rather than transferring internal steps between models.</li>
+      <li><strong>Record storage and software state.</strong> Note total/used capacity, SteamOS version, installed games, desktop apps, customizations, and encryption or credentials that matter.</li>
+      <li><strong>Back up irreplaceable files.</strong> Check local saves, screenshots, recordings, emulator folders, mods, Desktop Mode files, authentication recovery codes, and games without Steam Cloud.</li>
+      <li><strong>Prepare recovery before disassembly.</strong> Fetch Valve’s current recovery instructions and create the required media while the Deck still works.</li>
+      <li><strong>Inspect the exact replacement.</strong> Confirm M.2 2230, NVMe, single-sided construction, capacity, seller, manufacturer part number, warranty, and return policy.</li>
+      <li><strong>Remove the microSD card.</strong> Both iFixit guides explicitly warn to remove it before the back cover; a card left in place can be damaged during opening.</li>
+      <li><strong>Reduce battery risk.</strong> Follow the model-specific guide’s battery-charge and battery-storage-mode precautions, fully power down, and disconnect all cables.</li>
+      <li><strong>Control tools and static.</strong> Use the specified drivers and opening tools, work on a clean static-aware surface, organize screws by location, and stop if a part does not release as documented.</li>
+    </ol>
+
+    <h2>What to check after the replacement</h2>
+    <ul>
+      <li>SteamOS reports the expected drive model and capacity without storage errors.</li>
+      <li>System, firmware, controller, and Steam client updates complete normally.</li>
+      <li>Several cold starts and sleep/wake cycles work before restoring the full library.</li>
+      <li>A small game downloads, verifies, launches, and resumes without drive disconnects.</li>
+      <li>Wi-Fi, Bluetooth, controls, audio, charging, and the microSD reader still work.</li>
+      <li>The Deck does not show unusual heat, odor, swelling, shutdowns, or storage corruption warnings. Power down and seek qualified help if it does.</li>
+    </ul>
+    <p>Peak sequential speed is not the only acceptance test in a handheld. Reliable detection, normal sleep behavior, safe temperature, low-power operation, clean updates, and stable installs matter more than a single synthetic score. This article provides no benchmark threshold.</p>
+
+    <h2>Spec-based shopping starting points</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not named-product endorsements, current prices, or hands-on test results. The site appends an Associates tag only when a real tag is configured. Verify each exact listing against the compatibility checks above.</p>
+    <div class="grid cols3">
+      {shoppingLinks.map(link => (
+        <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored" data-affiliate-link data-category={link.category}>
+          <span class="chip">Sponsored search</span>
+          <h3>{link.label}</h3>
+          <p class="muted">Confirm dimensions, NVMe interface, single-sided construction, included parts, warranty, seller, and return terms.</p>
+        </a>
+      ))}
+    </div>
+    <p>Use the central <a href="/gear/nvme-ssds/">NVMe SSD guide</a> for a spec-based product-family comparison and the <a href="/guides/external-ssd-enclosure-handheld-gaming-pc-checklist/">NVMe enclosure checklist</a> before buying cloning hardware. For game tuning after the storage work is stable, visit the <a href="/steam-deck-settings/">Steam Deck settings hub</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were fetched on September 3, 2026. Valve’s technical page was used for its current NVMe and microSD storage listing. Valve’s support page is the recovery source of truth. The separate iFixit LCD and OLED guides were used for the single-sided M.2 2230 identification and model-specific safety preparation, including removing the microSD card before opening the Deck. Installation details can change, so follow the live source rather than treating this editorial checklist as a teardown manual.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+    <p>No aftermarket SSD was installed or benchmarked. Capacity examples are planning guidance, not universal compatibility claims, and no autocomplete suggestion is represented as search volume.</p>
+
+    <div class="callout"><strong>Plan before buying:</strong> total the real library in the <a href="/calculators/storage-planner/">storage planner</a>, compare <a href="/gear/microsd-cards/">microSD options</a>, and choose an internal 2230 replacement only when its added capacity justifies the recovery and repair work.</div>
+  </article>
+</Base>
+
+<style>
+  .steam-deck-ssd-guide { padding-top: 56px; padding-bottom: 72px; }
+  .scope-warning { margin: 28px 0; padding: 20px 22px; border: 1px solid rgba(255,184,77,.45); border-left: 5px solid #ffb84d; border-radius: 14px; background: #15130e; }
+  .scope-warning p { margin: 6px 0 0; color: #d6d0c2; }
+  .spec-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; margin: 22px 0; }
+  .spec-card { padding: 20px; border: 1px solid rgba(184,255,77,.28); border-radius: 14px; background: #10150d; }
+  .spec-card span { display: block; margin-bottom: 8px; color: #9aa6b8; font-size: .78rem; font-weight: 850; letter-spacing: .05em; text-transform: uppercase; }
+  .spec-card strong { color: #b8ff4d; font-size: 1.35rem; }
+  .spec-card p { margin: 10px 0 0; }
+  .table-wrap { overflow-x: auto; margin: 22px 0 30px; border: 1px solid rgba(255,255,255,.12); border-radius: 16px; }
+  .table-wrap table { min-width: 760px; margin: 0; }
+  .recommended { background: rgba(184,255,77,.055); }
+  .capacity-grid { display: grid; gap: 12px; margin: 20px 0 28px; }
+  .capacity-row { display: grid; grid-template-columns: minmax(92px,.25fr) 1fr; gap: 18px; align-items: start; padding: 18px 20px; border: 1px solid rgba(255,255,255,.11); border-radius: 14px; background: #10131a; }
+  .capacity-row strong { color: #b8ff4d; font-size: 1.2rem; }
+  .capacity-row p { margin: 0; }
+  @media (max-width: 760px) {
+    .spec-grid { grid-template-columns: 1fr; }
+    .capacity-row { grid-template-columns: 1fr; gap: 6px; }
+  }
+</style>
