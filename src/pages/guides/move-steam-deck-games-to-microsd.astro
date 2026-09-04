@@ -1,0 +1,216 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/move-steam-deck-games-to-microsd/';
+const title = 'How to move Steam Deck games to microSD safely — Handheld Settings Lab';
+const description = 'Move installed Steam Deck games between internal storage and microSD safely, choose the install destination, verify the library, and fix interrupted moves.';
+
+const sourceLinks = [
+  { label: 'Valve: Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' },
+  { label: 'Steam Support: Steam Deck basic use and troubleshooting', url: 'https://help.steampowered.com/en/faqs/view/69E3-14AF-9764-4C28' },
+  { label: 'Steam Support: Steam Local Network Game Transfers', url: 'https://help.steampowered.com/en/faqs/view/46BD-6BA8-B012-CE43' },
+  { label: 'SD Association: Application Performance Class', url: 'https://www.sdcard.org/developers/sd-standard-overview/application-performance-class/' }
+];
+
+const shoppingLinks = [
+  { label: '512GB A2 microSDXC cards', href: 'https://www.amazon.com/s?k=512GB+A2+microSDXC+card+Steam+Deck' },
+  { label: '1TB A2 microSDXC cards', href: 'https://www.amazon.com/s?k=1TB+A2+microSDXC+card+Steam+Deck' },
+  { label: 'USB-C UHS-I microSD card readers', href: 'https://www.amazon.com/s?k=USB-C+UHS-I+microSD+card+reader' }
+];
+
+const faqs = [
+  {
+    question: 'Can I move an installed Steam Deck game to a microSD card?',
+    answer: 'Yes. When SteamOS recognizes a formatted microSD card as a Steam storage location, use the current SteamOS Storage controls to select an installed game and move it between internal storage and the card. Menu labels can change, so read the destination and free-space summary before confirming.'
+  },
+  {
+    question: 'Will moving a Steam game to microSD delete my save?',
+    answer: 'The Steam storage move is intended to relocate installed game data, not erase a save. Still, verify Steam Cloud status where the game supports it and back up irreplaceable local saves, mods, screenshots, and non-Steam files. Not every title or file is covered by Steam Cloud.'
+  },
+  {
+    question: 'Can I remove the microSD card after moving games to it?',
+    answer: 'Only after downloads, updates, shader processing, and moves have stopped. Use the current SteamOS eject or safe-removal control when available, then remove the card. Games stored on it will be unavailable until that library card is reinserted and recognized.'
+  },
+  {
+    question: 'Why is Move Content unavailable or greyed out?',
+    answer: 'The destination may lack enough free space, the card may not be mounted as Steam storage, another download or update may be using the game, or SteamOS may need a restart. Confirm the card appears in Storage, pause other activity, and leave extra working space before retrying.'
+  },
+  {
+    question: 'Is a game slower from microSD than the internal SSD?',
+    answer: 'The internal NVMe SSD has more performance headroom, but the practical difference varies by game and workload. Large streaming-heavy games, frequent updates, and file-heavy installs are stronger SSD candidates. Do not treat a card label as a guaranteed loading-time or frame-rate result.'
+  },
+  {
+    question: 'Can I share one Steam Deck microSD library between two Decks?',
+    answer: 'A compatible card may be recognized by another Steam Deck, but account access, game ownership, updates, shader data, compatibility layers, and local saves still matter. Shut down or safely eject before moving the card, and verify one game before relying on the library away from home.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: 'How to move Steam Deck games to a microSD card safely',
+    description,
+    url: canonicalUrl,
+    datePublished: '2026-09-04',
+    dateModified: '2026-09-04',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    supply: [{ '@type': 'HowToSupply', name: 'A microSD card already formatted and recognized by SteamOS' }],
+    tool: [{ '@type': 'HowToTool', name: 'Steam Deck running a current stable SteamOS release' }],
+    step: [
+      { '@type': 'HowToStep', position: 1, name: 'Confirm the card and free space', text: 'Open SteamOS Storage settings and verify that the microSD card appears with enough free space for the selected game plus working room.' },
+      { '@type': 'HowToStep', position: 2, name: 'Protect local data', text: 'Check cloud-save status where supported and back up irreplaceable local saves, mods, screenshots, and non-Steam files.' },
+      { '@type': 'HowToStep', position: 3, name: 'Select the installed game', text: 'In the current SteamOS Storage controls, select one installed game and choose the move-content action.' },
+      { '@type': 'HowToStep', position: 4, name: 'Choose the microSD destination', text: 'Read the source, destination, and capacity summary, then confirm the microSD card as the destination.' },
+      { '@type': 'HowToStep', position: 5, name: 'Let the move finish', text: 'Keep the Deck powered and the card inserted until SteamOS reports that the move is complete.' },
+      { '@type': 'HowToStep', position: 6, name: 'Launch and restart-test', text: 'Launch the game from the card, restart the Deck, and launch it again before moving the rest of the library.' }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'Move Steam Deck games to microSD', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <article class="wrap article">
+    <span class="eyebrow">Steam Deck storage guide</span>
+    <h1>How to move Steam Deck games to a microSD card safely</h1>
+    <p class="muted">Use SteamOS Storage controls to relocate an installed game without redownloading it. This is official-source-informed baseline guidance, not a card benchmark or a promise that every game loads identically from microSD and NVMe storage.</p>
+    <p class="affiliate-note">Disclosure: optional shopping links are broad Amazon searches marked sponsored/nofollow. We did not hands-on test every result, and the site adds an Associates tag only when a real tag is configured.</p>
+
+    <div class="callout"><strong>Before moving anything:</strong> confirm the microSD card already appears in SteamOS Storage, has more free space than the game requires, and does not contain the only copy of files you care about. Never remove the card while Steam is moving, downloading, updating, or verifying content.</div>
+
+    <h2>Quick move checklist</h2>
+    <ol>
+      <li><strong>Open SteamOS Storage settings.</strong> In Gaming Mode, open <strong>Settings → Storage</strong>. Wording and button placement can change between SteamOS versions.</li>
+      <li><strong>Confirm both storage locations.</strong> The internal drive and microSD card should each appear with a capacity and free-space summary.</li>
+      <li><strong>Select one installed game.</strong> Open the current options for that title and choose the move-content action.</li>
+      <li><strong>Choose the microSD card as the destination.</strong> Recheck the destination and available capacity before confirming.</li>
+      <li><strong>Leave the Deck powered and the card inserted.</strong> Let Steam finish without sleeping, rebooting, or starting another large storage task.</li>
+      <li><strong>Test before moving more.</strong> Launch the game, restart the Deck, and launch it again from the card.</li>
+    </ol>
+
+    <h2>Prepare the card and the game first</h2>
+    <div class="grid cols3">
+      <section class="card">
+        <span class="chip">Card status</span>
+        <h3>It must already be Steam storage</h3>
+        <p>If the card is new, use SteamOS to format it for a dedicated Deck game library. Formatting is destructive. If a previously working card has disappeared, troubleshoot detection before erasing it.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Capacity</span>
+        <h3>Leave working room</h3>
+        <p>Do not plan around the game’s rounded store-page number alone. Installed size, updates, shader data, compatibility files, and temporary work can require additional space.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Save safety</span>
+        <h3>Cloud is not universal backup</h3>
+        <p>Check the game’s Steam Cloud status, then separately protect irreplaceable local saves, mods, screenshots, emulator files, and non-Steam data. A library move should not be the only copy event you trust.</p>
+      </section>
+    </div>
+
+    <h2>Move one installed game in SteamOS</h2>
+    <p>Valve can revise SteamOS navigation, so follow the labels on the current stable interface rather than forcing an old screenshot or command-line path. The safe workflow is consistent: identify the source library, select the title, choose the move action, verify the destination, and let the operation complete.</p>
+    <table>
+      <thead><tr><th>Stage</th><th>What to verify</th><th>Stop if…</th></tr></thead>
+      <tbody>
+        <tr><td>1. Storage screen</td><td>Internal storage and the microSD card both appear, with plausible capacity figures.</td><td>The card is missing, repeatedly disconnects, or reports a wildly wrong capacity.</td></tr>
+        <tr><td>2. Game selection</td><td>The chosen title is fully installed and not currently downloading, updating, or running.</td><td>Steam is patching the game or another storage operation is active.</td></tr>
+        <tr><td>3. Destination</td><td>The microSD card is selected and has comfortable free space beyond the displayed game size.</td><td>The destination is ambiguous or nearly full.</td></tr>
+        <tr><td>4. Transfer</td><td>The Deck has stable power, airflow, and time to finish.</td><td>The card disconnects, the Deck becomes unusually hot, or storage errors appear.</td></tr>
+        <tr><td>5. Verification</td><td>The game launches, survives a restart, and still appears on the expected storage device.</td><td>Steam requests a full reinstall or the card vanishes after reboot.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Set the microSD card for future installs</h2>
+    <p>If the card is your preferred library, select it as the default installation location in the current Storage settings. This changes where new installs are offered by default; it does not automatically relocate every game already on the internal SSD. Continue to read the destination shown during each install, especially when the card is absent or low on space.</p>
+    <ul>
+      <li>Keep frequently patched or storage-heavy games on the internal SSD when card write time becomes inconvenient.</li>
+      <li>Use microSD for games that fit comfortably and do not need the SSD’s additional performance headroom.</li>
+      <li>Leave free space on both drives for updates, shader data, and temporary files.</li>
+      <li>Do not fill a travel card the night before a trip without launching each important game once in the mode you will use.</li>
+    </ul>
+
+    <h2>Which games should stay on the SSD?</h2>
+    <p>There is no honest universal percentage or loading-time promise. Valve lists a high-speed microSD slot on current Steam Deck specifications, while the SD Association’s A1 and A2 marks describe application-performance minimums under defined conditions. Those facts do not establish the result for a specific game, card, seller, filesystem state, or patch.</p>
+    <div class="grid cols2">
+      <section class="card">
+        <span class="chip">Good microSD candidates</span>
+        <h3>Smaller, stable, rotation-friendly games</h3>
+        <p>Consider games with modest install sizes, infrequent giant patches, and no observed asset-streaming problem in your own play. A card is also useful for a deliberate travel library.</p>
+      </section>
+      <section class="card">
+        <span class="chip">Keep internal first</span>
+        <h3>Large updates and storage-sensitive titles</h3>
+        <p>Favor NVMe storage for games that patch constantly, contain huge numbers of small files, stream assets aggressively, or show repeatable stalls from the card in your own comparison.</p>
+      </section>
+    </div>
+    <p>Frame rate is mainly a rendering workload, so do not assume a faster card raises FPS. Storage can affect install, patch, verification, loading, and asset-streaming behavior. Use the <a href="/steam-deck-settings/">Steam Deck settings hub</a> to tune a game after its storage location is stable.</p>
+
+    <h2>If the move fails or gets interrupted</h2>
+    <ol>
+      <li><strong>Do not format the card.</strong> A failed move does not automatically mean the filesystem should be erased.</li>
+      <li><strong>Keep both storage devices available.</strong> Leave the card inserted and restart SteamOS once after any active operation has clearly stopped.</li>
+      <li><strong>Check Storage again.</strong> Confirm where Steam now lists the game and whether either drive shows the expected used space.</li>
+      <li><strong>Use Steam’s verify function if offered.</strong> Let Steam check the installed files before deleting folders manually or redownloading everything.</li>
+      <li><strong>Pause competing work.</strong> Stop other downloads and updates, connect stable power, and retry with one smaller game.</li>
+      <li><strong>Investigate repeated disconnects.</strong> If the card disappears or becomes read-only, switch to the <a href="/guides/steam-deck-microsd-card-not-showing-up/">microSD detection guide</a> and protect readable files.</li>
+    </ol>
+    <div class="callout"><strong>Do not manually delete a half-moved library to “clean it up” before SteamOS has restarted and reported where the game lives.</strong> Manual deletion can turn a recoverable verification or library-registration issue into a full redownload.</div>
+
+    <h2>Moving a library versus downloading over the network</h2>
+    <p>If the game is not installed on this Deck, a storage move is the wrong tool. Steam’s official Local Network Game Transfers feature can copy eligible installed game files from another Steam client on the same local network, subject to Valve’s settings and eligibility rules. That can reduce internet downloading, but it is a separate process from moving a game between the Deck’s internal SSD and its inserted card.</p>
+    <p>For a second Steam Deck, desktop PC, or replacement card, decide which workflow you actually need:</p>
+    <ul>
+      <li><strong>Same Deck, two drives:</strong> use SteamOS Storage move controls.</li>
+      <li><strong>Another Steam client on the network:</strong> review Valve’s Local Network Game Transfers support page and its current permissions.</li>
+      <li><strong>Card contains non-Steam files:</strong> make a file-level backup with a compatible system rather than assuming a Steam library move covers them.</li>
+      <li><strong>New or repurposed card:</strong> follow the <a href="/guides/how-to-format-microsd-card-steam-deck/">Steam Deck formatting guide</a> before choosing it as an install target.</li>
+    </ul>
+
+    <h2>Plan capacity before buying another card</h2>
+    <p>Use the <a href="/calculators/storage-planner/">storage planner</a> to total the games you actually want installed, then reserve working room for patches and temporary files. Capacity should solve a real library constraint; a new card will not fix a damaged slot, an unmounted library, or a game that needs repair.</p>
+    <div class="grid cols3">
+      {shoppingLinks.map(link => (
+        <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="micro-sd-cards">
+          <span class="chip">Sponsored search</span>
+          <h3>{link.label}</h3>
+          <p class="muted">Compare seller reputation, warranty, return policy, genuine capacity, UHS-I compatibility, and A-class markings. No marketplace result is automatically endorsed.</p>
+        </a>
+      ))}
+    </div>
+    <p>For card labels and buying checks, read the <a href="/guides/steam-deck-microsd-speed-compatibility/">Steam Deck microSD speed and compatibility guide</a> and the <a href="/gear/micro-sd-cards/">microSD gear guide</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Sources and method</h2>
+    <p>Valve’s Steam Deck technical specifications, Steam Deck basic-use support, and Local Network Game Transfers support pages were fetched on September 4, 2026. Valve establishes the Deck’s microSD capability and the supported local-transfer feature; the SD Association source explains Application Performance Class. The ordered storage-move and recovery workflow is conservative editorial guidance. No transfer-speed benchmark, failure rate, game-specific loading result, search volume, or hands-on card claim is fabricated.</p>
+    <ul>
+      {sourceLinks.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+  </article>
+</Base>
