@@ -1,0 +1,194 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/move-rog-ally-games-to-microsd/';
+const title = 'How to move ROG Ally games to microSD safely — Handheld Settings Lab';
+const description = 'Move ROG Ally or Ally X games to microSD through the launcher, choose a stable library location, verify the move, and recover without deleting saves.';
+
+const sources = [
+  { label: 'ASUS: ROG Ally (2023) official specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-2023/spec/' },
+  { label: 'ASUS: ROG Ally X (2024) official specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/' },
+  { label: 'Steam Support: Moving a Steam Installation and Games', url: 'https://help.steampowered.com/en/faqs/view/4BD4-4528-6B2E-8327' },
+  { label: 'Microsoft Support: Free up drive space in Windows', url: 'https://support.microsoft.com/en-us/windows/free-up-drive-space-in-windows-85529ccb-c365-490d-b548-831022bc9b32' },
+  { label: 'SD Association: Application Performance Class', url: 'https://www.sdcard.org/developers/sd-standard-overview/application-performance-class/' }
+];
+
+const shoppingLinks = [
+  { label: 'UHS-I A2 microSD cards for original ROG Ally', href: 'https://www.amazon.com/s?k=uhs-i+a2+microsd+card+rog+ally', category: 'microsd-cards' },
+  { label: 'UHS-II microSD cards for ROG Ally X', href: 'https://www.amazon.com/s?k=uhs-ii+microsd+card+rog+ally+x', category: 'microsd-cards' },
+  { label: 'USB-C microSD readers for file recovery and card checks', href: 'https://www.amazon.com/s?k=usb+c+uhs+ii+microsd+card+reader', category: 'usb-c-cables-adapters' }
+];
+
+const faqs = [
+  {
+    question: 'Can I move Steam games from ROG Ally internal storage to microSD?',
+    answer: 'Yes. Add the mounted microSD card as a Steam storage location, select the installed title in Steam’s storage settings, and use Steam’s move control. Menu wording can change with client updates. Keep the Ally powered, do not remove the card during the move, and launch the game from the new location before deleting or repurposing any old files.'
+  },
+  {
+    question: 'Should I copy a ROG Ally game folder in File Explorer?',
+    answer: 'Use the launcher’s move or locate-existing-files workflow whenever it offers one. A manual copy can leave the launcher database, manifests, permissions, anti-cheat components, or update path pointing to the old location. File Explorer is useful for inspecting capacity and backing up personal files, not as the default game-library migration tool.'
+  },
+  {
+    question: 'Will my game saves move with the installed game?',
+    answer: 'Do not assume so. Saves may be synchronized by the launcher, stored in Documents, AppData, Saved Games, or another per-user folder, while some games keep local data elsewhere. Confirm cloud-sync status where available and back up irreplaceable local saves separately before moving, uninstalling, or formatting anything.'
+  },
+  {
+    question: 'Why is the move-to-microSD option missing?',
+    answer: 'First verify that Windows sees the card with a drive letter and expected capacity. Then confirm that the launcher has a library or install location on that drive. Some launchers or games do not expose a move command; use that launcher’s documented backup, uninstall/reinstall, or locate-existing-files process instead of dragging folders blindly.'
+  },
+  {
+    question: 'Can I remove the microSD card after moving games to it?',
+    answer: 'Only after closing the game and launcher activity that may be reading or updating the card, then using Windows safe-removal behavior when offered. The moved games will be unavailable while the card is absent. Reinsert the same card and confirm its drive letter and library path before launching.'
+  },
+  {
+    question: 'Is microSD as fast as the ROG Ally internal SSD?',
+    answer: 'This guide does not claim equal performance or provide fabricated load-time data. ASUS lists PCIe NVMe internal storage and a microSD reader; those are different storage paths. Results vary by card, reader, game access pattern, updates, free space, temperature, and background activity. Keep games sensitive to storage performance on the SSD when a repeatable comparison shows a meaningful problem.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'How to move ROG Ally games to microSD safely',
+    description,
+    url: canonicalUrl,
+    datePublished: '2026-09-05',
+    dateModified: '2026-09-05',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['ROG Ally', 'ROG Ally X', 'microSD game storage', 'Steam storage', 'Windows game libraries']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'Move ROG Ally games to microSD', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <article class="wrap article move-guide">
+    <span class="eyebrow">ROG Ally storage guide</span>
+    <h1>How to move ROG Ally games to microSD without losing the library</h1>
+    <p class="lede muted">Use the game launcher’s storage tools—not a blind folder drag—to move an installed game from an original ROG Ally or ROG Ally X to microSD. This source-informed workflow protects the old install until the new library is recognized and the game launches. It is not a card benchmark or a promise that every launcher exposes the same controls.</p>
+
+    <div class="callout"><strong>Safe sequence:</strong> check saves → verify the card and free space → add a launcher library on microSD → move one small game → verify files → launch it → restart the launcher → only then move the next title.</div>
+
+    <h2>Before moving anything: identify the model and storage path</h2>
+    <p>ASUS lists a UHS-II-compatible card reader on both the original ROG Ally and ROG Ally X, supporting SD, SDXC, and SDHC media. The internal drives differ: the published original Ally configurations use an M.2 2230 PCIe 4.0 NVMe drive, while the listed Ally X configuration uses a 1TB M.2 2280 PCIe 4.0 NVMe drive. Those specifications confirm the available storage interfaces; they do not establish a game’s load time on a particular card.</p>
+    <p>Open <strong>File Explorer → This PC</strong> and record three things before proceeding: the microSD drive letter, its displayed capacity, and the free space on both the card and internal drive. If the card is absent, disconnects, reports the wrong size, or contains files you cannot replace, stop and use the <a href="/guides/rog-ally-microsd-card-not-showing-up/">ROG Ally microSD troubleshooting guide</a> before attempting a move.</p>
+
+    <h2>The pre-move safety gate</h2>
+    <div class="step-grid">
+      <section><span>1 · Save data</span><h3>Confirm cloud sync and local backups</h3><p>Exit the game normally. Check the launcher’s cloud status when available, then copy irreplaceable local saves or mods separately. Moving an installation is not the same as backing up user data.</p></section>
+      <section><span>2 · Card health</span><h3>Prove capacity before trusting it</h3><p>Use a reputable card and seller, confirm the expected Windows capacity, and validate a new or suspicious card before placing the only copy of anything on it.</p></section>
+      <section><span>3 · Working room</span><h3>Leave space on both drives</h3><p>Launchers may need room for downloads, unpacking, shader data, patches, and temporary files. Do not plan a move that leaves either drive effectively full.</p></section>
+      <section><span>4 · Stable power</span><h3>Plug in and close active games</h3><p>Use a known-good 65W USB-C power path, pause other large downloads, and do not sleep, restart, eject the card, or unplug storage during the transfer.</p></section>
+    </div>
+    <p>Use the <a href="/calculators/storage-planner/">storage planner</a> to total the active library and preserve update headroom. Microsoft’s Windows storage guidance also recommends reviewing categories and removing unused content when freeing space; moving every title should not be the automatic answer.</p>
+
+    <h2>Move a Steam game to microSD</h2>
+    <p>Steam’s interface changes over time, so follow the current labels rather than treating this as a screenshot-perfect script. The safe concept is stable: make the card a recognized Steam storage location, ask Steam to move the title, and let Steam update its own records.</p>
+    <ol>
+      <li><strong>Open Steam’s storage settings.</strong> In the desktop client, open Settings and locate Storage. If the card is not listed, add its drive or create/select a Steam library folder on it.</li>
+      <li><strong>Verify the destination.</strong> Confirm the path is on the microSD drive letter you recorded—not another external drive or a folder on the internal SSD.</li>
+      <li><strong>Start with one small, non-critical game.</strong> Select the installed title and use Steam’s move control to choose the microSD library.</li>
+      <li><strong>Wait for completion.</strong> Keep Steam open and the card inserted. Do not manually delete the original folder while Steam is working.</li>
+      <li><strong>Verify through Steam.</strong> If Steam offers file verification for the title, run it after the move, especially if the transfer was interrupted or Windows reported an error.</li>
+      <li><strong>Launch and test.</strong> Start the game, load a save, close it normally, restart Steam, and launch once more. Confirm cloud synchronization completes where the title supports it.</li>
+    </ol>
+    <p>Valve’s support documentation covers moving Steam installations and games. Prefer Steam’s current storage-management path because it maintains the library metadata. Avoid copying only a game folder and assuming Steam will discover it automatically.</p>
+
+    <h2>Xbox app, Epic, EA, Ubisoft, and other launchers</h2>
+    <p>Windows handhelds can have several independent library managers. A storage location added to Steam does not configure the Xbox app or another publisher launcher. Treat each launcher as a separate system.</p>
+    <table>
+      <thead><tr><th>What the launcher offers</th><th>Safest action</th><th>What to verify afterward</th></tr></thead>
+      <tbody>
+        <tr><td>A built-in Move or Change location command</td><td>Use it and select the microSD destination inside that launcher</td><td>Installed status, launch, update path, save/cloud status</td></tr>
+        <tr><td>A backup plus restore/import workflow</td><td>Create the backup, verify it, then restore to the card through the launcher</td><td>Launcher recognizes files without a full duplicate download</td></tr>
+        <tr><td>Locate, discover, or verify existing files</td><td>Follow that launcher’s current official instructions exactly</td><td>Correct folder, manifest, permissions, anti-cheat, update succeeds</td></tr>
+        <tr><td>No supported move or locate control</td><td>Back up saves, uninstall the game through its launcher, set the card as the new install location, then reinstall</td><td>Save recovery and a clean launch before deleting backups</td></tr>
+      </tbody>
+    </table>
+    <p>Do not assume Windows Apps settings can move every desktop game. Some packaged apps expose a Move button; many traditional launcher-managed games do not. If a publisher’s current support instructions conflict with a generic workflow, use the publisher’s instructions for that title.</p>
+
+    <h2>How to verify the move before reclaiming space</h2>
+    <ul>
+      <li><strong>Location:</strong> the launcher reports the game inside the microSD library, and the card’s used space increased by a plausible amount.</li>
+      <li><strong>Integrity:</strong> the launcher’s verify/repair operation finishes without repeatedly redownloading the same files.</li>
+      <li><strong>Launch:</strong> the game starts from the normal launcher shortcut after a launcher restart—not only from an executable opened in File Explorer.</li>
+      <li><strong>Saves:</strong> a known save loads, and cloud synchronization shows no unresolved conflict where supported.</li>
+      <li><strong>Updates:</strong> a queued patch recognizes the destination and has enough temporary working room.</li>
+      <li><strong>Removal behavior:</strong> after closing the game and launcher, the card can be removed safely; when reinserted, Windows assigns the expected drive letter and the launcher restores the library.</li>
+    </ul>
+    <div class="callout"><strong>Do not use the Recycle Bin as the verification step.</strong> Let the launcher complete its move and prove the new install. If an abandoned duplicate remains, identify it against the launcher’s reported path before deleting anything.</div>
+
+    <h2>If the moved game appears uninstalled</h2>
+    <ol>
+      <li>Do not format the card or point the launcher at a new empty folder.</li>
+      <li>Confirm the card is mounted in Windows and still has the expected drive letter and occupied space.</li>
+      <li>Open that launcher’s storage/library settings and re-add the existing library location when supported.</li>
+      <li>Use the launcher’s locate, discover, verify, repair, or import function if it provides one.</li>
+      <li>If the drive letter changed, close the launcher before correcting it in Windows Disk Management; do not choose a letter already used by another device or network location.</li>
+      <li>When files remain readable but the launcher cannot adopt them, preserve saves and personal files before using the launcher’s documented reinstall path.</li>
+    </ol>
+    <p>If multiple cards rotate through the Ally, give each card one purpose and avoid reusing the same library folder name for unrelated launchers. Close all launchers before swapping cards. A launcher updating in the background can write to a library even when no game window is open.</p>
+
+    <h2>Which games should stay on the internal SSD?</h2>
+    <p>This site has not benchmarked these cards or titles. Use a small personal comparison instead of a blanket “all games work the same” claim. Keep a game on the SSD when its publisher requires internal storage, the launcher behaves unreliably with removable media, updates repeatedly fail, streaming stutters or load times are materially worse in a repeatable test, or the title is too important to lose when the card is absent.</p>
+    <p>microSD is most useful as deliberate overflow: smaller or less frequently updated games, installers you are willing to redownload, and titles that pass your own launch/update test. The SD Association’s A1/A2 Application Performance Class describes minimum random and sequential performance criteria; it does not prove authenticity or guarantee a specific game result.</p>
+
+    <h2>microSD shopping checks—not performance promises</h2>
+    <p>ASUS lists UHS-II reader support, but a faster interface label alone does not establish value for a particular game. Compare capacity, the card’s own bus and speed-class markings, a reputable manufacturer and seller, return policy, warranty, and a full-capacity validation plan. Do not buy from a marketplace capacity/price claim that appears implausible.</p>
+    <div class="shopping-grid">
+      {shoppingLinks.map(link => (
+        <a class="shopping-card" href={link.href} target="_blank" rel="nofollow sponsored" data-affiliate-link data-category={link.category}>
+          <span>Sponsored search</span>
+          <h3>{link.label}</h3>
+          <p>Verify the exact card, seller, capacity, UHS interface, warranty, and return policy. No load-time or FPS result is implied.</p>
+        </a>
+      ))}
+    </div>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches, not named recommendations or live-price claims. Handheld Settings Lab appends an Associates tag only when a real tag is configured. Continue with the <a href="/gear/microsd-cards/">microSD gear checklist</a> and <a href="/guides/microsd-vs-ssd-handheld-pc/">microSD versus SSD guide</a> before buying.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and method</h2>
+    <p>The five public sources below returned HTTP 200 on September 5, 2026. ASUS supplied the official original Ally and Ally X storage and card-reader specifications. Valve supplied its game-migration support reference. Microsoft supplied Windows storage-cleanup context, and the SD Association supplied the meaning of Application Performance Class. The launcher sequence is conservative editorial guidance designed to preserve the old install until the moved copy is verified; no transfer-speed, load-time, FPS, card-endurance, or hands-on claim was fabricated.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+
+    <div class="callout"><strong>After storage is stable:</strong> use the <a href="/rog-ally-settings/">ROG Ally game-settings hub</a> to tune resolution, frame target, and power mode one game at a time. Moving storage is capacity work, not an FPS upgrade.</div>
+  </article>
+</Base>
+
+<style>
+  .move-guide { padding-top: 56px; padding-bottom: 72px; }
+  .step-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; margin: 22px 0; }
+  .step-grid section { padding: 20px; border: 1px solid rgba(77,227,255,.24); border-top: 4px solid #4de3ff; border-radius: 14px; background: #0d151b; }
+  .step-grid span, .shopping-card > span { color: #4de3ff; font-size: .72rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+  .step-grid h3, .shopping-card h3 { margin: 8px 0; color: #fff; font-size: 1rem; }
+  .step-grid p, .shopping-card p { margin: 0; color: #c0c9d5; font-size: .9rem; }
+  .shopping-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; margin: 22px 0; }
+  .shopping-card { padding: 20px; border: 1px solid rgba(184,255,77,.27); border-radius: 14px; background: #10150f; text-decoration: none; }
+  .shopping-card:hover { border-color: #b8ff4d; transform: translateY(-2px); }
+  .shopping-card > span { color: #b8ff4d; }
+  @media (max-width: 760px) { .step-grid, .shopping-grid { grid-template-columns: 1fr; } }
+</style>
