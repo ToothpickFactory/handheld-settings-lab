@@ -5,6 +5,7 @@ const canonicalUrl = 'https://handheldsettings.com/steam-deck-settings/apex-lege
 const title = 'Apex Legends Steam Deck status: Unsupported anti-cheat — Handheld Settings Lab';
 const description = 'Apex Legends is currently Steam Deck Unsupported because of anti-cheat. Check the official status, avoid wasted graphics tuning, and compare safe next steps.';
 const image = '/assets/games/apex-legends-header.jpg';
+const checkedAt = 'September 6, 2026 at 21:17 UTC';
 
 const sources = [
   {
@@ -53,6 +54,14 @@ const faqs = [
   {
     question: 'Were Apex Legends settings benchmarked on Steam Deck for this page?',
     answer: 'No. Publishing an FPS preset would be misleading while Valve’s official report says the normal SteamOS route is Unsupported because of anti-cheat. This page documents current compatibility and a safe verification workflow instead.'
+  },
+  {
+    question: 'What does Steam Deck compatibility category 1 mean for Apex Legends?',
+    answer: 'Valve’s live endpoint currently resolves the game to category 1, Unsupported, and returns the specific unsupported third-party anti-cheat result for both Steam Deck and SteamOS. It is a current compatibility result, not a frame-rate score or permanent prediction.'
+  },
+  {
+    question: 'Does installing Windows make this a Steam Deck settings guide?',
+    answer: 'No. A Windows installation is a separate operating-system configuration with its own support, driver, storage, security, and recovery considerations. This page evaluates the normal SteamOS route and does not claim a tested or supported Windows-on-Deck Apex preset.'
   }
 ];
 
@@ -65,7 +74,7 @@ const jsonLd = [
     image: `https://handheldsettings.com${image}`,
     url: canonicalUrl,
     datePublished: '2026-08-05',
-    dateModified: '2026-08-05',
+    dateModified: '2026-09-06',
     author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
     publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
     about: ['Apex Legends', 'Steam Deck', 'SteamOS', 'anti-cheat compatibility', 'handheld PC']
@@ -92,7 +101,7 @@ const jsonLd = [
 ---
 <Base title={title} description={description} image={image} jsonLd={jsonLd}>
   <article class="wrap article">
-    <span class="eyebrow">Steam Deck compatibility · Official status checked August 5, 2026</span>
+    <span class="eyebrow">Steam Deck compatibility · Official status checked September 6, 2026</span>
     <h1>Apex Legends on Steam Deck: Unsupported because of anti-cheat</h1>
     <p class="lede muted">Do not start with an old 800p preset. Valve’s live compatibility report currently resolves Apex Legends as <strong>Unsupported</strong> on Steam Deck and SteamOS because its anti-cheat is unsupported. Graphics settings cannot fix that compatibility block. This page shows how to verify the status and avoid unsafe or irrelevant troubleshooting.</p>
 
@@ -113,6 +122,28 @@ const jsonLd = [
     <h2>What the current Valve report says</h2>
     <p>Valve’s public app-compatibility endpoint for Steam app <strong>1172470</strong> currently returns <strong>resolved category 1</strong>. Valve’s result item identifies an unsupported third-party anti-cheat component. The same endpoint also reports the SteamOS compatibility category as 1 for this app.</p>
     <p>That status is more useful than an old screenshot or settings video because live-service games can change anti-cheat, launchers, and platform support after publication. A guide written during a previous working period may still rank in search even when its launch instructions are no longer valid.</p>
+
+    <h2>Freshness check: four public sources, one clear answer</h2>
+    <p>This page was revalidated at <strong>{checkedAt}</strong>. Compatibility and store/support facts were checked separately so an available store page cannot be mistaken for SteamOS support.</p>
+    <table>
+      <thead><tr><th>Public source</th><th>Live result checked</th><th>What it establishes</th></tr></thead>
+      <tbody>
+        <tr><td>Valve Deck compatibility endpoint</td><td>HTTP 200; category 1; unsupported anti-cheat token</td><td>The current Steam Deck and SteamOS compatibility status</td></tr>
+        <tr><td>Steam store page</td><td>HTTP 200</td><td>The game listing, Windows requirements, controller-support labels, and official media—not SteamOS playability by itself</td></tr>
+        <tr><td>EA PC requirements</td><td>HTTP 200</td><td>The publisher’s Windows PC requirements and storage context—not a Linux or SteamOS support statement</td></tr>
+        <tr><td>EA Help</td><td>HTTP 200</td><td>The current official support route if account, installation, or anti-cheat guidance changes</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">HTTP availability only proves that a source page responded during this check. The meaningful compatibility evidence is Valve’s returned category and anti-cheat result. A successful Steam download or store-page load does not override that result.</p>
+
+    <h2>Use this decision tree before downloading 75GB</h2>
+    <ol>
+      <li><strong>Check category first.</strong> If Valve still returns category 1 with unsupported anti-cheat, stop the native SteamOS setup here.</li>
+      <li><strong>Ignore old FPS recipes.</strong> A 40 or 60 FPS settings list from a prior season answers a rendering question only; it cannot prove the current login and anti-cheat path works.</li>
+      <li><strong>Do not spend storage to test a known block.</strong> Steam and EA list 75GB before seasonal-update and temporary-file headroom. Keep that space for a playable title unless official compatibility changes.</li>
+      <li><strong>Consider a supported remote host separately.</strong> Remote play or a legitimate cloud service may stream from supported hardware where available, but that is network performance—not native Deck performance.</li>
+      <li><strong>Rebuild the page only after official evidence changes.</strong> A future Playable or Verified category should trigger new launch, controls, match, frame-time, battery, and update tests before any preset is published.</li>
+    </ol>
 
     <h2>Do not use these as “fixes”</h2>
     <table>
@@ -135,6 +166,16 @@ const jsonLd = [
       <li><strong>Only then build a preset.</strong> Record the game version, SteamOS build, compatibility layer, Deck model, frame cap, power state, and test scenario before making FPS claims.</li>
     </ol>
 
+    <h2>If Apex is already installed, reclaim space without risking other games</h2>
+    <p>Uninstalling an unsupported live-service game is a storage decision, not an anti-cheat fix. Use Steam’s normal per-game management flow rather than manually deleting unfamiliar library folders.</p>
+    <ol>
+      <li>Confirm Apex Legends is the selected title and note the storage location shown by Steam.</li>
+      <li>Allow any cloud or account synchronization shown by the platform to finish, while remembering that online progression is governed by the game account and service.</li>
+      <li>Use Steam’s normal uninstall action. Do not delete a shared Steam library, compatibility-data directory, or shader-cache tree by guessing from folder size.</li>
+      <li>Open Storage in SteamOS and verify the recovered capacity before moving or downloading another game.</li>
+      <li>Use the <a href="/calculators/storage-planner/">storage planner</a> to reserve update headroom for the replacement library rather than filling the device to its limit.</li>
+    </ol>
+
     <h2>If the status changes later</h2>
     <p>A future Playable or Verified result would justify a new performance pass. The first test should use the Valve-selected compatibility route, native 1280×800 output, no manual TDP limit, and a conservative cap. Validation should cover several real Battle Royale or Mixtape matches, including a busy drop, smoke, abilities, close combat, and rapid traversal—not only the firing range.</p>
     <p>Any future page update should separate a measured result from an editorial baseline and should record the season, game build, SteamOS version, Deck LCD or OLED model, battery/charger state, and test date. Until then, publishing an “optimized” 40 or 60 FPS preset would imply access that the current official compatibility report does not support.</p>
@@ -148,7 +189,7 @@ const jsonLd = [
     <div class="grid cols3">
       <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+usb+c+ethernet+adapter+pd" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="cables-adapters"><span class="chip">Sponsored search</span><h3>USB-C Ethernet adapters</h3><p class="muted">Compare chipset support, USB-C PD passthrough, cable reach, port speed, and SteamOS compatibility.</p></a>
       <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+ethernet+dock+45w" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks"><span class="chip">Sponsored search</span><h3>Steam Deck Ethernet docks</h3><p class="muted">Compare Ethernet, display output, 45W-class PD passthrough, cable position, and whether a charger is included.</p></a>
-      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+microsd+a2+u3" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microSD-cards"><span class="chip">Sponsored search</span><h3>Steam Deck microSD cards</h3><p class="muted">Compare capacity, A2/U3 markings, seller traceability, warranty, and an authenticity-test plan.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+microsd+a2+u3" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microsd-cards"><span class="chip">Sponsored search</span><h3>Steam Deck microSD cards</h3><p class="muted">Compare capacity, A2/U3 markings, seller traceability, warranty, and an authenticity-test plan.</p></a>
     </div>
     <p>Compare categories in the <a href="/gear/">spec-based gear library</a> and set a limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
 
@@ -158,7 +199,7 @@ const jsonLd = [
     </div>
 
     <h2>Sources and methodology</h2>
-    <p>Sources were checked on August 5, 2026. Valve’s live compatibility endpoint supplies the current category and anti-cheat reason. Steam and EA supply the game’s Windows requirements, controller-support context, official support routes, and artwork; Valve supplies Steam Deck hardware context. Handheld Settings Lab did not bypass anti-cheat or benchmark Apex Legends on Steam Deck. The page intentionally documents the official incompatibility instead of fabricating a working preset.</p>
+    <p>Sources were rechecked on September 6, 2026. Valve’s live compatibility endpoint returned HTTP 200, resolved category 1, SteamOS category 1, and the unsupported third-party anti-cheat result. The Steam store page, EA PC-requirements page, EA Help, and Valve Steam Deck specifications also returned HTTP 200. Steam and EA supply Windows requirements, controller-support context, official support routes, and artwork; those pages do not override Valve’s SteamOS compatibility result. Handheld Settings Lab did not bypass anti-cheat, install Windows for this article, or benchmark Apex Legends on Steam Deck. The page intentionally documents the official incompatibility instead of fabricating a working preset.</p>
     <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
     <p>Return to the <a href="/steam-deck-settings/">Steam Deck settings hub</a>, compare the current <a href="/rog-ally-settings/apex-legends/">ROG Ally Apex Legends baseline</a> or <a href="/legion-go-settings/apex-legends/">Legion Go Apex Legends baseline</a>, and recheck this page after an official compatibility change.</p>
   </article>
