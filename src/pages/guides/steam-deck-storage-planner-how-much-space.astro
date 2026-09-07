@@ -1,55 +1,197 @@
 ---
 import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/steam-deck-storage-planner-how-much-space/';
+const title = 'Steam Deck storage planner: 512GB vs 1TB — Handheld Settings Lab';
+const description = 'Choose 512GB, 1TB, microSD, or an SSD upgrade by totaling your real Steam library, update workspace, captures, and a deliberate free-space reserve.';
+
+const sources = [
+  { label: 'Valve: Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' },
+  { label: 'Steam Support: Steam Deck basic use and troubleshooting', url: 'https://help.steampowered.com/en/faqs/view/69E3-14AF-9764-4C28' },
+  { label: 'Steam Support: SteamOS recovery and troubleshooting', url: 'https://help.steampowered.com/en/faqs/view/1B71-EDF2-EB6D-2BB3' },
+  { label: 'SD Association: Application Performance Class', url: 'https://www.sdcard.org/developers/sd-standard-overview/application-performance-class/' }
+];
+
+const shoppingLinks = [
+  { label: '512GB UHS-I A2 microSD cards from established brands', href: 'https://www.amazon.com/s?k=512gb+uhs-i+a2+microsd+steam+deck', category: 'microsd-cards' },
+  { label: '1TB UHS-I A2 microSD cards from established brands', href: 'https://www.amazon.com/s?k=1tb+uhs-i+a2+microsd+steam+deck', category: 'microsd-cards' },
+  { label: 'Single-sided M.2 2230 NVMe SSDs for Steam Deck', href: 'https://www.amazon.com/s?k=single+sided+m.2+2230+nvme+ssd+steam+deck', category: 'nvme-ssds' }
+];
+
+const faqs = [
+  {
+    question: 'Is 512GB enough for Steam Deck?',
+    answer: 'It can be enough when the games you keep installed, non-game files, and a deliberate free-space reserve fit within the drive’s actual available capacity. Do not decide from game count alone: a library of small games and a library of large releases can have radically different totals.'
+  },
+  {
+    question: 'Should I buy a 1TB Steam Deck or add a microSD card?',
+    answer: 'Choose by workflow. Internal storage is simpler for one permanent library. A microSD card adds removable capacity without opening the Deck and can be a lower-disruption first step. Compare the cost, your current free space, how often games move or patch, and whether you are comfortable managing two library locations.'
+  },
+  {
+    question: 'How much free space should I leave on Steam Deck?',
+    answer: 'Valve does not publish one universal reserve percentage for every owner and game. Set a policy you can maintain—this guide uses the larger of a chosen percentage or a fixed update-workspace allowance—then revise it when your real patches, shader data, captures, and temporary files show that it is too small.'
+  },
+  {
+    question: 'Does a faster microSD card increase Steam Deck FPS?',
+    answer: 'This guide makes no general FPS claim. Storage can affect transfers and some loading behavior, but A1/A2 and UHS markings do not prove a frame-rate gain in every game. The Deck’s interface, the exact card, workload, filesystem, thermals, and game all matter.'
+  },
+  {
+    question: 'Can I move Steam games between internal storage and microSD?',
+    answer: 'SteamOS supports multiple storage locations and game moves, but protect saves and allow moves to finish before removing a card. Use the linked step-by-step moving guide, verify the destination library, and do not format a card that still contains the only copy of readable files.'
+  },
+  {
+    question: 'What SSD size fits Steam Deck?',
+    answer: 'Steam Deck internal upgrades require the correct M.2 2230 form factor and careful compatibility, recovery, and service planning. Do not buy a 2242 or 2280 drive because it is cheaper or shares the NVMe name. Check exact physical fit and current Valve guidance before opening the device.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Steam Deck storage planner: 512GB vs 1TB, microSD, and SSD',
+    description,
+    url: canonicalUrl,
+    datePublished: '2026-07-22',
+    dateModified: '2026-09-07',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Steam Deck storage', 'Steam Deck 512GB', 'Steam Deck 1TB', 'microSD cards', 'M.2 2230 NVMe SSD']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'Steam Deck storage planner', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
 ---
-<Base title="Steam Deck storage planner: how much space do you need? — Handheld Settings Lab" description="A practical Steam Deck and handheld PC storage planning guide for deciding between 256GB, 512GB, 1TB, microSD cards, and SSD upgrades.">
+<Base title={title} description={description} jsonLd={jsonLd}>
   <article class="wrap article">
-    <span class="eyebrow">Storage guide</span>
-    <h1>Steam Deck storage planner: how much space do you actually need?</h1>
-    <p class="muted">Baseline/spec-informed guidance for Steam Deck, ROG Ally, Legion Go, and other handheld PCs. I did not run fresh install-size tests for this page; use the linked official sources and the <a href="/calculators/storage-planner/">storage planner calculator</a> before buying storage.</p>
+    <span class="eyebrow">Steam Deck calculator-support guide</span>
+    <h1>Steam Deck storage planner: choose 512GB, 1TB, microSD, or an SSD upgrade</h1>
+    <p class="muted">This guide turns your real installed-library plan into a capacity decision. It does not publish guessed game sizes, storage-speed benchmarks, or a universal “games per drive” number. Valve’s public specifications are the source for the current 512GB and 1TB OLED storage options and UHS-I microSD support.</p>
+    <p class="affiliate-note">Disclosure: shopping cards are broad Amazon searches marked sponsored/nofollow. They are not product endorsements, current prices, hands-on test results, or fit guarantees. Handheld Settings Lab appends an Associates tag only when a real tag is configured.</p>
 
-    <div class="callout">Quick answer: 512GB is comfortable for a mixed library, 1TB is the safer long-term handheld target, and a reputable microSD card is still useful for indies, emulation, screenshots, and overflow installs.</div>
+    <div class="callout"><strong>Fast answer:</strong> add the current storage requirement for every game you actually want installed, add your non-game files, then reserve update workspace. If that total fits your present Deck, buy nothing. If it does not, a reputable microSD card is the least disruptive expansion; an internal M.2 2230 SSD is the higher-effort route to one larger primary library.</div>
 
-    <h2>Start with your real library, not the model name</h2>
-    <p>Handheld storage planning gets easier if you group games by install size rather than by hype. A 256GB handheld can feel roomy with lightweight games, but tight if you keep several modern RPGs or open-world games installed at once.</p>
+    <h2>The storage decision in five numbers</h2>
+    <table>
+      <thead><tr><th>Input</th><th>Where to get it</th><th>Why it belongs in the plan</th></tr></thead>
+      <tbody>
+        <tr><td>Installed game total</td><td>Current Steam storage pages or each game’s current store requirement</td><td>Game count alone hides enormous size differences</td></tr>
+        <tr><td>Non-Steam games and launchers</td><td>Your actual files and launcher settings</td><td>They can live outside the library total Steam first shows</td></tr>
+        <tr><td>Desktop files and captures</td><td>Desktop Mode folders and media apps</td><td>Screenshots, recordings, downloads, ROM backups, and mods consume real space</td></tr>
+        <tr><td>Update workspace</td><td>Your recent patch behavior or a conservative chosen allowance</td><td>A game update may need temporary room beyond the final patch size</td></tr>
+        <tr><td>Free-space reserve</td><td>A policy you choose and monitor</td><td>Prevents every update from becoming an emergency uninstall</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Use the calculator without inventing install sizes</h2>
+    <ol>
+      <li><strong>Open Steam’s storage view.</strong> Record the installed sizes shown on your Deck instead of copying a stale listicle.</li>
+      <li><strong>Check planned games at the source.</strong> Use the current Steam store storage requirement as an initial planning number, then expect installed size and future patches to change.</li>
+      <li><strong>Add files outside Steam.</strong> Include other launchers, mods, compatibility data, shader data, captures, downloads, and anything kept in Desktop Mode.</li>
+      <li><strong>Choose a reserve.</strong> Enter either a percentage or fixed workspace that reflects how often your largest games patch. This is your policy—not a Valve requirement or benchmark.</li>
+      <li><strong>Run the <a href="/calculators/storage-planner/">storage planner</a>.</strong> Compare its required total with the capacity actually available on the target drive, not the rounded number printed on the box.</li>
+      <li><strong>Recheck before buying.</strong> Remove games you do not need offline and see whether the problem disappears before adding hardware.</li>
+    </ol>
+
+    <h2>512GB vs 1TB: decide from the library, not a slogan</h2>
+    <div class="grid cols2">
+      <section class="card">
+        <span class="chip">512GB class</span>
+        <h3>Best when you actively rotate games</h3>
+        <p>A 512GB-class Deck can be a sensible fit when your must-keep library and reserve fit comfortably, you uninstall completed games, and fast internet or a microSD card makes rotation painless. Do not call it enough until your own total proves it.</p>
+      </section>
+      <section class="card">
+        <span class="chip">1TB class</span>
+        <h3>Best when offline choice matters</h3>
+        <p>A 1TB-class library reduces rotation when several large games, mods, other launchers, or extended offline travel must coexist. It buys capacity and convenience, not a universal FPS improvement.</p>
+      </section>
+    </div>
+    <p>The current Valve technical page lists Steam Deck OLED models with <strong>512GB NVMe SSD</strong> and <strong>1TB NVMe SSD</strong>, both with a high-speed microSD slot. That establishes product options, not how much usable space remains after formatting, SteamOS, updates, and your files.</p>
+
+    <h2>Work a transparent planning example</h2>
+    <p>Suppose your measured or source-checked game list totals <strong>420GB</strong>, non-game files add <strong>25GB</strong>, and you choose a <strong>60GB</strong> update/free-space allowance. The planning requirement is <strong>505GB</strong>. Those figures are an arithmetic example, not a tested library or a recommendation for every owner.</p>
+    <div class="callout"><strong>420GB games + 25GB other files + 60GB reserve = 505GB planned capacity.</strong> Compare that requirement with the drive’s actual available space. Do not assume a product marketed as 512GB exposes 512GiB to SteamOS.</div>
+    <p>If the same list falls just above the current internal drive, first decide whether every game must remain installed. If yes, compare a microSD expansion with an internal SSD upgrade. If no, an uninstall rotation can solve the problem at no hardware cost.</p>
+
+    <h2>microSD or internal SSD: use the lower-risk branch first</h2>
+    <table>
+      <thead><tr><th>Question</th><th>microSD branch</th><th>Internal SSD branch</th></tr></thead>
+      <tbody>
+        <tr><td>Installation work</td><td>Insert, format in the intended device, and create/use the library</td><td>Open the Deck, replace storage, and restore or reinstall SteamOS</td></tr>
+        <tr><td>Library structure</td><td>Second removable storage location</td><td>One larger primary internal drive</td></tr>
+        <tr><td>Portability</td><td>Card can be removed, but should not be pulled during reads, writes, updates, or moves</td><td>Drive stays inside the handheld</td></tr>
+        <tr><td>Main risk to plan</td><td>Counterfeit capacity, card failure, removal, and library-path confusion</td><td>Wrong form factor, physical damage, lost data, and recovery failure</td></tr>
+        <tr><td>Who should pause</td><td>Anyone whose only copy of important files is already on the card</td><td>Anyone without backups, recovery media, correct tools, or confidence opening the device</td></tr>
+      </tbody>
+    </table>
+    <p>Valve lists the microSD interface as <strong>UHS-I</strong> with SD, SDXC, and SDHC support. A card advertised with a faster bus does not make the Deck’s reader exceed its interface. The SD Association defines A1 and A2 as application-performance classes; neither logo proves authenticity or a measured improvement in a particular game.</p>
+    <p>Continue with <a href="/guides/microsd-vs-ssd-handheld-pc/">microSD vs SSD for handheld gaming PCs</a>, the <a href="/guides/steam-deck-microsd-speed-compatibility/">Steam Deck microSD speed and compatibility guide</a>, or the <a href="/guides/steam-deck-ssd-size-compatibility-upgrade/">M.2 2230 SSD compatibility guide</a>.</p>
+
+    <h2>Build a travel library that works offline</h2>
+    <ol>
+      <li>Install or move every planned game while you still have reliable internet and power.</li>
+      <li>Allow downloads, shader data, redistributables, and launcher updates to finish.</li>
+      <li>Launch each game once on the account that will travel; do not assume an installed folder proves offline readiness.</li>
+      <li>Verify cloud-save status and keep important saves backed up where the game and platform permit.</li>
+      <li>Restart the Deck, test the intended offline mode, and open the games again before departure.</li>
+      <li>Leave the update reserve intact rather than filling it with one last optional install.</li>
+    </ol>
+    <p>Use the <a href="/guides/handheld-pc-offline-mode-flight-checklist/">offline-mode flight checklist</a> for launcher and travel checks, and the <a href="/guides/move-steam-deck-games-to-microsd/">Steam Deck game-move guide</a> before relocating an existing library.</p>
+
+    <h2>Failure-safe storage habits</h2>
     <ul>
-      <li><strong>Light library:</strong> indies, roguelikes, retro collections, and cloud-save games you rotate often. 256GB plus a microSD card can work.</li>
-      <li><strong>Mixed library:</strong> a few small games, one big RPG, one racing/sports game, and a travel backlog. 512GB is the practical floor.</li>
-      <li><strong>Big-game library:</strong> multiple 80GB–150GB installs, mods, shader caches, screenshots, and offline travel. Plan around 1TB internal storage or a 512GB device plus a large microSD card.</li>
+      <li><strong>Do not format first.</strong> If a card is missing or unreadable, preserve any readable files before destructive steps and follow the <a href="/guides/steam-deck-microsd-card-not-showing-up/">microSD troubleshooting flow</a>.</li>
+      <li><strong>Do not trust the capacity label alone.</strong> Buy from a reputable seller and test new removable storage before it holds the only copy of anything important.</li>
+      <li><strong>Do not remove active storage.</strong> Wait for installs, updates, transfers, and disk activity to finish before ejecting a card.</li>
+      <li><strong>Do not begin an SSD swap without recovery.</strong> Back up data, prepare current SteamOS recovery media using Valve’s instructions, and verify the exact M.2 2230 drive and tools first.</li>
+      <li><strong>Do not call storage an FPS upgrade.</strong> Capacity and some load/transfer behavior can change, but a general frame-rate claim needs controlled evidence for the exact game and setup.</li>
     </ul>
 
-    <h2>Why advertised storage is not the same as usable space</h2>
-    <p>Every device needs room for the operating system, launchers, updates, shader caches, save data, screenshots, and temporary download files. Leave breathing room instead of filling a drive to the last gigabyte. For a low-friction handheld setup, I like planning with a 15%–20% reserve.</p>
+    <h2>Spec-based shopping starting points</h2>
+    <p>Shop only after the calculator proves a capacity gap. These are broad searches rather than ranked products; no price, stock, authenticity, or compatibility is asserted from a marketplace result.</p>
+    <div class="grid cols3">
+      {shoppingLinks.map(link => (
+        <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored" data-affiliate-link data-category={link.category}>
+          <span class="chip">Sponsored search</span>
+          <h3>{link.label}</h3>
+          <p class="muted">Verify capacity, form factor or bus class, seller, warranty, model revision, return policy, and current device guidance.</p>
+        </a>
+      ))}
+    </div>
+    <p>Compare categories in the <a href="/gear/microsd-cards/">microSD gear guide</a> and <a href="/gear/nvme-ssds/">NVMe SSD gear guide</a>, then return to the <a href="/steam-deck-settings/">Steam Deck settings hub</a> to prioritize the games you really play.</p>
 
-    <h2>Steam Deck: internal SSD vs microSD</h2>
-    <p>Valve's official Steam Deck tech specs list microSD expansion, and SteamOS makes moving games between internal storage and a card straightforward. Internal NVMe storage is still the best place for your most-played large games, but microSD remains useful for slower-paced titles, indies, and overflow installs.</p>
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Sources and method</h2>
+    <p>The public sources below were fetched successfully on September 7, 2026. Valve supplied the current Steam Deck OLED storage options, UHS-I microSD support, support path, and official SteamOS recovery reference. The SD Association supplied A1/A2 terminology. The planning workflow and 505GB arithmetic example are transparent editorial methods, not Valve requirements, install-size measurements, speed benchmarks, or search-volume claims.</p>
     <ul>
-      <li><strong>Put on internal SSD:</strong> huge open-world games, games that patch often, shader-heavy titles, and anything where load times bother you.</li>
-      <li><strong>Put on microSD:</strong> small indies, emulated libraries you legally own, older PC games, visual novels, deckbuilders, and games you keep installed for travel.</li>
-      <li><strong>Move before a trip:</strong> if you will be offline, install and launch each game once before leaving so updates and first-run setup do not surprise you.</li>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
     </ul>
 
-    <h2>ROG Ally and Legion Go planning notes</h2>
-    <p>Windows handhelds usually need more storage headroom because launchers, drivers, Windows updates, game bar captures, and temporary files can pile up. If you use Game Pass, Steam, Epic, Battle.net, and mod managers on the same handheld, budget extra space and keep an uninstall rotation.</p>
-
-    <h2>Simple storage formulas</h2>
-    <p>Use these as planning shortcuts, then run the calculator for your exact list.</p>
-    <ul>
-      <li><strong>Weekend travel kit:</strong> 1 large game + 5 small games + 20% reserve.</li>
-      <li><strong>Daily driver:</strong> 2 large games + 10 small/mid-size games + launchers + 20% reserve.</li>
-      <li><strong>Offline backlog:</strong> 3–5 large games + many indies + media/screenshots + 20% reserve.</li>
-    </ul>
-
-    <h2>Buying guidance without affiliate pressure</h2>
-    <p>This site may add affiliate links after partner approval, but the storage rule is simple: buy from reputable retailers, check warranty terms, avoid suspiciously cheap high-capacity cards, and prefer reliability over headline speed claims. For microSD cards, look for known gaming-use lines from established brands and keep receipts in case a card fails early.</p>
-
-    <h2>Source checks</h2>
-    <ul>
-      <li><a href="https://www.steamdeck.com/en/tech">Valve Steam Deck tech specs</a> — storage tiers and microSD expansion reference.</li>
-      <li><a href="https://store.steampowered.com/app/1086940/Baldurs_Gate_3/">Baldur's Gate 3 Steam store page</a> — example of a large modern RPG install footprint.</li>
-      <li><a href="https://store.steampowered.com/app/1091500/Cyberpunk_2077/">Cyberpunk 2077 Steam store page</a> — example of a large open-world PC game install footprint.</li>
-      <li><a href="https://www.asus.com/us/site/gaming/rog/gaming-handheld/rog-ally.html">ASUS ROG Ally official product page</a> — Windows handheld context and device family reference.</li>
-    </ul>
-
-    <div class="callout">Next step: open the <a href="/calculators/storage-planner/">storage planner</a>, enter your top 5–10 games, then add 20% spare capacity before choosing a drive or card.</div>
+    <div class="callout"><strong>Next step:</strong> open the <a href="/calculators/storage-planner/">storage planner</a>, enter current source-checked sizes for only the games you want available, and preserve an update reserve before choosing any card or drive.</div>
   </article>
 </Base>
