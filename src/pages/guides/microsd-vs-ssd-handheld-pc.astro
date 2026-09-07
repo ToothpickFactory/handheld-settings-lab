@@ -1,67 +1,252 @@
 ---
 import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/microsd-vs-ssd-handheld-pc/';
+const title = 'microSD vs SSD for handheld gaming PCs: which upgrade first? — Handheld Settings Lab';
+const description = 'Choose microSD or an internal SSD for Steam Deck, ROG Ally, Ally X, and Legion Go by library size, slot support, upgrade risk, and real workload.';
+
+const sources = [
+  { label: 'Valve: Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' },
+  { label: 'ASUS: ROG Ally (2023) official specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-2023/spec/' },
+  { label: 'ASUS: ROG Ally X (2024) official specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/' },
+  { label: 'Lenovo PSREF: Legion Go 8APU1 specification PDF', url: 'https://psref.lenovo.com/syspool/Sys/PDF/Legion/Legion_Go_8APU1/Legion_Go_8APU1_Spec.pdf' },
+  { label: 'SD Association: Application Performance Class', url: 'https://www.sdcard.org/developers/sd-standard-overview/application-performance-class/' }
+];
+
+const shoppingLinks = [
+  { label: 'UHS-I A2 microSD cards for Steam Deck', href: 'https://www.amazon.com/s?k=uhs-i+a2+microsd+card+steam+deck', category: 'microsd-cards' },
+  { label: 'UHS-II microSD cards for ROG Ally', href: 'https://www.amazon.com/s?k=uhs-ii+microsd+card+rog+ally', category: 'microsd-cards' },
+  { label: 'M.2 2230 NVMe SSDs for compatible handhelds', href: 'https://www.amazon.com/s?k=m.2+2230+nvme+ssd+handheld+gaming', category: 'nvme-ssds' },
+  { label: 'M.2 2242 NVMe SSDs for Legion Go', href: 'https://www.amazon.com/s?k=m.2+2242+nvme+ssd+legion+go', category: 'nvme-ssds' },
+  { label: 'M.2 2280 NVMe SSDs for ROG Ally X', href: 'https://www.amazon.com/s?k=m.2+2280+nvme+ssd+rog+ally+x', category: 'nvme-ssds' },
+  { label: 'USB-C NVMe enclosures for backup and cloning', href: 'https://www.amazon.com/s?k=usb+c+nvme+ssd+enclosure', category: 'nvme-ssds' }
+];
+
+const faqs = [
+  {
+    question: 'Is an SSD always faster than a microSD card for handheld games?',
+    answer: 'An internal NVMe SSD has a much faster storage interface, but that does not guarantee the same visible improvement in every game. Large installs, updates, decompression, file copies, and storage-heavy games are more likely to show a difference than a small indie game. This guide does not claim a universal load-time or FPS result.'
+  },
+  {
+    question: 'Does a microSD card reduce FPS on Steam Deck or ROG Ally?',
+    answer: 'Storage location does not create one universal FPS penalty. A game that streams data heavily may behave differently from a lightweight title, while many games run acceptably from a genuine card supported by the device. Frame rate, loading, traversal stutter, patching, and installation speed are separate outcomes and should be tested separately.'
+  },
+  {
+    question: 'Is A2 better than A1 for handheld gaming?',
+    answer: 'The SD Association defines A1 and A2 as application-performance classes with minimum random I/O and sustained sequential requirements. A2 is the higher class, but it does not promise a measured game advantage on every handheld because the host, drivers, filesystem, card authenticity, temperature, and workload also matter.'
+  },
+  {
+    question: 'Can the same microSD card move between Steam Deck and Windows handhelds?',
+    answer: 'Do not assume a game-library card is interchangeable. Steam Deck and Windows launchers can use different filesystems, library structures, permissions, and game builds. Back up irreplaceable files and treat cross-device reuse as a migration that may require reformatting or redownloading.'
+  },
+  {
+    question: 'Which SSD size fits Steam Deck, ROG Ally, Ally X, or Legion Go?',
+    answer: 'The physical form factor is model-specific. The original ROG Ally and Steam Deck commonly use the compact 2230 upgrade path, the original Legion Go specification lists a 2242 slot, and ASUS lists a 2280 SSD for ROG Ally X. Confirm the exact model, revision, connector key, thickness, and official service information before buying.'
+  },
+  {
+    question: 'Should I buy a 1TB microSD card or upgrade to a 1TB SSD?',
+    answer: 'Choose the microSD card when removable capacity, simple installation, and lower upgrade risk matter most. Choose the SSD when you want one internal library and frequently install, patch, or move large games. Compare total cost including tools, enclosure, recovery media, and backup time—not capacity alone.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'microSD vs SSD for handheld gaming PCs: which upgrade first?',
+    description,
+    url: canonicalUrl,
+    datePublished: '2026-07-06',
+    dateModified: '2026-09-07',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['microSD cards', 'NVMe SSDs', 'Steam Deck storage', 'ROG Ally storage', 'Legion Go storage']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'microSD vs SSD', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
 ---
-<Base title="microSD vs SSD for handheld gaming PCs — Handheld Settings Lab" description="A practical Steam Deck, ROG Ally, and Legion Go storage upgrade guide: when a microSD card is enough, when an SSD makes sense, and what specs to check.">
-  <article class="wrap article">
-    <span class="eyebrow">Storage guide</span>
-    <h1>microSD vs SSD for handheld gaming PCs</h1>
-    <p class="muted">Baseline/spec-informed guidance for Steam Deck, ROG Ally, Legion Go, and similar handheld PCs. This is not a benchmark test: use it to decide which storage upgrade path fits your library before spending money.</p>
-    <p class="affiliate-note">Disclosure: shopping links are marked sponsored/nofollow. We do not claim hands-on testing for a card or drive unless a future review says so directly.</p>
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <article class="wrap article storage-choice-guide">
+    <span class="eyebrow">Handheld storage decision guide</span>
+    <h1>microSD vs SSD for handheld gaming PCs: which should you upgrade first?</h1>
+    <p class="lede muted">A microSD card is the low-disruption way to add removable space; an internal NVMe SSD is the cleaner long-term home for a large, frequently updated library. The right first upgrade depends on the exact handheld, games, free-space problem, and your tolerance for opening the device.</p>
+    <p class="affiliate-note">Disclosure: this is an official-spec and standards-informed comparison, not a hands-on storage benchmark. Shopping cards are broad Amazon searches marked sponsored/nofollow. No current price, availability, compatibility, speed result, or product endorsement is claimed.</p>
 
-    <div class="callout">
-      <strong>Fast answer:</strong> use a quality microSD card for indie games, emulation files, screenshots, and slower-moving backlog titles. Choose an internal SSD upgrade when you are constantly installing large AAA games, moving big files, or want the cleanest all-internal library.
-    </div>
+    <div class="callout"><strong>Fast answer:</strong> choose <strong>microSD</strong> when you need simple, removable capacity without opening the handheld. Choose an <strong>internal SSD</strong> when you repeatedly install, update, and move large games or want one internal library. Before ordering, confirm the exact device’s card interface or M.2 length—2230, 2242, and 2280 are not interchangeable sizes.</div>
 
-    <h2>Decision table</h2>
-    <div class="grid cols2">
-      <section class="card">
-        <span class="chip">Pick microSD when</span>
+    <h2>Decision matrix: start with the constraint</h2>
+    <table>
+      <thead><tr><th>Your constraint</th><th>Better first path</th><th>Why</th><th>Verify before buying</th></tr></thead>
+      <tbody>
+        <tr><td>You do not want to open the handheld</td><td>microSD</td><td>Tool-free, removable expansion on supported devices</td><td>Slot standard, capacity support, card authenticity</td></tr>
+        <tr><td>You install and patch large games often</td><td>Internal SSD</td><td>Faster interface and one primary storage pool</td><td>M.2 length, key, thickness, recovery plan</td></tr>
+        <tr><td>You want separate travel or emulation libraries</td><td>microSD</td><td>Cards can separate content physically</td><td>Filesystem, launcher behavior, backups</td></tr>
+        <tr><td>You constantly shuffle games between drives</td><td>Internal SSD</td><td>More internal capacity reduces library management</td><td>Upgrade procedure, warranty, cloning or recovery</td></tr>
+        <tr><td>You need the lowest-risk first expansion</td><td>microSD</td><td>No shell opening or OS migration</td><td>Trusted seller and full-capacity validation</td></tr>
+        <tr><td>You need storage for irreplaceable captures or saves</td><td>Neither alone</td><td>An upgrade is not a backup</td><td>Keep a second independent copy first</td></tr>
+      </tbody>
+    </table>
+
+    <h2>What changes—and what does not</h2>
+    <div class="comparison-grid">
+      <section class="choice-card microsd">
+        <span class="choice-label">microSD strengths</span>
+        <h3>Simple capacity with low upgrade risk</h3>
         <ul>
-          <li>You want the cheapest way to add 512GB–1TB of flexible storage.</li>
-          <li>You play many smaller games, older titles, indies, ROM collections, or launchers that do not need top storage speeds.</li>
-          <li>You want removable libraries for travel or separate users.</li>
-          <li>You are not comfortable opening the handheld.</li>
+          <li>Installs without opening the handheld.</li>
+          <li>Removable for library organization or file transfer.</li>
+          <li>Easy to replace while leaving the operating system untouched.</li>
+          <li>Useful for smaller games, media, screenshots, and overflow storage.</li>
         </ul>
       </section>
-      <section class="card">
-        <span class="chip">Pick SSD when</span>
+      <section class="choice-card ssd">
+        <span class="choice-label">SSD strengths</span>
+        <h3>One fast internal pool</h3>
         <ul>
-          <li>Your main library is modern AAA games with huge install sizes.</li>
-          <li>You dislike managing multiple cards and want one internal pool.</li>
-          <li>You also need fast downloads, patching, decompression, or file moves.</li>
-          <li>Your device supports the SSD size you plan to buy and you are comfortable with the install risk.</li>
+          <li>Better suited to large installs, updates, decompression, and file moves.</li>
+          <li>Keeps the operating system and primary library on internal storage.</li>
+          <li>Avoids managing several removable cards.</li>
+          <li>Can provide a larger long-term ceiling when the exact model supports it.</li>
         </ul>
       </section>
     </div>
+    <p>Neither storage type is a universal FPS upgrade. A faster drive may shorten some loading, installation, patching, or data-streaming tasks; it does not make the processor or graphics hardware render every game faster. Keep loading time, frame rate, traversal stutter, and download speed as separate test results.</p>
 
-    <h2>Device notes before you buy</h2>
-    <ul>
-      <li><strong>Steam Deck:</strong> Valve lists a UHS-I microSD slot and internal NVMe SSD storage options in the official technical specifications. A2-rated cards can be sensible for game-library use, but a larger internal drive is cleaner for very large libraries.</li>
-      <li><strong>ROG Ally X:</strong> ASUS markets the Ally X with a larger battery and an M.2 2280 SSD format, which makes mainstream internal SSD upgrades less cramped than tiny 2230-only devices. Confirm exact regional specs before purchase.</li>
-      <li><strong>Legion Go:</strong> check Lenovo's current specification page or support documentation for your model before buying storage. Regional bundles and drive sizes can vary.</li>
-    </ul>
+    <h2>Handheld compatibility: verify the exact model</h2>
+    <p>The table below is a buying-path summary, not permission to install a part. Regional configurations and later model revisions can differ. Use the linked official specifications and the device maker’s current service guidance before opening hardware.</p>
+    <table>
+      <thead><tr><th>Handheld</th><th>Removable-storage baseline</th><th>Internal SSD path to investigate</th><th>Best next guide</th></tr></thead>
+      <tbody>
+        <tr><td>Steam Deck LCD / OLED</td><td>Valve lists microSD UHS-I with SD, SDXC, and SDHC support</td><td>Compact M.2 2230 NVMe upgrade path; confirm model and service steps</td><td><a href="/guides/steam-deck-ssd-size-compatibility-upgrade/">Steam Deck 2230 compatibility</a></td></tr>
+        <tr><td>ROG Ally (2023)</td><td>ASUS lists a UHS-II microSD reader</td><td>M.2 2230 NVMe path; confirm the exact 2023 model</td><td><a href="/guides/rog-ally-ssd-size-compatibility-upgrade/">ROG Ally 2230 vs 2280</a></td></tr>
+        <tr><td>ROG Ally X (2024)</td><td>ASUS lists a UHS-II microSD reader</td><td>ASUS lists M.2 2280 PCIe 4.0 NVMe storage</td><td><a href="/guides/rog-ally-x-2280-ssd-upgrade-checklist/">ROG Ally X 2280 checklist</a></td></tr>
+        <tr><td>Legion Go 8APU1</td><td>Lenovo lists a microSD card reader</td><td>Lenovo PSREF lists one M.2 2242 PCIe 4.0 x4 slot</td><td><a href="/guides/legion-go-ssd-size-compatibility-upgrade/">Legion Go 2242 compatibility</a></td></tr>
+      </tbody>
+    </table>
+    <p>For a visual explanation of drive lengths, read the <a href="/guides/handheld-pc-ssd-form-factor-guide/">handheld M.2 2230 vs 2242 vs 2280 guide</a>. A longer number describes physical card length; it does not prove electrical, thermal, firmware, or enclosure compatibility.</p>
 
-    <h2>What microSD specs actually matter</h2>
-    <p>For handheld gaming, prioritize reputable brands, warranty, return policy, and application performance ratings over flashy maximum read-speed claims. The SD Association defines Application Performance Class labels such as A1 and A2 for app-style random read/write behavior; those labels are more relevant to game libraries than a single sequential speed number on the package.</p>
+    <h2>microSD labels: UHS-I, UHS-II, A1, A2, U1, and U3</h2>
+    <p>Several symbols can appear on one card because they describe different properties. They are standards labels, not game benchmarks.</p>
+    <div class="label-grid">
+      <section><strong>UHS-I / UHS-II</strong><p>The bus interface. The host and card must both support the faster interface to use it; buying a UHS-II card does not turn a UHS-I Steam Deck slot into UHS-II.</p></section>
+      <section><strong>A1 / A2</strong><p>Application Performance Class. The SD Association defines minimum random I/O and sustained sequential requirements. A2 is a higher class, but host support and workload still matter.</p></section>
+      <section><strong>U1 / U3</strong><p>UHS Speed Class symbols associated with minimum sustained write performance. They do not summarize random I/O, authenticity, or game loading.</p></section>
+      <section><strong>V rating</strong><p>Video Speed Class is aimed at sustained video recording. It can coexist with other labels but is not a handheld-game performance guarantee.</p></section>
+    </div>
+    <p>A genuine, suitably rated card from a traceable seller is more valuable than a suspicious listing with every logo. Test reported capacity before moving or deleting the only copy of a library.</p>
 
-    <h2>Safe buying checklist</h2>
-    <ol>
-      <li>Check the device's official storage spec first: slot type, SSD physical size, and any support notes.</li>
-      <li>Pick capacity around your real library: 512GB is a budget expansion, 1TB is the current practical sweet spot for many players, and 2TB belongs in a deliberate build plan.</li>
-      <li>For microSD, buy from a trusted seller and test the card when it arrives; counterfeit flash is still a real risk.</li>
-      <li>For SSD, confirm warranty impact, cloning/recovery steps, screw type, thermal pad needs, and whether you have a recovery image ready.</li>
-      <li>Keep one external backup of saves/screenshots before any storage migration.</li>
+    <h2>Capacity planning before the purchase</h2>
+    <ol class="workflow-list">
+      <li><strong>Measure current usable free space.</strong> Leave operating room for updates, shader data, temporary files, screenshots, and the system—not only listed game sizes.</li>
+      <li><strong>List the games actually kept installed.</strong> Separate “play this month” from an archive that can be downloaded later.</li>
+      <li><strong>Add update headroom.</strong> A patch can require temporary working space beyond its download size.</li>
+      <li><strong>Choose one growth horizon.</strong> Buy for a realistic next year, not an imaginary permanent library.</li>
+      <li><strong>Use the <a href="/calculators/storage-planner/">storage planner</a>.</strong> Its result is planning arithmetic, not a promise that every advertised byte appears as usable space.</li>
     </ol>
+    <p>Continue with the <a href="/guides/steam-deck-storage-planner-how-much-space/">Steam Deck storage-capacity guide</a> if the decision is between capacities rather than storage types.</p>
 
-    <h2>Shopping starting points</h2>
-    <p>Use these as search links, not untested product endorsements:</p>
-    <p><a class="btn ghost" href="https://www.amazon.com/s?k=A2+microSD+1TB+handheld+gaming" target="_blank" rel="nofollow sponsored">Search A2 1TB microSD cards</a> <a class="btn ghost" href="https://www.amazon.com/s?k=2230+NVMe+SSD+Steam+Deck" target="_blank" rel="nofollow sponsored">Search 2230 NVMe SSDs</a> <a class="btn ghost" href="https://www.amazon.com/s?k=2280+NVMe+SSD+ROG+Ally+X" target="_blank" rel="nofollow sponsored">Search 2280 NVMe SSDs</a></p>
-
-    <h2>Source notes</h2>
+    <h2>Choose microSD when removable convenience wins</h2>
     <ul>
-      <li><a href="https://www.steamdeck.com/en/tech" target="_blank" rel="nofollow">Valve Steam Deck technical specifications</a></li>
-      <li><a href="https://www.asus.com/us/site/gaming/rog/gaming-handheld/rog-ally-x.html" target="_blank" rel="nofollow">ASUS ROG Ally X official product page</a></li>
-      <li><a href="https://www.sdcard.org/developers/sd-standard-overview/application-performance-class/" target="_blank" rel="nofollow">SD Association Application Performance Class overview</a></li>
+      <li>You need more game space today and want a reversible, tool-free change.</li>
+      <li>Your library includes smaller games that do not justify opening the device.</li>
+      <li>You want a separate emulation, capture, travel, or secondary-launcher library.</li>
+      <li>You can tolerate slower large installs, patches, file transfers, or validation than an internal NVMe path may provide.</li>
+      <li>You will buy from a reputable seller, test the card, and keep irreplaceable files elsewhere.</li>
     </ul>
+    <div class="callout"><strong>Steam Deck setup paths:</strong> use the <a href="/guides/how-to-format-microsd-card-steam-deck/">safe formatting guide</a> for a new card and the <a href="/guides/move-steam-deck-games-to-microsd/">library move guide</a> for installed games. If the card disappears, stop and use the <a href="/guides/steam-deck-microsd-card-not-showing-up/">non-destructive troubleshooting order</a> before formatting.</div>
+
+    <h2>Choose an SSD when library management is the problem</h2>
+    <ul>
+      <li>You repeatedly uninstall and redownload large games because internal space is exhausted.</li>
+      <li>Large patches, validation, decompression, and file moves dominate storage use.</li>
+      <li>You want one internal library instead of cards that must be labeled and tracked.</li>
+      <li>You have confirmed the exact M.2 size, interface, capacity support, thickness, and thermal requirements.</li>
+      <li>You are prepared for backup, operating-system recovery or cloning, careful disassembly, and post-install validation.</li>
+    </ul>
+    <p>An SSD replacement has costs beyond the drive: tools, an enclosure or recovery media, backup storage, time, and the risk of damaging a connector or fastener. If those costs erase the benefit, a microSD card can remain the more sensible first upgrade.</p>
+
+    <h2>Migration safety checklist</h2>
+    <ol class="workflow-list">
+      <li><strong>Back up saves and captures independently.</strong> Cloud sync is useful but is not proof that every title, emulator save, screenshot, mod, or configuration is protected.</li>
+      <li><strong>Verify the new storage before deleting anything.</strong> Confirm reported capacity, basic health, and sustained read/write behavior with appropriate tools.</li>
+      <li><strong>Move games through the launcher.</strong> Steam and other launchers should manage their own libraries when possible; dragging folders manually can break manifests or permissions.</li>
+      <li><strong>Open several moved games.</strong> Test one small title and one large title, verify saves, then restart the handheld and test again.</li>
+      <li><strong>Keep the old copy until the new path is proven.</strong> Do not format or repurpose the old drive/card immediately after one successful launch.</li>
+      <li><strong>Document recovery media and keys.</strong> Windows devices may involve device encryption or recovery credentials; prepare those before changing the internal drive.</li>
+    </ol>
+    <p>ROG Ally owners can follow the <a href="/guides/move-rog-ally-games-to-microsd/">launcher-by-launcher microSD move guide</a>. For cross-platform cards, read the <a href="/guides/microsd-card-format-transfer-handheld-pc-checklist/">format and transfer checklist</a> rather than assuming SteamOS and Windows libraries are interchangeable.</p>
+
+    <h2>Spec-based shopping starting points</h2>
+    <p>These searches are organized by compatibility question, not rank. Confirm exact model/revision, capacity, form factor, interface, seller, warranty, return policy, and manufacturer documentation. Do not buy from the search title alone.</p>
+    <div class="shopping-grid">
+      {shoppingLinks.map(link => (
+        <a class="shopping-card" href={link.href} target="_blank" rel="nofollow sponsored" data-affiliate-link data-category={link.category}>
+          <span>Sponsored search</span>
+          <h3>{link.label}</h3>
+          <p>Verify the physical label and official device specification before purchase. No hands-on result or universal fit is claimed.</p>
+        </a>
+      ))}
+    </div>
+    <p>For category-level research, compare the <a href="/gear/microsd-cards/">microSD gear guide</a>, <a href="/gear/nvme-ssds/">NVMe SSD gear guide</a>, and <a href="/guides/external-ssd-enclosure-handheld-gaming-pc-checklist/">USB-C NVMe enclosure checklist</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
+    </div>
+
+    <h2>Sources and comparison method</h2>
+    <p>The official Valve, ASUS, Lenovo PSREF, and SD Association pages below were fetched successfully on September 7, 2026. Valve supplied the Steam Deck UHS-I slot specification. ASUS supplied the UHS-II reader details for ROG Ally and Ally X plus the Ally X M.2 2280 storage specification. Lenovo’s PSREF supplied the original Legion Go microSD reader and M.2 2242 PCIe 4.0 x4 slot details. SD Association supplied the A1/A2 standards context. The upgrade decision order is conservative editorial guidance; no card, SSD, load time, frame rate, or transfer rate was personally tested.</p>
+    <ul>
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+    </ul>
+
+    <div class="callout"><strong>Practical rule:</strong> if a genuine supported microSD card solves the active capacity problem, use the lower-risk path. Upgrade the internal SSD when the repeated cost of moving, patching, and juggling a large library outweighs the work and risk of a model-specific installation.</div>
   </article>
 </Base>
+
+<style>
+  .storage-choice-guide { padding-top: 56px; padding-bottom: 72px; }
+  .comparison-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; margin: 24px 0; }
+  .choice-card { padding: 24px; border: 1px solid rgba(255,255,255,.13); border-radius: 16px; background: #10141c; }
+  .choice-card.microsd { border-top: 4px solid #4de3ff; }
+  .choice-card.ssd { border-top: 4px solid #b8ff4d; }
+  .choice-label { color: #b8ff4d; font-size: .75rem; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; }
+  .microsd .choice-label { color: #4de3ff; }
+  .choice-card h3 { margin: 10px 0 12px; }
+  .choice-card li { margin-bottom: 8px; color: #c4cdd8; }
+  .label-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 14px; margin: 22px 0; }
+  .label-grid section { padding: 20px; border: 1px solid rgba(77,227,255,.24); border-radius: 14px; background: #0d151b; }
+  .label-grid strong { color: #4de3ff; }
+  .label-grid p { margin: 9px 0 0; color: #c0c9d5; font-size: .9rem; }
+  .workflow-list li { margin-bottom: 13px; }
+  .shopping-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; margin: 22px 0; }
+  .shopping-card { padding: 20px; border: 1px solid rgba(184,255,77,.27); border-radius: 14px; background: #10150f; text-decoration: none; }
+  .shopping-card:hover { border-color: #b8ff4d; transform: translateY(-2px); }
+  .shopping-card span { color: #b8ff4d; font-size: .72rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+  .shopping-card h3 { margin: 9px 0 7px; color: #fff; font-size: 1rem; }
+  .shopping-card p { margin: 0; color: #c1cad5; font-size: .88rem; }
+  @media (max-width: 920px) { .label-grid, .shopping-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+  @media (max-width: 620px) { .comparison-grid, .label-grid, .shopping-grid { grid-template-columns: 1fr; } }
+</style>
