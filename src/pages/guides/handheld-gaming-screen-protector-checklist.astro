@@ -1,74 +1,217 @@
 ---
 import Base from '../../layouts/Base.astro';
 
-const sourceLinks = [
-  { label: 'Valve Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' },
-  { label: 'ASUS ROG Ally X specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/' },
-  { label: 'Lenovo Legion Go PSREF specifications', url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1' }
+const canonicalUrl = 'https://handheldsettings.com/guides/handheld-gaming-screen-protector-checklist/';
+const title = 'Handheld gaming screen protector checklist: Deck, Ally, Legion Go — Handheld Settings Lab';
+const description = 'Match a screen protector to Steam Deck LCD/OLED, ROG Ally/Ally X, or Legion Go; compare glossy and matte finishes, case fit, and installation risks.';
+
+const sources = [
+  { label: 'Valve: Steam Deck technical specifications', url: 'https://www.steamdeck.com/en/tech' },
+  { label: 'ASUS: ROG Ally (2023) official specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-2023/spec/' },
+  { label: 'ASUS: ROG Ally X (2024) official specifications', url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/' },
+  { label: 'Lenovo PSREF: original Legion Go 8APU1 specifications', url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1' }
 ];
 
-const searchLinks = [
-  { label: 'Steam Deck OLED screen protector 7.4 inch', href: 'https://www.amazon.com/s?k=Steam+Deck+OLED+screen+protector+7.4+inch' },
-  { label: 'ROG Ally X screen protector 7 inch', href: 'https://www.amazon.com/s?k=ROG+Ally+X+screen+protector+7+inch' },
-  { label: 'Lenovo Legion Go screen protector 8.8 inch', href: 'https://www.amazon.com/s?k=Lenovo+Legion+Go+screen+protector+8.8+inch' },
-  { label: 'Handheld gaming anti-glare screen protector', href: 'https://www.amazon.com/s?k=handheld+gaming+anti+glare+screen+protector' }
+const shoppingLinks = [
+  { label: 'Steam Deck OLED 7.4-inch protectors', href: 'https://www.amazon.com/s?k=steam+deck+oled+7.4+inch+screen+protector', category: 'screen-protectors' },
+  { label: 'Steam Deck LCD 7-inch protectors', href: 'https://www.amazon.com/s?k=steam+deck+lcd+7+inch+screen+protector', category: 'screen-protectors' },
+  { label: 'ROG Ally and Ally X 7-inch protectors', href: 'https://www.amazon.com/s?k=rog+ally+x+7+inch+screen+protector+alignment+frame', category: 'screen-protectors' },
+  { label: 'Legion Go 8.8-inch protectors', href: 'https://www.amazon.com/s?k=lenovo+legion+go+8.8+inch+screen+protector+alignment+frame', category: 'screen-protectors' }
+];
+
+const faqs = [
+  {
+    question: 'Do Steam Deck LCD and Steam Deck OLED use the same screen protector?',
+    answer: 'Do not assume they do. Valve lists the LCD model with a 7-inch display and the OLED model with a 7.4-inch display. Buy a protector whose seller explicitly identifies the exact Steam Deck generation, dimensions, corner shape, and any cutouts.'
+  },
+  {
+    question: 'Can the same screen protector fit ROG Ally and ROG Ally X?',
+    answer: 'ASUS lists both with 7-inch displays, but screen diagonal alone does not prove identical protector fit. Confirm that the seller explicitly supports your exact model and compare the protector dimensions, corner radius, bezel coverage, and fit with your grip case.'
+  },
+  {
+    question: 'Should I put a glossy protector on an etched-glass Steam Deck?',
+    answer: 'A glossy layer can change the anti-glare character you paid for and add reflections even when it physically fits. Decide whether impact and scratch protection matters more than preserving the original surface appearance, and use a returnable exact-model product rather than assuming the etched effect remains unchanged.'
+  },
+  {
+    question: 'Is tempered glass better than a film screen protector?',
+    answer: 'Neither is universally better. Tempered glass is usually easier to align and adds a rigid sacrificial layer, but it is thicker and may conflict with tight cases. Film is thinner and can preserve case clearance, but installation and scratch feel differ. This guide does not claim measured drop or scratch performance.'
+  },
+  {
+    question: 'Does a matte screen protector reduce handheld image quality?',
+    answer: 'A matte surface can reduce sharp reflections, but its texture may add visible grain or soften fine text and bright UI elements. The tradeoff is most noticeable on dense interfaces. No universal optical result applies to every product, so check return terms and inspect real buyer photos cautiously.'
+  },
+  {
+    question: 'Why is my screen protector lifting at the corners?',
+    answer: 'Common causes include dust, misalignment, a protector that reaches too close to a curved edge, or a grip case lip pressing against the glass. Remove the case, identify the contact point, and do not keep pushing down a protector that the case immediately lifts again.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Handheld gaming screen protector checklist',
+    description,
+    url: canonicalUrl,
+    datePublished: '2026-07-14',
+    dateModified: '2026-09-08',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Steam Deck', 'ROG Ally', 'ROG Ally X', 'Lenovo Legion Go', 'screen protectors', 'handheld gaming accessories']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'Screen protector checklist', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
 ];
 ---
-<Base title="Handheld gaming screen protector checklist: Steam Deck, ROG Ally, Legion Go — Handheld Settings Lab" description="Spec-informed screen protector buying checklist for Steam Deck OLED/LCD, ROG Ally/Ally X, and Legion Go: fit, anti-glare tradeoffs, cases, docks, and install prep.">
-  <article class="wrap article">
-    <span class="eyebrow">Accessory guide</span>
-    <h1>Handheld gaming screen protector checklist</h1>
-    <p class="muted">This is baseline/spec/community-source-informed guidance for Steam Deck, ROG Ally, ROG Ally X, and Legion Go buyers. It is not a hands-on scratch, drop, optical, or touch-latency test of specific screen protector listings.</p>
-    <p class="affiliate-note">Disclosure: shopping links are generic Amazon searches marked sponsored/nofollow. We have not added an affiliate tag or claimed hands-on testing for any listed protector.</p>
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <article class="wrap article protector-guide">
+    <span class="eyebrow">Handheld accessory fit guide</span>
+    <h1>Handheld gaming screen protector checklist: match the model before the finish</h1>
+    <p class="muted">A useful protector starts with exact-device fit, then balances glare, clarity, case clearance, and installation difficulty. This official-spec-informed guide covers Steam Deck LCD and OLED, the original ROG Ally and Ally X, and the original Legion Go. It is not a hands-on scratch, drop, optical, or touch-latency test.</p>
+    <p class="affiliate-note">Disclosure: shopping cards are broad Amazon searches marked sponsored/nofollow, not product endorsements, live prices, or fit guarantees. Handheld Settings Lab appends an Associates tag only when a real tag is configured.</p>
 
-    <div class="grid cols2">
-      <div class="card">
-        <span class="chip">Fast answer</span>
-        <h2>Fit beats brand hype</h2>
-        <p>Buy for the exact handheld and screen size first. A protector that is almost the right size can interfere with case lips, rounded corners, touch edges, or docking grip points.</p>
-      </div>
-      <div class="card">
-        <span class="chip">Texture tradeoff</span>
-        <h2>Glossy, matte, or anti-glare?</h2>
-        <p>Glossy glass usually keeps the sharpest image. Matte or anti-glare films can help bright rooms and travel, but may soften text or add grain on dense UI screens.</p>
-      </div>
+    <div class="callout"><strong>Fast answer:</strong> buy by the exact handheld generation—not only the diagonal screen size. Then choose glossy for maximum apparent clarity, matte for fewer sharp reflections, or a thin film when case clearance matters. Test the protector with the grip case before the return window closes.</div>
+
+    <h2>Official display facts to match before shopping</h2>
+    <table>
+      <thead><tr><th>Handheld</th><th>Official display listing</th><th>Protector search starting point</th><th>Main fit warning</th></tr></thead>
+      <tbody>
+        <tr><td>Steam Deck LCD</td><td>7-inch, optically bonded IPS LCD, 1280×800</td><td>Exact-model Steam Deck LCD protector</td><td>Do not substitute a 7.4-inch OLED listing</td></tr>
+        <tr><td>Steam Deck OLED</td><td>7.4-inch HDR OLED, 1280×800</td><td>Exact-model Steam Deck OLED protector</td><td>Consider how a protector changes an etched-glass model’s appearance</td></tr>
+        <tr><td>ROG Ally (2023)</td><td>7-inch, 1920×1080, 10-point touch</td><td>Seller-confirmed original Ally fit</td><td>A shared Ally/Ally X claim still needs dimensions and case-fit confirmation</td></tr>
+        <tr><td>ROG Ally X (2024)</td><td>7-inch, 1920×1080, 10-point touch</td><td>Seller-confirmed Ally X fit</td><td>Screen diagonal alone does not establish edge and bezel tolerances</td></tr>
+        <tr><td>Legion Go 8APU1</td><td>8.8-inch, 2560×1600, 10-point touch</td><td>Original Legion Go 8.8-inch protector</td><td>Generic tablet film may miss the exact corner shape and edge coverage</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">These specifications identify the device family and display class; they do not certify a third-party protector. Product revisions and seller compatibility claims can change, so compare the listing’s measured dimensions and supported model before ordering.</p>
+
+    <h2>Glossy glass, matte glass, or flexible film?</h2>
+    <div class="finish-grid">
+      <section class="finish-card">
+        <span class="chip">Glossy tempered glass</span>
+        <h3>Prioritizes apparent clarity</h3>
+        <p>Usually preserves crisp text and contrast better than a visibly textured surface. It can add strong reflections, thickness, and a hard edge that conflicts with a close-fitting case.</p>
+      </section>
+      <section class="finish-card">
+        <span class="chip">Matte / anti-glare</span>
+        <h3>Diffuses sharp reflections</h3>
+        <p>Can make overhead lights less mirror-like, but diffusion may create grain and soften small text. It does not make direct sunlight comfortable or restore brightness lost to reflection.</p>
+      </section>
+      <section class="finish-card">
+        <span class="chip">Flexible film</span>
+        <h3>Keeps the stack thinner</h3>
+        <p>Useful where a rigid protector or grip lip has little clearance. It can be harder to align cleanly and may feel different under touch. Do not infer impact protection from thinness or marketing language.</p>
+      </section>
     </div>
 
-    <h2>Device fit notes before you order</h2>
+    <h2>Special case: etched-glass Steam Deck displays</h2>
+    <p>Valve offers etched-glass display configurations on some higher-capacity Steam Deck models. A protector becomes the new top optical surface, so a glossy protector can add sharper reflections and alter the etched display’s intended anti-glare look. A matte protector may preserve a diffuse appearance but can add its own texture.</p>
+    <ol>
+      <li>Confirm whether your specific Deck has etched glass rather than deciding from storage capacity alone, especially on a used or refurbished unit.</li>
+      <li>Decide what you are protecting against: ordinary marks, bag debris, or a specific travel risk. A protector is not a substitute for a rigid carrying case.</li>
+      <li>Favor a returnable exact-model protector and inspect it on bright text, dark scenes, and a window reflection before committing to the finish.</li>
+      <li>Do not claim the original anti-glare behavior is unchanged after placing another optical layer over it.</li>
+    </ol>
+
+    <h2>Seven checks before adding a protector to the cart</h2>
+    <ol>
+      <li><strong>Identify the exact handheld.</strong> Confirm LCD versus OLED Steam Deck, original Ally versus Ally X, or the precise Legion model from the device and manufacturer support page.</li>
+      <li><strong>Compare measured dimensions.</strong> Screen diagonal is not protector size. Look for the glass width, height, corner radius, and edge coverage.</li>
+      <li><strong>Check case clearance.</strong> A protector that runs close to the bezel can meet a raised grip-case lip and lift. Recent buyer photos showing the same device and case are more useful than “case friendly” alone.</li>
+      <li><strong>Choose a finish for the real environment.</strong> Use glossy when text clarity is the priority; consider matte for trains, offices, or rooms with hard overhead reflections.</li>
+      <li><strong>Inspect the installation kit.</strong> An alignment frame, dust stickers, wipes, and a second protector can matter more than unsupported hardness superlatives.</li>
+      <li><strong>Read the return and replacement terms.</strong> A listing can fit one production run poorly or arrive chipped. Avoid a product that cannot be returned after a careful fit check.</li>
+      <li><strong>Reject unsupported claims.</strong> “9H,” “military grade,” blue-light, anti-fingerprint, and touch-response claims need a disclosed test method before they deserve weight.</li>
+    </ol>
+
+    <h2>Installation sequence that protects the device and the return option</h2>
+    <div class="install-steps">
+      <section><strong>01 · Prepare</strong><p>Shut the handheld down, unplug power, remove the case, wash and dry your hands, and work under a bright side light in a low-dust room.</p></section>
+      <section><strong>02 · Dry-fit</strong><p>Before exposing adhesive, place the protector or alignment frame over the display. Confirm speaker, sensor, bezel, and corner clearance.</p></section>
+      <section><strong>03 · Clean once</strong><p>Use only the product’s safe cleaning instructions. Remove residue and inspect from several angles; do not repeatedly drag loose grit across the display.</p></section>
+      <section><strong>04 · Align</strong><p>Use the frame if supplied. Lower the protector without forcing it, then push remaining air toward the nearest edge as the instructions direct.</p></section>
+      <section><strong>05 · Refit the case</strong><p>Install the grip case slowly. If one corner lifts immediately, remove the case and identify contact instead of repeatedly pressing the adhesive down.</p></section>
+      <section><strong>06 · Verify</strong><p>Test edge touch, the on-screen keyboard, quick-settings gestures, bright text, dark scenes, glare, and dock or case clearance before discarding packaging.</p></section>
+    </div>
+
+    <h2>Troubleshoot bubbles, dust, edge lift, and touch problems</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Likely branch</th><th>Safe next check</th></tr></thead>
+      <tbody>
+        <tr><td>Small clear bubble</td><td>Trapped air</td><td>Follow the maker’s squeegee direction and curing guidance; do not use sharp tools</td></tr>
+        <tr><td>Bubble with a visible speck</td><td>Dust under adhesive</td><td>Use the supplied dust-removal method only if the protector instructions permit lifting</td></tr>
+        <tr><td>One corner rises after case installation</td><td>Case lip contacting protector</td><td>Remove the case and inspect the overlap; choose a case-friendly protector or different case</td></tr>
+        <tr><td>Whole edge will not bond</td><td>Misalignment, curved edge, contamination, or poor fit</td><td>Compare placement and dimensions; use the return/replacement process rather than adding glue</td></tr>
+        <tr><td>Touch misses near an edge</td><td>Fit, thickness, adhesive, or software state</td><td>Restart once, test without the case, then remove the protector if the fault follows installation</td></tr>
+        <tr><td>Text looks grainy or halos appear</td><td>Matte texture or adhesive/optical effect</td><td>Compare multiple apps and lighting conditions; exchange the finish if the tradeoff is unacceptable</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Protection limits: what a screen protector does not solve</h2>
     <ul>
-      <li><strong>Steam Deck LCD vs Steam Deck OLED:</strong> do not assume one listing covers every model. Check the product title, cutouts, corner radius, and whether the seller calls out the OLED 7.4-inch panel separately from the original LCD model.</li>
-      <li><strong>ROG Ally / ROG Ally X:</strong> use a 7-inch Ally-specific listing and check whether it mentions the X model if the case or bezel tolerance is tight. ASUS lists the Ally X display as a 10-point multi-touch panel with Gorilla Glass Victus and DXC coating, so the protector choice is mostly about glare preference and install quality rather than fixing a weak bare screen.</li>
-      <li><strong>Lenovo Legion Go:</strong> the larger 8.8-inch display needs a Legion Go-specific protector. Avoid generic tablet protectors unless you are comfortable with imperfect edge fit and no handheld-specific cutout notes.</li>
-      <li><strong>Docks and cases:</strong> if your grip case has a raised lip, read recent buyer photos for edge lifting. A thick glass protector plus a tight case can peel at the corners.</li>
+      <li>It does not provide reliable crush protection when a charger or power bank presses into the handheld inside a soft bag.</li>
+      <li>It does not protect analog sticks, triggers, vents, ports, or the chassis during a drop.</li>
+      <li>It does not make a handheld water resistant or safe to clean with unapproved liquids.</li>
+      <li>It does not prove the display beneath it cannot crack. Avoid advertising-derived drop guarantees without a relevant independent method.</li>
+      <li>For travel, pair the finish decision with the <a href="/guides/handheld-gaming-carrying-case-size-checklist/">carrying-case fit checklist</a> and <a href="/guides/handheld-gaming-travel-kit-case-power-checklist/">handheld travel-kit guide</a>.</li>
     </ul>
 
-    <div class="callout">If you travel with a handheld in a bag, a screen protector is cheap insurance — but a well-fitted hard case still matters more for crush protection.</div>
-
-    <h2>Buying checklist</h2>
-    <div class="grid cols3">
-      <div class="card"><span class="chip">1</span><h3>Confirm exact device</h3><p>Match Steam Deck LCD/OLED, ROG Ally/Ally X, or Legion Go in the listing title and recent review photos.</p></div>
-      <div class="card"><span class="chip">2</span><h3>Pick finish deliberately</h3><p>Choose glossy for the cleanest image, matte for glare reduction, or anti-fingerprint coatings if you play touch-heavy games.</p></div>
-      <div class="card"><span class="chip">3</span><h3>Check install kit</h3><p>Look for alignment frames, dust stickers, wipes, and a spare sheet. A good kit matters more than vague “9H” marketing.</p></div>
-    </div>
-
-    <h2>Install prep that prevents most failures</h2>
-    <ul>
-      <li>Install before a long trip, not at the airport or hotel.</li>
-      <li>Use a dust-controlled room, clean hands, and a bright side light to spot lint.</li>
-      <li>Remove the grip case before install, then reinstall it slowly to see whether the case lifts the protector edge.</li>
-      <li>Test edge touch, quick settings overlays, on-screen keyboards, and game launchers after install.</li>
-      <li>If the protector causes glare, rainbowing, corner lift, or touch misses, remove it; do not force a bad fit because the listing promised universal compatibility.</li>
-    </ul>
-
-    <h2>Shopping search links</h2>
+    <h2>Spec-based shopping starting points</h2>
+    <p>No product is called “best,” and no hardness, clarity, touch, or impact result is asserted. Filter by exact model, measured dimensions, finish, case clearance, installation frame, seller, return policy, and current buyer evidence.</p>
     <div class="grid cols2">
-      {searchLinks.map(link => <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored"><span class="chip">Sponsored search</span><h3>{link.label}</h3><p class="muted">Compare exact model fit, finish, install frame, recent review photos, return policy, and whether a case is shown in buyer images.</p></a>)}
+      {shoppingLinks.map(link => (
+        <a class="card gear-card" href={link.href} target="_blank" rel="nofollow sponsored" data-affiliate-link data-category={link.category}>
+          <span class="chip">Sponsored search</span>
+          <h3>{link.label}</h3>
+          <p class="muted">Verify exact generation, protector dimensions, finish, case compatibility, install kit, seller, and replacement terms.</p>
+        </a>
+      ))}
+    </div>
+    <p>Compare category-level criteria in the <a href="/gear/screen-protectors/">screen-protector gear guide</a>. Then return to the <a href="/steam-deck-settings/">Steam Deck</a>, <a href="/rog-ally-settings/">ROG Ally</a>, or <a href="/legion-go-settings/">Legion Go</a> settings hub, or use the <a href="/calculators/accessory-budget/">accessory budget calculator</a> before buying the rest of a setup.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => (
+        <section class="card">
+          <h3>{faq.question}</h3>
+          <p>{faq.answer}</p>
+        </section>
+      ))}
     </div>
 
-    <h2>Sources checked</h2>
-    <p>These public device-spec sources were checked for display-size, touch, and glass/coating context during this update. This page does not claim lab-measured screen protector durability or optical performance.</p>
+    <h2>Sources and method</h2>
+    <p>The official pages below were fetched successfully on September 8, 2026. Valve supplied the Steam Deck LCD and OLED display sizes, resolutions, display technologies, and etched-glass context. ASUS supplied the original ROG Ally and Ally X display sizes, resolutions, touch, and glass/coating descriptions. Lenovo PSREF supplied the original Legion Go 8APU1 display size, resolution, and touch specification. The fit, finish, installation, and troubleshooting sequence is conservative editorial guidance. No protector was personally tested, and no scratch hardness, drop protection, optical transmission, touch latency, price, or universal fit is claimed.</p>
     <ul>
-      {sourceLinks.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
+      {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
     </ul>
   </article>
 </Base>
+
+<style>
+  .protector-guide { padding-top: 56px; padding-bottom: 72px; }
+  .finish-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 15px; margin: 24px 0 36px; }
+  .finish-card { padding: 22px; border: 1px solid rgba(255,255,255,.14); border-top: 4px solid #b8ff4d; border-radius: 14px; background: #10141c; }
+  .finish-card h3 { margin: 10px 0 8px; }
+  .finish-card p { margin: 0; color: #c0c9d5; }
+  .install-steps { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 13px; margin: 22px 0 36px; counter-reset: step; }
+  .install-steps section { padding: 20px; border: 1px solid rgba(77,227,255,.25); border-radius: 13px; background: #0d151b; }
+  .install-steps strong { display: block; color: #4de3ff; letter-spacing: .03em; }
+  .install-steps p { margin: 8px 0 0; color: #c0c9d5; }
+  @media (max-width: 760px) { .finish-grid, .install-steps { grid-template-columns: 1fr; } }
+</style>
