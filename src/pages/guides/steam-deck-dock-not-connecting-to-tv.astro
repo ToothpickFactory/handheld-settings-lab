@@ -36,6 +36,14 @@ const faqs = [
   {
     question: 'Why does the Steam Deck show a picture in menus but lose it when a game starts?',
     answer: 'The game may be switching to a resolution, refresh rate, HDR mode, or fullscreen setting the display chain does not accept reliably. Start with 1920×1080 at 60Hz, disable optional HDR or VRR temporarily, and set the game to a conservative resolution before re-enabling features one at a time.'
+  },
+  {
+    question: 'Why do USB devices work through the dock when the TV still says no signal?',
+    answer: 'Working USB devices prove that at least part of the dock connection is active, but they do not prove the video path, HDMI cable, TV input, or selected display mode is working. Keep the keyboard or controller result as evidence, then isolate video with a direct cable and a conservative display mode.'
+  },
+  {
+    question: 'Should I factory-reset my Steam Deck to fix dock output?',
+    answer: 'Not as an early step. A factory reset erases local state and does not isolate a bad cable, TV port, intermediate receiver, or dock. Complete the no-data-loss tests, install stable updates, and cross-test the display chain before considering recovery or reset steps with Steam Support.'
   }
 ];
 
@@ -47,7 +55,7 @@ const jsonLd = [
     description,
     url: canonicalUrl,
     datePublished: '2026-07-22',
-    dateModified: '2026-07-22',
+    dateModified: '2026-09-08',
     author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
     publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
     about: ['Steam Deck', 'Steam Deck Docking Station', 'HDMI troubleshooting', 'external displays']
@@ -85,6 +93,19 @@ const shoppingLinks = [
     <p class="muted">A blank TV does not prove the dock is dead. Isolate the TV input, cable, dock power, Steam Deck, and display mode one variable at a time. This is official-source-informed baseline guidance, not a hands-on diagnosis of your exact TV or dock.</p>
 
     <div class="callout"><strong>Fastest safe fix:</strong> fully shut down the Deck, unplug dock power and HDMI at both ends, then reconnect only TV → HDMI cable → powered dock → Steam Deck. Select the TV input manually and boot the Deck after the simple chain is connected.</div>
+
+    <h2>Choose the right branch before buying anything</h2>
+    <table>
+      <thead><tr><th>What still works?</th><th>What it proves</th><th>First branch to test</th></tr></thead>
+      <tbody>
+        <tr><td>Nothing through the dock</td><td>No single part yet; power, USB-C seating, the dock, or the Deck can still be involved</td><td>Strip the dock to power + one display cable, inspect connectors, fully shut down, and reconnect</td></tr>
+        <tr><td>USB keyboard, Ethernet, or charging works; TV does not</td><td>Some dock functions are active, but the video path remains unproven</td><td>TV input → direct HDMI cable → conservative display mode</td></tr>
+        <tr><td>SteamOS menus appear; one game goes black</td><td>The dock and display can produce a picture</td><td>Game resolution, refresh rate, fullscreen, HDR, and VRR settings</td></tr>
+        <tr><td>One TV works; another does not</td><td>The Deck, dock, and tested cable can output video in at least one chain</td><td>The failing TV input, its input-format setting, and supported modes</td></tr>
+        <tr><td>DisplayPort works; HDMI does not</td><td>The official Dock can output externally, while the HDMI branch still has a fault</td><td>HDMI cable, TV port, and any HDMI-only intermediate hardware</td></tr>
+      </tbody>
+    </table>
+    <p>These observations narrow the next test; they are not component-level diagnoses. A multifunction dock can have working USB while video fails, and a TV can accept one source or mode while rejecting another.</p>
 
     <h2>Five-minute no-signal reset</h2>
     <ol>
@@ -125,13 +146,17 @@ const shoppingLinks = [
     <h3>3. Prove dock power</h3>
     <p>Valve says its official Dock can operate without a power supply, but USB performance is reduced. During diagnosis, use the Deck's known-good official charger or a standards-compliant USB-C PD charger with enough output. Plug it into the dock's power-input port—not a peripheral USB port—and disconnect other charging loads.</p>
 
-    <h3>4. Check SteamOS and official Dock firmware</h3>
+    <h3>4. Inspect the short USB-C path to the Deck</h3>
+    <p>Disconnect the Deck from the dock and inspect both USB-C connectors for debris, bent metal, looseness, or strain. Reconnect squarely without forcing the plug. Remove a case only if it prevents full insertion; do not trim a case or wedge the connector. If the same Deck charges directly from the same known-good supply but the powered dock shows no activity, record that difference for the later cross-test.</p>
+    <p>Do not add a USB-C extension cable while diagnosing. It creates another connector and compatibility variable between the Deck and dock. Use the dock's intended captive or supplied host connection first.</p>
+
+    <h3>5. Check SteamOS and official Dock firmware</h3>
     <p>Undock the Deck, connect it to Wi-Fi, and install pending stable SteamOS updates. For Valve's official Dock, reconnect it directly with power attached and follow any firmware prompt. Valve's Dock page says updates are delivered by connecting the Steam Deck and using the installation wizard. Do not apply unofficial firmware intended for a different dock.</p>
 
-    <h3>5. Fall back to a conservative display mode</h3>
+    <h3>6. Fall back to a conservative display mode</h3>
     <p>When the external display is visible in SteamOS, begin at <strong>1920×1080 and 60Hz</strong>. Temporarily disable HDR, VRR, and unusual refresh rates. Once the signal survives a restart and game launch, increase one option at a time. Valve lists much higher maximum outputs for the Deck and official Dock, but a supported maximum is not a promise that every cable, TV input, adapter, and game mode will negotiate it reliably.</p>
 
-    <h3>6. Cross-test the parts</h3>
+    <h3>7. Cross-test the parts</h3>
     <table>
       <thead><tr><th>Cross-test</th><th>What the result tells you</th><th>Next action</th></tr></thead>
       <tbody>
@@ -142,6 +167,17 @@ const shoppingLinks = [
         <tr><td>Official Dock over DisplayPort to a monitor</td><td>Separates HDMI-specific trouble from all external output</td><td>Focus on HDMI cable/input if DisplayPort is stable</td></tr>
       </tbody>
     </table>
+
+    <h2>A no-data-loss escalation ladder</h2>
+    <ol>
+      <li><strong>Observe:</strong> note whether the Deck screen turns off, whether charging appears, which TV input is selected, and whether any USB device works.</li>
+      <li><strong>Simplify:</strong> remove every optional peripheral and intermediate HDMI device.</li>
+      <li><strong>Cold reconnect:</strong> fully shut down and rebuild the direct, powered connection after disconnecting both HDMI ends.</li>
+      <li><strong>Substitute one part:</strong> change only the cable, TV port, display, charger, or dock per test so the result remains useful.</li>
+      <li><strong>Update the supported layer:</strong> use stable SteamOS and the official Dock firmware path, or the third-party manufacturer's exact model support.</li>
+      <li><strong>Reduce the mode:</strong> prove a stable 1080p/60Hz picture before restoring HDR, VRR, higher refresh rates, receivers, or switches.</li>
+      <li><strong>Escalate with evidence:</strong> contact support after recording which known-good combinations fail. Do not erase the Deck merely because a television says “no signal.”</li>
+    </ol>
 
     <h2>If the picture appears but looks wrong</h2>
     <ul>
@@ -155,6 +191,17 @@ const shoppingLinks = [
 
     <h2>When to stop troubleshooting</h2>
     <p>Contact Steam Support for an official Dock when it fails with a known-good Deck, charger, cable, and second display after stable updates. Use the manufacturer's support or return process for a third-party dock. Stop using any dock, charger, or cable that is unusually hot, physically damaged, loose at the connector, or producing an electrical smell.</p>
+
+    <h2>What to record for Steam Support or the dock maker</h2>
+    <ul>
+      <li>Steam Deck model, SteamOS update channel, and current system version—without publishing serial numbers or account details.</li>
+      <li>Official Dock or exact third-party dock model, plus whether a firmware prompt or vendor updater was available.</li>
+      <li>Charger wattage and model, whether charging appeared, and whether the charger works when connected directly to the Deck.</li>
+      <li>TV or monitor model, exact input, direct HDMI or DisplayPort path, and the conservative mode tested.</li>
+      <li>Which cable, second display, or second dock was known-good and the result of each one-variable substitution.</li>
+      <li>Whether SteamOS menus fail, only games fail, or the issue appears specifically after sleep/resume.</li>
+    </ul>
+    <p>A short test record is more useful than “the dock is broken,” and it prevents repeating destructive or unrelated steps. Photograph the connection layout if a receiver, switch, capture card, or wall plate must eventually return to the chain.</p>
 
     <h2>Replacement parts only after isolation</h2>
     <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on product endorsements. The site appends an Associates tag only when a real tag is configured. Start with a cable cross-test before buying a new dock.</p>
@@ -180,7 +227,7 @@ const shoppingLinks = [
     </div>
 
     <h2>Sources checked</h2>
-    <p>Valve's Docking Station, Steam Deck specification, and support pages plus the HDMI specification overview were checked on July 22, 2026. Valve confirms the official Dock's HDMI 2.0 and DisplayPort 1.4 outputs, ongoing firmware support, and reduced USB throughput without external power. The isolation sequence is conservative editorial troubleshooting; no failure rate or hands-on compatibility claim is made. Google autocomplete also returned the exact query and related no-signal variants; those suggestions are query evidence, not search-volume data.</p>
+    <p>Valve's Docking Station, Steam Deck specification, and support pages plus the HDMI specification overview were fetched successfully again on September 8, 2026. Valve confirms the official Dock's HDMI and DisplayPort outputs, ongoing support path, and the Deck's external-display connectivity. The symptom branches, isolation order, and support-record checklist are conservative editorial troubleshooting; no failure rate, hands-on diagnosis, or universal TV compatibility claim is made. Google autocomplete previously returned the exact query and related no-signal variants; those suggestions are query evidence, not search-volume data.</p>
     <ul>
       {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
     </ul>
