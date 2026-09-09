@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 
 const canonicalUrl = 'https://handheldsettings.com/guides/usb-c-power-bank-wattage-handheld-gaming/';
+const heroImage = 'https://handheldsettings.com/assets/articles/steam-deck-power-bank-airline-guide.webp';
 const title = 'Steam Deck power bank requirements and airline rules — Handheld Settings Lab';
 const description = 'Choose a Steam Deck power bank by USB-C PD wattage and watt-hours, then pack it correctly for U.S. flights using current FAA and TSA guidance.';
 
@@ -53,7 +54,8 @@ const jsonLd = [
     description,
     url: canonicalUrl,
     datePublished: '2026-07-21',
-    dateModified: '2026-08-30',
+    dateModified: '2026-09-09',
+    image: heroImage,
     author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
     publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
     about: ['Steam Deck', 'USB-C Power Delivery', 'power banks', 'air travel']
@@ -84,6 +86,11 @@ const jsonLd = [
     <h1>Steam Deck power bank requirements and airline rules</h1>
     <p class="muted">For a Steam Deck, output wattage determines whether the pack can properly power the handheld; watt-hours determine flight eligibility and approximate stored energy. This is official-source-informed buying and packing guidance, not a hands-on runtime test.</p>
     <p class="affiliate-note">Disclosure: shopping links are broad Amazon searches marked sponsored/nofollow, not product endorsements. We have not claimed hands-on testing, and the site adds an Associates tag only when a real tag is configured.</p>
+
+    <figure class="editorial-hero">
+      <img src="/assets/articles/steam-deck-power-bank-airline-guide.webp" width="1672" height="940" loading="eager" fetchpriority="high" decoding="async" alt="Generic handheld gaming PC connected to an unbranded USB-C power bank beside a carry-on bag, spare cable, and blank travel documents" />
+      <figcaption>Check three things before the airport: dedicated USB-C PD output, a readable watt-hour label, and carry-on packing. Original Handheld Settings Lab illustration; the unbranded hardware is generic and not a product endorsement.</figcaption>
+    </figure>
 
     <div class="callout"><strong>Short answer:</strong> choose a clearly labeled USB-C PD power bank with at least 45W from one USB-C port and a printed rating no higher than 100Wh for the simplest U.S. air-travel case. Pack it in your carry-on, not your checked bag, and test the exact bank, port, and cable under gameplay load before departure.</div>
 
@@ -214,7 +221,7 @@ const jsonLd = [
     </div>
 
     <h2>Sources checked</h2>
-    <p>Valve, FAA, TSA, and USB-IF public pages were rechecked on August 30, 2026. Valve’s current technical page supplied the 45W PD 3.0 power-supply and 50Wh Steam Deck OLED battery specifications. FAA supplied the carry-on-only, gate-check removal, terminal-protection, 100Wh, airline-approval, and larger-spare-battery guidance. TSA’s page said “Carry On Bags: Yes” and “Checked Bags: No” and showed a May 14, 2025 update date. USB-IF supplied the negotiation context. Airline approval remains airline-specific, international rules can differ, and no bank or runtime was personally tested.</p>
+    <p>Valve, FAA, and TSA public pages were fetched successfully again on September 9, 2026; USB-IF remains linked as the standards reference. Valve’s current technical page supplied the 45W PD 3.0 power-supply and 50Wh Steam Deck OLED battery specifications. FAA supplied the carry-on-only, gate-check removal, terminal-protection, 100Wh, airline-approval, and larger-spare-battery guidance. TSA’s page says “Carry On Bags: Yes” and “Checked Bags: No.” USB-IF supplies the negotiation context. Airline approval remains airline-specific, international rules can differ, and no bank or runtime was personally tested.</p>
     <ul>
       {sourceLinks.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
     </ul>
@@ -223,6 +230,9 @@ const jsonLd = [
 
 <style>
   .deck-power-guide { padding-top: 56px; padding-bottom: 72px; }
+  .editorial-hero { margin: 26px 0 34px; overflow: hidden; border: 1px solid rgba(184,255,77,.26); border-radius: 16px; background: #10131a; }
+  .editorial-hero img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+  .editorial-hero figcaption { margin: 0; padding: 12px 16px 14px; color: #c4ccb9; font-size: .85rem; line-height: 1.55; }
   .requirements-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 14px; margin: 24px 0 38px; }
   .requirement { padding: 20px; border: 1px solid rgba(255,255,255,.13); border-top: 4px solid #b8ff4d; border-radius: 14px; background: #10141c; }
   .requirement > span { color: #b8ff4d; font-size: .76rem; font-weight: 900; letter-spacing: .12em; }
@@ -236,5 +246,5 @@ const jsonLd = [
   .formula-card code { color: #4de3ff; font-weight: 850; }
   .test-list li { margin-bottom: 13px; }
   @media (max-width: 900px) { .requirements-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
-  @media (max-width: 620px) { .requirements-grid, .decision-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 620px) { .requirements-grid, .decision-grid { grid-template-columns: 1fr; } .editorial-hero { margin-inline: -4px; } .editorial-hero figcaption { padding-inline: 13px; } }
 </style>
