@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 
 const canonicalUrl = 'https://handheldsettings.com/guides/best-handheld-gaming-accessories/';
+const heroImage = 'https://handheldsettings.com/assets/articles/handheld-accessory-buying-order.webp';
 const title = 'Best handheld gaming accessories: spec-based buying order — Handheld Settings Lab';
 const description = 'Choose handheld gaming accessories by need: cases, microSD storage, USB-C PD chargers, power banks, docks, cables, and controls for Steam Deck, ROG Ally, and Legion Go.';
 
@@ -58,7 +59,8 @@ const jsonLd = [
     description,
     url: canonicalUrl,
     datePublished: '2026-07-21',
-    dateModified: '2026-08-17',
+    dateModified: '2026-09-09',
+    image: heroImage,
     author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
     publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
     about: ['handheld gaming accessories', 'Steam Deck', 'ROG Ally', 'Legion Go', 'USB-C Power Delivery', 'microSD cards']
@@ -84,11 +86,16 @@ const jsonLd = [
 ];
 ---
 <Base title={title} description={description} jsonLd={jsonLd}>
-  <article class="wrap article">
+  <article class="wrap article accessory-buying-guide">
     <span class="eyebrow">Cross-device accessory guide</span>
     <h1>Best handheld gaming accessories: buy for the problem, not the bundle</h1>
     <p class="muted">This is a published-spec comparison for Steam Deck, ROG Ally, Legion Go, and similar handheld PCs—not a hands-on product ranking. “Best” here means the right accessory class and specification for a stated need. Exact fit, port output, model revision, warranty, and seller still need to be checked before purchase.</p>
     <p class="affiliate-note">Disclosure: shopping cards are broad Amazon searches marked sponsored/nofollow. They are starting points, not product endorsements or live price claims. Handheld Settings Lab appends an Associates tag only when a real tag is configured.</p>
+
+    <figure class="editorial-hero">
+      <img src="/assets/articles/handheld-accessory-buying-order.webp" width="1672" height="940" loading="eager" fetchpriority="high" decoding="async" alt="Generic handheld gaming PC arranged with a carrying case, controller, microSD card, USB-C charger, dock, power bank, and cable on a dark workbench" />
+      <figcaption>Build a kit around a real constraint: protect the handheld first, then add only the storage, power, dock, or controls the setup needs. Original Handheld Settings Lab illustration; products are generic and not endorsements.</figcaption>
+    </figure>
 
     <div class="callout"><strong>Fast buying order:</strong> case for travel, storage when the library is full, spare charger/cable when power is inconvenient, power bank for outlet-free sessions, and dock only for a named TV or desk setup. Skip any category that does not solve a current problem.</div>
 
@@ -201,7 +208,7 @@ const jsonLd = [
     </div>
 
     <h2>Sources and comparison method</h2>
-    <p>The official Valve, ASUS, Lenovo PSREF, SD Association, USB-IF, and FAA pages below were fetched successfully on August 17, 2026. Device makers establish model specifications; SD Association and USB-IF define relevant standards; FAA provides current U.S. spare-battery guidance. The buying order is conservative editorial guidance based on needs and compatibility checks. No accessory was personally tested, autocomplete evidence is not represented as search volume, and readers should recheck exact model revisions and travel rules.</p>
+    <p>The official Valve, ASUS, Lenovo PSREF, USB-IF, and FAA pages below were fetched successfully again on September 9, 2026; the SD Association page remains the linked standards reference. Device makers establish model specifications; SD Association and USB-IF define relevant standards; FAA provides current U.S. spare-battery guidance. The buying order is conservative editorial guidance based on needs and compatibility checks. No accessory was personally tested, autocomplete evidence is not represented as search volume, and readers should recheck exact model revisions and travel rules.</p>
     <ul>
       {sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}
     </ul>
@@ -209,3 +216,15 @@ const jsonLd = [
     <div class="callout"><strong>Next step:</strong> open the <a href="/gear/">gear library</a> for category shortlists, or tune a game from the <a href="/steam-deck-settings/">Steam Deck</a>, <a href="/rog-ally-settings/">ROG Ally</a>, or <a href="/legion-go-settings/">Legion Go</a> hub before buying hardware to solve a settings problem.</div>
   </article>
 </Base>
+
+<style>
+  .accessory-buying-guide { padding-top: 56px; padding-bottom: 72px; }
+  .editorial-hero { margin: 26px 0 34px; overflow: hidden; border: 1px solid rgba(184,255,77,.26); border-radius: 16px; background: #10131a; }
+  .editorial-hero img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+  .editorial-hero figcaption { margin: 0; padding: 12px 16px 14px; color: #bfc8b7; font-size: .85rem; line-height: 1.55; }
+  .accessory-buying-guide table { display: block; max-width: 100%; overflow-x: auto; }
+  @media (max-width: 620px) {
+    .editorial-hero { margin-inline: -4px; }
+    .editorial-hero figcaption { padding-inline: 13px; }
+  }
+</style>
