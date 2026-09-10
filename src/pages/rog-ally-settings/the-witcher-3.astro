@@ -1,0 +1,223 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/rog-ally-settings/the-witcher-3/';
+const title = 'The Witcher 3 ROG Ally settings: 900p/30 baseline — Handheld Settings Lab';
+const description = 'Start The Witcher 3 on ROG Ally or Ally X at 900p/30 FPS, with a 720p fallback, DX11/DX12 troubleshooting, ray tracing guidance, and 50GB storage planning.';
+const image = '/assets/games/the-witcher-3-header.jpg';
+const checkedAt = 'September 10, 2026';
+
+const sources = [
+  {
+    label: 'Steam: The Witcher 3 store data, current PC requirements, and official media',
+    url: 'https://store.steampowered.com/app/292030/The_Witcher_3_Wild_Hunt/'
+  },
+  {
+    label: 'ASUS ROG: ROG Ally (2023) technical specifications',
+    url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-2023/spec/'
+  },
+  {
+    label: 'ASUS ROG: ROG Ally X (2024) technical specifications',
+    url: 'https://rog.asus.com/gaming-handhelds/rog-ally/rog-ally-x-2024/spec/'
+  },
+  {
+    label: 'ASUS ROG: first-party ROG Ally performance-tuning workflow',
+    url: 'https://rog.asus.com/articles/guides/how-to-boost-gaming-performance-on-the-rog-ally/'
+  },
+  {
+    label: 'CD PROJEKT RED: official The Witcher 3 PC support',
+    url: 'https://support.cdprojektred.com/en/witcher-3/pc'
+  }
+];
+
+const faqs = [
+  {
+    question: 'What settings should I use for The Witcher 3 on ROG Ally?',
+    answer: 'Start at 1600×900, a 30 FPS cap, ray tracing off, medium textures, low shadows, low foliage visibility, low background characters, medium terrain and water, and HairWorks off. Test a repeatable city-and-traversal route before raising quality. This is a conservative editorial baseline, not a measured guarantee.'
+  },
+  {
+    question: 'Can the ROG Ally run The Witcher 3 at 60 FPS?',
+    answer: 'A 60 FPS target may be worth testing under some model, power, renderer, and quality combinations, but this page does not claim a measured lock. Prove a stable 30 FPS profile first, then test 40 or 60 without changing resolution, power mode, and graphics at the same time.'
+  },
+  {
+    question: 'Should I use 900p or 720p for The Witcher 3 on ROG Ally?',
+    answer: 'Begin at 900p for a useful clarity-first baseline. If the same demanding route remains uneven after ray tracing, HairWorks, crowds, foliage, and shadows are reduced, compare 720p while keeping the cap and power mode fixed. Return to 900p if 720p does not materially help.'
+  },
+  {
+    question: 'Should I use DirectX 11 or DirectX 12 on ROG Ally?',
+    answer: 'Start with the current launcher default and ray tracing off. If crashes or severe repeatable stutter remain after updates and a clean configuration, compare DirectX 11 as one isolated variable. Do not change renderer, driver, operating mode, and graphics preset together.'
+  },
+  {
+    question: 'Should ray tracing be enabled on ROG Ally?',
+    answer: 'No for this baseline. Disable ray-traced global illumination, reflections, shadows, and ambient occlusion. Establish stable frame pacing and acceptable image quality before considering optional effects with a high rendering cost.'
+  },
+  {
+    question: 'How much storage does The Witcher 3 need on ROG Ally?',
+    answer: 'Steam listed 50GB of available space when checked. Leave additional capacity for patches, temporary download files, Windows, shader data, captures, and saves. Steam also says the requirements are scheduled to change on September 29, 2026, so recheck the live listing after that date.'
+  },
+  {
+    question: 'Were these settings tested by Handheld Settings Lab?',
+    answer: 'No. Handheld Settings Lab did not personally benchmark the current game, Ally model, Windows build, graphics driver, Armoury Crate version, power mode, or thermals. This is an official-source-informed starting profile and repeatable tuning method.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'The Witcher 3 ROG Ally settings: 900p/30 FPS baseline',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-09-10',
+    dateModified: '2026-09-10',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['The Witcher 3: Wild Hunt', 'ASUS ROG Ally', 'ROG Ally X', 'game settings', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'ROG Ally settings', item: 'https://handheldsettings.com/rog-ally-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'The Witcher 3 settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article witcher-ally-guide">
+    <span class="eyebrow">ROG Ally settings · Source check completed {checkedAt}</span>
+    <h1>The Witcher 3 ROG Ally settings: start at 900p and 30 FPS</h1>
+    <p class="lede muted">The Witcher 3 can move from quiet interiors to foliage-heavy travel, combat, weather, and dense city crowds. This Ally and Ally X profile starts at 900p/30 with ray tracing off, then uses a controlled 720p comparison to identify resolution pressure. It is an official-source-informed baseline—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official The Witcher 3 Wild Hunt Complete Edition Steam header artwork showing Geralt, Ciri, and Yennefer" width="460" height="215" loading="eager" fetchpriority="high" decoding="async" />
+      <figcaption class="media-credit">Official Steam store header image saved locally from <a href="https://store.steampowered.com/app/292030/The_Witcher_3_Wild_Hunt/" target="_blank" rel="nofollow noopener">CD PROJEKT RED’s Steam page</a>. Artwork and trademarks belong to their owners; use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Starting target</h3><div class="stat">900p / 30</div><p class="muted">Clarity-first conservative baseline</p></section>
+      <section class="card"><h3>Fallback test</h3><div class="stat">720p / 30</div><p class="muted">Change resolution alone</p></section>
+      <section class="card"><h3>Expensive effects</h3><div class="stat">Off</div><p class="muted">Ray tracing and HairWorks</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">50GB</div><p class="muted">Current Steam listing; add headroom</p></section>
+    </div>
+
+    <div class="callout"><strong>Build one repeatable route before chasing a higher number.</strong> Include horseback travel, rapid camera turns, vegetation, combat, and a populated settlement. Record the Ally model, charger state, operating mode, renderer, driver, game version, and cap before comparing changes.</div>
+
+    <h2>Recommended The Witcher 3 ROG Ally baseline</h2>
+    <table>
+      <thead><tr><th>Setting</th><th>Start here</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Ally operating mode</td><td>Performance; compare Turbo while plugged in</td><td>Creates a known power condition. Do not compare battery Performance against plugged-in Turbo as if they were one test.</td></tr>
+        <tr><td>Display mode / resolution</td><td>Fullscreen / 1600×900</td><td>Reduces render load from native 1080p while retaining more detail than 720p.</td></tr>
+        <tr><td>Frame-rate cap</td><td>30 FPS</td><td>Provides a conservative first target for cities, traversal, weather, and combat.</td></tr>
+        <tr><td>Renderer</td><td>Current launcher default</td><td>Proves the standard route before DirectX 11 and DirectX 12 troubleshooting.</td></tr>
+        <tr><td>Ray tracing</td><td>Off</td><td>Removes optional next-gen effects with a high rendering cost.</td></tr>
+        <tr><td>Upscaling / anti-aliasing</td><td>Quality-oriented mode</td><td>Starts with clarity; compare a more aggressive mode only on the same route.</td></tr>
+        <tr><td>Texture quality</td><td>Medium</td><td>Preserves useful character and world detail; lower only after repeatable memory symptoms.</td></tr>
+        <tr><td>Shadow quality</td><td>Low</td><td>Creates headroom in foliage-heavy areas and settlements.</td></tr>
+        <tr><td>Terrain / water quality</td><td>Medium</td><td>A balanced visual starting point to validate independently.</td></tr>
+        <tr><td>Foliage visibility range</td><td>Low</td><td>Reduces distant vegetation load during fast traversal.</td></tr>
+        <tr><td>Background characters</td><td>Low</td><td>Prioritizes city consistency over crowd density.</td></tr>
+        <tr><td>NVIDIA HairWorks</td><td>Off</td><td>Removes an optional effect before sacrificing broad image clarity.</td></tr>
+        <tr><td>Motion blur / blur</td><td>Personal preference</td><td>Choose for comfort, not as the primary performance fix.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Option labels can change. If the current build does not expose one of these controls, leave it alone rather than copying an old configuration-file edit. Steam currently says its requirements will change on September 29, 2026; recheck the live listing after that date.</p>
+
+    <h2>Use two profiles to isolate the real limit</h2>
+    <div class="profile-grid">
+      <section>
+        <span>Profile A · start here</span>
+        <h3>900p / 30 FPS</h3>
+        <p>Use Medium textures, Low shadows, foliage, and crowds, Medium terrain and water, ray tracing off, and HairWorks off. Repeat one demanding route twice before judging it.</p>
+      </section>
+      <section>
+        <span>Profile B · diagnosis</span>
+        <h3>720p / 30 FPS</h3>
+        <p>Keep the same renderer, power mode, cap, quality controls, and route; lower only resolution. If pacing barely changes, look beyond pixel load before reducing clarity again.</p>
+      </section>
+    </div>
+
+    <h2>A repeatable tuning order</h2>
+    <ol>
+      <li><strong>Update deliberately.</strong> Finish the stable game, Windows, Armoury Crate SE, BIOS, and graphics-driver updates offered for the exact Ally model, then restart.</li>
+      <li><strong>Remove stale variables.</strong> Disable mods, unexplained launch flags, and old configuration-file overrides for the first pass.</li>
+      <li><strong>Apply 900p/30.</strong> Turn ray tracing and HairWorks off, use the baseline table, and keep one frame-limiting path.</li>
+      <li><strong>Repeat a real route twice.</strong> Include travel, foliage, combat, weather, and a populated location. A menu or empty room is not a performance test.</li>
+      <li><strong>Compare 720p alone.</strong> Do not change operating mode, cap, renderer, and graphics at the same time.</li>
+      <li><strong>Reduce scene cost before textures.</strong> Keep shadows, foliage visibility, and background characters low; lower water and terrain only if the repeatable route still benefits.</li>
+      <li><strong>Raise the target last.</strong> Once the route is stable, test 40 or 60 FPS as a separate experiment and record where the result stops being consistent.</li>
+    </ol>
+
+    <h2>30, 40, or 60 FPS?</h2>
+    <table>
+      <thead><tr><th>Target</th><th>When to try it</th><th>Decision rule</th></tr></thead>
+      <tbody>
+        <tr><td>30 FPS</td><td>First playthrough baseline, battery-aware use, or demanding city/traversal scenes</td><td>Prefer consistent pacing over an unstable higher cap.</td></tr>
+        <tr><td>40 FPS</td><td>After 900p/30 is repeatable under the same power and renderer conditions</td><td>Keep only if the whole route—not just interiors—remains acceptably paced.</td></tr>
+        <tr><td>60 FPS</td><td>As a performance-focused experiment after lower targets are understood</td><td>Do not describe it as locked unless measured across representative scenes on the recorded configuration.</td></tr>
+      </tbody>
+    </table>
+    <p>No target in this table is presented as a Handheld Settings Lab measurement. The purpose is to change one constraint at a time and avoid mistaking a brief high reading for whole-game behavior.</p>
+
+    <h2>DirectX 11 vs DirectX 12 troubleshooting</h2>
+    <p>Start with the current launcher default because game and driver updates can change renderer behavior. If a clean, updated setup still has a repeatable crash or severe stutter, DirectX 11 is a useful one-variable comparison because it excludes DirectX 12-only ray-tracing paths. It is not guaranteed to be universally faster.</p>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next controlled step</th></tr></thead>
+      <tbody>
+        <tr><td>Crash at launch</td><td>Remove mods and flags, restart, verify files, and restore current defaults</td><td>Compare DirectX 11 without changing driver or graphics at the same time</td></tr>
+        <tr><td>Severe traversal stutter</td><td>Repeat the route after updates and shader work; pause downloads and overlays</td><td>Lower foliage, shadows, and background characters, then compare 720p alone</td></tr>
+        <tr><td>Image looks too soft</td><td>Return to 900p and a quality-oriented upscale mode</td><td>Keep scene-cost settings low rather than adding excessive sharpening</td></tr>
+        <tr><td>Wrong prompts or mouse input</td><td>Set Armoury Crate SE control mode to Gamepad or Auto</td><td>Restore the standard gamepad layout before remapping individual actions</td></tr>
+        <tr><td>Turbo unavailable through a dock</td><td>Test the compatible charger directly on the Ally</td><td>Isolate dock and cable ratings with the dock checklist</td></tr>
+        <tr><td>Menus differ from an old guide</td><td>Reset to current defaults and use the controls actually present</td><td>Do not import stale configuration files</td></tr>
+      </tbody>
+    </table>
+    <p>If both clean renderer routes fail reproducibly, use <a href="https://support.cdprojektred.com/en/witcher-3/pc" target="_blank" rel="nofollow noopener">CD PROJEKT RED’s official PC support</a> and include the game version, Ally model, Windows build, graphics driver, renderer, and exact reproduction steps.</p>
+
+    <h2>Storage, battery, and dock planning</h2>
+    <p>Steam listed <strong>50GB</strong> of available space on {checkedAt}. That is a requirement floor, not a complete capacity budget. Leave room for game patches, temporary download files, shader data, Windows, screenshots, and saves. Use the <a href="/calculators/storage-planner/">storage planner</a>, and check the <a href="/guides/rog-ally-ssd-size-compatibility-upgrade/">ROG Ally SSD compatibility guide</a> before opening the device.</p>
+    <p>No battery runtime is claimed here. Record total system draw from your own stable route—not only an APU limit—and enter it in the <a href="/calculators/battery-estimator/">battery estimator</a>. For TV play, validate the charger directly first, then use the <a href="/guides/rog-ally-dock-tv-monitor-setup/">ROG Ally dock and display checklist</a> to isolate power, cable, and display-handshake problems.</p>
+
+    <h2>Optional gear after the game is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact model fit, electrical and storage specifications, seller traceability, warranty, and return terms. No current price, compatibility, performance, or runtime claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+65w+usb+c+pd+charger" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers"><span class="chip">Sponsored search</span><h3>ROG Ally USB-C chargers</h3><p class="muted">Compare dedicated-port output, cable rating, shared-port behavior, warranty, and exact-model requirements.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+dock+hdmi+ethernet+100w" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks"><span class="chip">Sponsored search</span><h3>ROG Ally docks</h3><p class="muted">Compare USB-C PD passthrough, display output, Ethernet, physical clearance, host-cable reach, and charger inclusion.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=rog+ally+x+2280+nvme+ssd" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="nvme-ssds"><span class="chip">Sponsored search</span><h3>Ally-compatible NVMe SSDs</h3><p class="muted">Confirm 2230 versus 2280 fit for the exact Ally model, capacity, warranty, thermal plan, and recovery process.</p></a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a>, or set a limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on {checkedAt}. Steam’s public app data returned HTTP 200 and supplied the title, current 50GB Windows storage listing, DirectX context, scheduled-requirements-change note, and official header image. ASUS’s original Ally and Ally X specification pages and its first-party tuning guide returned HTTP 200 and supply device and workflow context. CD PROJEKT RED’s official PC support route also returned HTTP 200. The settings profile is conservative editorial guidance informed by those official constraints and common graphics-cost relationships. Handheld Settings Lab did not personally benchmark the current game, device, Windows build, driver, power mode, battery, or thermals, and does not claim a locked frame rate or measured runtime.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Browse more games in the <a href="/rog-ally-settings/">ROG Ally settings hub</a>, compare the <a href="/steam-deck-settings/the-witcher-3/">Steam Deck Witcher 3 baseline</a>, or plan around your own inputs with the <a href="/calculators/">battery, storage, and accessory calculators</a>.</p>
+  </article>
+</Base>
+
+<style>
+  .witcher-ally-guide { padding-top: 56px; padding-bottom: 72px; }
+  .profile-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; margin: 24px 0; }
+  .profile-grid section { padding: 22px; border: 1px solid rgba(184,255,77,.28); border-top: 4px solid #b8ff4d; border-radius: 14px; background: #10150f; }
+  .profile-grid span { color: #b8ff4d; font-size: .74rem; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; }
+  .profile-grid h3 { margin: 8px 0; font-size: 1.35rem; }
+  .profile-grid p { margin: 0; color: #c0c9d5; }
+  @media (max-width: 620px) { .profile-grid { grid-template-columns: 1fr; } }
+</style>
