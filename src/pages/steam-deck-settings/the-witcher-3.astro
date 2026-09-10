@@ -1,0 +1,208 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/steam-deck-settings/the-witcher-3/';
+const title = 'The Witcher 3 Steam Deck settings: verified 30 FPS baseline — Handheld Settings Lab';
+const description = 'Start The Witcher 3 on Steam Deck with a conservative 800p/30 FPS baseline, a safe tuning order, 50GB storage planning, and next-gen graphics troubleshooting.';
+const image = '/assets/games/the-witcher-3-header.jpg';
+const checkedAt = 'September 10, 2026';
+
+const sources = [
+  {
+    label: 'Steam: The Witcher 3 store page, current requirements, controller labels, and official media',
+    url: 'https://store.steampowered.com/app/292030/The_Witcher_3_Wild_Hunt/'
+  },
+  {
+    label: 'Valve: live Steam Deck compatibility report for app 292030',
+    url: 'https://store.steampowered.com/saleaction/ajaxgetdeckappcompatibilityreport?nAppID=292030'
+  },
+  {
+    label: 'Valve: Steam Deck technical specifications',
+    url: 'https://www.steamdeck.com/en/tech'
+  },
+  {
+    label: 'CD PROJEKT RED: official The Witcher 3 PC support',
+    url: 'https://support.cdprojektred.com/en/witcher-3/pc'
+  }
+];
+
+const faqs = [
+  {
+    question: 'Is The Witcher 3 Steam Deck Verified?',
+    answer: 'Yes at the time of this check. Valve’s live report resolves app 292030 as category 3, Verified, and says the default controller configuration is functional, glyphs match, interface text is legible, and the default configuration is performant. Compatibility can change, so recheck after major updates.'
+  },
+  {
+    question: 'What frame rate should I target for The Witcher 3 on Steam Deck?',
+    answer: 'Start at 30 FPS for a conservative whole-game baseline, especially if you have not tested the current build. Once a repeatable Novigrad or traversal route is stable, a 40 FPS test is reasonable on a 40Hz-capable display, but this guide does not claim a measured lock.'
+  },
+  {
+    question: 'Should I use DirectX 11 or DirectX 12 on Steam Deck?',
+    answer: 'Begin with the launcher default selected by the current Steam configuration. If repeatable crashes or severe stutter occur, DirectX 11 is a useful one-variable comparison because it removes DirectX 12-only ray tracing. Do not change renderer, Proton version, and graphics preset at the same time.'
+  },
+  {
+    question: 'Should ray tracing be enabled on Steam Deck?',
+    answer: 'No for this baseline. Disable ray-traced global illumination, reflections, shadows, and ambient occlusion. They are optional next-gen effects with a large rendering cost and are not needed to establish a readable 800p handheld profile.'
+  },
+  {
+    question: 'How much storage does The Witcher 3 need?',
+    answer: 'Steam listed 50GB of available space when checked. Leave additional room for patches, shader data, downloads, and SteamOS rather than filling the drive to exactly 50GB. Recheck the live store requirement because Steam notes that requirements are scheduled to change.'
+  },
+  {
+    question: 'Were these settings benchmarked by Handheld Settings Lab?',
+    answer: 'No. This is a conservative, official-source-informed starting profile. Handheld Settings Lab did not personally benchmark the current game, SteamOS, or compatibility-layer build, so the page does not promise a fixed frame rate or battery runtime.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'The Witcher 3 Steam Deck settings: Verified 30 FPS baseline',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-09-10',
+    dateModified: '2026-09-10',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['The Witcher 3: Wild Hunt', 'Steam Deck', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Steam Deck settings', item: 'https://handheldsettings.com/steam-deck-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'The Witcher 3 settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article witcher-guide">
+    <span class="eyebrow">Steam Deck settings · Official status checked {checkedAt}</span>
+    <h1>The Witcher 3 Steam Deck settings: start with a Verified 30 FPS baseline</h1>
+    <p class="lede muted">Valve currently marks The Witcher 3: Wild Hunt as Steam Deck Verified. That makes the default configuration the right first test—not proof of a locked frame rate in every city, swamp, expansion, or weather scene. This 800p profile is a conservative, source-informed starting point rather than a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official The Witcher 3 Wild Hunt Complete Edition Steam header artwork showing Geralt, Ciri, and Yennefer" width="460" height="215" loading="eager" fetchpriority="high" decoding="async" />
+      <figcaption class="media-credit">Official Steam store header image saved locally from <a href="https://store.steampowered.com/app/292030/The_Witcher_3_Wild_Hunt/" target="_blank" rel="nofollow noopener">CD PROJEKT RED’s Steam page</a>. Artwork and trademarks belong to their owners; use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Valve status</h3><div class="stat">Verified</div><p class="muted">Live report category 3</p></section>
+      <section class="card"><h3>Starting target</h3><div class="stat">30 FPS</div><p class="muted">Conservative baseline, not a measured lock</p></section>
+      <section class="card"><h3>Output</h3><div class="stat">800p</div><p class="muted">Native Deck panel class</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">50GB</div><p class="muted">Current Steam listing; add update headroom</p></section>
+    </div>
+
+    <div class="callout"><strong>Start from Verified defaults.</strong> Launch with Valve’s selected compatibility route and no copied launch options. Set a 30 FPS cap, turn ray tracing off, and test one repeatable outdoor-to-city route before lowering image quality or forcing another renderer.</div>
+
+    <h2>What Valve’s Verified result actually establishes</h2>
+    <p>Valve’s public compatibility endpoint for Steam app <strong>292030</strong> returned HTTP 200 on {checkedAt} and resolved the game as <strong>category 3, Verified</strong>. Its result items say the default controller configuration is fully functional, controller glyphs match the Deck, interface text is legible, and the default configuration is performant. It also warns that an external controller is not supported for the primary player.</p>
+    <p>“Default configuration is performant” is an official compatibility result, not a Handheld Settings Lab benchmark and not a promise that every save, patch, mod, or next-gen option holds one frame rate. Use it as permission to test defaults first, then tune from evidence you can reproduce.</p>
+
+    <h2>Recommended The Witcher 3 Steam Deck baseline</h2>
+    <table>
+      <thead><tr><th>Setting</th><th>Start here</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Display mode</td><td>Fullscreen</td><td>Keeps the native handheld output path simple.</td></tr>
+        <tr><td>Resolution</td><td>1280×800</td><td>Matches the Deck display class while preserving 16:10 where the current build supports it.</td></tr>
+        <tr><td>Frame-rate cap</td><td>30 FPS</td><td>Provides a conservative first target for city traversal and combat.</td></tr>
+        <tr><td>Renderer</td><td>Current Steam default</td><td>Prove Valve’s supported route before comparing DirectX 11 and DirectX 12.</td></tr>
+        <tr><td>Ray tracing</td><td>Off</td><td>Avoids spending handheld performance headroom on optional next-gen effects.</td></tr>
+        <tr><td>Anti-aliasing / upscaling</td><td>Default or FSR Quality</td><td>Start with the clearer mode; use a more aggressive mode only after a repeated route misses the target.</td></tr>
+        <tr><td>Texture quality</td><td>Medium</td><td>Preserves character and world detail; lower only if repeatable memory pressure or hitching appears.</td></tr>
+        <tr><td>Shadow quality</td><td>Low</td><td>Creates headroom in foliage-heavy scenes and settlements.</td></tr>
+        <tr><td>Terrain / water quality</td><td>Medium</td><td>A balanced visual starting point to validate before raising.</td></tr>
+        <tr><td>Foliage visibility range</td><td>Low</td><td>Reduces distant vegetation load during fast travel and horseback traversal.</td></tr>
+        <tr><td>Background characters</td><td>Low</td><td>Prioritizes steadier city behavior over crowd density.</td></tr>
+        <tr><td>NVIDIA HairWorks</td><td>Off</td><td>Removes an optional effect before sacrificing general texture clarity.</td></tr>
+        <tr><td>Motion blur / blur</td><td>Personal preference</td><td>Choose for comfort; do not treat either as the main performance fix.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Option names can change. If the current build does not expose one of these labels, leave it alone rather than editing configuration files from an old guide. Steam currently notes that PC requirements will change on September 29, 2026, so verify the live store page after that date.</p>
+
+    <h2>A repeatable tuning route</h2>
+    <ol class="test-list">
+      <li><strong>Remove old variables.</strong> Disable mods, unexplained launch options, and manually forced compatibility versions for the first pass.</li>
+      <li><strong>Launch the Verified default.</strong> Let shader work and updates settle before judging a menu or the first minute after a patch.</li>
+      <li><strong>Set 1280×800 and 30 FPS.</strong> Turn all ray tracing and HairWorks off, then apply the baseline table.</li>
+      <li><strong>Build one real test loop.</strong> Include horseback traversal, camera turns, vegetation, a fight, and a populated settlement such as Novigrad when your save allows it.</li>
+      <li><strong>Repeat the loop twice.</strong> A second pass helps separate one-time loading or shader work from a recurring bottleneck.</li>
+      <li><strong>Change one family at a time.</strong> Lower shadows, foliage range, background characters, and water before reducing textures or making the whole image softer.</li>
+      <li><strong>Save the stable profile.</strong> Record renderer, SteamOS channel, game version, frame cap, and test location so a post-update comparison means something.</li>
+    </ol>
+
+    <h2>30 FPS or 40 FPS?</h2>
+    <div class="target-grid">
+      <section>
+        <span>Safer baseline</span>
+        <h3>30 FPS</h3>
+        <p>Use this first for a broad playthrough, heavier city scenes, longer battery planning, or when you want fewer moving variables after an update.</p>
+      </section>
+      <section>
+        <span>Optional experiment</span>
+        <h3>40 FPS / 40Hz</h3>
+        <p>Test only after the 30 FPS route is repeatable. Keep ray tracing and HairWorks off, then compare the same traversal and combat path. Revert if pacing or power draw becomes less suitable.</p>
+      </section>
+    </div>
+    <p>This page does not claim either target was measured on the current build. A 40 FPS target can feel more responsive when sustained, while a consistent 30 FPS target is preferable to an unstable higher cap. Decide from frame-time behavior across your own save—not an empty interior or title screen.</p>
+
+    <h2>DirectX 11 vs DirectX 12 troubleshooting</h2>
+    <p>The current PC version can expose different launch paths. Do not assume one is universally faster on every game, SteamOS, and compatibility-layer build. Start with Steam’s current default because Valve’s compatibility result was produced against the supported configuration.</p>
+    <table>
+      <thead><tr><th>Symptom</th><th>One-variable comparison</th><th>Avoid</th></tr></thead>
+      <tbody>
+        <tr><td>Repeatable crash at launch</td><td>Remove mods and launch flags, verify files, then compare DirectX 11 once</td><td>Changing renderer, Proton, and graphics together</td></tr>
+        <tr><td>Severe traversal stutter</td><td>Repeat the route after shader work; lower foliage, shadows, and background characters</td><td>Calling a first pass a benchmark</td></tr>
+        <tr><td>Ray-tracing options hurt performance</td><td>Disable every ray-tracing feature and retest the same route</td><td>Leaving one RT effect on while diagnosing another</td></tr>
+        <tr><td>Old guide conflicts with current menus</td><td>Reset to current defaults and use options actually present</td><td>Copying stale configuration files</td></tr>
+      </tbody>
+    </table>
+    <p>DirectX 11 is a useful diagnostic branch because it excludes DirectX 12-only ray-tracing paths, but that does not make it a guaranteed universal winner. If both clean routes fail reproducibly, use <a href="https://support.cdprojektred.com/en/witcher-3/pc" target="_blank" rel="nofollow noopener">CD PROJEKT RED’s official support path</a> and include the game version, SteamOS version, renderer, and exact failure step.</p>
+
+    <h2>Storage, battery, and offline planning</h2>
+    <p>Steam listed <strong>50GB</strong> of available space on {checkedAt}. That is a floor, not a complete storage budget. Leave room for patches, temporary download files, shader data, screenshots, saves, and SteamOS. Use the <a href="/calculators/storage-planner/">storage planner</a> before moving a large library, and follow the <a href="/guides/move-steam-deck-games-to-microsd/">Steam Deck microSD move guide</a> rather than dragging game folders manually.</p>
+    <p>No battery runtime is claimed here. Use your own observed <em>total system</em> draw—not only an APU limit—in the <a href="/calculators/battery-estimator/">battery estimator</a>. For a trip, complete a deliberate disconnected launch with the current account and game already set up, then use the <a href="/guides/handheld-pc-offline-mode-flight-checklist/">offline-mode checklist</a>.</p>
+
+    <h2>Optional gear after the game is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare published specifications, seller traceability, warranty, and return terms. No current price, compatibility, performance, or runtime claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+a2+u3+microsd+card" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microsd-cards"><span class="chip">Sponsored search</span><h3>A2 / U3 microSD cards</h3><p class="muted">Compare capacity, seller, warranty, and an authenticity-test plan before moving a 50GB-plus library.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+45w+usb+c+pd+power+bank+under+100wh" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="power-banks"><span class="chip">Sponsored search</span><h3>45W-class USB-C PD banks</h3><p class="muted">Verify dedicated-port output, printed watt-hours, cable requirements, recall status, and current airline rules.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+dock+hdmi+ethernet+45w+pd" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks"><span class="chip">Sponsored search</span><h3>Steam Deck docks</h3><p class="muted">Compare host-cable fit, 45W-class PD passthrough, display output, Ethernet, and charger inclusion.</p></a>
+    </div>
+    <p>Compare specifications in the <a href="/gear/">gear library</a>, and use the <a href="/guides/usb-c-power-bank-wattage-handheld-gaming/">Steam Deck power-bank guide</a> before packing for a flight.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on {checkedAt}. Valve’s live endpoint returned resolved category 3 and the Verified controller, glyph, text-legibility, and default-performance results, plus the external-controller warning. Steam’s public store data supplied the 50GB storage listing, partial-controller-support label, release and publisher context, and official header image. Valve supplied Steam Deck hardware context; CD PROJEKT RED supplies the official PC support route. The settings table and test order are conservative editorial guidance, not a hands-on benchmark. No FPS lock, battery runtime, search volume, or endorsement is claimed.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Browse more games in the <a href="/steam-deck-settings/">Steam Deck settings hub</a>, or compare planning assumptions with the <a href="/calculators/">battery, storage, and accessory calculators</a>.</p>
+  </article>
+</Base>
+
+<style>
+  .witcher-guide { padding-top: 56px; padding-bottom: 72px; }
+  .target-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; margin: 24px 0; }
+  .target-grid section { padding: 22px; border: 1px solid rgba(184,255,77,.28); border-top: 4px solid #b8ff4d; border-radius: 14px; background: #10150f; }
+  .target-grid span { color: #b8ff4d; font-size: .74rem; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; }
+  .target-grid h3 { margin: 8px 0; font-size: 1.35rem; }
+  .target-grid p { margin: 0; color: #c0c9d5; }
+  .test-list li { margin-bottom: 12px; }
+  @media (max-width: 620px) { .target-grid { grid-template-columns: 1fr; } }
+</style>

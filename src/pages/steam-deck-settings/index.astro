@@ -5,6 +5,14 @@ const platform = Astro.url.pathname.includes('rog-ally') ? 'ROG Ally' : 'Steam D
 const slug = platform === 'ROG Ally' ? 'rog-ally-settings' : 'steam-deck-settings';
 const additionalGames = platform === 'Steam Deck' ? [
   {
+    slug: 'the-witcher-3',
+    title: 'The Witcher 3: Wild Hunt',
+    deckFps: 'Verified / 30 FPS baseline',
+    allyFps: '',
+    storage: 50,
+    preset: 'Default first / ray tracing off'
+  },
+  {
     slug: 'hollow-knight-silksong',
     title: 'Hollow Knight: Silksong',
     deckFps: 'Verified default / 60 FPS test',
