@@ -1,0 +1,225 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/steam-deck-battery-life-elden-ring/';
+const title = 'Elden Ring Steam Deck battery life: measure and extend runtime — Handheld Settings Lab';
+const description = 'Measure Elden Ring battery life on Steam Deck LCD or OLED, compare 30 and 40 FPS fairly, reduce total system draw, and plan power without invented runtime claims.';
+const image = '/assets/games/elden-ring-header.jpg';
+const checkedAt = 'September 11, 2026';
+
+const sources = [
+  {
+    label: 'Steam: Elden Ring requirements, features, and official media',
+    url: 'https://store.steampowered.com/app/1245620/ELDEN_RING/'
+  },
+  {
+    label: 'Steam app-details API: current public product data for app 1245620',
+    url: 'https://store.steampowered.com/api/appdetails?appids=1245620&cc=us&l=en'
+  },
+  {
+    label: 'Steam: current Steam Deck compatibility report for Elden Ring',
+    url: 'https://store.steampowered.com/saleaction/ajaxgetdeckappcompatibilityreport?nAppID=1245620'
+  },
+  {
+    label: 'Valve: Steam Deck LCD technical specifications',
+    url: 'https://www.steamdeck.com/en/tech/deck'
+  },
+  {
+    label: 'Valve: Steam Deck OLED technical specifications',
+    url: 'https://www.steamdeck.com/en/tech/oled'
+  },
+  {
+    label: 'Bandai Namco: official Elden Ring page',
+    url: 'https://en.bandainamcoent.eu/elden-ring/elden-ring'
+  }
+];
+
+const faqs = [
+  {
+    question: 'How long does the Steam Deck battery last while playing Elden Ring?',
+    answer: 'There is no honest universal number. Steam Deck model and battery health, frame cap, brightness, wireless activity, game area, patch state, background downloads, and total system draw all affect runtime. Measure total draw during a repeatable route and use the battery estimator with the correct 40Wh LCD or 50Wh OLED capacity and a safety reserve.'
+  },
+  {
+    question: 'Does Steam Deck OLED last longer than Steam Deck LCD in Elden Ring?',
+    answer: 'Valve lists a 50Wh battery for Steam Deck OLED and a 40Wh battery for Steam Deck LCD, so the OLED starts with more stored energy. Its platform is also described by Valve as more efficient, but this page does not claim a fixed Elden Ring advantage. Compare matched game settings, brightness, wireless state, route, and battery condition.'
+  },
+  {
+    question: 'Is 30 FPS better than 40 FPS for Elden Ring battery life?',
+    answer: 'A stable 30 FPS cap can require less rendering work than a stable 40 FPS target, but the runtime change is not fixed. Compare the same route twice with identical graphics, brightness, wireless state, and device model, changing only refresh rate and frame cap.'
+  },
+  {
+    question: 'What should I lower first to extend Elden Ring battery life on Steam Deck?',
+    answer: 'Start with a stable 30 FPS cap, then check brightness and background work. Keep ray tracing off and reduce costly scene settings such as shadows, volumetrics, reflections, water, and grass before adding aggressive scaling. Apply a TDP limit only after the game profile is stable, lowering it in small steps while repeating the same route.'
+  },
+  {
+    question: 'Should I enter the Steam Deck TDP limit in a battery calculator?',
+    answer: 'No. Enter observed total system draw. A TDP limit does not include the display, memory, storage, fan, wireless radios, speakers, controller hardware, or conversion losses, so treating TDP as whole-device consumption overstates runtime.'
+  },
+  {
+    question: 'Were these Elden Ring battery results personally tested?',
+    answer: 'No measured Elden Ring runtime is published on this page. Handheld Settings Lab checked current official Valve, Steam, and Bandai Namco sources, then built a repeatable measurement and tuning workflow. Replace planning inputs with readings from your own Steam Deck and save.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Elden Ring Steam Deck battery life: measure and extend runtime',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-09-11',
+    dateModified: '2026-09-11',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Elden Ring', 'Steam Deck battery life', 'Steam Deck OLED', 'Steam Deck LCD', 'frame-rate cap']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'Elden Ring Steam Deck battery life', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article elden-battery-guide">
+    <span class="eyebrow">Steam Deck battery guide · Sources checked {checkedAt}</span>
+    <h1>Elden Ring Steam Deck battery life: measure it, then extend it</h1>
+    <p class="lede muted">A battery-life number without the Steam Deck model, game route, frame cap, brightness, wireless state, and total system draw is not reproducible. Use this field method to compare Elden Ring at 30 and 40 FPS, identify wasted power, and plan a session on Steam Deck LCD or OLED. No runtime here is presented as a Handheld Settings Lab benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Elden Ring Steam header artwork showing a kneeling armored figure beneath the glowing Elden Ring" width="460" height="215" loading="eager" fetchpriority="high" decoding="async" />
+      <figcaption class="media-credit">Official Elden Ring Steam store header image saved locally from <a href="https://store.steampowered.com/app/1245620/ELDEN_RING/" target="_blank" rel="nofollow noopener">Bandai Namco Entertainment’s Steam page</a>. Artwork and trademarks belong to their owners; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="battery-facts">
+      <section><span>Steam Deck LCD</span><strong>40Wh</strong><p>Valve-listed battery capacity</p></section>
+      <section><span>Steam Deck OLED</span><strong>50Wh</strong><p>Valve-listed battery capacity</p></section>
+      <section><span>Elden Ring status</span><strong>Verified</strong><p>Valve category 3 at source check</p></section>
+      <section><span>First comparison</span><strong>30 vs 40</strong><p>Targets to measure, not guarantees</p></section>
+    </div>
+
+    <div class="estimate-warning"><strong>No invented hours:</strong> Valve’s broad device-level gameplay ranges are not Elden Ring results. Battery age, temperature, scene load, online activity, patches, display brightness, and background work can move a real session. Keep a reserve instead of planning to reach zero.</div>
+
+    <h2>Start with the right battery capacity</h2>
+    <p>Valve’s official specifications list a <strong>40Wh battery for Steam Deck LCD</strong> and a <strong>50Wh battery for Steam Deck OLED</strong>. Confirm the model rather than identifying it from storage capacity alone. Battery health also matters: nominal watt-hours describe the original design, not necessarily the energy an older battery can currently deliver.</p>
+    <table>
+      <thead><tr><th>Input</th><th>What to record</th><th>Why it matters</th></tr></thead>
+      <tbody>
+        <tr><td>Steam Deck model</td><td>LCD 40Wh or OLED 50Wh</td><td>Runtime math starts with stored energy, so using the wrong model produces a misleading estimate.</td></tr>
+        <tr><td>Battery condition</td><td>Health reading and unusual drain or shutdown behavior</td><td>An aged or unhealthy pack may not behave like its nominal specification.</td></tr>
+        <tr><td>Game state</td><td>Version, save area, weather, time, online/offline state</td><td>An interior, open-world ride, and effects-heavy fight do not create the same workload.</td></tr>
+        <tr><td>Display state</td><td>Resolution, refresh, cap, brightness</td><td>The display and rendering target both affect total system power.</td></tr>
+        <tr><td>System state</td><td>SteamOS version, downloads, Wi-Fi, Bluetooth, audio, peripherals</td><td>Background and accessory loads can be mistaken for game demand.</td></tr>
+        <tr><td>Power reading</td><td>Observed total system draw after the route settles</td><td>TDP alone omits major device loads and should not be used as whole-system watts.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>A repeatable Elden Ring battery test</h2>
+    <ol>
+      <li><strong>Finish updates before unplugging.</strong> Let the stable game, SteamOS, and shader downloads complete, restart, and confirm no large background transfer remains.</li>
+      <li><strong>Use the supported baseline.</strong> Valve’s current compatibility endpoint resolves Elden Ring as Verified. Start with Valve’s default compatibility tool and the <a href="/steam-deck-settings/elden-ring/">Elden Ring Steam Deck settings baseline</a>, with ray tracing off.</li>
+      <li><strong>Choose a route that represents play.</strong> Include an open-world ride with foliage and long sightlines plus a repeatable effects-heavy combat encounter. A menu or quiet cave is not a whole-game battery sample.</li>
+      <li><strong>Hold the environment constant.</strong> Record brightness, volume, Wi-Fi, Bluetooth, connected accessories, ambient conditions, and whether the session is online.</li>
+      <li><strong>Warm the route, then repeat it.</strong> A first traversal can include one-time shader or asset work. Repeat the same route before recording a stable band of total system draw.</li>
+      <li><strong>Model a range with reserve.</strong> Enter the correct battery watt-hours and observed total draw in the <a href="/calculators/battery-estimator/">battery estimator</a>. Use a safety margin for travel, save handling, battery variation, and load spikes.</li>
+      <li><strong>Change one variable.</strong> Compare frame cap, brightness, one graphics group, or a TDP limit separately. Otherwise the cause of any change is unknowable.</li>
+    </ol>
+
+    <h2>Compare 30 FPS and 40 FPS without fooling yourself</h2>
+    <div class="profile-grid">
+      <section>
+        <span>Consistency pass</span>
+        <h3>60 Hz / 30 FPS</h3>
+        <p>Keep native 800p, the same Medium/Low graphics mix, ray tracing off, no first-pass TDP limit, matched brightness, and the same route. Record pacing and total draw only after the run settles.</p>
+      </section>
+      <section>
+        <span>Responsiveness experiment</span>
+        <h3>40 Hz / 40 FPS</h3>
+        <p>Change refresh and cap only. Keep 40 FPS when the demanding route remains acceptably paced and its measured power cost fits the session—not because a quiet interior briefly reaches the target.</p>
+      </section>
+    </div>
+    <p>A 30 FPS cap can avoid rendering frames that a 40 FPS target requests, but the battery gain is not a fixed percentage. If the game misses 40 frequently, the higher target may consume more power without delivering consistent motion. Compare frame pacing and total draw together.</p>
+
+    <h2>Reduce draw in the right order</h2>
+    <div class="priority-list">
+      <section><b>1</b><div><h3>Cap frames first</h3><p>Use the stable 30 FPS profile before restricting hardware power. An uncapped or unstable target makes later comparisons noisy.</p></div></section>
+      <section><b>2</b><div><h3>Set comfortable brightness</h3><p>The display consumes power outside the game’s graphics menu. Match brightness between tests and lower it only while the screen remains comfortable and readable.</p></div></section>
+      <section><b>3</b><div><h3>Remove background work</h3><p>Pause downloads, close unused launchers, and avoid charging other devices from the Deck during a battery test.</p></div></section>
+      <section><b>4</b><div><h3>Lower scene-cost settings</h3><p>Keep ray tracing off. Reduce shadows, volumetrics, reflections, water, and grass before making the entire image unreadably soft.</p></div></section>
+      <section><b>5</b><div><h3>Apply a TDP limit last</h3><p>Lower it in small steps and repeat both routes. Stop when frame pacing, audio, controls, or stability deteriorates; the displayed limit is not total system draw.</p></div></section>
+    </div>
+
+    <h2>Troubleshoot an unexpected battery result</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next controlled step</th></tr></thead>
+      <tbody>
+        <tr><td>Draw stays high in a quiet area</td><td>Frame cap, ray tracing, downloads, overlays, Wi-Fi traffic, brightness</td><td>Restart after updates complete and repeat the known route with the default compatibility tool</td></tr>
+        <tr><td>40 FPS costs power but feels uneven</td><td>Frame-time consistency in open traversal and combat</td><td>Return to 30 FPS without changing graphics and compare the same route</td></tr>
+        <tr><td>Estimate and real session disagree</td><td>Correct 40Wh/50Wh model, total draw input, safety reserve, battery health</td><td>Use a range of observed draw rather than one brief reading</td></tr>
+        <tr><td>Result worsened after an update</td><td>Game and SteamOS versions, shader/download status, changed defaults</td><td>Restore the documented baseline and consult current official notes before adding launch flags</td></tr>
+        <tr><td>Battery percentage falls or shuts down abnormally</td><td>Battery health, temperature, charging behavior, other games</td><td>Stop treating it as an Elden Ring tuning problem and use Valve’s official support path</td></tr>
+        <tr><td>Power bank shows slow charging</td><td>Dedicated-port USB-C PD output, cable rating, shared ports, dock</td><td>Test the original charger directly, then follow the <a href="/guides/steam-deck-power-bank-slow-charger-troubleshooting/">slow-charger checklist</a></td></tr>
+      </tbody>
+    </table>
+
+    <h2>Plan travel power without a fake runtime promise</h2>
+    <p>A power bank needs sufficient <strong>USB-C Power Delivery output</strong> and enough stored energy in <strong>watt-hours</strong>. Those are different checks. Conversion loss, the Deck’s own battery state, cable capability, shared-port behavior, and Elden Ring’s changing load prevent a trustworthy “this pack adds exactly X hours” claim.</p>
+    <p>Use the <a href="/guides/usb-c-power-bank-wattage-handheld-gaming/">Steam Deck power-bank wattage and airline guide</a>, compare the <a href="/gear/power-banks/">spec-based power-bank library</a>, and test <a href="/guides/handheld-pc-offline-mode-flight-checklist/">offline mode before a flight</a>. Steam currently lists online features for Elden Ring; a battery plan does not prove the game, account, cloud save, or network-dependent features will work offline.</p>
+
+    <h2>Optional gear after the profile is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact USB-C PD output, watt-hours, cable rating, seller traceability, warranty, weight, and current airline rules. No price, compatibility, recharge count, or added-runtime claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+45w+usb+c+pd+power+bank" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="power-banks"><span class="chip">Sponsored search</span><h3>45W-class USB-C PD power banks</h3><p class="muted">Check dedicated-port output and watt-hours rather than using the advertised milliamp-hour number as a runtime guarantee.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=usb+c+100w+e+marked+cable+steam+deck" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="usb-c-cables-adapters"><span class="chip">Sponsored search</span><h3>Rated USB-C cables</h3><p class="muted">Verify USB-C PD rating, e-marker where applicable, length, connector strain, warranty, and use with the chosen bank.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+travel+case+power+bank+storage" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="cases"><span class="chip">Sponsored search</span><h3>Travel cases with power storage</h3><p class="muted">Keep the pack away from stick pressure and hot exhaust; compare exact Deck fit, compartment dimensions, and bag weight.</p></a>
+    </div>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were fetched successfully on {checkedAt}. Valve’s model-specific technical pages list the 40Wh Steam Deck LCD battery and 50Wh Steam Deck OLED battery. Steam’s compatibility endpoint resolved Elden Ring as category 3, Verified, and reported functional default controls, matching controller glyphs, legible interface text, and a performant default configuration. Steam’s public app data returned the current title, 60GB Windows storage requirement, controller and online feature labels, publisher identity, and official image. Bandai Namco’s official Elden Ring route also returned HTTP 200.</p>
+    <p>This guide publishes a measurement protocol, not a benchmark. Handheld Settings Lab did not personally test the current Elden Ring build, either Deck model, SteamOS version, compatibility layer, battery condition, total system draw, thermals, or runtime. The July 2026 audit’s Google autocomplete snapshot contained “Steam Deck battery life Elden Ring”; that is evidence of query wording, not search volume.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Next, open the <a href="/steam-deck-settings/elden-ring/">Elden Ring settings page</a>, compare other titles in the <a href="/guides/steam-deck-battery-life-by-game/">battery-by-game guide</a>, or use your own readings in the <a href="/calculators/battery-estimator/">battery estimator</a>.</p>
+  </article>
+</Base>
+
+<style>
+  .elden-battery-guide { padding-top: 56px; padding-bottom: 72px; }
+  .battery-facts { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 12px; margin: 28px 0; }
+  .battery-facts section { padding: 20px; border: 1px solid rgba(184,255,77,.26); border-top: 4px solid #b8ff4d; border-radius: 14px; background: #10150f; }
+  .battery-facts span { display: block; color: #b8ff4d; font-size: .74rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+  .battery-facts strong { display: block; margin: 8px 0 4px; color: #fff; font-size: 1.55rem; }
+  .battery-facts p { margin: 0; color: #c0c9d5; font-size: .86rem; }
+  .estimate-warning { margin: 28px 0; padding: 20px 22px; border: 1px solid rgba(255,184,77,.45); border-left: 5px solid #ffb84d; border-radius: 14px; color: #e8e0cf; background: #15130e; }
+  .profile-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; margin: 24px 0; }
+  .profile-grid section { padding: 22px; border: 1px solid rgba(77,227,255,.25); border-top: 4px solid #4de3ff; border-radius: 14px; background: #0f141b; }
+  .profile-grid span { color: #4de3ff; font-size: .74rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+  .profile-grid h3 { margin: 8px 0; }
+  .profile-grid p { margin: 0; color: #c0c9d5; }
+  .priority-list { display: grid; gap: 12px; margin: 24px 0; }
+  .priority-list section { display: grid; grid-template-columns: 46px 1fr; gap: 14px; align-items: start; padding: 18px; border: 1px solid rgba(255,255,255,.1); border-radius: 14px; background: #10131b; }
+  .priority-list b { display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid #b8ff4d; border-radius: 50%; color: #b8ff4d; }
+  .priority-list h3 { margin: 0 0 5px; }
+  .priority-list p { margin: 0; color: #c0c9d5; }
+  @media (max-width: 820px) { .battery-facts { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+  @media (max-width: 620px) { .profile-grid, .battery-facts { grid-template-columns: 1fr; } }
+</style>
