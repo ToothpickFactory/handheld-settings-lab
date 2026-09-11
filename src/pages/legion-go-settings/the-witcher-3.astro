@@ -1,0 +1,222 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/legion-go-settings/the-witcher-3/';
+const title = 'The Witcher 3 Legion Go settings: 800p/30 baseline — Handheld Settings Lab';
+const description = 'Start The Witcher 3 on the original Lenovo Legion Go at 800p/30 FPS, with a 1200p comparison, DX11/DX12 troubleshooting, ray tracing guidance, and storage planning.';
+const image = '/assets/games/the-witcher-3-header.jpg';
+const checkedAt = 'September 11, 2026';
+
+const sources = [
+  {
+    label: 'Steam: The Witcher 3 store data, current PC requirements, and official media',
+    url: 'https://store.steampowered.com/app/292030/The_Witcher_3_Wild_Hunt/'
+  },
+  {
+    label: 'Steam app-details API: current public product data for app 292030',
+    url: 'https://store.steampowered.com/api/appdetails?appids=292030&cc=us&l=en'
+  },
+  {
+    label: 'Lenovo PSREF: original Legion Go 8APU1 specifications',
+    url: 'https://psref.lenovo.com/Product/Legion/Legion_Go_8APU1'
+  },
+  {
+    label: 'CD PROJEKT RED: official The Witcher 3 PC support',
+    url: 'https://support.cdprojektred.com/en/witcher-3/pc'
+  }
+];
+
+const faqs = [
+  {
+    question: 'What settings should I use for The Witcher 3 on Legion Go?',
+    answer: 'Start at 1280×800, a 30 FPS cap, ray tracing off, medium textures, low shadows, low foliage visibility, low background characters, medium terrain and water, and HairWorks off. Test a repeatable city-and-traversal route before raising quality. This is a conservative editorial baseline, not a measured guarantee.'
+  },
+  {
+    question: 'Can Legion Go run The Witcher 3 at 60 FPS?',
+    answer: 'A 60 FPS target may be worth testing with lower output resolution and quality controls, but this page does not claim a measured lock. Prove a stable 30 FPS route first, then test 40 or 60 without changing resolution, power mode, refresh rate, and graphics at the same time.'
+  },
+  {
+    question: 'Should I use 800p or 1200p for The Witcher 3 on Legion Go?',
+    answer: 'Begin at 800p for the conservative performance baseline. If the same demanding route is stable, compare 1200p while keeping the frame cap, power condition, renderer, and graphics fixed. Keep 1200p only if its clarity gain is worth the frame-time and power cost in your own save.'
+  },
+  {
+    question: 'Should I use DirectX 11 or DirectX 12 on Legion Go?',
+    answer: 'Start with the current launcher default and ray tracing off. If crashes or severe repeatable stutter remain after updates and a clean configuration, compare DirectX 11 as one isolated variable. Do not change renderer, driver, power mode, and graphics preset together.'
+  },
+  {
+    question: 'Should ray tracing be enabled on Legion Go?',
+    answer: 'No for this baseline. Disable ray-traced global illumination, reflections, shadows, and ambient occlusion. Establish stable frame pacing and acceptable image quality before considering optional effects with a high rendering cost.'
+  },
+  {
+    question: 'How much storage does The Witcher 3 need on Legion Go?',
+    answer: 'Steam listed 50GB of available space when checked. Leave additional capacity for patches, temporary download files, Windows, shader data, captures, and saves. Steam also says the requirements are scheduled to change on September 29, 2026, so recheck the live listing after that date.'
+  },
+  {
+    question: 'Were these settings tested by Handheld Settings Lab?',
+    answer: 'No. Handheld Settings Lab did not personally benchmark the current game, Legion Go, Windows build, graphics driver, Legion Space version, power mode, battery, or thermals. This is an official-source-informed starting profile and repeatable tuning method.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'The Witcher 3 Legion Go settings: 800p/30 FPS baseline',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-09-11',
+    dateModified: '2026-09-11',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['The Witcher 3: Wild Hunt', 'Lenovo Legion Go', 'game settings', 'frame rate', 'handheld PC']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Legion Go settings', item: 'https://handheldsettings.com/legion-go-settings/' },
+      { '@type': 'ListItem', position: 3, name: 'The Witcher 3 settings', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article witcher-legion-guide">
+    <span class="eyebrow">Legion Go settings · Source check completed {checkedAt}</span>
+    <h1>The Witcher 3 Legion Go settings: start at 800p and 30 FPS</h1>
+    <p class="lede muted">The Witcher 3 moves from quiet interiors to foliage-heavy travel, combat, weather, and dense city crowds. This original Legion Go profile starts at 800p/30 with ray tracing off, then uses a controlled 1200p comparison to decide whether extra clarity fits the available headroom. It is official-source-informed guidance—not a personally tested benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official The Witcher 3 Wild Hunt Complete Edition Steam header artwork showing Geralt, Ciri, and Yennefer" width="460" height="215" loading="eager" fetchpriority="high" decoding="async" />
+      <figcaption class="media-credit">Official Steam store header image saved locally from <a href="https://store.steampowered.com/app/292030/The_Witcher_3_Wild_Hunt/" target="_blank" rel="nofollow noopener">CD PROJEKT RED’s Steam page</a>. Artwork and trademarks belong to their owners; use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="settings-panel">
+      <section class="card"><h3>Starting target</h3><div class="stat">800p / 30</div><p class="muted">Conservative baseline, not a measured lock</p></section>
+      <section class="card"><h3>Clarity test</h3><div class="stat">1200p / 30</div><p class="muted">Compare only after 800p is stable</p></section>
+      <section class="card"><h3>Expensive effects</h3><div class="stat">Off</div><p class="muted">Ray tracing and HairWorks</p></section>
+      <section class="card"><h3>Storage floor</h3><div class="stat">50GB</div><p class="muted">Current Steam listing; add headroom</p></section>
+    </div>
+
+    <div class="callout"><strong>Build one repeatable route before chasing a higher number.</strong> Include horseback travel, rapid camera turns, vegetation, combat, weather, and a populated settlement. Record the charger state, Legion Space power mode, renderer, refresh rate, driver, game version, and cap before comparing changes.</div>
+
+    <h2>Recommended The Witcher 3 Legion Go baseline</h2>
+    <table>
+      <thead><tr><th>Setting</th><th>Start here</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Legion Go power mode</td><td>Performance-class profile</td><td>Creates a repeatable first condition. Record whether the device is on battery or connected directly to a compatible charger.</td></tr>
+        <tr><td>Display refresh rate</td><td>60Hz for the first test</td><td>Pairs cleanly with a 30 FPS target and removes a variable from the baseline.</td></tr>
+        <tr><td>Display mode / resolution</td><td>Fullscreen / 1280×800</td><td>Preserves the panel’s 16:10 shape while reducing render load from 1200p or native 1600p.</td></tr>
+        <tr><td>Frame-rate cap</td><td>30 FPS</td><td>Provides a conservative first target for cities, traversal, weather, and combat.</td></tr>
+        <tr><td>Renderer</td><td>Current launcher default</td><td>Proves the standard route before DirectX 11 and DirectX 12 troubleshooting.</td></tr>
+        <tr><td>Ray tracing</td><td>Off</td><td>Removes optional next-gen effects with a high rendering cost.</td></tr>
+        <tr><td>Upscaling / anti-aliasing</td><td>Quality-oriented mode</td><td>Starts with clarity; compare a more aggressive mode only on the same route.</td></tr>
+        <tr><td>Texture quality</td><td>Medium</td><td>Preserves character and world detail; lower only after repeatable memory symptoms.</td></tr>
+        <tr><td>Shadow quality</td><td>Low</td><td>Creates headroom in foliage-heavy areas and settlements.</td></tr>
+        <tr><td>Terrain / water quality</td><td>Medium</td><td>A balanced visual starting point to validate independently.</td></tr>
+        <tr><td>Foliage visibility range</td><td>Low</td><td>Reduces distant vegetation load during fast traversal.</td></tr>
+        <tr><td>Background characters</td><td>Low</td><td>Prioritizes city consistency over crowd density.</td></tr>
+        <tr><td>NVIDIA HairWorks</td><td>Off</td><td>Removes an optional effect before sacrificing broad image clarity.</td></tr>
+        <tr><td>Motion blur / blur</td><td>Personal preference</td><td>Choose for comfort, not as the primary performance fix.</td></tr>
+      </tbody>
+    </table>
+    <p class="muted">Option labels can change. If the current build does not expose one of these controls, leave it alone rather than copying an old configuration-file edit. Steam currently says its requirements will change on September 29, 2026; recheck the live listing after that date.</p>
+
+    <h2>Use two profiles to isolate the real limit</h2>
+    <div class="profile-grid">
+      <section>
+        <span>Profile A · start here</span>
+        <h3>800p / 30 FPS</h3>
+        <p>Use Medium textures, Low shadows, foliage, and crowds, Medium terrain and water, ray tracing off, and HairWorks off. Repeat one demanding route twice before judging it.</p>
+      </section>
+      <section>
+        <span>Profile B · clarity test</span>
+        <h3>1200p / 30 FPS</h3>
+        <p>Keep the same renderer, power mode, cap, quality controls, and route; raise only resolution. Keep 1200p only when the weakest scene remains acceptably paced.</p>
+      </section>
+    </div>
+
+    <h2>A repeatable tuning order</h2>
+    <ol>
+      <li><strong>Update deliberately.</strong> Finish the stable game, Windows, Lenovo firmware/software, graphics-driver, and Legion Space updates for the original Legion Go, then restart.</li>
+      <li><strong>Remove stale variables.</strong> Disable mods, unexplained launch flags, old configuration-file overrides, and overlapping frame caps for the first pass.</li>
+      <li><strong>Apply 800p/30.</strong> Turn ray tracing and HairWorks off, use the baseline table, and keep one frame-limiting path.</li>
+      <li><strong>Repeat a real route twice.</strong> Include travel, foliage, combat, weather, and a populated location such as Novigrad when your save allows it. A menu or empty room is not a performance test.</li>
+      <li><strong>Compare 1200p alone.</strong> Do not change power mode, cap, renderer, upscaler, and graphics at the same time.</li>
+      <li><strong>Reduce scene cost before textures.</strong> Keep shadows, foliage visibility, and background characters low; lower water and terrain only if the repeatable route still benefits.</li>
+      <li><strong>Raise the target last.</strong> Once the route is stable, test 40 or 60 FPS as a separate experiment and record where the result stops being consistent.</li>
+    </ol>
+
+    <h2>30, 40, or 60 FPS?</h2>
+    <table>
+      <thead><tr><th>Target</th><th>When to try it</th><th>Decision rule</th></tr></thead>
+      <tbody>
+        <tr><td>30 FPS</td><td>First baseline, battery-aware use, or demanding city and traversal scenes</td><td>Prefer consistent pacing over an unstable higher cap.</td></tr>
+        <tr><td>40 FPS</td><td>After 800p/30 is repeatable under the same power, renderer, and refresh conditions</td><td>Keep only if the whole route—not just interiors—remains acceptably paced.</td></tr>
+        <tr><td>60 FPS</td><td>As a performance-focused experiment after lower targets are understood</td><td>Do not describe it as locked unless measured across representative scenes on the recorded configuration.</td></tr>
+      </tbody>
+    </table>
+    <p>No target in this table is presented as a Handheld Settings Lab measurement. The purpose is to change one constraint at a time and avoid mistaking a brief high reading for whole-game behavior.</p>
+
+    <h2>DirectX 11 vs DirectX 12 troubleshooting</h2>
+    <p>Start with the current launcher default because game and driver updates can change renderer behavior. If a clean, updated setup still has a repeatable crash or severe stutter, DirectX 11 is a useful one-variable comparison because it excludes DirectX 12-only ray-tracing paths. It is not guaranteed to be universally faster.</p>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Next controlled step</th></tr></thead>
+      <tbody>
+        <tr><td>Crash at launch</td><td>Remove mods and flags, restart, verify files, and restore current defaults</td><td>Compare DirectX 11 without changing driver or graphics at the same time</td></tr>
+        <tr><td>Severe traversal stutter</td><td>Repeat the route after updates and shader work; pause downloads and overlays</td><td>Lower foliage, shadows, and background characters, then compare 800p alone</td></tr>
+        <tr><td>Image looks too soft</td><td>Confirm only one scaling path is enabled and return to its quality-oriented mode</td><td>Keep scene-cost settings low before raising output to 1200p</td></tr>
+        <tr><td>Wrong prompts or mouse input</td><td>Return the controllers to the attached position and select gamepad input in Legion Space</td><td>Restore the standard Steam Input and in-game controller layout before remapping actions</td></tr>
+        <tr><td>Performance changes through a dock</td><td>Retest on the handheld screen with power connected directly</td><td>Isolate dock power, cable, peripherals, and TV output one at a time</td></tr>
+        <tr><td>Menus differ from an old guide</td><td>Reset to current defaults and use the controls actually present</td><td>Do not import stale configuration files</td></tr>
+      </tbody>
+    </table>
+    <p>If both clean renderer routes fail reproducibly, use <a href="https://support.cdprojektred.com/en/witcher-3/pc" target="_blank" rel="nofollow noopener">CD PROJEKT RED’s official PC support</a> and include the game version, Windows build, graphics driver, renderer, Legion Space version, power condition, and exact reproduction steps.</p>
+
+    <h2>Storage, battery, offline, and dock planning</h2>
+    <p>Steam listed <strong>50GB of available space</strong> on {checkedAt}. That is a requirement floor, not a complete capacity budget. Leave room for game patches, temporary download files, shader data, Windows, screenshots, and saves. Use the <a href="/calculators/storage-planner/">storage planner</a>, and check the <a href="/guides/legion-go-ssd-size-compatibility-upgrade/">Legion Go SSD compatibility guide</a> before opening the device.</p>
+    <p>No battery runtime is claimed here. Record total system draw from your own stable route—not only an APU limit—and enter it in the <a href="/calculators/battery-estimator/">battery estimator</a>. Before a trip, test the installed game and current save from a deliberately disconnected state with the <a href="/guides/handheld-pc-offline-mode-flight-checklist/">offline-mode checklist</a>.</p>
+    <p>Establish the handheld profile before moving to a TV. Then use the <a href="/guides/legion-go-dock-tv-monitor-setup/">Legion Go dock and display checklist</a>; a high-resolution desktop signal does not mean the game should render internally at that same resolution.</p>
+
+    <h2>Optional gear after the game is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact specifications, fit, seller traceability, warranty, and return terms. No current price, compatibility, performance, or runtime claim is made; a real Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+65w+usb+c+pd+charger" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="chargers"><span class="chip">Sponsored search</span><h3>65W-class USB-C PD chargers</h3><p class="muted">Verify dedicated-port output, cable rating, shared-port behavior, warranty, and exact-device support.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+a2+u3+microsd+card" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microsd-cards"><span class="chip">Sponsored search</span><h3>A2 / U3 microSD cards</h3><p class="muted">Compare capacity, seller, warranty, and an authenticity-test plan before moving a 50GB-plus library.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=legion+go+usb+c+pd+dock+65w" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks"><span class="chip">Sponsored search</span><h3>Legion Go USB-C docks</h3><p class="muted">Check PD passthrough, display modes, cable reach, physical clearance, and support for the exact Legion Go model.</p></a>
+    </div>
+    <p>Compare categories in the <a href="/gear/">spec-based gear library</a>, follow the <a href="/guides/legion-go-accessories-buying-checklist/">Legion Go accessory buying order</a>, or set a limit with the <a href="/calculators/accessory-budget/">accessory budget calculator</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on {checkedAt}. Steam’s public app-details API returned HTTP 200 and supplied the title, current 50GB Windows storage listing, PC requirements, scheduled-requirements-change note, publisher identity, and official header image. Lenovo PSREF returned HTTP 200 and supplies the original Legion Go product and hardware context. CD PROJEKT RED’s official PC support route also returned HTTP 200.</p>
+    <p>The settings profile is conservative editorial guidance informed by those official constraints and normal graphics-diagnosis practice. Handheld Settings Lab did not personally benchmark the current game, device, Windows build, driver, firmware, Legion Space, power mode, battery, thermals, or save. No search-volume, guaranteed-frame-rate, or measured-runtime claim is made.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Return to the <a href="/legion-go-settings/">Legion Go settings hub</a>, compare the <a href="/steam-deck-settings/the-witcher-3/">Steam Deck</a> and <a href="/rog-ally-settings/the-witcher-3/">ROG Ally</a> baseline pages, or use the <a href="/calculators/">battery, storage, and accessory calculators</a> with your own observations.</p>
+  </article>
+</Base>
+
+<style>
+  .witcher-legion-guide { padding-top: 56px; padding-bottom: 72px; }
+  .profile-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; margin: 24px 0; }
+  .profile-grid section { padding: 22px; border: 1px solid rgba(184,255,77,.28); border-top: 4px solid #b8ff4d; border-radius: 14px; background: #10150f; }
+  .profile-grid span { color: #b8ff4d; font-size: .74rem; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; }
+  .profile-grid h3 { margin: 8px 0; font-size: 1.35rem; }
+  .profile-grid p { margin: 0; color: #c0c9d5; }
+  @media (max-width: 620px) { .profile-grid { grid-template-columns: 1fr; } }
+</style>
