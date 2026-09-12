@@ -1,0 +1,208 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/cyberpunk-2077-steam-deck-battery-life/';
+const title = 'Cyberpunk 2077 Steam Deck battery life: a repeatable test — Handheld Settings Lab';
+const description = 'Measure Cyberpunk 2077 battery life on Steam Deck LCD or OLED, compare 30 and 40 FPS fairly, reduce power draw, and plan travel without fake runtime claims.';
+const image = '/assets/games/cyberpunk-2077-header.jpg';
+const checkedAt = 'September 12, 2026';
+
+const sources = [
+  { label: 'Steam: Cyberpunk 2077 requirements, features, and official media', url: 'https://store.steampowered.com/app/1091500/Cyberpunk_2077/' },
+  { label: 'Steam app-details API: current public product data for app 1091500', url: 'https://store.steampowered.com/api/appdetails?appids=1091500&cc=us&l=en' },
+  { label: 'Steam: current Steam Deck compatibility report for Cyberpunk 2077', url: 'https://store.steampowered.com/saleaction/ajaxgetdeckappcompatibilityreport?nAppID=1091500' },
+  { label: 'Valve: Steam Deck LCD technical specifications', url: 'https://www.steamdeck.com/en/tech/deck' },
+  { label: 'Valve: Steam Deck OLED technical specifications', url: 'https://www.steamdeck.com/en/tech/oled' },
+  { label: 'CD PROJEKT RED Support: Cyberpunk 2077 system requirements', url: 'https://support.cdprojektred.com/en/cyberpunk/pc/sp-technical/issue/1556/cyberpunk-2077-system-requirements' }
+];
+
+const faqs = [
+  {
+    question: 'How long does Steam Deck battery last in Cyberpunk 2077?',
+    answer: 'There is no single trustworthy answer without naming the Deck model, battery health, game route, frame cap, brightness, wireless state, patch, and measured total system draw. Use 40Wh for Steam Deck LCD or 50Wh for Steam Deck OLED, record draw on a repeatable Night City route, and calculate a range with a reserve.'
+  },
+  {
+    question: 'Does Steam Deck OLED last longer than LCD in Cyberpunk 2077?',
+    answer: 'Valve lists a 50Wh battery for Steam Deck OLED and 40Wh for Steam Deck LCD, so OLED begins with more nominal stored energy. Valve also describes the OLED platform as more efficient, but this page does not claim a fixed Cyberpunk runtime advantage. Compare both at matched settings, brightness, route, wireless state, and battery condition.'
+  },
+  {
+    question: 'Is 30 FPS better for Cyberpunk 2077 Steam Deck battery life?',
+    answer: 'A stable 30 FPS cap is the sensible first battery profile because it can avoid rendering work requested by a higher target. The gain is not a fixed percentage. Test 30 and 40 FPS over the same driving, crowd, and combat route while holding every other setting constant.'
+  },
+  {
+    question: 'What should I lower first to save battery in Cyberpunk 2077?',
+    answer: 'Cap at 30 FPS, keep ray tracing off, set comfortable repeatable brightness, and stop background downloads. Then reduce crowd density, screen-space reflections, volumetric fog and clouds, cascaded shadows, and ambient occlusion before applying a Steam Deck TDP limit.'
+  },
+  {
+    question: 'Should I use the Steam Deck TDP number in a battery calculator?',
+    answer: 'No. TDP is not whole-device draw. It omits the display, memory, storage, fan, radios, controls, audio, and conversion losses. Enter an observed total system-power range from the Steam Deck performance overlay instead.'
+  },
+  {
+    question: 'Were these Cyberpunk 2077 battery results tested by Handheld Settings Lab?',
+    answer: 'No measured runtime is claimed here. This is a source-informed measurement and tuning protocol based on current Valve, Steam, and CD PROJEKT RED information. Replace every planning input with observations from your own Deck, current game build, and save.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Cyberpunk 2077 Steam Deck battery life: a repeatable test',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-09-12',
+    dateModified: '2026-09-12',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Cyberpunk 2077', 'Steam Deck battery life', 'Steam Deck OLED', 'Steam Deck LCD', 'frame-rate cap']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'Cyberpunk 2077 Steam Deck battery life', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article cyberpunk-battery-guide">
+    <span class="eyebrow">Steam Deck battery guide · Sources checked {checkedAt}</span>
+    <h1>Cyberpunk 2077 Steam Deck battery life: measure Night City, not a menu</h1>
+    <p class="lede muted">Crowds, traffic, rain, combat, fast driving, display brightness, wireless activity, and background downloads make one battery number unreliable. This field method compares 30 and 40 FPS on Steam Deck LCD or OLED and turns your own total-power reading into a useful runtime range. It is not a Handheld Settings Lab benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Cyberpunk 2077 Steam header artwork showing V against a yellow Night City background" width="460" height="215" loading="eager" fetchpriority="high" decoding="async" />
+      <figcaption class="media-credit">Official Cyberpunk 2077 Steam store header image saved locally from <a href="https://store.steampowered.com/app/1091500/Cyberpunk_2077/" target="_blank" rel="nofollow noopener">CD PROJEKT RED’s Steam page</a>. Artwork and trademarks belong to their owners; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="battery-facts">
+      <section><span>Steam Deck LCD</span><strong>40Wh</strong><p>Valve-listed battery capacity</p></section>
+      <section><span>Steam Deck OLED</span><strong>50Wh</strong><p>Valve-listed battery capacity</p></section>
+      <section><span>Deck status</span><strong>Verified</strong><p>Valve category 3 at source check</p></section>
+      <section><span>First target</span><strong>30 FPS</strong><p>Consistency baseline, not a guarantee</p></section>
+    </div>
+
+    <div class="estimate-warning"><strong>No fake “hours” claim:</strong> Valve’s broad device-level ranges are not Cyberpunk 2077 results. A quiet apartment, busy market, high-speed drive, and combat encounter do not draw identical power. Measure a representative route and keep a battery reserve.</div>
+
+    <h2>Use the correct Deck battery capacity</h2>
+    <p>Valve’s model-specific pages list <strong>40Wh for Steam Deck LCD</strong> and <strong>50Wh for Steam Deck OLED</strong>. Those are nominal hardware specifications, not the usable capacity of every aged battery. Confirm your model and check battery health before blaming Cyberpunk settings for an unusual result.</p>
+    <table>
+      <thead><tr><th>Input</th><th>Record this</th><th>Why it matters</th></tr></thead>
+      <tbody>
+        <tr><td>Deck model</td><td>LCD 40Wh or OLED 50Wh</td><td>Starting with the wrong watt-hours invalidates the estimate.</td></tr>
+        <tr><td>Battery condition</td><td>Health reading, charge behavior, unusual shutdowns</td><td>Nominal capacity does not prove current usable energy.</td></tr>
+        <tr><td>Game state</td><td>Version, save, location, weather, traffic, encounter</td><td>Night City load varies sharply from scene to scene.</td></tr>
+        <tr><td>Visual target</td><td>Resolution, preset, upscaler, refresh, frame cap</td><td>Rendering demand must stay fixed between runs.</td></tr>
+        <tr><td>Device state</td><td>Brightness, Wi-Fi, Bluetooth, audio, downloads, accessories</td><td>These consume power outside the graphics menu.</td></tr>
+        <tr><td>Power reading</td><td>Settled total system draw over the full route</td><td>TDP alone leaves out major device loads.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>A repeatable Cyberpunk 2077 battery route</h2>
+    <ol>
+      <li><strong>Finish updates first.</strong> Let Cyberpunk 2077, SteamOS, and shader downloads complete, restart the Deck, and verify that no large transfer remains.</li>
+      <li><strong>Begin from the supported path.</strong> Valve’s current endpoint resolves the game as Verified. Use Valve’s default compatibility tool and the game’s Steam Deck preset before adding manual changes.</li>
+      <li><strong>Build a mixed Night City loop.</strong> Drive through a populated district, exit the vehicle, pan across pedestrians and traffic, then complete a repeatable combat segment. Avoid story scenes whose scripting cannot be replayed.</li>
+      <li><strong>Control the environment.</strong> Record brightness, volume, Wi-Fi, Bluetooth, attached accessories, ambient conditions, and whether the charger is disconnected.</li>
+      <li><strong>Warm, then repeat.</strong> Run the loop once to settle one-time loading work. Repeat it while watching total system draw and frame pacing; do not copy a momentary low reading from an interior.</li>
+      <li><strong>Model a range.</strong> Enter the correct 40Wh or 50Wh capacity and a low-to-high band of observed whole-system draw in the <a href="/calculators/battery-estimator/">battery estimator</a>. Add a reserve instead of planning to zero.</li>
+      <li><strong>Change one variable.</strong> Compare frame cap, brightness, one settings group, or TDP separately so the result has a cause.</li>
+    </ol>
+
+    <h2>Compare 30 FPS and 40 FPS fairly</h2>
+    <div class="profile-grid">
+      <section>
+        <span>Battery-first baseline</span>
+        <h3>60 Hz / 30 FPS</h3>
+        <p>Use 1280×800, the Steam Deck preset or the site’s cautious custom profile, ray tracing off, no initial TDP limit, fixed brightness, and the same route. Record total draw only after the run settles.</p>
+      </section>
+      <section>
+        <span>Responsiveness test</span>
+        <h3>40 Hz / 40 FPS</h3>
+        <p>Change only refresh and frame cap. Keep 40 FPS only if driving, crowds, and combat remain acceptably paced and the measured power cost fits your session. A brief interior result is not enough.</p>
+      </section>
+    </div>
+    <p>A 30 FPS cap can reduce requested rendering work, but there is no honest fixed battery percentage to attach to the change. If dense routes repeatedly miss 40, the higher target can cost power without delivering consistent motion. Compare frame-time behavior and total draw together.</p>
+
+    <h2>Reduce Cyberpunk power draw in this order</h2>
+    <div class="priority-list">
+      <section><b>1</b><div><h3>Stabilize 30 FPS</h3><p>Start with the <a href="/steam-deck-settings/cyberpunk-2077/">Cyberpunk 2077 Steam Deck settings baseline</a>: native 800p, ray tracing off, and one repeatable cap.</p></div></section>
+      <section><b>2</b><div><h3>Set repeatable brightness</h3><p>The screen is part of whole-device draw. Choose a comfortable level, note it, and keep it unchanged while comparing graphics settings.</p></div></section>
+      <section><b>3</b><div><h3>Stop hidden work</h3><p>Pause downloads, close unused launchers, and disconnect accessories not needed for the run.</p></div></section>
+      <section><b>4</b><div><h3>Lower city-scene costs</h3><p>Reduce crowd density, screen-space reflections, volumetric fog and clouds, cascaded shadows, and ambient occlusion before making the entire image soft.</p></div></section>
+      <section><b>5</b><div><h3>Apply TDP last</h3><p>Lower the limit in small steps only after the route is stable. Stop when frame pacing, audio, controls, or streaming deteriorates. The limit is not total system wattage.</p></div></section>
+    </div>
+
+    <h2>Troubleshoot a result that does not make sense</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Controlled next step</th></tr></thead>
+      <tbody>
+        <tr><td>Power stays high in a quiet scene</td><td>Frame cap, ray tracing, downloads, overlays, brightness, radios</td><td>Restart after updates and repeat the full route using Valve’s default compatibility tool</td></tr>
+        <tr><td>40 FPS feels uneven and draws more</td><td>Frame times during driving, crowds, and combat</td><td>Return to 30 FPS without changing graphics and rerun the same loop</td></tr>
+        <tr><td>Estimator and real session disagree</td><td>Correct model capacity, total-draw input, reserve, battery health</td><td>Use a band of sustained draw rather than one brief reading</td></tr>
+        <tr><td>Battery worsened after a patch</td><td>Game/SteamOS versions, shader work, changed presets, background downloads</td><td>Restore the documented baseline and check current official support notes</td></tr>
+        <tr><td>Battery percentage drops abnormally</td><td>Battery health, temperature, charging behavior, another game</td><td>Stop treating it as a Cyberpunk tuning issue and use Valve support</td></tr>
+        <tr><td>Power bank reports slow charging</td><td>45W-class dedicated-port PD output, cable, shared ports, dock</td><td>Test Valve’s charger directly, then follow the <a href="/guides/steam-deck-power-bank-slow-charger-troubleshooting/">slow-charger checklist</a></td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage and travel planning</h2>
+    <p>Steam and CD PROJEKT RED currently list <strong>70GB of available space</strong> and an SSD requirement for Windows. Keep additional free room for updates, shader data, saves, the Steam update process, and installed expansion content. Confirm the actual install dialog for your account, then use the <a href="/calculators/storage-planner/">storage planner</a> rather than treating 70GB as a forever-total footprint.</p>
+    <p>For extended play, a power bank must satisfy two separate checks: enough <strong>single-port USB-C PD output</strong> for Steam Deck and enough <strong>watt-hours</strong> for the trip. Neither establishes a fixed extra runtime. Read the <a href="/guides/usb-c-power-bank-wattage-handheld-gaming/">Steam Deck power-bank and airline guide</a> and test the exact bank, cable, game profile, and route before departure.</p>
+
+    <h2>Optional gear after the profile is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact USB-C PD output, watt-hours, cable rating, storage authenticity, seller traceability, warranty, weight, and current airline rules. No price, runtime, or compatibility guarantee is made; an Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+45w+usb+c+pd+power+bank" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="power-banks"><span class="chip">Sponsored search</span><h3>45W-class USB-C PD power banks</h3><p class="muted">Check output from the exact port and printed watt-hours; do not use mAh as an added-runtime promise.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+microSD+card+a2+uhs+i" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microsd-cards"><span class="chip">Sponsored search</span><h3>A2 UHS-I microSD cards</h3><p class="muted">Compare genuine capacity, seller traceability, warranty, and free space beyond the game’s current 70GB requirement.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+travel+case+power+bank+storage" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="cases"><span class="chip">Sponsored search</span><h3>Steam Deck travel cases</h3><p class="muted">Compare exact fit, stick clearance, battery separation, airflow after play, and packed dimensions.</p></a>
+    </div>
+    <p>Browse the <a href="/gear/power-banks/">power-bank gear guide</a>, <a href="/gear/microsd-cards/">microSD comparison library</a>, or the full <a href="/gear/">spec-based gear hub</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">
+      {faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}
+    </div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were fetched successfully on {checkedAt}. Valve’s model pages list the Steam Deck LCD’s 40Wh battery, OLED’s 50Wh battery, and 45W USB-C PD supplies. Steam’s compatibility endpoint resolved Cyberpunk 2077 as category 3, Verified, with functional default controls, matching glyphs, legible interface text, and a performant default configuration. Steam’s public app data and CD PROJEKT RED Support list the current 70GB SSD requirement and game context.</p>
+    <p>This page is a measurement protocol, not a benchmark. Handheld Settings Lab did not personally test the current game build, SteamOS version, compatibility layer, either battery, total draw, thermals, or runtime. The page does not turn the July 2026 autocomplete snapshot into a search-volume claim.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Next, open the <a href="/steam-deck-settings/cyberpunk-2077/">Cyberpunk 2077 settings page</a>, compare other titles in the <a href="/guides/steam-deck-battery-life-by-game/">battery-by-game guide</a>, or enter your readings in the <a href="/calculators/battery-estimator/">battery estimator</a>.</p>
+  </article>
+</Base>
+
+<style>
+  .cyberpunk-battery-guide { padding-top: 56px; padding-bottom: 72px; }
+  .battery-facts { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 12px; margin: 28px 0; }
+  .battery-facts section { padding: 20px; border: 1px solid rgba(247,239,15,.3); border-top: 4px solid #f7ef0f; border-radius: 14px; background: #13130d; }
+  .battery-facts span { display: block; color: #f7ef0f; font-size: .74rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+  .battery-facts strong { display: block; margin: 8px 0 4px; color: #fff; font-size: 1.55rem; }
+  .battery-facts p { margin: 0; color: #cbd0d8; font-size: .86rem; }
+  .estimate-warning { margin: 28px 0; padding: 20px 22px; border: 1px solid rgba(255,91,91,.42); border-left: 5px solid #ff5b5b; border-radius: 14px; color: #f2dddd; background: #170e10; }
+  .profile-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; margin: 24px 0; }
+  .profile-grid section { padding: 22px; border: 1px solid rgba(0,229,255,.28); border-top: 4px solid #00e5ff; border-radius: 14px; background: #0d1518; }
+  .profile-grid span { color: #00e5ff; font-size: .74rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+  .profile-grid h3 { margin: 8px 0; }
+  .profile-grid p { margin: 0; color: #cbd0d8; }
+  .priority-list { display: grid; gap: 12px; margin: 24px 0; }
+  .priority-list section { display: grid; grid-template-columns: 46px 1fr; gap: 14px; align-items: start; padding: 18px; border: 1px solid rgba(255,255,255,.1); border-radius: 14px; background: #10131b; }
+  .priority-list b { display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid #f7ef0f; border-radius: 50%; color: #f7ef0f; }
+  .priority-list h3 { margin: 0 0 5px; }
+  .priority-list p { margin: 0; color: #cbd0d8; }
+  @media (max-width: 820px) { .battery-facts { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+  @media (max-width: 620px) { .profile-grid, .battery-facts { grid-template-columns: 1fr; } }
+</style>
