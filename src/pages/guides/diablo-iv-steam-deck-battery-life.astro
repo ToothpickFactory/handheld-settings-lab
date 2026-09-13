@@ -1,0 +1,199 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/diablo-iv-steam-deck-battery-life/';
+const title = 'Diablo IV Steam Deck battery life: repeatable test — Handheld Settings Lab';
+const description = 'Measure Diablo IV battery life on Steam Deck LCD or OLED across town, dungeon, and combat routes, compare 30 and 40 FPS, and plan travel honestly.';
+const image = '/assets/games/diablo-iv-header.jpg';
+const checkedAt = 'September 13, 2026';
+
+const sources = [
+  { label: 'Steam: Diablo IV requirements, features, and official media', url: 'https://store.steampowered.com/app/2344520/Diablo_IV/' },
+  { label: 'Steam app-details API: public product data for app 2344520', url: 'https://store.steampowered.com/api/appdetails?appids=2344520&cc=us&l=en' },
+  { label: 'Steam: current Steam Deck compatibility report for Diablo IV', url: 'https://store.steampowered.com/saleaction/ajaxgetdeckappcompatibilityreport?nAppID=2344520' },
+  { label: 'Valve: Steam Deck LCD technical specifications', url: 'https://www.steamdeck.com/en/tech/deck' },
+  { label: 'Valve: Steam Deck OLED technical specifications', url: 'https://www.steamdeck.com/en/tech/oled' },
+  { label: 'Blizzard: Diablo IV graphics technology and setting behavior', url: 'https://news.blizzard.com/en-us/article/23964183/peeling-back-the-varnish-the-graphics-of-diablo-iv' },
+  { label: 'Blizzard: current Diablo IV patch notes', url: 'https://news.blizzard.com/en-us/article/24196854/diablo-iv-patch-notes' }
+];
+
+const faqs = [
+  {
+    question: 'How long does Steam Deck battery last in Diablo IV?',
+    answer: 'No universal runtime is reproducible without the Deck model, battery health, current Diablo IV patch, character and activity, frame cap, brightness, network state, and measured whole-device draw. Record a repeatable town-to-dungeon route, then enter 40Wh for LCD or 50Wh for OLED and your observed draw band in the battery estimator.'
+  },
+  {
+    question: 'Does Steam Deck OLED last longer than LCD in Diablo IV?',
+    answer: 'Valve lists a 50Wh battery for Steam Deck OLED and 40Wh for Steam Deck LCD. OLED therefore begins with more nominal stored energy, but this page does not claim a fixed Diablo IV advantage. Match route, patch, settings, brightness, wireless state, and battery condition before comparing.'
+  },
+  {
+    question: 'Should I use 30 FPS or 40 FPS for Diablo IV battery life?',
+    answer: 'Use a stable 30 FPS cap as the battery-first control, then test 40 FPS over the same town, traversal, dense fight, and dungeon route. Keep 40 only if frame pacing and measured power cost are acceptable; there is no honest fixed percentage gain or loss.'
+  },
+  {
+    question: 'Which Diablo IV settings should I lower first to save power?',
+    answer: 'First cap the frame rate, use repeatable brightness, and stop downloads. Keep ray tracing off, then lower shadows, fog, clutter, reflections, geometry complexity, and texture quality only when memory pressure or hitching justifies it. Apply a TDP limit last.'
+  },
+  {
+    question: 'Can I play Diablo IV offline on Steam Deck?',
+    answer: 'Do not plan on offline play. Steam currently marks single-player gameplay as requiring an active internet connection, and the store requirements list broadband internet. Test the exact network arrangement you intend to use before travel.'
+  },
+  {
+    question: 'Were these Diablo IV battery results tested by Handheld Settings Lab?',
+    answer: 'No measured runtime is claimed. This is a source-informed measurement protocol based on current Valve, Steam, and Blizzard information. Replace every planning input with observations from your own Deck, game build, character, activity, and battery.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Diablo IV Steam Deck battery life: a repeatable test',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-09-13',
+    dateModified: '2026-09-13',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Diablo IV', 'Steam Deck battery life', 'Steam Deck OLED', 'Steam Deck LCD', 'frame-rate cap']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'Diablo IV Steam Deck battery life', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article diablo-battery-guide">
+    <span class="eyebrow">Steam Deck battery guide · Sources checked {checkedAt}</span>
+    <h1>Diablo IV Steam Deck battery life: measure a dungeon run, not idle town</h1>
+    <p class="lede muted">A quiet vendor screen, an open-world ride, a packed Helltide, and a dungeon fight do not load Steam Deck equally. This protocol compares 30 and 40 FPS on LCD or OLED across a mixed, repeatable Sanctuary route. It publishes no invented runtime benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Diablo IV Steam header artwork showing Lilith against a dark red background" width="460" height="215" loading="eager" fetchpriority="high" decoding="async" />
+      <figcaption class="media-credit">Official Diablo IV Steam store header image saved locally from <a href="https://store.steampowered.com/app/2344520/Diablo_IV/" target="_blank" rel="nofollow noopener">Blizzard’s Steam page</a>. Artwork and trademarks belong to their owners; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="battery-facts">
+      <section><span>Steam Deck LCD</span><strong>40Wh</strong><p>Valve-listed battery capacity</p></section>
+      <section><span>Steam Deck OLED</span><strong>50Wh</strong><p>Valve-listed battery capacity</p></section>
+      <section><span>Deck status</span><strong>Verified</strong><p>Valve category 3 at source check</p></section>
+      <section><span>Connection</span><strong>Required</strong><p>Steam warns single-player needs internet</p></section>
+    </div>
+
+    <div class="estimate-warning"><strong>No fake “hours” figure:</strong> Valve’s broad device-level battery ranges are not Diablo IV results. Seasonal patches, online activity, area density, effects, battery condition, screen brightness, and network quality can all change a session. Measure whole-device draw and keep a reserve.</div>
+
+    <h2>Record the Deck, patch, character, and activity</h2>
+    <p>Valve lists <strong>40Wh for Steam Deck LCD</strong> and <strong>50Wh for Steam Deck OLED</strong>. These are nominal specifications, not proof that an aged battery still delivers its original usable capacity. Diablo IV is also a live, patched game: Blizzard’s patch notes include continuing performance, stability, visual, and system changes, so a result without a game version and date ages badly.</p>
+    <table>
+      <thead><tr><th>Input</th><th>Record this</th><th>Why it matters</th></tr></thead>
+      <tbody>
+        <tr><td>Deck model</td><td>LCD 40Wh or OLED 50Wh</td><td>The wrong capacity invalidates a runtime estimate.</td></tr>
+        <tr><td>Battery condition</td><td>Health reading, age, charging behavior</td><td>Nominal watt-hours do not prove usable energy.</td></tr>
+        <tr><td>Game state</td><td>Patch, season, character, world tier, area, party size</td><td>A solo town visit and dense group event are different loads.</td></tr>
+        <tr><td>Visual profile</td><td>Resolution, quality settings, upscaler, refresh, frame cap</td><td>Every comparison needs one controlled rendering target.</td></tr>
+        <tr><td>Device state</td><td>Brightness, volume, Wi-Fi, Bluetooth, downloads, accessories</td><td>These consume energy outside the graphics menu.</td></tr>
+        <tr><td>Power reading</td><td>Settled total system draw over the full route</td><td>APU TDP omits screen, storage, memory, radios, fan, and other loads.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>A repeatable Diablo IV battery route</h2>
+    <ol>
+      <li><strong>Finish updates while plugged in.</strong> Complete Diablo IV, SteamOS, compatibility-tool, and shader updates. Restart, then verify no download remains.</li>
+      <li><strong>Use Valve’s supported path.</strong> Steam currently resolves Diablo IV as Deck Verified with a performant default configuration. Start with the default compatibility tool and the <a href="/steam-deck-settings/diablo-iv/">Diablo IV Steam Deck settings baseline</a>.</li>
+      <li><strong>Choose replayable segments.</strong> Record a fixed town walk, open-world ride, ordinary enemy pack, dense combat encounter, and dungeon corridor. Avoid a one-time cinematic or unpredictable queue.</li>
+      <li><strong>Keep online conditions visible.</strong> Steam warns that single-player requires active internet. Record Wi-Fi network, signal conditions, voice chat, party state, and reconnects rather than treating connectivity as irrelevant.</li>
+      <li><strong>Warm the route once.</strong> A first visit can include asset, shader, or network work. Run the route before recording, then repeat it on the same character and difficulty.</li>
+      <li><strong>Use a sustained draw band.</strong> Watch total system draw across the entire route. Enter the low-to-high band and correct battery capacity in the <a href="/calculators/battery-estimator/">battery estimator</a>, with a reserve.</li>
+      <li><strong>Change one variable.</strong> Test frame cap, brightness, one graphics group, or TDP separately. Keep the patch and route in the result notes.</li>
+    </ol>
+
+    <h2>Compare 30 FPS and 40 FPS fairly</h2>
+    <div class="profile-grid">
+      <section><span>Battery-first control</span><h3>60 Hz / 30 FPS</h3><p>Use 1280×800, FSR 2 Quality as a cautious starting point, ray tracing off, low-to-medium settings, fixed brightness, and no first-pass TDP limit. Measure the complete mixed route.</p></section>
+      <section><span>Responsiveness experiment</span><h3>40 Hz / 40 FPS</h3><p>Change only refresh and frame cap. Keep this target only if dense combat and traversal remain acceptably paced and the observed power cost fits the planned session.</p></section>
+    </div>
+    <p>A 30 FPS cap can avoid work requested by a higher target, but no fixed runtime gain applies to every season, build, or route. If dense fights repeatedly miss 40, the Deck may spend more energy chasing frames without delivering consistent motion. Judge frame times and whole-device draw together.</p>
+
+    <h2>Reduce Diablo IV power draw in a controlled order</h2>
+    <div class="priority-list">
+      <section><b>1</b><div><h3>Lock a stable frame target</h3><p>Begin at 30 FPS and verify the busy part of the route before changing image quality or power limits.</p></div></section>
+      <section><b>2</b><div><h3>Set readable brightness</h3><p>Diablo IV’s dark scenes must remain legible. Pick a comfortable level for the environment and hold it constant between tests.</p></div></section>
+      <section><b>3</b><div><h3>Stop hidden background work</h3><p>Finish downloads, close unused launchers, and remove peripherals that are not part of the planned session.</p></div></section>
+      <section><b>4</b><div><h3>Lower costly scene and memory settings</h3><p>Keep ray tracing off. Reduce shadows, fog, clutter, reflections, and geometry complexity. Blizzard specifically notes that texture and shadow quality affect memory use, so lower them when memory pressure or hitching supports the change.</p></div></section>
+      <section><b>5</b><div><h3>Apply TDP last</h3><p>Lower the limit in small steps and rerun the route. Stop when combat pacing, streaming, audio, or controls deteriorate. TDP is not total device draw.</p></div></section>
+    </div>
+
+    <h2>Troubleshoot a strange battery result</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Controlled next step</th></tr></thead>
+      <tbody>
+        <tr><td>First dungeon run draws more</td><td>Updates, shader work, newly loaded areas, background downloads</td><td>Finish all work, restart, warm the route, then repeat</td></tr>
+        <tr><td>40 FPS is costly and uneven</td><td>Frame times during the densest combat and traversal</td><td>Return to 30 FPS without changing graphics and rerun</td></tr>
+        <tr><td>Result changed after a season or patch</td><td>Game build, reset settings, new activity, party and network state</td><td>Restore the documented baseline and make a new dated result</td></tr>
+        <tr><td>Estimator misses the real session</td><td>Deck model, battery health, total-draw band, reserve</td><td>Replace a brief reading with sustained route observations</td></tr>
+        <tr><td>Internet interruptions spoil the run</td><td>Signal, captive portal, hotspot limits, server status</td><td>Do not count an interrupted route; retest the intended connection</td></tr>
+        <tr><td>Power bank shows slow charging</td><td>Dedicated USB-C PD output, cable, shared ports, dock</td><td>Test Valve’s charger, then use the <a href="/guides/steam-deck-power-bank-slow-charger-troubleshooting/">slow-charger checklist</a></td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, internet, and travel planning</h2>
+    <p>Steam currently lists <strong>90GB of available space</strong>, an SSD requirement, and broadband internet. Treat 90GB as a source-checked requirement rather than a permanent installed total: expansions, seasonal updates, shader data, saves, and Steam’s update process need additional room. Confirm the install dialog for your account and use the <a href="/calculators/storage-planner/">storage planner</a>.</p>
+    <p>Because Steam’s Deck report says single-player requires internet, a power bank cannot turn Diablo IV into an offline flight game. Verify your route’s connectivity separately. For connected waiting areas or ground travel, compare dedicated-port output and watt-hours using the <a href="/guides/usb-c-power-bank-wattage-handheld-gaming/">Steam Deck power-bank and airline guide</a>.</p>
+
+    <h2>Optional gear after the profile is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact USB-C PD output, watt-hours, cable rating, storage authenticity, seller traceability, warranty, weight, and current airline rules. No price, runtime, or compatibility guarantee is made; an Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+45w+usb+c+pd+power+bank" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="power-banks"><span class="chip">Sponsored search</span><h3>45W-class USB-C PD power banks</h3><p class="muted">Check the exact port’s output and printed watt-hours; do not treat mAh as an added-runtime promise.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+a2+u3+microsd+card" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microsd-cards"><span class="chip">Sponsored search</span><h3>A2 / U3 microSD cards</h3><p class="muted">Compare genuine capacity, seller traceability, warranty, and free space beyond the current 90GB requirement.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+travel+case+charger+storage" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="cases"><span class="chip">Sponsored search</span><h3>Steam Deck travel cases</h3><p class="muted">Check exact fit, stick and vent clearance, charger separation, and packed dimensions.</p></a>
+    </div>
+    <p>Browse the <a href="/gear/power-banks/">power-bank library</a>, <a href="/gear/microsd-cards/">microSD guide</a>, or complete <a href="/gear/">spec-based gear hub</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">{faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}</div>
+
+    <h2>Sources and methodology</h2>
+    <p>All sources returned successfully on {checkedAt}. Valve’s hardware pages list the Steam Deck LCD’s 40Wh battery, OLED’s 50Wh battery, and 45W USB-C PD supplies. Steam’s current compatibility endpoint resolves Diablo IV as category 3, Verified, and warns that single-player requires an active connection. Steam’s app data supplies the official image, full controller support, broadband requirement, 90GB storage requirement, SSD requirement, and low-settings 30 FPS minimum-PC context. Blizzard documents the game’s scalable graphics pipeline, setting-level memory considerations, and ongoing patch changes.</p>
+    <p>This is a measurement and tuning protocol, not a benchmark. Handheld Settings Lab did not personally test the current game build, SteamOS version, compatibility layer, battery health, total draw, network conditions, thermals, or runtime. No autocomplete phrase is presented as search volume.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Next, open the <a href="/steam-deck-settings/diablo-iv/">Diablo IV Steam Deck settings page</a>, compare titles in the <a href="/guides/steam-deck-battery-life-by-game/">battery-by-game guide</a>, or enter your readings in the <a href="/calculators/battery-estimator/">battery estimator</a>.</p>
+  </article>
+</Base>
+
+<style>
+  .diablo-battery-guide { padding-top: 56px; padding-bottom: 72px; }
+  .battery-facts { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 12px; margin: 28px 0; }
+  .battery-facts section { padding: 20px; border: 1px solid rgba(221,68,55,.34); border-top: 4px solid #dd4437; border-radius: 14px; background: #160f0e; }
+  .battery-facts span { display: block; color: #f28b80; font-size: .74rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+  .battery-facts strong { display: block; margin: 8px 0 4px; color: #fff; font-size: 1.45rem; }
+  .battery-facts p { margin: 0; color: #cbd0d8; font-size: .86rem; }
+  .estimate-warning { margin: 28px 0; padding: 20px 22px; border: 1px solid rgba(224,169,74,.42); border-left: 5px solid #e0a94a; border-radius: 14px; color: #eee2ca; background: #17130d; }
+  .profile-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; margin: 24px 0; }
+  .profile-grid section { padding: 22px; border: 1px solid rgba(221,68,55,.3); border-top: 4px solid #dd4437; border-radius: 14px; background: #160f0e; }
+  .profile-grid span { color: #f28b80; font-size: .74rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+  .profile-grid h3 { margin: 8px 0; }
+  .profile-grid p { margin: 0; color: #cbd0d8; }
+  .priority-list { display: grid; gap: 12px; margin: 24px 0; }
+  .priority-list section { display: grid; grid-template-columns: 46px 1fr; gap: 14px; align-items: start; padding: 18px; border: 1px solid rgba(255,255,255,.1); border-radius: 14px; background: #10131b; }
+  .priority-list b { display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid #dd4437; border-radius: 50%; color: #f28b80; }
+  .priority-list h3 { margin: 0 0 5px; }
+  .priority-list p { margin: 0; color: #cbd0d8; }
+  @media (max-width: 820px) { .battery-facts { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+  @media (max-width: 620px) { .profile-grid, .battery-facts { grid-template-columns: 1fr; } }
+</style>
