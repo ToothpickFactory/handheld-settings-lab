@@ -1,0 +1,199 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/red-dead-redemption-2-steam-deck-battery-life/';
+const title = 'RDR2 Steam Deck battery life: repeatable route — Handheld Settings Lab';
+const description = 'Measure Red Dead Redemption 2 battery life on Steam Deck LCD or OLED across its benchmark and a busy town route, then plan storage and offline travel.';
+const image = '/assets/games/red-dead-redemption-2-header.jpg';
+const checkedAt = 'September 13, 2026';
+
+const sources = [
+  { label: 'Steam: Red Dead Redemption 2 requirements, features, and official media', url: 'https://store.steampowered.com/app/1174180/Red_Dead_Redemption_2/' },
+  { label: 'Steam app-details API: public product data for app 1174180', url: 'https://store.steampowered.com/api/appdetails?appids=1174180&cc=us&l=en' },
+  { label: 'Steam: current Steam Deck compatibility report for Red Dead Redemption 2', url: 'https://store.steampowered.com/saleaction/ajaxgetdeckappcompatibilityreport?nAppID=1174180' },
+  { label: 'Valve: Steam Deck LCD technical specifications', url: 'https://www.steamdeck.com/en/tech/deck' },
+  { label: 'Valve: Steam Deck OLED technical specifications', url: 'https://www.steamdeck.com/en/tech/oled' },
+  { label: 'Rockstar Games: official Red Dead Redemption 2 site', url: 'https://www.rockstargames.com/reddeadredemption2/' }
+];
+
+const faqs = [
+  {
+    question: 'How long does Red Dead Redemption 2 last on Steam Deck battery?',
+    answer: 'There is no honest universal runtime without the Deck model, battery health, game scene, weather, frame cap, brightness, wireless state, launcher activity, and measured total system draw. Record the built-in benchmark plus a repeatable town route, then enter 40Wh for LCD or 50Wh for OLED and your observed draw band in the battery estimator.'
+  },
+  {
+    question: 'Does Steam Deck OLED last longer than LCD in RDR2?',
+    answer: 'Valve lists a 50Wh battery for Steam Deck OLED and 40Wh for Steam Deck LCD. OLED starts with more nominal stored energy, but this guide does not claim a fixed RDR2 advantage. Match the route, weather, settings, brightness, wireless state, and battery condition before comparing.'
+  },
+  {
+    question: 'Should I cap RDR2 at 30 FPS for battery life?',
+    answer: 'A stable 30 FPS cap is the cautious control because it can avoid asking the Deck to render frames it cannot sustain through demanding towns, water, weather, and long views. Test any higher target on the same route and retain it only when frame pacing and measured power cost are acceptable.'
+  },
+  {
+    question: 'Which RDR2 settings should I lower first to reduce power draw?',
+    answer: 'Start with a stable frame cap, repeatable brightness, and no background downloads. Then lower far shadows, reflections, water physics, volumetrics, grass, and distant detail before making textures blurry. Apply a Steam Deck TDP limit only after the graphics profile is stable.'
+  },
+  {
+    question: 'Can I play RDR2 offline on a Steam Deck flight?',
+    answer: 'Valve currently warns that first-time setup needs active internet, and the game uses Rockstar Games Launcher. Finish updates and sign-in, open the intended save online, exit cleanly, then perform a real disconnected launch test before travel. A successful battery test does not prove offline access.'
+  },
+  {
+    question: 'Did Handheld Settings Lab personally benchmark RDR2 battery life?',
+    answer: 'No measured runtime is claimed. This is a source-informed measurement protocol based on current Valve, Steam, and Rockstar information. Replace every planning input with observations from your own Deck, game build, save, route, launcher state, and battery.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Red Dead Redemption 2 Steam Deck battery life: a repeatable route',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-09-13',
+    dateModified: '2026-09-13',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Red Dead Redemption 2', 'RDR2', 'Steam Deck battery life', 'Steam Deck OLED', 'Steam Deck LCD']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'RDR2 Steam Deck battery life', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article rdr2-battery-guide">
+    <span class="eyebrow">Steam Deck battery guide · Sources checked {checkedAt}</span>
+    <h1>RDR2 Steam Deck battery life: test a town, trail, water, and weather</h1>
+    <p class="lede muted">The built-in benchmark is repeatable, but it cannot represent every long ride, crowded Saint Denis street, riverbank, storm, or Rockstar Games Launcher interruption. This protocol pairs that benchmark with a controlled in-game route on Steam Deck LCD or OLED. It publishes no invented runtime result.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Red Dead Redemption 2 Steam header artwork showing Arthur Morgan against a red sunset" width="460" height="215" loading="eager" fetchpriority="high" decoding="async" />
+      <figcaption class="media-credit">Official Red Dead Redemption 2 Steam store header image saved locally from <a href="https://store.steampowered.com/app/1174180/Red_Dead_Redemption_2/" target="_blank" rel="nofollow noopener">Rockstar Games’ Steam page</a>. Artwork and trademarks belong to their owners; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="battery-facts">
+      <section><span>Steam Deck LCD</span><strong>40Wh</strong><p>Valve-listed battery capacity</p></section>
+      <section><span>Steam Deck OLED</span><strong>50Wh</strong><p>Valve-listed battery capacity</p></section>
+      <section><span>Deck status</span><strong>Playable</strong><p>Valve category 2 at source check</p></section>
+      <section><span>Storage floor</span><strong>150GB</strong><p>Current Steam requirement</p></section>
+    </div>
+
+    <div class="estimate-warning"><strong>No fake “hours” figure:</strong> Valve’s broad device-level battery ranges are not RDR2 results. Town density, weather, water, sightlines, launcher state, patch, battery health, brightness, radios, and peripherals can change a session. Measure whole-device draw and keep a reserve.</div>
+
+    <h2>Record the Deck, save, launcher, and route</h2>
+    <p>Valve lists <strong>40Wh for Steam Deck LCD</strong> and <strong>50Wh for Steam Deck OLED</strong>. These are nominal specifications, not proof that an older battery still delivers its original usable energy. Valve currently rates RDR2 Playable and reports a performant default configuration, while flagging launcher interaction, small interface text, and active internet for first-time setup.</p>
+    <table>
+      <thead><tr><th>Input</th><th>Record this</th><th>Why it matters</th></tr></thead>
+      <tbody>
+        <tr><td>Deck model</td><td>LCD 40Wh or OLED 50Wh</td><td>Using the wrong capacity invalidates a runtime estimate.</td></tr>
+        <tr><td>Battery condition</td><td>Health reading, age, odd drain or shutdown behavior</td><td>Nominal watt-hours do not prove current usable capacity.</td></tr>
+        <tr><td>Game state</td><td>Build, save, location, time, weather, mission and population</td><td>An empty trail and a wet Saint Denis street are different loads.</td></tr>
+        <tr><td>Visual profile</td><td>Resolution, API, upscaler, settings, refresh and cap</td><td>Every comparison needs one controlled rendering target.</td></tr>
+        <tr><td>Device state</td><td>Brightness, volume, Wi-Fi, Bluetooth, downloads, accessories</td><td>These consume power outside the graphics menu.</td></tr>
+        <tr><td>Launcher state</td><td>Signed in, online/offline, updates complete, prompts cleared</td><td>Setup and network interruptions can invalidate a route.</td></tr>
+        <tr><td>Power reading</td><td>Settled total system draw over the complete route</td><td>APU TDP omits the display, memory, storage, radios, fan, and other loads.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>A repeatable RDR2 battery route</h2>
+    <ol>
+      <li><strong>Complete setup online.</strong> Finish SteamOS, game, shader, and Rockstar Games Launcher updates. Sign in, clear prompts, load the intended save, then restart before measuring.</li>
+      <li><strong>Use Valve’s supported path first.</strong> Keep the default compatibility tool and start from the <a href="/steam-deck-settings/red-dead-redemption-2/">RDR2 Steam Deck settings baseline</a>: 1280×800, 30 FPS, conservative scene settings, and one scaling path.</li>
+      <li><strong>Run the built-in benchmark.</strong> Record it as a repeatable reference, not a whole-game battery result. Note the exact settings and whether the run began after a restart.</li>
+      <li><strong>Add a representative save route.</strong> Ride a fixed path into a populated town, turn at the same landmarks, include a storefront or interior transition, then follow a section with vegetation and water. Use stable weather when possible.</li>
+      <li><strong>Warm both routes.</strong> Run the benchmark and save route once before recording. First-pass shader, asset, launcher, or network work can distort the sample.</li>
+      <li><strong>Measure a sustained band.</strong> Observe total system draw through the benchmark and full save route. Enter the low-to-high band and correct Deck capacity in the <a href="/calculators/battery-estimator/">battery estimator</a>.</li>
+      <li><strong>Repeat before editing.</strong> If weather, random events, law response, combat, or network prompts changed the route, discard it. Change one setting group only after a clean second pass.</li>
+    </ol>
+
+    <h2>Compare a capped 30 FPS baseline with a higher target fairly</h2>
+    <div class="profile-grid">
+      <section><span>Battery-first control</span><h3>60 Hz / 30 FPS</h3><p>Use 1280×800, a single 30 FPS cap, conservative shadows, reflections, water, volumetrics, grass, and distant detail, fixed brightness, and no first-pass TDP limit.</p></section>
+      <section><span>Responsiveness experiment</span><h3>40 Hz / up to 40 FPS</h3><p>Change only refresh and frame cap. This page does not promise a locked 40. Keep it only if the town and water route remain acceptably paced and the measured power cost fits the trip.</p></section>
+    </div>
+    <p>A 30 FPS cap can avoid requesting frames the Deck cannot sustain through demanding scenes, but no fixed runtime gain applies to every route or patch. If the game repeatedly misses a higher cap, the device can work harder without delivering consistent motion. Compare frame times and total system draw together.</p>
+
+    <h2>Reduce RDR2 power draw in a controlled order</h2>
+    <div class="priority-list">
+      <section><b>1</b><div><h3>Hold one stable frame target</h3><p>Begin at 30 FPS and verify the busiest town and water section before changing graphics or power limits.</p></div></section>
+      <section><b>2</b><div><h3>Set readable, repeatable brightness</h3><p>Choose a level that preserves dark-scene detail in the actual room or vehicle, then hold it constant between tests.</p></div></section>
+      <section><b>3</b><div><h3>Stop background and launcher work</h3><p>Finish downloads, clear Rockstar Games Launcher prompts, pause cloud or game updates, and remove peripherals not needed for the planned session.</p></div></section>
+      <section><b>4</b><div><h3>Lower scene costs before texture clarity</h3><p>Reduce far shadows, reflections, water physics, volumetrics, grass, and distant geometry first. Use the same route to prove that each change helps.</p></div></section>
+      <section><b>5</b><div><h3>Apply TDP last</h3><p>Lower it in small steps and repeat both routes. Stop when town traversal, streaming, audio, controls, or frame pacing deteriorates. TDP is not total device draw.</p></div></section>
+    </div>
+
+    <h2>Troubleshoot a strange battery result</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Controlled next step</th></tr></thead>
+      <tbody>
+        <tr><td>First run draws more power</td><td>Shader work, launcher updates, downloads, newly loaded assets</td><td>Finish all work, restart, warm both routes, then repeat</td></tr>
+        <tr><td>Town result changes each pass</td><td>Weather, time, random events, combat, wanted state, route deviation</td><td>Reload the same save and discard unmatched runs</td></tr>
+        <tr><td>Higher cap is costly and uneven</td><td>Frame times through Saint Denis, water, weather, and long views</td><td>Return to 30 FPS without changing graphics and rerun</td></tr>
+        <tr><td>Estimator misses the real session</td><td>Correct battery capacity, health, sustained total-draw band, reserve</td><td>Replace a brief reading with the complete mixed route</td></tr>
+        <tr><td>Launcher or offline test interrupts play</td><td>Account sign-in, update state, first-time setup, hidden prompt</td><td>Reconnect, complete setup, exit cleanly, then retest offline at home</td></tr>
+        <tr><td>Power bank shows slow charging</td><td>Dedicated USB-C PD output, cable, shared ports, dock</td><td>Test Valve’s charger, then use the <a href="/guides/steam-deck-power-bank-slow-charger-troubleshooting/">slow-charger checklist</a></td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, offline access, and travel planning</h2>
+    <p>Steam currently lists <strong>150GB of available space</strong> and broadband internet. Treat 150GB as a requirement, not a permanent installed total: Rockstar Games Launcher, patches, shader data, saves, captures, other games, and Steam’s update process need additional room. Check the current install dialog and use the <a href="/calculators/storage-planner/">storage planner</a> before moving a large library.</p>
+    <p>Valve warns that first-time setup needs internet. Before travel, finish account and launcher setup, open the intended save, exit cleanly, disable Wi-Fi, and prove a second launch. Follow the <a href="/guides/handheld-pc-offline-mode-flight-checklist/">offline-mode flight checklist</a>; do not confuse stored battery energy with game availability.</p>
+
+    <h2>Optional gear after the profile is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact USB-C PD output, watt-hours, cable rating, storage authenticity, seller traceability, warranty, weight, fit, and current airline rules. No price, runtime, or compatibility guarantee is made; an Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+45w+usb+c+pd+power+bank+under+100wh" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="power-banks"><span class="chip">Sponsored search</span><h3>45W-class USB-C PD power banks</h3><p class="muted">Verify the exact port’s output and printed watt-hours; do not convert a label into a promised RDR2 runtime.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+a2+u3+microsd+card+512gb+1tb" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microsd-cards"><span class="chip">Sponsored search</span><h3>A2 / U3 microSD cards</h3><p class="muted">Compare genuine capacity, seller traceability, warranty, and free room beyond the current 150GB requirement.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+travel+case+charger+storage" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="cases"><span class="chip">Sponsored search</span><h3>Steam Deck travel cases</h3><p class="muted">Check exact LCD/OLED fit, stick pressure, charger separation, ventilation after play, and packed dimensions.</p></a>
+    </div>
+    <p>Browse the <a href="/gear/power-banks/">power-bank library</a>, <a href="/gear/microsd-cards/">microSD guide</a>, or complete <a href="/gear/">spec-based gear hub</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">{faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}</div>
+
+    <h2>Sources and methodology</h2>
+    <p>All sources returned HTTP 200 on {checkedAt}. Valve’s hardware pages list the Steam Deck LCD’s 40Wh battery, OLED’s 50Wh battery, and 45W USB-C PD supplies. Steam’s live compatibility endpoint resolves RDR2 as category 2, Playable; it reports functional controls, matching glyphs, and a performant default configuration while flagging launcher interaction, small text, and active internet for first-time setup. Steam’s public app data supplies the official image, 150GB storage requirement, broadband requirement, and Rockstar account context.</p>
+    <p>This is a measurement and tuning protocol, not a benchmark. Handheld Settings Lab did not personally test the current game build, save, launcher, SteamOS version, compatibility layer, battery health, total draw, thermals, weather, or runtime. No autocomplete phrase is presented as search volume.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Next, open the <a href="/steam-deck-settings/red-dead-redemption-2/">RDR2 Steam Deck settings page</a>, compare titles in the <a href="/guides/steam-deck-battery-life-by-game/">battery-by-game guide</a>, or enter your readings in the <a href="/calculators/battery-estimator/">battery estimator</a>.</p>
+  </article>
+</Base>
+
+<style>
+  .rdr2-battery-guide { padding-top: 56px; padding-bottom: 72px; }
+  .battery-facts { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 12px; margin: 28px 0; }
+  .battery-facts section { padding: 20px; border: 1px solid rgba(207,62,48,.35); border-top: 4px solid #cf3e30; border-radius: 14px; background: #17100e; }
+  .battery-facts span { display: block; color: #ee8978; font-size: .74rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+  .battery-facts strong { display: block; margin: 8px 0 4px; color: #fff; font-size: 1.45rem; }
+  .battery-facts p { margin: 0; color: #cbd0d8; font-size: .86rem; }
+  .estimate-warning { margin: 28px 0; padding: 20px 22px; border: 1px solid rgba(222,169,82,.42); border-left: 5px solid #dea952; border-radius: 14px; color: #eee2ca; background: #17130d; }
+  .profile-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; margin: 24px 0; }
+  .profile-grid section { padding: 22px; border: 1px solid rgba(207,62,48,.32); border-top: 4px solid #cf3e30; border-radius: 14px; background: #17100e; }
+  .profile-grid span { color: #ee8978; font-size: .74rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+  .profile-grid h3 { margin: 8px 0; }
+  .profile-grid p { margin: 0; color: #cbd0d8; }
+  .priority-list { display: grid; gap: 12px; margin: 24px 0; }
+  .priority-list section { display: grid; grid-template-columns: 46px 1fr; gap: 14px; align-items: start; padding: 18px; border: 1px solid rgba(255,255,255,.1); border-radius: 14px; background: #10131b; }
+  .priority-list b { display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid #cf3e30; border-radius: 50%; color: #ee8978; }
+  .priority-list h3 { margin: 0 0 5px; }
+  .priority-list p { margin: 0; color: #cbd0d8; }
+  @media (max-width: 820px) { .battery-facts { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+  @media (max-width: 620px) { .profile-grid, .battery-facts { grid-template-columns: 1fr; } }
+</style>
