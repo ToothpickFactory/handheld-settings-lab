@@ -1,0 +1,198 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/baldurs-gate-3-steam-deck-battery-life/';
+const title = "Baldur's Gate 3 Steam Deck battery life test — Handheld Settings Lab";
+const description = "Measure Baldur's Gate 3 battery life on Steam Deck LCD or OLED across exploration, conversation, combat, and a dense settlement without invented runtime claims.";
+const image = '/assets/games/baldurs-gate-3-header.jpg';
+const checkedAt = 'September 14, 2026';
+
+const sources = [
+  { label: "Steam: Baldur's Gate 3 requirements, features, and official media", url: 'https://store.steampowered.com/app/1086940/Baldurs_Gate_3/' },
+  { label: 'Steam app-details API: public product data for app 1086940', url: 'https://store.steampowered.com/api/appdetails?appids=1086940&cc=us&l=en' },
+  { label: "Steam: current Steam Deck compatibility report for Baldur's Gate 3", url: 'https://store.steampowered.com/saleaction/ajaxgetdeckappcompatibilityreport?nAppID=1086940' },
+  { label: 'Valve: Steam Deck LCD technical specifications', url: 'https://www.steamdeck.com/en/tech/deck' },
+  { label: 'Valve: Steam Deck OLED technical specifications', url: 'https://www.steamdeck.com/en/tech/oled' },
+  { label: "Larian Studios: Baldur's Gate 3 system requirements", url: 'https://larian.com/support/faqs/system-requirements_47' }
+];
+
+const faqs = [
+  {
+    question: "How long does Baldur's Gate 3 last on Steam Deck battery?",
+    answer: "There is no reliable universal runtime without the Deck model, battery health, campaign area, party and combat state, frame cap, brightness, wireless state, game build, and measured whole-device draw. Test a mixed route, then enter 40Wh for LCD or 50Wh for OLED and your observed draw band in the battery estimator."
+  },
+  {
+    question: "Does Steam Deck OLED last longer than LCD in Baldur's Gate 3?",
+    answer: "Valve lists 50Wh for Steam Deck OLED and 40Wh for Steam Deck LCD, so OLED begins with more nominal stored energy. This page does not claim a fixed Baldur's Gate 3 advantage. Match the save, route, settings, brightness, wireless state, and battery condition before comparing."
+  },
+  {
+    question: "Should I use 30 FPS or 40 FPS for Baldur's Gate 3 battery life?",
+    answer: 'Use a stable 30 FPS cap as the battery-first control. Test any 40 FPS target through the densest representative settlement and combat save, not only the opening area. Keep it only if frame pacing and measured power cost are acceptable; no fixed runtime penalty applies to every campaign state.'
+  },
+  {
+    question: "Which Baldur's Gate 3 settings should I lower first to save power?",
+    answer: 'First cap frame rate, hold brightness constant, and stop downloads. Keep dynamic crowds off for the control, then lower shadows, clouds, fog, instance distance, and detail distance before sacrificing nearby character and interface clarity. Apply a TDP limit last.'
+  },
+  {
+    question: "How much storage does Baldur's Gate 3 need on Steam Deck?",
+    answer: 'Steam and Larian currently list 150GB of available SSD space for the PC version. Leave additional free room for patches, shader data, saves, screenshots, and SteamOS maintenance; the requirement is not a permanent installed-size guarantee.'
+  },
+  {
+    question: "Did Handheld Settings Lab benchmark Baldur's Gate 3 battery life?",
+    answer: 'No measured runtime is claimed. This is an official-source-informed measurement protocol. Replace every planning input with observations from your own Steam Deck, battery, game build, save, route, settings, and environment.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: "Baldur's Gate 3 Steam Deck battery life: a repeatable test",
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-09-14',
+    dateModified: '2026-09-14',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ["Baldur's Gate 3", 'Steam Deck battery life', 'Steam Deck OLED', 'Steam Deck LCD', 'frame-rate cap']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: "Baldur's Gate 3 Steam Deck battery life", item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+    }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article bg3-battery-guide">
+    <span class="eyebrow">Steam Deck battery guide · Sources checked {checkedAt}</span>
+    <h1>Baldur's Gate 3 Steam Deck battery life: test the busy save, not the beach</h1>
+    <p class="lede muted">A quiet opening path does not represent a populated settlement, layered spell fight, four-character inventory session, or long conversation. This protocol compares 30 and 40 FPS on Steam Deck LCD or OLED across a mixed, repeatable campaign route. It publishes no invented runtime benchmark.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Baldur's Gate 3 Steam header artwork showing the adventuring party" width="460" height="215" loading="eager" fetchpriority="high" decoding="async" />
+      <figcaption class="media-credit">Official Baldur's Gate 3 Steam store header image saved locally from <a href="https://store.steampowered.com/app/1086940/Baldurs_Gate_3/" target="_blank" rel="nofollow noopener">Larian Studios' Steam page</a>. Artwork and trademarks belong to their owners; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="battery-facts">
+      <section><span>Steam Deck LCD</span><strong>40Wh</strong><p>Valve-listed battery capacity</p></section>
+      <section><span>Steam Deck OLED</span><strong>50Wh</strong><p>Valve-listed battery capacity</p></section>
+      <section><span>Deck status</span><strong>Verified</strong><p>Valve category 3 at source check</p></section>
+      <section><span>Storage floor</span><strong>150GB</strong><p>Current Steam and Larian requirement</p></section>
+    </div>
+
+    <div class="estimate-warning"><strong>No fake “hours” figure:</strong> Valve's broad device-level battery ranges are not Baldur's Gate 3 results. Campaign area, crowds, party state, spell effects, patches, battery condition, brightness, radios, and background work all change a session. Measure whole-device draw and keep a reserve.</div>
+
+    <h2>Record the Deck, campaign state, and route</h2>
+    <p>Valve lists <strong>40Wh for Steam Deck LCD</strong> and <strong>50Wh for Steam Deck OLED</strong>. Those are nominal hardware specifications, not proof that an aged battery still delivers its original usable energy. Valve currently rates Baldur's Gate 3 Verified and says its default configuration is performant, but that compatibility result is not a battery test or a guarantee for every late-game area.</p>
+    <table>
+      <thead><tr><th>Input</th><th>Record this</th><th>Why it matters</th></tr></thead>
+      <tbody>
+        <tr><td>Deck model</td><td>LCD 40Wh or OLED 50Wh</td><td>The wrong capacity invalidates a runtime estimate.</td></tr>
+        <tr><td>Battery condition</td><td>Health reading, age, charging and shutdown behavior</td><td>Nominal watt-hours do not establish current usable capacity.</td></tr>
+        <tr><td>Campaign state</td><td>Game build, act, save, area, party, NPC density and combat</td><td>A beach, camp, settlement, conversation, and spell fight are different loads.</td></tr>
+        <tr><td>Visual profile</td><td>Resolution, FSR mode, quality settings, refresh and frame cap</td><td>Every comparison needs one controlled rendering target.</td></tr>
+        <tr><td>Device state</td><td>Brightness, volume, Wi-Fi, Bluetooth, downloads and accessories</td><td>These consume energy outside the graphics menu.</td></tr>
+        <tr><td>Power reading</td><td>Settled total system draw over the complete route</td><td>APU TDP omits the display, memory, storage, radios, fan and other loads.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>A repeatable Baldur's Gate 3 battery route</h2>
+    <ol>
+      <li><strong>Finish updates while plugged in.</strong> Complete the game, SteamOS, firmware, compatibility-tool, mod, and shader updates. Restart and confirm no download remains.</li>
+      <li><strong>Use the supported path first.</strong> Keep Valve's default compatibility tool and start from the <a href="/steam-deck-settings/baldurs-gate-3/">Baldur's Gate 3 Steam Deck settings baseline</a>: 1280×800, 30 FPS, Low, FSR 2 Quality, and no first-pass TDP cap.</li>
+      <li><strong>Choose a reusable save.</strong> Use the densest representative save you can revisit without random quest transitions. Record party members, summons, mods, difficulty, and area.</li>
+      <li><strong>Build a mixed route.</strong> Walk through a populated area, rotate the camera at fixed landmarks, open inventory, enter and exit one conversation, then replay a saved combat round with known spell effects.</li>
+      <li><strong>Warm the route once.</strong> First-pass asset, shader, save-sync, or patch activity can distort a short sample. Run the route before recording it.</li>
+      <li><strong>Measure sustained total draw.</strong> Observe a low-to-high band across the entire route, then enter that band and the correct Deck capacity in the <a href="/calculators/battery-estimator/">battery estimator</a>.</li>
+      <li><strong>Repeat before changing anything.</strong> Discard runs changed by a level-up, different dialog branch, extra summon, background download, or substantially different combat turn. Edit one setting group at a time.</li>
+    </ol>
+
+    <h2>Compare 30 FPS and 40 FPS fairly</h2>
+    <div class="profile-grid">
+      <section><span>Battery-first control</span><h3>60 Hz / 30 FPS</h3><p>Use 1280×800, FSR 2 Quality, Low as the diagnostic floor, dynamic crowds off, fixed brightness, and no first-pass TDP limit. Measure the complete mixed route.</p></section>
+      <section><span>Responsiveness experiment</span><h3>40 Hz / up to 40 FPS</h3><p>Change only refresh and frame cap. This is a target to test, not a lock claim. Keep it only if the densest available save remains acceptably paced and its power cost fits the session.</p></section>
+    </div>
+    <p>A 30 FPS cap can avoid requesting frames that a demanding settlement cannot sustain. No universal runtime percentage applies, though: a turn-based battle paused for decisions, real-time exploration, conversation, and inventory management can produce different draw. Measure the route you actually play.</p>
+
+    <h2>Reduce power draw in a controlled order</h2>
+    <div class="priority-list">
+      <section><b>1</b><div><h3>Lock a stable frame target</h3><p>Begin at 30 FPS and verify the busiest available settlement and combat sequence before changing graphics or power limits.</p></div></section>
+      <section><b>2</b><div><h3>Set readable, repeatable brightness</h3><p>Preserve dark-scene and interface legibility in the actual room or vehicle, then hold the level constant between tests.</p></div></section>
+      <section><b>3</b><div><h3>Stop hidden work</h3><p>Finish downloads and cloud synchronization, close unused apps, and remove peripherals not included in the planned session.</p></div></section>
+      <section><b>4</b><div><h3>Lower scene cost before character clarity</h3><p>Keep dynamic crowds off for the control and reduce shadows, clouds, fog, instance distance, and detail distance before lowering nearby model or texture clarity.</p></div></section>
+      <section><b>5</b><div><h3>Apply TDP last</h3><p>Lower the limit in small steps and rerun the whole route. Stop when settlement pacing, spell effects, streaming, audio, controls, or frame times deteriorate. TDP is not total device draw.</p></div></section>
+    </div>
+
+    <h2>Troubleshoot an inconsistent result</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Controlled next step</th></tr></thead>
+      <tbody>
+        <tr><td>First pass draws more power</td><td>Downloads, shader work, save sync, newly loaded assets</td><td>Finish all work, restart, warm the route, then repeat</td></tr>
+        <tr><td>Quiet areas pass but settlements miss</td><td>NPC density, dynamic crowds, distance settings, background work</td><td>Keep 30 FPS, crowds off, and rerun the same populated path</td></tr>
+        <tr><td>Combat samples do not match</td><td>Party, summons, camera, spell sequence, surfaces and effects</td><td>Reload the same save and reproduce the same opening round</td></tr>
+        <tr><td>40 FPS is costly and uneven</td><td>Frame times in the densest route segment</td><td>Return to 30 FPS without changing graphics and rerun</td></tr>
+        <tr><td>Estimator misses the real session</td><td>Deck model, battery health, total-draw band and reserve</td><td>Replace a brief reading with observations across the full mixed route</td></tr>
+        <tr><td>Power bank shows slow charging</td><td>Dedicated USB-C PD output, cable, shared ports and dock</td><td>Test Valve's charger, then use the <a href="/guides/steam-deck-power-bank-slow-charger-troubleshooting/">slow-charger checklist</a></td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, co-op, and travel planning</h2>
+    <p>Steam and Larian currently list <strong>150GB of available SSD space</strong>. Treat 150GB as a source-checked requirement, not a permanent installed total: game patches, shader data, save files, screenshots, mods, and Steam's update process require headroom. Confirm the install dialog for your account and use the <a href="/calculators/storage-planner/">storage planner</a>.</p>
+    <p>Record whether the route is solo or multiplayer because party control and online conditions are part of the test state. Before travel, open the intended save and prove a disconnected launch using the <a href="/guides/handheld-pc-offline-mode-flight-checklist/">offline-mode checklist</a>. A battery estimate does not prove account, cloud-save, mod, or multiplayer availability.</p>
+
+    <h2>Optional gear after the profile is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact USB-C PD output, watt-hours, cable rating, storage authenticity, seller traceability, warranty, fit, and current airline rules. No price, runtime, or compatibility guarantee is made; an Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+45w+usb+c+pd+power+bank+under+100wh" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="power-banks"><span class="chip">Sponsored search</span><h3>45W-class USB-C PD power banks</h3><p class="muted">Verify the exact port's output and printed watt-hours; neither guarantees a Baldur's Gate 3 runtime.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+a2+u3+microsd+card+512gb+1tb" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microsd-cards"><span class="chip">Sponsored search</span><h3>A2 / U3 microSD cards</h3><p class="muted">Compare genuine capacity, seller traceability, warranty, and substantial free room beyond the 150GB requirement.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+travel+case+charger+storage" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="cases"><span class="chip">Sponsored search</span><h3>Steam Deck travel cases</h3><p class="muted">Check exact LCD/OLED fit, stick pressure, charger separation, ventilation after play, and packed dimensions.</p></a>
+    </div>
+    <p>Browse the <a href="/gear/power-banks/">power-bank library</a>, <a href="/gear/microsd-cards/">microSD guide</a>, or complete <a href="/gear/">spec-based gear hub</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">{faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}</div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were fetched successfully on {checkedAt}. Valve's hardware pages list the Steam Deck LCD's 40Wh battery, OLED's 50Wh battery, and 45W USB-C PD supplies. Steam's compatibility endpoint resolves Baldur's Gate 3 as category 3, Verified, and reports a performant default configuration. Steam and Larian list the 150GB SSD requirement; Steam supplies the official image, multiplayer/co-op labels, and full controller-support context.</p>
+    <p>This is a measurement and tuning protocol, not a benchmark. Handheld Settings Lab did not personally test the current game build, campaign save, SteamOS version, compatibility layer, mods, battery health, total draw, thermals, performance, or runtime. No autocomplete phrase is presented as search volume.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Next, open the <a href="/steam-deck-settings/baldurs-gate-3/">Baldur's Gate 3 Steam Deck settings page</a>, compare titles in the <a href="/guides/steam-deck-battery-life-by-game/">battery-by-game guide</a>, or enter your readings in the <a href="/calculators/battery-estimator/">battery estimator</a>.</p>
+  </article>
+</Base>
+
+<style>
+  .bg3-battery-guide { padding-top: 56px; padding-bottom: 72px; }
+  .battery-facts { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 12px; margin: 28px 0; }
+  .battery-facts section { padding: 20px; border: 1px solid rgba(213,154,69,.35); border-top: 4px solid #d59a45; border-radius: 14px; background: #17120d; }
+  .battery-facts span { display: block; color: #edbd76; font-size: .74rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+  .battery-facts strong { display: block; margin: 8px 0 4px; color: #fff; font-size: 1.45rem; }
+  .battery-facts p { margin: 0; color: #cbd0d8; font-size: .86rem; }
+  .estimate-warning { margin: 28px 0; padding: 20px 22px; border: 1px solid rgba(213,154,69,.42); border-left: 5px solid #d59a45; border-radius: 14px; color: #eee2ca; background: #17130d; }
+  .profile-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; margin: 24px 0; }
+  .profile-grid section { padding: 22px; border: 1px solid rgba(213,154,69,.32); border-top: 4px solid #d59a45; border-radius: 14px; background: #17120d; }
+  .profile-grid span { color: #edbd76; font-size: .74rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+  .profile-grid h3 { margin: 8px 0; }
+  .profile-grid p { margin: 0; color: #cbd0d8; }
+  .priority-list { display: grid; gap: 12px; margin: 24px 0; }
+  .priority-list section { display: grid; grid-template-columns: 46px 1fr; gap: 14px; align-items: start; padding: 18px; border: 1px solid rgba(255,255,255,.1); border-radius: 14px; background: #10131b; }
+  .priority-list b { display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid #d59a45; border-radius: 50%; color: #edbd76; }
+  .priority-list h3 { margin: 0 0 5px; }
+  .priority-list p { margin: 0; color: #cbd0d8; }
+  @media (max-width: 820px) { .battery-facts { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+  @media (max-width: 620px) { .profile-grid, .battery-facts { grid-template-columns: 1fr; } }
+</style>
