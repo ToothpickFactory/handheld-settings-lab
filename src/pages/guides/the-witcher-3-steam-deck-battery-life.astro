@@ -1,0 +1,193 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/the-witcher-3-steam-deck-battery-life/';
+const title = 'The Witcher 3 Steam Deck battery life: test route — Handheld Settings Lab';
+const description = 'Measure The Witcher 3 battery life on Steam Deck LCD or OLED across traversal, Novigrad, combat, and menu use without invented runtime claims.';
+const image = '/assets/games/the-witcher-3-header.jpg';
+const checkedAt = 'September 14, 2026';
+
+const sources = [
+  { label: 'Steam: The Witcher 3 requirements, features, and official media', url: 'https://store.steampowered.com/app/292030/The_Witcher_3_Wild_Hunt/' },
+  { label: 'Steam app-details API: public product data for app 292030', url: 'https://store.steampowered.com/api/appdetails?appids=292030&cc=us&l=en' },
+  { label: 'Valve: live Steam Deck compatibility report for The Witcher 3', url: 'https://store.steampowered.com/saleaction/ajaxgetdeckappcompatibilityreport?nAppID=292030' },
+  { label: 'Valve: Steam Deck LCD technical specifications', url: 'https://www.steamdeck.com/en/tech/deck' },
+  { label: 'Valve: Steam Deck OLED technical specifications', url: 'https://www.steamdeck.com/en/tech/oled' },
+  { label: 'CD PROJEKT RED: official The Witcher 3 PC support', url: 'https://support.cdprojektred.com/en/witcher-3/pc' }
+];
+
+const faqs = [
+  {
+    question: 'How long does The Witcher 3 last on Steam Deck battery?',
+    answer: 'There is no honest universal runtime without the Deck model, battery health, current game build, save, location, weather, frame cap, brightness, wireless state, renderer, and measured total system draw. Use a repeatable mixed route, then enter 40Wh for LCD or 50Wh for OLED and your sustained draw band in the battery estimator.'
+  },
+  {
+    question: 'Is The Witcher 3 Steam Deck Verified?',
+    answer: 'Yes at this source check. Valve’s live report resolves app 292030 as category 3, Verified, with a functional default controller configuration, matching glyphs, legible interface text, and a performant default configuration. Compatibility status can change after updates.'
+  },
+  {
+    question: 'Does Steam Deck OLED last longer than LCD in The Witcher 3?',
+    answer: 'Valve lists a 50Wh battery for Steam Deck OLED and 40Wh for Steam Deck LCD. OLED begins with more nominal stored energy, but that does not prove a fixed Witcher 3 runtime advantage. Match the route, build, settings, brightness, wireless state, and battery condition before comparing.'
+  },
+  {
+    question: 'Should I use 30 FPS or 40 FPS for Witcher 3 battery life?',
+    answer: 'Use a stable 30 FPS cap as the battery-first control, then test 40 FPS over the same traversal, settlement, combat, and inventory route. Keep 40 only if frame pacing and measured power cost remain acceptable; this guide claims no fixed percentage difference.'
+  },
+  {
+    question: 'Should ray tracing be enabled for a battery test?',
+    answer: 'No for the baseline. Turn ray-traced global illumination, reflections, shadows, and ambient occlusion off. Establish a repeatable non-ray-traced profile before comparing renderer, graphics, frame cap, or TDP changes.'
+  },
+  {
+    question: 'Did Handheld Settings Lab benchmark Witcher 3 battery life?',
+    answer: 'No measured runtime is claimed. This is a source-informed measurement protocol based on current Valve, Steam, and CD PROJEKT RED information. Replace every planning input with observations from your own Deck, game build, save, route, and battery.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'The Witcher 3 Steam Deck battery life: a repeatable test route',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-09-14',
+    dateModified: '2026-09-14',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['The Witcher 3: Wild Hunt', 'Steam Deck battery life', 'Steam Deck OLED', 'Steam Deck LCD', 'frame-rate cap']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'The Witcher 3 Steam Deck battery life', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article witcher-battery-guide">
+    <span class="eyebrow">Steam Deck battery guide · Sources checked {checkedAt}</span>
+    <h1>The Witcher 3 Steam Deck battery life: test the road, Novigrad, and combat</h1>
+    <p class="lede muted">An empty road, a crowded city, a wet forest fight, and an inventory screen do not draw power the same way. This protocol combines them into one repeatable Steam Deck LCD or OLED route. It uses Valve’s live Verified status and public device specifications, but publishes no invented runtime result.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official The Witcher 3 Wild Hunt Complete Edition Steam header artwork showing Geralt, Ciri, and Yennefer" width="460" height="215" loading="eager" fetchpriority="high" decoding="async" />
+      <figcaption class="media-credit">Official Steam store header image saved locally from <a href="https://store.steampowered.com/app/292030/The_Witcher_3_Wild_Hunt/" target="_blank" rel="nofollow noopener">CD PROJEKT RED’s Steam page</a>. Artwork and trademarks belong to their owners; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="battery-facts">
+      <section><span>Steam Deck LCD</span><strong>40Wh</strong><p>Valve-listed battery capacity</p></section>
+      <section><span>Steam Deck OLED</span><strong>50Wh</strong><p>Valve-listed battery capacity</p></section>
+      <section><span>Deck status</span><strong>Verified</strong><p>Valve category 3 at source check</p></section>
+      <section><span>Storage floor</span><strong>50GB</strong><p>Current Steam listing; scheduled to change</p></section>
+    </div>
+
+    <div class="estimate-warning"><strong>No fake “hours” figure:</strong> Valve’s broad device-level battery ranges are not Witcher 3 results. City crowds, weather, foliage, combat, renderer, game updates, battery health, brightness, radios, and peripherals can change a session. Measure whole-device draw and keep a reserve.</div>
+
+    <h2>Record the Deck, build, renderer, and save</h2>
+    <p>Valve lists <strong>40Wh for Steam Deck LCD</strong> and <strong>50Wh for Steam Deck OLED</strong>. These are nominal capacities, not proof that an aged battery still delivers its original usable energy. Valve’s live report currently rates The Witcher 3 Verified and calls the default configuration performant. That is a supported starting path—not a battery measurement.</p>
+    <table>
+      <thead><tr><th>Input</th><th>Record this</th><th>Why it matters</th></tr></thead>
+      <tbody>
+        <tr><td>Deck model</td><td>LCD 40Wh or OLED 50Wh</td><td>The wrong capacity invalidates a runtime estimate.</td></tr>
+        <tr><td>Battery condition</td><td>Health reading, age, unusual drain or shutdown behavior</td><td>Nominal watt-hours do not prove current usable capacity.</td></tr>
+        <tr><td>Game state</td><td>Build, save, region, time, weather, quest and mods</td><td>Novigrad, open road, interiors and combat create different loads.</td></tr>
+        <tr><td>Visual profile</td><td>Resolution, renderer, upscaler, ray tracing, refresh and cap</td><td>A comparison needs one controlled rendering target.</td></tr>
+        <tr><td>Device state</td><td>Brightness, volume, Wi-Fi, Bluetooth, downloads and accessories</td><td>These consume energy outside the graphics menu.</td></tr>
+        <tr><td>Power reading</td><td>Settled total system draw over the complete route</td><td>APU TDP omits the display, memory, storage, radios, fan and other loads.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>A repeatable Witcher 3 battery route</h2>
+    <ol>
+      <li><strong>Finish updates first.</strong> Complete SteamOS, game and shader work. Steam currently says the Windows requirements will change on September 29, 2026, so save the exact game build with every result.</li>
+      <li><strong>Use Valve’s supported path.</strong> Remove mods and unexplained launch options, keep the default compatibility tool, and begin with the <a href="/steam-deck-settings/the-witcher-3/">Witcher 3 Steam Deck settings baseline</a>: 1280×800, 30 FPS, ray tracing off, conservative city settings.</li>
+      <li><strong>Choose one mixed save loop.</strong> Ride the same road, enter a populated Novigrad section or another repeatable settlement, open and close inventory, then complete the same short fight. Use fixed landmarks.</li>
+      <li><strong>Control weather where practical.</strong> Rain, foliage movement, water, fog, lighting and long views can shift the load. Reload the same save if the route changes materially.</li>
+      <li><strong>Warm the route.</strong> Complete one unrecorded pass after launch or an update so first-pass shader and asset work do not define the result.</li>
+      <li><strong>Measure a sustained band.</strong> Observe total system draw through the full route. Enter the low-to-high band and correct battery capacity in the <a href="/calculators/battery-estimator/">battery estimator</a>.</li>
+      <li><strong>Repeat before editing.</strong> Require a clean second pass, then change only one variable family. Record frame pacing and draw together.</li>
+    </ol>
+
+    <h2>Compare 30 FPS and 40 FPS fairly</h2>
+    <div class="profile-grid">
+      <section><span>Battery-first control</span><h3>60 Hz / 30 FPS</h3><p>Use 1280×800, one 30 FPS cap, ray tracing and HairWorks off, conservative foliage, shadows and crowds, fixed brightness, and no first-pass TDP limit.</p></section>
+      <section><span>Responsiveness experiment</span><h3>40 Hz / up to 40 FPS</h3><p>Change only refresh and cap. This page does not promise a locked 40. Keep it only if city traversal and combat remain acceptably paced and its measured power cost fits the trip.</p></section>
+    </div>
+    <p>A 30 FPS cap can avoid requesting frames the Deck cannot hold through the route, but no universal runtime gain applies. If 40 FPS is uneven, extra work may buy inconsistent motion rather than useful responsiveness. Follow the <a href="/guides/steam-deck-40fps-explained/">40 FPS frame-pacing guide</a> and compare sustained total draw—not a momentary number.</p>
+
+    <h2>Reduce power draw in a controlled order</h2>
+    <div class="priority-list">
+      <section><b>1</b><div><h3>Hold one stable cap</h3><p>Begin at 30 FPS and verify the settlement and fight before changing graphics or power limits.</p></div></section>
+      <section><b>2</b><div><h3>Disable expensive optional effects</h3><p>Keep ray tracing and HairWorks off for the baseline. Do not combine a renderer change with graphics edits.</p></div></section>
+      <section><b>3</b><div><h3>Set readable, repeatable brightness</h3><p>Choose for the real room or vehicle and keep it fixed between runs, especially when comparing LCD and OLED.</p></div></section>
+      <section><b>4</b><div><h3>Lower scene costs before texture clarity</h3><p>Reduce crowd density, foliage range, shadows and water first. Prove each change on the same route.</p></div></section>
+      <section><b>5</b><div><h3>Apply TDP last</h3><p>Lower it in small steps and repeat the full route. Stop when traversal, streaming, audio, controls or frame pacing deteriorates.</p></div></section>
+    </div>
+
+    <h2>Troubleshoot an inconsistent result</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Controlled next step</th></tr></thead>
+      <tbody>
+        <tr><td>First pass draws more</td><td>Shader work, downloads, newly loaded assets, game update</td><td>Finish background work, restart, warm the route and repeat</td></tr>
+        <tr><td>Settlement result changes</td><td>Weather, time, crowds, combat, route deviation</td><td>Reload the same save and discard unmatched runs</td></tr>
+        <tr><td>40 FPS is costly and uneven</td><td>Frame times in the city and fight</td><td>Return to 30 FPS without changing graphics and rerun</td></tr>
+        <tr><td>DX11 and DX12 comparison is unclear</td><td>Whether ray tracing, upscaling or preset also changed</td><td>Reset the baseline and change only the renderer</td></tr>
+        <tr><td>Estimator misses the session</td><td>Deck capacity, battery health, sustained draw band and reserve</td><td>Replace a brief reading with the complete mixed route</td></tr>
+        <tr><td>Power bank shows slow charging</td><td>Dedicated USB-C PD output, cable, shared ports and dock</td><td>Test Valve’s charger, then use the <a href="/guides/steam-deck-power-bank-slow-charger-troubleshooting/">slow-charger checklist</a></td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage and travel planning</h2>
+    <p>Steam currently lists <strong>50GB of available space</strong> and explicitly says the system requirements will change on September 29, 2026. Treat 50GB as a dated requirement floor—not a permanent installed total. Recheck the live store page and install dialog, then leave room for updates, shader data, saves, screenshots and Steam’s patch process. Model the full library with the <a href="/calculators/storage-planner/">storage planner</a>.</p>
+
+    <h2>Optional gear after the profile is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact USB-C PD output, watt-hours, cable rating, storage authenticity, seller traceability, warranty, weight, fit, and current airline rules. No price, runtime, or compatibility guarantee is made; an Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+45w+usb+c+pd+power+bank+under+100wh" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="power-banks"><span class="chip">Sponsored search</span><h3>45W-class USB-C PD power banks</h3><p class="muted">Verify the selected port’s output and printed watt-hours; do not turn a label into promised Witcher 3 hours.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+a2+u3+microsd+card+512gb+1tb" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microsd-cards"><span class="chip">Sponsored search</span><h3>A2 / U3 microSD cards</h3><p class="muted">Compare genuine capacity, seller traceability, warranty, and free room beyond the current dated requirement.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+travel+case+charger+storage" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="cases"><span class="chip">Sponsored search</span><h3>Steam Deck travel cases</h3><p class="muted">Check exact LCD/OLED fit, stick pressure, charger separation, ventilation after play, and packed dimensions.</p></a>
+    </div>
+    <p>Browse the <a href="/gear/power-banks/">power-bank library</a>, <a href="/gear/microsd-cards/">microSD guide</a>, or complete <a href="/gear/">spec-based gear hub</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">{faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}</div>
+
+    <h2>Sources and methodology</h2>
+    <p>All sources returned HTTP 200 on {checkedAt}. Valve’s technical page supplies the Steam Deck OLED’s 50Wh battery and 45W USB-C PD specification; Valve’s LCD specification is the source for the 40Wh LCD capacity used by the site’s established calculator model. Steam’s live compatibility report resolves The Witcher 3 as category 3, Verified, while noting that an external controller is not supported for the primary player. Steam’s public app data supplies the official image, current 50GB requirement, controller and Steam Cloud labels, and the warning that requirements are scheduled to change on September 29, 2026. CD PROJEKT RED supplies the official PC support route.</p>
+    <p>This is a measurement and tuning protocol, not a benchmark. Handheld Settings Lab did not personally test the current game, save, SteamOS version, compatibility layer, battery health, total draw, thermals, weather, renderer, mods, or runtime. No autocomplete phrase is presented as search volume.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Next, open the <a href="/steam-deck-settings/the-witcher-3/">Witcher 3 Steam Deck settings page</a>, compare titles in the <a href="/guides/steam-deck-battery-life-by-game/">battery-by-game guide</a>, or enter your readings in the <a href="/calculators/battery-estimator/">battery estimator</a>.</p>
+  </article>
+</Base>
+
+<style>
+  .witcher-battery-guide { padding-top: 56px; padding-bottom: 72px; }
+  .battery-facts { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 12px; margin: 28px 0; }
+  .battery-facts section { padding: 20px; border: 1px solid rgba(190,150,72,.38); border-top: 4px solid #be9648; border-radius: 14px; background: #14130f; }
+  .battery-facts span { display: block; color: #e4c275; font-size: .74rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+  .battery-facts strong { display: block; margin: 8px 0 4px; color: #fff; font-size: 1.45rem; }
+  .battery-facts p { margin: 0; color: #cbd0d8; font-size: .86rem; }
+  .estimate-warning { margin: 28px 0; padding: 20px 22px; border: 1px solid rgba(222,169,82,.42); border-left: 5px solid #dea952; border-radius: 14px; color: #eee2ca; background: #17130d; }
+  .profile-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; margin: 24px 0; }
+  .profile-grid section { padding: 22px; border: 1px solid rgba(190,150,72,.36); border-top: 4px solid #be9648; border-radius: 14px; background: #14130f; }
+  .profile-grid span { color: #e4c275; font-size: .74rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+  .profile-grid h3 { margin: 8px 0; }
+  .profile-grid p { margin: 0; color: #cbd0d8; }
+  .priority-list { display: grid; gap: 12px; margin: 24px 0; }
+  .priority-list section { display: grid; grid-template-columns: 46px 1fr; gap: 14px; align-items: start; padding: 18px; border: 1px solid rgba(255,255,255,.1); border-radius: 14px; background: #10131b; }
+  .priority-list b { display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid #be9648; border-radius: 50%; color: #e4c275; }
+  .priority-list h3 { margin: 0 0 5px; }
+  .priority-list p { margin: 0; color: #cbd0d8; }
+  @media (max-width: 820px) { .battery-facts { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+  @media (max-width: 620px) { .profile-grid, .battery-facts { grid-template-columns: 1fr; } }
+</style>
