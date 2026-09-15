@@ -1,0 +1,192 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/steam-deck-power-bank-requirements-airline/';
+const title = 'Steam Deck power bank requirements and airline rules — Handheld Settings Lab';
+const description = 'Choose a Steam Deck power bank by 45W USB-C PD output and watt-hours, then check cable, carry-on, 100Wh, and slow-charging requirements.';
+const checkedAt = 'September 15, 2026';
+
+const sources = [
+  { label: 'Valve: Steam Deck OLED technical specifications', url: 'https://www.steamdeck.com/en/tech' },
+  { label: 'Valve: Steam Deck LCD technical specifications', url: 'https://www.steamdeck.com/en/tech/deck' },
+  { label: 'FAA PackSafe: lithium batteries and power banks', url: 'https://www.faa.gov/hazmat/packsafe/lithium-batteries' },
+  { label: 'TSA: power banks', url: 'https://www.tsa.gov/travel/security-screening/whatcanibring/items/power-banks' },
+  { label: 'USB-IF: USB Power Delivery overview', url: 'https://www.usb.org/usb-charger-pd' }
+];
+
+const faqs = [
+  {
+    question: 'What wattage power bank does Steam Deck need?',
+    answer: 'Use a USB-C Power Delivery bank that can provide 45W from the single port connected to the Deck. Valve specifies a 45W PD 3.0 Type-C power supply for both Steam Deck LCD and OLED. Read the bank’s per-port output table because its advertised total can be shared across ports.'
+  },
+  {
+    question: 'Can a 65W or 100W power bank charge Steam Deck?',
+    answer: 'Yes, when the chosen USB-C port supports a compatible USB Power Delivery profile and the cable is suitable. USB PD negotiates what the device requests; a higher maximum rating does not force that full wattage into the Deck. It also does not make the Deck charge faster than its supported behavior.'
+  },
+  {
+    question: 'Can I bring a Steam Deck power bank on a plane?',
+    answer: 'For U.S. travel, TSA says power banks are allowed in carry-on bags and not checked bags. FAA guidance limits ordinary spare lithium-ion batteries to 100Wh per battery; batteries over 100Wh through 160Wh require airline approval and have additional limits. Check the printed Wh rating and current airline, connection, and destination rules.'
+  },
+  {
+    question: 'Is a 20,000mAh power bank under 100Wh?',
+    answer: 'Often, but mAh alone is not enough to prove it. FAA says watt-hours equal battery voltage multiplied by amp-hours. Use the manufacturer’s printed Wh value on the physical bank rather than calculating from a marketing mAh number with an assumed voltage.'
+  },
+  {
+    question: 'How much extra Steam Deck battery life will a power bank add?',
+    answer: 'There is no universal answer. Bank watt-hours, conversion loss, cable loss, game load, display brightness, radios, accessories, charging overhead, battery condition, and reserve all matter. Use the printed Wh as a planning input, observe total system draw, and avoid treating nominal capacity as fully usable energy.'
+  },
+  {
+    question: 'Why does Steam Deck show a slow charger warning with a power bank?',
+    answer: 'The connected port may not provide 45W USB-C PD, the cable may limit the negotiated profile, another device may be sharing output, or a dock or adapter may reduce available power. Test the bank’s correct port directly with the Deck and a known-good cable before replacing anything.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Steam Deck power bank requirements and airline rules',
+    description,
+    url: canonicalUrl,
+    datePublished: '2026-09-15',
+    dateModified: '2026-09-15',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Steam Deck', 'USB-C Power Delivery', '45W power banks', 'airline battery rules', 'watt-hours']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'Steam Deck power bank requirements', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } }))
+  }
+];
+---
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <article class="wrap article deck-power-guide">
+    <span class="eyebrow">Steam Deck power guide · Sources checked {checkedAt}</span>
+    <h1>Steam Deck power bank requirements: 45W USB-C PD and airline rules</h1>
+    <p class="lede muted">The useful number on the output side is <strong>45W from one USB-C Power Delivery port</strong>. The useful number for stored energy and airline planning is <strong>watt-hours</strong>. Check both before buying or packing a bank.</p>
+
+    <div class="answer-panel">
+      <strong>Fast answer</strong>
+      <p>Valve specifies a 45W PD 3.0 Type-C supply for Steam Deck LCD and OLED. Choose a bank whose selected USB-C port—not merely the whole bank—can provide at least 45W through USB PD. For the simplest U.S. flight case, use a clearly labeled bank at or below 100Wh, keep it in carry-on baggage, protect it from damage and short circuits, and confirm the airline’s current rules.</p>
+    </div>
+
+    <div class="requirements-grid">
+      <section><span>01</span><h2>45W on one port</h2><p>Read the USB-C output table. A large combined wattage does not prove one port can supply the Deck.</p></section>
+      <section><span>02</span><h2>USB Power Delivery</h2><p>USB-C is only a connector shape. The bank and cable still need a compatible PD charging path.</p></section>
+      <section><span>03</span><h2>Printed watt-hours</h2><p>Use the Wh marking on the bank body for travel checks. Do not substitute an assumed mAh conversion.</p></section>
+      <section><span>04</span><h2>Known-good cable</h2><p>Test the exact cable and port before travel, with other bank outputs disconnected.</p></section>
+    </div>
+
+    <h2>Steam Deck LCD and OLED power facts</h2>
+    <p>Valve lists the same <strong>45W PD 3.0 Type-C power supply</strong> for both current technical-spec pages. The internal batteries differ: <strong>40Wh for Steam Deck LCD</strong> and <strong>50Wh for Steam Deck OLED</strong>. Those battery capacities do not change the 45W external-power requirement, and they do not establish how many additional hours a particular bank will deliver.</p>
+    <table>
+      <thead><tr><th>Specification</th><th>Steam Deck LCD</th><th>Steam Deck OLED</th><th>Buying implication</th></tr></thead>
+      <tbody>
+        <tr><td>Official power supply</td><td>45W PD 3.0 Type-C</td><td>45W PD 3.0 Type-C</td><td>Require at least 45W from the connected USB-C PD port.</td></tr>
+        <tr><td>Internal battery</td><td>40Wh</td><td>50Wh</td><td>Use the correct capacity in the <a href="/calculators/battery-estimator/">battery estimator</a>.</td></tr>
+        <tr><td>Power-bank capacity</td><td colspan="2">Use the bank’s printed Wh rating</td><td>Wh, not headline mAh, is the direct travel-limit unit.</td></tr>
+        <tr><td>Multi-port use</td><td colspan="2">Output may be reallocated when another device connects</td><td>Verify the per-port and shared-load table in the maker’s documentation.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>45W, 65W, and 100W: what the labels mean</h2>
+    <div class="wattage-grid">
+      <section><span>Minimum target</span><h3>45W PD</h3><p>Matches Valve’s listed supply class when the chosen port actually provides 45W and the cable supports the negotiated profile.</p></section>
+      <section><span>Shared travel option</span><h3>65W PD</h3><p>Can support Steam Deck and may fit other devices, but only if one port keeps enough output under the bank’s allocation rules.</p></section>
+      <section><span>Higher ceiling</span><h3>100W PD</h3><p>Does not force 100W into the Deck or guarantee faster charging. It can add flexibility for laptops or multi-device kits.</p></section>
+    </div>
+    <p>USB-IF describes Power Delivery as an intelligent negotiation in which a device requests the power it requires. That is why “higher maximum output” and “faster Steam Deck charging” are not interchangeable claims. Certification, compatible profiles, cable capability, thermal behavior, and port allocation still matter.</p>
+
+    <h2>Airline checklist for a Steam Deck power bank</h2>
+    <p>The following summarizes U.S. FAA guidance updated April 13, 2026 and the TSA power-bank page checked on {checkedAt}. It does not replace a carrier’s policy or international rules.</p>
+    <ol class="travel-steps">
+      <li><strong>Keep the bank in carry-on baggage.</strong> TSA lists power banks as carry-on yes and checked bags no. FAA says spare lithium batteries and power banks belong in the cabin.</li>
+      <li><strong>Remove it before gate-checking a bag.</strong> FAA says every spare battery and power bank must come out of a carry-on checked at the gate or planeside.</li>
+      <li><strong>Use the physical Wh label.</strong> The ordinary rechargeable lithium-ion limit is 100Wh per battery. Do not rely on an online listing after the label wears off.</li>
+      <li><strong>Ask about 101–160Wh.</strong> FAA permits up to two larger spare lithium-ion batteries only with airline approval, and carriers may impose stricter rules.</li>
+      <li><strong>Protect against damage and short circuits.</strong> Cover exposed terminals where applicable and keep the bank in a protective pouch away from loose metal objects.</li>
+      <li><strong>Leave damaged or recalled units home.</strong> FAA says batteries likely to spark or create dangerous heat must not be carried unless made safe under the applicable rule.</li>
+    </ol>
+
+    <h2>Why mAh does not answer the airline question</h2>
+    <p>Milliamp-hours describe charge quantity at a stated voltage; watt-hours describe energy. FAA gives the relationship as <strong>Wh = battery voltage × amp-hours</strong>. A “20,000mAh” headline without the underlying battery voltage is not enough information for a reliable conversion. The practical answer is to inspect the bank itself for its manufacturer-printed Wh value.</p>
+    <div class="answer-panel secondary">
+      <strong>Do not confuse three separate figures</strong>
+      <p><strong>45W</strong> is the Steam Deck’s power-supply class. <strong>100Wh</strong> is the ordinary U.S. airline size ceiling for a spare rechargeable lithium battery. <strong>20,000mAh</strong> is a charge-capacity label that cannot be compared directly with either one.</p>
+    </div>
+
+    <h2>Test the bank before relying on it</h2>
+    <ol>
+      <li><strong>Charge and update the Deck first.</strong> Finish downloads, then restart so background work does not distort the test.</li>
+      <li><strong>Use the bank’s specified high-output port.</strong> Disconnect phones and other accessories that could trigger power reallocation.</li>
+      <li><strong>Connect a known-good USB-C cable directly.</strong> Leave the dock, extension, and right-angle adapter out of the first test.</li>
+      <li><strong>Play a demanding game for a sustained period.</strong> Check whether SteamOS reports slow charging and whether battery percentage rises, holds, or falls under the real load.</li>
+      <li><strong>Add accessories one at a time.</strong> If the direct path works, introduce the dock or adapter separately so a failure has one new variable.</li>
+      <li><strong>Inspect heat, swelling, ports, and cable strain.</strong> Stop using damaged equipment; do not treat abnormal heat or physical change as a settings problem.</li>
+    </ol>
+
+    <h2>Steam Deck power-bank troubleshooting order</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Likely check</th><th>Safe next step</th></tr></thead>
+      <tbody>
+        <tr><td>Slow charger warning</td><td>Wrong output port, non-PD output, cable limitation</td><td>Connect the correct 45W-or-higher PD port directly with a proven cable.</td></tr>
+        <tr><td>Bank advertises 65W but Deck drains</td><td>65W may be total shared output</td><td>Disconnect other devices and read the maker’s single-port allocation table.</td></tr>
+        <tr><td>Works directly but not through a dock</td><td>Dock overhead or pass-through limits</td><td>Verify the dock’s input/output specifications and simplify the display chain.</td></tr>
+        <tr><td>Charging repeatedly starts and stops</td><td>Cable, loose port, protection reset, temperature</td><td>Power down, inspect the path, cool the equipment, and retest one component at a time.</td></tr>
+        <tr><td>Expected runtime is much shorter</td><td>Nominal Wh treated as fully usable, high game load</td><td>Observe total system draw and use a reserve in the <a href="/calculators/battery-estimator/">battery estimator</a>.</td></tr>
+      </tbody>
+    </table>
+    <p>For a deeper diagnostic sequence, use the <a href="/guides/steam-deck-power-bank-slow-charger-troubleshooting/">Steam Deck slow-charger guide</a>. If a cable is the uncertain part, see the <a href="/guides/usb-c-cable-wattage-handheld-gaming/">USB-C cable wattage checklist</a>.</p>
+
+    <h2>Spec-based shopping paths</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare the exact port’s USB PD output, printed Wh rating, dimensions, weight, cable requirements, warranty, seller traceability, and current airline policy. No price, recharge count, compatibility, or added-runtime claim is made; an Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+45w+usb+c+pd+power+bank+under+100wh" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="power-banks"><span class="chip">Sponsored search</span><h3>45W+ PD power banks</h3><p class="muted">Start with single-port output and the physical Wh label, not the largest mAh headline.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=100w+usb+c+cable+e+marker+steam+deck" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="usb-c-cables"><span class="chip">Sponsored search</span><h3>Rated USB-C cables</h3><p class="muted">Check length, bend relief, power rating, and whether data/video support is needed beyond charging.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+travel+case+power+bank+storage" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="cases"><span class="chip">Sponsored search</span><h3>Travel cases with separation</h3><p class="muted">Keep dense power gear from pressing against the screen, sticks, triggers, or vents.</p></a>
+    </div>
+    <p>Compare the central <a href="/gear/power-banks/">power-bank gear guide</a>, browse the <a href="/gear/usb-c-cables-adapters/">USB-C cable and adapter guide</a>, or build a complete kit with the <a href="/guides/steam-deck-oled-first-week-accessories/">Steam Deck OLED travel checklist</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">{faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}</div>
+
+    <h2>Sources and methodology</h2>
+    <p>All sources returned readable public information on {checkedAt}. Valve supplied the 45W PD 3.0 input specification and the 40Wh LCD and 50Wh OLED battery capacities. FAA supplied the carry-on-only, gate-check removal, 100Wh, 101–160Wh approval, quantity, protection, damage, and watt-hour guidance. TSA independently lists power banks as allowed in carry-on bags and not checked bags. USB-IF supplied general Power Delivery negotiation context.</p>
+    <p>This is a source-informed compatibility and travel-planning guide, not a hands-on power-bank test. Handheld Settings Lab did not measure a bank, cable, charging profile, conversion efficiency, temperature, or added runtime. Airline policies and technical specifications can change; confirm the bank label, manufacturer documentation, carrier, connections, and destination before travel.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Next, estimate your own runtime with the <a href="/calculators/battery-estimator/">battery estimator</a>, tune the game through the <a href="/steam-deck-settings/">Steam Deck settings hub</a>, or check a specific title in the <a href="/guides/steam-deck-battery-life-by-game/">battery-by-game guide</a>.</p>
+  </article>
+</Base>
+
+<style>
+  .deck-power-guide { padding-top: 56px; padding-bottom: 72px; }
+  .answer-panel { margin: 28px 0; padding: 22px 24px; border: 1px solid rgba(57,211,155,.44); border-left: 5px solid #39d39b; border-radius: 14px; background: #0d1c19; }
+  .answer-panel strong { color: #8df0cb; text-transform: uppercase; letter-spacing: .08em; font-size: .78rem; }
+  .answer-panel p { margin: 8px 0 0; color: #e2ebe8; }
+  .answer-panel.secondary { border-color: rgba(241,180,76,.44); border-left-color: #f1b44c; background: #1d180d; }
+  .answer-panel.secondary strong { color: #ffd48a; }
+  .requirements-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 12px; margin: 28px 0 36px; }
+  .requirements-grid section { padding: 20px; border: 1px solid rgba(57,211,155,.32); border-top: 4px solid #39d39b; border-radius: 14px; background: #101820; }
+  .requirements-grid span, .wattage-grid span { color: #72e3ba; font-size: .72rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+  .requirements-grid h2 { margin: 8px 0; font-size: 1.06rem; }
+  .requirements-grid p, .wattage-grid p { margin: 0; color: #cbd5d2; }
+  .wattage-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; margin: 24px 0; }
+  .wattage-grid section { padding: 22px; border: 1px solid rgba(255,255,255,.12); border-radius: 14px; background: #111720; }
+  .wattage-grid h3 { margin: 8px 0; font-size: 1.35rem; }
+  .travel-steps { counter-reset: travel; list-style: none; padding: 0; display: grid; gap: 12px; }
+  .travel-steps li { position: relative; padding: 18px 18px 18px 62px; border: 1px solid rgba(255,255,255,.1); border-radius: 14px; background: #111720; }
+  .travel-steps li::before { counter-increment: travel; content: counter(travel); position: absolute; left: 16px; top: 16px; display: grid; place-items: center; width: 32px; height: 32px; border: 1px solid #39d39b; border-radius: 50%; color: #8df0cb; font-weight: 900; }
+  @media (max-width: 900px) { .requirements-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+  @media (max-width: 640px) { .requirements-grid, .wattage-grid { grid-template-columns: 1fr; } }
+</style>
