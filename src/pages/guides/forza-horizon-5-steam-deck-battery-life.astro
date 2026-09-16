@@ -1,0 +1,193 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/forza-horizon-5-steam-deck-battery-life/';
+const title = 'Forza Horizon 5 Steam Deck battery life test — Handheld Settings Lab';
+const description = 'Measure Forza Horizon 5 battery life on Steam Deck LCD or OLED with a repeatable benchmark, festival, wet-road, off-road, and free-roam route.';
+const image = '/assets/games/forza-horizon-5-header.jpg';
+const checkedAt = 'September 16, 2026';
+
+const sources = [
+  { label: 'Steam: Forza Horizon 5 requirements, features, and official media', url: 'https://store.steampowered.com/app/1551360/Forza_Horizon_5/' },
+  { label: 'Steam app-details API: public product data for app 1551360', url: 'https://store.steampowered.com/api/appdetails?appids=1551360&cc=us&l=en' },
+  { label: 'Valve: live Steam Deck compatibility report for Forza Horizon 5', url: 'https://store.steampowered.com/saleaction/ajaxgetdeckappcompatibilityreport?nAppID=1551360' },
+  { label: 'Xbox: official Forza Horizon 5 product page', url: 'https://www.xbox.com/en-US/games/forza-horizon-5' },
+  { label: 'Valve: Steam Deck OLED technical specifications', url: 'https://www.steamdeck.com/en/tech' },
+  { label: 'Valve: Steam Deck LCD technical specifications', url: 'https://www.steamdeck.com/en/tech/deck' }
+];
+
+const faqs = [
+  {
+    question: 'How long does Forza Horizon 5 last on Steam Deck battery?',
+    answer: 'There is no honest universal runtime without the Deck model, battery health, game build, frame cap, graphics profile, route, weather, traffic, online state, brightness, radios, and sustained total system draw. Measure the route on this page, then use 40Wh for LCD or 50Wh for OLED with your observed draw in the battery estimator.'
+  },
+  {
+    question: 'Is Forza Horizon 5 Steam Deck Verified?',
+    answer: 'No at this source check. Valve’s live compatibility report resolves app 1551360 as category 2, Playable. It reports matching controller glyphs, legible interface text, and a performant default configuration, while flagging that the default controller configuration is not fully functional.'
+  },
+  {
+    question: 'Should I use 30 FPS or 40 FPS for Forza Horizon 5 battery life?',
+    answer: 'Use Valve’s current default as a control, then establish a repeatable 30 FPS route before testing 40 FPS. Change only the cap and refresh state. Keep 40 only if the benchmark and weakest festival, wet-road, and off-road segments remain acceptable. This guide claims no fixed power saving.'
+  },
+  {
+    question: 'Can I use the built-in benchmark as the whole battery test?',
+    answer: 'Use it as a repeatable control, not the whole test. Follow it with the same festival pass, traffic-heavy road, wet or night segment, and off-road event. A scripted benchmark may not represent online play, seasonal weather, menus, free roam, or a long session.'
+  },
+  {
+    question: 'Does Steam Deck OLED last longer than LCD in Forza Horizon 5?',
+    answer: 'Valve lists 50Wh for Steam Deck OLED and 40Wh for Steam Deck LCD, so OLED starts with more nominal stored energy. That does not establish a fixed Forza Horizon 5 advantage. Match the route, settings, brightness, network state, battery condition, and build before comparing.'
+  },
+  {
+    question: 'Did Handheld Settings Lab benchmark Forza Horizon 5 battery life?',
+    answer: 'No measured runtime is claimed. This is a source-informed measurement protocol based on current Valve, Steam, and Xbox information. Replace every planning input with observations from your own Deck, game build, route, settings, and battery.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Forza Horizon 5 Steam Deck battery life: a repeatable driving test',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-09-16',
+    dateModified: '2026-09-16',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Forza Horizon 5', 'Steam Deck battery life', 'Steam Deck OLED', 'Steam Deck LCD', 'battery test method']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'Forza Horizon 5 Steam Deck battery life', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article forza-battery-guide">
+    <span class="eyebrow">Steam Deck battery guide · Sources checked {checkedAt}</span>
+    <h1>Forza Horizon 5 Steam Deck battery life: test a complete driving route</h1>
+    <p class="lede muted">A benchmark run, an empty desert road, a crowded festival, wet pavement, off-road effects, and online free roam do not create the same load. This protocol combines repeatable controls and real driving into an LCD or OLED test without publishing a made-up number of hours.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Forza Horizon 5 artwork with a red Mercedes-AMG One on a tropical road beside a beach and off-road vehicle" width="460" height="215" loading="eager" fetchpriority="high" decoding="async" />
+      <figcaption class="media-credit">Official Steam store header image saved locally from <a href="https://store.steampowered.com/app/1551360/Forza_Horizon_5/" target="_blank" rel="nofollow noopener">Xbox Game Studios’ Steam page</a>. Artwork and trademarks belong to their owners; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="battery-facts">
+      <section><span>Steam Deck LCD</span><strong>40Wh</strong><p>Valve-listed battery capacity</p></section>
+      <section><span>Steam Deck OLED</span><strong>50Wh</strong><p>Valve-listed battery capacity</p></section>
+      <section><span>Deck status</span><strong>Playable</strong><p>Valve category 2 at source check</p></section>
+      <section><span>Storage floor</span><strong>110GB</strong><p>Current Steam listing</p></section>
+    </div>
+
+    <div class="estimate-warning"><strong>No fake runtime:</strong> Valve’s broad device-level battery ranges are not Forza Horizon 5 results. Traffic, weather, route, online activity, frame cap, brightness, downloads, battery health, updates, and background work can change total draw. Measure the whole device and keep a reserve.</div>
+
+    <h2>Record the Deck, profile, and route before measuring</h2>
+    <p>Valve lists a <strong>40Wh battery for Steam Deck LCD</strong> and <strong>50Wh for Steam Deck OLED</strong>. Those nominal capacities are calculator inputs, not proof that an older battery still provides its original usable energy. Valve’s current compatibility report marks Forza Horizon 5 Playable and reports a performant default configuration. Use that default as a control state, not as a battery benchmark.</p>
+    <table>
+      <thead><tr><th>Input</th><th>Record this</th><th>Why it matters</th></tr></thead>
+      <tbody>
+        <tr><td>Deck</td><td>LCD 40Wh or OLED 50Wh; battery health</td><td>The wrong model or nominal capacity invalidates the estimate.</td></tr>
+        <tr><td>Software</td><td>Game build, SteamOS, compatibility tool, expansion and driver state</td><td>An update can alter performance, shader activity, or compatibility.</td></tr>
+        <tr><td>Visual profile</td><td>Resolution, preset, upscaler, refresh, frame cap and brightness</td><td>A battery comparison needs one controlled rendering state.</td></tr>
+        <tr><td>Driving route</td><td>Benchmark, festival, road, weather, event, traffic and online state</td><td>Scene complexity and network activity can move the load.</td></tr>
+        <tr><td>Device state</td><td>Wi-Fi, Bluetooth, volume, downloads, recording and accessories</td><td>These consume energy outside the renderer.</td></tr>
+        <tr><td>Power reading</td><td>Sustained total system draw over the complete route</td><td>APU TDP omits the display, memory, storage, radios, fan, and other loads.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>A repeatable Forza Horizon 5 battery route</h2>
+    <ol>
+      <li><strong>Finish updates first.</strong> Complete SteamOS, game, and shader work, restart, and record the exact game build and compatibility-tool selection.</li>
+      <li><strong>Restore the supported control.</strong> Run Valve’s current default once, then apply the <a href="/steam-deck-settings/forza-horizon-5/">Forza Horizon 5 Steam Deck settings baseline</a>. Remove unexplained launch options, manual clocks, and recording from the first pass.</li>
+      <li><strong>Run the built-in benchmark twice.</strong> Treat the first pass as warm-up. Save the second result and note any memory, quality, or controller warning.</li>
+      <li><strong>Drive the same festival segment.</strong> Include crowds, parked cars, structures, sharp camera movement, menus, and a repeatable entry and exit point.</li>
+      <li><strong>Repeat one traffic and weather route.</strong> Use the same road and time or weather when practical. Wet pavement, headlights, and storms can change reflections and effects.</li>
+      <li><strong>Run one off-road event.</strong> Include dust, water, vegetation, deformable terrain, collisions, and several opponents. Record when seasonal conditions differ.</li>
+      <li><strong>Measure a sustained band.</strong> Observe total system draw over at least two complete routes. Do not use a quiet map screen or one brief peak. Enter the low-to-high band in the <a href="/calculators/battery-estimator/">battery estimator</a>.</li>
+    </ol>
+
+    <h2>Compare 30 FPS and 40 FPS fairly</h2>
+    <div class="profile-grid">
+      <section><span>Consistency control</span><h3>30 FPS route</h3><p>Start with the same 800p Low profile, route, brightness, and network state. Confirm the benchmark and real drive remain stable before collecting the draw band.</p></section>
+      <section><span>Responsiveness experiment</span><h3>40 FPS route</h3><p>Change only frame cap and refresh state. Keep 40 only when the weakest festival, weather, traffic, and off-road segments remain acceptable.</p></section>
+    </div>
+    <p>A lower cap can avoid rendering work the display does not need, but this page does not claim a fixed wattage or runtime saving. Use the <a href="/guides/steam-deck-40fps-explained/">Steam Deck 40 FPS guide</a>, then compare sustained whole-system draw across matched routes.</p>
+
+    <h2>Reduce draw without hiding instability</h2>
+    <div class="priority-list">
+      <section><b>1</b><div><h3>Hold one frame target</h3><p>Establish 30 FPS first, then test 40 without changing graphics, brightness, weather, and network state at the same time.</p></div></section>
+      <section><b>2</b><div><h3>Lower scene-heavy options first</h3><p>When the same route misses, reduce shadows, reflections, world cars, environment geometry, particles, or deformable terrain one step.</p></div></section>
+      <section><b>3</b><div><h3>Keep the image readable</h3><p>Use one quality-oriented scaling path. Avoid stacking scaling layers or making road detail and menus too soft to save an unverified amount of power.</p></div></section>
+      <section><b>4</b><div><h3>Apply a power limit last</h3><p>Lower it gradually only after the route and cap are stable. Stop when frame pacing, streaming, audio, controls, or online play deteriorates.</p></div></section>
+    </div>
+
+    <h2>Troubleshoot an inconsistent result</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Controlled next step</th></tr></thead>
+      <tbody>
+        <tr><td>First run draws more</td><td>Updates, shader work, cloud sync and newly loaded assets</td><td>Finish background work, restart, warm the benchmark, and repeat</td></tr>
+        <tr><td>Benchmark and free roam disagree</td><td>Traffic, weather, festival density, online activity and route</td><td>Keep both as separate segments and use a sustained draw band</td></tr>
+        <tr><td>Off-road event is heavier</td><td>Particles, water, deformable terrain, vegetation and opponents</td><td>Reduce those settings one step and rerun the same event</td></tr>
+        <tr><td>40 FPS estimate looks worse</td><td>Whether the route held 40 and refresh changed correctly</td><td>Restore the 30 FPS control and compare only cap and refresh</td></tr>
+        <tr><td>Controller interrupts the route</td><td>Valve’s Playable warning and current layout</td><td>Map only the missing action, save the layout, and restart both tests from the same point</td></tr>
+        <tr><td>Battery estimate misses</td><td>Deck capacity, battery health, sustained draw, route duration and reserve</td><td>Replace a brief reading with multiple complete routes</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, online play, and travel planning</h2>
+    <p>Steam currently lists <strong>110GB of available storage</strong>, broadband internet, full controller support, Steam Cloud, cross-platform multiplayer, and HDR. That storage figure is a requirement floor, not a complete capacity budget. Leave headroom for patches, shader data, temporary update files, saves, captures, and other games with the <a href="/calculators/storage-planner/">storage planner</a>.</p>
+    <p>The public product data requires a Microsoft account and notes online requirements. Complete account sign-in, updates, and a save sync before travel, then test the exact game and user account from a disconnected state using the <a href="/guides/handheld-pc-offline-mode-flight-checklist/">offline-mode checklist</a>. Do not assume Steam Cloud or a successful online launch proves the trip session will start offline.</p>
+
+    <h2>Optional gear after the profile is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact USB-C PD output, watt-hours, cable rating, storage authenticity, seller traceability, warranty, weight, fit, and current airline rules. No price, runtime, or compatibility guarantee is made; an Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+45w+usb+c+pd+power+bank+under+100wh" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="power-banks"><span class="chip">Sponsored search</span><h3>45W-class USB-C PD banks</h3><p class="muted">Verify dedicated-port output and printed watt-hours; do not convert nominal capacity into promised Forza hours.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+a2+u3+microsd+card+512gb" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microsd-cards"><span class="chip">Sponsored search</span><h3>A2 / U3 microSD cards</h3><p class="muted">Compare genuine capacity, seller traceability, warranty, and free room beyond the current 110GB floor.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+travel+case+charger+storage" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="cases"><span class="chip">Sponsored search</span><h3>Steam Deck travel cases</h3><p class="muted">Check LCD/OLED fit, stick pressure, charger separation, ventilation, and packed dimensions.</p></a>
+    </div>
+    <p>Browse the <a href="/gear/power-banks/">power-bank library</a>, <a href="/gear/microsd-cards/">microSD guide</a>, and complete <a href="/gear/">spec-based gear hub</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">{faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}</div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on {checkedAt}. Steam’s public data supplies the current 110GB storage requirement, broadband requirement, full controller support, Steam Cloud, cross-platform multiplayer, Microsoft-account notice, HDR label, and official image. Valve’s live report resolves Forza Horizon 5 as category 2, Playable, with matching glyphs, legible text, and a performant default configuration while flagging incomplete default-controller behavior. Valve supplies the 40Wh LCD and 50Wh OLED capacities. Xbox supplies the first-party game description and developer/publisher context.</p>
+    <p>This is a measurement protocol, not a benchmark. Handheld Settings Lab did not personally test the current game build, SteamOS version, compatibility layer, Deck model, battery health, route, weather, traffic, online state, thermals, total draw, or runtime. No autocomplete phrase is represented as search volume.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Next, open the <a href="/steam-deck-settings/forza-horizon-5/">Forza Horizon 5 Steam Deck settings page</a>, compare titles in the <a href="/guides/steam-deck-battery-life-by-game/">battery-by-game guide</a>, or enter your readings in the <a href="/calculators/battery-estimator/">battery estimator</a>.</p>
+  </article>
+</Base>
+
+<style>
+  .forza-battery-guide { padding-top: 56px; padding-bottom: 72px; }
+  .battery-facts { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 12px; margin: 28px 0; }
+  .battery-facts section { padding: 20px; border: 1px solid rgba(255,184,77,.4); border-top: 4px solid #ffb84d; border-radius: 14px; background: #1a160e; }
+  .battery-facts span { display: block; color: #ffd08a; font-size: .74rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+  .battery-facts strong { display: block; margin: 8px 0 4px; color: #fff; font-size: 1.45rem; }
+  .battery-facts p { margin: 0; color: #d6d0c2; font-size: .86rem; }
+  .estimate-warning { margin: 28px 0; padding: 20px 22px; border: 1px solid rgba(255,184,77,.44); border-left: 5px solid #ffb84d; border-radius: 14px; color: #f2e6d1; background: #1a160e; }
+  .profile-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; margin: 24px 0; }
+  .profile-grid section { padding: 22px; border: 1px solid rgba(255,184,77,.36); border-top: 4px solid #ffb84d; border-radius: 14px; background: #1a160e; }
+  .profile-grid span { color: #ffd08a; font-size: .74rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+  .profile-grid h3 { margin: 8px 0; }
+  .profile-grid p { margin: 0; color: #d6d0c2; }
+  .priority-list { display: grid; gap: 12px; margin: 24px 0; }
+  .priority-list section { display: grid; grid-template-columns: 46px 1fr; gap: 14px; align-items: start; padding: 18px; border: 1px solid rgba(255,255,255,.1); border-radius: 14px; background: #10131b; }
+  .priority-list b { display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid #ffb84d; border-radius: 50%; color: #ffd08a; }
+  .priority-list h3 { margin: 0 0 5px; }
+  .priority-list p { margin: 0; color: #cbd0d8; }
+  @media (max-width: 820px) { .battery-facts { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+  @media (max-width: 620px) { .profile-grid, .battery-facts { grid-template-columns: 1fr; } }
+</style>
