@@ -1,0 +1,191 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/no-mans-sky-steam-deck-battery-life/';
+const title = "No Man's Sky Steam Deck battery life test — Handheld Settings Lab";
+const description = "Measure No Man's Sky battery life on Steam Deck LCD or OLED with a repeatable surface, low-flight, atmosphere, station, and space-combat route.";
+const image = '/assets/games/no-mans-sky-header.jpg';
+const checkedAt = 'September 16, 2026';
+
+const sources = [
+  { label: "Steam: No Man's Sky requirements, features, and official media", url: 'https://store.steampowered.com/app/275850/No_Mans_Sky/' },
+  { label: "Steam app-details API: public product data for app 275850", url: 'https://store.steampowered.com/api/appdetails?appids=275850&cc=us&l=en' },
+  { label: "Valve: live Steam Deck compatibility report for No Man's Sky", url: 'https://store.steampowered.com/saleaction/ajaxgetdeckappcompatibilityreport?nAppID=275850' },
+  { label: "Hello Games: official No Man's Sky release log", url: 'https://www.nomanssky.com/release-log/' },
+  { label: 'Valve: Steam Deck model specifications', url: 'https://www.steamdeck.com/en/' }
+];
+
+const faqs = [
+  {
+    question: "How long does No Man's Sky last on Steam Deck battery?",
+    answer: 'There is no honest universal runtime without the Deck model, battery health, game build, planet, weather, base complexity, multiplayer state, frame cap, brightness, radios, and sustained total system draw. Measure a repeatable planet-to-space route, then use 40Wh for LCD or 50Wh for OLED with your observed draw in the battery estimator.'
+  },
+  {
+    question: "Is No Man's Sky Steam Deck Verified?",
+    answer: 'Yes at this source check. Valve’s live compatibility report resolves app 275850 as category 3, Verified, with functional default controls, matching controller glyphs, legible interface text, and a performant default configuration. The label can change after updates.'
+  },
+  {
+    question: "Should I test No Man's Sky at 30 FPS or 40 FPS for battery life?",
+    answer: 'Use the current Verified default as a control, then establish a repeatable 30 FPS planet-to-space route before testing 40 FPS. Change only the frame target and refresh state. Keep 40 only if the weakest surface, base, atmosphere, and combat segments remain acceptable. This guide claims no fixed power saving.'
+  },
+  {
+    question: "Does No Man's Sky use more battery on some planets?",
+    answer: 'It can present different workloads across terrain, weather, flora, fauna, settlements, bases, ships, effects, and multiplayer activity. This guide does not assign a wattage to any biome. Record the exact location and use a sustained range from several route segments instead of one quiet view.'
+  },
+  {
+    question: "Does Steam Deck OLED last longer than LCD in No Man's Sky?",
+    answer: 'Valve lists 50Wh for Steam Deck OLED and 40Wh for Steam Deck LCD, so OLED starts with more nominal stored energy. That does not establish a fixed game-specific advantage. Match the save, route, settings, brightness, radios, battery condition, and build before comparing.'
+  },
+  {
+    question: "Did Handheld Settings Lab benchmark No Man's Sky battery life?",
+    answer: 'No measured runtime is claimed. This is a source-informed measurement protocol based on current Valve, Steam, and Hello Games information. Replace every planning input with observations from your own Deck, save, world, game build, and settings.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: "No Man's Sky Steam Deck battery life: a repeatable planet-to-space test",
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-09-16',
+    dateModified: '2026-09-16',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ["No Man's Sky", 'Steam Deck battery life', 'Steam Deck OLED', 'Steam Deck LCD', 'battery test method']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: "No Man's Sky Steam Deck battery life", item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article nms-battery-guide">
+    <span class="eyebrow">Steam Deck battery guide · Sources checked {checkedAt}</span>
+    <h1>No Man's Sky Steam Deck battery life: test from planet to space</h1>
+    <p class="lede muted">A quiet shelter, a stormy world, a complex base, low-altitude flight, an atmosphere transition, and space combat do not create the same load. This protocol combines them into a repeatable Steam Deck LCD or OLED test without publishing a made-up number of hours.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official No Man's Sky Steam header artwork showing a traveler overlooking an alien landscape" width="460" height="215" loading="eager" fetchpriority="high" decoding="async" />
+      <figcaption class="media-credit">Official Steam store header image saved locally from <a href="https://store.steampowered.com/app/275850/No_Mans_Sky/" target="_blank" rel="nofollow noopener">Hello Games’ Steam page</a>. Artwork and trademarks belong to their owners; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="battery-facts">
+      <section><span>Steam Deck LCD</span><strong>40Wh</strong><p>Valve-listed battery capacity</p></section>
+      <section><span>Steam Deck OLED</span><strong>50Wh</strong><p>Valve-listed battery capacity</p></section>
+      <section><span>Deck status</span><strong>Verified</strong><p>Valve category 3 at source check</p></section>
+      <section><span>Storage floor</span><strong>15GB</strong><p>Current Steam listing</p></section>
+    </div>
+
+    <div class="estimate-warning"><strong>No fake runtime:</strong> Valve’s broad device-level battery ranges are not No Man's Sky results. Procedural terrain, weather, base complexity, multiplayer, frame cap, brightness, radios, updates, battery health, and background work can change total draw. Measure the whole device and keep a reserve.</div>
+
+    <h2>Record the Deck, save, world, and test conditions</h2>
+    <p>Valve lists a <strong>40Wh battery for Steam Deck LCD</strong> and <strong>50Wh for Steam Deck OLED</strong>. Those nominal capacities are calculator inputs, not proof that an older battery still provides its original usable energy. Valve’s live report currently marks No Man's Sky Verified and says its default configuration is performant. Use that default as a control state rather than treating the badge as a battery benchmark.</p>
+    <table>
+      <thead><tr><th>Input</th><th>Record this</th><th>Why it matters</th></tr></thead>
+      <tbody>
+        <tr><td>Deck</td><td>LCD 40Wh or OLED 50Wh; battery health</td><td>The wrong model or nominal capacity invalidates the estimate.</td></tr>
+        <tr><td>Game state</td><td>Build, save, galaxy, planet, coordinates, weather, base and multiplayer state</td><td>Procedural locations and player-built spaces can present different workloads.</td></tr>
+        <tr><td>Display</td><td>Resolution, refresh rate, frame cap, brightness and scaling mode</td><td>A frame-target comparison needs one controlled visual state.</td></tr>
+        <tr><td>Device state</td><td>Wi-Fi, Bluetooth, volume, downloads, recording, mods and accessories</td><td>These consume energy or change behavior outside the renderer.</td></tr>
+        <tr><td>Power reading</td><td>Sustained total system draw over the complete route</td><td>APU TDP omits the display, memory, storage, radios, fan, and other loads.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>A repeatable No Man's Sky battery route</h2>
+    <ol>
+      <li><strong>Finish updates first.</strong> Complete SteamOS, game, and shader work, restart, and record the exact game build and compatibility-tool selection.</li>
+      <li><strong>Restore the supported baseline.</strong> Use the current Valve default and the <a href="/steam-deck-settings/no-mans-sky/">No Man's Sky Steam Deck settings guide</a>. Remove unexplained launch options, manual GPU clocks, mods, and recording from the first pass.</li>
+      <li><strong>Fix one save and route.</strong> Note the planet, coordinates, weather, base, ship, multiplayer state, and starting inventory so later runs are meaningfully comparable.</li>
+      <li><strong>Walk a dense surface segment.</strong> Include terrain generation, flora, fauna, structures, mining effects, inventory use, and weather when practical.</li>
+      <li><strong>Fly low and leave the atmosphere.</strong> Follow the same surface line, transition to space, pulse toward a station or freighter, and enter the same interior.</li>
+      <li><strong>Add one repeatable combat segment.</strong> Use a comparable space encounter when available; record if enemy count or effects differ materially.</li>
+      <li><strong>Warm, measure, and repeat.</strong> Complete one unrecorded pass, then observe sustained total system draw across at least two full routes. Enter the low-to-high band in the <a href="/calculators/battery-estimator/">battery estimator</a>.</li>
+    </ol>
+
+    <h2>Compare 30 FPS and 40 FPS fairly</h2>
+    <div class="profile-grid">
+      <section><span>Consistency control</span><h3>30 FPS route</h3><p>Start from the current supported configuration and the site's cautious 800p/Standard baseline. Fix brightness, network state, save, and route before collecting the draw band.</p></section>
+      <section><span>Responsiveness experiment</span><h3>40 FPS route</h3><p>Change only frame cap and refresh state. Keep 40 only when the weakest dense-surface, base, atmosphere, and combat segments remain acceptable.</p></section>
+    </div>
+    <p>A lower cap can avoid rendering work the display does not need, but this page does not claim a fixed wattage or runtime saving. Use the <a href="/guides/steam-deck-40fps-explained/">Steam Deck 40 FPS guide</a>, then compare sustained whole-system draw across matched routes.</p>
+
+    <h2>Reduce draw without losing the test</h2>
+    <div class="priority-list">
+      <section><b>1</b><div><h3>Choose one stable cap</h3><p>Establish the 30 FPS control, then test 40 without changing graphics, brightness, multiplayer, and power at the same time.</p></div></section>
+      <section><b>2</b><div><h3>Hold brightness and radios steady</h3><p>Use the display and connection state needed for the real session, then keep them fixed between comparisons.</p></div></section>
+      <section><b>3</b><div><h3>Lower scene-expensive settings first</h3><p>When the same segment misses its target, reduce shadows, reflections, volumetrics, planet quality, or base complexity one step and rerun it.</p></div></section>
+      <section><b>4</b><div><h3>Apply a power limit last</h3><p>Lower the limit gradually only after the route and cap are stable. Stop when traversal, atmosphere transitions, combat, audio, or input response deteriorate.</p></div></section>
+    </div>
+
+    <h2>Troubleshoot an inconsistent result</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Controlled next step</th></tr></thead>
+      <tbody>
+        <tr><td>First route draws more</td><td>Updates, shader work, cloud sync, newly loaded terrain and assets</td><td>Finish background work, restart, warm the route, and repeat</td></tr>
+        <tr><td>Surface routes disagree</td><td>Weather, fauna, settlements, multiplayer, terrain and visibility</td><td>Record the mismatch and use a broader sustained draw band</td></tr>
+        <tr><td>Large base is much heavier</td><td>Base complexity, animation quality, nearby players and objects</td><td>Keep that base as a separate high-load segment rather than averaging it away</td></tr>
+        <tr><td>40 FPS estimate looks worse</td><td>Whether the route actually held 40 and whether refresh changed correctly</td><td>Restore the 30 FPS control and compare only cap and refresh</td></tr>
+        <tr><td>Battery estimate misses</td><td>Deck capacity, battery health, route duration, sustained draw and reserve</td><td>Replace a brief reading with multiple complete routes</td></tr>
+        <tr><td>Power bank shows slow charging</td><td>Dedicated USB-C PD output, cable, shared ports and dock</td><td>Test Valve’s charger directly, then use the <a href="/guides/steam-deck-power-bank-slow-charger-troubleshooting/">slow-charger checklist</a></td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, cross-save, and travel planning</h2>
+    <p>Steam currently lists <strong>15GB of available storage</strong>, multiplayer, online co-op, cross-platform multiplayer, Steam Cloud, and full controller support. Fifteen gigabytes is a requirement floor, not a guaranteed post-update footprint. Leave headroom for patches, shader data, compatibility files, saves, screenshots, and clips with the <a href="/calculators/storage-planner/">storage planner</a>.</p>
+    <p>Steam’s current product data says No Man's Sky supports cross-play and cross-save across many platforms, including Steam Deck. That does not prove a pending cloud sync completed or that every current game function works without a network. Sync before travel, confirm the intended save locally, and complete a real disconnected launch using the <a href="/guides/handheld-pc-offline-mode-flight-checklist/">offline-mode checklist</a>.</p>
+
+    <h2>Optional gear after the profile is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact USB-C PD output, watt-hours, cable rating, storage authenticity, seller traceability, warranty, weight, fit, and current airline rules. No price, runtime, or compatibility guarantee is made; an Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+45w+usb+c+pd+power+bank+under+100wh" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="power-banks"><span class="chip">Sponsored search</span><h3>45W-class USB-C PD banks</h3><p class="muted">Verify dedicated-port output and printed watt-hours; do not convert a capacity label into promised No Man's Sky hours.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+a2+u3+microsd+card+512gb" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microsd-cards"><span class="chip">Sponsored search</span><h3>A2 / U3 microSD cards</h3><p class="muted">Compare genuine capacity, seller traceability, warranty, and update headroom beyond the current 15GB floor.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+travel+case+charger+storage" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="cases"><span class="chip">Sponsored search</span><h3>Steam Deck travel cases</h3><p class="muted">Check LCD/OLED fit, stick pressure, charger separation, ventilation, and packed dimensions.</p></a>
+    </div>
+    <p>Browse the <a href="/gear/power-banks/">power-bank library</a>, <a href="/gear/microsd-cards/">microSD guide</a>, and complete <a href="/gear/">spec-based gear hub</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">{faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}</div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on {checkedAt}. Steam’s public data supplies the current 15GB storage requirement, multiplayer, online co-op, cross-platform multiplayer, Steam Cloud, full controller support, cross-play/cross-save description, and official image. Valve’s live report resolves No Man's Sky as category 3, Verified, with passing controller, glyph, legibility, and default-performance checks. Valve supplies the 40Wh LCD and 50Wh OLED capacities. Hello Games supplies the official release log.</p>
+    <p>This is a measurement protocol, not a benchmark. Handheld Settings Lab did not personally test the current game build, SteamOS version, compatibility layer, Deck model, battery health, world, weather, base, multiplayer state, route, thermals, total draw, or runtime. No autocomplete phrase is represented as search volume.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Next, open the <a href="/steam-deck-settings/no-mans-sky/">No Man's Sky Steam Deck settings page</a>, compare titles in the <a href="/guides/steam-deck-battery-life-by-game/">battery-by-game guide</a>, or enter your readings in the <a href="/calculators/battery-estimator/">battery estimator</a>.</p>
+  </article>
+</Base>
+
+<style>
+  .nms-battery-guide { padding-top: 56px; padding-bottom: 72px; }
+  .battery-facts { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 12px; margin: 28px 0; }
+  .battery-facts section { padding: 20px; border: 1px solid rgba(67,194,181,.4); border-top: 4px solid #43c2b5; border-radius: 14px; background: #0e191a; }
+  .battery-facts span { display: block; color: #8ce1d8; font-size: .74rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+  .battery-facts strong { display: block; margin: 8px 0 4px; color: #fff; font-size: 1.45rem; }
+  .battery-facts p { margin: 0; color: #cbd0d8; font-size: .86rem; }
+  .estimate-warning { margin: 28px 0; padding: 20px 22px; border: 1px solid rgba(67,194,181,.44); border-left: 5px solid #43c2b5; border-radius: 14px; color: #d9efed; background: #0e191a; }
+  .profile-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; margin: 24px 0; }
+  .profile-grid section { padding: 22px; border: 1px solid rgba(67,194,181,.36); border-top: 4px solid #43c2b5; border-radius: 14px; background: #0e191a; }
+  .profile-grid span { color: #8ce1d8; font-size: .74rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+  .profile-grid h3 { margin: 8px 0; }
+  .profile-grid p { margin: 0; color: #cbd0d8; }
+  .priority-list { display: grid; gap: 12px; margin: 24px 0; }
+  .priority-list section { display: grid; grid-template-columns: 46px 1fr; gap: 14px; align-items: start; padding: 18px; border: 1px solid rgba(255,255,255,.1); border-radius: 14px; background: #10131b; }
+  .priority-list b { display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid #43c2b5; border-radius: 50%; color: #8ce1d8; }
+  .priority-list h3 { margin: 0 0 5px; }
+  .priority-list p { margin: 0; color: #cbd0d8; }
+  @media (max-width: 820px) { .battery-facts { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+  @media (max-width: 620px) { .profile-grid, .battery-facts { grid-template-columns: 1fr; } }
+</style>
