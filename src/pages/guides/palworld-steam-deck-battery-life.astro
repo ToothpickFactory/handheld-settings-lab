@@ -1,0 +1,194 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/palworld-steam-deck-battery-life/';
+const title = 'Palworld Steam Deck battery life test guide — Handheld Settings Lab';
+const description = 'Measure Palworld battery life on Steam Deck LCD or OLED with a repeatable populated-base, traversal, combat, dungeon, and multiplayer test route.';
+const image = '/assets/games/palworld-header.jpg';
+const checkedAt = 'September 17, 2026';
+
+const sources = [
+  { label: 'Steam: Palworld requirements, features, and official media', url: 'https://store.steampowered.com/app/1623730/Palworld/' },
+  { label: 'Steam app-details API: public product data for app 1623730', url: 'https://store.steampowered.com/api/appdetails?appids=1623730&cc=us&l=en' },
+  { label: 'Valve: live Steam Deck compatibility report for Palworld', url: 'https://store.steampowered.com/saleaction/ajaxgetdeckappcompatibilityreport?nAppID=1623730' },
+  { label: 'Pocketpair: official Palworld site', url: 'https://www.pocketpair.jp/palworld/' },
+  { label: 'Valve: Steam Deck OLED technical specifications', url: 'https://www.steamdeck.com/en/tech' },
+  { label: 'Valve: Steam Deck LCD technical specifications', url: 'https://www.steamdeck.com/en/tech/deck' }
+];
+
+const faqs = [
+  {
+    question: 'How long does Palworld last on Steam Deck battery?',
+    answer: 'There is no honest universal runtime without the Deck model, battery health, game build, world, active-Pal count, server state, frame cap, brightness, radios, and sustained whole-system draw. Measure the route on this page, then enter 40Wh for LCD or 50Wh for OLED and your observed draw in the battery estimator.'
+  },
+  {
+    question: 'Is Palworld Steam Deck Verified?',
+    answer: 'Yes at this source check. Valve’s live compatibility report resolves Palworld as category 3, Verified. It reports functional default controls, matching controller glyphs, legible text, and a performant default configuration, while flagging external controllers as unsupported for the primary player.'
+  },
+  {
+    question: 'What Palworld area should I use for a battery test?',
+    answer: 'Use a repeatable route that includes a populated working base, open-world traversal, a multi-Pal fight, and either a dungeon or another effects-heavy area. If you normally play multiplayer, add a separate matched server segment. A menu or empty starter area is not representative.'
+  },
+  {
+    question: 'Should I test Palworld at 30 FPS or 40 FPS?',
+    answer: 'Establish a repeatable 30 FPS control first. Test 40 FPS by changing only the frame cap and refresh state, then repeat the same base population, route, fight, weather, and network state. Keep it only if the weakest segment remains acceptable; this guide claims no fixed power saving.'
+  },
+  {
+    question: 'Does Steam Deck OLED last longer than LCD in Palworld?',
+    answer: 'Valve lists 50Wh for Steam Deck OLED and 40Wh for Steam Deck LCD, so OLED begins with more nominal stored energy. That does not establish a fixed Palworld runtime advantage. Match the world, route, settings, brightness, network state, battery condition, and game build before comparing.'
+  },
+  {
+    question: 'Did Handheld Settings Lab benchmark Palworld battery life?',
+    answer: 'No measured runtime is claimed. This is a source-informed measurement protocol based on current Valve, Steam, and Pocketpair information. Replace every planning input with observations from your own Deck, world, game build, route, settings, and battery.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Palworld Steam Deck battery life: a repeatable world test',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-09-17',
+    dateModified: '2026-09-17',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Palworld', 'Steam Deck battery life', 'Steam Deck OLED', 'Steam Deck LCD', 'battery test method']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'Palworld Steam Deck battery life', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article palworld-battery-guide">
+    <span class="eyebrow">Steam Deck battery guide · Sources checked {checkedAt}</span>
+    <h1>Palworld Steam Deck battery life: test the world, base, and battles</h1>
+    <p class="lede muted">Palworld’s load changes with world streaming, structures, working Pals, combat effects, dungeons, and multiplayer. This protocol combines those states into a repeatable LCD or OLED test without publishing made-up battery hours.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Palworld artwork showing Pals in an open landscape" width="460" height="215" loading="eager" fetchpriority="high" decoding="async" />
+      <figcaption class="media-credit">Official Steam store header image saved locally from <a href="https://store.steampowered.com/app/1623730/Palworld/" target="_blank" rel="nofollow noopener">Pocketpair’s Steam page</a>. Artwork and trademarks belong to their owners; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="battery-facts">
+      <section><span>Steam Deck LCD</span><strong>40Wh</strong><p>Valve-listed battery capacity</p></section>
+      <section><span>Steam Deck OLED</span><strong>50Wh</strong><p>Valve-listed battery capacity</p></section>
+      <section><span>Deck status</span><strong>Verified</strong><p>Valve category 3 at source check</p></section>
+      <section><span>Storage floor</span><strong>40GB</strong><p>Current Steam listing; SSD required</p></section>
+    </div>
+
+    <div class="estimate-warning"><strong>No fake runtime:</strong> Valve’s broad device-level battery ranges are not Palworld results. World size, active Pals, structures, raids, server conditions, frame cap, brightness, updates, battery health, and background work can change total draw. Measure the whole device and keep a reserve.</div>
+
+    <h2>Record the world and device state first</h2>
+    <p>Valve lists a <strong>40Wh battery for Steam Deck LCD</strong> and <strong>50Wh for Steam Deck OLED</strong>. Those nominal capacities are calculator inputs, not proof that an older battery still holds its original usable energy. Valve’s live compatibility report currently marks Palworld Verified, while Steam’s system requirements explicitly say performance may vary with the number of active Pals. Record that simulation state instead of treating every save as equivalent.</p>
+    <table>
+      <thead><tr><th>Input</th><th>Record this</th><th>Why it matters</th></tr></thead>
+      <tbody>
+        <tr><td>Deck</td><td>LCD 40Wh or OLED 50Wh; battery health</td><td>The wrong model or nominal capacity invalidates the estimate.</td></tr>
+        <tr><td>Software</td><td>Game build, SteamOS, compatibility tool, mods and driver state</td><td>An update or mod can alter world simulation, rendering, or compatibility.</td></tr>
+        <tr><td>World</td><td>Save, base, structures, active Pals, server and player count</td><td>Steam specifically warns that active-Pal count can affect performance.</td></tr>
+        <tr><td>Visual profile</td><td>Resolution, preset, scaling, refresh, frame cap and brightness</td><td>A battery comparison needs one controlled rendering state.</td></tr>
+        <tr><td>Device state</td><td>Wi-Fi, Bluetooth, volume, downloads, recording and accessories</td><td>These consume energy outside the game renderer.</td></tr>
+        <tr><td>Power reading</td><td>Sustained whole-system draw over the complete route</td><td>APU TDP omits the display, memory, storage, radios, fan, and other loads.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>A repeatable Palworld battery route</h2>
+    <ol>
+      <li><strong>Finish updates first.</strong> Complete SteamOS, game, and shader downloads, restart, and record the exact game build and compatibility-tool selection.</li>
+      <li><strong>Restore the supported control.</strong> Start with Valve’s default and the <a href="/steam-deck-settings/palworld/">Palworld Steam Deck settings baseline</a>. Remove unexplained launch options, manual clocks, and recording from the first pass.</li>
+      <li><strong>Warm the same save.</strong> Load the chosen world, wait for visible background activity to settle, and discard the first pass if shader work or downloads are still active.</li>
+      <li><strong>Walk a populated base.</strong> Use the same route through crafting stations, storage, structures, and the same approximate number of working Pals.</li>
+      <li><strong>Repeat one traversal segment.</strong> Follow the same ground or flying-mount path with matching weather and time of day when practical.</li>
+      <li><strong>Fight and enter a heavy area.</strong> Repeat one multi-Pal encounter, raid, boss, or dungeon segment with similar abilities and effects.</li>
+      <li><strong>Separate multiplayer.</strong> If it is normal play, measure a second segment on the same server and similar player count. Do not mix server delay into the solo graphics conclusion.</li>
+      <li><strong>Measure a sustained band.</strong> Observe whole-system draw over at least two complete routes. Enter the low-to-high band in the <a href="/calculators/battery-estimator/">battery estimator</a>.</li>
+    </ol>
+
+    <h2>Compare 30 FPS and 40 FPS fairly</h2>
+    <div class="profile-grid">
+      <section><span>Consistency control</span><h3>30 FPS route</h3><p>Start with the Verified default and no manual power limit. Confirm the populated base, traversal, battle, and dungeon segments before collecting the draw band.</p></section>
+      <section><span>Responsiveness experiment</span><h3>40 FPS route</h3><p>Change only frame cap and refresh state. Keep 40 only when the same active-Pal count and weakest combat or base segment remain acceptable.</p></section>
+    </div>
+    <p>A lower cap can avoid rendering work the display does not need, but this page does not claim a fixed wattage or runtime saving. Use the <a href="/guides/steam-deck-40fps-explained/">Steam Deck 40 FPS guide</a>, then compare sustained whole-system draw across matched routes.</p>
+
+    <h2>Reduce draw without disguising a world bottleneck</h2>
+    <div class="priority-list">
+      <section><b>1</b><div><h3>Hold one frame target</h3><p>Establish 30 FPS first, then test 40 without also changing graphics, brightness, base population, and network state.</p></div></section>
+      <section><b>2</b><div><h3>Lower world-heavy options first</h3><p>When traversal or a populated base misses, reduce view distance, shadows, effects, and grass one step at a time.</p></div></section>
+      <section><b>3</b><div><h3>Keep the image readable</h3><p>Use one quality-oriented scaling path. Avoid stacking scaling layers or making UI and distant Pals unreadably soft for an unverified power saving.</p></div></section>
+      <section><b>4</b><div><h3>Apply a power limit last</h3><p>Lower it gradually only after the complete route is stable. Stop when pacing, streaming, audio, controls, or simulation behavior deteriorates.</p></div></section>
+    </div>
+
+    <h2>Troubleshoot an inconsistent result</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Controlled next step</th></tr></thead>
+      <tbody>
+        <tr><td>First route draws more</td><td>Updates, shader work, cloud sync and newly streamed assets</td><td>Finish background work, restart, warm the save, and repeat</td></tr>
+        <tr><td>Base is heavier than traversal</td><td>Active-Pal count, structures, crafting, effects and world activity</td><td>Preserve it as a separate segment; lower world settings one at a time</td></tr>
+        <tr><td>Multiplayer result changes</td><td>Server, player count, network state and voice chat</td><td>Compare matched server sessions separately from solo play</td></tr>
+        <tr><td>40 FPS estimate looks worse</td><td>Whether the weakest scene held 40 and refresh changed correctly</td><td>Restore the 30 FPS control and compare only cap and refresh</td></tr>
+        <tr><td>Docked controller interrupts testing</td><td>Valve’s current primary-player external-controller warning</td><td>Use built-in controls for the measurement before replacing dock hardware</td></tr>
+        <tr><td>Battery estimate misses</td><td>Deck capacity, battery health, sustained draw, route duration and reserve</td><td>Replace a brief reading with multiple complete routes</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, saves, and travel planning</h2>
+    <p>Steam currently lists <strong>40GB of available storage</strong>, requires an SSD, and labels broadband internet, Steam Cloud, Workshop, multiplayer, online co-op, and cross-platform multiplayer. The 40GB figure is a requirement floor, not a complete capacity budget. Leave headroom for updates, shader data, world saves, Workshop content, captures, and other games with the <a href="/calculators/storage-planner/">storage planner</a>.</p>
+    <p>Before travel, complete account sign-in, updates, and a save sync, then test the exact save and user account from a disconnected state using the <a href="/guides/handheld-pc-offline-mode-flight-checklist/">offline-mode checklist</a>. Do not assume Steam Cloud or one successful online launch proves a multiplayer-dependent session will work offline.</p>
+
+    <h2>Optional gear after the profile is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact USB-C PD output, watt-hours, cable rating, storage authenticity, seller traceability, warranty, weight, fit, and current airline rules. No price, runtime, or compatibility guarantee is made; an Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+45w+usb+c+pd+power+bank+under+100wh" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="power-banks"><span class="chip">Sponsored search</span><h3>45W-class USB-C PD banks</h3><p class="muted">Verify dedicated-port output and printed watt-hours; do not turn nominal capacity into promised Palworld hours.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+a2+u3+microsd+card+512gb" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microsd-cards"><span class="chip">Sponsored search</span><h3>A2 / U3 microSD cards</h3><p class="muted">Compare genuine capacity, seller traceability, warranty, and room beyond the current 40GB floor.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+travel+case+charger+storage" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="cases"><span class="chip">Sponsored search</span><h3>Steam Deck travel cases</h3><p class="muted">Check LCD/OLED fit, stick pressure, charger separation, ventilation, and packed dimensions.</p></a>
+    </div>
+    <p>Browse the <a href="/gear/power-banks/">power-bank library</a>, <a href="/gear/microsd-cards/">microSD guide</a>, and complete <a href="/gear/">spec-based gear hub</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">{faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}</div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on {checkedAt}. Steam’s public data supplies the current July 9, 2026 release date, 40GB storage and SSD requirements, active-Pal performance note, broadband requirement, multiplayer and Workshop features, full controller support, Steam Cloud, and official image. Valve’s live report resolves Palworld as category 3, Verified, with functional default controls, matching glyphs, legible text, and a performant default configuration while flagging primary-player external-controller support. Valve supplies the 40Wh LCD and 50Wh OLED capacities. Pocketpair supplies the official game site.</p>
+    <p>This is a measurement protocol, not a benchmark. Handheld Settings Lab did not personally test the current game build, SteamOS version, compatibility layer, Deck model, battery health, world, active-Pal count, server, route, thermals, whole-system draw, or runtime. No autocomplete phrase is represented as search volume.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Next, open the <a href="/steam-deck-settings/palworld/">Palworld Steam Deck settings page</a>, compare titles in the <a href="/guides/steam-deck-battery-life-by-game/">battery-by-game guide</a>, or enter your readings in the <a href="/calculators/battery-estimator/">battery estimator</a>.</p>
+  </article>
+</Base>
+
+<style>
+  .palworld-battery-guide { padding-top: 56px; padding-bottom: 72px; }
+  .battery-facts { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 12px; margin: 28px 0; }
+  .battery-facts section { padding: 20px; border: 1px solid rgba(184,255,77,.36); border-top: 4px solid #b8ff4d; border-radius: 14px; background: #11170d; }
+  .battery-facts span { display: block; color: #d4ff94; font-size: .74rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+  .battery-facts strong { display: block; margin: 8px 0 4px; color: #fff; font-size: 1.45rem; }
+  .battery-facts p { margin: 0; color: #d3dac9; font-size: .86rem; }
+  .estimate-warning { margin: 28px 0; padding: 20px 22px; border: 1px solid rgba(184,255,77,.4); border-left: 5px solid #b8ff4d; border-radius: 14px; color: #edf6de; background: #11170d; }
+  .profile-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; margin: 24px 0; }
+  .profile-grid section { padding: 22px; border: 1px solid rgba(184,255,77,.3); border-top: 4px solid #b8ff4d; border-radius: 14px; background: #11170d; }
+  .profile-grid span { color: #d4ff94; font-size: .74rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+  .profile-grid h3 { margin: 8px 0; }
+  .profile-grid p { margin: 0; color: #d3dac9; }
+  .priority-list { display: grid; gap: 12px; margin: 24px 0; }
+  .priority-list section { display: grid; grid-template-columns: 46px 1fr; gap: 14px; align-items: start; padding: 18px; border: 1px solid rgba(255,255,255,.1); border-radius: 14px; background: #10131b; }
+  .priority-list b { display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid #b8ff4d; border-radius: 50%; color: #d4ff94; }
+  .priority-list h3 { margin: 0 0 5px; }
+  .priority-list p { margin: 0; color: #cbd0d8; }
+  @media (max-width: 820px) { .battery-facts { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+  @media (max-width: 620px) { .profile-grid, .battery-facts { grid-template-columns: 1fr; } }
+</style>
