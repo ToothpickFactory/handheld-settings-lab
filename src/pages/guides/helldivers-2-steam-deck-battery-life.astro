@@ -1,0 +1,194 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const canonicalUrl = 'https://handheldsettings.com/guides/helldivers-2-steam-deck-battery-life/';
+const title = 'Helldivers 2 Steam Deck battery life test guide — Handheld Settings Lab';
+const description = 'Measure Helldivers 2 battery life on Steam Deck LCD or OLED with a repeatable ship, deployment, combat, objective, and extraction test route.';
+const image = '/assets/games/helldivers-2-header.jpg';
+const checkedAt = 'September 17, 2026';
+
+const sources = [
+  { label: 'Steam: Helldivers 2 requirements, features, and official media', url: 'https://store.steampowered.com/app/553850/HELLDIVERS_2/' },
+  { label: 'Steam app-details API: public product data for app 553850', url: 'https://store.steampowered.com/api/appdetails?appids=553850&cc=us&l=en' },
+  { label: 'Valve: live Steam Deck compatibility report for Helldivers 2', url: 'https://store.steampowered.com/saleaction/ajaxgetdeckappcompatibilityreport?nAppID=553850' },
+  { label: 'PlayStation: official Helldivers 2 page', url: 'https://www.playstation.com/en-us/games/helldivers-2/' },
+  { label: 'Valve: Steam Deck OLED technical specifications', url: 'https://www.steamdeck.com/en/tech' },
+  { label: 'Valve: Steam Deck LCD technical specifications', url: 'https://www.steamdeck.com/en/tech/deck' }
+];
+
+const faqs = [
+  {
+    question: 'How long does Helldivers 2 last on Steam Deck battery?',
+    answer: 'There is no honest universal runtime without the Deck model, battery health, game build, mission, biome, difficulty, squad and enemy density, network state, frame cap, brightness, radios, and sustained whole-system draw. Measure a complete representative mission, then enter 40Wh for LCD or 50Wh for OLED and your observed draw in the battery estimator.'
+  },
+  {
+    question: 'Is Helldivers 2 Steam Deck Verified?',
+    answer: 'No at this source check. Valve’s live compatibility report resolves Helldivers 2 as category 2, Playable. It reports functional default controls, matching controller glyphs, and a performant default configuration, but flags some interface text as not legible and says SteamOS startup may require manual interaction.'
+  },
+  {
+    question: 'What should a Helldivers 2 battery test include?',
+    answer: 'Include ship and loadout time, deployment, traversal, a normal objective, at least one enemy reinforcement or effects-heavy fight, stratagem use, and extraction. Match faction, biome, difficulty, squad size, weather, mission type, and network setup as closely as practical between runs.'
+  },
+  {
+    question: 'Should I test Helldivers 2 at 30 FPS or 40 FPS?',
+    answer: 'Establish a repeatable 30 FPS control first. Test 40 FPS only by changing the cap and refresh state, then repeat the same mission class and comparable heavy encounters. Keep it only if the weakest combat and extraction segments remain acceptable. This guide claims no fixed power saving or locked frame rate.'
+  },
+  {
+    question: 'Does Steam Deck OLED last longer than LCD in Helldivers 2?',
+    answer: 'Valve lists 50Wh for Steam Deck OLED and 40Wh for Steam Deck LCD, so OLED starts with more nominal stored energy. That does not prove a fixed Helldivers 2 runtime advantage. Match the mission, settings, brightness, network state, battery condition, game build, and sustained whole-system draw before comparing.'
+  },
+  {
+    question: 'Did Handheld Settings Lab benchmark Helldivers 2 battery life?',
+    answer: 'No measured runtime is claimed. This is a source-informed measurement protocol based on current Valve, Steam, and PlayStation information. Replace every planning input with observations from your own Deck, game build, mission, squad, settings, network, and battery.'
+  }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: 'Helldivers 2 Steam Deck battery life: a repeatable mission test',
+    description,
+    image: `https://handheldsettings.com${image}`,
+    url: canonicalUrl,
+    datePublished: '2026-09-17',
+    dateModified: '2026-09-17',
+    author: { '@type': 'Organization', name: 'Handheld Settings Lab' },
+    publisher: { '@type': 'Organization', name: 'Handheld Settings Lab', url: 'https://handheldsettings.com/' },
+    about: ['Helldivers 2', 'Steam Deck battery life', 'Steam Deck OLED', 'Steam Deck LCD', 'battery test method']
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handheldsettings.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://handheldsettings.com/guides/' },
+      { '@type': 'ListItem', position: 3, name: 'Helldivers 2 Steam Deck battery life', item: canonicalUrl }
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } }))
+  }
+];
+---
+<Base title={title} description={description} image={image} jsonLd={jsonLd}>
+  <article class="wrap article helldivers-battery-guide">
+    <span class="eyebrow">Steam Deck battery guide · Sources checked {checkedAt}</span>
+    <h1>Helldivers 2 Steam Deck battery life: test a complete mission</h1>
+    <p class="lede muted">A quiet Super Destroyer, a light patrol, an enemy reinforcement, overlapping stratagems, and extraction do not create the same load. This protocol combines those states into a repeatable LCD or OLED test without publishing invented battery hours.</p>
+
+    <figure class="game-hero">
+      <img src={image} alt="Official Helldivers 2 artwork showing a Helldiver facing an active battlefield" width="460" height="215" loading="eager" fetchpriority="high" decoding="async" />
+      <figcaption class="media-credit">Official Steam store header image saved locally from <a href="https://store.steampowered.com/app/553850/HELLDIVERS_2/" target="_blank" rel="nofollow noopener">Arrowhead and PlayStation’s Steam page</a>. Artwork and trademarks belong to their owners; editorial use does not imply endorsement.</figcaption>
+    </figure>
+
+    <div class="battery-facts">
+      <section><span>Steam Deck LCD</span><strong>40Wh</strong><p>Valve-listed battery capacity</p></section>
+      <section><span>Steam Deck OLED</span><strong>50Wh</strong><p>Valve-listed battery capacity</p></section>
+      <section><span>Deck status</span><strong>Playable</strong><p>Valve category 2 at source check</p></section>
+      <section><span>Connection</span><strong>Online</strong><p>Required by the official listing</p></section>
+    </div>
+
+    <div class="estimate-warning"><strong>No fake runtime:</strong> Valve’s broad device-level battery ranges are not Helldivers 2 results. Mission type, faction, enemy density, biome, weather, squad, network quality, stratagem effects, frame cap, brightness, updates, battery health, and background work can change total draw. Measure the whole device and keep a reserve.</div>
+
+    <h2>Record the mission and device state first</h2>
+    <p>Valve lists a <strong>40Wh battery for Steam Deck LCD</strong> and <strong>50Wh for Steam Deck OLED</strong>. Those nominal capacities are calculator inputs, not proof that an older battery still holds its original usable energy. Valve currently marks Helldivers 2 Playable and reports a performant default configuration, but the official sources also establish that it is an online co-op game. Network and squad state belong in the test record.</p>
+    <table>
+      <thead><tr><th>Input</th><th>Record this</th><th>Why it matters</th></tr></thead>
+      <tbody>
+        <tr><td>Deck</td><td>LCD 40Wh or OLED 50Wh; battery health</td><td>The wrong model or nominal capacity invalidates the estimate.</td></tr>
+        <tr><td>Software</td><td>Game build, SteamOS, compatibility tool and driver state</td><td>An update can alter startup, shader work, rendering, or compatibility.</td></tr>
+        <tr><td>Mission</td><td>Faction, biome, weather, type, difficulty and objective</td><td>Enemy behavior, visibility, effects, terrain, and density vary.</td></tr>
+        <tr><td>Squad and network</td><td>Player count, host state, voice chat and connection type</td><td>Online and co-op state are part of the normal workload.</td></tr>
+        <tr><td>Visual profile</td><td>Resolution, preset, scaling, refresh, frame cap and brightness</td><td>A battery comparison needs one controlled rendering state.</td></tr>
+        <tr><td>Power reading</td><td>Sustained whole-system draw over the complete mission route</td><td>APU TDP omits display, memory, storage, radios, fan, and other loads.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>A repeatable Helldivers 2 battery route</h2>
+    <ol>
+      <li><strong>Finish updates first.</strong> Complete SteamOS, game, and shader work, restart, and record the exact game build and compatibility-tool selection.</li>
+      <li><strong>Restore a supported control.</strong> Start with Valve’s current default and the <a href="/steam-deck-settings/helldivers-2/">Helldivers 2 Steam Deck settings baseline</a>. Remove unexplained launch options, manual clocks, and recording from the first pass.</li>
+      <li><strong>Match the ship segment.</strong> Begin at the same point, select the same loadout, spend a similar amount of time in menus, and verify interface legibility before deployment.</li>
+      <li><strong>Match mission conditions.</strong> Choose the same faction, biome, mission type, difficulty, and squad size where practical. Record unavoidable weather or campaign changes rather than hiding them.</li>
+      <li><strong>Repeat traversal and one objective.</strong> Follow a similar route, call the same support equipment, and complete a comparable objective with the same voice-chat state.</li>
+      <li><strong>Include a heavy fight.</strong> Capture at least one reinforcement wave with multiple enemies, squad fire, explosions, smoke, and overlapping stratagems. A quiet patrol is not enough.</li>
+      <li><strong>Finish extraction.</strong> Measure through the extraction encounter and return sequence. If the mission fails, record the endpoint and do not compare it as if the route matched.</li>
+      <li><strong>Build a sustained band.</strong> Observe whole-system draw over at least two comparable complete missions. Enter the low-to-high band in the <a href="/calculators/battery-estimator/">battery estimator</a>.</li>
+    </ol>
+
+    <h2>Compare 30 FPS and 40 FPS fairly</h2>
+    <div class="profile-grid">
+      <section><span>Consistency control</span><h3>30 FPS mission</h3><p>Start with the 720p Low baseline, one matched mission class, default device power, and a stable network. Confirm the heaviest fight and extraction before collecting the draw band.</p></section>
+      <section><span>Responsiveness experiment</span><h3>40 FPS mission</h3><p>Change only frame cap and refresh state. Keep 40 only when comparable reinforcement, stratagem, objective, and extraction scenes remain acceptable.</p></section>
+    </div>
+    <p>A lower cap can avoid rendering work the display does not need, but this page does not claim a fixed wattage, runtime saving, or locked frame rate. Use the <a href="/guides/steam-deck-40fps-explained/">Steam Deck 40 FPS guide</a>, then compare sustained whole-system draw across matched missions.</p>
+
+    <h2>Reduce draw without hiding mission instability</h2>
+    <div class="priority-list">
+      <section><b>1</b><div><h3>Hold one frame target</h3><p>Establish 30 FPS first, then test 40 without also changing graphics, brightness, squad, network, and mission conditions.</p></div></section>
+      <section><b>2</b><div><h3>Lower battle-heavy options first</h3><p>When reinforcements or extraction miss, reduce render scale one careful step, shadows, reflections, volumetrics, and object detail before changing everything.</p></div></section>
+      <section><b>3</b><div><h3>Protect interface clarity</h3><p>Valve currently flags some interface text as not legible. Keep map, objective, loadout, chat, and stratagem information readable instead of chasing an unverified saving.</p></div></section>
+      <section><b>4</b><div><h3>Apply a power limit last</h3><p>Lower it gradually only after the complete mission is stable. Stop when pacing, image quality, audio, controls, or network play deteriorates.</p></div></section>
+    </div>
+
+    <h2>Troubleshoot an inconsistent result</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Check first</th><th>Controlled next step</th></tr></thead>
+      <tbody>
+        <tr><td>First mission draws more</td><td>Updates, shader work, sign-in, voice chat and newly loaded assets</td><td>Finish background work, restart, warm the game, and repeat</td></tr>
+        <tr><td>Ship result looks efficient</td><td>Whether the sample included a full mission and extraction</td><td>Discard ship-only runtime projections and test the complete route</td></tr>
+        <tr><td>One faction or biome is heavier</td><td>Enemy density, effects, visibility, terrain and weather</td><td>Preserve separate results instead of averaging mismatched missions</td></tr>
+        <tr><td>Squad result changes</td><td>Player count, host, voice chat, connection and stratagem activity</td><td>Compare matched squad sessions and record unavoidable differences</td></tr>
+        <tr><td>40 FPS estimate looks worse</td><td>Whether the heavy fight held 40 and refresh changed correctly</td><td>Restore the 30 FPS control and compare only cap and refresh</td></tr>
+        <tr><td>Battery estimate misses</td><td>Deck capacity, health, sustained draw, mission duration and reserve</td><td>Replace a brief reading with multiple complete matched missions</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Storage, online play, and travel planning</h2>
+    <p>Steam’s current requirements are internally inconsistent: the minimum block lists <strong>135GB available space</strong>, while the recommended block lists <strong>40GB</strong>. This page does not treat the smaller number as a reliable installed-size promise. Check the live Steam install estimate and leave headroom for patches, shader data, Proton files, captures, and temporary update space with the <a href="/calculators/storage-planner/">storage planner</a>.</p>
+    <p>Steam identifies multiplayer and online co-op, and PlayStation explicitly says online play is required. Helldivers 2 is therefore a poor choice as the only game prepared for a disconnected trip. Test another title through the <a href="/guides/handheld-pc-offline-mode-flight-checklist/">offline-mode checklist</a>, and treat network availability as separate from battery capacity.</p>
+
+    <h2>Optional gear after the profile is stable</h2>
+    <p class="affiliate-note">Disclosure: these are broad Amazon searches marked sponsored/nofollow, not hands-on endorsements. Compare exact USB-C PD output, watt-hours, cable rating, Ethernet chipset support, storage authenticity, seller traceability, warranty, fit, and current airline rules. No price, runtime, network, or compatibility guarantee is made; an Associates tag is appended only when configured.</p>
+    <div class="grid cols3">
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+45w+usb+c+pd+power+bank+under+100wh" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="power-banks"><span class="chip">Sponsored search</span><h3>45W-class USB-C PD banks</h3><p class="muted">Verify dedicated-port output and printed watt-hours; do not turn nominal capacity into promised mission hours.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+ethernet+dock+45w+pd" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="docks"><span class="chip">Sponsored search</span><h3>Steam Deck Ethernet docks</h3><p class="muted">For stationary online play, verify PD passthrough, Ethernet chipset support, display output, cable reach, and exact Deck fit.</p></a>
+      <a class="card gear-card" href="https://www.amazon.com/s?k=steam+deck+a2+u3+microsd+card+512gb" target="_blank" rel="nofollow sponsored" data-affiliate-link data-category="microsd-cards"><span class="chip">Sponsored search</span><h3>A2 / U3 microSD cards</h3><p class="muted">Compare genuine capacity, seller traceability, warranty, and enough free room for the live install estimate and update staging.</p></a>
+    </div>
+    <p>Browse the <a href="/gear/power-banks/">power-bank library</a>, <a href="/gear/docks/">dock library</a>, <a href="/gear/microsd-cards/">microSD guide</a>, and complete <a href="/gear/">spec-based gear hub</a>.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="grid cols2">{faqs.map(faq => <section class="card"><h3>{faq.question}</h3><p>{faq.answer}</p></section>)}</div>
+
+    <h2>Sources and methodology</h2>
+    <p>Sources were checked on {checkedAt}. Steam’s public product data supplies the February 8, 2024 release date, Windows platform listing, multiplayer and online-co-op labels, partial controller support, adjustable text and subtitle features, PlayStation Network linking notice, official image, and conflicting 135GB/40GB requirement blocks. Valve’s live report resolves Helldivers 2 as category 2, Playable, with functional default controls, matching glyphs, and a performant default configuration while flagging interface-text legibility and possible manual SteamOS startup interaction. PlayStation identifies the game as online-required four-player co-op. Valve supplies the 40Wh LCD and 50Wh OLED capacities.</p>
+    <p>This is a measurement protocol, not a benchmark. Handheld Settings Lab did not personally test the current game build, SteamOS version, compatibility layer, Deck model, battery health, faction, biome, weather, difficulty, squad, network, mission route, thermals, whole-system draw, or runtime. No autocomplete phrase is represented as search volume.</p>
+    <ul>{sources.map(source => <li><a href={source.url} target="_blank" rel="nofollow noopener">{source.label}</a></li>)}</ul>
+    <p>Next, open the <a href="/steam-deck-settings/helldivers-2/">Helldivers 2 Steam Deck settings page</a>, compare titles in the <a href="/guides/steam-deck-battery-life-by-game/">battery-by-game guide</a>, or enter your readings in the <a href="/calculators/battery-estimator/">battery estimator</a>.</p>
+  </article>
+</Base>
+
+<style>
+  .helldivers-battery-guide { padding-top: 56px; padding-bottom: 72px; }
+  .battery-facts { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 12px; margin: 28px 0; }
+  .battery-facts section { padding: 20px; border: 1px solid rgba(255,213,74,.38); border-top: 4px solid #ffd54a; border-radius: 14px; background: #19170d; }
+  .battery-facts span { display: block; color: #ffe58e; font-size: .74rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+  .battery-facts strong { display: block; margin: 8px 0 4px; color: #fff; font-size: 1.45rem; }
+  .battery-facts p { margin: 0; color: #d9d5c7; font-size: .86rem; }
+  .estimate-warning { margin: 28px 0; padding: 20px 22px; border: 1px solid rgba(255,213,74,.42); border-left: 5px solid #ffd54a; border-radius: 14px; color: #f5efd8; background: #19170d; }
+  .profile-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; margin: 24px 0; }
+  .profile-grid section { padding: 22px; border: 1px solid rgba(255,213,74,.32); border-top: 4px solid #ffd54a; border-radius: 14px; background: #19170d; }
+  .profile-grid span { color: #ffe58e; font-size: .74rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+  .profile-grid h3 { margin: 8px 0; }
+  .profile-grid p { margin: 0; color: #d9d5c7; }
+  .priority-list { display: grid; gap: 12px; margin: 24px 0; }
+  .priority-list section { display: grid; grid-template-columns: 46px 1fr; gap: 14px; align-items: start; padding: 18px; border: 1px solid rgba(255,255,255,.1); border-radius: 14px; background: #10131b; }
+  .priority-list b { display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid #ffd54a; border-radius: 50%; color: #ffe58e; }
+  .priority-list h3 { margin: 0 0 5px; }
+  .priority-list p { margin: 0; color: #cbd0d8; }
+  @media (max-width: 820px) { .battery-facts { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+  @media (max-width: 620px) { .profile-grid, .battery-facts { grid-template-columns: 1fr; } }
+</style>
